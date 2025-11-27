@@ -1,0 +1,10 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow admin and API routes
+Disallow: /api/
+Disallow: /sanity-studio/
+
+# Sitemap location
+Sitemap: https://www.latanzanieaucourdelanature.com/sitemap.xml

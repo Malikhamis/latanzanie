@@ -1,0 +1,172 @@
+/* Tailgrid custom classes for specific layouts */
+
+/* Contact page grid with 60/40 column ratio */
+.grid-contact {
+  display: grid;
+  grid-template-columns: 3fr 2fr; /* Explicit 60/40 column ratio */
+}
+
+/* Blog post layout with subgrid-like functionality */
+.grid-blog-article {
+  display: grid;
+  grid-template-columns: 3fr 1fr; /* Main content 75%, sidebar 25% */
+  gap: 3rem;
+}
+
+.grid-blog-article .article-content {
+  grid-column: 1;
+}
+
+.grid-blog-article .toc-sidebar {
+  grid-column: 2;
+}
+
+/* For smaller screens, stack the content */
+@media (max-width: 1024px) {
+  .grid-blog-article {
+    grid-template-columns: 1fr;
+  }
+  
+  .grid-blog-article .article-content,
+  .grid-blog-article .toc-sidebar {
+    grid-column: 1;
+  }
+}
+
+/* Destinations index with asymmetric grid using grid-template-areas */
+.grid-trip-asymmetric {
+  display: grid;
+  grid-template-areas: 
+    "featured1 featured1 normal1 normal2"
+    "featured1 featured1 normal3 normal4"
+    "normal5 normal6 featured2 featured2"
+    "normal7 normal8 featured2 featured2";
+  grid-template-columns: repeat(4, 328px);
+  grid-auto-rows: 478px;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.grid-trip-asymmetric .featured-destination {
+  grid-row: span 2;
+}
+
+.grid-trip-asymmetric .featured-destination:nth-child(1) {
+  grid-area: featured1;
+}
+
+.grid-trip-asymmetric .featured-destination:nth-child(4) {
+  grid-area: featured2;
+}
+
+.grid-trip-asymmetric .normal-destination:nth-child(2) {
+  grid-area: normal1;
+}
+
+.grid-trip-asymmetric .normal-destination:nth-child(3) {
+  grid-area: normal2;
+}
+
+.grid-trip-asymmetric .normal-destination:nth-child(5) {
+  grid-area: normal3;
+}
+
+.grid-trip-asymmetric .normal-destination:nth-child(6) {
+  grid-area: normal4;
+}
+
+.grid-trip-asymmetric .normal-destination:nth-child(7) {
+  grid-area: normal5;
+}
+
+.grid-trip-asymmetric .normal-destination:nth-child(8) {
+  grid-area: normal6;
+}
+
+.grid-trip-asymmetric .normal-destination:nth-child(9) {
+  grid-area: normal7;
+}
+
+.grid-trip-asymmetric .normal-destination:nth-child(10) {
+  grid-area: normal8;
+}
+
+/* Responsive adjustments for asymmetric grid */
+@media (max-width: 1400px) {
+  .grid-trip-asymmetric {
+    grid-template-areas: 
+      "featured1 featured1 normal1"
+      "featured1 featured1 normal2"
+      "normal3 normal4 featured2"
+      "normal5 normal6 featured2";
+    grid-template-columns: repeat(3, 328px);
+  }
+  
+  .grid-trip-asymmetric .normal-destination:nth-child(7),
+  .grid-trip-asymmetric .normal-destination:nth-child(8) {
+    display: none;
+  }
+}
+
+@media (max-width: 1100px) {
+  .grid-trip-asymmetric {
+    grid-template-areas: 
+      "featured1"
+      "normal1"
+      "normal2"
+      "featured2"
+      "normal3"
+      "normal4";
+    grid-template-columns: 328px;
+  }
+  
+  .grid-trip-asymmetric .featured-destination {
+    grid-row: span 1;
+  }
+  
+  .grid-trip-asymmetric .normal-destination {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-trip-asymmetric {
+    grid-template-areas: 
+      "featured1"
+      "normal1"
+      "normal2"
+      "featured2"
+      "normal3"
+      "normal4";
+    grid-template-columns: 1fr;
+  }
+  
+  .grid-trip-asymmetric .featured-destination,
+  .grid-trip-asymmetric .normal-destination {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 478px;
+  }
+}
+
+/* Hero section with precise element positioning */
+.grid-hero-precision {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: 1fr;
+}
+
+.grid-hero-precision .hero-content {
+  grid-row: 1;
+  align-self: center;
+}
+
+.grid-hero-precision .search-overlay {
+  grid-row: 2;
+  z-index: 10;
+}
+
+/* Ensure the search bar overlaps the geometric break precisely */
+.grid-hero-precision .search-overlay {
+  margin-bottom: -2rem; /* Pull the search bar down to overlap the geometric break */
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "file": "src/app/[locale]/trips/marangu-route/page.tsx",
+    "line": 143,
+    "snippet": "Conquer the Roof of Africa: Climbing Mount Kilimanjaro via the Marangu Route in 5 Days",
+    "severity": "high",
+    "recommendation": "Replace hard-coded hero title with translation key. Use existing key 'MaranguRoutePage.hero.title' via t('hero.title').",
+    "suggested_key": "MaranguRoutePage.hero.title",
+    "action": "code: replace <h1> content with {t('hero.title')}"
+  },
+  {
+    "file": "src/app/[locale]/trips/marangu-route/page.tsx",
+    "line": 157,
+    "snippet": "The Marangu Route is the easiest with hut accommodation. It's a direct ascent to the summit with a good acclimatization profile.",
+    "severity": "high",
+    "recommendation": "Move this paragraph into a locale key (e.g. 'MaranguRoutePage.hero.description') and replace with {t('hero.description')}. Add the key to both en.json and fr.json.",
+    "suggested_key": "MaranguRoutePage.hero.description",
+    "action": "i18n: add key to locales and replace paragraph with t('hero.description')"
+  },
+  {
+    "file": "src/app/[locale]/trips/marangu-route/page.tsx",
+    "line": 28,
+    "snippet": "array of inclusion strings (e.g. 'Dedicated trip manager', 'Qualified, experienced, English-speaking guides', 'Experienced cook', ...)",
+    "severity": "high",
+    "recommendation": "Move the inclusions list to the locale JSON under 'MaranguRoutePage.inclusions.items' (array) and render from t('inclusions.items').",
+    "suggested_key": "MaranguRoutePage.inclusions.items",
+    "action": "i18n: add array key and replace hard-coded JS array with mapping from locale"
+  },
+  {
+    "file": "src/app/[locale]/trips/marangu-route/page.tsx",
+    "line": 177,
+    "snippet": "(mobile) Conquer the Roof of Africa: Climbing Mount Kilimanjaro via the Marangu Route in 5 Days",
+    "severity": "high",
+    "recommendation": "Mobile hero duplicates desktop — replace with {t('hero.title')} as well to ensure parity.",
+    "suggested_key": "MaranguRoutePage.hero.title",
+    "action": "code: replace mobile hero h1 with {t('hero.title')}"
+  },
+  {
+    "file": "src/app/[locale]/trips/machame-route/page.tsx",
+    "line": 27,
+    "snippet": "inclusions array contains English phrases (e.g. 'Dedicated trip manager')",
+    "severity": "medium",
+    "recommendation": "Same approach: move inclusions/short UI copy to locale keys under 'MachameRoutePage' namespace or shared 'Common' if appropriate.",
+    "suggested_key": "MachameRoutePage.inclusions.items",
+    "action": "i18n: add locale entries and replace array"
+  },
+  {
+    "file": "src/app/[locale]/travel-blogs/[slug]/page.tsx",
+    "line": 264,
+    "snippet": "duration: \"10 days\"",
+    "severity": "low",
+    "recommendation": "Use locale keys for durations (e.g., t('duration')) or pull from Common.trips.* keys to ensure French is used in /fr pages.",
+    "suggested_key": "TravelBlog.duration",
+    "action": "refactor: replace hard-coded duration strings with translation keys or formatted variables"
+  },
+  {
+    "file": "src/app/trips/tanzania-safari/page.tsx",
+    "line": 23,
+    "snippet": "Tanzania Safari (hero title) and supporting English copy (e.g., 'Experience the ultimate African safari adventure...')",
+    "severity": "high",
+    "recommendation": "This file is not under the [locale] folder — either move it into a localized route (src/app/[locale]/trips/...) or replace visible copy with translation keys and render per-locale. Suggest creating 'TripsPage' or 'TanzaniaSafariPage' keys in locales and using t().",
+    "suggested_key": "TripsPage.trips.tanzania.name / TripsPage.trips.tanzania.description",
+    "action": "i18n: create keys and update component to use useTranslations('TripsPage')"
+  },
+  {
+    "file": "src/app/trips/[slug]/page.tsx",
+    "line": 16,
+    "snippet": "Trip Title, Trip description goes here, Book Now button text",
+    "severity": "high",
+    "recommendation": "This generic trip template contains English placeholders and CTA text — add translation keys (e.g., 'TripPage.title', 'TripPage.description', 'TripPage.cta.bookNow') and use t() to render. If this template is used for localized pages, move it under [locale] or have it consume the current locale messages.",
+    "suggested_key": "TripPage.title / TripPage.description / TripPage.cta.bookNow",
+    "action": "i18n: add keys and replace literals"
+  },
+  {
+    "file": "src/app/trips/climb-kilimanjaro/page.tsx",
+    "line": 7,
+    "snippet": "Climb Kilimanjaro (hero title), 'from USD2,890', 'Kilimanjaro PDF Download'",
+    "severity": "high",
+    "recommendation": "There are existing locale keys under 'ClimbKilimanjaroPage' — update this component to use useTranslations('ClimbKilimanjaroPage') and replace literals (hero.title, hero.price, downloadSection.button, etc.). Alternatively move the localized version under [locale].",
+    "suggested_key": "ClimbKilimanjaroPage.hero.title / ClimbKilimanjaroPage.hero.price / ClimbKilimanjaroPage.downloadSection.button",
+    "action": "i18n: refactor to use t() and existing locale entries"
+  },
+  {
+    "file": "src/lib/actions/kilimanjaro.ts",
+    "line": 154,
+    "snippet": "Previous altitude experience will help with acclimatization",
+    "severity": "medium",
+    "recommendation": "User-facing messages produced by server-side logic should be localized before rendering. Use i18n-aware messages (pass translations from the page to actions) or store message keys and resolve them at render time.",
+    "suggested_key": "KilimanajaroAction.previousAltitudeExperience",
+    "action": "i18n: externalize message strings from server actions and map keys to localized messages on the client or server render path"
+  }
+]

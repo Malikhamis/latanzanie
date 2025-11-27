@@ -1,0 +1,3 @@
+# .gitignore additions for Netlify
+.netlify
+.env.production
