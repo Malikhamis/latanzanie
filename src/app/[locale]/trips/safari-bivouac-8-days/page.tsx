@@ -131,7 +131,9 @@ export default function SafariBivouac8DaysPage() {
             fill
             className="object-cover w-full h-full"
             style={{ objectPosition: '50% 35%' }}
-            priority />
+            priority
+            unoptimized
+          />
         </div>
         
         <div className="absolute inset-0 bg-black/50 z-10"></div>
@@ -270,8 +272,16 @@ export default function SafariBivouac8DaysPage() {
             <div className="bg-white p-4 md:p-8 rounded-lg shadow-md">
               {itineraryDays.map((day, index) => {
                 const isOdd = index % 2 === 1
-                const dayNumber = index + 1
-                const dayImage = `/images/days${dayNumber}.jpg`
+                const safariImages = [
+                  '/images/safari-bivouac.jpg',
+                  '/images/zanzibar.jpg',
+                  '/images/arrival.jpg',
+                  '/images/climb.jpg',
+                  '/images/gate.jpg',
+                  '/images/kibo.jpg',
+                  '/images/kilele.jpg',
+                  '/images/lala.jpg'
+                ]
                 
                 return (
                   <div key={day.day} className={`mb-12 pb-8 ${index < itineraryDays.length - 1 ? 'border-b border-gray-200' : ''}`}>
@@ -285,10 +295,12 @@ export default function SafariBivouac8DaysPage() {
                       <div className={`order-2 ${isOdd ? 'md:order-1' : ''}`}>
                         <div className="relative w-full h-96 rounded-xl overflow-hidden">
                           <Image 
-                            src={dayImage} 
+                            src={safariImages[index]} 
                             alt={day.title}
                             fill
-                            className="object-cover" />
+                            className="object-cover"
+                            unoptimized
+                          />
                         </div>
                       </div>
                     </div>
@@ -589,17 +601,17 @@ export default function SafariBivouac8DaysPage() {
               <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-[#00A896]">
                 <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#72D9C4] to-[#00A896] flex items-center justify-center text-white font-bold">5</div>
-                  {safeT('practicalInfo.packing.title', 'What to Pack')}
+                  {safeT('practicalInfo.whatToPack.title', 'What to Pack')}
                 </h3>
-                <p className="text-gray-700 leading-relaxed whitespace-pre-line">{safeT('practicalInfo.packing.description')}</p>
+                <p className="text-gray-700 leading-relaxed whitespace-pre-line">{safeT('practicalInfo.whatToPack.description')}</p>
               </div>
 
-              <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-[#00A896]">
-                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#72D9C4] to-[#00A896] flex items-center justify-center text-white font-bold">6</div>
-                  {safeT('practicalInfo.camping.title', 'The Bivouac Experience')}
+              <div className="bg-gradient-to-br from-[#72D9C4] to-[#00A896] text-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300">
+                <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                  <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center font-bold">6</div>
+                  {safeT('practicalInfo.campingPhilosophy.title', 'The Bivouac Experience')}
                 </h3>
-                <p className="text-gray-700 leading-relaxed whitespace-pre-line">{safeT('practicalInfo.camping.description')}</p>
+                <p className="leading-relaxed whitespace-pre-line">{safeT('practicalInfo.campingPhilosophy.description')}</p>
               </div>
             </div>
           </div>
@@ -614,7 +626,9 @@ export default function SafariBivouac8DaysPage() {
             alt="Newsletter Background" 
             fill
             className="object-cover"
-            priority />
+            priority
+            unoptimized
+          />
           <div className="absolute inset-0 bg-black/50"></div>
         </div>
         <div className="container mx-auto px-4 text-center relative z-10">

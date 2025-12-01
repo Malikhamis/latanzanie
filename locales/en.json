@@ -104,7 +104,7 @@
       },
       "phone": {
         "title": "Phone",
-        "number": "+255782825692"
+        "number": "+255 123 456 789"
       },
       "email": {
         "title": "Email",
@@ -131,9 +131,9 @@
     "priceLabel": "Price range",
     "allPrices": "All prices",
     "priceRanges": {
-      "budget": "Budget (Under €1,600)",
-      "mid": "Mid-range (€1,600 - €2,500)",
-      "luxury": "Luxury (Over €2,500)"
+      "budget": "Budget (Under $2000)",
+      "mid": "Mid-range ($2000 - $3000)",
+      "luxury": "Luxury (Over $3000)"
     },
     "searchButton": "Search",
     "viewDetails": "View details",
@@ -159,8 +159,7 @@
         "type": "Beach",
         "description": "Relax on pristine beaches and explore the rich cultural heritage of Stone Town."
       }
-    },
-    "fromPrice": "From €{price}"
+    }
   },
   "ClimbKilimanjaroPage": {
     "videoFallback": "Your browser doesn't support the video tag.",
@@ -181,7 +180,7 @@
       "groupSize": "4-12",
       "adventureTypeLabel": "Adventure",
       "adventureType": "Trek",
-      "price": "from €2,000",
+      "price": "from USD2,890",
       "description": "Keen to stand on the roof of Africa? Climb Kilimanjaro with us and make once-in-a-lifetime memories! The three itineraries below are our favourites and the ones we most recommend, as they're all very beautiful and allow you to acclimatise properly – very important for a successful climb!",
       "bookCall": "Book a call with our team",
       "downloadGuide": "Kilimanjaro PDF Download"
@@ -191,37 +190,37 @@
       "description": "We offer five of the seven routes up Kilimanjaro – the best and safest ones! These routes range from five to eleven days, but our itineraries include a night at a local lodge on either side of the climb.",
       "marangu": {
         "title": "Conquer the Roof of Africa: Climbing Mount Kilimanjaro via the Marangu Route in 5 Days",
-        "price": "From €1,800",
+        "price": "From $2,850",
         "duration": "5 days",
         "description": "Want to stand on the roof of Africa? Climb Kilimanjaro with us and create unforgettable memories!"
       },
       "lemosho": {
         "title": "Lemosho Route",
-        "price": "From €2,200",
+        "price": "From $2,950",
         "duration": "10 days",
         "description": "The Lemosho is one of our favourite routes up Kilimanjaro as it has varied and beautiful scenery. It also has a high summit success rate!"
       },
       "rongai": {
         "title": "Rongai Route",
-        "price": "From €2,200",
+        "price": "From $2,935",
         "duration": "9 days",
         "description": "The Rongai is a quiet and pretty route that lets you see both sides of the mountain. There are no steep sections, rather it's a gradual climb."
       },
       "northernCircuit": {
         "title": "Northern Circuit",
-        "price": "From €2,600",
+        "price": "From $3,490",
         "duration": "11 days",
         "description": "The Northern Circuit (also known as the Grand Traverse) is the newest route up Kilimanjaro and it has an excellent summit success rate."
       },
       "machame": {
         "title": "The Machame Route (7 Days Trek): The Scenic Ascent",
-        "price": "From €2,000",
+        "price": "From $2,890",
         "duration": "9 days",
         "description": "Often called the \"Whisky Route\", the Machame route is Kilimanjaro's most popular itinerary, and for good reason. It offers spectacular and varied scenery, traversing five distinct climate zones."
       },
       "umbwe": {
         "title": "Umbwe Route",
-        "price": "From €1,900",
+        "price": "From $2,850",
         "duration": "7 days",
         "description": "The Umbwe Route is the most challenging and least used path up Kilimanjaro. It's a steep and direct ascent that offers incredible views but requires excellent physical fitness."
       }
@@ -233,6 +232,35 @@
       "groupSize": "4-12",
       "adventureType": "Trek",
       "description": "Want to stand on the roof of Africa? Climb Kilimanjaro with us and create unforgettable memories! The three itineraries below are our favorites and the ones we recommend most, as they are all very beautiful and allow you to acclimatize properly – very important for a successful ascent!"
+    },
+    "countryInfo": {
+      "title": "Country info and facts",
+      "description": "Here are the basics you need to know about Tanzania to help you prepare for your adventure, like the nearest airport to Mt Kilimanjaro and the local currency. We also discuss the seasons and potential health risks for climbing Africa's tallest mountain!",
+      "languages": {
+        "title": "Languages",
+        "content": "Swahili, English"
+      },
+      "currency": {
+        "title": "Currency used in Tanzania",
+        "content": "Tanzanian shilling (TZS)"
+      },
+      "airports": {
+        "title": "Airports",
+        "content": "The nearest airport and the one all our clients use is Kilimanjaro International Airport (JRO) just outside the city of Arusha. When coming from outside of East Africa, you must usually fly via Nairobi (Kenya) or Dar es Salaam (Tanzania) to catch a connecting flight to JRO."
+      },
+      "seasons": {
+        "title": "Seasons",
+        "content": "",
+        "learnMore": "To learn more, please read Best time to climb Kilimanjaro."
+      },
+      "visa": {
+        "title": "Visa and Immigration",
+        "content": "A standard Tanzanian tourist visa is valid for up to 90 days and costs US$50. US citizens must purchase a multiple-entry visa for $100 that is valid for a year. Note, however, that a visa isn't required for nationals from around 50 countries worldwide, including South Africa, Kenya, Hong Kong, Singapore, China, India, Brazil and Turkey. Learn more here."
+      },
+      "health": {
+        "title": "Health and Safety",
+        "content": "It's safe to climb Kilimanjaro when you travel with a reputable tour operator who has your health and safety as their number one priority. The biggest safety issue on a Kilimanjaro climb is the extreme altitude (please read Kilimanjaro altitude sickness so you understand the situation). Note that you must have travel insurance that covers you for hiking up to 6,000 m above sea level to be allowed to climb Kilimanjaro with Latanzanieaucourdelanature. A good all-round article to read is Kilimanjaro safety."
+      }
     },
     "downloadSection": {
       "title": "Kilimanjaro PDF Download",
@@ -293,96 +321,96 @@
         "date": "Jan 3, 2026",
         "route": "8 days - Lemosho Route",
         "status": "Open for bookings",
-        "price": "from €2,500",
-        "deposit": "Deposit €100",
+        "price": "from USD3,350",
+        "deposit": "Deposit USD250",
         "button": "Enquire"
       },
       "jan10": {
         "date": "Jan 10, 2026",
         "route": "9 days - Northern Circuit",
         "status": "Limited spots available",
-        "price": "from €2,700",
-        "deposit": "Deposit €100",
+        "price": "from USD3,590",
+        "deposit": "Deposit USD250",
         "button": "Enquire"
       },
       "jan15": {
         "date": "Jan 15, 2026",
         "route": "7 days - Lemosho Route",
         "status": "Open for bookings",
-        "price": "from €2,300",
-        "deposit": "Deposit €100",
+        "price": "from USD3,050",
+        "deposit": "Deposit USD250",
         "button": "Enquire"
       },
       "jan20": {
         "date": "Jan 20, 2026",
         "route": "8 days - Lemosho Route",
         "status": "Limited spots available",
-        "price": "from €2,500",
-        "deposit": "Deposit €100",
+        "price": "from USD3,350",
+        "deposit": "Deposit USD250",
         "button": "Enquire"
       },
       "jan22": {
         "date": "Jan 22, 2026",
         "route": "7 days - Rongai Route",
         "status": "Open for bookings",
-        "price": "from €2,200",
-        "deposit": "Deposit €100",
+        "price": "from USD2,935",
+        "deposit": "Deposit USD250",
         "button": "Enquire"
       },
       "jan26": {
         "date": "Jan 26, 2026",
         "route": "9 days - Northern Circuit 🌕 Full moon",
         "status": "Limited spots available",
-        "price": "from €2,700",
-        "deposit": "Deposit €100",
+        "price": "from USD3,590",
+        "deposit": "Deposit USD250",
         "button": "Enquire"
       },
       "jan27": {
         "date": "Jan 27, 2026",
         "route": "8 days - Lemosho Route 🌕 Full moon",
         "status": "Limited spots available",
-        "price": "from €2,500",
-        "deposit": "Deposit €100",
+        "price": "from USD3,350",
+        "deposit": "Deposit USD250",
         "button": "Enquire"
       },
       "jan28": {
         "date": "Jan 28, 2026",
         "route": "7 days - Lemosho Route 🌕 Full moon",
         "status": "Limited spots available",
-        "price": "from €2,300",
-        "deposit": "Deposit €100",
+        "price": "from USD3,050",
+        "deposit": "Deposit USD250",
         "button": "Enquire"
       },
       "feb4": {
         "date": "Feb 4, 2026",
         "route": "8 days - Lemosho Route",
         "status": "Open for bookings",
-        "price": "from €2,500",
-        "deposit": "Deposit €100",
+        "price": "from USD3,350",
+        "deposit": "Deposit USD250",
         "button": "Enquire"
       },
       "feb10": {
         "date": "Feb 10, 2026",
         "route": "9 days - Northern Circuit",
         "status": "Limited spots available",
-        "price": "from €2,700",
-        "deposit": "Deposit €100",
+        "price": "from USD3,590",
+        "deposit": "Deposit USD250",
         "button": "Enquire"
       },
       "feb10b": {
         "date": "Feb 10, 2026",
         "route": "7 days - Machame Route",
         "status": "Open for bookings",
-        "price": "from €2,250",
-        "deposit": "Deposit €100",
+        "price": "from USD2,990",
+        "deposit": "Deposit USD250",
         "button": "Enquire"
       },
       "feb14": {
         "date": "Feb 14, 2026",
         "route": "7 days - Lemosho Route",
         "status": "Open for bookings",
-        "price": "from €2,300",
-        "deposit": "Deposit €100",
+        "price": "from USD3,050",
+        "deposit": "Deposit USD250",
         "button": "Enquire"
       },
       "showMore": "Show more dates"
@@ -392,10 +420,10 @@
       "description": "Reward yourself after Kilimanjaro with a safari! A safari is a popular way to unwind after your Kilimanjaro climb. The Serengeti and Ngorongoro Crater are only a few hours away by car!",
       "button": "Enquire Now"
     },
-    "whyLatanzanieTitle": "Why Latanzanieaucourdelanature?",
+    "whyFollowAliceTitle": "Why Latanzanieaucourdelanature?",
     "outOfFive": "out of 5",
     "stars": "stars",
-    "whyLatanzanie": {
+    "whyFollowAlice": {
       "title": "Why Latanzanieaucourdelanature?",
       "rating": "out of 5",
       "stars": {
@@ -432,7 +460,7 @@
       "cost": {
         "title": "Hikers on Mount Kilimanjaro",
         "subtitle": "How much does it cost to trek Kilimanjaro?",
-        "description": "A seven-day Kilimanjaro climb costs €2,850 with Latanzanieaucourdelanature. This price includes all of your food, camping equipment, and much more. Here's a breakdown of what's included in the price as well as the costs of any exclusions like your Tanzanian visa."
+        "description": "A seven-day Kilimanjaro climb costs US$2,850 with Latanzanieaucourdelanature. This price includes all of your food, camping equipment, and much more. Here's a breakdown of what's included in the price as well as the costs of any exclusions like your Tanzanian visa."
       },
       "kilimanjaroVsEverest": {
         "title": "View of Mount Kilimanjaro",
@@ -473,7 +501,7 @@
       "emailLabel": "Email address",
       "emailPlaceholder": "john@example.com",
       "phoneLabel": "Phone number",
-      "phonePlaceholder": "+255782825692",
+      "phonePlaceholder": "+255 123 456 789",
       "messageLabel": "Message",
       "messagePlaceholder": "Tell us more about your travel plans...",
       "accept": "I accept the",
@@ -511,7 +539,7 @@
     "destinations": "Destinations",
     "contactInfo": "Contact Info",
     "address": "Latanzanieaucourdelanature Tours (T) LTD, PO Box 1923, Moshi, Tanzania",
-    "phone": "+255782825692",
+    "phone": "+255 123 456 789",
     "email": "info@latanzanieaucourdelanature.com",
     "rights": "All rights reserved",
     "about": "About",
@@ -561,13 +589,9 @@
       "title": "FAQ",
       "items": {
         "faq1": "Do you organize adventure trips for families?",
-        "faq1Answer": "Yes! We specialize in family-friendly adventure trips that are suitable for all ages. Our experienced guides ensure safe and enjoyable experiences for the whole family.",
         "faq2": "Does Latanzanieaucourdelanature organize adventure honeymoons?",
-        "faq2Answer": "Absolutely! We offer romantic adventure packages perfect for honeymooners, combining thrilling activities with intimate moments in Tanzania's most beautiful locations.",
         "faq3": "Do you offer budget adventure travel packages?",
-        "faq3Answer": "Yes, we have a range of adventure packages to suit different budgets. Contact us to discuss your preferences and we'll create a customized itinerary that fits your budget.",
-        "faq4": "What is the typical size of a Latanzanieaucourdelanature group?",
-        "faq4Answer": "Our group sizes typically range from 4 to 12 people, allowing for personalized attention while maintaining an intimate group atmosphere. We also offer private trips for those seeking a more exclusive experience."
+        "faq4": "What is the typical size of a Latanzanieaucourdelanature group?"
       }
     },
     "newsletter": {
@@ -581,68 +605,61 @@
   },
   "AboutPage": {
     "hero": {
-      "title": "About Us",
-      "subtitle": "A boutique agency built on a heritage of passion for Kilimanjaro and the nature of Tanzania"
+      "title": "Our Story",
+      "subtitle": "Discovering the natural wonders of Tanzania through authentic experiences"
+    },
+    "mission": {
+      "title": "Our Mission",
+      "paragraph1": "At Latanzanieaucourdelanature, we believe that travel should be transformative. Our mission is to connect travelers with Tanzania's most spectacular landscapes while supporting local communities and preserving the natural environment for future generations.",
+      "paragraph2": "We are committed to responsible tourism that respects both wildlife and local cultures, ensuring that each journey contributes positively to the places and people we visit."
     },
     "story": {
-      "title": "The Story of La Tanzanie at the Heart of Nature",
-      "heritage": {
-        "title": "A Legacy of Dignity & Passion",
-        "paragraph1": "Our founder's father was a porter on Kilimanjaro for over 20 years. He carried dreams, equipment, and hopes of travelers from around the world on his shoulders. He would set off at dawn, cross high-altitude trails, face cold nights and unpredictable weather to ensure each climb was a success. He did this with dignity, pride, and a smile, because he loved his mountain and believed in the meaning of his work.",
-        "paragraph2": "At 42, he decided to step back, not out of fatigue, but to pass on this heritage. He always said: 'The mountain gave me everything. Now it's my turn to give it back, not by climbing it, but by protecting it.' It was from this vision that La Tanzanie was born.",
-        "paragraph3": "We created this agency as a tribute to all the porters, guides, and cooks who make every Kilimanjaro ascent possible, but who are too often invisible. We wanted the mountain's heritage to be everyone's heritage, a shared story where each traveler and each porter contributes to something greater than themselves.",
-        "paragraph4": "Today, when you climb with us, you're not just a tourist. You become part of this story. You walk in the footsteps of those who loved this mountain before you. And in return, you help preserve their dignity, their environment, and their future."
-      },
-      "imageCaption": "Our team in the heart of Tanzania",
-      "imageCatchphrase": "Passion & Dignity: Our Local Team."
-    },
-    "engagement": {
-      "title": "What Drives Us",
-      "paragraph1": "At La Tanzanie, we don't sell trips. We create encounters. Encounters with exceptional nature, certainly, but above all with the people who shape it, protect it, and respect it. Our guides are not employees: they are partners, ambassadors, and guardians of this heritage.",
-      "paragraph2": "Every step you take with us is a step toward responsible tourism. We ensure that every euro spent directly benefits local communities. We pay our teams above market rates because we believe dignity begins with fair compensation. We limit our groups because we know the mountain suffers when it is overrun. We train our teams in first aid, responsible environmental practices, and intercultural hospitality because excellence is a matter of respect.",
-      "paragraph3": "We also work with local associations to replant trees, clean trails, and educate new generations about the importance of preserving nature. Because the mountain is not an infinite resource. It is a treasure to protect, a heritage to pass on.",
-      "paragraph4": "When you travel with us, you don't travel as a spectator. You become an actor in this transformation. You contribute to responsible tourism that changes lives, yours and others'. And that, for us, is the real journey."
-    },
-    "values": {
-      "title": "✨ The Heart's Oath: Our Inviolable Values",
-      "subtitle": "These are the pillars that guide every decision, every action, every moment with you",
-      "conviction": "We don't compromise. We commit.",
-      "heritage": {
-        "title": "🌱 Human Heritage & the Dignity of Work",
-        "paragraph1": "We believe that every porter, every guide, every cook deserves respect, fair compensation, and recognition. They are not 'support staff.' They are the heart of every expedition.",
-        "paragraph2": "We pay above local standards, we invest in training, in quality equipment, and in their well-being. Because a successful ascent begins with respected people."
-      },
-      "nature": {
-        "title": "🦁 Nature Preservation, Our Deep Love",
-        "description": "Kilimanjaro is not a conquest. It is a sanctuary. We are committed to zero waste, responsible camping practices, and active participation in reforestation efforts. Our love for the mountain is not words: it is actions."
-      },
-      "authenticity": {
-        "title": "🌍 Authenticity & Positive Glocal Impact",
-        "description": "We believe in 'glocal' tourism: global in spirit, but deeply rooted in local realities. No artifice. No stereotypes. Just authentic encounters, sincere exchanges, and a contribution to the communities that welcome you. We create bridges, not distances."
+      "title": "Our Journey",
+      "timeline": {
+        "2010": {
+          "year": "2010",
+          "title": "The Beginning",
+          "description": "Founded by passionate local Tanzanian guides who wanted to share their incredible homeland's natural beauty with the world."
+        },
+        "2015": {
+          "year": "2015",
+          "title": "International Recognition",
+          "description": "Recognized by National Geographic as one of East Africa's leading sustainable tour operators for our conservation efforts."
+        },
+        "2020": {
+          "year": "2020",
+          "title": "Community Partnership",
+          "description": "Expanded our programs to include community tourism initiatives, directly benefiting local villages near our destinations."
+        },
+        "2025": {
+          "year": "2025",
+          "title": "Looking Forward",
+          "description": "Continue to innovate in sustainable tourism while expanding our offerings to include new destinations and experiences across Tanzania."
+        }
       }
     },
-    "faq": {
-      "title": "Frequently Asked Questions",
-      "q1": {
-        "question": "Is climbing Kilimanjaro safe?",
-        "answer": "Yes, climbing Kilimanjaro with an experienced team is safe. We ensure acclimatization, continuous monitoring of climbers' health, and strict adherence to safety protocols. Our guides are trained in first aid and altitude medicine."
+    "team": {
+      "title": "Meet Our Team",
+      "john": {
+        "name": "John Mwakasungula",
+        "role": "Founder & Safari Expert",
+        "bio": "With over 15 years of experience in Tanzanian wildlife conservation and tourism, John brings unmatched expertise to every adventure."
       },
-      "q2": {
-        "question": "What type of accommodation is provided during the climb?",
-        "answer": "We provide high-quality tents, thick sleeping mats, and warm sleeping bags. Our camps are set up by our team before your arrival, and our cooks prepare hot, nutritious meals every day."
+      "sarah": {
+        "name": "Sarah Kimaro",
+        "role": "Climbing Guide & Mountaineer",
+        "bio": "Certified Kilimanjaro guide with multiple successful summit attempts, Sarah guarantees safe and memorable climbing experiences."
       },
-      "q3": {
-        "question": "What is the best time to climb Kilimanjaro?",
-        "answer": "The best periods are from January to March and from June to October, when weather conditions are more stable. However, Kilimanjaro can be climbed year-round with proper preparation."
+      "michael": {
+        "name": "Michael Nkamba",
+        "role": "Cultural Specialist",
+        "bio": "Michael connects travelers with authentic Tanzanian culture through carefully organized community experiences."
       }
     },
-    "newsletter": {
-      "title": "🌿 Stay Connected to the Mountain",
-      "subtitle": "Receive exclusive tips, inspiring stories, and special offers",
-      "description": "Subscribe to our newsletter and be the first to discover new routes, testimonials from travelers, and our commitments to nature.",
-      "firstNamePlaceholder": "Your first name",
-      "emailPlaceholder": "Your email",
-      "button": "Subscribe"
+    "cta": {
+      "title": "Ready to Discover Tanzania?",
+      "subtitle": "Join us for an unforgettable journey through Tanzania's most spectacular landscapes.",
+      "button": "Plan Your Adventure"
     }
   },
   "Common": {
@@ -729,11 +746,6 @@
         "duration": "6 days",
         "description": "It's an exciting and demanding multi-day adventure that takes you to the edge of Meru's crater (4,562 m) so you can look down into the gaping crater below."
       },
-      "materuni": {
-        "title": "Chagga Cultural Immersion",
-        "duration": "1 day",
-        "description": "Immerse yourself in authentic Chagga culture with coffee, secret waterfall and local traditions at the foot of Kilimanjaro."
-      },
       "zanzibar": {
         "title": "Zanzibar Beach Holidays",
         "duration": "8 days",
@@ -755,7 +767,7 @@
         "description": "Sri Lanka is an island jewel, offering a stunning array of landscapes and adventure activities as well as many fascinating historical sites."
       }
     },
-    "fromPrice": "From €{price}",
+    "fromPrice": "From {price}",
     "whyChooseUs": {
       "title": "Why Choose Latanzanieaucourdelanature?",
       "easyAdventure": {
@@ -804,7 +816,7 @@
         },
         "cost": {
           "title": "How much does it cost to trek Kilimanjaro?",
-          "description": "A seven-day Kilimanjaro climb costs €2,850 with Latanzanieaucourdelanature. This price includes all of your food, camping equipment, and much more. Here's a breakdown of what's included in the price as well as the costs of any exclusions like your Tanzanian visa."
+          "description": "A seven-day Kilimanjaro climb costs US$2,850 with Latanzanieaucourdelanature. This price includes all of your food, camping equipment, and much more. Here's a breakdown of what's included in the price as well as the costs of any exclusions like your Tanzanian visa."
         },
         "kilimanjaroVsEverest": {
           "title": "Kilimanjaro vs Everest Base Camp: which is harder?",
@@ -939,7 +951,7 @@
       "breadcrumb": "Tanzania > Kilimanjaro > Machame Route",
       "duration": "9 days (7 days trekking)",
       "description": "Often called the \"Whisky Route\", the Machame route is Kilimanjaro's most popular itinerary, and for good reason. It offers spectacular and varied scenery, traversing five distinct climate zones. This 7-day mountain itinerary is highly recommended. It includes a shorter acclimatization day between Barranco Camp and Karanga Camp, which is crucial for adapting to altitude and significantly increases your chances of reaching the summit safely.",
-      "price": "From €2,000"
+      "price": "From $2,890"
     },
     "miniNavbar": {
       "datesAndPrices": "Dates & Prices",
@@ -1034,7 +1046,7 @@
       "selectGroup": "Select group type",
       "jan15_2026": "January 15, 2026",
       "nineDays": "9 days",
-      "fromPrice": "From €2,291",
+      "fromPrice": "From $2,890",
       "select": "Select",
       "soloTraveler": "Solo Traveler",
       "couple": "Couple",
@@ -1047,25 +1059,15 @@
       "seeMore": "See more",
       "seeFewer": "See fewer",
       "priceIncludes": "Price Includes",
-      "items": "All park entry fees and permits|||Professional mountain guides, cooks, and porters|||4-season mountain tents|||All meals on the mountain (breakfast, lunch, dinner)|||2L bottled water per person per day|||Airport transfers (arrival and departure)|||Pre-trek briefing and equipment check|||1 night hotel accommodation before trek|||1 night hotel accommodation after trek|||Emergency oxygen and first aid kit|||Government taxes and VAT|||Summit certificate",
       "priceDoesNotInclude": "Price Does Not Include",
       "exclusions": {
         "visa": "Tanzanian visa",
         "airfares": "Airfares",
-        "transfers": "Airport transfers (€35 per person per transfer)",
+        "transfers": "Airport transfers (US$40 per person per transfer)",
         "insurance": "Traveller's insurance",
         "tips": "Tip for mountain crew",
         "singleSupplement": "Single supplement (if required)"
       }
-    },
-    "inclusionsSection": {
-      "title": "What's Included",
-      "included": "Included",
-      "excluded": "Not Included",
-      "exclusion1": "Tanzanian visa (50-100$ depending on your nationality)",
-      "exclusion2": "International flights and airport transfers",
-      "exclusion3": "Travel insurance (mandatory)",
-      "exclusion4": "Tips for the team (recommended 250-350$ per climber)"
     },
     "accommodation": {
       "title": "Accommodation",
@@ -1103,7 +1105,7 @@
       "email": "Email Address",
       "emailPlaceholder": "john@example.com",
       "phone": "Phone Number",
-      "phonePlaceholder": "+255782825692",
+      "phonePlaceholder": "+255 123 456 789",
       "message": "Message",
       "messagePlaceholder": "Tell us more about your travel plans...",
       "accept": "I accept the",
@@ -1117,7 +1119,7 @@
       "breadcrumb": "Tanzania > Kilimanjaro > Lemosho Route",
       "duration": "10 days (8 days trekking)",
       "description": "The Lemosho Route is one of our favorite paths to climb Kilimanjaro because it offers varied and spectacular scenery. It also has an excellent summit success rate! This 8-day itinerary includes extra acclimatization days, which are crucial for adapting to altitude and significantly increases your chances of reaching the summit safely.",
-      "price": "From €2,200"
+      "price": "From $2,950"
     },
     "miniNavbar": {
       "datesAndPrices": "Dates & Prices",
@@ -1212,7 +1214,7 @@
       "selectGroup": "Select group type",
       "jan15_2026": "January 15, 2026",
       "nineDays": "10 days",
-      "fromPrice": "From €2,200",
+      "fromPrice": "From $2,950",
       "select": "Select",
       "soloTraveler": "Solo Traveler",
       "couple": "Couple",
@@ -1225,12 +1227,11 @@
       "seeMore": "See more",
       "seeFewer": "See fewer",
       "priceIncludes": "Price Includes",
-      "items": "All park entry fees and permits|||Professional mountain guides, cooks, and porters|||4-season mountain tents|||All meals on the mountain (breakfast, lunch, dinner)|||2L bottled water per person per day|||Airport transfers (arrival and departure)|||Pre-trek briefing and equipment check|||1 night hotel accommodation before trek|||1 night hotel accommodation after trek|||Emergency oxygen and first aid kit|||Government taxes and VAT|||Summit certificate",
       "priceDoesNotInclude": "Price Does Not Include",
       "exclusions": {
         "visa": "Tanzanian visa",
         "airfares": "Airfares",
-        "transfers": "Airport transfers (€35 per person per transfer)",
+        "transfers": "Airport transfers (US$40 per person per transfer)",
         "insurance": "Traveller's insurance",
         "tips": "Tip for mountain crew",
         "singleSupplement": "Single supplement (if required)"
@@ -1272,7 +1273,7 @@
       "email": "Email Address",
       "emailPlaceholder": "john@example.com",
       "phone": "Phone Number",
-      "phonePlaceholder": "+255782825692",
+      "phonePlaceholder": "+255 123 456 789",
       "message": "Message",
       "messagePlaceholder": "Tell us more about your travel plans...",
       "accept": "I accept the",
@@ -1286,7 +1287,7 @@
       "breadcrumb": "Tanzania > Kilimanjaro > Umbwe Route",
       "duration": "9 days (7 days trekking)",
       "description": "The Umbwe Route is the most direct and challenging path to the summit of Kilimanjaro. It's a steep and scenic route that offers solitude and spectacular views. This 7-day itinerary includes an extra acclimatization day, which is crucial for adapting to altitude and significantly increases your chances of reaching the summit safely.",
-      "price": "From €1,900"
+      "price": "From $2,850"
     },
     "miniNavbar": {
       "datesAndPrices": "Dates & Prices",
@@ -1373,7 +1374,7 @@
       "selectGroup": "Select group type",
       "jan15_2026": "January 15, 2026",
       "nineDays": "9 days",
-      "fromPrice": "From €1,900",
+      "fromPrice": "From $2,850",
       "select": "Select",
       "soloTraveler": "Solo Traveler",
       "couple": "Couple",
@@ -1386,12 +1387,11 @@
       "seeMore": "See more",
       "seeFewer": "See fewer",
       "priceIncludes": "Price Includes",
-      "items": "All park entry fees and permits|||Professional mountain guides, cooks, and porters|||4-season mountain tents|||All meals on the mountain (breakfast, lunch, dinner)|||2L bottled water per person per day|||Airport transfers (arrival and departure)|||Pre-trek briefing and equipment check|||1 night hotel accommodation before trek|||1 night hotel accommodation after trek|||Emergency oxygen and first aid kit|||Government taxes and VAT|||Summit certificate",
       "priceDoesNotInclude": "Price Does Not Include",
       "exclusions": {
         "visa": "Tanzanian visa",
         "airfares": "Airfares",
-        "transfers": "Airport transfers (€35 per person per transfer)",
+        "transfers": "Airport transfers (US$40 per person per transfer)",
         "insurance": "Traveller's insurance",
         "tips": "Tip for mountain crew",
         "singleSupplement": "Single supplement (if required)"
@@ -1433,7 +1433,7 @@
       "email": "Email Address",
       "emailPlaceholder": "john@example.com",
       "phone": "Phone Number",
-      "phonePlaceholder": "+255782825692",
+      "phonePlaceholder": "+255 123 456 789",
       "message": "Message",
       "messagePlaceholder": "Tell us more about your travel plans...",
       "accept": "I accept the",
@@ -1444,7 +1444,7 @@
   "MaranguRoutePage": {
     "hero": {
       "title": "Conquer the Roof of Africa: Climbing Mount Kilimanjaro via the Marangu Route in 5 Days",
-      "price": "From €1,800",
+      "price": "From $2,850",
       "description": "The Marangu Route is the easiest with hut accommodation. It's a direct ascent to the summit with a good acclimatization profile.",
       "breadcrumb": "Trips/Climb Kilimanjaro",
       "duration": "5 days"
@@ -1505,12 +1505,34 @@
       "seeMore": "See more",
       "seeFewer": "See fewer",
       "priceIncludes": "Price Includes",
-      "items": "Dedicated trip manager|||In-depth preparation documents|||Pre-climb Zoom consult|||2 overnight stays at Lindrin Lodge in Moshi (incl. breakfasts and dinners)|||In-depth pre-climb safety briefing at Lindrin Lodge|||Transport to and from trailheads|||Kilimanjaro National Park entrance fee|||Qualified, experienced, English-speaking guides|||Porters|||Experienced cook|||All meals on the mountain|||Snacks and hot drinks|||Purified drinking water|||Daily bowl of water for 'washy washy'|||High-quality, four-season sleeping bag|||High-quality, four-season sleeping tent|||Sleeping mat|||Private toilet (1 per 8 climbers)|||Organisation of any rental equipment, if required|||Medical equipment (incl. pulse oximeter and emergency oxygen)|||Climb certificate",
       "priceDoesNotInclude": "Price Does Not Include",
+      "items": [
+        "Dedicated trip manager",
+        "In-depth preparation documents",
+        "Pre-climb Zoom consult",
+        "2 overnight stays at Lindrin Lodge in Moshi (incl. breakfasts and dinners)",
+        "In-depth pre-climb safety briefing at Lindrin Lodge",
+        "Transport to and from trailheads",
+        "Kilimanjaro National Park entrance fee",
+        "Qualified, experienced, English-speaking guides",
+        "Porters",
+        "Experienced cook",
+        "All meals on the mountain",
+        "Snacks and hot drinks",
+        "Purified drinking water",
+        "Daily bowl of water for 'washy washy'",
+        "High-quality, four-season sleeping bag",
+        "High-quality, four-season sleeping tent",
+        "Sleeping mat",
+        "Private Follow Alice toilet (1 per 8 climbers)",
+        "Organisation of any rental equipment, if required",
+        "Medical equipment (incl. pulse oximeter and emergency oxygen)",
+        "Climb certificate"
+      ],
       "exclusions": {
         "visa": "Tanzanian visa",
         "airfares": "Airfares",
-        "transfers": "Airport transfers (€35 per person per transfer)",
+        "transfers": "Airport transfers (US $40 per person per transfer)",
         "insurance": "Travel insurance",
         "tips": "Tips for mountain crew",
         "singleSupplement": "Single room supplement (if required)"
@@ -1558,28 +1580,12 @@
       "firstNamePlaceholder": "First Name",
       "emailPlaceholder": "Email",
       "button": "Sign Up!"
-    },
-    "contactModal": {
-      "title": "Booking Inquiry",
-      "name": "Full Name",
-      "namePlaceholder": "John Doe",
-      "email": "Email",
-      "emailPlaceholder": "john@example.com",
-      "phone": "Phone",
-      "phonePlaceholder": "+1 234 567 8900",
-      "groupSize": "Number of People",
-      "selectGroupSize": "Select group size",
-      "message": "Message",
-      "messagePlaceholder": "Tell us about your group, date preferences, special questions...",
-      "agreeTo": "I agree to the",
-      "privacyPolicy": "privacy policy",
-      "sendRequest": "Send Inquiry"
     }
   },
   "TanzaniaSafariPage": {
     "hero": {
       "title": "Tanzania Safari",
-      "price": "From €1,500",
+      "price": "From EUR 1500",
       "description": "Experience the best of Tanzania's wildlife and natural beauty",
       "bookCall": "Book a Call",
       "downloadGuide": "Download Guide",
@@ -1596,46 +1602,53 @@
       "title": "Our Safari Experiences",
       "description": "Choose from our carefully curated safari experiences, from camping adventures to cultural immersions",
       "camping": {
-        "title": "4 Unforgettable Days in the Heart of Wildlife 🌟",
-        "price": "From €1,500",
-        "description": "This 4-day safari is an intense adventure that immerses you in the natural wonders of Northern Tanzania, combining the excitement of famous national parks with the authenticity of a camping experience.",
-        "duration": "4 days"
-      },
-      "camping8Days": {
-        "title": "Camping and bivouac experience in Tanzania's national parks",
-        "price": "From €1,850",
-        "description": "8-Day Camping Safari: The Wild Call of Northern Tanzania. Total immersion for 8 days living to the rhythm of Africa's heart, where luxury is measured by the vastness of the sky and the authenticity of the moment.",
+        "title": "Camping Safari (8 Days)",
+        "price": "From EUR 1500",
+        "description": "Experience Tanzania's wildlife up close with camping under the stars",
         "duration": "8 days"
       },
-      "safariBeach": {
-        "title": "Safari and Zanzibar Beaches (10 Days): The Wild Call of East Africa",
-        "price": "From €2,300",
-        "description": "Forget the everyday. This is not just a trip, it's an epic journey designed to take your breath away. For 10 days, experience the intensity of the Tanzanian savanna, where the Big Five reign, before rejuvenating on the beaches and in the historic alleyways of Zanzibar, the Spice Island.",
-        "duration": "10 days"
-      },
-      "luxury": {
-        "title": "Luxury Safari",
-        "price": "From €2,900",
-        "description": "Experience Tanzania's wildlife in ultimate comfort with luxury lodges and premium service",
-        "duration": "7 days"
-      },
-      "budget": {
-        "title": "Budget Safari",
-        "price": "From €1,000",
-        "description": "Affordable safari adventure without compromising on the wildlife experience",
-        "duration": "5 days"
-      },
       "materuniChemka": {
-        "title": "Authentic Kilimanjaro Experience: Materuni & Chemka (2 Days)",
-        "price": "From €150",
-        "description": "Immerse yourself in rural Tanzania with this two-day itinerary. Discover the cultural richness of the Chagga people and end with absolute relaxation in a natural oasis. Ideal for those seeking adventure, culture, and relaxation.",
+        "title": "Materuni & Chemka Cultural Experience (2 Days)",
+        "price": "From EUR 150",
+        "description": "Immerse in Chagga culture with waterfall, coffee, and hot springs",
         "duration": "2 days"
+      }
+    },
+    "countryInfo": {
+      "title": "Country info and facts",
+      "subtitle": "Here's what you need to know logistically to plan a trip to Tanzania, from the best seasons to visa requirements.",
+      "languages": {
+        "title": "Languages",
+        "content": "Swahili, English"
       },
-      "safariKiliAdventure": {
-        "title": "The Bold Escape: Safari & Kilimanjaro Adventures (6 Days)",
-        "price": "From €1,800",
-        "description": "Dare the adventure of a lifetime condensed. This is not a tour, it's a bold incursion into the heart of Tanzania. In just six days, experience a striking contrast: the raw intensity of savanna trails where the Big Five defy the laws of time, followed by the gentleness and authenticity of Kilimanjaro's foothills.",
-        "duration": "6 days"
+      "currency": {
+        "title": "Currency",
+        "content": "Tanzanian shilling (TZS)"
+      },
+      "airports": {
+        "title": "Airports",
+        "content": "Most visitors fly into Kilimanjaro International Airport (JRO) via Kenya's Jomo Kenyatta International Airport (NBO) in Nairobi or Julius Nyerere International Airport (DAR) in Dar es Salaam. You can also fly into Arusha Airport (ARK), a regional airport that also brings you close to both Mt Kilimanjaro and the game parks of the Northern Circuit."
+      },
+      "seasons": {
+        "title": "Seasons",
+        "intro": "Tanzania's national parks are open all year round, and each season has its pros and cons.",
+        "longDry": "That said, the long dry season (mid June to October) is considered by many as the optimal safari season. This is because the days are a bit cooler, there's little chance of rain, and the dry landscape makes animal spotting that much easier (because the foliage doesn't cover animals, and they're also forced to congregate around water sources).",
+        "shortDry": "The short dry season (January to mid March) is also a great time if you like lush landscapes, love birds, and would enjoy being present for the calving season.",
+        "readMore": "Please read",
+        "link": "Best time for safari in Tanzania",
+        "moreInfo": "if you'd like to know more."
+      },
+      "visa": {
+        "title": "Visa and Immigration",
+        "content": "A Tanzanian tourist visa is valid for up to 90 days. It costs US$50 for foreigners, and US$100 for US citizens. But a visa isn't required for nationals from around 50 countries worldwide, including South Africa, Kenya, Hong Kong, Singapore, China, India, Brazil and Turkey.",
+        "link": "Learn more here"
+      },
+      "healthSafety": {
+        "title": "Health and Safety",
+        "vaccines": "There are no mandatory vaccines for entry into Tanzania.",
+        "precautions": "Please note that some parts of Tanzania have malaria and tsetse flies (which can cause sleeping sickness). You may wish to take precautions against these. It's also always a good idea to be vaccinated against rabies, especially when travelling anywhere rural.",
+        "learnMore": "You can learn more in",
+        "link": "Your Tanzania travel questions answered"
       }
     },
     "downloadSection": {
@@ -1651,592 +1664,7 @@
         "title": "Group Discounts",
         "description": "Save more when you travel with friends! Contact us for special group rates.",
         "button": "Learn More"
-      },
-      "dates": {
-        "title": "Safari Dates",
-        "description": "Choose your preferred safari dates",
-        "button": "View Available Dates"
       }
-    },
-    "dates": {
-      "title": "Available Safari Dates",
-      "whenButton": "When?",
-      "selected": "months selected",
-      "safari": "Safari",
-      "selectRoute": "Select safari type",
-      "showMore": "Show More Dates",
-      "example": {
-        "route": "Camping Safari",
-        "date": "June 15, 2026",
-        "status": "Available",
-        "price": "€1,500",
-        "deposit": "€100 deposit",
-        "button": "Book Now"
-      }
-    },
-    "topReads": {
-      "title": "Top Reads",
-      "description": "Essential guides for your Tanzania safari",
-      "cta": "Read More",
-      "packingList": {
-        "title": "Safari Packing List",
-        "description": "Everything you need for your Tanzania safari adventure"
-      },
-      "bestTime": {
-        "title": "Best Time for Safari",
-        "description": "When to visit Tanzania for optimal wildlife viewing"
-      },
-      "wildlife": {
-        "title": "Tanzania Wildlife Guide",
-        "description": "Complete guide to Tanzania's incredible wildlife"
-      }
-    },
-    "faq": {
-      "title": "Frequently Asked Questions",
-      "q1": {
-        "question": "What is the best time to go on safari in Tanzania?",
-        "answer": "The best time is during the dry season from June to October when wildlife is easier to spot around water sources."
-      },
-      "q2": {
-        "question": "Do I need any vaccinations for Tanzania?",
-        "answer": "Yellow fever vaccination may be required. It's also recommended to take malaria prophylaxis and be up to date on routine vaccinations."
-      },
-      "q3": {
-        "question": "What should I pack for a safari?",
-        "answer": "Pack neutral-colored clothing, a hat, sunscreen, binoculars, camera with zoom lens, and insect repellent. Layers are important as temperatures vary."
-      }
-    },
-    "newsletter": {
-      "title": "If you love to travel",
-      "subtitle": "join our newsletter",
-      "description": "Get the latest news on hidden adventure gems, exclusive safari deals, and insider tips",
-      "firstNamePlaceholder": "First name",
-      "emailPlaceholder": "Email address",
-      "button": "Subscribe"
-    },
-    "contactModal": {
-      "title": "Enquire About Your Safari",
-      "nameLabel": "Full Name",
-      "namePlaceholder": "John Doe",
-      "emailLabel": "Email Address",
-      "emailPlaceholder": "john@example.com",
-      "phoneLabel": "Phone Number (Optional)",
-      "phonePlaceholder": "+1 (555) 000-0000",
-      "messageLabel": "Your Message",
-      "messagePlaceholder": "Tell us about your safari plans, preferred dates, group size...",
-      "agreeTo": "I agree to the",
-      "privacyPolicy": "Privacy Policy",
-      "submit": "Send Enquiry"
-    }
-  },
-  "MateruniCulturalTour": {
-    "hero": {
-      "title": "Full Day: Chagga Cultural Immersion, Coffee & Secret Materuni Waterfall",
-      "breadcrumb": "Tanzania > Cultural Experiences > Materuni",
-      "description": "Discover the authentic soul of the Chagga people at the foot of Kilimanjaro. A full day of total immersion between ancestral culture, artisanal coffee and spectacular waterfall.",
-      "durationLabel": "Duration",
-      "duration": "1 Full Day",
-      "difficultyLabel": "Difficulty",
-      "difficulty": "Easy to Moderate",
-      "groupSizeLabel": "Group Size",
-      "groupSize": "2-15 people",
-      "price": "€80",
-      "bookNow": "Book Now",
-      "contactUs": "Contact Us"
-    },
-    "miniNavbar": {
-      "overview": "Overview",
-      "itinerary": "Program",
-      "inclusions": "Inclusions",
-      "practicalInfo": "Practical Info",
-      "booking": "Booking"
-    },
-    "overview": {
-      "title": "A Day at the Heart of Chagga Authenticity",
-      "intro": "This unique experience immerses you in the daily life of the Chagga people, guardians of Kilimanjaro's ancestral traditions. Between tropical forest hiking, artisanal coffee discovery and swimming at the foot of a spectacular waterfall, live an unforgettable day off the beaten tourist path.",
-      "highlights": "Experience Highlights",
-      "highlight1": "Visit of the unique Chagga Kihamba agroforestry system",
-      "highlight2": "Guided hike to the secret Materuni waterfall (80m)",
-      "highlight3": "Refreshing swim in the crystal-clear waters of the natural pool",
-      "highlight4": "Interactive coffee-making workshop: from bean to cup",
-      "highlight5": "Traditional Chagga lunch prepared by the community",
-      "highlight6": "Cultural immersion with work songs and local traditions"
-    },
-    "itinerary": {
-      "title": "Detailed Daily Program",
-      "morning": {
-        "time": "Morning (7:00 AM - 11:00 AM)",
-        "title": "The Journey, Kihamba & Hiking",
-        "step1": {
-          "title": "Departure and Transfer",
-          "description": "The journey begins with a comfortable transfer from your accommodation in Moshi or Arusha. The approximately 45-minute drive will take you to the heights of Kilimanjaro. Your French-speaking local guide will begin introducing you to the history and traditions of the Chagga people, the largest ethnic group living on the mountain's slopes."
-        },
-        "step2": {
-          "title": "Welcome to Materuni Village",
-          "description": "Upon arrival at the village, you will be warmly welcomed by community members. Before starting the walk, you will receive a brief introduction to the concept of Kihamba, the ingenious Chagga agroforestry system, where Arabica coffee is grown under the protective umbrella of banana trees."
-        },
-        "step3": {
-          "title": "Hike to the Falls",
-          "description": "The journey to the falls involves an easy to moderate guided walk of about 45 minutes each way. The trail winds through lush Arabica coffee plantations and local Chagga villages. This hike offers an authentic and intimate glimpse into local culture and daily life on the slopes of Kilimanjaro, allowing you to observe traditional irrigation systems and local architecture."
-        }
-      },
-      "midday": {
-        "time": "Midday (11:00 AM - 2:00 PM)",
-        "title": "The Waterfall Reward and Lunch",
-        "step1": {
-          "title": "The Spectacular Waterfall",
-          "description": "After the walk, you will reach the source of freshness. The 80-meter-high Materuni waterfall is spectacular, crashing into a natural pool of crystal-clear waters. The water is pure and fresh, fed directly by Kilimanjaro's eternal snows. You can enjoy a refreshing and invigorating dip in the icy water at the foot of the falls - a memorable experience surrounded by lush tropical vegetation."
-        },
-        "step2": {
-          "title": "Traditional Lunch",
-          "description": "After visiting the waterfall, you will return to the village center for a hearty traditional lunch lovingly prepared by the community. The meal often includes Machalari (banana and meat stew) or Ugali (corn porridge), accompanied by locally grown fresh vegetables and tropical fruits."
-        }
-      },
-      "afternoon": {
-        "time": "Afternoon (2:00 PM - 5:00 PM)",
-        "title": "Coffee Craft & Chagga Hospitality",
-        "step1": {
-          "title": "Coffee-Making Workshop",
-          "description": "The afternoon is dedicated to coffee culture and local craftsmanship. You will participate in an interactive coffee-making tour. Accompanied by Chagga farmers, you will discover and participate in the complete process of preparing famous Tanzanian coffee, from bean to cup. The experience includes pounding dried beans to the rhythm of traditional work songs, followed by roasting over a wood fire and tasting your own cup of freshly prepared Arabica."
-        },
-        "step2": {
-          "title": "Village Immersion",
-          "description": "You will walk through Chagga villages, where you can interact directly with locals, discover their traditions (chieftaincy system, traditional architecture, ceremonies), and enjoy the legendary warmth of local hospitality. This is the ideal opportunity to buy fresh coffee directly from producers as an authentic souvenir."
-        },
-        "step3": {
-          "title": "Return",
-          "description": "The day ends with a transfer back to your accommodation in the late afternoon, heart full of authentic memories and mind enriched by this unique cultural immersion."
-        }
-      }
-    },
-    "inclusions": {
-      "title": "Price Includes (€80 per person)",
-      "transport": "Round-trip transport from/to your accommodation in Moshi or Arusha",
-      "guide": "Professional French-speaking guide for the entire day",
-      "localGuides": "Local Chagga guides for specific activities",
-      "waterfallFee": "Entrance fee to Materuni waterfall and village",
-      "coffeeWorkshop": "Complete coffee-making workshop with tasting",
-      "lunch": "Traditional Chagga lunch prepared by the community",
-      "water": "Bottled mineral water throughout the day"
-    },
-    "exclusions": {
-      "title": "Not Included",
-      "tips": "Tips for guides and community (recommended)",
-      "personalExpenses": "Personal expenses and souvenirs",
-      "extraDrinks": "Additional drinks outside provided water"
-    },
-    "practicalInfo": {
-      "title": "Practical Information",
-      "whatToBring": {
-        "title": "What to Bring",
-        "description": "Comfortable hiking shoes (trail can be slippery), swimsuit and towel, change of clothes, sunscreen and hat, mosquito repellent, camera/phone (in waterproof bag), small backpack, cash for souvenirs and tips."
-      },
-      "fitness": {
-        "title": "Fitness Level",
-        "description": "This excursion is suitable for most fitness levels. The hike to the waterfall takes about 45 minutes each way with some slopes, but is done at a leisurely pace with breaks. People with mobility issues should consult us before booking."
-      },
-      "weather": {
-        "title": "Climate and Best Time",
-        "description": "Materuni village is located at about 1800m altitude, offering a cool and pleasant climate year-round. Mornings can be cool. The region can receive afternoon rains, especially during the rainy season (March-May, November). The best time is from June to October and December to February, but the excursion is possible year-round."
-      },
-      "cultural": {
-        "title": "Cultural Respect",
-        "description": "You are visiting a living community with its traditions. Please wear modest clothing (avoid very short shorts and tank tops). Always ask permission before photographing people."
-      },
-      "booking": {
-        "title": "Booking and Cancellation",
-        "description": "Minimum 24h advance booking recommended. Daily departures available. Free cancellation up to 24h before departure. Private groups and flexible schedules available upon request. The excursion can be combined with other activities (safari, Kilimanjaro climb)."
-      },
-      "community": {
-        "title": "Community Tourism",
-        "description": "This excursion is managed in direct partnership with the Chagga community of Materuni. A significant portion of revenues goes back to the villagers, supporting education, infrastructure and preservation of their cultural heritage. By participating, you directly contribute to the sustainable development of this community."
-      }
-    },
-    "bookingSection": {
-      "title": "Ready for an authentic experience?",
-      "subtitle": "Book your Materuni cultural tour",
-      "description": "Join us for an unforgettable day with the Chagga people at the foot of Kilimanjaro",
-      "price": "€80",
-      "perPerson": "per person",
-      "bookNow": "Book Now",
-      "contactButton": "Get More Info"
-    },
-    "bookingForm": {
-      "title": "Book Your Materuni Tour",
-      "name": "Full Name",
-      "email": "Email",
-      "groupSize": "Group Size",
-      "date": "Preferred Date",
-      "message": "Special Requests",
-      "submit": "Confirm Booking"
-    },
-    "inquiryForm": {
-      "title": "Get More Information",
-      "name": "Full Name",
-      "email": "Email",
-      "phone": "Phone (Optional)",
-      "message": "Your Questions",
-      "submit": "Send Inquiry"
-    }
-  },
-  "SafariBivouac8Days": {
-    "hero": {
-      "title": "8-Day Camping Safari: The Wild Call of Northern Tanzania",
-      "breadcrumb": "Tanzania > Safari > 8-Day Camping Safari",
-      "description": "Forget the everyday. This isn't just a trip, it's total immersion. For 8 days, you'll live to the rhythm of Africa's heart, where luxury is measured by the vastness of the sky and the authenticity of the moment.",
-      "durationLabel": "Duration",
-      "duration": "8 Days",
-      "difficultyLabel": "Difficulty",
-      "difficulty": "Moderate",
-      "groupSizeLabel": "Group Size",
-      "groupSize": "2-6 people",
-      "price": "€1,850",
-      "bookNow": "Book Now",
-      "contactUs": "Contact Us"
-    },
-    "miniNavbar": {
-      "overview": "Overview",
-      "itinerary": "Itinerary",
-      "inclusions": "Inclusions",
-      "datesAndPrices": "Dates & Prices",
-      "proposeDate": "Propose a Date",
-      "booking": "Booking"
-    },
-    "detailedItineraryTitle": "Detailed Itinerary",
-    "overview": {
-      "title": "Camping and bivouac experience in Tanzania's national parks",
-      "intro": "This safari is tailored for the adventurer within you. By choosing camping (bivouac), you don't just observe nature, you sleep in it. Listen to the distant roar of a lion in the Serengeti, feel the ground vibrate as elephants pass by in Tarangire, and let yourself be lulled by the nocturnal song of the savanna.",
-      "statement1": "Camping is an extraordinary experience, it's for those who want to discover the country with a hint of adventure because you never know what will happen during the night!",
-      "statement2": "It's certainly the best way to experience exceptional moments in Tanzania, which is primarily for those whose Adventure is a priority.",
-      "statement3": "Far from clichés, to do once in a lifetime, because it's a unique experience from which you emerge grown and humble."
-    },
-    "itinerary": {
-      "title": "Day by day itinerary",
-      "day1": {
-        "title": "Day 1: Arrival",
-        "description": "Upon arrival at Kilimanjaro International Airport (JRO), you will be greeted and transferred to Arusha to your hotel."
-      },
-      "day2": {
-        "title": "Day 2: Tarangire National Park",
-        "description": "Today, we head to Tarangire National Park, passing through local Maasai villages along the main road, where you will see Maasai herding their cattle to green pastures, as well as women searching for firewood and water. Tarangire is an ideal place to see many elephants and many Mbuyu trees. There are many wild animals such as giraffes, buffalo, zebras and many more."
-      },
-      "day3": {
-        "title": "Day 3: Route to Serengeti National Park",
-        "description": "After breakfast, we head to Serengeti National Park, via the Ngorongoro Conservation Area. We will stop at the crater rim for a beautiful view of the crater, touring the crater rim to the Serengeti park. Geographically, the Serengeti is divided into two zones: East-South, which is covered by a vast plain of volcanic ash ejected from the Ngorongoro plateau, hence the name 'Siringet', Maasai word for endless plain. The second zone, in the North-West, consists of forests and small hills. Overnight at Seronera pub."
-      },
-      "day4": {
-        "title": "Day 4: Full day safari in Serengeti National Park",
-        "description": "After breakfast, depart from your campsite by game drive vehicle. Serengeti National Park is part of the Serengeti ecosystem which is home to the largest population of wildlife in the world: more than one million wildebeest and nearly half a million zebras follow the rains annually around this ecosystem, from plains to savanna forests, to the Masai Mara and back to the plains."
-      },
-      "day5": {
-        "title": "Day 5: From Ngorongoro Crater to Lake Manyara",
-        "description": "Descend to the crater. The Ngorongoro Crater is one of the most beautiful wildlife refuges in the world. It's rather an animal paradise, where some of Africa's last black rhinos are still well protected. A herd of black-backed lions perches in the grass, pink flamingos flock to Lake Magadi and the great tusked elephant is most often seen in the perennial swamps."
-      },
-      "day6": {
-        "title": "Day 6: Lake Manyara National Park",
-        "description": "This park is known for its tree-climbing lions. After breakfast, drive to Lake Manyara National Park passing through the Rift Valley, one of the most impressive sites in the world, stretching from the Dead Sea in Jordan to southern Mozambique. You will cross Massai country. Lake Manyara Game Reserve is named after the plant Euphorbia tirucalii, 'Emanyar' in Massai language and 'lady's fingers' in English."
-      },
-      "day7": {
-        "title": "Day 7: From Lake Eyasi to Arusha",
-        "description": "Around 6:30 in the morning, after a light breakfast, you will leave the lodge and visit the Hadzabe Bushmen. They are the last remaining hunter-gatherers in East Africa, who continue their life with very few changes for tens of thousands of years. You will participate in their morning activities, including a forest hike, a hunt and a campfire. Other activities can be done during the day: interacting with the Hadza, participating in honey collection, searching for baobab fruits and enjoying their daily life."
-      },
-      "day8": {
-        "title": "Day 8: Departure from Kilimanjaro",
-        "description": "Enjoy a leisurely breakfast. Depending on your flight schedule, we will arrange your return transfer to Kilimanjaro International Airport (JRO) for your return flight or to continue your journey (Zanzibar, etc.)."
-      }
-    },
-    "inclusions": {
-      "title": "What's included",
-      "priceIncludes": "Price includes (€1,850 per person)",
-      "items": "All entrance fees to parks indicated in the program|||All camping fees indicated in the program|||Driver-guides for clients|||French-speaking guide|||Cook|||Camping equipment for clients (tents, beds, mattresses, pillows, tables, chairs)|||Full board during the safari (breakfast, lunch and dinner)|||Kitchen equipment|||Land Cruisers (4×4) with open roof to observe animals in the parks|||Provision of Kilimanjaro water, 2 one-and-a-half liter bottles per day per person|||Toilet and shower available at camp"
-    },
-    "exclusions": {
-      "title": "Price does not include",
-      "items": "Flight ticket|||Visa|||Personal needs|||Beverages|||Tips"
-    },
-    "practicalInfo": {
-      "meals": {
-        "title": "MEALS",
-        "description": "Breakfast, unless otherwise stated, is taken within the accommodation itself. According to the program, lunches will be taken in the parks in the form of picnics in order to fully enjoy your safari. Please advise in advance if special meal requests (vegetarian, diabetic, etc.) are necessary. Tap water is generally drinkable in large cities but not in rural areas as a precaution it is preferable to drink bottled water."
-      },
-      "transport": {
-        "title": "TRANSPORT",
-        "description": "The safari is conducted in a 4x4 vehicle, two-seater seats are installed in the direction of travel next to a large opening bay window. A water tank is reserved for housekeeping, a large fuel tank allows long stages to be carried out. Possibility of recharging camcorders and digital devices on the 12V cigarette lighter socket (bring your cord). In parks and reserves, it is strictly forbidden to sit on the roof of the vehicle."
-      },
-      "animals": {
-        "title": "WHICH ANIMALS TO SEE?",
-        "description": "Tanzania has thousands of wild animals of all species and you will not be disappointed by the diversity that the parks have (even the smallest or least known ones): Elephants, giraffes, buffaloes, cheetahs, leopards, lions, servals, jackal, Rhinoceros, Hippopotamuses, hyenas, impalas, zebras, monkeys, antelopes, crocodiles, warthogs, Birds...... IN SHORT there are many species to see, you will not be disappointed as long as you know how to be patient with nature."
-      },
-      "luggage": {
-        "title": "LUGGAGE",
-        "description": "During a safari prefer soft luggage to traditional suitcases, bags are much more practical to handle in vehicles especially if you need to retrieve something during a day of observation. Also plan a small backpack in which you will have everything you might need during the day (sunscreen, glasses, camera...)."
-      },
-      "packing": {
-        "title": "WHAT TO BRING",
-        "description": "Think safari: light long-sleeved shirts to protect you from the sun and insects, flexible pants with side pockets, Pataugas-type shoes for hikes and light sneakers for rest periods. Don't forget a fleece because evenings can be cool. A swimsuit will be useful during your stays in establishments with a pool. A hat and sunglasses will complete the essential kit for any trip to the savanna. For all your clothes prefer colors like khaki, dark green, gray, brown. Avoid bright colors and white. Similarly forget blue because tsetse flies are particularly attracted to this shade. Don't forget a first aid kit containing small bandages (cuts or other), painkillers (paracetamol or equivalent), sunscreens and mosquito repellents (the most effective being 5X5). Also think about your toiletries as well as a bath towel even if all establishments have them. You can complete this equipment with a good pair of binoculars type 'Bushnell legend' or equivalent, because this tool is certainly the one you will use most during a safari. This is what will allow you to observe unforgettable scenes in the parks."
-      },
-      "camping": {
-        "title": "Camping",
-        "description": "Taking a trip to Tanzania having opted for camping accommodation is a philosophy in itself. Off the beaten track it's a real adventure that backpackers favor. It's about making a stay that brings back fundamental values, leaving behind our daily comfort to focus on nature. What could be more exciting than pitching your tent in the middle of the savanna, in the very heart of where Africa's greatest animals live. Certainly the nights can be short because they are conducive to intense fauna activity. It is not uncommon to hear the roar of lions, to see elephants or herbivores pass by a few meters from the camp, not to mention the hyenas that may prevent you from sleeping a restorative sleep but will leave you a memorable memory. This type of trip can be economical but that is not its primary vocation, it is above all about getting as close as possible to nature, especially in the parks, to live an unforgettable experience. And of course it would be inconceivable to take a trip to Tanzania having opted for camping accommodation without a minimum of comfort, but all this is masterfully managed: The tents are double, equipped with mattresses and mosquito nets, adapted to the environment, they reflect the spirit of an extraordinary safari. Camping sites all have sanitary facilities and infrastructure allowing a comfortable stay in the middle of wild nature. Of course, during a camping trip, in addition to the driver guide, you benefit from a personal cook who ensures you every day a breakfast, a picnic at noon and a meal in the evening. When you are at the end of the world, in the depths of the savanna and you see what a traveling cook is capable of preparing in unimaginable conditions, when you taste his dishes, then there is only respect that imposes itself. Camping is an extraordinary experience, it is for those who want to discover the country with a hint of adventure because you never know what will happen during the night! It's certainly the best way to experience exceptional moments in Tanzania, which is primarily for those whose Adventure is a priority. Far from clichés, to do once in a lifetime, because it's a unique experience from which you emerge grown and humble."
-      }
-    },
-    "datesAndPrices": {
-      "title": "Dates and Prices",
-      "groupDiscounts": "Group Discounts",
-      "dontSeeDates": "Can't find your dates? We offer flexible planning and group discounts.",
-      "proposeNewDate": "Propose a New Date",
-      "proposeDateDescription": "Have specific dates in mind? We can arrange a private departure just for you.",
-      "proposeDateButton": "Propose a Date",
-      "enquireButton": "Enquire",
-      "when": "When?",
-      "selected": "selected",
-      "selectMonth": "Select month",
-      "perPerson": "per person",
-      "availability": "Departures available year-round",
-      "groupType": "Group Type",
-      "selectGroup": "Select group",
-      "soloTraveler": "Solo Traveler",
-      "couple": "Couple",
-      "familyGroup": "Family Group",
-      "friendsGroup": "Friends Group",
-      "corporateGroup": "Corporate Group",
-      "groupNote": "Special rates available for groups of 4 or more. Contact us for personalized quotes."
-    },
-    "newsletter": {
-      "title": "If you love to travel",
-      "subtitle": "join our newsletter",
-      "description": "Get the latest news on hidden adventure gems, discounted launch trips and more directly in your inbox",
-      "firstNamePlaceholder": "First Name",
-      "emailPlaceholder": "Email address",
-      "button": "Subscribe"
-    },
-    "inquiryForm": {
-      "title": "Book Your Safari Experience",
-      "name": "Full name",
-      "email": "Email",
-      "groupSize": "Group size",
-      "date": "Preferred date",
-      "message": "Message",
-      "submit": "Send inquiry"
-    },
-    "booking": {
-      "title": "Ready for your camping adventure?",
-      "description": "Book your 8-day camping safari today",
-      "button": "Contact us to book"
-    }
-  },
-  "SafariBivouac4Days": {
-    "hero": {
-      "title": "4 Unforgettable Days in the Heart of Wildlife",
-      "breadcrumb": "Tanzania > Safari > 4-Day Camping Safari",
-      "description": "This 4-day safari is an intense adventure that immerses you in the natural wonders of Northern Tanzania, combining the excitement of famous national parks with the authenticity of a camping experience.",
-      "durationLabel": "Duration",
-      "duration": "4 Days",
-      "difficultyLabel": "Difficulty",
-      "difficulty": "Moderate",
-      "groupSizeLabel": "Group Size",
-      "groupSize": "2-6 people",
-      "price": "€1,000",
-      "bookNow": "Book Now",
-      "contactUs": "Contact Us"
-    },
-    "miniNavbar": {
-      "overview": "Overview",
-      "itinerary": "Itinerary",
-      "inclusions": "Inclusions",
-      "datesAndPrices": "Dates & Prices",
-      "proposeDate": "Propose a Date",
-      "booking": "Book Now"
-    },
-    "detailedItineraryTitle": "Detailed Itinerary",
-    "overview": {
-      "title": "Tanzanian Safari - Unforgettable Days in the Heart of Wildlife",
-      "intro": "Camping is an extraordinary experience, designed for those who want to discover the country with a taste of adventure, because you never know what will happen during the night!",
-      "statement1": "It is certainly the best way to experience exceptional moments in Tanzania, primarily for those who prioritize Adventure.",
-      "statement2": "Far from clichés, a once-in-a-lifetime experience that leaves you enriched and humbled."
-    },
-    "itinerary": {
-      "title": "Day by Day Itinerary",
-      "day1": {
-        "title": "Day 1: Arusha to Tarangire National Park",
-        "description": "After an early breakfast, depart for Tarangire for a full day safari in Tarangire National Park with picnic lunch. Herds of up to 300 elephants scratch the dry riverbed for underground streams, while nomadic wildebeest, zebras, buffalos, impalas, gazelles, hartebeests, and elands crowd the shrinking lagoons. This national park welcomes migrants during the dry season and is a welcoming home for elephants. Dinner and overnight at Lilac camping."
-      },
-      "day2": {
-        "title": "Day 2: Tarangire to Serengeti National Park",
-        "description": "After an early breakfast, our driver-guide will take you from camp to Serengeti National Park. Head out into the endless open plains and magnificent skies of the Serengeti. Enjoy a four-hour safari and depart later for a late evening safari. Dinner and overnight at Seronera camping."
-      },
-      "day3": {
-        "title": "Day 3: Serengeti National Park to Ngorongoro",
-        "description": "Wake up early in the morning for a safari in Serengeti National Park where you can see wildebeests, lions, elephants, leopards, impalas, gazelles, cheetahs, and possibly the wildebeest migration. Enjoy brunch and pack up to head to Ngorongoro. You will do an en-route safari from Serengeti to Ngorongoro, arriving late in the evening. Arrival at Ngorongoro Simba camping located on the crater rim for dinner and overnight."
-      },
-      "day4": {
-        "title": "Day 4: Ngorongoro Crater to Arusha Hotel",
-        "description": "After an early breakfast, head directly to the crater floor for a six-hour safari inside the crater. Search for the Big Five (lion, leopard, elephant, buffalo, and possibly a black rhino). Have your picnic in the crater at Ngoitoktok Spring where you can also see other large mammals including hippos, giraffes, warthogs, baboons, and birds. After about 6 hours, ascend the crater rim and head to Arusha with an en-route safari via Mto wa Mbu village. In the evening, we will drop you at your hotel in Arusha."
-      }
-    },
-    "inclusions": {
-      "title": "What's Included",
-      "priceIncludes": "Price Includes (€1,000 per person)",
-      "items": "All park entry taxes indicated in the program|||All camping taxes indicated in the program|||Driver-guides for clients|||French-speaking guide|||Cook|||Camping equipment for clients (tents, beds, mattresses, pillows, tables, chairs)|||Full board accommodation during safari (breakfast, lunch, and dinner)|||Kitchen equipment|||Land Cruiser (4×4) with pop-up roof for observing animals in the parks|||Kilimanjaro water supply, 2 bottles of 1.5 liters per day per person|||Toilet and shower available at camp"
-    },
-    "exclusions": {
-      "title": "Price Does Not Include",
-      "items": "Airline ticket|||Visa|||Personal needs|||Beverages|||Tips"
-    },
-    "datesAndPrices": {
-      "title": "Dates and Prices",
-      "groupDiscounts": "Group Discounts",
-      "dontSeeDates": "Don't see your dates? We offer flexible scheduling and group discounts.",
-      "proposeNewDate": "Propose a New Date",
-      "proposeDateDescription": "Have specific dates in mind? We can organize a private departure just for you.",
-      "proposeDateButton": "Propose Date",
-      "enquireButton": "Enquire Now",
-      "when": "When?",
-      "selected": "selected",
-      "selectMonth": "Select month",
-      "perPerson": "per person",
-      "availability": "Year-round departures available",
-      "groupType": "Group Type",
-      "selectGroup": "Select group",
-      "soloTraveler": "Solo Traveler",
-      "couple": "Couple",
-      "familyGroup": "Family Group",
-      "friendsGroup": "Friends Group",
-      "corporateGroup": "Corporate Group",
-      "groupNote": "Special rates available for groups of 4 or more. Contact us for custom quotes."
-    },
-    "newsletter": {
-      "title": "If you love to travel",
-      "subtitle": "join our newsletter",
-      "description": "Get the latest news on hidden adventure gems, discounted launch trips and much more straight to your inbox",
-      "firstNamePlaceholder": "First name",
-      "emailPlaceholder": "Email address",
-      "button": "Subscribe"
-    },
-    "inquiryForm": {
-      "title": "Book Your Safari Experience",
-      "name": "Full Name",
-      "email": "Email",
-      "groupSize": "Group Size",
-      "date": "Preferred Date",
-      "message": "Message",
-      "submit": "Submit Inquiry"
-    },
-    "booking": {
-      "title": "Ready for Your Camping Adventure?",
-      "description": "Book your 4-day camping safari today",
-      "button": "Contact Us to Book"
-    }
-  },
-  "SafariKiliAdventure6Days": {
-    "hero": {
-      "title": "The Bold Escape: Safari & Kilimanjaro Adventures (6 Days)",
-      "breadcrumb": "Tanzania > Safari > Safari & Kilimanjaro 6 Days",
-      "description": "Dare the adventure of a lifetime condensed. This is not a tour, it's a bold incursion into the heart of Tanzania. In just six days, experience a striking contrast: the raw intensity of savanna trails where the Big Five defy the laws of time, followed by the gentleness and authenticity of Kilimanjaro's foothills.",
-      "durationLabel": "Duration",
-      "duration": "6 Days",
-      "difficultyLabel": "Difficulty",
-      "difficulty": "Moderate",
-      "groupSizeLabel": "Group Size",
-      "groupSize": "2-8 people",
-      "price": "€1,400",
-      "bookNow": "Book Now",
-      "contactUs": "Contact Us"
-    },
-    "miniNavbar": {
-      "overview": "Overview",
-      "itinerary": "Itinerary",
-      "inclusions": "Inclusions",
-      "datesAndPrices": "Dates & Prices",
-      "proposeDate": "Propose a Date",
-      "booking": "Book Now"
-    },
-    "detailedItineraryTitle": "Detailed Itinerary",
-    "overview": {
-      "title": "The Ultimate Adventure: Wild Safari & Kilimanjaro Discovery",
-      "intro": "This 6-day journey is much more than a simple safari. It's an odyssey that transports you from the infinite plains of the Serengeti to the mystical foothills of Kilimanjaro.",
-      "statement1": "Experience the raw intensity of the savanna, where the Big Five reign supreme, before diving into the cultural authenticity of Chagga villages.",
-      "statement2": "A condensed adventure that perfectly combines the adrenaline of wildlife with the serenity of Kilimanjaro's waterfalls and hot springs."
-    },
-    "itinerary": {
-      "title": "Day by Day Itinerary",
-      "day1": {
-        "title": "Day 1: Arusha to Tarangire National Park – Immersion Among Giants",
-        "description": "After an early energizing breakfast, we leave Arusha for Tarangire National Park. The entire day is dedicated to safari, in the heart of a landscape dominated by majestic baobabs. Tarangire is a water sanctuary for hundreds of elephants, wildebeest, and zebras. We enjoy a picnic lunch in the heart of the park."
-      },
-      "day2": {
-        "title": "Day 2: Tarangire to Serengeti National Park – Towards the Infinite Plain",
-        "description": "After breakfast, our driver-guide will take you to the legendary Serengeti National Park. The journey itself is an adventure: you enter the endless open plains (Siringet) under magnificent skies. Enjoy an afternoon safari before departing for a late evening safari, when predators are most active."
-      },
-      "day3": {
-        "title": "Day 3: Serengeti National Park to Ngorongoro – Dawn of the Hunters",
-        "description": "Wake up very early for a morning safari in the Serengeti, the best time to spot lions, leopards, and cheetahs. You'll then have brunch before packing and heading to Ngorongoro. You'll enjoy an en-route safari through the conservation area, arriving late at the Crater rim."
-      },
-      "day4": {
-        "title": "Day 4: Ngorongoro Crater to Arusha Hotel – Eden Rediscovered",
-        "description": "After an early breakfast, you'll make the spectacular descent to the crater floor for six hours of intensive safari. This is the ideal place to search for the Big Five, especially the Black Rhino. Picnic lunch at Ngoitoktok Spring. After the spectacular ascent, you'll head to Arusha via a final en-route safari."
-      },
-      "day5": {
-        "title": "Day 5: Materuni Village – Aromas and Secret Waterfalls",
-        "description": "We depart for the charming village of Materuni, at the foot of Kilimanjaro. It's a day of cultural immersion: you'll participate in the Coffee Ceremony to learn the entire process and taste local aromas. Then, an easy hike will take you to the spectacular 90-meter Waterfall, where you can refresh yourself in the natural pool."
-      },
-      "day6": {
-        "title": "Day 6: Chemka Hot Springs – Bathing in the Oasis and Departure",
-        "description": "To conclude this adventure, we head to the famous Chemka Hot Springs. This oasis, fed by underground waters filtered through Mount Kilimanjaro, offers an incredibly clear pond. It's the perfect spot for one last relaxing swim before heading to the airport."
-      }
-    },
-    "inclusions": {
-      "title": "What's Included",
-      "priceIncludes": "Price Includes (€1,400 per person)",
-      "items": "All park entrance fees indicated in the program|||All camping taxes indicated in the program|||Driver-guides for clients|||French-speaking guide|||Cook|||Camping equipment for clients (tents, beds, mattresses, pillows, tables, chairs)|||Full board accommodation during safari (breakfast, lunch, and dinner)|||Kitchen equipment|||Land Cruiser (4×4) with pop-up roof for observing animals in the parks|||Kilimanjaro water supply, 2 bottles of 1.5 liters per day per person|||Toilet and shower available at camp"
-    },
-    "exclusions": {
-      "title": "Price Does Not Include",
-      "items": "Airline ticket|||Visa|||Personal needs|||Beverages|||Tips"
-    },
-    "datesAndPrices": {
-      "title": "Dates and Prices",
-      "groupDiscounts": "Group Discounts",
-      "dontSeeDates": "Don't see your dates? We offer flexible scheduling and group discounts.",
-      "proposeNewDate": "Propose a New Date",
-      "proposeDateDescription": "Have specific dates in mind? We can organize a private departure just for you.",
-      "proposeDateButton": "Propose Date",
-      "enquireButton": "Enquire Now",
-      "when": "When?",
-      "selected": "selected",
-      "selectMonth": "Select month",
-      "perPerson": "per person",
-      "availability": "Year-round departures available",
-      "groupType": "Group Type",
-      "selectGroup": "Select group",
-      "soloTraveler": "Solo Traveler",
-      "couple": "Couple",
-      "familyGroup": "Family Group",
-      "friendsGroup": "Friends Group",
-      "corporateGroup": "Corporate Group",
-      "groupNote": "Special rates available for groups of 4 or more. Contact us for custom quotes."
-    },
-    "newsletter": {
-      "title": "If you love to travel",
-      "subtitle": "join our newsletter",
-      "description": "Get the latest news on hidden adventure gems, discounted launch trips and much more straight to your inbox",
-      "firstNamePlaceholder": "First name",
-      "emailPlaceholder": "Email address",
-      "button": "Subscribe"
-    },
-    "inquiryForm": {
-      "title": "Book Your Safari & Kilimanjaro Adventure",
-      "name": "Full Name",
-      "email": "Email",
-      "groupSize": "Group Size",
-      "date": "Preferred Date",
-      "message": "Message",
-      "submit": "Submit Inquiry"
-    },
-    "booking": {
-      "title": "Ready for this bold escape?",
-      "description": "Book your 6-day Safari & Kilimanjaro adventure today",
-      "button": "Contact us to book"
     }
   },
   "MateruniChemka2Days": {
@@ -2305,11 +1733,11 @@
   },
   "ZanzibarSafariBeach10Days": {
     "hero": {
-      "title": "The Ultimate Adventure: Safari and Zanzibar Beaches (10 Days)",
+      "title": "Safari & Zanzibar Beach (10 Days)",
       "breadcrumb": "Tanzania / Safari & Zanzibar",
       "duration": "10 Days",
       "price": "€2,300",
-      "description": "Forget the everyday. This is not just a trip, it's an epic journey designed to take your breath away. For 10 days, experience the intensity of the Tanzanian savanna, where the Big Five reign, before rejuvenating on the beaches and in the historic alleyways of Zanzibar, the Spice Island."
+      "description": "Combine the thrill of Tanzania's wildlife safari with the paradise beaches of Zanzibar"
     },
     "miniNavbar": {
       "datesAndPrices": "Dates & Prices",
@@ -2319,54 +1747,54 @@
     "detailedItineraryTitle": "Detailed Itinerary",
     "itinerary": {
       "day1": {
-        "title": "Day 1: Arusha / The First Breath of Africa",
-        "description": "Arrival at Kilimanjaro International Airport (JRO). You will be welcomed and transferred directly to your lodge in Arusha. This is the perfect moment to absorb the Tanzanian atmosphere and mentally prepare for the bush adventure that begins the very next morning."
+        "title": "Arusha / First Breath of Africa",
+        "description": "Upon arrival at Kilimanjaro International Airport, you'll be warmly greeted by your guide who will accompany you to your accommodation in Arusha. Take time to rest and acclimate to the African atmosphere. In the evening, enjoy a welcome dinner where you'll receive a comprehensive briefing about your upcoming safari adventure."
       },
       "day2": {
-        "title": "Day 2: Arusha to Tarangire National Park - The Kingdom of Baobabs",
-        "description": "After an early and energizing breakfast, depart for Tarangire National Park for a full day safari. Tarangire is famous for its vast elephant populations, with herds reaching up to 300 individuals, as well as its magnificent baobabs. You will observe wildebeests, zebras, and other herbivores gathering around water sources. Lunch will be taken as a picnic in the heart of the park."
+        "title": "Arusha to Tarangire National Park - The Kingdom of Baobabs",
+        "description": "After breakfast, depart for Tarangire National Park (2-hour drive). Famous for its giant baobabs and large elephant herds, Tarangire offers exceptional wildlife viewing. You'll observe elephants, giraffes, zebras, wildebeests, and if lucky, lions and leopards. Enjoy a picnic lunch within the park, then continue your game drive until late afternoon. Overnight at a lodge near the park."
       },
       "day3": {
-        "title": "Day 3: From Tarangire to Serengeti National Park - Towards the Endless Plain",
-        "description": "After breakfast, your driver-guide will take you to the legendary Serengeti National Park. The journey itself is an adventure: you enter the endless open plains (Siringet) under magnificent skies. Enjoy a four-hour afternoon safari before departing for a late evening safari, when predators are most active."
+        "title": "Tarangire to Serengeti National Park - Into the Wild Heart",
+        "description": "Early morning departure towards the legendary Serengeti National Park (5-6 hour drive through stunning landscapes). Pass through the Ngorongoro Conservation Area with breathtaking views. Arrive in Serengeti for an afternoon game drive across endless plains teeming with wildlife. The Serengeti, meaning 'endless plains' in Maasai, hosts the greatest wildlife spectacle on Earth. Overnight at a lodge or tented camp in Serengeti."
       },
       "day4": {
-        "title": "Day 4: From Serengeti National Park to Ngorongoro - Dawn of the Hunters",
-        "description": "Wake up very early for a morning safari in the Serengeti, the best time to catch lions, leopards, and cheetahs. You will then have brunch before packing and heading towards Ngorongoro. You will enjoy an en-route safari through the conservation area, with a late arrival at the Crater rim."
+        "title": "Full Day in Serengeti National Park - The Great Migration",
+        "description": "Dedicate the entire day to exploring Serengeti's wonders. Early morning game drive to spot predators when most active. Return to lodge for breakfast and relaxation before afternoon game drive. Witness the Great Migration (depending on season), observe lions, cheetahs, leopards, elephants, giraffes, and countless other species in their natural habitat. Optional hot air balloon safari available for a unique aerial perspective."
       },
       "day5": {
-        "title": "Day 5: From Ngorongoro Crater to Arusha - Eden Rediscovered",
-        "description": "After an early breakfast, you will make the spectacular descent to the crater floor for six hours of intensive safari. This is the ideal place to search for the Big Five, especially the Black Rhinoceros. The picnic will be served at Ngoitoktok Spring, near the hippos. After this magical moment, you will ascend the crater rim and head to Arusha, via a final en-route safari, with a possible stop at the village of Mto wa Mbu."
+        "title": "Serengeti to Ngorongoro - Journey to the Crater Rim",
+        "description": "After breakfast, enjoy a final morning game drive in Serengeti before heading to Ngorongoro Conservation Area (3-4 hour drive). Stop at Olduvai Gorge, the 'Cradle of Mankind,' where archaeological discoveries have revealed human evolution secrets. Arrive at your lodge perched on the Ngorongoro Crater rim for spectacular views. Overnight at a crater rim lodge."
       },
       "day6": {
-        "title": "Day 6: Flight to Zanzibar - Arrival and Island Tranquility",
-        "description": "After your flight from Arusha, you will be transferred to your hotel, located in an area that is not directly beachfront (probably in Stone Town or an urban/central environment). This day is free for you to acclimate to the tropical climate, explore the alleys near your accommodation, or simply rest after the intense safari."
+        "title": "Ngorongoro Crater - The Garden of Eden",
+        "description": "Descend 600 meters into the Ngorongoro Crater for a full day of game viewing in this natural wonder, a UNESCO World Heritage Site. The crater floor hosts dense wildlife populations including the Big Five (lion, elephant, buffalo, rhino, leopard), flamingos around Lake Magadi, hippos, and diverse birdlife. Enjoy a picnic lunch by the hippo pool. Ascend the crater in late afternoon and transfer to Arusha for overnight stay."
       },
       "day7": {
-        "title": "Day 7: Safari Blue Trip - The Complete Aquatic Odyssey",
-        "description": "Departure for a full day Safari Blue excursion. This journey will have you sailing around mangroves, with snorkeling opportunities along the magnificent Menai Bay. You will have time to relax on an isolated sandbank near Kwale Island, where swimming and picnicking will be the highlights of the day."
+        "title": "Arusha to Zanzibar - Island Paradise Awaits",
+        "description": "After breakfast, transfer to Arusha Airport for your flight to Zanzibar (approximately 1.5 hours). Upon arrival at Zanzibar Airport, transfer to your beach resort. Spend the afternoon relaxing on pristine white sand beaches, swimming in turquoise waters, or exploring your resort. Enjoy a seafood dinner by the ocean. Overnight at a beach resort in Zanzibar."
       },
       "day8": {
-        "title": "Day 8: Half-Day Mnemba - Dolphins and Secret Reefs",
-        "description": "Early in the morning, you will head out to sea for a half-day of adventure. You will have the opportunity to swim (in an environmentally respectful manner) with dolphins and take unforgettable photos. Then, you will explore the coral reefs around Mnemba Atoll, renowned for the richness of its marine life and preserved corals."
+        "title": "Safari Blue & Mnemba Dolphin Tour - Marine Magic",
+        "description": "Embark on the famous Safari Blue excursion - a full day of maritime adventure. Sail on traditional dhow boats to explore the Menai Bay Conservation Area, snorkel in crystal-clear lagoons teeming with tropical fish and coral reefs, visit sandbanks, and enjoy a seafood barbecue on a desert island. Alternatively, take an early morning dolphin tour to Mnemba Atoll for swimming with wild dolphins. Afternoon at leisure on the beach."
       },
       "day9": {
-        "title": "Day 9: Stone Town, Spice Farm and Prison Island - Flavors and History",
-        "description": "This day is a journey to the heart of the island's culture. You will start with a visit to a Spice Farm to awaken your senses to local aromas. The afternoon will be devoted to a guided tour of the fascinating Stone Town (UNESCO), then an excursion to Prison Island to meet the famous giant tortoises."
+        "title": "Stone Town & Spice Farm - Cultural Immersion",
+        "description": "Discover Stone Town, a UNESCO World Heritage Site with centuries of history. Wander through narrow alleys, visit the former slave market, House of Wonders, Sultan's Palace, and bustling Darajani Market. Afternoon spice farm tour to learn about Zanzibar's spice heritage - smell and taste cloves, vanilla, cinnamon, nutmeg, and tropical fruits. Optional visit to Prison Island to see giant tortoises. Return to your beach resort for final evening."
       },
       "day10": {
-        "title": "Day 10: Airport Transfer - Kwaheri (Farewell)",
-        "description": "Enjoy a final peaceful breakfast at your hotel. Depending on your international flight time, you will be transferred to Zanzibar Airport (ZNZ) for your departure."
+        "title": "Zanzibar Departure - Kwaheri (Farewell)",
+        "description": "Enjoy a relaxed final morning on the beach. Depending on your flight schedule, you may have time for last-minute souvenir shopping or a final swim. Transfer to Zanzibar Airport for your departure flight, carrying unforgettable memories of Tanzania's wildlife and Zanzibar's tropical paradise."
       }
     },
     "inclusions": {
       "title": "What's Included",
       "priceIncludes": "Price Includes",
-      "items": "All entrance fees to National Parks mentioned in the program|||All airport and inter-hotel transfers mentioned in the program|||Lodge accommodation (or equivalent comfort accommodation)|||Certified French-speaking local guide for the safari|||Mineral Water: 2 liters of water per day per person|||Transportation during Zanzibar excursions|||All taxes and VAT in Zanzibar|||Accommodation"
+      "items": "All park entry fees (Tarangire, Serengeti, Ngorongoro)|||All transfers in 4x4 safari vehicle with pop-up roof|||Lodge and resort accommodation (9 nights)|||Francophone professional safari guide|||2L bottled water per person per day during safari|||Full board during safari (breakfast, lunch, dinner)|||All transport in Zanzibar|||Domestic flight: Arusha to Zanzibar|||All government taxes and VAT|||Beach resort accommodation in Zanzibar (3 nights)"
     },
     "exclusions": {
-      "title": "Not Included",
-      "items": "International and domestic flights|||Guide tips|||Personal drinks|||Visa and insurance"
+      "title": "Price Does Not Include",
+      "items": "International and local flights|||Guide and staff tips (recommended)|||Personal drinks and beverages|||Visa fees and travel insurance|||Optional activities (hot air balloon, diving, etc.)|||Personal expenses and souvenirs"
     },
     "datesAndPrices": {
       "title": "Dates and Prices",
@@ -2406,480 +1834,6 @@
       "date": "Preferred Date",
       "message": "Message",
       "submit": "Submit Inquiry"
-    }
-  },
-  "ZanzibarBeachHolidaysPage": {
-    "hero": {
-      "title": "Zanzibar Beach Holidays",
-      "durationLabel": "Duration",
-      "duration": "5-14 days",
-      "difficultyLabel": "Difficulty",
-      "difficulty": "Easy",
-      "groupSizeLabel": "Group Size",
-      "groupSize": "2-10",
-      "adventureTypeLabel": "Type",
-      "adventureType": "Beach",
-      "price": "from €1,000",
-      "description": "Escape to paradise with our Zanzibar beach holiday packages. Relax on pristine white sand beaches, swim in crystal-clear turquoise waters, and immerse yourself in the rich Swahili culture of this tropical island.",
-      "bookCall": "Book a call with our team",
-      "downloadGuide": "Download Beach Guide"
-    },
-    "itineraries": {
-      "title": "Our Beach Packages",
-      "description": "Choose from our carefully curated beach holiday packages, from classic beach relaxation to luxury retreats and cultural experiences",
-      "classic": {
-        "title": "Classic Beach Holiday",
-        "price": "From €1,000",
-        "duration": "7 days",
-        "description": "Perfect beach getaway with comfortable accommodation and all the essentials for a relaxing tropical vacation"
-      },
-      "luxury": {
-        "title": "Luxury Beach Retreat",
-        "price": "From €2,100",
-        "duration": "7 days",
-        "description": "Indulge in premium beachfront resorts with world-class amenities and personalized service"
-      },
-      "safariBeach": {
-        "title": "Safari & Beach Combo",
-        "price": "From €2,300",
-        "duration": "10 days",
-        "description": "Combine the thrill of a Tanzania safari with the relaxation of Zanzibar's pristine beaches"
-      },
-      "cultural": {
-        "title": "Cultural Beach Experience",
-        "price": "From €1,250",
-        "duration": "7 days",
-        "description": "Explore Stone Town's UNESCO heritage sites and enjoy beach relaxation with cultural immersion"
-      },
-      "adventure": {
-        "title": "Adventure Beach Package",
-        "price": "From €1,500",
-        "duration": "7 days",
-        "description": "Active beach holiday with snorkeling, diving, dolphin tours, and water sports activities"
-      },
-      "divingCulture": {
-        "title": "The Archipelago of Senses: Diving & Culture in Zanzibar (5 Days)",
-        "price": "From €1,400",
-        "duration": "5 days",
-        "description": "The best of the Spice Island in express format. This is not a simple beach holiday, it's an intense immersion into the beating heart of the Indian Ocean. In just five days, you will experience Zanzibar's striking contrast: from the turquoise brilliance of Mnemba's underwater world and Safari Blue to the vibrant authenticity of Stone Town's labyrinthine alleys, the cradle of history and spices."
-      },
-      "completeEscape": {
-        "title": "The Complete Escape: Culture, Adventure & Flavors of Zanzibar (8 Days)",
-        "price": "From €2,100",
-        "duration": "8 days",
-        "description": "The best of the Spice Island in complete immersion. This is not a simple beach holiday, it's an intense dive into the heart of the Indian Ocean. In eight days, you will experience Zanzibar's striking contrast: from the turquoise brilliance of Mnemba's underwater world to the authentic taste of Darajani Market, through the vibrant history of Stone Town's alleys. Prepare for a complete adventure, designed by a local guide."
-      }
-    },
-    "destinationInfo": {
-      "title": "Destination info and facts",
-      "description": "Everything you need to know about Zanzibar to plan your perfect beach holiday, from the best beaches to cultural attractions.",
-      "languages": {
-        "title": "Languages",
-        "content": "Swahili, English, Arabic"
-      },
-      "currency": {
-        "title": "Currency",
-        "content": "Tanzanian shilling (TZS), US dollars widely accepted"
-      },
-      "airports": {
-        "title": "Airports",
-        "content": "Abeid Amani Karume International Airport (ZNZ) in Zanzibar. Direct flights available from Dar es Salaam, Nairobi, and other regional hubs. Many international visitors connect through Dar es Salaam or Nairobi."
-      },
-      "seasons": {
-        "title": "Best Time to Visit",
-        "content": "Zanzibar is a year-round destination. The best months are June to October (dry season) with sunny days and calm seas. December to February is also excellent. March to May sees more rain but fewer tourists and lower prices.",
-        "learnMore": "Learn more"
-      },
-      "visa": {
-        "title": "Visa Requirements",
-        "content": "Same as mainland Tanzania. Tourist visa costs USD50 (USD100 for US citizens). Many nationalities can obtain visa on arrival. Check current requirements for your country before traveling."
-      },
-      "health": {
-        "title": "Health & Safety",
-        "content": "Zanzibar is generally safe for tourists. Malaria risk is lower than mainland but prophylaxis recommended. Use reef-safe sunscreen to protect coral. Respect local customs, especially in Stone Town (modest dress)."
-      }
-    },
-    "downloadSection": {
-      "title": "Zanzibar Beach Guide",
-      "subtitle": "Get your free Zanzibar guide!",
-      "description": "Everything you need to plan your perfect Zanzibar beach holiday",
-      "button": "Download PDF"
-    },
-    "booking": {
-      "title": "Book your beach holiday",
-      "button": "Enquire Now",
-      "groupDiscounts": {
-        "title": "Group Discounts",
-        "description": "Enquire for more details",
-        "button": "Enquire for more details"
-      },
-      "dates": {
-        "title": "Don't see your dates?",
-        "description": "We offer flexible scheduling",
-        "button": "Propose Date"
-      }
-    },
-    "dates": {
-      "title": "Available Dates",
-      "whenButton": "When?",
-      "selected": "selected",
-      "package": "Package",
-      "selectPackage": "Select package",
-      "showMore": "Show more dates",
-      "jan15": {
-        "package": "Classic Beach",
-        "date": "Jan 15 - Jan 22, 2026",
-        "status": "Available",
-        "price": "€1,000",
-        "deposit": "€100",
-        "button": "Book Now"
-      },
-      "feb5": {
-        "package": "Luxury Retreat",
-        "date": "Feb 5 - Feb 12, 2026",
-        "status": "Available",
-        "price": "€2,100",
-        "deposit": "€100",
-        "button": "Book Now"
-      },
-      "mar10": {
-        "package": "Safari & Beach",
-        "date": "Mar 10 - Mar 20, 2026",
-        "status": "Available",
-        "price": "€2,300",
-        "deposit": "€100",
-        "button": "Book Now"
-      }
-    },
-    "reward": {
-      "title": "See what others say",
-      "description": "Zanzibar is the perfect place to relax after a Tanzania safari or Kilimanjaro climb. Many of our clients combine adventures with beach time!",
-      "button": "Enquire Now"
-    },
-    "topReads": {
-      "title": "Top Reads",
-      "description": "Essential guides for planning your Zanzibar beach holiday",
-      "cta": "Curious to learn more? Book a call with our team.",
-      "whatToPack": {
-        "title": "What to Pack for Zanzibar",
-        "subtitle": "Beach holiday packing essentials",
-        "description": "Everything you need to pack for your Zanzibar beach holiday, from beachwear to snorkeling gear and cultural considerations for Stone Town visits."
-      },
-      "bestTime": {
-        "title": "Best Time to Visit Zanzibar",
-        "subtitle": "When to go for perfect weather",
-        "description": "Discover the best months to visit Zanzibar for sunshine, calm seas, and optimal beach conditions. Learn about the seasons and what to expect."
-      },
-      "thingsToDo": {
-        "title": "Things to Do in Zanzibar",
-        "subtitle": "Beyond the beaches",
-        "description": "From Stone Town's winding alleys to spice farm tours, dolphin encounters, and pristine coral reefs - discover all the experiences Zanzibar offers."
-      }
-    },
-    "faqs": {
-      "title": "FAQs",
-      "question1": "What are the best beaches in Zanzibar?",
-      "answer1": "The east coast beaches (Paje, Jambiani, Bwejuu) offer pristine white sand and turquoise waters with dramatic tides. North coast beaches (Nungwi, Kendwa) have less tidal variation and stunning sunsets. Each area has its own character - we'll help you choose based on your preferences.",
-      "question2": "Is Zanzibar safe for tourists?",
-      "answer2": "Yes, Zanzibar is generally very safe for tourists. The island depends heavily on tourism and locals are welcoming. Use common sense precautions, respect local customs (especially modest dress in Stone Town), and follow your resort's guidance for beach safety.",
-      "question3": "Can I combine Zanzibar with a safari?",
-      "answer3": "Absolutely! This is one of our most popular combinations. We offer packages that combine Tanzania safari adventures with Zanzibar beach relaxation. It's the perfect way to experience Africa's wildlife and then unwind on tropical beaches."
-    },
-    "newsletter": {
-      "title": "If you love to travel,",
-      "subtitle": "join our newsletter",
-      "description": "Receive the latest news on hidden beach gems, exclusive Zanzibar deals, and insider island tips",
-      "firstNamePlaceholder": "First Name",
-      "emailPlaceholder": "Email",
-      "button": "Sign Up!"
-    },
-    "contactModal": {
-      "title": "Book a call with our team",
-      "nameLabel": "Full name",
-      "namePlaceholder": "John Doe",
-      "emailLabel": "Email",
-      "emailPlaceholder": "john@example.com",
-      "phoneLabel": "Phone number",
-      "phonePlaceholder": "+1 234 567 8900",
-      "travellersLabel": "Number of Travellers",
-      "messageLabel": "Message",
-      "messagePlaceholder": "Tell us about your dream Zanzibar holiday...",
-      "privacyLabel": "I agree to the privacy policy",
-      "submitButton": "Send Message",
-      "submit": "Send Message",
-      "closeButton": "Close",
-      "agreeTo": "I agree to the",
-      "privacyPolicy": "privacy policy"
-    },
-    "downloadModal": {
-      "title": "Download Zanzibar Beach Guide",
-      "nameLabel": "Full name",
-      "namePlaceholder": "John Doe",
-      "emailLabel": "Email",
-      "emailPlaceholder": "john@example.com",
-      "privacyLabel": "I agree to the privacy policy",
-      "submitButton": "Download PDF",
-      "closeButton": "Close"
-    },
-    "months": {
-      "Jan": "January",
-      "Feb": "February",
-      "Mar": "March",
-      "Apr": "April",
-      "May": "May",
-      "Jun": "June",
-      "Jul": "July",
-      "Aug": "August",
-      "Sep": "September",
-      "Oct": "October",
-      "Nov": "November",
-      "Dec": "December"
-    }
-  },
-  "ZanzibarDivingCulture5Days": {
-    "hero": {
-      "title": "The Archipelago of Senses: Diving & Culture in Zanzibar (5 Days)",
-      "breadcrumb": "Tanzania / Zanzibar / Diving & Culture",
-      "duration": "5 days, 4 nights",
-      "price": "From €850",
-      "description": "The best of the Spice Island in express format. This is not a simple beach holiday, it's an intense immersion into the beating heart of the Indian Ocean. In just five days, you will experience Zanzibar's striking contrast: from the turquoise brilliance of Mnemba's underwater world and Safari Blue to the vibrant authenticity of Stone Town's labyrinthine alleys, the cradle of history and spices."
-    },
-    "miniNavbar": {
-      "datesAndPrices": "Dates & Prices",
-      "proposeDate": "Propose a date",
-      "inclusions": "Inclusions"
-    },
-    "detailedItineraryTitle": "Detailed Itinerary",
-    "itinerary": {
-      "day1": {
-        "title": "Day 1: Transfer to hotel",
-        "description": "On this day, you will arrive at Zanzibar International Airport. Upon arrival, you will meet our driver just next to the arrivals area. The driver will display your name on a board. Pick-up will depend on your flight details. You will send your flight details when you confirm the package. No extra charge for the transfer."
-      },
-      "day2": {
-        "title": "Day 2: Safari Blue Trip - Full Day",
-        "description": "This will be a full day of sailing around the mangroves and snorkeling along Menai Bay, one of the best coral reefs in Zanzibar. Sailing to Kwale Island, relaxing on a sandbank, swimming and snorkeling. Enjoy the best fresh seafood barbecue: octopus, lobster, squid, fish, etc. Taste exotic fresh fruits such as banana, watermelon, pineapple, mangoes."
-      },
-      "day3": {
-        "title": "Day 3: Half Day - Mnemba Dolphins and Snorkeling",
-        "description": "Swim with dolphins and take incredible photos. Go snorkeling and observe a variety of colorful tropical fish, corals and other marine creatures. Explore the coral reefs and marine life around Mnemba Island. This half-day will introduce you to another part of Zanzibar's north coast, Matemwe."
-      },
-      "day4": {
-        "title": "Day 4: Stone Town, Spice Farm and Prison Island",
-        "description": "On this day, you will explore by tasting and smelling different spices grown and used in Zanzibar cuisine: Cardamom, cinnamon, black pepper, cloves, etc. Learn about the history and culture of the Zanzibar people with a local professional tour guide in Stone Town by visiting the most iconic places. Enjoy a delicious lunch of locally prepared spiced rice at the farm with fresh fish and fruits such as bananas, mangoes, pineapples, etc. Observe and photograph the giant Aldabra tortoises on Prison Island. And discover the brief history of Prison Island."
-      },
-      "day5": {
-        "title": "Day 5: Airport Transfer, Goodbye!",
-        "description": "After five days of vacation in Zanzibar, on this day, you will take your return flight. The driver will take you to the airport according to your flight schedule."
-      }
-    },
-    "inclusions": {
-      "title": "What's Included / What's Not Included",
-      "priceIncludes": "Price includes:",
-      "priceDoesNotInclude": "Price does not include:",
-      "items": "Accommodation|||Round-trip transfers from airport to hotel|||Breakfast|||Transportation during excursions|||Entrance fees|||Water during excursions|||Professional driver/guide|||All taxes and VAT|||Local SIM cards",
-      "exclusions": {
-        "visa": "Visa fees",
-        "airfares": "International airfares",
-        "personalExpenses": "Personal expenses (souvenirs, drinks, etc.)",
-        "tips": "Tips"
-      },
-      "seeMore": "See more",
-      "seeFewer": "See fewer"
-    },
-    "datesAndPrices": {
-      "title": "Dates and Prices",
-      "price": "Price per person: From €850",
-      "flexible": "We offer flexible dates. Contact us to arrange your personalized trip.",
-      "contactUs": "Contact Us"
-    },
-    "newsletter": {
-      "title": "Inspiring Journeys",
-      "subtitle": "Subscribe to Our Newsletter",
-      "description": "Receive exclusive offers, travel tips, and adventure stories directly in your inbox.",
-      "firstNamePlaceholder": "First Name",
-      "emailPlaceholder": "Email",
-      "button": "Subscribe"
-    },
-    "inquiryForm": {
-      "title": "Booking Inquiry",
-      "name": "Full Name",
-      "email": "Email",
-      "date": "Desired Date",
-      "message": "Message (number of people, questions, etc.)",
-      "submit": "Send Inquiry"
-    }
-  },
-  "ZanzibarCompleteEscape8Days": {
-    "hero": {
-      "title": "The Complete Escape: Culture, Adventure & Flavors of Zanzibar (8 Days)",
-      "breadcrumb": "Tanzania / Zanzibar / Complete Escape",
-      "duration": "8 days, 7 nights",
-      "price": "From €1,500",
-      "description": "The best of the Spice Island in complete immersion. This is not a simple beach holiday, it's an intense dive into the heart of the Indian Ocean. In eight days, you will experience Zanzibar's striking contrast: from the turquoise brilliance of Mnemba's underwater world to the authentic taste of Darajani Market, through the vibrant history of Stone Town's alleys."
-    },
-    "miniNavbar": {
-      "datesAndPrices": "Dates & Prices",
-      "proposeDate": "Propose a date",
-      "inclusions": "Inclusions"
-    },
-    "detailedItineraryTitle": "Detailed Itinerary",
-    "itinerary": {
-      "day1": {
-        "title": "Day 1: Arrival in Zanzibar",
-        "description": "On this day, you will arrive at Zanzibar International Airport (ZNZ) or the ferry port. Upon arrival, you will meet our driver just next to the arrivals area. The driver will display your name on a board (Example: 'RAMA WAHABU'). Pick-up will depend on your flight or ferry details. You will send the details when you confirm the package. No extra charge for the transfer."
-      },
-      "day2": {
-        "title": "Day 2: Safari Blue Trip - Full Day",
-        "description": "This will be a full day of sailing around the mangroves and snorkeling along Menai Bay, one of the best coral reefs in Zanzibar. Sailing to Kwale Island, relaxing on a sandbank, swimming and snorkeling. Enjoy the best fresh seafood barbecue: octopus, lobster, squid, fish, etc. Taste exotic fresh fruits such as banana, watermelon, pineapple, mangoes. Return to the hotel after this adventure-filled day."
-      },
-      "day3": {
-        "title": "Day 3: Market Experience & Traditional Cooking",
-        "description": "Start your day exploring the best of Zanzibar cuisine by meeting your guide at Darajani Market where you will choose fresh ingredients. On this day, you will gain deeper insight into Zanzibar's cuisine, people, and culture through a hands-on cooking class and local market tour. This experience is designed for food enthusiasts and will allow you to explore and learn Zanzibar cuisine more deeply than in simple restaurants."
-      },
-      "day4": {
-        "title": "Day 4: Mnemba Dolphins and Snorkeling",
-        "description": "Set out to observe and swim with dolphins, then explore the colorful reefs of Mnemba Island on this full-day excursion. Our boats depart daily from Muyuni Beach, Matemwe, and our experienced guides will be happy to show and guide you during the excursion. Enjoy the abundance of brightly colored fish and marine life at Zanzibar's best snorkeling spot. On board, you will be served delicious fresh tropical fruits: banana, mangoes, pineapple, watermelon. Take photos on the beautiful sandbank near Mnemba Island (only at low tide). After the excursion, you will have a delicious seafood lunch at Muyuni Beach, one of Zanzibar's most beautiful beaches. Then, the driver will take you back to your hotel."
-      },
-      "day5": {
-        "title": "Day 5: Blue Lagoon & The Rock Restaurant",
-        "description": "On this day, prepare to explore the tropical beauty of Zanzibar's islands. Explore schools of colorful tropical fish and starfish while snorkeling at Michamvi's Blue Lagoon. After snorkeling, your table will be ready at The Rock Restaurant. You will have lunch and take photos of this unique restaurant. After The Rock Restaurant, you will return to rest at your hotel."
-      },
-      "day6": {
-        "title": "Day 6: Spice Farm & Stone Town Tour",
-        "description": "On this day, you will explore by tasting and smelling different spices grown and used in Zanzibar cuisine: Cardamom, cinnamon, black pepper, cloves, etc. Enjoy a delicious lunch of locally prepared spiced rice at the farm, including fresh fried fish and fruits. Learn about the history and culture of the Zanzibar people with a local professional tour guide in Stone Town, visiting the most iconic places like the House of Wonders, Freddie Mercury's House, the Old Slave Market, and the Sultan's Palace. Take photos and buy gifts in the souvenir shops of Stone Town's streets."
-      },
-      "day7": {
-        "title": "Day 7: Prison Island with Nakupenda Sandbank",
-        "description": "The driver will pick you up from reception after your breakfast. This will be a full-day boat excursion to Prison Island and Nakupenda sandbank, near the Stone Town coast. Observe and photograph the giant Aldabra tortoises on Prison Island, and discover the island's brief history. Relaxation on the sandbank, swimming and snorkeling at Nakupenda's natural sandbank. Enjoy the best fresh seafood barbecue: octopus, lobster, squid, etc., as well as tasting exotic fresh fruits. After the excursion, the driver will take you back to your hotel."
-      },
-      "day8": {
-        "title": "Day 8: Airport Transfer, Goodbye!",
-        "description": "Our driver will pick you up at the agreed time at your hotel. They will take you to the airport (ZNZ) or ferry port, depending on your flight or ferry time."
-      }
-    },
-    "inclusions": {
-      "title": "What's Included / What's Not Included",
-      "priceIncludes": "Price includes:",
-      "priceDoesNotInclude": "Price does not include:",
-      "items": "Accommodation|||Round-trip transfers from airport to hotel|||Breakfast|||Transportation during excursions|||Entrance fees|||Water during excursions|||Professional driver/guide|||All taxes and VAT|||Local SIM cards",
-      "exclusions": {
-        "visa": "Visa fees",
-        "airfares": "International airfares",
-        "personalExpenses": "Personal expenses (souvenirs, drinks, etc.)",
-        "tips": "Tips"
-      },
-      "seeMore": "See more",
-      "seeFewer": "See fewer"
-    },
-    "datesAndPrices": {
-      "title": "Dates and Prices",
-      "price": "Price per person: From €1,500",
-      "flexible": "We offer flexible dates. Contact us to arrange your personalized trip.",
-      "contactUs": "Contact Us"
-    },
-    "newsletter": {
-      "title": "Inspiring Journeys",
-      "subtitle": "Subscribe to Our Newsletter",
-      "description": "Receive exclusive offers, travel tips, and adventure stories directly in your inbox.",
-      "firstNamePlaceholder": "First Name",
-      "emailPlaceholder": "Email",
-      "button": "Subscribe"
-    },
-    "inquiryForm": {
-      "title": "Booking Inquiry",
-      "name": "Full Name",
-      "email": "Email",
-      "date": "Desired Date",
-      "message": "Message (number of people, questions, etc.)",
-      "submit": "Send Inquiry"
-    }
-  },
-  "WorkWithUsPage": {
-    "hero": {
-      "title": "Join Our Team",
-      "subtitle": "Create unforgettable travel experiences and shape the future of tourism in Tanzania",
-      "cta": "View Positions"
-    },
-    "mission": {
-      "title": "Our Mission",
-      "paragraph1": "At La Tanzanie, we're passionate about creating authentic, transformative adventures that connect travelers with Tanzania's natural and cultural wonders. Our team is composed of dedicated individuals who share a love for exploration, sustainability, and service excellence.",
-      "paragraph2": "We're looking for talented people who are not only skilled in their fields but also driven by a commitment to responsible tourism and exceptional customer experiences. If you're ready to be part of something special, we'd love to hear from you."
-    },
-    "benefits": {
-      "title": "Why Join Us",
-      "subtitle": "Discover what makes La Tanzanie an exceptional place to work",
-      "globalImpact": {
-        "title": "Global Impact",
-        "description": "Contribute to sustainable tourism that benefits local communities and preserves Tanzania's natural wonders for future generations."
-      },
-      "teamCulture": {
-        "title": "Dynamic Team Culture",
-        "description": "Work with a diverse, passionate team that values collaboration, creativity, and mutual respect in a supportive environment."
-      },
-      "growth": {
-        "title": "Professional Growth",
-        "description": "Develop your skills through continuous training, mentorship, and opportunities for advancement in the growing tourism industry."
-      },
-      "recognition": {
-        "title": "Recognition & Rewards",
-        "description": "We celebrate achievements, offer competitive compensation, and recognize the exceptional work of our team members."
-      }
-    },
-    "positions": {
-      "title": "Open Positions",
-      "subtitle": "Explore career opportunities with La Tanzanie",
-      "apply": "Apply Now",
-      "tourGuide": {
-        "title": "Tour Guide - Kilimanjaro",
-        "location": "Arusha, Tanzania",
-        "type": "Full-time",
-        "description": "Lead climbers to the summit of Kilimanjaro while ensuring their safety and providing an exceptional educational experience. Mountain guide certification required."
-      },
-      "travelCoordinator": {
-        "title": "Travel Coordinator",
-        "location": "Arusha, Tanzania",
-        "type": "Full-time",
-        "description": "Plan and coordinate customized travel itineraries, manage bookings, and ensure seamless customer experiences from start to finish."
-      },
-      "contentCreator": {
-        "title": "Content Creator",
-        "location": "Hybrid",
-        "type": "Full-time",
-        "description": "Create compelling visual and written content for our digital channels, showcasing Tanzania's beauty and our customers' experiences."
-      },
-      "customerSuccess": {
-        "title": "Customer Success Specialist",
-        "location": "Remote",
-        "type": "Full-time",
-        "description": "Provide exceptional support to our customers, handle inquiries, and ensure every traveler has a memorable experience with La Tanzanie."
-      }
-    },
-    "contact": {
-      "title": "Don't See What You're Looking For?",
-      "subtitle": "Send us your spontaneous application - we're always looking for exceptional talent",
-      "email": {
-        "label": "Email"
-      },
-      "phone": {
-        "label": "Phone"
-      },
-      "location": {
-        "label": "Location"
-      }
-    },
-    "modal": {
-      "title": "Apply Now",
-      "description": "Fill out the form below and we'll get back to you as soon as possible.",
-      "firstName": "First Name",
-      "lastName": "Last Name",
-      "email": "Email",
-      "phone": "Phone",
-      "position": "Position",
-      "selectPosition": "Select a position",
-      "resume": "Resume/CV",
-      "coverLetter": "Cover Letter",
-      "coverLetterPlaceholder": "Tell us about yourself and why you'd be perfect for this role...",
-      "submit": "Submit Application"
     }
   }
 }

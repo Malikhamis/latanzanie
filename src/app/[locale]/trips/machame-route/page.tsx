@@ -54,13 +54,7 @@ export default function MachameRoutePage() {
     // JSON-encoded strings in the locale files and we prefer the static
     // JSON lookup; calling tHook for keys that aren't present in the
     // loaded messages causes next-intl to throw MISSING_MESSAGE.
-    // Also skip keys that are known to be missing or cause MISSING_MESSAGE errors.
-    if (
-      key.startsWith('datesByMonth.') || 
-      key.startsWith('datesAndPrices.') ||
-      key.startsWith('itinerary.departureDay.') ||
-      key.startsWith('inclusions.exclusions.')
-    ) {
+    if (key.startsWith('datesByMonth.') || key.startsWith('datesAndPrices.')) {
       return fallback
     }
 
@@ -79,7 +73,7 @@ export default function MachameRoutePage() {
   // Fallback sample dates (small set) and parser to read translated month data if provided
   const fallbackSampleDates: Record<string, Array<any>> = {
     '2026-Feb': [
-      { date: 'Feb 10, 2026', route: '7 Day - Machame Route', status: 'Open for bookings', price: 'from €2,000', deposit: 'Deposit €250' }
+      { date: 'Feb 10, 2026', route: '7 Day - Machame Route', status: 'Open for bookings', price: 'from USD2,990', deposit: 'Deposit USD250' }
     ]
   }
 
@@ -102,49 +96,13 @@ export default function MachameRoutePage() {
     }
     return fallbackSampleDates[monthKey] || []
   }
-
-  // Helper function to calculate date range for 9-day trip (7 days trek + arrival + departure)
-  const calculateDateRange = (startDate: Date, durationDays: number = 9) => {
-    const endDate = new Date(startDate)
-    endDate.setDate(startDate.getDate() + durationDays - 1)
-    
-    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    const startMonth = monthNames[startDate.getMonth()]
-    const startDay = startDate.getDate()
-    const endDay = endDate.getDate()
-    const year = startDate.getFullYear()
-    
-    return `${startMonth} ${startDay}-${endDay}, ${year}`
-  }
-
-  // Generate 5 sample dates based on selected month
-  const generateSampleDates = (monthKey: string, durationDays: number = 9) => {
-    const [yearStr, monthStr] = monthKey.split('-')
-    const year = parseInt(yearStr)
-    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    const monthIndex = monthNames.indexOf(monthStr)
-    
-    if (monthIndex === -1) return []
-    
-    const dates = []
-    for (let i = 0; i < 5; i++) {
-      const startDate = new Date(year, monthIndex, 5 + (i * 7)) // Weekly departures starting on 5th
-      dates.push({
-        startDate,
-        dateRange: calculateDateRange(startDate, durationDays)
-      })
-    }
-    return dates
-  }
-
   const [activeSection, setActiveSection] = useState('')
   const [isContactModalOpen, setIsContactModalOpen] = useState(false)
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false)
   const [isWhenDropdownOpen, setIsWhenDropdownOpen] = useState(false)
   const [isItineraryDropdownOpen, setIsItineraryDropdownOpen] = useState(false)
-  const [isGroupDropdownOpen, setIsGroupDropdownOpen] = useState(false)
-  const [selectedMonths, setSelectedMonths] = useState<string[]>(['2026-Jan'])
-  const [selectedItineraries, setSelectedItineraries] = useState<string[]>(['machame'])
+  const [selectedMonths, setSelectedMonths] = useState<string[]>([])
+  const [selectedItineraries, setSelectedItineraries] = useState<string[]>([])
   const [isInquiryFormOpen, setIsInquiryFormOpen] = useState(false)
   const [showAllInclusions, setShowAllInclusions] = useState(false)
   
@@ -152,18 +110,6 @@ export default function MachameRoutePage() {
   const datesPricesRef = useRef<HTMLElement>(null)
   const inclusionsRef = useRef<HTMLElement>(null)
   const accommodationRef = useRef<HTMLElement>(null)
-  const monthDropdownRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (monthDropdownRef.current && !monthDropdownRef.current.contains(event.target as Node)) {
-        setIsWhenDropdownOpen(false)
-      }
-    }
-
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
 
   // provide backwards-compatible `t` used across the file by delegating to safeT
   const t = (key: string, fallback = '') => safeT(key, fallback)
@@ -190,7 +136,7 @@ export default function MachameRoutePage() {
     "High-quality, four-season sleeping bag",
     "High-quality, four-season sleeping tent",
     "Sleeping mat",
-    "Private toilet (1 per 8 climbers)",
+    "Private Follow Alice toilet (1 per 8 climbers)",
     "Organisation of any rental equipment, if required",
     "Medical equipment (incl. pulse oximeter and emergency oxygen)",
     "Climb certificate"
@@ -264,8 +210,9 @@ export default function MachameRoutePage() {
       return prev
     })
 
+    const defaultItinerary = safeT('defaultItinerary', 'Machame Route')
     setSelectedItineraries((prev) => {
-      if (!prev || prev.length === 0) return ['machame']
+      if (!prev || prev.length === 0) return [defaultItinerary]
       return prev
     })
   }, [])
@@ -290,7 +237,9 @@ export default function MachameRoutePage() {
             fill
             className="object-cover w-full h-full"
             style={{ objectPosition: '50% 35%' }}
-            priority />
+            priority
+            unoptimized
+          />
         </div>
         
         {/* Overlay to ensure text readability */}
@@ -467,7 +416,7 @@ export default function MachameRoutePage() {
                   {/* Image - Always second on mobile and desktop */}
                   <div className="order-2">
                     <div className="relative w-full h-96 rounded-xl overflow-hidden">
-                      <Image src="/images/arrival1.jpg" alt="Arrival Day" fill className="object-cover" />
+                      <Image src="/images/arrival1.jpg" alt="Arrival Day" fill className="object-cover" unoptimized />
                     </div>
                   </div>
                 </div>
@@ -490,7 +439,7 @@ export default function MachameRoutePage() {
                   {/* Image - Always second on mobile, left on desktop */}
                   <div className="order-2 md:order-1">
                     <div className="relative w-full h-96 rounded-xl overflow-hidden">
-                      <Image src="/images/gate1.jpg" alt="Day 1 - Machame Gate" fill className="object-cover" />
+                      <Image src="/images/gate1.jpg" alt="Day 1 - Machame Gate" fill className="object-cover" unoptimized />
                     </div>
                   </div>
                 </div>
@@ -513,7 +462,7 @@ export default function MachameRoutePage() {
                   {/* Image - Always second on mobile and desktop */}
                   <div className="order-2">
                     <div className="relative w-full h-96 rounded-xl overflow-hidden">
-                      <Image src="/images/machamer.jpg" alt="Day 2 - Shira Camp" fill className="object-cover" />
+                      <Image src="/images/machamer.jpg" alt="Day 2 - Shira Camp" fill className="object-cover" unoptimized />
                     </div>
                   </div>
                 </div>
@@ -536,7 +485,7 @@ export default function MachameRoutePage() {
                   {/* Image - Always second on mobile, left on desktop */}
                   <div className="order-2 md:order-1">
                     <div className="relative w-full h-96 rounded-xl overflow-hidden">
-                      <Image src="/images/lava1.jpg" alt="Day 3 - Lava Tower" fill className="object-cover" />
+                      <Image src="/images/lava1.jpg" alt="Day 3 - Lava Tower" fill className="object-cover" unoptimized />
                     </div>
                   </div>
                 </div>
@@ -559,7 +508,7 @@ export default function MachameRoutePage() {
                   {/* Image - Always second on mobile and desktop */}
                   <div className="order-2">
                     <div className="relative w-full h-96 rounded-xl overflow-hidden">
-                      <Image src="/images/barranco.jpg" alt="Day 4 - Barranco Wall" fill className="object-cover" />
+                      <Image src="/images/barranco.jpg" alt="Day 4 - Barranco Wall" fill className="object-cover" unoptimized />
                     </div>
                   </div>
                 </div>
@@ -582,7 +531,7 @@ export default function MachameRoutePage() {
                   {/* Image - Always second on mobile, left on desktop */}
                   <div className="order-2 md:order-1">
                     <div className="relative w-full h-96 rounded-xl overflow-hidden">
-                      <Image src="/images/barafu.jpg" alt="Day 5 - Barafu Camp" fill className="object-cover" />
+                      <Image src="/images/barafu.jpg" alt="Day 5 - Barafu Camp" fill className="object-cover" unoptimized />
                     </div>
                   </div>
                 </div>
@@ -606,7 +555,7 @@ export default function MachameRoutePage() {
                   {/* Image - Always second on mobile and desktop */}
                   <div className="order-2">
                     <div className="relative w-full h-96 rounded-xl overflow-hidden">
-                      <Image src="/images/kilele1.jpg" alt="Day 6 - Summit Day" fill className="object-cover" />
+                      <Image src="/images/kilele1.jpg" alt="Day 6 - Summit Day" fill className="object-cover" unoptimized />
                     </div>
                   </div>
                 </div>
@@ -629,7 +578,7 @@ export default function MachameRoutePage() {
                   {/* Image - Always second on mobile, left on desktop */}
                   <div className="order-2 md:order-1">
                     <div className="relative w-full h-96 rounded-xl overflow-hidden">
-                      <Image src="/images/mweka.jpg" alt="Day 7 - Descent" fill className="object-cover" />
+                      <Image src="/images/mweka.jpg" alt="Day 7 - Descent" fill className="object-cover" unoptimized />
                     </div>
                   </div>
                 </div>
@@ -646,388 +595,428 @@ export default function MachameRoutePage() {
                   {/* Image - Always second on mobile and desktop */}
                   <div className="order-2">
                     <div className="relative w-full h-96 rounded-xl overflow-hidden">
-                      <Image src="/images/bye.jpg" alt="Departure Day" fill className="object-cover" />
+                      <Image src="/images/moshi.jpg" alt="Departure Day" fill className="object-cover" unoptimized />
                     </div>
                   </div>
                 </div>
               </div>
               
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Inclusions Section */}
-      <section ref={inclusionsRef} className="py-20 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
-              {t('inclusionsSection.title')}
-            </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-[#72D9C4] to-[#00A896] mx-auto rounded-full mb-12"></div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {/* Inclusions */}
-              <div className="bg-white rounded-2xl shadow-xl p-6 border-t-4 border-[#00A896]">
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#72D9C4] to-[#00A896] flex items-center justify-center">
-                    <CheckCircle className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900">{t('inclusionsSection.included')}</h3>
-                </div>
-                <ul className="space-y-3">
-                  {displayedInclusions.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-[#00A896] flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                {!showAllInclusions && allInclusions.length > 10 && (
-                  <button 
-                    onClick={() => setShowAllInclusions(true)}
-                    className="mt-4 text-[#00A896] hover:text-[#008576] font-medium flex items-center gap-2"
-                  >
-                    Show all {allInclusions.length} inclusions
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                )}
-              </div>
-
-              {/* Exclusions */}
-              <div className="bg-white rounded-2xl shadow-xl p-6 border-t-4 border-gray-400">
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gray-400 to-gray-600 flex items-center justify-center">
-                    <XCircle className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900">{t('inclusionsSection.excluded')}</h3>
-                </div>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <XCircle className="w-5 h-5 text-gray-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{t('inclusionsSection.exclusion1')}</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <XCircle className="w-5 h-5 text-gray-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{t('inclusionsSection.exclusion2')}</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <XCircle className="w-5 h-5 text-gray-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{t('inclusionsSection.exclusion3')}</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <XCircle className="w-5 h-5 text-gray-400 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{t('inclusionsSection.exclusion4')}</span>
-                  </li>
-                </ul>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Dates & Prices Section */}
-      <section ref={datesPricesRef} className="py-16 bg-white">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900">
-            Book your trip
+      <section ref={datesPricesRef} className="py-16 bg-gradient-to-br from-[#F0FCF9] via-[#E8F8F5] to-[#DDF5F0]">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-[#72D9C4] to-[#00A896] bg-clip-text text-transparent">
+            {t('datesAndPrices.title')}
           </h2>
           
-          {/* Compact Action Cards - Horizontal Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-            <div 
-              onClick={() => setIsContactModalOpen(true)}
-              className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer"
-            >
-              <div className="flex items-center gap-3">
-                <div className="text-2xl">💰</div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-gray-900 text-base">Group Discounts</h3>
-                  <p className="text-gray-600 text-sm">Enquire for more details</p>
+          <div className="max-w-5xl mx-auto">
+            {/* Top Cards - Group Discounts & Propose Date */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+              <div className="bg-white/80 backdrop-blur-sm border-2 border-[#B8EDE3] rounded-2xl p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 bg-gradient-to-br from-[#4DC5B5] to-[#00A896] rounded-xl mr-4">
+                    <Users className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">{t('datesAndPrices.groupDiscounts')}</h3>
                 </div>
+                <p className="text-gray-600 mb-6 text-lg leading-relaxed">{t('datesAndPrices.dontSeeDates')}</p>
+                <button 
+                  onClick={() => setIsInquiryFormOpen(true)}
+                  className="bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full"
+                >
+                  {t('datesAndPrices.enquireButton')}
+                </button>
+              </div>
+              
+              <div className="bg-white/80 backdrop-blur-sm border-2 border-[#B8EDE3] rounded-2xl p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 bg-gradient-to-br from-[#4DC5B5] to-[#00A896] rounded-xl mr-4">
+                    <Calendar className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">{t('datesAndPrices.proposeNewDate')}</h3>
+                </div>
+                <p className="text-gray-600 mb-6 text-lg leading-relaxed">{t('datesAndPrices.proposeDateDescription')}</p>
+                <button 
+                  onClick={() => setIsInquiryFormOpen(true)}
+                  className="bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full"
+                >
+                  {t('datesAndPrices.proposeDateButton')}
+                </button>
               </div>
             </div>
             
-            <div 
-              onClick={() => setIsContactModalOpen(true)}
-              className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer"
-            >
-              <div className="flex items-center gap-3">
-                <div className="text-2xl">📅</div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-gray-900 text-base">Don't see your dates?</h3>
-                  <p className="text-gray-600 text-sm">Please propose a new departure</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Filters - Compact Inline */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-6">
-            {/* When Selector */}
-            <div ref={monthDropdownRef} className="relative flex-1">
-              <button 
-                onClick={() => setIsWhenDropdownOpen(!isWhenDropdownOpen)}
-                className="w-full bg-white border border-gray-300 rounded-lg px-4 py-2.5 text-base font-medium text-gray-700 hover:bg-gray-50 transition-colors flex items-center justify-between"
-              >
-                <span className="flex items-center gap-2">
-                  <span className="text-gray-600">When</span>
-                  <span className="font-semibold">{selectedMonths.length > 0 ? selectedMonths[0].replace('-', ' ') : 'January 2026'}</span>
-                </span>
-                <svg className={`w-4 h-4 transition-transform ${isWhenDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              
-              {isWhenDropdownOpen && (
-                <div className="absolute z-20 mt-2 w-full bg-white rounded-lg shadow-xl border border-gray-200 p-4 max-h-96 overflow-y-auto">
-                  {/* 2025 */}
-                  <div className="mb-4">
-                    <h4 className="text-base font-bold text-gray-900 mb-3">2025</h4>
-                    <div className="grid grid-cols-4 gap-2 mb-4">
-                      {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month) => {
-                        const monthKey = `2025-${month}`;
-                        const isSelected = selectedMonths.includes(monthKey);
-                        return (
-                          <button 
-                            key={monthKey} 
-                            onClick={() => {
-                              setSelectedMonths([monthKey]);
-                              setIsWhenDropdownOpen(false);
-                            }}
-                            className={`py-2 px-3 rounded-lg text-base font-medium transition-colors ${
-                              isSelected 
-                                ? 'bg-[#00A896] text-white' 
-                                : 'text-gray-500 hover:bg-gray-100'
-                            }`}
-                          >
-                            {month}
-                          </button>
-                        );
-                      })}
-                    </div>
+            {/* Bottom Section - When & Group Options */}
+            <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl border border-gray-200 overflow-hidden">
+              <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-200">
+                {/* When Section - Left Half */}
+                <div className="p-8">
+                  <div className="flex items-center justify-between mb-6">
+                    <h3 className="text-2xl font-bold text-gray-900 flex items-center">
+                      <Calendar className="mr-2 h-6 w-6 text-[#00A896]" />
+                      {t('datesAndPrices.when')}
+                    </h3>
+                    <span className="bg-gradient-to-r from-[#E8F8F5] to-[#D0F0E8] text-[#008576] px-4 py-2 rounded-full text-sm font-bold shadow-sm">
+                      {selectedMonths.length} {t('datesAndPrices.selected')}
+                    </span>
                   </div>
-                  
-                  {/* 2026 */}
-                  <div className="mb-4">
-                    <h4 className="text-base font-bold text-gray-900 mb-3">2026</h4>
-                    <div className="grid grid-cols-4 gap-2 mb-4">
-                      {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month) => {
-                        const monthKey = `2026-${month}`;
-                        const isSelected = selectedMonths.includes(monthKey);
-                        return (
-                          <button 
-                            key={monthKey} 
-                            onClick={() => {
-                              setSelectedMonths([monthKey]);
-                              setIsWhenDropdownOpen(false);
-                            }}
-                            className={`py-2 px-3 rounded-lg text-base font-medium transition-colors ${
-                              isSelected 
-                                ? 'bg-[#00A896] text-white' 
-                                : 'text-gray-700 hover:bg-gray-100'
-                            }`}
-                          >
-                            {month}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                  
-                  {/* 2027 */}
-                  <div>
-                    <h4 className="text-base font-bold text-gray-900 mb-3">2027</h4>
-                    <div className="grid grid-cols-4 gap-2">
-                      {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month) => {
-                        const monthKey = `2027-${month}`;
-                        const isSelected = selectedMonths.includes(monthKey);
-                        return (
-                          <button 
-                            key={monthKey} 
-                            onClick={() => {
-                              setSelectedMonths([monthKey]);
-                              setIsWhenDropdownOpen(false);
-                            }}
-                            className={`py-2 px-3 rounded-lg text-base font-medium transition-colors ${
-                              isSelected 
-                                ? 'bg-[#00A896] text-white' 
-                                : 'text-gray-700 hover:bg-gray-100'
-                            }`}
-                          >
-                            {month}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-            
-            {/* Route Selector - Shows only this route */}
-            <div className="relative flex-1">
-              <button 
-                onClick={() => setIsGroupDropdownOpen(!isGroupDropdownOpen)}
-                className="w-full bg-white border border-gray-300 rounded-lg px-4 py-2.5 text-base font-medium text-gray-700 hover:bg-gray-50 transition-colors flex items-center justify-between"
-              >
-                <span className="flex items-center gap-2">
-                  <span className="text-gray-600">Route</span>
-                  <span className="font-semibold">{selectedItineraries.length} Selected</span>
-                </span>
-                <svg className={`w-4 h-4 transition-transform ${isGroupDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              
-              {isGroupDropdownOpen && (
-                <div className="absolute z-20 mt-2 w-full bg-white rounded-lg shadow-xl border border-gray-200 p-3">
-                  <label className="flex items-center gap-2 p-2 rounded hover:bg-gray-50 cursor-pointer">
-                    <input 
-                      type="checkbox" 
-                      checked={selectedItineraries.includes('lemosho')} 
-                      onChange={() => {
-                        if (selectedItineraries.includes('lemosho')) {
-                          setSelectedItineraries(selectedItineraries.filter(s => s !== 'lemosho'));
-                        } else {
-                          setSelectedItineraries([...selectedItineraries, 'lemosho']);
-                        }
-                      }} 
-                      className="w-4 h-4 text-[#00A896] rounded"
-                    />
-                    <span className="text-base text-gray-800">Lemosho Route - 7/8 Days</span>
-                  </label>
-                  <label className="flex items-center gap-2 p-2 rounded hover:bg-gray-50 cursor-pointer">
-                    <input 
-                      type="checkbox" 
-                      checked={selectedItineraries.includes('machame')} 
-                      onChange={() => {
-                        if (selectedItineraries.includes('machame')) {
-                          setSelectedItineraries(selectedItineraries.filter(s => s !== 'machame'));
-                        } else {
-                          setSelectedItineraries([...selectedItineraries, 'machame']);
-                        }
-                      }} 
-                      className="w-4 h-4 text-[#00A896] rounded"
-                    />
-                    <span className="text-base text-gray-800">Machame Route - 6/7 Days</span>
-                  </label>
-                  <label className="flex items-center gap-2 p-2 rounded hover:bg-gray-50 cursor-pointer">
-                    <input 
-                      type="checkbox" 
-                      checked={selectedItineraries.includes('marangu')} 
-                      onChange={() => {
-                        if (selectedItineraries.includes('marangu')) {
-                          setSelectedItineraries(selectedItineraries.filter(s => s !== 'marangu'));
-                        } else {
-                          setSelectedItineraries([...selectedItineraries, 'marangu']);
-                        }
-                      }} 
-                      className="w-4 h-4 text-[#00A896] rounded"
-                    />
-                    <span className="text-base text-gray-800">Marangu Route - 5/6 Days</span>
-                  </label>
-                  <label className="flex items-center gap-2 p-2 rounded hover:bg-gray-50 cursor-pointer">
-                    <input 
-                      type="checkbox" 
-                      checked={selectedItineraries.includes('umbwe')} 
-                      onChange={() => {
-                        if (selectedItineraries.includes('umbwe')) {
-                          setSelectedItineraries(selectedItineraries.filter(s => s !== 'umbwe'));
-                        } else {
-                          setSelectedItineraries([...selectedItineraries, 'umbwe']);
-                        }
-                      }} 
-                      className="w-4 h-4 text-[#00A896] rounded"
-                    />
-                    <span className="text-base text-gray-800">Umbwe Route - 6/7 Days</span>
-                  </label>
-                </div>
-              )}
-            </div>
-          </div>
-          
-          {/* Show earlier dates link */}
-          <div className="text-center mb-4">
-            <button className="text-base text-gray-600 hover:text-gray-900 inline-flex items-center gap-1">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-              Show earlier dates
-            </button>
-          </div>
-          
-          {/* Date Header */}
-          <div className="mb-4">
-            <h3 className="text-xl font-bold text-gray-900">
-              {selectedMonths.length > 0 
-                ? selectedMonths[0].replace('-', ' ') 
-                : 'Jan 2026'}
-            </h3>
-          </div>
-          
-          {/* Trip Dates - List Style */}
-          <div className="space-y-3 mb-6">
-            {selectedItineraries.includes('machame') && generateSampleDates(selectedMonths[0] || '2026-Jan', 9).map((dateInfo, index) => (
-              <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
-                <div className="flex flex-col md:flex-row md:items-center gap-4">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="font-semibold text-gray-900 text-base">Machame Route - 7 Days</span>
-                    </div>
-                    <div className="flex flex-wrap items-center gap-2 text-base text-gray-600">
-                      <div className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4" />
-                        <span>{dateInfo.dateRange}</span>
-                      </div>
-                      <span className="text-gray-500">•</span>
-                      <span className="text-sm text-gray-600">Most popular Kilimanjaro route</span>
-                      <span className="px-2 py-1 bg-green-100 text-green-700 rounded text-sm font-medium">Available</span>
-                    </div>
-                  </div>
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-                    <div className="text-right">
-                      <div className="text-base text-gray-600">from <span className="font-semibold text-gray-900">€2,000</span></div>
-                      <div className="text-sm text-gray-500">Deposit €100</div>
-                    </div>
+                  <div className="mb-6">
                     <button 
-                      onClick={() => setIsContactModalOpen(true)}
-                      className="bg-[#00A896] hover:bg-[#008576] text-white px-6 py-2 rounded-md text-base font-medium transition-colors whitespace-nowrap"
+                      onClick={() => setIsWhenDropdownOpen(!isWhenDropdownOpen)}
+                      className="w-full p-4 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00A896] focus:border-[#00A896] bg-white text-left flex justify-between items-center hover:border-[#72D9C4] transition-colors"
                     >
-                      Enquire
+                      <span className="font-medium text-gray-700">{selectedMonths.length > 0 ? `${selectedMonths.length} ${t('datesAndPrices.selected')}` : t('datesAndPrices.selectMonth')}</span>
+                      <svg className={`transform transition-transform ${isWhenDropdownOpen ? 'rotate-180' : ''} fill-current h-5 w-5 text-gray-500`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                      </svg>
                     </button>
+                    
+                    {isWhenDropdownOpen && (
+                      <div className="border-2 border-[#B8EDE3] rounded-xl mt-3 p-6 max-h-72 overflow-y-auto bg-gradient-to-br from-white to-[#E8F8F5] shadow-lg">
+                        <div className="grid grid-cols-3 gap-3">
+                          <div className="font-bold text-gray-900 col-span-3 mb-2 text-lg">2025</div>
+                          {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month, index) => {
+                            const monthKey = `2025-${month}`;
+                            const isSelected = selectedMonths.includes(monthKey);
+                            const translatedMonth = safeT(`months.${month}`, month);
+                            return (
+                              <button 
+                                key={monthKey} 
+                                onClick={() => {
+                                  if (isSelected) {
+                                    setSelectedMonths(selectedMonths.filter(m => m !== monthKey));
+                                  } else {
+                                    setSelectedMonths([...selectedMonths, monthKey]);
+                                  }
+                                }}
+                                className={`font-semibold py-3 px-2 rounded-lg transition-all duration-200 text-sm ${
+                                  isSelected 
+                                    ? 'bg-gradient-to-r from-[#72D9C4] to-[#00A896] text-white shadow-md transform scale-105' 
+                                    : 'bg-white hover:bg-[#E8F8F5] text-gray-700 border border-gray-200 hover:border-[#B8EDE3]'
+                                }`}
+                              >
+                                {translatedMonth}
+                              </button>
+                            );
+                          })}
+                          <div className="font-bold text-gray-900 col-span-3 mt-4 mb-2 text-lg">2026</div>
+                          {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month, index) => {
+                            const monthKey = `2026-${month}`;
+                            const isSelected = selectedMonths.includes(monthKey);
+                            const translatedMonth = safeT(`months.${month}`, month);
+                            return (
+                              <button 
+                                key={monthKey} 
+                                onClick={() => {
+                                  if (isSelected) {
+                                    setSelectedMonths(selectedMonths.filter(m => m !== monthKey));
+                                  } else {
+                                    setSelectedMonths([...selectedMonths, monthKey]);
+                                  }
+                                }}
+                                className={`font-semibold py-3 px-2 rounded-lg transition-all duration-200 text-sm ${
+                                  isSelected 
+                                    ? 'bg-gradient-to-r from-[#72D9C4] to-[#00A896] text-white shadow-md transform scale-105' 
+                                    : 'bg-white hover:bg-[#E8F8F5] text-gray-700 border border-gray-200 hover:border-[#B8EDE3]'
+                                }`}
+                              >
+                                {translatedMonth}
+                              </button>
+                            );
+                          })}
+                          <div className="font-bold text-gray-900 col-span-3 mt-4 mb-2 text-lg">2027</div>
+                          {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month, index) => {
+                            const monthKey = `2027-${month}`;
+                            const isSelected = selectedMonths.includes(monthKey);
+                            const translatedMonth = safeT(`months.${month}`, month);
+                            return (
+                              <button 
+                                key={monthKey} 
+                                onClick={() => {
+                                  if (isSelected) {
+                                    setSelectedMonths(selectedMonths.filter(m => m !== monthKey));
+                                  } else {
+                                    setSelectedMonths([...selectedMonths, monthKey]);
+                                  }
+                                }}
+                                className={`font-semibold py-3 px-2 rounded-lg transition-all duration-200 text-sm ${
+                                  isSelected 
+                                    ? 'bg-gradient-to-r from-[#72D9C4] to-[#00A896] text-white shadow-md transform scale-105' 
+                                    : 'bg-white hover:bg-[#E8F8F5] text-gray-700 border border-gray-200 hover:border-[#B8EDE3]'
+                                }`}
+                              >
+                                {translatedMonth}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  
+                  {/* Display selected date when months are selected */}
+                  {selectedMonths.length > 0 && (
+                    <div className="pt-6 border-t-2 border-gray-200 bg-gradient-to-br from-[#E8F8F5] to-[#D0F0E8] rounded-xl p-6 mt-4">
+                      {selectedMonths.map((monthKey) => {
+                        const [year, month] = monthKey.split('-')
+                        const heading = `${month} ${year}`
+                        const rawList = getDatesForMonth(monthKey)
+                        const list = (rawList || []).filter((item) => {
+                          if (!selectedItineraries || selectedItineraries.length === 0) return true
+                          return selectedItineraries.some(si => {
+                            try { return item.route && item.route.toLowerCase().includes(si.toLowerCase()) } catch (e) { return false }
+                          })
+                        })
+
+                        return (
+                          <div key={monthKey} className="mb-6">
+                            <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4 gap-4">
+                              <div>
+                                <h4 className="text-xl font-bold text-gray-900">{heading}</h4>
+                              </div>
+                              <span className="font-bold text-[#00A896] text-2xl">{t('datesAndPrices.fromPrice')}</span>
+                            </div>
+
+                            {list.length > 0 ? (
+                              <div className="space-y-4">
+                                {list.map((item, idx) => (
+                                  <div key={idx} className="bg-white rounded-2xl shadow transition-transform hover:-translate-y-1 p-3 md:p-5 flex flex-col md:flex-row items-start md:items-center gap-3 md:gap-4">
+                                    <div className="flex items-start gap-3 w-full md:w-auto">
+                                      <div className="rounded-md border border-gray-200 p-2 md:p-3 text-gray-700 bg-white flex-shrink-0">
+                                        <Calendar className="h-4 w-4 md:h-5 md:w-5" />
+                                      </div>
+                                      <div>
+                                        <div className="text-lg md:text-xl font-semibold leading-tight text-gray-900">{item.date}</div>
+                                        <div className="text-sm md:text-sm text-gray-500 mt-1">{item.route}</div>
+                                      </div>
+                                    </div>
+
+                                    <div className="flex-1 mt-2 md:mt-0 md:px-6 flex flex-col md:flex-row md:items-center md:justify-start gap-1 w-full">
+                                      <div className={`text-sm md:text-sm font-semibold ${item.status && item.status.includes('Open') ? 'text-green-500' : 'text-orange-500'}`}>{item.status}</div>
+                                      <div className="text-sm md:text-sm text-gray-500">{item.price} <span className="mx-2">|</span> {item.deposit}</div>
+                                    </div>
+
+                                    <div className="w-full md:w-auto flex items-center justify-between md:justify-end gap-3">
+                                      <button onClick={() => setIsContactModalOpen(true)} className="bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white px-6 py-3 rounded-[12px] shadow-sm w-full md:w-auto text-base font-semibold">{t('datesAndPrices.enquireButton')}</button>
+                                      <button className="text-gray-400 p-2 md:hidden" aria-label="expand">▾</button>
+                                      <button className="text-gray-400 p-2 hidden md:block" aria-label="expand">▾</button>
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            ) : (
+                              <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg p-6 text-center">
+                                <p className="text-gray-700 text-lg mb-4">{safeT('datesAndPrices.noDeparturesMessage', 'No departures for this itinerary in the selected month.')}</p>
+                                <button onClick={() => setIsContactModalOpen(true)} className="bg-gradient-to-r from-[#72D9C4] to-[#00A896] text-white font-semibold py-2 px-6 rounded-lg">{safeT('datesAndPrices.contactUsCTA', 'Contact us to request alternate dates')}</button>
+                              </div>
+                            )}
+                          </div>
+                        )
+                      })}
+                    </div>
+                  )}
+                </div>
+                
+                {/* Group Joining Options - Right Half */}
+                <div className="p-8">
+                  <div className="flex items-center justify-between mb-6">
+                    <h3 className="text-2xl font-bold text-gray-900 flex items-center">
+                      <Users className="mr-2 h-6 w-6 text-[#00A896]" />
+                      {t('datesAndPrices.groupOptions')}
+                    </h3>
+                    <span className="bg-gradient-to-r from-[#E8F8F5] to-[#D0F0E8] text-[#008576] px-4 py-2 rounded-full text-sm font-bold shadow-sm">
+                      {selectedItineraries.length} {t('datesAndPrices.selected')}
+                    </span>
+                  </div>
+                  
+                  <div className="mb-6">
+                    <button 
+                      onClick={() => setIsItineraryDropdownOpen(!isItineraryDropdownOpen)}
+                      className="w-full p-4 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00A896] focus:border-[#00A896] bg-white text-left flex justify-between items-center hover:border-[#72D9C4] transition-colors mb-4"
+                    >
+                      <span className="font-medium text-gray-700">{selectedItineraries.length > 0 ? `${selectedItineraries.length} ${t('datesAndPrices.selected')}` : t('datesAndPrices.selectGroup')}</span>
+                      <svg className={`transform transition-transform ${isItineraryDropdownOpen ? 'rotate-180' : ''} fill-current h-5 w-5 text-gray-500`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                      </svg>
+                    </button>
+                    
+                    {isItineraryDropdownOpen && (
+                      <div className="border-2 border-[#B8EDE3] rounded-xl p-6 bg-gradient-to-br from-white to-[#E8F8F5] shadow-lg space-y-3">
+                        {[t('datesAndPrices.soloTraveler'), t('datesAndPrices.couple'), t('datesAndPrices.familyGroup'), t('datesAndPrices.friendsGroup'), t('datesAndPrices.corporateGroup')].map((groupOption) => {
+                          const isSelected = selectedItineraries.includes(groupOption);
+                          return (
+                            <div key={groupOption} className="flex items-center p-3 rounded-lg hover:bg-white/80 transition-colors">
+                              <input
+                                type="checkbox"
+                                id={groupOption}
+                                checked={isSelected}
+                                onChange={() => {
+                                  if (isSelected) {
+                                    setSelectedItineraries(selectedItineraries.filter(i => i !== groupOption));
+                                  } else {
+                                    setSelectedItineraries([...selectedItineraries, groupOption]);
+                                  }
+                                }}
+                                className="h-5 w-5 text-[#00A896] focus:ring-[#00A896] border-gray-300 rounded cursor-pointer"
+                              />
+                              <label htmlFor={groupOption} className="ml-3 block text-gray-800 font-medium text-base cursor-pointer">
+                                {groupOption}
+                              </label>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-          
-          {/* Show later dates link */}
-          <div className="text-center mb-8">
-            <button className="text-base text-gray-600 hover:text-gray-900 inline-flex items-center gap-1">
-              Show later dates
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
-          
-          {/* Don't see your dates section */}
-          <div className="bg-gray-50 rounded-lg p-8 text-center">
-            <div className="inline-block p-3 bg-white rounded-full mb-4">
-              <Calendar className="w-6 h-6 text-gray-600" />
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">Don't see your dates?</h3>
-            <p className="text-gray-600 text-base mb-6">We can create it if bookable!</p>
-            <button 
-              onClick={() => setIsContactModalOpen(true)}
-              className="bg-[#00A896] hover:bg-[#008576] text-white px-8 py-3 rounded-lg font-medium transition-colors"
-            >
-              Propose Dates
-            </button>
           </div>
+        </div>
+      </section>
+
+      {/* Inclusions Section */}
+      <section ref={inclusionsRef} className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-center mb-8">
+            <CheckCircle className="mr-2 h-6 w-6 text-gray-800" />
+            <h2 className="text-2xl font-semibold text-center text-gray-800">
+              {t('inclusions.title')}
+            </h2>
+          </div>
+          
+          <div className="max-w-6xl mx-auto">
+            <div className="bg-gradient-to-br from-white to-gray-50 p-4 md:p-8 rounded-lg shadow-md">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Price Includes - Full width on mobile */}
+                <div className="pr-0 md:pr-8">
+                  <h3 className="text-2xl font-semibold mb-6 text-gray-800">{t('inclusions.priceIncludes')}</h3>
+                  <ul className="space-y-3">
+                    {displayedInclusions.map((inclusion, index) => (
+                      <li key={index} className="flex items-start">
+                        <CheckCircle className="mr-3 h-5 w-5 text-[#00A896] flex-shrink-0 mt-0.5" />
+                        <span>{inclusion}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  {allInclusions.length > 10 && (
+                    <button 
+                      onClick={() => setShowAllInclusions(!showAllInclusions)}
+                      className="mt-6 text-[#00A896] hover:text-[#008576] font-medium flex items-center"
+                    >
+                      {showAllInclusions ? t('inclusions.seeFewer') : t('inclusions.seeMore')}
+                      <svg className={`ml-1 h-4 w-4 transform ${showAllInclusions ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={showAllInclusions ? "M5 15l7-7 7 7" : "M19 9l-7 7-7-7"} />
+                      </svg>
+                    </button>
+                  )}
+                </div>
+                
+                {/* Price Does Not Include - Full width on mobile */}
+                <div className="pl-0 md:pl-8 pt-8 md:pt-0 border-t md:border-t-0 border-gray-200 md:border-t-transparent">
+                  <h3 className="text-2xl font-semibold mb-6 text-gray-800">{t('inclusions.priceDoesNotInclude')}</h3>
+                  <ul className="space-y-3">
+                    <li className="flex items-start">
+                      <XCircle className="mr-3 h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" />
+                      <span>{t('inclusions.exclusions.visa')}</span>
+                    </li>
+                    <li className="flex items-start">
+                      <XCircle className="mr-3 h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" />
+                      <span>{t('inclusions.exclusions.airfares')}</span>
+                    </li>
+                    <li className="flex items-start">
+                      <XCircle className="mr-3 h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" />
+                      <span>{t('inclusions.exclusions.transfers')}</span>
+                    </li>
+                    <li className="flex items-start">
+                      <XCircle className="mr-3 h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" />
+                      <span>{t('inclusions.exclusions.insurance')}</span>
+                    </li>
+                    <li className="flex items-start">
+                      <XCircle className="mr-3 h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" />
+                      <span>{t('inclusions.exclusions.tips')}</span>
+                    </li>
+                    <li className="flex items-start">
+                      <XCircle className="mr-3 h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" />
+                      <span>{t('inclusions.exclusions.singleSupplement')}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Accommodation Section */}
+      <section ref={accommodationRef} className="py-16 bg-gray-50">
+        <div className="container mx-auto px-0">
+          <div className="flex items-center justify-center mb-8">
+            <Bed className="mr-2 h-6 w-6 text-gray-800" />
+            <h2 className="text-2xl font-semibold text-center text-gray-800">
+              {t('accommodation.title')}
+            </h2>
+          </div>
+          
+          <div className="w-full">
+            <div className="bg-white p-4 md:p-8 rounded-lg shadow-md">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div className="relative w-full h-96 rounded-xl overflow-hidden">
+                  <Image src="/images/machame-camp.jpg" alt="Machame Camp" fill className="object-cover" unoptimized />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-semibold mb-4 text-gray-800">{t('accommodation.camps.title')}</h3>
+                  <p className="text-gray-500 mb-6 text-lg md:text-xl">
+                    {t('accommodation.camps.description')}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-0">
+          <h2 className="text-2xl font-semibold text-center mb-12 text-gray-800">
+            {t('gallery.title')}
+          </h2>
+          
+          <div className="w-full">
+            <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
+              <div className="col-span-2 md:col-span-1 relative w-full h-64 md:h-96 rounded-lg overflow-hidden">
+                <Image src="/images/machame-route-overview.jpg" alt="Machame Route Gallery Image 1" fill className="object-cover" unoptimized />
+              </div>
+              <div className="col-span-2 md:col-span-1 relative w-full h-64 md:h-96 rounded-lg overflow-hidden">
+                <Image src="/images/kilimanjaro-day0.jpg" alt="Machame Route Gallery Image 2" fill className="object-cover" unoptimized />
+              </div>
+              <div className="col-span-2 md:col-span-1 relative w-full h-64 md:h-96 rounded-lg overflow-hidden">
+                <Image src="/images/kilimanjaro-day0.jpg" alt="Machame Route Gallery Image 3" fill className="object-cover" unoptimized />
+              </div>
+              <div className="col-span-2 md:col-span-1 relative w-full h-64 md:h-96 rounded-lg overflow-hidden">
+                <Image src="/images/kilimanjaro-machame.jpg" alt="Machame Route Gallery Image 4" fill className="object-cover" unoptimized />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQs Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl font-semibold text-center mb-12 text-gray-800">{t('faqs.title')}</h2>
+          <Faq
+            items={[
+              { question: t('faqs.question1'), answer: t('faqs.answer1') },
+              { question: t('faqs.question2'), answer: t('faqs.answer2') },
+              { question: t('faqs.question3'), answer: t('faqs.answer3') },
+              { question: t('faqs.question4'), answer: t('faqs.answer4') }
+            ]}
+          />
         </div>
       </section>
 
@@ -1039,7 +1028,9 @@ export default function MachameRoutePage() {
             alt="Newsletter Background" 
             fill
             className="object-cover"
-            priority />
+            priority
+            unoptimized
+          />
           <div className="absolute inset-0 bg-black/50"></div>
         </div>
         <div className="container mx-auto px-4 text-center relative z-10">
@@ -1233,7 +1224,7 @@ export default function MachameRoutePage() {
                   <label htmlFor="inquiry-travellers" className="block text-sm font-medium text-gray-700 mb-1">No. of Travellers *</label>
                   <select id="inquiry-travellers" className="block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500" required>
                     <option value="">Select number</option>
-                    {[4,5,6,7,8,9,10].map(n => (
+                    {[1,2,3,4,5,6,7,8,9,10].map(n => (
                       <option key={n} value={n}>{n}</option>
                     ))}
                   </select>
