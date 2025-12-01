@@ -1,7 +1,26 @@
 import createMiddleware from 'next-intl/middleware';
 import {routing} from './i18n/routing';
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
 
-export default createMiddleware(routing);
+const nextIntlMiddleware = createMiddleware(routing);
+
+// Custom middleware wrapper: force root `/` to redirect to `/fr` explicitly.
+// This ensures French opens by default when no explicit locale is provided.
+export default function middleware(request: NextRequest) {
+  const { pathname, search } = request.nextUrl;
+
+  // If the request is exactly the root, redirect to the French locale root.
+  if (pathname === '/') {
+    const url = request.nextUrl.clone();
+    url.pathname = '/fr';
+    url.search = search;
+    return NextResponse.redirect(url);
+  }
+
+  // Otherwise defer to next-intl middleware for normal locale handling
+  return nextIntlMiddleware(request);
+}
 
 export const config = {
   // Match only internationalized pathnames

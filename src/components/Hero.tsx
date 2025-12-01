@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import { Button } from '@/components/ui/button'
 import { useTranslations } from 'next-intl'
@@ -23,7 +23,7 @@ export function Hero() {
   const navigateToSeeTrips = () => {
     // Derive locale from the current path (first segment) if present
     const segments = (pathname || '').split('/').filter(Boolean)
-    const locale = segments.length > 0 && ['en', 'fr'].includes(segments[0]) ? segments[0] : 'en'
+    const locale = segments.length > 0 && ['en', 'fr'].includes(segments[0]) ? segments[0] : 'fr'
     router.push(`/${locale}/see-trips`)
   }
 
