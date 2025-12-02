@@ -298,117 +298,11 @@ const blogCategories = [
   },
   {
     id: 4,
-    title: "Tanzania Safari Category Image Square",
-    subtitle: "Tanzania safari",
-    image: "/images/tanzania-safari.jpg"
-  },
-  {
-    id: 5,
-    title: "A climber tackles Lobuche East Peak in Nepal",
-    subtitle: "Nepal peak climbing",
-    image: "/images/nepal-peaks.jpg"
-  },
-  {
-    id: 6,
-    title: "Scuba diver in Zanzibar, Tanzania",
-    subtitle: "Zanzibar",
-    image: "/images/zanzibar.jpg"
-  },
-  {
-    id: 7,
-    title: "Great Migration wildebeests Mara River crossing Tanzania safari",
-    subtitle: "Kenya safari",
-    image: "/images/kenya-safari.jpg"
-  },
-  {
-    id: 8,
-    title: "Trekkers standing atop rock at Everest Base Camp, EBC trek, Nepal",
-    subtitle: "Everest Base Camp trek",
-    image: "/images/everest-base-camp.jpg"
-  },
-  {
-    id: 9,
-    title: "Annapurna mountain and prayer flags",
-    subtitle: "Annapurna Circuit trek",
-    image: "/images/annapurna-circuit.jpg"
-  },
-  {
-    id: 10,
-    title: "Mountain village at base camp path of Annapurna Massif, Nepal",
-    subtitle: "Nepal trekking",
-    image: "/images/nepal-trekking.jpg"
-  },
-  {
-    id: 11,
-    title: "Hiker is climbing to Manaslu Base Camp in highlands of Himalayas on Manaslu Circuit.",
-    subtitle: "Manaslu Circuit",
-    image: "/images/manaslu-circuit.jpg"
-  },
-  {
-    id: 12,
-    title: "Forest Inca trail trekkers Peru",
-    subtitle: "Machu Picchu trekking",
-    image: "/images/machu-picchu.jpg"
-  },
-  {
-    id: 13,
-    title: "Aerial view of Peruvian Amazon rainforest",
-    subtitle: "Explore Peru",
-    image: "/images/peru.jpg"
-  },
-  {
-    id: 14,
-    title: "Infant gorilla hanging from branch, Bwindi, Uganda",
-    subtitle: "Gorilla trekking Uganda",
-    image: "/images/gorilla-uganda.jpg"
-  },
-  {
-    id: 15,
-    title: "Close up of infant gorilla in Rwanda's Volcanoes National Park",
-    subtitle: "Gorilla trekking Rwanda",
-    image: "/images/gorilla-rwanda.jpg"
-  },
-  {
-    id: 16,
-    title: "Witnessing sunrise at 4,000 meters at the highest pass of Bhutan, Chele La",
-    subtitle: "High-altitude trekking",
-    image: "/images/bhutan-trekking.jpg"
-  },
-  {
-    id: 17,
-    title: "Bhutan Building",
-    subtitle: "Bhutan",
-    image: "/images/bhutan.jpg"
-  },
-  {
-    id: 18,
-    title: "Iceland Category Square",
-    subtitle: "Iceland",
-    image: "/images/iceland.jpg"
-  },
-  {
-    id: 19,
-    title: "Joel drinking from a coconut in Sri Lanka",
-    subtitle: "Sri Lanka",
-    image: "/images/sri-lanka.jpg"
-  },
-  {
-    id: 20,
-    title: "Adventure Travel Category Square",
-    subtitle: "Adventure travel",
-    image: "/images/adventure-travel.jpg"
-  },
-  {
-    id: 21,
-    title: "Square image of yellow thermos of fallen tree",
-    subtitle: "Sustainable travel",
-    image: "/images/sustainable-travel.jpg"
-  },
-  {
-    id: 22,
-    title: "Rear view of a hiker on a wooden ladders at Mount Sabyinyo, Uganda",
-    subtitle: "Solo travel",
-    image: "/images/solo-travel.jpg"
+    title: "Les 7 Voies d'Ascension du Kilimandjaro : Analyse Complète, Comparée et Conseils d'Expert Local",
+    subtitle: "Kilimandjaro Routes",
+    image: "/images/kilimanjaro.jpg",
+    description: "Analyse complète des 7 voies d'ascension : Machame, Marangu, Lemosho, Umbwe et plus. Comparaisons détaillées, conseils d'expert et profils d'acclimatation.",
+    isRoutesPage: true
   }
 ]
 
@@ -460,35 +354,42 @@ export default function TravelBlogsPage() {
 
           {/* Blog Categories Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {filteredCategories.map((category) => (
-              <div 
-                key={category.id} 
-                className="rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow relative h-80"
-              >
-                {/* Full background image */}
-                <div className="absolute inset-0 bg-gray-200">
-                  <div className="bg-gray-300 border-2 border-dashed rounded-xl w-full h-full" />
-                </div>
-                
-                {/* Content overlay */}
-                <div className="relative z-10 h-full flex flex-col justify-between p-6 bg-black bg-opacity-40 text-white">
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">{category.title}</h3>
-                    <p className="text-[#A0E7D8] font-medium mb-3">{category.subtitle}</p>
-                    {category.description && (
-                      <p className="text-gray-100 text-sm line-clamp-3">{category.description}</p>
-                    )}
+            {filteredCategories.map((category) => {
+              // Determine the link destination
+              const linkHref = category.isRoutesPage 
+                ? '/travel-blogs/kilimanjaro-routes'
+                : `/travel-blogs/${category.id}`;
+
+              return (
+                <div 
+                  key={category.id} 
+                  className="rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow relative h-80"
+                >
+                  {/* Full background image */}
+                  <div className="absolute inset-0 bg-gray-200">
+                    <div className="bg-gray-300 border-2 border-dashed rounded-xl w-full h-full" />
                   </div>
-                  <Link 
-                    href={`/travel-blogs/${category.id}`}
-                    className="flex items-center text-white hover:text-[#E8F8F5] font-medium w-fit bg-[#00A896] bg-opacity-80 hover:bg-opacity-100 px-4 py-2 rounded-lg transition-all"
-                  >
-                    <Eye className="mr-2 h-4 w-4" />
-                    Explore
-                  </Link>
+                  
+                  {/* Content overlay */}
+                  <div className="relative z-10 h-full flex flex-col justify-between p-6 bg-black bg-opacity-40 text-white">
+                    <div>
+                      <h3 className="text-xl font-bold mb-2">{category.title}</h3>
+                      <p className="text-[#A0E7D8] font-medium mb-3">{category.subtitle}</p>
+                      {category.description && (
+                        <p className="text-gray-100 text-sm line-clamp-3">{category.description}</p>
+                      )}
+                    </div>
+                    <Link 
+                      href={linkHref}
+                      className="flex items-center text-white hover:text-[#E8F8F5] font-medium w-fit bg-[#00A896] bg-opacity-80 hover:bg-opacity-100 px-4 py-2 rounded-lg transition-all"
+                    >
+                      <Eye className="mr-2 h-4 w-4" />
+                      Explore
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {filteredCategories.length === 0 && (
