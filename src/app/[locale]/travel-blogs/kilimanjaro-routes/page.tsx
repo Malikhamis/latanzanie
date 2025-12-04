@@ -460,6 +460,17 @@ export default function KilimanjaroRoutesPage() {
 
   const faqs = locale === 'fr' ? faqsFr : faqsEn
 
+  const handleLearnMore = (routeId: string) => {
+    setExpandedRoute(routeId)
+    // Scroll to detailed analyses section smoothly
+    setTimeout(() => {
+      const detailedSection = document.querySelector('[data-section="detailed-analyses"]')
+      if (detailedSection) {
+        detailedSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }, 50)
+  }
+
   const RouteSummaryCard = ({ route }: any) => (
     <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 overflow-hidden h-full animate-fadeIn">
       <div className="bg-gradient-to-r from-[#72D9C4] to-[#00A896] p-4 text-white">
@@ -478,7 +489,7 @@ export default function KilimanjaroRoutesPage() {
           </div>
         </div>
         <button
-          onClick={() => setExpandedRoute(route.id)}
+          onClick={() => handleLearnMore(route.id)}
           className="w-full mt-4 bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white font-semibold py-2 rounded transition-all duration-300"
         >
           {locale === 'fr' ? 'En savoir plus' : 'Learn more'}
@@ -544,7 +555,7 @@ export default function KilimanjaroRoutesPage() {
       </section>
 
       {/* Detailed Routes Section */}
-      <section className="py-16 bg-white">
+        <section className="py-16 bg-white" data-section="detailed-analyses">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center animate-fadeIn">
             {locale === 'fr' ? 'Analyses Détaillées' : 'Detailed Analyses'}
