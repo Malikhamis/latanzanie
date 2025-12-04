@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { ChevronUp, ChevronDown, Plus, Minus, MapPin, Users, Clock, TrendingUp, ArrowRight, Mail, Phone } from 'lucide-react'
+import { ChevronUp, ChevronDown, Plus, Minus, Users, Clock, TrendingUp, ArrowRight } from 'lucide-react'
 import { useLocale } from 'next-intl'
 
 export default function KilimanjaroRoutesPage() {
@@ -290,7 +290,7 @@ export default function KilimanjaroRoutesPage() {
       `}</style>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[#5BC4AF] to-[#008576] text-white py-20">
+      <section className="bg-gradient-to-r from-[#5BC4AF] to-[#008576] text-white py-20 pt-32 md:pt-40">
         <div className="container mx-auto px-4">
           <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
             ← Retour aux blogs
@@ -432,77 +432,6 @@ export default function KilimanjaroRoutesPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            {/* Company Info */}
-            <div className="animate-fadeIn">
-              <h3 className="text-xl font-bold mb-4">Latanzanieaucourdelanature</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                Experts en trekking et aventures en Tanzanie depuis plus de 20 ans. Guides locaux certifiés et expérimentés.
-              </p>
-            </div>
-
-            {/* Quick Links */}
-            <div className="animate-fadeIn" style={{ animationDelay: '0.1s' }}>
-              <h4 className="text-lg font-semibold mb-4">Liens Rapides</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><Link href={`/${locale}/travel-blogs`} className="hover:text-white transition-colors">Blogs de Voyage</Link></li>
-                <li><Link href={`/${locale}/about`} className="hover:text-white transition-colors">À Propos</Link></li>
-                <li><Link href={`/${locale}/see-trips`} className="hover:text-white transition-colors">Nos Voyages</Link></li>
-                <li><Link href={`/${locale}/contact`} className="hover:text-white transition-colors">Contact</Link></li>
-              </ul>
-            </div>
-
-            {/* Contact Info */}
-            <div className="animate-fadeIn" style={{ animationDelay: '0.2s' }}>
-              <h4 className="text-lg font-semibold mb-4">Contact</h4>
-              <div className="space-y-3 text-gray-400 text-sm">
-                <div className="flex items-center">
-                  <Phone className="h-4 w-4 mr-2 text-[#72D9C4]" />
-                  <span>+255 123 456 789</span>
-                </div>
-                <div className="flex items-center">
-                  <Mail className="h-4 w-4 mr-2 text-[#72D9C4]" />
-                  <span>info@latanzanie.com</span>
-                </div>
-                <div className="flex items-center">
-                  <MapPin className="h-4 w-4 mr-2 text-[#72D9C4]" />
-                  <span>Moshi, Tanzanie</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Newsletter */}
-            <div className="animate-fadeIn" style={{ animationDelay: '0.3s' }}>
-              <h4 className="text-lg font-semibold mb-4">Infolettre</h4>
-              <p className="text-gray-400 text-sm mb-4">Recevez nos conseils d\'experts et offres spéciales.</p>
-              <div className="flex">
-                <input
-                  type="email"
-                  placeholder="Votre email"
-                  className="flex-1 px-3 py-2 bg-gray-800 text-white placeholder-gray-500 rounded-l text-sm focus:outline-none"
-                />
-                <button className="px-4 py-2 bg-[#00A896] hover:bg-[#008576] text-white font-semibold rounded-r transition-colors">
-                  S\'abonner
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Divider */}
-          <div className="border-t border-gray-800 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
-              <p>&copy; 2024 Latanzanieaucourdelanature. Tous droits réservés.</p>
-              <div className="flex space-x-6 mt-4 md:mt-0">
-                <Link href="#" className="hover:text-white transition-colors">Politique de confidentialité</Link>
-                <Link href="#" className="hover:text-white transition-colors">Conditions d\'utilisation</Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }
