@@ -301,10 +301,10 @@ export default function SeeTripsPage() {
 
           <Faq
             items={[
-              { question: t('faq.items.faq1'), answer: t('faq.items.faq1Answer') },
-              { question: t('faq.items.faq2'), answer: t('faq.items.faq2Answer') },
-              { question: t('faq.items.faq3'), answer: t('faq.items.faq3Answer') },
-              { question: t('faq.items.faq4'), answer: t('faq.items.faq4Answer') }
+              { question: "Quel est la température les différents jours et comment s'habiller.", answer: t('faq.items.faq1Answer') },
+              { question: "Quelles chaussures pour marcher et sur le campement.", answer: t('faq.items.faq2Answer') },
+              { question: "Et les chaussettes ? Lesquelles et combien ?", answer: t('faq.items.faq3Answer') },
+              { question: "Comment on sėche ses affaires s'il pleut ?", answer: t('faq.items.faq4Answer') }
             ]}
           />
         </div>

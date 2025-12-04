@@ -1030,9 +1030,9 @@ export default function LemoshoRoutePage() {
               <h2 className="text-2xl font-semibold text-center mb-12 text-gray-800">{t('faqsTitle')}</h2>
               <Faq
                 items={[
-                  { question: t('faq.q1.question'), answer: t('faq.q1.answer') },
-                  { question: t('faq.q2.question'), answer: t('faq.q2.answer') },
-                  { question: t('faq.q3.question'), answer: t('faq.q3.answer') }
+                  { question: "Quel est la température les différents jours et comment s'habiller.", answer: "Les températures varient fortement selon l'altitude et la saison : en journée elles peuvent se situer entre ~5–15°C selon l'étape, et près du sommet il peut faire bien en dessous de zéro. Habillez‑vous par couches : couche de base respirante, couche isolante (polaire), veste coupe‑vent/imperméable ; bonnet et gants sont essentiels pour les nuits et le sommet." },
+                  { question: "Quelles chaussures pour marcher et sur le campement.", answer: "Privilégiez des chaussures de trekking robustes et montantes (protection de la cheville), avec bonne adhérence et imperméabilité (Gore‑Tex ou équivalent). Emportez également des sandales ou chaussures légères pour le campement." },
+                  { question: "Et les chaussettes ? Lesquelles et combien ?", answer: "Apportez 3–4 paires de chaussettes techniques (laine mérinos ou synthétique) : une paire par jour et une paire chaude pour la nuit. Évitez le coton ; des liners peuvent aider contre les ampoules." }
                 ]}
               />
         </div>

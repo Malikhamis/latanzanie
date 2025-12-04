@@ -183,20 +183,20 @@ const adventureTrips = [
 // FAQ data
 const faqs = [
   {
-    question: "Organisez-vous des voyages d'aventure pour les familles ?",
-    answer: "Oui — nous organisons des voyages adaptés aux familles, avec des itinéraires modulables pour enfants et adultes. Contactez-nous pour adapter un programme à votre groupe."
+    question: "Quel est la température les différents jours et comment s'habiller.",
+    answer: "Les températures varient fortement selon l'altitude et la saison : en journée elles peuvent se situer entre ~5–15°C selon l'étape, et près du sommet il peut faire bien en dessous de zéro. Habillez‑vous par couches : couche de base respirante, couche isolante (polaire), veste coupe‑vent/imperméable ; bonnet et gants sont essentiels pour les nuits et le sommet."
   },
   {
-    question: "Organisez-vous des lunes de miel d'aventure ?",
-    answer: "Absolument — nous créons des itinéraires romantiques et d'aventure sur mesure pour les lunes de miel, incluant hébergements confortables et expériences privées."
+    question: "Quelles chaussures pour marcher et sur le campement.",
+    answer: "Privilégiez des chaussures de trekking robustes et montantes (protection de la cheville), avec bonne adhérence et imperméabilité (Gore‑Tex ou équivalent). Emportez également des sandales ou chaussures légères pour le campement."
   },
   {
-    question: "Proposez-vous des circuits touristiques d'aventure à petit prix ?",
-    answer: "Nous proposons des options budget et des départs groupés pour réduire les coûts sans compromettre la qualité et la sécurité. Contactez l'équipe pour un devis."
+    question: "Et les chaussettes ? Lesquelles et combien ?",
+    answer: "Apportez 3–4 paires de chaussettes techniques (laine mérinos ou synthétique) : une paire par jour et une paire chaude pour la nuit. Évitez le coton ; des liners peuvent aider contre les ampoules."
   },
   {
-    question: "Quelle est la taille typique d'un groupe ?",
-    answer: "Nos groupes varient généralement entre 6 et 12 personnes, selon l'itinéraire. Pour des voyages privés, nous proposons également des départs sur mesure."
+    question: "Comment on sėche ses affaires s'il pleut ?",
+    answer: "Utilisez des sacs étanches et des sacs zip pour isoler le linge mouillé. Au camp, étendez vos affaires sur une corde (l'équipe aide souvent) et changez rapidement en couches sèches. Privilégiez les tissus à séchage rapide."
   }
 ]
 

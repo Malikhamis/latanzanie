@@ -19,7 +19,7 @@ export default function KilimanjaroRoutesPage() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const routes = [
+  const routesFr = [
     {
       id: 'machame',
       title: 'Route Machame : Analyse Détaillée (La Voie la Plus Efficace)',
@@ -210,32 +210,255 @@ export default function KilimanjaroRoutesPage() {
     }
   ]
 
-  const faqs = [
+  // English equivalents for the routes (used when locale !== 'fr')
+  const routesEn = [
+    {
+      id: 'machame',
+      title: 'Machame Route: Detailed Analysis (The Most Effective Route)',
+      subtitle: 'Most Popular',
+      difficulty: 'Moderate',
+      duration: '7 days',
+      description: "The Machame Route is the most popular Kilimanjaro route, known for effective acclimatisation and varied scenery.",
+      sections: [
+        {
+          heading: 'Itinerary Description',
+          content: 'The trail starts at Machame Gate on the south-western side. The route features steep ascents and is physically demanding. It is a non-symmetrical traverse: final ascent from Barafu Camp and descent via the Mweka Route. Logistics are entirely camping-based. The standard 7-day duration is recommended.'
+        },
+        {
+          heading: 'Analytical Advantages (Pros)',
+          subSections: [
+            {
+              title: "1. Effective Acclimatisation (Key Difference)",
+              content: 'Machame\'s advantage is its acclimatisation profile based on the "Climb High, Sleep Low" principle. It exposes the body to higher altitudes (e.g., Lava Tower ~4600m) then descends for sleep, which improves adaptation and success rates on a 7-day schedule.'
+            },
+            {
+              title: '2. Spectacular Views',
+              content: 'The route is very varied and offers spectacular views of the Barranco Wall and changing alpine landscapes, making the experience visually richer than milder northern approaches.'
+            },
+            {
+              title: '3. Good Logistical Access',
+              content: 'Access is reasonable with a moderate transfer from Moshi/Arusha, typically shorter than Lemosho.'
+            }
+          ]
+        },
+        {
+          heading: 'Analytical Disadvantages (Cons)',
+          subSections: [
+            {
+              title: '1. High Traffic',
+              content: 'Machame has very high traffic. This means less solitude, especially at camps and on popular sections like the Barranco Wall.'
+            },
+            {
+              title: '2. Physical Demand',
+              content: 'The trail is physically demanding with steep climbs and long walking days, requiring solid fitness to avoid fatigue before the summit push.'
+            }
+          ]
+        },
+        {
+          heading: 'Local Guide Advice',
+          subSections: [
+            {
+              title: 'Managing Crowd',
+              content: 'If choosing Machame in high season, start key sections early (before 07:00) to avoid congestion and have a faster, safer ascent.'
+            },
+            {
+              title: 'Physical Preparation',
+              content: 'Train uphill endurance in advance. Success on Machame depends on repeated days of sustained elevation gain.'
+            },
+            {
+              title: 'Hydration',
+              content: 'Hydration is critical—aim for at least 4L on days like the Lava Tower ascent.'
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: 'marangu',
+      title: "Marangu Route: The Ultimate Analysis (The Hut Route)",
+      subtitle: 'Fastest',
+      difficulty: 'Hard',
+      duration: '5 days',
+      description: 'Marangu is the historic Kilimanjaro route, notable for hut accommodation but criticized for less effective acclimatisation and lower summit success rates.',
+      sections: [
+        {
+          heading: 'Itinerary Description',
+          content: 'The trail starts at Marangu Gate (~1860m) on the south-east side. The first day crosses dense rainforest before reaching Mandara Hut. The route then moves into alpine moorland to Horombo Hut. Marangu is symmetrical: ascent and descent use the same path. Accommodation is in huts all along the way.'
+        },
+        {
+          heading: 'Pros',
+          subSections: [
+            {
+              title: '1. Simplified Logistics',
+              content: 'Hut accommodation simplifies logistics and removes the need for tents, often reducing costs.'
+            },
+            {
+              title: '2. Shorter Duration and Easy Access',
+              content: 'Shortest transfer from Moshi/Arusha and a brief itinerary make it attractive for those with limited time.'
+            }
+          ]
+        },
+        {
+          heading: 'Cons',
+          subSections: [
+            {
+              title: '1. Poor Acclimatisation',
+              content: 'Marangu\'s linear profile provides less effective acclimatisation, leading to lower success rates and higher risk of AMS.'
+            },
+            {
+              title: '2. Crowding and Repetitive Scenery',
+              content: 'High traffic and the same in-and-out trail limit scenic variety and can make the experience feel crowded.'
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: 'lemosho',
+      title: 'Lemosho Route: The Ultimate Analysis (Scenic & Optimal Route)',
+      subtitle: 'Safest',
+      difficulty: 'Moderate',
+      duration: '8 days',
+      description: 'Lemosho is one of the longest routes and balances safety, views and acclimatisation. It is considered a premium alternative to Machame.',
+      sections: [
+        {
+          heading: 'Itinerary Description',
+          content: 'Starts at Londorossi Gate (~2100m) on the west side with a longer initial transfer. It crosses pristine rainforest and the Shira Plateau before joining Machame at Barranco Camp. It is a non-symmetrical traverse with camping accommodation.'
+        },
+        {
+          heading: 'Pros',
+          subSections: [
+            {
+              title: '1. Best Acclimatisation',
+              content: 'An 8-day profile provides the most progressive acclimatisation, using the "Climb High, Sleep Low" approach and offering the highest summit success rates.'
+            },
+            {
+              title: '2. Spectacular Views and Initial Isolation',
+              content: 'Outstanding glacier and plateau views with low traffic in the first days, offering a true wilderness feel.'
+            },
+            {
+              title: '3. Manageable Daily Effort',
+              content: 'Daily efforts are moderate and spread across the itinerary, favouring endurance over intensity.'
+            }
+          ]
+        },
+        {
+          heading: 'Cons',
+          subSections: [
+            {
+              title: '1. Higher Logistics and Cost',
+              content: 'Longer transfers and more complex logistics increase the overall cost.'
+            },
+            {
+              title: '2. Loss of Isolation After Junction',
+              content: 'After crossing Shira and Barranco, the route joins busier trails, reducing initial solitude.'
+            },
+            {
+              title: '3. Longer Distance',
+              content: 'Longer distances require targeted endurance training.'
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: 'umbwe',
+      title: 'Umbwe Route: The Ultimate Analysis (Extreme & Technical)',
+      subtitle: 'Most Extreme',
+      difficulty: 'Very Difficult',
+      duration: '5-6 days',
+      description: 'Umbwe is the shortest, steepest and most direct route on Kilimanjaro, requiring high fitness and pre-acclimatisation.',
+      sections: [
+        {
+          heading: 'Itinerary Description',
+          content: 'Starts at Umbwe Gate (~1600m) on the south side with an immediate steep ascent through forest. The route quickly reaches higher paths and joins Machame/Lemosho near Barranco Camp. It is camping-based and is the shortest route in days.'
+        },
+        {
+          heading: 'Acclimatisation Profile',
+          content: 'Umbwe\'s aggressive profile gives little time for acclimatisation, resulting in higher AMS risk and lower success rates. It is recommended only for experienced, pre-acclimatised climbers.'
+        },
+        {
+          heading: 'Experience and Traffic',
+          content: 'Very low traffic and an intense, technical ascent provide a wilderness experience but require expert fitness and preparation.'
+        },
+        {
+          heading: 'Local Guide Advice',
+          subSections: [
+            {
+              title: '1. Reserved for Experts',
+              content: 'Suitable only for climbers with recent high-altitude experience.'
+            },
+            {
+              title: '2. Vertical Preparation',
+              content: 'Training should focus on steep sustained climbs; trekking poles are essential.'
+            },
+            {
+              title: '3. Mental Preparation',
+              content: 'Prepare for sustained physical and mental effort.'
+            }
+          ]
+        }
+      ]
+    }
+  ]
+
+  const routes = locale === 'fr' ? routesFr : routesEn
+
+  const faqsFr = [
     {
       question: 'Quelle est la meilleure route pour un première-fois grimpeur?',
       answer: 'La Route Lemosho (8 jours) est recommandée pour les première-fois. Elle offre l\'équilibre optimal entre acclimatation progressive, vues spectaculaires et taux de réussite élevé (90%). Machame (7 jours) est également populaire mais plus intense physiquement.'
     },
     {
       question: 'Quelle est la différence entre camping et cabanes?',
-      answer: 'Marangu est la seule route avec cabanes (dortoirs), simplifiant la logistique mais limitant l\'acclimatation. Toutes les autres routes (Machame, Lemosho, Umbwe) utilisent le camping, offrant plus de flexibilité et une meilleure acclimatation grâce à la stratégie "Climb High, Sleep Low".'
+      answer: 'Marangu est la seule route avec cabanes (dortoirs), simplifiant la logistique mais limitant l\'acclimatation. Toutes les autres routes utilisent le camping, offrant plus de flexibilité et une meilleure acclimatation.'
     },
     {
       question: 'Quel est le taux de réussite pour chaque route?',
-      answer: 'Lemosho 8 jours: ~90%, Machame 7 jours: ~85%, Rongai 5-6 jours: ~75%, Marangu 5 jours: ~65%, Umbwe 5-6 jours: ~50%. La durée et l\'acclimatation sont les facteurs clés.'
+      answer: 'Lemosho 8 jours: ~90%, Machame 7 jours: ~85%, Rongai 5-6 jours: ~75%, Marangu 5 jours: ~65%, Umbwe 5-6 jours: ~50%.'
     },
     {
       question: 'Quelle est la période idéale pour grimper?',
-      answer: 'Janvier-Février et Juillet-Septembre sont les meilleures périodes. Janvier offre des conditions sèches mais plus de foule. Juillet-Septembre est moins fréquenté. Évitez Mars-Mai (pluie longue) et Octobre-Novembre (pluie courte).'
+      answer: 'Janvier-Février et Juillet-Septembre sont les meilleures périodes. Évitez la saison des pluies (Mars-Mai).'
     },
     {
       question: 'Combien de temps faut-il pour l\'entraînement avant le trek?',
-      answer: 'Prévoyez 3-6 mois d\'entraînement régulier. Focalisez-vous sur: cardio (hiking, running), renforcement des jambes, endurance en côte. Pour Umbwe, une pré-acclimatation (Mont Meru) est cruciale.'
+      answer: 'Prévoyez 3-6 mois d\'entraînement: cardio, renforcement des jambes et entraînement en côte.'
     },
     {
       question: 'Quelle est la différence d\'altitude entre les camps?',
-      answer: 'Machame: Machame Gate (1500m) → Summit (5895m). Lemosho: Londorossi (2100m) → Summit (5895m). Les gains d\'altitude quotidiens varient: Machame ~700m/jour, Lemosho ~500m/jour. Faible gain = meilleure acclimatation.'
+      answer: 'Les camps varient; par ex. Machame Gate ~1500m → Sommet 5895m. Les gains journaliers plus faibles favorisent une meilleure acclimatation.'
     }
   ]
+
+  const faqsEn = [
+    {
+      question: 'Which route is best for a first-time climber?',
+      answer: 'The Lemosho Route (8 days) is recommended for first-timers: progressive acclimatisation, great views and high summit success (~90%). Machame (7 days) is also popular but more physically demanding.'
+    },
+    {
+      question: 'What is the difference between camping and huts?',
+      answer: 'Marangu uses huts (dormitories), simplifying logistics but offering less effective acclimatisation. Other routes use camping, which supports better acclimatisation strategies.'
+    },
+    {
+      question: 'What are the success rates by route?',
+      answer: 'Approx: Lemosho 8d ~90%, Machame 7d ~85%, Rongai 5-6d ~75%, Marangu 5d ~65%, Umbwe 5-6d ~50%.'
+    },
+    {
+      question: 'When is the best time to climb?',
+      answer: 'January-February and July-September are ideal. Avoid the long rains (March-May).'
+    },
+    {
+      question: 'How long should I train before the trek?',
+      answer: 'Plan 3-6 months of regular training focusing on cardio, leg strength and hill endurance.'
+    },
+    {
+      question: 'What are the altitude differences between camps?',
+      answer: 'Example: Machame Gate ~1500m → Summit 5895m. Smaller daily gains support better acclimatisation.'
+    }
+  ]
+
+  const faqs = locale === 'fr' ? faqsFr : faqsEn
 
   const RouteSummaryCard = ({ route }: any) => (
     <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 overflow-hidden h-full animate-fadeIn">
@@ -251,14 +474,14 @@ export default function KilimanjaroRoutesPage() {
           </div>
           <div className="flex items-center text-gray-600">
             <TrendingUp className="h-4 w-4 mr-2 text-[#00A896]" />
-            <span>Difficulté: {route.difficulty}</span>
+            <span>{locale === 'fr' ? `Difficulté: ${route.difficulty}` : `Difficulty: ${route.difficulty}`}</span>
           </div>
         </div>
         <button
           onClick={() => setExpandedRoute(route.id)}
           className="w-full mt-4 bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white font-semibold py-2 rounded transition-all duration-300"
         >
-          En savoir plus
+          {locale === 'fr' ? 'En savoir plus' : 'Learn more'}
         </button>
       </div>
     </div>
@@ -293,13 +516,13 @@ export default function KilimanjaroRoutesPage() {
       <section className="bg-gradient-to-r from-[#5BC4AF] to-[#008576] text-white py-20 pt-32 md:pt-40">
         <div className="container mx-auto px-4">
           <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
-            ← Retour aux blogs
+            {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
           <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fadeIn">
-            Les 7 Voies d'Ascension du Kilimandjaro
+            {locale === 'fr' ? "Les 7 Voies d'Ascension du Kilimandjaro" : 'The 7 Ascent Routes of Kilimanjaro'}
           </h1>
           <p className="text-lg md:text-xl text-[#E8F8F5] max-w-3xl animate-slideInRight">
-            Analyse Complète, Comparée et Conseils d'Expert Local
+            {locale === 'fr' ? 'Analyse Complète, Comparée et Conseils d\'Expert Local' : 'Comprehensive, comparative analysis and local expert advice'}
           </p>
         </div>
       </section>
@@ -308,7 +531,7 @@ export default function KilimanjaroRoutesPage() {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center animate-fadeIn">
-            Comparaison des Voies Principales
+            {locale === 'fr' ? 'Comparaison des Voies Principales' : 'Main Route Comparison'}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {routes.map((route, idx) => (
@@ -324,7 +547,7 @@ export default function KilimanjaroRoutesPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center animate-fadeIn">
-            Analyses Détaillées
+            {locale === 'fr' ? 'Analyses Détaillées' : 'Detailed Analyses'}
           </h2>
           <div className="max-w-5xl mx-auto space-y-4">
             {routes.map((route) => (
@@ -354,7 +577,7 @@ export default function KilimanjaroRoutesPage() {
                       <div key={idx} className="animate-fadeIn" style={{ animationDelay: `${idx * 0.1}s` }}>
                         <h3 className="text-xl font-bold text-gray-800 mb-3 flex items-center">
                           <span className="inline-block w-1 h-6 bg-[#00A896] mr-3 rounded"></span>
-                          {section.heading}
+                              {section.heading}
                         </h3>
                         {section.content && (
                           <p className="text-gray-700 leading-relaxed mb-4">{section.content}</p>
@@ -383,8 +606,8 @@ export default function KilimanjaroRoutesPage() {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center animate-fadeIn">
-            Questions Fréquemment Posées
-          </h2>
+              {locale === 'fr' ? 'Questions Fréquemment Posées' : 'Frequently Asked Questions'}
+            </h2>
           <div className="max-w-4xl mx-auto space-y-4">
             {faqs.map((faq, idx) => (
               <div
@@ -420,13 +643,13 @@ export default function KilimanjaroRoutesPage() {
       <section className="py-16 bg-gradient-to-r from-[#5BC4AF] to-[#008576] text-white">
         <div className="container mx-auto px-4 text-center max-w-3xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-fadeIn">
-            Prêt à Grimper le Kilimandjaro?
+            {locale === 'fr' ? 'Prêt à Grimper le Kilimandjaro?' : 'Ready to Climb Kilimanjaro?'}
           </h2>
           <p className="text-lg text-[#E8F8F5] mb-8 animate-slideInLeft">
-            Choisissez votre route et laissez nos experts vous guider vers le sommet avec sécurité et succès.
+            {locale === 'fr' ? 'Choisissez votre route et laissez nos experts vous guider vers le sommet avec sécurité et succès.' : 'Choose your route and let our experts guide you safely to the summit.'}
           </p>
           <button className="bg-white hover:bg-gray-100 text-[#00A896] font-bold py-3 px-8 rounded-lg transition-all duration-300 hover:scale-105 transform animate-slideInRight flex items-center justify-center mx-auto">
-            Demander une consultation
+            {locale === 'fr' ? 'Demander une consultation' : 'Request a consultation'}
             <ArrowRight className="ml-2 h-5 w-5" />
           </button>
         </div>
