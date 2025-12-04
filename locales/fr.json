@@ -911,6 +911,7 @@
     }
   },
   "MachameRoute": {
+    "defaultItinerary": "Route Machame",
     "hero": {
       "title": "L'Itinéraire Machame (7 Jours de Trek) : L'Ascension Panoramique",
       "breadcrumb": "Tanzanie > Kilimandjaro > Route Machame",

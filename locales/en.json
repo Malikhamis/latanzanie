@@ -951,6 +951,7 @@
     "contact": "Contact"
   },
   "MachameRoute": {
+    "defaultItinerary": "Machame Route",
     "hero": {
       "title": "The Machame Route (7 Days Trek): The Scenic Ascent",
       "breadcrumb": "Tanzania > Kilimanjaro > Machame Route",
