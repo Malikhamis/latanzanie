@@ -5,6 +5,7 @@ import '../../tailgrid.css' // Import Tailgrid CSS for this component
 import { useState } from 'react'
 import { Search, Eye, Clock, Star } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useTranslations, useLocale } from 'next-intl'
 
 export default function TravelBlogsPage() {
@@ -23,6 +24,7 @@ export default function TravelBlogsPage() {
       subtitleFr: 'Guide de voyage',
       descriptionEn: "Explore all 7 Kilimanjaro routes with detailed analysis, expert comparisons, and local insights. Choose the best path for your adventure to the Roof of Africa.",
       descriptionFr: "Randonnée du Kilimandjaro — une aventure unique au sommet de l'Afrique. Tout ce que vous devez savoir.",
+      image: '/images/card1.jpg',
       link: 'kilimanjaro-routes',
       topReads: [
         {
@@ -39,8 +41,8 @@ export default function TravelBlogsPage() {
   // Hero strings per-locale
   const heroTitleEn = 'Knowledge Library'
   const heroTitleFr = 'Bibliothèque de Connaissances'
-  const heroDescEn = "Learn before you travel. The Follow Alice travel library is the ultimate resource for planning your trip. Our goal is to give every traveller a feeling of security before they set off."
-  const heroDescFr = "Apprenez avant de voyager. La bibliothèque de voyage Follow Alice est la ressource ultime pour planifier votre voyage. Notre objectif est de donner à chaque voyageur un sentiment de sécurité avant le départ."
+  const heroDescEn = "Learn before you travel. The Latanzanieaucourdelanature travel library is the ultimate resource for planning your trip. Our goal is to give every traveller a feeling of security before they set off."
+  const heroDescFr = "Apprenez avant de voyager. La bibliothèque de voyage Latanzanieaucourdelanature est la ressource ultime pour planifier votre voyage. Notre objectif est de donner à chaque voyageur un sentiment de sécurité avant le départ."
 
   // Filter categories based on search term
   const filteredCategories = blogCategories.filter(category => {
@@ -67,10 +69,10 @@ export default function TravelBlogsPage() {
                 {locale === 'fr' ? heroDescFr : heroDescEn}
               </p>
             </div>
-            {/* Right - World Map (placeholder) */}
+            {/* Right - Hero Image */}
             <div className="flex justify-center">
-              <div className="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center text-gray-400">
-                [World Map Illustration]
+              <div className="w-full h-64 rounded-lg overflow-hidden relative">
+                <Image src="/images/khero.jpg" alt={locale === 'fr' ? 'Illustration Kilimandjaro' : 'Kilimanjaro hero'} fill style={{ objectFit: 'cover' }} />
               </div>
             </div>
           </div>
@@ -105,8 +107,8 @@ export default function TravelBlogsPage() {
                 className="rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow relative h-80"
               >
                 {/* Full background image */}
-                <div className="absolute inset-0 bg-gray-200">
-                  <div className="bg-gray-300 border-2 border-dashed rounded-xl w-full h-full" />
+                <div className="absolute inset-0">
+                  <Image src="/images/card1.jpg" alt={locale === 'fr' ? category.titleFr : category.titleEn} fill style={{ objectFit: 'cover' }} />
                 </div>
                 
                 {/* Content overlay */}

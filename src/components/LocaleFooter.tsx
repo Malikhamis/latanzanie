@@ -35,6 +35,7 @@ export function LocaleFooter() {
     }
   }
 
+
   return (
     <footer className="bg-gray-800 text-white">
       <div className="container mx-auto px-4 py-12">
@@ -44,6 +45,7 @@ export function LocaleFooter() {
             <p className="text-gray-300 mb-4">
               {t('description')}
             </p>
+            {/* tagline removed as requested */}
             <div className="flex space-x-4">
               <div className="bg-gray-200 border-2 border-dashed rounded-xl w-8 h-8" />
               <div className="bg-gray-200 border-2 border-dashed rounded-xl w-8 h-8" />
@@ -134,8 +136,7 @@ export function LocaleFooter() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
               <p>
-                &copy; {new Date().getFullYear()} Latanzanieaucourdelanature.{' '}
-                {t('rights')}
+                &copy; {new Date().getFullYear()} {t('company')}. {t('rights')}
               </p>
             </div>
             <div className="flex space-x-6">

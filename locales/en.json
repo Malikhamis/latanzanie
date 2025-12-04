@@ -104,7 +104,7 @@
       },
       "phone": {
         "title": "Phone",
-        "number": "+255 123 456 789"
+        "number": "+255782825692"
       },
       "email": {
         "title": "Email",
@@ -501,7 +501,7 @@
       "emailLabel": "Email address",
       "emailPlaceholder": "john@example.com",
       "phoneLabel": "Phone number",
-      "phonePlaceholder": "+255 123 456 789",
+      "phonePlaceholder": "+255782825692",
       "messageLabel": "Message",
       "messagePlaceholder": "Tell us more about your travel plans...",
       "accept": "I accept the",
@@ -533,13 +533,13 @@
     }
   },
   "Footer": {
-    "company": "Latanzanieaucourdelanature",
+    "company": "la Tanzanie au cœur de la nature",
     "description": "We are a boutique tour operator offering a selection of the best adventure trips in Tanzania.",
     "quickLinks": "Quick Links",
     "destinations": "Destinations",
     "contactInfo": "Contact Info",
     "address": "Latanzanieaucourdelanature Tours (T) LTD, PO Box 1923, Moshi, Tanzania",
-    "phone": "+255 123 456 789",
+    "phone": "+255782825692",
     "email": "info@latanzanieaucourdelanature.com",
     "rights": "All rights reserved",
     "about": "About",
@@ -1111,7 +1111,7 @@
       "email": "Email Address",
       "emailPlaceholder": "john@example.com",
       "phone": "Phone Number",
-      "phonePlaceholder": "+255 123 456 789",
+      "phonePlaceholder": "+255782825692",
       "message": "Message",
       "messagePlaceholder": "Tell us more about your travel plans...",
       "accept": "I accept the",
@@ -1279,7 +1279,7 @@
       "email": "Email Address",
       "emailPlaceholder": "john@example.com",
       "phone": "Phone Number",
-      "phonePlaceholder": "+255 123 456 789",
+      "phonePlaceholder": "+255782825692",
       "message": "Message",
       "messagePlaceholder": "Tell us more about your travel plans...",
       "accept": "I accept the",
@@ -1439,7 +1439,7 @@
       "email": "Email Address",
       "emailPlaceholder": "john@example.com",
       "phone": "Phone Number",
-      "phonePlaceholder": "+255 123 456 789",
+      "phonePlaceholder": "+255782825692",
       "message": "Message",
       "messagePlaceholder": "Tell us more about your travel plans...",
       "accept": "I accept the",
@@ -1530,7 +1530,7 @@
         "High-quality, four-season sleeping bag",
         "High-quality, four-season sleeping tent",
         "Sleeping mat",
-        "Private Follow Alice toilet (1 per 8 climbers)",
+        "Private Latanzanieaucourdelanature toilet (1 per 8 climbers)",
         "Organisation of any rental equipment, if required",
         "Medical equipment (incl. pulse oximeter and emergency oxygen)",
         "Climb certificate"
