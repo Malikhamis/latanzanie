@@ -1,0 +1,3 @@
+const fs=require('fs');const p='c:\\Users\\PC\\Documents\\latanzanie\\locales\\fr.json';const s=fs.readFileSync(p,'utf8');console.log('length',s.length);const idx=s.indexOf('"MachameRoute"');console.log('MachameRoute idx',idx);if(idx!==-1)console.log(s.slice(idx,idx+800));const pos=16929;console.log('\ncontext around pos',pos);console.log(s.slice(pos-120,pos+120));
+// find brace depth transitions
+let depth=0;for(let i=0;i<s.length;i++){if(s[i]==='{')depth++;else if(s[i]==='}')depth--; if(depth===0){console.log('depth 0 at',i);break}}

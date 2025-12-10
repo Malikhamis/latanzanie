@@ -286,6 +286,31 @@ const blogCategories = [
     ]
   },
   {
+    id: 23,
+    title: "Best time to climb Kilimanjaro",
+    subtitle: "Travel Guide",
+    image: "/images/best-season.jpg",
+    description: "When to climb Kilimanjaro: guide to dry and rainy seasons, route recommendations, and tips to maximize summit success.",
+    topReads: [
+      {
+        id: 301,
+        title: "Best time to climb Kilimanjaro",
+        image: "/images/best-season-card.jpg",
+        description: "Overview of seasons and recommended months."
+      }
+    ],
+    allTopics: [
+      {
+        category: "Climate and seasons",
+        icon: "📅",
+        posts: [
+          "Best time to climb Kilimanjaro"
+        ]
+      }
+    ],
+    trips: []
+  },
+  {
     id: 2,
     title: "The epic peak of mount Kilimanjaro",
     subtitle: "Kilimanjaro Trekking",

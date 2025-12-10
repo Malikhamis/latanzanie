@@ -1,0 +1,2461 @@
+{
+  "Navigation": {
+    "about": "À Propos",
+    "destinations": "Destinations",
+    "trips": "Voyages",
+    "blog": "Blog",
+    "contact": "Contact",
+    "home": "Accueil",
+    "profile": "Mon profil",
+    "workWithUs": "Travaillez avec nous",
+    "privacy": "Politique de Confidentialité",
+    "menu": "Menu",
+    "language": "Langue",
+    "terms": "Conditions Générales",
+    "aiChat": "Chat IA",
+    "chatPromptHeader": "Posez-nous vos questions sur nos voyages !",
+    "chatInitialAssistant": "Bonjour ! Je suis votre assistant de voyage. Comment puis-je vous aider à planifier votre aventure ?",
+    "chatInputPlaceholder": "Écrivez votre message...",
+    "blogKilimanjaro": "Trek Kilimandjaro",
+    "blogMountMeru": "Ascension du Mont Meru",
+    "blogTanzaniaSafari": "Safari en Tanzanie",
+    "blogZanzibar": "Zanzibar",
+    "tripClimbKilimanjaro": "Escalader le Kilimandjaro",
+    "tripTanzaniaSafari": "Safari en Tanzanie",
+    "tripZanzibarBeach": "Vacances balnéaires à Zanzibar",
+    "contactModal": {
+      "title": "Demander maintenant",
+      "contactUs": "Nous contacter",
+      "description": "Vous avez des questions sur nos voyages ou avez besoin d'aide pour planifier votre aventure ? Nos experts en voyages sont là pour vous aider.",
+      "emailUs": "Nous envoyer un email",
+      "callUs": "Nous appeler",
+      "chatWithUs": "Discuter avec nous",
+      "available": "Disponible 24/7",
+      "sendRequest": "Envoyer la demande"
+    },
+    "mission": {
+      "title": "Ce qui n'est pas inclus",
+      "items": "1) Vol international et vols locaux|||2) Pourboires pour le guide|||3) Boissons personnelles|||4) Visa et assurance"
+    },
+    "pricing": {
+      "hero": {
+        "title": "Safari et Plages de Zanzibar (10 Jours) : L'Appel Sauvage de l'Afrique de l'Est",
+        "breadcrumb": "Tanzanie > Safari & Zanzibar",
+        "duration": "10 jours",
+        "price": "€2 300",
+        "description": "Oubliez le quotidien : 10 jours combinant l'intensité d'un safari tanzanien et la détente sur les plages de Zanzibar."
+      },
+      "miniNavbar": {
+        "datesAndPrices": "Dates & Prix",
+        "proposeDate": "Proposer une Date",
+        "inclusions": "Inclusions"
+      },
+      "detailedItineraryTitle": "Itinéraire détaillé",
+      "itinerary": {
+        "day1": {
+          "title": "Jour 1 : Arusha / Le Premier Souffle d'Afrique",
+          "description": "Arrivée à l'aéroport international du Kilimandjaro (JRO). Accueil et transfert vers votre lodge à Arusha. Temps libre pour vous imprégner de l'atmosphère tanzanienne et préparation pour le safari."
+        },
+        "day2": {
+          "title": "Jour 2 : D'Arusha au Parc National de Tarangire – Le Royaume des Baobabs",
+          "description": "Départ matinal pour le Parc National de Tarangire. Journée complète de safari avec pique-nique. Observation d'éléphants, gnous, zèbres et baobabs majestueux. Nuit en lodge proche du parc."
+        },
+        "day3": {
+          "title": "Jour 3 : De Tarangire au Parc National du Serengeti – Vers la Plaine Infinie",
+          "description": "Route vers le mythique Serengeti. Safari d'après-midi suivi d'un safari en soirée lorsque les prédateurs sont plus actifs. Nuit en lodge ou camp dans le Serengeti."
+        },
+        "day4": {
+          "title": "Jour 4 : Du Serengeti au Ngorongoro – L'Aube des Chasseurs",
+          "description": "Safari matinal dans le Serengeti, puis route vers la zone de conservation du Ngorongoro. Safari en route et arrivée en fin de journée sur le bord du cratère."
+        },
+        "day5": {
+          "title": "Jour 5 : Cratère du Ngorongoro – L'Eden Retrouvé",
+          "description": "Descente au fond du cratère pour environ six heures de safari intensif à la recherche des Big Five (notamment le rhinocéros noir). Pique-nique à la source de Ngoitoktok. Remontée et route vers Arusha."
+        },
+        "day6": {
+          "title": "Jour 6 : Vol vers Zanzibar – Arrivée et Tranquillité Insulaire",
+          "description": "Vol matinal vers Zanzibar. Transfert à votre hôtel (probablement à Stone Town ou zone centrale). Journée libre pour se reposer, explorer les ruelles locales ou se préparer pour les activités marines."
+        },
+        "day7": {
+          "title": "Jour 7 : Safari Blue – L'Odyssée Aquatique",
+          "description": "Excursion Safari Blue : navigation en dhow, snorkeling dans la baie de Menai, détente sur bancs de sable isolés et déjeuner barbecue sur une île déserte."
+        },
+        "day8": {
+          "title": "Jour 8 : Demi-Journée Mnemba – Dauphins et Récifs",
+          "description": "Sortie matinale pour une demi-journée à Mnemba : observation et baignade respectueuse avec les dauphins (si présent), exploration des récifs coralliens. Retour et après-midi libre."
+        },
+        "day9": {
+          "title": "Jour 9 : Stone Town, Ferme d'Épices et Prison Island – Saveurs et Histoire",
+          "description": "Visite d'une ferme d'épices, puis découverte guidée de Stone Town (site UNESCO) et visite de Prison Island pour rencontrer les tortues géantes. Soirée libre."
+        },
+        "day10": {
+          "title": "Jour 10 : Transfert à l'Aéroport – Kwaheri (Au Revoir)",
+          "description": "Dernier petit-déjeuner, temps libre selon l'horaire du vol, puis transfert à l'aéroport de Zanzibar (ZNZ) pour votre départ."
+        }
+      },
+      "inclusions": {
+        "title": "Le Prix Comprend",
+        "items": "1) Tous les frais d'entrée dans les parcs nationaux mentionnés dans le programme|||2) Tous les transferts aéroportuaires et inter-hôtels mentionnés dans le programme|||3) Hébergement en lodge ou confort équivalent (selon programme)|||4) Guide local francophone certifié pour le safari|||5) 2 litres d'eau minérale par jour et par personne|||6) Transport pendant les excursions à Zanzibar|||7) Toutes les taxes et TVA applicables|||8) Hébergement et repas mentionnés dans le programme"
+      },
+      "exclusions": {
+        "title": "Pas inclus",
+        "items": "1) Vol international et vols locaux|||2) Pourboires pour le guide et le personnel|||3) Boissons personnelles hors eau fournie|||4) Visa et assurance"
+      },
+      "pricing": {
+        "price": "€2 300"
+      },
+      "datesAndPrices": {
+        "title": "Dates et Prix",
+        "groupDiscounts": "Réductions de groupe",
+        "dontSeeDates": "Vous ne voyez pas vos dates ?",
+        "enquireButton": "Demander",
+        "proposeDateButton": "Proposer une Date"
+      }
+    },
+    "apply": "Postuler"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Des questions sur les carrières ?",
+    "email": {
+      "label": "Email"
+    },
+    "phone": {
+      "label": "Téléphone"
+    },
+    "location": {
+      "label": "Localisation"
+    }
+  },
+  "modal": {
+    "title": "Postuler maintenant",
+    "description": "Soumettez votre candidature et CV.",
+    "firstName": "Prénom",
+    "lastName": "Nom de famille",
+    "email": "Email",
+    "phone": "Téléphone",
+    "position": "Poste",
+    "selectPosition": "Sélectionnez un poste",
+    "resume": "CV",
+    "coverLetter": "Lettre de motivation",
+    "coverLetterPlaceholder": "Dites-nous pourquoi vous êtes un bon candidat",
+    "submit": "Soumettre la candidature"
+  },
+  "MateruniCulturalTour": {
+    "hero": {
+      "breadcrumb": "Tanzanie > Expériences Culturelles > Materuni",
+      "title": "Jour Complet: Immersion Culturelle Chagga",
+      "description": "Découvrez l'âme authentique du peuple Chagga",
+      "durationLabel": "Durée",
+      "duration": "1 Jour Complet",
+      "groupSizeLabel": "Taille du Groupe",
+      "groupSize": "2-15 personnes",
+      "difficultyLabel": "Difficulté",
+      "difficulty": "Facile à Modérée",
+      "bookNow": "Réserver Maintenant",
+      "price": "€80",
+      "contactUs": "Nous Contacter"
+    },
+    "overview": {
+      "title": "Un Jour au Cœur de l'Authenticité Chagga",
+      "intro": "Cette expérience unique vous plonge dans la vie quotidienne du peuple Chagga",
+      "highlights": "Points Forts de l'Expérience"
+    },
+    "itinerary": {
+      "title": "Programme Quotidien Détaillé"
+    }
+  },
+  "MateruniChemka2Days": {
+    "hero": {
+      "breadcrumb": "Tanzanie > Expériences Culturelles > Materuni & Chemka",
+      "title": "Expérience Authentique Kilimandjaro : Materuni & Chemka (2 Jours)",
+      "description": "Plongez au cœur de la Tanzanie rurale : immersion Chagga, atelier café et détente aux sources chaudes de Chemka.",
+      "durationLabel": "Durée",
+      "duration": "2 jours",
+      "priceLabel": "Prix",
+      "price": "€150",
+      "bookNow": "Réserver Maintenant"
+    },
+    "overview": {
+      "title": "Aperçu",
+      "intro": "Un itinéraire parfait pour allier culture, randonnée légère et détente dans une oasis naturelle."
+    },
+    "itinerary": {
+      "title": "Programme",
+      "day1": {
+        "title": "Jour 1 : Immersion Culturelle Chagga, Café et Cascade Secrète de Materuni",
+        "subtitle": "Village de Materuni",
+        "description": "Le voyage jusqu'aux chutes implique une promenade guidée facile à modérée à travers des plantations de café Arabica et les villages Chagga locaux. Cette randonnée offre un aperçu authentique et intime de la culture locale et de la vie quotidienne sur les pentes du Kilimandjaro.\n\nLa cascade de 80 mètres est spectaculaire. Vous pourrez profiter d'un plongeon rafraîchissant et vivifiant dans l'eau cristalline et fraîche au pied des chutes, alimentée par les neiges éternelles.\n\nAprès la visite de la cascade, vous participerez à une visite interactive de fabrication du café. Vous découvrirez et participerez au processus complet de préparation du célèbre café tanzanien, du grain à la tasse.\n\nVous traverserez les villages Chagga, où vous pourrez interagir directement avec les habitants, découvrir leurs traditions et profiter de la chaleur de l'hospitalité locale."
+      },
+      "day2": {
+        "title": "Jour 2 : Détente Absolue aux Sources Chaudes de Kikuletwa (Chemka)",
+        "subtitle": "Sources Chaudes de Kikuletwa (Chemka)",
+        "description": "La couleur bleu vif et turquoise de la source est absolument fascinante, contrastant avec le paysage environnant.\n\nL'eau reste à une température constante et chaude toute l'année, la rendant parfaite pour une baignade profondément relaxante.\n\nLa source chaude est située dans un contexte de verdure épaisse et d'arbres majestueux, créant une atmosphère sereine, isolée et idéale pour se détendre en pleine nature. C'est une véritable oasis de la savane.\n\nPassez du temps à flotter et à nager dans l'eau claire et chaude, un moment de pure évasion et de ressourcement."
+      }
+    },
+    "inclusions": {
+      "title": "Le Prix Comprend",
+      "items": "1) Tous les transports routiers nécessaires pour l'itinéraire de 2 jours (transferts depuis/vers votre hébergement dans la région de Moshi et trajets entre les sites)|||2) Guide francophone pour les 2 jours + guides locaux pour activités spécifiques|||3) Tous les frais d'entrée et conservation pour la cascade de Materuni, l'atelier café et les sources chaudes de Kikuletwa (Chemka)|||4) Atelier de fabrication du café|||5) Deux déjeuners (Jour 1 au village de Materuni et Jour 2 à Chemka) et de l'eau minérale en bouteille fournie tout au long du circuit"
+    },
+    "pricing": {
+      "price": "€150"
+    }
+  },
+  "ZanzibarBeachHolidaysPage": {
+    "hero": {
+      "title": "Vacances Balnéaires à Zanzibar",
+      "subtitle": "Détendez-vous sur des plages de sable blanc vierges",
+      "description": "Séjours balnéaires sur mesure et escapades insulaires",
+      "durationLabel": "Durée",
+      "duration": "8 jours",
+      "difficultyLabel": "Difficulté",
+      "difficulty": "Facile",
+      "groupSizeLabel": "Taille du groupe",
+      "groupSize": "2 - 8",
+      "adventureTypeLabel": "Type",
+      "adventureType": "Plage",
+      "price": "À partir de €2 300",
+      "bookCall": "Réserver un appel avec notre équipe",
+      "downloadGuide": "Télécharger le guide"
+    },
+    "itineraries": {
+      "title": "Nos itinéraires",
+      "description": "Choisissez une escapade balnéaire ou axée sur les activités",
+      "divingCulture": {
+        "title": "Plongée et Culture (5 Jours)",
+        "price": "À partir de €1 200",
+        "description": "Découvrez la vie sous-marine et la culture de Stone Town lors de cette escapade de 5 jours",
+        "duration": "5 jours"
+      },
+      "completeEscape": {
+        "title": "Escapade Complète (8 Jours)",
+        "price": "À partir de €2 300",
+        "description": "Une escapade insulaire de 8 jours combinant culture, plages et détente",
+        "duration": "8 jours"
+      }
+    },
+    "topReads": {
+      "title": "Lectures Populaires",
+      "description": "Articles utiles sur l'emballage, le meilleur moment de visiter et les choses à faire à Zanzibar.",
+      "cta": "Curieux d'en savoir plus ? Réservez un appel avec notre équipe.",
+      "whatToPack": {
+        "title": "Quoi emporter pour Zanzibar",
+        "subtitle": "Vêtements légers et protection solaire",
+        "description": "Apportez un maillot de bain, des vêtements légers, un écran solaire sûr pour les récifs et une veste légère pour les soirées."
+      },
+      "bestTime": {
+        "title": "Meilleur moment pour visiter",
+        "subtitle": "Saison sèche vs saison humide",
+        "description": "Les mois secs offrent des ciels plus clairs et des mers plus calmes pour la plongée et les activités balnéaires."
+      },
+      "thingsToDo": {
+        "title": "Choses à faire",
+        "subtitle": "Expériences principales",
+        "description": "Plongée avec tuba, visites de Stone Town, visites de fermes d'épices et détente sur des plages de sable blanc."
+      }
+    },
+    "faqs": {
+      "title": "FAQ"
+    },
+    "newsletter": {
+      "title": "Si vous aimez voyager,",
+      "subtitle": "rejoignez notre newsletter",
+      "description": "Recevez les dernières nouvelles sur les joyaux d'aventure cachés, les voyages de lancement à prix réduit, et bien plus encore directement dans votre boîte de réception",
+      "firstNamePlaceholder": "Prénom",
+      "emailPlaceholder": "Email",
+      "button": "S'inscrire !"
+    }
+  },
+  "ZanzibarCompleteEscape8Days": {
+    "hero": {
+      "title": "L'Évasion Totale : Culture, Aventure & Saveurs de Zanzibar (8 Jours)",
+      "breadcrumb": "Tanzanie > Zanzibar",
+      "description": "Le meilleur de l'Île aux Épices en immersion complète.\n\nCe n'est pas un simple séjour balnéaire, c'est une plongée intense au cœur de l'océan Indien. En huit jours, vous vivrez le contraste saisissant de Zanzibar : de l'éclat turquoise des fonds marins de Mnemba au goût authentique du marché Darajani, en passant par l'histoire vibrante des ruelles de Stone Town. Préparez-vous à une aventure complète, conçue par un guide local.",
+      "duration": "8 jours",
+      "price": "€1 500"
+    },
+    "detailedItineraryTitle": "Itinéraire détaillé",
+    "itinerary": {
+      "day1": {
+        "title": "Jour 1 : Arrivée à Zanzibar",
+        "description": "Ce jour-là, vous arriverez à l'aéroport international de Zanzibar (ZNZ) ou au port des ferries. À votre arrivée, vous rencontrerez notre chauffeur juste à côté de l'arrivée. Le chauffeur affichera votre nom sur le panneau (exemple : \"RAMA WAHABU\"). La prise en charge dépendra des détails de votre vol ou de votre ferry. Vous enverrez les détails lorsque vous confirmerez le forfait. Pas de frais supplémentaires pour le transfert."
+      },
+      "day2": {
+        "title": "Jour 2 : Safari Blue Trip pour une journée complète",
+        "description": "Ce sera une journée complète de navigation autour des mangroves et de plongée en apnée le long de la baie de Menai, l'un des meilleurs récifs coralliens de Zanzibar. Navigation vers l'île de Kwale, détente sur un banc de sable, baignade et snorkeling. Savourez le meilleur barbecue de fruits de mer frais : poulpe, homard, calmar, poisson, etc. Goûtez des fruits frais exotiques tels que la banane, la pastèque, l'ananas, les mangues. Retour à l'hôtel après cette journée riche en aventures."
+      },
+      "day3": {
+        "title": "Jour 3 : Expérience du Marché & Cuisine Traditionnelle",
+        "description": "Commencez votre journée en explorant le meilleur de la cuisine de Zanzibar en rencontrant votre guide au marché Darajani où vous choisirez des ingrédients frais. Ce jour-là, vous acquerrez un aperçu plus approfondi de la cuisine, du peuple et de la culture de Zanzibar grâce à un cours de cuisine pratique et une visite du marché local. Cette expérience est conçue pour les passionnés de cuisine et vous permettra d'explorer et d'apprendre la cuisine de Zanzibar plus en profondeur que dans de simples restaurants."
+      },
+      "day4": {
+        "title": "Jour 4 : Dauphins de Mnemba et apnée",
+        "description": "Partez observer et nager avec les dauphins, puis explorez les récifs colorés de l'île de Mnemba lors de cette excursion d'une journée. Nos bateaux partent quotidiennement de Muyuni Beach, Matemwe, et nos guides expérimentés se feront un plaisir de vous montrer et de vous guider pendant l'excursion. Profitez de l'abondance de poissons aux couleurs vives et de la vie marine au meilleur spot de snorkeling de Zanzibar. À bord, vous seront servis de délicieux fruits tropicaux frais : banane, mangues, ananas, pastèque. Prenez des photos sur le magnifique banc de sable situé près de l'île de Mnemba (uniquement à marée basse). Après l'excursion, vous prendrez un délicieux déjeuner de fruits de mer à Muyuni Beach. Ensuite, le chauffeur vous ramènera à votre hôtel."
+      },
+      "day5": {
+        "title": "Jour 5 : Blue Lagoon & The Rock Restaurant",
+        "description": "Ce jour-là, préparez-vous à explorer la beauté tropicale des îles de Zanzibar. Explorez les bancs de poissons tropicaux colorés et les étoiles de mer en faisant du snorkeling au Blue Lagoon de Michamvi. Après le snorkeling, votre table sera prête au The Rock Restaurant. Vous déjeunerez et prendrez des photos de ce restaurant unique. Après The Rock Restaurant, vous retournerez vous reposer à votre hôtel."
+      },
+      "day6": {
+        "title": "Jour 6 : Ferme aux Épices & Stone Town Tour",
+        "description": "Cette journée, vous explorerez en goûtant et en sentant différentes épices cultivées et utilisées dans la cuisine de Zanzibar : cardamome, cannelle, poivre noir, clous de girofle, etc. Savourez un délicieux déjeuner composé de riz épicé préparé localement à la ferme, comprenant du poisson frais frit et des fruits. Apprenez l'histoire et la culture du peuple de Zanzibar avec un guide touristique professionnel local à Stone Town, en visitant la Maison des Merveilles, la Maison de Freddie Mercury, l'Ancien Marché aux Esclaves et le Palais du Sultan. Faites des photos et achetez des cadeaux dans les boutiques de souvenirs des rues de Stone Town."
+      },
+      "day7": {
+        "title": "Jour 7 : Prison Island avec Nakupenda Sandbank",
+        "description": "Le chauffeur viendra vous chercher à la réception après votre petit-déjeuner. Ce sera une excursion en bateau d'une journée complète vers Prison Island et le banc de sable de Nakupenda, près de la côte de Stone Town. Observez et prenez des photos des tortues géantes d'Aldabra sur Prison Island, et découvrez la brève histoire de l'île. Détente sur le banc de sable, baignade et snorkeling au banc de sable naturel de Nakupenda. Savourez le meilleur barbecue de fruits de mer frais : poulpe, homard, calmar, etc., ainsi que la dégustation de fruits frais exotiques. Après l'excursion, le chauffeur vous ramènera à votre hôtel."
+      },
+      "day8": {
+        "title": "Jour 8 : Transfert à l'aéroport, au revoir !",
+        "description": "Notre chauffeur viendra vous chercher à l'heure convenue à votre hôtel. Il vous conduira à l'aéroport (ZNZ) ou au port des ferries, selon l'heure de votre vol ou de votre ferry."
+      }
+    },
+    "pricing": {
+      "price": "€1 500"
+    },
+    "miniNavbar": {
+      "datesAndPrices": "Dates et prix",
+      "proposeDate": "Proposer une date",
+      "inclusions": "Inclusions"
+    },
+    "inclusions": {
+      "title": "Inclus",
+      "items": "1) Hébergement|||2) Transferts aller-retour de l'aéroport à l'hôtel|||3) Petit-déjeuner|||4) Transport pendant les excursions|||5) Entrées|||6) L'eau pendant les excursions|||7) Un chauffeur/guide professionnel|||8) Toutes les taxes et TVA|||9) Cartes SIM locales",
+      "priceIncludes": "Le prix comprend",
+      "priceDoesNotInclude": "Le prix ne comprend pas",
+      "exclusions": {
+        "visa": "Visa",
+        "airfares": "Billets d'avion",
+        "personalExpenses": "Dépenses personnelles",
+        "tips": "Pourboires"
+      },
+      "seeMore": "Voir plus",
+      "seeFewer": "Voir moins"
+    },
+    "newsletter": {
+      "title": "Si vous aimez voyager,",
+      "subtitle": "rejoignez notre newsletter",
+      "description": "Recevez les dernières nouvelles sur les voyages, offres et inspirations directement dans votre boîte de réception",
+      "firstNamePlaceholder": "Prénom",
+      "emailPlaceholder": "Email",
+      "button": "S'abonner"
+    },
+    "inquiryForm": {
+      "title": "Demande",
+      "name": "Nom",
+      "email": "Email",
+      "date": "Date proposée",
+      "message": "Message",
+      "submit": "Envoyer"
+    }
+  },
+  "ZanzibarDivingCulture5Days": {
+    "hero": {
+      "title": "L'Archipel des Sens : Plongée & Culture à Zanzibar (5 Jours)",
+      "breadcrumb": "Tanzanie > Zanzibar",
+      "description": "Le meilleur de l'Île aux Épices en format express. Ce n'est pas un simple séjour balnéaire, c'est une immersion intense dans le cœur palpitant de l'océan Indien. En cinq jours seulement, vous vivrez le contraste saisissant de Zanzibar : de l'éclat turquoise des fonds marins de Mnemba et du Safari Blue à l'authenticité vibrante des ruelles labyrinthiques de Stone Town.",
+      "durationLabel": "Durée",
+      "duration": "5 jours",
+      "priceLabel": "À partir de",
+      "price": "€850"
+    },
+    "miniNavbar": {
+      "datesAndPrices": "Dates et Prix",
+      "proposeDate": "Proposer une Date",
+      "itinerary": "Itinéraire",
+      "inclusions": "Inclusions",
+      "practicalInfo": "Informations Pratiques"
+    },
+    "detailedItineraryTitle": "Itinéraire Détaillé",
+    "itinerary": {
+      "day1": {
+        "title": "Jour 1 : Transfert à l'hôtel",
+        "description": "Ce jour-là, vous arriverez à l'aéroport international de Zanzibar. À votre arrivée, vous rencontrerez notre chauffeur juste à côté de l'arrivée. Le chauffeur affichera votre nom sur le panneau. La prise en charge dépendra des détails de votre vol. Vous enverrez les détails de votre vol lorsque vous confirmerez le forfait. Pas de frais supplémentaires pour le transfert vers votre hôtel."
+      },
+      "day2": {
+        "title": "Jour 2 : Safari Blue Trip pour une journée complète",
+        "description": "Ce sera une journée complète de navigation autour des mangroves et de plongée en apnée le long de la baie de Menai, l'un des meilleurs récifs coralliens de Zanzibar. Navigation vers l'île de Kwale, détente sur un banc de sable, baignade et snorkeling. Savourez le meilleur barbecue de fruits de mer frais : poulpe, homard, calmar, poisson, etc. Goûtez des fruits frais exotiques tels que la banane, la pastèque, l'ananas, les mangues."
+      },
+      "day3": {
+        "title": "Jour 3 : Demi-journée - Dauphins de Mnemba et apnée",
+        "description": "Nagez avec les dauphins et prenez des photos incroyables. Faites de la plongée avec tuba et observez une variété de poissons tropicaux colorés, de coraux et d'autres créatures marines. Explorez les récifs coralliens et la vie marine autour de l'île de Mnemba. Cette demi-journée vous fera découvrir l'autre partie de la côte nord de Zanzibar, Matemwe."
+      },
+      "day4": {
+        "title": "Jour 4 : Stone Town, Ferme d'Épices et Prison Island",
+        "description": "Cette journée, vous explorerez en goûtant et en sentant différentes épices cultivées et utilisées dans la cuisine de Zanzibar ; Cardamome, cannelle, poivre noir, clous de girofle, etc. Apprenez l'histoire et la culture du peuple de Zanzibar avec un guide touristique professionnel local à Stone Town en visitant les lieux les plus emblématiques. Savourez un délicieux déjeuner composé de riz épicé préparé localement à la ferme avec du poisson frais et des fruits tels que des bananes, des mangues, des ananas, etc. Observez et prenez des photos des tortues géantes d'Aldabra sur Prison Island. Et découvrez la brève histoire de Prison Island."
+      },
+      "day5": {
+        "title": "Jour 5 : Transfert à l'aéroport, au revoir !",
+        "description": "Après cinq jours de vacances à Zanzibar, ce jour-là, vous prendrez votre vol de retour. Le chauffeur vous conduira à l'aéroport selon vos horaires de vol. Kwaheri!"
+      }
+    },
+    "inclusions": {
+      "title": "Inclus",
+      "items": "1) Hébergement|||2) Transferts aller-retour de l'aéroport à l'hôtel|||3) Petit-déjeuner|||4) Transport pendant les excursions|||5) Entrées|||6) L'eau pendant les excursions|||7) Un chauffeur/guide professionnel|||8) Toutes les taxes et TVA|||9) Cartes SIM locales",
+      "priceIncludes": "Le prix comprend",
+      "priceDoesNotInclude": "Le prix n'inclut pas",
+      "exclusions": {
+        "visa": "Visa",
+        "airfares": "Billets d'avion",
+        "personalExpenses": "Dépenses personnelles",
+        "tips": "Pourboires"
+      },
+      "seeMore": "Voir plus",
+      "seeFewer": "Voir moins"
+    },
+    "pricing": {
+      "price": "€850"
+    },
+    "newsletter": {
+      "title": "Restez à jour",
+      "subtitle": "Inscrivez-vous à notre newsletter",
+      "description": "Recevez les dernières offres et conseils de voyage",
+      "firstNamePlaceholder": "Prénom",
+      "emailPlaceholder": "Votre adresse e-mail",
+      "button": "S'abonner"
+    },
+    "inquiryForm": {
+      "name": "Nom",
+      "email": "Email",
+      "date": "Date proposée",
+      "message": "Message",
+      "submit": "Envoyer"
+    }
+  },
+  "HomePage": {
+    "title": "Découvrez la beauté des parcs nationaux de la Tanzanie",
+    "subtitle": "Des aventures inoubliables vous attendent",
+    "cta": "Explorez nos voyages",
+    "featuredTrips": "Voyages en vedette",
+    "seeAllTrips": "Voir tous les voyages",
+    "exploreTrips": "Explorer les voyages"
+  },
+  "TripsPage": {
+    "heroTitle": "Découvrez des voyages incroyables",
+    "heroSubtitle": "Des expériences sélectionnées qui mettent en avant la meilleure nature de la Tanzanie et son patrimoine culturel",
+    "searchLabel": "Rechercher",
+    "searchPlaceholder": "Rechercher des voyages...",
+    "regionLabel": "Région",
+    "allRegions": "Toutes les régions",
+    "priceLabel": "Gamme de prix",
+    "allPrices": "Tous les prix",
+    "priceRanges": {
+      "budget": "Économique (Moins de 2000 $)",
+      "mid": "Milieu de gamme (2000 $ - 3000 $)",
+      "luxury": "Luxe (Plus de 3000 $)"
+    },
+    "searchButton": "Rechercher",
+    "viewDetails": "Voir les détails",
+    "trips": {
+      "serengeti": {
+        "name": "Safari Bivouac 8 Jours : L'Appel Sauvage de la Tanzanie du Nord",
+        "region": "Tanzanie du Nord",
+        "duration": "8 jours",
+        "type": "Safari",
+        "description": "Oubliez le quotidien. Ce n'est pas un simple voyage, c'est une immersion totale. Pendant 8 jours, vous vivrez au rythme du cœur de l'Afrique, là où le luxe se mesure à l'immensité du ciel et à l'authenticité de l'instant.\n\nCe safari est taillé pour l'aventurier qui sommeille en vous. En choisissant le bivouac (camping), vous ne faites pas qu'observer la nature, vous y dormez. Écoutez le rugissement lointain d'un lion au Serengeti, sentez le sol vibrer au passage des éléphants du Tarangire, et laissez-vous bercer par le chant nocturne de la savane.",
+        "price": "€1 850"
+      },
+      "kilimanjaro": {
+        "name": "La Route Machame (7 jours de trek) : L'ascension panoramique",
+        "region": "Tanzanie du Nord",
+        "duration": "9 jours (7 jours de trekking)",
+        "type": "Escalade",
+        "description": "Souvent appelée la « Route du Whisky », la route Machame est l'itinéraire le plus populaire du Kilimandjaro. Elle offre des paysages spectaculaires et variés, traversant cinq zones climatiques distinctes. Cet itinéraire de 7 jours est recommandé et inclut une courte journée d'acclimatation entre Barranco Camp et Karanga Camp, essentielle pour s'adapter à l'altitude et augmenter vos chances d'atteindre le sommet en toute sécurité.",
+        "price": "À partir de €2 890"
+      },
+      "zanzibar": {
+        "name": "Vacances Balnéaires à Zanzibar",
+        "region": "Zanzibar",
+        "duration": "8 jours",
+        "type": "Plage",
+        "description": "Séjours balnéaires sur mesure et escapades insulaires",
+        "price": "À partir de €2 300"
+      }
+    }
+  },
+  "ClimbKilimanjaroPage": {
+    "videoFallback": "Votre navigateur ne supporte pas la balise vidéo.",
+    "fromPrice": "À partir de ${price}",
+    "durationLabel": "Durée",
+    "difficultyLabel": "Difficulté",
+    "groupSizeLabel": "Taille du groupe",
+    "adventureTypeLabel": "Type d'aventure",
+    "bookCall": "Réservez un appel avec notre équipe",
+    "downloadGuide": "Téléchargez le guide Kilimandjaro",
+    "hero": {
+      "title": "Grimper le Kilimandjaro",
+      "durationLabel": "Durée",
+      "duration": "7–9 jours",
+      "difficultyLabel": "Difficulté",
+      "difficulty": "Difficile",
+      "groupSizeLabel": "Taille du groupe",
+      "groupSize": "4–12",
+      "adventureTypeLabel": "Type d'aventure",
+      "adventureType": "Trek",
+      "price": "À partir de 2 000€",
+      "description": "Envie de vous tenir sur le toit de l'Afrique ? Grimpez le Kilimandjaro avec nous et créez des souvenirs inoubliables ! Les trois itinéraires ci‑dessous sont nos préférés et permettent une acclimatation appropriée — très important pour réussir l'ascension.",
+      "bookCall": "Réservez un appel avec notre équipe",
+      "downloadGuide": "Télécharger le PDF Kilimandjaro"
+    },
+    "itineraries": {
+      "title": "Nos itinéraires",
+      "description": "Nous proposons cinq des sept itinéraires menant au Kilimandjaro — les meilleurs et les plus sûrs ! Ces itinéraires vont de cinq à onze jours, et incluent généralement une nuit en lodge avant et après l'ascension.",
+      "marangu": {
+        "title": "Conquérir le Toit de l'Afrique : L'Ascension du Kilimandjaro par la Route Marangu en 5 Jours",
+        "price": "À partir de 1 800€",
+        "duration": "5 jours",
+        "description": "Jour 0 : Aéroport du Kilimandjaro — Moshi\nÀ votre arrivée à l'aéroport international du Kilimandjaro, vous serez accueilli par votre guide et transféré à Moshi (environ 60 minutes). Nuit à votre lodge.\n\nJour 1 : Porte Marangu → Mandara Hut\nLe premier jour commence par le transfert à la Porte Marangu (1 860 m). Après les formalités, la randonnée traverse la forêt tropicale. En option, détour vers le cratère Maundi. Après 3–4 heures (≈8 km), arrivée à Mandara Hut (2 700 m).\n\nJour 2 : Mandara Hut → Horombo Hut\nSortie de la forêt vers les landes; paysages grandioses, lobélies géantes. Après 5–6 heures (≈12 km), arrivée à Horombo Hut (3 700 m). Début des effets de l'altitude.\n\nJour 3 : Horombo Hut → Kibo Hut\nTraversée du désert alpin, paysage lunaire entre Mawenzi et Kibo. Après 5–6 heures (≈9 km), arrivée à Kibo Hut (4 700 m). Repos et préparation pour l'assaut du sommet.\n\nJour 4 : Assaut du Sommet → Descente vers Horombo Hut\nDépart très tôt (minuit–2h). Progression lente sur éboulis jusqu'à Gilman's Point (5 685 m) puis Uhuru Peak (5 895 m). Descente jusqu'à Horombo Hut après un arrêt à Kibo Hut pour déjeuner.\n\nJour 5 : Horombo Hut → Porte Marangu\nDescente finale à travers la lande puis la forêt jusqu'à la Porte Marangu (1 860 m). Transfert à Moshi et cérémonie de remise du certificat d'ascension.\n\nInformations pratiques :\nAltitude sommitale : 5 895 m\nDurée approximative : 5 jours d'ascension + jours d'arrivée/départ selon l'itinéraire\n",
+        "shortDescription": "Envie de vous tenir sur le toit de l'Afrique ? Grimpez le Kilimandjaro avec nous et créez des souvenirs inoubliables !"
+      },
+      "lemosho": {
+        "title": "Route Lemosho",
+        "price": "À partir de 2 200€",
+        "duration": "8 jours",
+        "description": "La route Lemosho est l'une de nos préférées : paysages variés et très bonne acclimatation, d'où un excellent taux de réussite au sommet."
+      },
+      "rongai": {
+        "title": "Route Rongai",
+        "price": "À partir de 2 935€",
+        "duration": "9 jours",
+        "description": "La Rongai est une route tranquille qui permet de voir les deux versants de la montagne. L'ascension est progressive et moins raide."
+      },
+      "northernCircuit": {
+        "title": "Northern Circuit",
+        "price": "À partir de 3 490€",
+        "duration": "11 jours",
+        "description": "Le Northern Circuit (Grand Traverse) est le plus récent et offre un excellent taux de réussite au sommet, avec des paysages variés et moins de foule."
+      },
+      "machame": {
+        "title": "Route Machame (7 jours) — Ascension panoramique",
+        "price": "À partir de 2 000€",
+        "duration": "7 jours",
+        "description": "Souvent appelée la \"Whisky Route\", la Machame est très populaire pour ses vues spectaculaires et sa traversée de cinq zones climatiques distinctes."
+      },
+      "umbwe": {
+        "title": "Route Umbwe",
+        "price": "À partir de 1 900€",
+        "duration": "7 jours",
+        "description": "La voie Umbwe est la plus exigeante et la moins fréquentée : ascension raide et directe, réservée aux randonneurs expérimentés."
+      }
+    },
+    "tripDetails": {
+      "title": "Grimper le Kilimandjaro",
+      "duration": "7–9 jours",
+      "difficulty": "Difficile",
+      "groupSize": "4–12",
+      "adventureType": "Trek",
+      "description": "Envie de vous tenir sur le toit de l'Afrique ? Grimpez le Kilimandjaro avec nous et créez des souvenirs inoubliables ! Nos itinéraires favoris permettent une acclimatation progressive, essentielle pour atteindre le sommet en toute sécurité."
+    },
+    "countryInfo": {
+      "title": "Country info and facts",
+      "description": "Here are the basics you need to know about Tanzania to help you prepare for your adventure, like the nearest airport to Mt Kilimanjaro and the local currency. We also discuss the seasons and potential health risks for climbing Africa's tallest mountain!",
+      "languages": {
+        "title": "Languages",
+        "content": "Swahili, English"
+      },
+      "currency": {
+        "title": "Currency used in Tanzania",
+        "content": "Tanzanian shilling (TZS)"
+      },
+      "airports": {
+        "title": "Airports",
+        "content": "The nearest airport and the one all our clients use is Kilimanjaro International Airport (JRO) just outside the city of Arusha. When coming from outside of East Africa, you must usually fly via Nairobi (Kenya) or Dar es Salaam (Tanzania) to catch a connecting flight to JRO."
+      },
+      "seasons": {
+        "title": "Seasons",
+        "content": "",
+        "learnMore": "To learn more, please read Best time to climb Kilimanjaro."
+      },
+      "visa": {
+        "title": "Visa and Immigration",
+        "content": "A standard Tanzanian tourist visa is valid for up to 90 days and costs US$50. US citizens must purchase a multiple-entry visa for $100 that is valid for a year. Note, however, that a visa isn't required for nationals from around 50 countries worldwide, including South Africa, Kenya, Hong Kong, Singapore, China, India, Brazil and Turkey. Learn more here."
+      },
+      "health": {
+        "title": "Health and Safety",
+        "content": "It's safe to climb Kilimanjaro when you travel with a reputable tour operator who has your health and safety as their number one priority. The biggest safety issue on a Kilimanjaro climb is the extreme altitude (please read Kilimanjaro altitude sickness so you understand the situation). Note that you must have travel insurance that covers you for hiking up to 6,000 m above sea level to be allowed to climb Kilimanjaro with Latanzanieaucourdelanature. A good all-round article to read is Kilimanjaro safety."
+      }
+    },
+    "downloadSection": {
+      "title": "Kilimanjaro PDF Download",
+      "subtitle": "Get your free Kilimanjaro guide!",
+      "description": "Everything you need to reach the summit of Mount Kilimanjaro successfully",
+      "button": "Download PDF"
+    },
+    "newsletter": {
+      "title": "Si vous aimez voyager,",
+      "subtitle": "rejoignez notre infolettre",
+      "description": "Recevez les dernières actualités sur des trésors d'aventure, des voyages de lancement à prix réduit et bien plus encore directement dans votre boîte de réception.",
+      "firstNamePlaceholder": "Prénom",
+      "emailPlaceholder": "Votre adresse e-mail",
+      "button": "S'abonner"
+    },
+    "leadersTitle": "Local guides",
+    "leaders": {
+      "title": "Local leaders",
+      "chris": {
+        "name": "Chris Sichalwe",
+        "description": "Chris started working on Kilimanjaro in 1999 and has since made it to the summit over 300 times. He's the founding father of Latanzanieaucourdelanature Tanzania and loves taking people to the roof of Africa! He's the steady and competent hand you need, but also a great storyteller who adds so much to every trip!"
+      },
+      "robert": {
+        "name": "Robert Sichalwe",
+        "description": "Robert is a highly experienced Kilimanjaro lead trek guide. He's been leading treks with Latanzanieaucourdelanature for years, and we know our climbers are in great hands with Robert as the expedition leader. He's also a great guy who will soon become your friend and an integral part of your Kilimanjaro memories!"
+      }
+    },
+    "bookTripTitle": "Book your trip",
+    "requestNow": "Request now",
+    "groupDiscountsTitle": "Group discounts",
+    "groupDiscountsDescription": "Ask for more details",
+    "noDatesTitle": "Don't see your dates?",
+    "noDatesDescription": "Please propose a new departure date",
+    "proposeDate": "Propose a new date",
+    "january2026": "January 2026",
+    "status": {
+      "open": "Open for bookings",
+      "limited": "Limited spots available"
+    },
+    "deposit": "Deposit ${deposit}",
+    "bookNow": "Book now",
+    "loadMoreDates": "Load more dates",
+    "rewardTitle": "Reward yourself after Kilimanjaro with a safari!",
+    "rewardDescription": "A safari is a popular way to relax after your Kilimanjaro climb. The Serengeti and Ngorongoro Crater are just a few hours drive away!",
+    "booking": {
+      "title": "Book your trip",
+      "button": "Enquire Now",
+      "groupDiscounts": {
+        "title": "Group Discounts",
+        "description": "Enquire for more details",
+        "button": "Enquire for more details"
+      },
+      "dates": {
+        "title": "Don't see your dates?",
+        "description": "Please propose a new departure",
+        "button": "Propose Date"
+      }
+    },
+    "dates": {
+      "title": "When",
+      "whenButton": "january 2026",
+      "selected": "selected",
+      "itinerary": "Itinerary",
+      "selectItinerary": "Select itinerary",
+      "jan3": {
+        "date": "Jan 3, 2026",
+        "route": "8 days - Lemosho Route",
+        "status": "Open for bookings",
+        "price": "from USD3,350",
+        "deposit": "Deposit USD250",
+        "button": "Enquire"
+      },
+      "jan10": {
+        "date": "Jan 10, 2026",
+        "route": "9 days - Northern Circuit",
+        "status": "Limited spots available",
+        "price": "from USD3,590",
+        "deposit": "Deposit USD250",
+        "button": "Enquire"
+      },
+      "jan15": {
+        "date": "Jan 15, 2026",
+        "route": "7 days - Lemosho Route",
+        "status": "Open for bookings",
+        "price": "from USD3,050",
+        "deposit": "Deposit USD250",
+        "button": "Enquire"
+      },
+      "jan20": {
+        "date": "Jan 20, 2026",
+        "route": "8 days - Lemosho Route",
+        "status": "Limited spots available",
+        "price": "from USD3,350",
+        "deposit": "Deposit USD250",
+        "button": "Enquire"
+      },
+      "jan22": {
+        "date": "Jan 22, 2026",
+        "route": "7 days - Rongai Route",
+        "status": "Open for bookings",
+        "price": "from USD2,935",
+        "deposit": "Deposit USD250",
+        "button": "Enquire"
+      },
+      "jan26": {
+        "date": "Jan 26, 2026",
+        "route": "9 days - Northern Circuit 🌕 Full moon",
+        "status": "Limited spots available",
+        "price": "from USD3,590",
+        "deposit": "Deposit USD250",
+        "button": "Enquire"
+      },
+      "jan27": {
+        "date": "Jan 27, 2026",
+        "route": "8 days - Lemosho Route 🌕 Full moon",
+        "status": "Limited spots available",
+        "price": "from USD3,350",
+        "deposit": "Deposit USD250",
+        "button": "Enquire"
+      },
+      "jan28": {
+        "date": "Jan 28, 2026",
+        "route": "7 days - Lemosho Route 🌕 Full moon",
+        "status": "Limited spots available",
+        "price": "from USD3,050",
+        "deposit": "Deposit USD250",
+        "button": "Enquire"
+      },
+      "feb4": {
+        "date": "Feb 4, 2026",
+        "route": "8 days - Lemosho Route",
+        "status": "Open for bookings",
+        "price": "from USD3,350",
+        "deposit": "Deposit USD250",
+        "button": "Enquire"
+      },
+      "feb10": {
+        "date": "Feb 10, 2026",
+        "route": "9 days - Northern Circuit",
+        "status": "Limited spots available",
+        "price": "from USD3,590",
+        "deposit": "Deposit USD250",
+        "button": "Enquire"
+      },
+      "feb10b": {
+        "date": "Feb 10, 2026",
+        "route": "7 days - Machame Route",
+        "status": "Open for bookings",
+        "price": "from USD2,990",
+        "deposit": "Deposit USD250",
+        "button": "Enquire"
+      },
+      "feb14": {
+        "date": "Feb 14, 2026",
+        "route": "7 days - Lemosho Route",
+        "status": "Open for bookings",
+        "price": "from USD3,050",
+        "deposit": "Deposit USD250",
+        "button": "Enquire"
+      },
+      "showMore": "Show more dates"
+    },
+    "reward": {
+      "title": "See what others say",
+      "description": "Reward yourself after Kilimanjaro with a safari! A safari is a popular way to unwind after your Kilimanjaro climb. The Serengeti and Ngorongoro Crater are only a few hours away by car!",
+      "button": "Enquire Now"
+    },
+    "whyFollowAliceTitle": "Why Latanzanieaucourdelanature?",
+    "outOfFive": "out of 5",
+    "stars": "stars",
+    "whyFollowAlice": {
+      "title": "Why Latanzanieaucourdelanature?",
+      "rating": "out of 5",
+      "stars": {
+        "five": "5 star",
+        "four": "4 star",
+        "three": "3 star",
+        "two": "2 star",
+        "one": "1 star"
+      },
+      "easyAdventure": {
+        "title": "Adventuring made easy",
+        "description": "Our dedicated travel consultants make adventuring easy for you by taking away all of the admin. Your only jobs are to train for the adventure if necessary and then pack your bags!"
+      },
+      "localGuides": {
+        "title": "Local guides",
+        "description": "Our local guides look after you in every way. Our goal is to give every traveller the feeling you get when a friend is showing you their country."
+      },
+      "responsibleTravel": {
+        "title": "Responsible travel",
+        "description": "On average, over 70% of your trip price stays in the local economy. It's important to us that the visited communities benefit the most since they're the ones hosting travellers."
+      }
+    },
+    "topReadsTitle": "Top reads",
+    "topReadsCta": "Curious to learn more? Book a call with our team.",
+    "topReads": {
+      "title": "Top Reads",
+      "description": "The three blog posts below are some of our most popular. Because everyone wants to know how much a Kilimanjaro climb costs. They also want to know what to pack for the climb to ensure they're properly equipped. And we find that many folks are curious to know if climbing Mt Kilimanjaro is harder or easier than trekking to Everest Base Camp.",
+      "cta": "Curious to learn more? Book a call with our team.",
+      "packingList": {
+        "title": "Trekkers climbing Mount Kilimanjaro",
+        "subtitle": "The ultimate Kilimanjaro packing list (+ free PDF)",
+        "description": "What you pack for your Kilimanjaro climb is vitally important to your health and the success of your trek. We've put together a comprehensive list of what to pack, and why. Please use this as a checklist in planning and packing for your Kili adventure."
+      },
+      "cost": {
+        "title": "Hikers on Mount Kilimanjaro",
+        "subtitle": "How much does it cost to trek Kilimanjaro?",
+        "description": "A seven-day Kilimanjaro climb costs US$2,850 with Latanzanieaucourdelanature. This price includes all of your food, camping equipment, and much more. Here's a breakdown of what's included in the price as well as the costs of any exclusions like your Tanzanian visa."
+      },
+      "kilimanjaroVsEverest": {
+        "title": "View of Mount Kilimanjaro",
+        "subtitle": "Kilimanjaro vs Everest Base Camp: which is harder?",
+        "description": "Kilimanjaro and Everest Base Camp are two of the world's most famous and challenging high-altitude treks. But they're very different from one another. We discuss these differences and make the case that Kilimanjaro is the harder trek overall."
+      }
+    },
+    "faqsTitle": "FAQ",
+    "faqs": {
+      "q1": "Is climbing Mount Kilimanjaro safe?",
+      "q2": "Where do I sleep on Mount Kilimanjaro?",
+      "q3": "What is the best time to climb Mount Kilimanjaro?",
+      "title": "FAQs",
+      "question1": "Is climbing Mount Kilimanjaro safe?",
+      "question2": "Where do I sleep on Mount Kilimanjaro?",
+      "question3": "When is the best time to climb Mount Kilimanjaro?",
+      "answer1": "Climbing Mount Kilimanjaro is safe when you travel with a reputable tour operator like Latanzanieaucourdelanature. We prioritize your health and safety with experienced guides, proper equipment, and well-planned itineraries that allow for proper acclimatization. Our success rate is over 90% for climbers who follow our guidance.",
+      "answer2": "On Mount Kilimanjaro, you'll sleep in tents at designated campsites. Each campsite has basic facilities including toilets and dining areas. Our camping equipment is high-quality and designed for the mountain conditions. On some routes like Marangu, you'll sleep in huts with bunk beds instead of tents.",
+      "answer3": "The best times to climb Mount Kilimanjaro are during the dry seasons: January to March and June to October. During these periods, you'll experience clearer skies, less rain, and better visibility. The weather can be unpredictable on the mountain, so proper gear is essential regardless of when you climb."
+    },
+    "newsletterTitle": "If you love to travel,",
+    "newsletterSubtitle": "join our newsletter",
+    "newsletterDescription": "Receive the latest news on hidden adventure gems, discounted launch trips, and more straight to your inbox",
+    "emailPlaceholder": "Your email address",
+    "subscribe": "Subscribe",
+    "contactModal": {
+      "title": "Book a call with our team",
+      "nameLabel": "Full name",
+      "namePlaceholder": "John Doe",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "john@example.com",
+      "phoneLabel": "Phone number",
+      "phonePlaceholder": "+255782825692",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Tell us more about your travel plans...",
+      "accept": "I accept the",
+      "privacyPolicy": "Privacy Policy",
+      "submit": "Send request"
+    },
+    "downloadModal": {
+      "title": "Get your free Kilimanjaro guide!",
+      "description": "Everything you need to successfully reach the summit of Mount Kilimanjaro",
+      "nameLabel": "Full name",
+      "namePlaceholder": "John Doe",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "john@example.com",
+      "accept": "I accept the",
+      "privacyPolicy": "Privacy Policy",
+      "submit": "Download guide"
+    },
+    "relatedTrips": {
+      "kilimanjaro": {
+        "title": "Climb Kilimanjaro",
+        "duration": "9 - 11 days",
+        "description": "Want to stand on the roof of Africa? Climb Kilimanjaro with us and create unforgettable memories!"
+      },
+      "safari": {
+        "title": "Tanzania Safari",
+        "duration": "2 - 9 days",
+        "description": "Tanzania is arguably the best country in the world for big game safari. It houses the Big Five as well as the Great Migration!"
+      }
+    }
+  },
+  "Footer": {
+    "company": "la Tanzanie au cœur de la nature",
+    "description": "We are a boutique tour operator offering a selection of the best adventure trips in Tanzania.",
+    "quickLinks": "Quick Links",
+    "destinations": "Destinations",
+    "contactInfo": "Contact Info",
+    "address": "Latanzanieaucourdelanature Tours (T) LTD, PO Box 1923, Moshi, Tanzania",
+    "phone": "+255782825692",
+    "email": "info@latanzanieaucourdelanature.com",
+    "rights": "All rights reserved",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact",
+    "kilimanjaro": "Climb Kilimanjaro",
+    "safari": "Tanzania Safari",
+    "zanzibar": "Vacances à Zanzibar",
+    "ngorongoro": "Ngorongoro Crater",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "workWithUs": "Work With Us"
+  },
+  "TravelBlogsPage": {
+    "hero": {
+      "title": "Knowledge Library",
+      "subtitle": "Learn before you travel. The Latanzanieaucourdelanature travel library is the ultimate resource for planning your trip. Our goal is to give every traveller a feeling of security before they set off."
+    },
+    "search": {
+      "placeholder": "Search travel topics..."
+    },
+    "categories": {
+      "title": "Choose a topic"
+    },
+    "explore": "Explore",
+    "noTopicsFound": "No travel topics found matching your search.",
+    "cta": {
+      "description": "Curious to learn more? Book a call with our team.",
+      "button": "Book a call with our team"
+    },
+    "topReads": {
+      "title": "Top Reads",
+      "description": "The three blog posts below are some of our most popular. Because everyone wants to know how much a Kilimanjaro climb costs. They also want to know what to pack for the climb to ensure they're properly equipped. And we find that many folks are curious to know if climbing Mt Kilimanjaro is harder or easier than trekking to Everest Base Camp."
+    }
+  },
+  "SeeTripsPage": {
+    "videoFallback": "Votre navigateur ne supporte pas la balise vidéo.",
+    "hero": {
+      "title": "Aventures",
+      "subtitle": "Des voyages d'aventure conçus par des voyageurs passionnés"
+    },
+    "search": {
+      "placeholder": "Rechercher des voyages d'aventure..."
+    },
+    "noTripsFound": "Aucun voyage d'aventure trouvé correspondant à votre recherche.",
+    "faq": {
+      "title": "FAQ",
+      "items": {
+        "faq1Answer": "Oui, nous organisons des voyages adaptés aux familles et pouvons personnaliser les itinéraires pour enfants et parents.",
+        "faq2Answer": "Oui — nous concevons des voyages de noces d'aventure sur mesure pour des couples désirant combiner romance et exploration.",
+        "faq3Answer": "Nous proposons des options pour différents budgets ; contactez-nous pour un devis personnalisé selon vos attentes.",
+        "faq4Answer": "La taille moyenne d'un groupe varie selon le voyage, généralement entre 4 et 12 personnes pour nos circuits d'aventure."
+      }
+    },
+    "newsletter": {
+      "title": "Si vous aimez voyager,",
+      "subtitle": "rejoignez notre newsletter",
+      "description": "Recevez les dernières nouvelles sur des trésors d'aventure, des offres et des guides pratiques directement dans votre boîte de réception",
+      "firstNamePlaceholder": "Prénom",
+      "emailPlaceholder": "Votre adresse e-mail",
+      "button": "S'abonner"
+    }
+  },
+  "AboutPage": {
+    "hero": {
+      "title": "L'Histoire de La Tanzanie au cœur de la nature",
+      "subtitle": "Un Héritage du Sommet"
+    },
+    "mission": {
+      "title": "Notre mission",
+      "paragraph1": "Chez Latanzanieaucourdelanature, nous croyons que les voyages doivent être transformateurs. Notre mission est de connecter les voyageurs avec les paysages les plus spectaculaires de la Tanzanie tout en soutenant les communautés locales et en préservant l'environnement naturel pour les générations futures.",
+      "paragraph2": "Nous nous engageons en faveur du tourisme responsable qui respecte à la fois la faune et les cultures locales, en veillant à ce que chaque voyage contribue positivement aux endroits et aux personnes que nous visitons."
+    },
+    "story": {
+      "title": "Notre parcours",
+      "timeline": {
+        "2010": {
+          "year": "2010",
+          "title": "Le commencement",
+          "description": "Fondée par des guides tanzaniens locaux passionnés qui voulaient partager la beauté naturelle incroyable de leur pays avec le monde."
+        },
+        "2015": {
+          "year": "2015",
+          "title": "Reconnaissance internationale",
+          "description": "Reconnue par National Geographic comme l'un des principaux opérateurs touristiques durables d'Afrique de l'Est pour nos efforts de conservation."
+        },
+        "2020": {
+          "year": "2020",
+          "title": "Partenariat communautaire",
+          "description": "Nous avons élargi nos programmes pour inclure des initiatives de tourisme communautaire, bénéficiant directement aux villages locaux près de nos destinations."
+        },
+        "2025": {
+          "year": "2025",
+          "title": "En avant",
+          "description": "Continuer à innover dans le tourisme durable tout en élargissant nos offres pour inclure de nouvelles destinations et expériences à travers la Tanzanie."
+        }
+      },
+      "heritage": {
+        "title": "Un Héritage du Sommet",
+        "paragraph1": "L'idée de La Tanzanie au cœur de la nature repose sur un respect profond et générationnel de la montagne et de sa nature.",
+        "paragraph2": "Mon parcours a commencé dans les traces de mon père, un porteur dévoué et résilient qui a servi la communauté des grimpeurs pendant plus de deux décennies, parcourant les sentiers jusqu'à l'âge de 42 ans. Sa force, son expérience et sa connaissance intime de chaque crête et chaque sentier sont devenues le plan de ma propre vie.",
+        "paragraph3": "J'ai grandi imprégné de la culture de la montagne, inspiré par son engagement. J'ai suivi son chemin, maîtrisant les pistes dès mon plus jeune âge pour devenir un Guide Local certifié.",
+        "paragraph4": "Aujourd'hui, je dirige des treks et des safaris avec la sagesse et la passion transmises par ma famille. La Tanzanie au cœur de la nature est plus qu'un simple voyagiste ; c'est l'aboutissement d'une vie vécue sur ces pentes, honorant l'héritage des véritables héros de la montagne. Nous sommes une famille de guides locaux engagés à vous offrir une aventure authentique, sécurisée et profondément significative."
+      },
+      "imageCaption": "Les guides locaux se mettent en route à l'aube près de Moshi, Tanzanie",
+      "imageCatchphrase": "Passion et Dignité : Notre Équipe Locale."
+    },
+    "engagement": {
+      "title": "Engagement communautaire",
+      "paragraph1": "Nous soutenons les projets de conservation menés par les communautés et les projets de moyens de subsistance qui génèrent des avantages à long terme.",
+      "paragraph2": "Nos partenariats financent des programmes d'éducation, de santé et d'environnement dans les communautés où nous opérons.",
+      "paragraph3": "Nous travaillons étroitement avec les responsables locaux pour concevoir des tours qui respectent les protocoles culturels et favorisent des revenus durables.",
+      "paragraph4": "Chaque réservation contribue à des initiatives de développement à petite échelle supervisées par des partenaires communautaires."
+    },
+    "team": {
+      "title": "Rencontrez notre équipe",
+      "john": {
+        "name": "John Mwakasungula",
+        "role": "Fondateur et expert en safari",
+        "bio": "Avec plus de 15 ans d'expérience en conservation de la faune tanzanienne et en tourisme, John apporte une expertise incomparable à chaque aventure."
+      },
+      "sarah": {
+        "name": "Sarah Kimaro",
+        "role": "Guide d'alpinisme et alpiniste",
+        "bio": "Guide certifié du Kilimandjaro avec plusieurs sommets réussis, Sarah garantit des expériences d'escalade sûres et mémorables."
+      },
+      "michael": {
+        "name": "Michael Nkamba",
+        "role": "Spécialiste culturel",
+        "bio": "Michael connecte les voyageurs avec la culture tanzanienne authentique à travers des expériences communautaires soigneusement organisées."
+      }
+    },
+    "cta": {
+      "title": "Prêt à découvrir la Tanzanie ?",
+      "subtitle": "Rejoignez-nous pour un voyage inoubliable à travers les paysages les plus spectaculaires de la Tanzanie.",
+      "button": "Planifiez votre aventure"
+    },
+    "values": {
+      "title": "Nos valeurs",
+      "subtitle": "Ce qui guide notre travail",
+      "conviction": "Nous croyons que les voyages responsables peuvent créer des résultats positifs et mesurables pour les personnes et la nature.",
+      "heritage": {
+        "title": "Notre héritage",
+        "paragraph1": "Le riche patrimoine culturel de la Tanzanie inspire tout ce que nous faisons.",
+        "paragraph2": "Nous partenons avec les communautés locales pour préserver les traditions et assurer que le tourisme bénéficie aux moyens de subsistance locaux."
+      },
+      "nature": {
+        "title": "Respect de la nature",
+        "description": "Nous opérons avec la conservation au cœur, en minimisant l'impact tout en maximisant la contribution positive aux écosystèmes et à la faune."
+      },
+      "authenticity": {
+        "title": "Authenticité",
+        "description": "Nous créons des expériences authentiques — pas des attractions mises en scène — afin que les voyageurs rencontrent des gens réels et découvrent des lieux réels."
+      }
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": {
+        "question": "Soutenez-vous le tourisme communautaire ?",
+        "answer": "Oui — nous travaillons avec les communautés locales pour créer des avantages partagés."
+      },
+      "q2": {
+        "question": "Vos guides sont-ils locaux ?",
+        "answer": "Tous nos guides sont des experts locaux ayant des années d'expérience."
+      },
+      "q3": {
+        "question": "Quelle est votre politique d'annulation ?",
+        "answer": "Consultez nos conditions générales ou contactez-nous pour plus de détails."
+      }
+    },
+    "newsletter": {
+      "title": "Si vous aimez voyager,",
+      "subtitle": "rejoignez notre infolettre",
+      "description": "Recevez les derniers joyaux cachés, les offres de lancement et bien d'autres choses directement dans votre boîte de réception.",
+      "firstNamePlaceholder": "Prénom",
+      "emailPlaceholder": "Votre adresse e-mail",
+      "button": "S'abonner"
+    }
+  },
+  "Common": {
+    "parks": {
+      "serengeti": {
+        "title": "Parc national du Serengeti",
+        "region": "Tanzanie du Nord",
+        "overview": "Célèbre pour la Grande Migration annuelle de gnous et zèbres, le parc national du Serengeti est l'une des destinations de safari les plus iconiques d'Afrique."
+      },
+      "ngorongoro": {
+        "title": "Cratère du Ngorongoro",
+        "region": "Tanzanie du Nord",
+        "overview": "Le cratère du Ngorongoro est la plus grande caldéra volcanique intacte du monde et abrite une densité exceptionnelle de faune."
+      },
+      "tarangire": {
+        "title": "Parc national de Tarangire",
+        "region": "Tanzanie du Nord",
+        "overview": "Célèbre pour ses grands troupeaux d'éléphants et ses baobabs majestueux, Tarangire offre un paysage de savane iconique."
+      }
+    },
+    "trips": {
+      "kilimanjaro": {
+        "name": "Grimper le Kilimandjaro",
+        "title": "Grimper le Kilimandjaro",
+        "duration": "9 - 11 jours",
+        "description": "Envie de vous tenir sur le toit de l'Afrique ? Grimpez le Kilimandjaro avec nous et créez des souvenirs inoubliables !"
+      },
+      "nepal": {
+        "title": "Escalade de pics au Népal",
+        "duration": "17 - 19 jours",
+        "description": "Relevez le défi d'escalader un ou plusieurs pics majestueux enneigés du Népal avec nous."
+      },
+      "safari": {
+        "name": "Safari en Tanzanie",
+        "title": "Safari en Tanzanie",
+        "duration": "2 - 9 jours",
+        "description": "La Tanzanie est probablement le meilleur pays du monde pour un safari à gros gibier. Elle abrite les Big Five ainsi que la Grande Migration !"
+      },
+      "materuni": {
+        "title": "Visite culturelle de Materuni",
+        "duration": "1 jour",
+        "description": "Découvrez la culture Chagga, visitez la cascade de Materuni et profitez d'une expérience locale de café."
+      },
+      "everest": {
+        "title": "Everest Base Camp Trek",
+        "duration": "13 - 20 days",
+        "description": "Take on the challenge of trekking to the world's most famous base camp! You'll stay in traditional Sherpa villages and walk among the mountain gods."
+      },
+      "annapurna": {
+        "title": "Annapurna Circuit",
+        "duration": "13 - 16 days",
+        "description": "Join us for a challenging trek in the powerful Annapurna mountain chain and meet isolated and diverse communities following centuries-old traditions."
+      },
+      "machuPicchu": {
+        "title": "Machu Picchu Trekking",
+        "duration": "1 - 8 days",
+        "description": "The Machu Picchu region offers demanding multi-day treks and incredibly scenic in the beautiful Andes."
+      },
+      "peru": {
+        "title": "Explore Peru",
+        "duration": "3 - 5 days",
+        "description": "Travel to exciting destinations like the Amazon rainforest and explore this country of great beauty and diversity!"
+      },
+      "rwanda": {
+        "title": "Gorilla Trekking in Rwanda",
+        "duration": "4 - 10 days",
+        "description": "Rwanda is a small country that holds many treasures. One of these treasures is its population of endangered mountain gorillas."
+      },
+      "uganda": {
+        "title": "Gorilla Trekking in Uganda",
+        "duration": "5 - 14 days",
+        "description": "Visit Uganda, the Pearl of Africa, where endangered mountain gorillas live in the misty jungle."
+      },
+      "kenya": {
+        "title": "Kenya Safari",
+        "duration": "7 - 13 days",
+        "description": "Kenya offers exciting and world-class safaris for everyone who wants to see lots of animals, including the Big Five and the Great Migration herds!"
+      },
+      "bhutan": {
+        "title": "Discover Bhutan",
+        "duration": "8 - 17 days",
+        "description": "Join us to explore the many natural and cultural wonders of mountainous Bhutan, the Land of the Thunder Dragon!"
+      },
+      "manaslu": {
+        "title": "Manaslu Circuit",
+        "duration": "15 days",
+        "description": "The Manaslu Circuit with a summit at Larkya Pass is a truly thrilling Himalayan trekking adventure!"
+      },
+      "meru": {
+        "title": "Climb Meru",
+        "duration": "6 days",
+        "description": "It's an exciting and demanding multi-day adventure that takes you to the edge of Meru's crater (4,562 m) so you can look down into the gaping crater below."
+      },
+      "zanzibar": {
+        "name": "Vacances à Zanzibar",
+        "title": "Vacances à Zanzibar",
+        "duration": "8 jours",
+        "description": "Les eaux calmes, les plages de sable blanc et la forêt luxuriante de Zanzibar offrent la fuite tropicale parfaite !"
+      },
+      "iceland": {
+        "title": "Wonders of Iceland",
+        "duration": "9 days",
+        "description": "Travel the Icelandic Ring Road with us to explore this unique and beautifully island nation."
+      },
+      "sweden": {
+        "title": "Kayaking in Sweden",
+        "duration": "7 days",
+        "description": "A true adventure where we kayak between islands during the day, then cook over campfires and sleep under the stars."
+      },
+      "sriLanka": {
+        "title": "Explore Sri Lanka",
+        "duration": "11 days",
+        "description": "Sri Lanka is an island jewel, offering a stunning array of landscapes and adventure activities as well as many fascinating historical sites."
+      }
+    },
+    "fromPrice": "À partir de {price}€",
+    "whyChooseUs": {
+      "title": "Why Choose Latanzanieaucourdelanature?",
+      "easyAdventure": {
+        "title": "Easy Adventure",
+        "description": "Our dedicated consultants make the adventure easy for you by taking care of all the paperwork. Your only tasks are to train for the adventure if needed and pack your bags!"
+      },
+      "localGuides": {
+        "title": "Local Guides",
+        "description": "Our local guides take care of you in all ways. Our goal is to give every traveler the feeling that a friend is showing them their country."
+      },
+      "responsibleTravel": {
+        "title": "Responsible Travel",
+        "description": "On average, more than 70% of your trip price stays in the local economy. It's important to us that the communities visited benefit the most since they are the ones hosting travelers."
+      }
+    },
+    "customerReviews": {
+      "title": "Avis des clients",
+      "on": "sur 5",
+      "stars": "étoiles"
+    },
+    "recentAdventures": {
+      "title": "Aventures récentes"
+    },
+    "exploreParks": {
+      "title": "Explorer les parcs nationaux tanzaniens"
+    },
+    "region": "Région",
+    "learnMore": "En savoir plus",
+    "noParksFound": "Aucun parc trouvé. L'ingestion des données est en attente.",
+    "entranceFees": {
+      "title": "Tarifs d'entrée",
+      "conservationFee": "Frais de conservation",
+      "campingFee": "Frais de camping",
+      "vehicleFee": "Frais de véhicule",
+      "citizen": "Citoyens",
+      "nonCitizen": "Non-citoyens"
+    },
+    "kilimanjaroTrekking": {
+      "title": "Trek du Kilimandjaro",
+      "subtitle": "Guide de voyage",
+      "description": "Trek du Kilimandjaro – une aventure unique dans la vie pour atteindre le Toit de l'Afrique. Tout ce que vous devez savoir.",
+      "topReads": {
+        "packingList": {
+          "title": "La liste d'emballage ultime du Kilimandjaro (+ PDF gratuit)",
+          "description": "Ce que vous emballez pour votre ascension du Kilimandjaro est vitalement important pour votre santé et le succès de votre trek. Nous avons réuni une liste complète de ce qu'il faut emporter et pourquoi. Veuillez utiliser ceci comme liste de contrôle lors de la planification et de l'emballage de votre aventure Kili."
+        },
+        "cost": {
+          "title": "Combien coûte un trek du Kilimandjaro ?",
+          "description": "Une ascension de sept jours du Kilimandjaro coûte 2 850 $ avec Latanzanieaucourdelanature. Ce prix comprend toute votre nourriture, votre équipement de camping, et bien plus encore. Voici une ventilation de ce qui est inclus dans le prix ainsi que les coûts de toute exclusion comme votre visa tanzanien."
+        },
+        "kilimanjaroVsEverest": {
+          "title": "Kilimandjaro vs Everest Base Camp : lequel est plus difficile ?",
+          "description": "Le Kilimandjaro et le camp de base de l'Everest sont deux des treks d'altitude élevée les plus célèbres et les plus difficiles du monde. Mais ils sont très différents l'un de l'autre. Nous discutons de ces différences et soutenons que le Kilimandjaro est le trek le plus difficile dans l'ensemble."
+        }
+      }
+    },
+    "kilimanjaro": {
+      "title": "Le pic épique du mont Kilimandjaro",
+      "subtitle": "Trek du Kilimandjaro"
+    },
+    "mountMeru": {
+      "title": "Zone de landes avec randonneur sur le Mont Meru en Tanzanie",
+      "subtitle": "Ascension du Mont Meru"
+    },
+    "tanzaniaSafari": {
+      "title": "Image carrée de catégorie Safari en Tanzanie",
+      "subtitle": "Safari en Tanzanie"
+    },
+    "nepalPeakClimbing": {
+      "title": "Un grimpeur s'attaque au Lobuche East Peak au Népal",
+      "subtitle": "Escalade de pics au Népal"
+    },
+    "zanzibar": {
+      "title": "Plongeur sous-marin à Zanzibar, Tanzanie",
+      "subtitle": "Zanzibar"
+    },
+    "kenyaSafari": {
+      "title": "Traversée de la rivière Mara par les gnous de la Grande Migration, safari en Tanzanie",
+      "subtitle": "Safari au Kenya"
+    },
+    "everestBaseCamp": {
+      "title": "Des randonneurs debout sur un rocher au camp de base de l'Everest, trek EBC, Népal",
+      "subtitle": "Trek du camp de base de l'Everest"
+    },
+    "annapurnaCircuit": {
+      "title": "Montagne Annapurna et drapeaux de prière",
+      "subtitle": "Trek du circuit de l'Annapurna"
+    },
+    "nepalTrekking": {
+      "title": "Village de montagne au chemin du camp de base du Massif de l'Annapurna, Népal",
+      "subtitle": "Trek au Népal"
+    },
+    "manasluCircuit": {
+      "title": "Un randonneur grimpe au camp de base du Manaslu dans les hautes terres de l'Himalaya sur le circuit du Manaslu.",
+      "subtitle": "Circuit du Manaslu"
+    },
+    "machuPicchu": {
+      "title": "Randonnées du Sentier Inca de forêt au Pérou",
+      "subtitle": "Trek du Machu Picchu"
+    },
+    "explorePeru": {
+      "title": "Vue aérienne de la forêt tropicale péruvienne de l'Amazonie",
+      "subtitle": "Explorer le Pérou"
+    },
+    "gorillaTrekkingUganda": {
+      "title": "Un jeune gorille pendu à une branche, Bwindi, Ouganda",
+      "subtitle": "Trek des gorilles en Ouganda"
+    },
+    "gorillaTrekkingRwanda": {
+      "title": "Gros plan d'un jeune gorille au Parc national des volcans du Rwanda",
+      "subtitle": "Trek des gorilles au Rwanda"
+    },
+    "highAltitudeTrekking": {
+      "title": "Assister au lever du soleil à 4 000 mètres au plus haut col du Bhoutan, Chele La",
+      "subtitle": "Trek d'haute altitude"
+    },
+    "bhutan": {
+      "title": "Bâtiment Bhoutan",
+      "subtitle": "Bhoutan"
+    },
+    "iceland": {
+      "title": "Carré de catégorie Islande",
+      "subtitle": "Islande"
+    },
+    "sriLanka": {
+      "title": "Joël buvant dans une noix de coco au Sri Lanka",
+      "subtitle": "Sri Lanka"
+    },
+    "adventureTravel": {
+      "title": "Image carrée d'un thermos jaune d'arbre tombé",
+      "subtitle": "Voyage d'aventure"
+    },
+    "sustainableTravel": {
+      "title": "Vue arrière d'un randonneur sur des échelles en bois au Mont Sabyinyo, Ouganda",
+      "subtitle": "Voyage durable"
+    },
+    "soloTravel": {
+      "title": "Image carrée d'un thermos jaune d'arbre tombé",
+      "subtitle": "Voyage en solo"
+    }
+  },
+  "Hero": {
+    "videoFallback": "Votre navigateur ne supporte pas la balise vidéo.",
+    "title": "Découvrez les merveilles de la Tanzanie",
+    "subtitle": "Découvrez la beauté captivante des parcs nationaux et de la faune de Tanzanie",
+    "exploreParks": "Explorer les parcs",
+    "bookAdventure": "Réserver une aventure",
+    "exploreTrips": "Explorer les voyages"
+  },
+  "KilimanjaroSection": {
+    "title": "Grimper le Kilimandjaro",
+    "subtitle": "Envie de vous tenir sur le toit de l'Afrique ? Grimpez le Kilimandjaro avec nous et créez des souvenirs inoubliables !",
+    "fromPrice": "À partir de {price}",
+    "bookNow": "Réserver maintenant",
+    "marangu": {
+      "name": "Route Marangu",
+      "duration": "5-6 jours",
+      "description": "La route la plus facile avec hébergement en refuge"
+    },
+    "machame": {
+      "name": "Route Machame",
+      "duration": "6-7 jours",
+      "description": "Route pittoresque avec camping"
+    },
+    "lemosho": {
+      "name": "Route Lemosho",
+      "duration": "7-8 jours",
+      "description": "Route reculée et magnifique"
+    }
+  },
+  "MobileMenu": {
+    "closeMenu": "Fermer le menu",
+    "openMenu": "Ouvrir le menu",
+    "parks": "Parcs",
+    "about": "À propos",
+    "contact": "Contact"
+  },
+  "MachameRoute": {
+    "defaultItinerary": "Machame Route",
+    "hero": {
+      "title": "La Route Machame (7 jours de trek) : L'ascension panoramique",
+      "breadcrumb": "Tanzanie > Kilimandjaro > Route Machame",
+      "duration": "9 jours (7 jours de trekking)",
+      "description": "Souvent appelée la « Route du Whisky », la route Machame est l'itinéraire le plus populaire du Kilimandjaro. Elle offre des paysages spectaculaires et variés, traversant cinq zones climatiques distinctes. Cet itinéraire de 7 jours est recommandé et inclut une courte journée d'acclimatation entre Barranco Camp et Karanga Camp, essentielle pour s'adapter à l'altitude et augmenter vos chances d'atteindre le sommet en toute sécurité.",
+      "price": "À partir de €2 890"
+    },
+    "miniNavbar": {
+      "datesAndPrices": "Dates et prix",
+      "proposeDate": "Proposer une date",
+      "details": "Détails",
+      "inclusions": "Inclusions",
+      "accommodation": "Hébergement"
+    },
+    "detailedItineraryTitle": "Itinéraire détaillé",
+    "itinerary": {
+      "day0": {
+        "title": "Jour d'arrivée : Aéroport international du Kilimandjaro (JRO) → Moshi ou Arusha",
+        "altitude": "Altitude : 850 m / 2 790 ft",
+        "accommodation": "Hébergement : Hôtel",
+        "description": "À votre arrivée à l'aéroport international du Kilimandjaro (JRO), un membre de notre équipe vous accueillera et vous conduira à votre hôtel à Moshi ou Arusha. Ce transfert vous permettra de vous détendre et de récupérer après votre vol.\n\nEn soirée, votre guide principal viendra à votre hôtel pour un briefing complet sur l'ascension. Il vérifiera votre équipement pièce par pièce, répondra à toutes vos questions et vous préparera mentalement pour l'aventure à venir."
+      },
+      "day1": {
+        "title": "Jour 1 de trek : Porte Machame (1 800 m) → Camp Machame (2 835 m)",
+        "walkingTime": "Durée de la marche : 5-7 heures",
+        "distance": "Distance : 11 km / 7 miles",
+        "altitudeGain": "Gain d'altitude : 1 035 m / 3 396 ft",
+        "habitat": "Habitat : Forêt tropicale",
+        "description": "Après le petit-déjeuner, nous partons en direction de la porte Machame (environ 1 heure de Moshi). Une fois les formalités d'enregistrement terminées, vous quitterez la civilisation et commencerez votre ascension. Le premier jour est une montée régulière à travers une magnifique forêt tropicale dense. Le sentier est bien entretenu mais peut être boueux et glissant. En chemin, gardez les yeux ouverts pour repérer des colobes noirs et blancs. Vous arriverez au camp Machame en fin d'après-midi, où vos tentes seront déjà installées."
+      },
+      "day2": {
+        "title": "Jour 2 de trek : Camp Machame (2 835 m) → Camp Shira (3 850 m)",
+        "walkingTime": "Durée de la marche : 4-6 heures",
+        "distance": "Distance : 5 km / 3 miles",
+        "altitudeGain": "Gain d'altitude : 1 015 m / 3 330 ft",
+        "habitat": "Habitat : Lande",
+        "description": "Vous quitterez la forêt tropicale pour entrer dans la zone de lande. Le sentier devient plus raide et le paysage s'ouvre, offrant des vues magnifiques sur les plaines en contrebas. La végétation change radicalement, avec des bruyères géantes et des senecios. L'étape d'aujourd'hui est plus courte, ce qui favorise l'acclimatation. Vous traverserez une petite vallée avant de monter sur le plateau de Shira, où vous atteindrez le camp Shira 2. Par temps clair, le sommet du Kibo et le mont Meru à l'ouest sont visibles."
+      },
+      "day3": {
+        "title": "Jour 3 de trek : Camp Shira (3 850 m) → Lava Tower (4 600 m) → Camp Barranco (3 900 m)",
+        "walkingTime": "Durée de la marche : 6-8 heures",
+        "distance": "Distance : 10 km / 6 miles",
+        "altitudeMax": "Altitude (max) : 4 600 m / 15 090 ft",
+        "habitat": "Habitat : Désert alpin",
+        "description": "Aujourd'hui est crucial pour l'acclimatation : « Montez haut, dormez bas ». Vous monterez jusqu'à Lava Tower (4 600 m), où vous déjeunerez. Vous pourrez commencer à ressentir les effets de l'altitude, mais cela est normal. Après le déjeuner, vous descendrez dans la magnifique vallée de Barranco (3 900 m), où vous passerez la nuit. Cette descente aide grandement votre corps à s'adapter à l'altitude. Le camp de Barranco est spectaculaire, niché sous le mur imposant de Barranco et entouré de senecios géants."
+      },
+      "day4": {
+        "title": "Jour 4 de trek : Camp Barranco (3 900 m) → Camp Karanga (3 995 m)",
+        "walkingTime": "Durée de la marche : 3-5 heures",
+        "distance": "Distance : 5 km / 3 miles",
+        "altitudeGain": "Gain d'altitude : 95 m / 311 ft",
+        "habitat": "Habitat : Désert alpin",
+        "description": "C'est le jour qui distingue l'itinéraire de 7 jours de celui de 6 jours. Il commence par le défi le plus excitant de la journée : le mur de Barranco. Ce n'est pas de l'escalade technique, mais plutôt une « montée scrambling » où vous aurez besoin d'utiliser vos mains et vos pieds pour gravir la paroi de 250 mètres. Vos guides seront présents pour assurer une progression sûre et agréable.\n\nUne fois en haut, vous serez récompensé par des vues splendides. Le reste de la journée est une série de montées et descentes à travers les vallées alpines jusqu'au camp Karanga. Cette courte journée est essentielle pour renforcer votre acclimatation avant l'ascension finale vers le camp de base."
+      },
+      "day5": {
+        "title": "Jour 5 de trek : Camp Karanga (3 995 m) → Camp Barafu (4 673 m)",
+        "walkingTime": "Durée de la marche : 3-4 heures",
+        "distance": "Distance : 4 km / 2,5 miles",
+        "altitudeGain": "Gain d'altitude : 678 m / 2 224 ft",
+        "habitat": "Habitat : Désert alpin / Arctique",
+        "description": "Une autre journée de marche courte et régulière pour préserver votre énergie. Vous traverserez un paysage aride et rocheux, rejoignant la jonction avec la route Mweka. La montée vers le camp Barafu (glace en swahili) est constante. Le camp est situé sur une crête exposée et venteuse, offrant des vues spectaculaires sur les sommets du Kibo et du Mawenzi.\n\nVous arriverez au camp pour le déjeuner, ce qui vous laissera tout l'après-midi pour vous reposer, préparer votre équipement pour le sommet, dîner tôt (vers 17h30) et essayer de dormir autant que possible. L'excitation et la nervosité montent !"
+      },
+      "day6": {
+        "title": "Jour 6 de trek : JOUR DU SOMMET - Barafu (4 673 m) → Pic Uhuru (5 895 m) → Camp Mweka (3 100 m)",
+        "walkingTime": "Durée de la marche : 11-14 heures (6-8 h d'ascension / 5-6 h de descente)",
+        "distance": "Distance : 17 km / 10,5 miles (5 km d'ascension / 12 km de descente)",
+        "altitudeGain": "Gain d'altitude : 1 222 m / 4 009 ft",
+        "altitudeLoss": "Perte d'altitude : 2 795 m / 9 170 ft",
+        "habitat": "Habitat : Arctique / Lande",
+        "description": "Le grand jour commence. Le réveil a lieu vers 23h30. Après un thé chaud et des biscuits, vous entamerez votre ascension finale dans l'obscurité et le froid. La montée est raide, progressant  pole pole  (doucement, doucement) sur un sentier en zigzag à travers des éboulis. C'est l'épreuve mentale et physique la plus difficile du trek.\n\nAprès environ 6 heures, vous atteindrez Stella Point (5 756 m), sur le bord du cratère, juste à temps pour assister au lever de soleil le plus spectaculaire de votre vie. Après une courte pause, vous continuerez le long du bord du cratère couvert de neige pendant encore 45 à 60 minutes pour atteindre le vrai sommet : le Pic Uhuru (5 895 m), le point culminant d'Afrique !\n\nAprès les photos et les célébrations, vous entamerez la longue descente. Vous retournerez à Barafu pour un repas chaud bien mérité et une courte sieste, avant de poursuivre jusqu'au camp Mweka."
+      },
+      "day7": {
+        "title": "Jour 7 de trek : Camp Mweka (3 100 m) → Porte Mweka (1 640 m) → Hôtel",
+        "walkingTime": "Durée de la marche : 3-4 heures",
+        "distance": "Distance : 10 km / 6 miles",
+        "altitudeLoss": "Perte d'altitude : 1 460 m / 4 790 ft",
+        "habitat": "Habitat : Forêt tropicale",
+        "description": "Votre dernier matin sur la montagne commence par un petit-déjeuner copieux, suivi de la cérémonie traditionnelle des pourboires pour remercier vos guides, cuisiniers et porteurs.\n\nEnsuite, vous commencerez une descente pittoresque et facile à travers la luxuriante forêt tropicale. Le sentier est bien balisé mais peut être glissant. À l'arrivée à la porte Mweka, vous signerez le registre et recevrez votre certificat officiel du sommet (certificat vert pour Stella Point, or pour le Pic Uhuru).\n\nNotre véhicule vous attendra pour vous ramener à votre hôtel à Moshi ou Arusha. La première douche chaude en une semaine sera inoubliable !"
+      },
+      "departureDay": {
+        "title": "Jour du départ : Moshi ou Arusha → Aéroport (JRO)",
+        "description": "Profitez d'un petit-déjeuner tranquille à votre hôtel. Selon l'horaire de votre vol, vous pouvez vous détendre, acheter des souvenirs ou explorer la ville. Nous organiserons votre transfert de retour vers l'aéroport international du Kilimandjaro (JRO) pour votre vol de retour ou la poursuite de votre aventure (safari ou Zanzibar)."
+      }
+    },
+    "datesAndPrices": {
+      "title": "Dates et prix",
+      "subtitle": "Contactez-nous pour les dates et tarifs disponibles",
+      "groupDiscounts": "Réductions de groupe",
+      "dontSeeDates": "Vous ne voyez pas vos dates ?",
+      "proposeNewDate": "Proposer une nouvelle date",
+      "proposeDateDescription": "Veuillez proposer une nouvelle date de départ",
+      "proposeDateButton": "Proposer une nouvelle date",
+      "enquireButton": "Demander plus de détails",
+      "when": "Quand",
+      "groupOptions": "Options de groupe",
+      "selected": "sélectionné",
+      "selectMonth": "Sélectionner le mois",
+      "selectGroup": "Sélectionner le type de groupe",
+      "jan15_2026": "15 janvier 2026",
+      "nineDays": "9 jours",
+      "fromPrice": "À partir de €2 000",
+      "select": "Sélectionner",
+      "soloTraveler": "Voyageur solo",
+      "couple": "Couple",
+      "familyGroup": "Groupe familial",
+      "friendsGroup": "Groupe d'amis",
+      "corporateGroup": "Groupe corporatif"
+    },
+    "inclusions": {
+      "title": "Inclusions et exclusions",
+      "seeMore": "Voir plus",
+      "seeFewer": "Voir moins",
+      "priceIncludes": "Le prix comprend",
+      "priceDoesNotInclude": "Le prix ne comprend pas",
+      "items": "Gestionnaire de voyage dédié ||| Documents de préparation détaillés ||| Consultation pré-ascension par Zoom ||| 2 nuits à la Lindrin Lodge à Moshi (petit-déjeuner et dîner inclus) ||| Briefing détaillé de sécurité pré-ascension à la Lindrin Lodge ||| Transport vers et depuis les points de départ des sentiers ||| Frais d'entrée au Parc national du Kilimandjaro ||| Guides qualifiés, expérimentés et parlant anglais ||| Porteurs ||| Cuisiniers expérimentés ||| Tous les repas sur la montagne ||| Collations et boissons chaudes ||| Eau potable purifiée ||| Bol quotidien d'eau pour 'washy washy' ||| Sac de couchage quatre saisons haut de gamme ||| Tente quatre saisons haut de gamme ||| Tapis de couchage ||| Toilettes privées Latanzanieaucourdelanature (1 pour 8 grimpeurs) ||| Organisation de tout équipement de location, si requis ||| Équipement médical (y compris oxymètre de pouls et oxygène d'urgence) ||| Certificat d'ascension",
+      "exclusions": {
+        "visa": "Visa tanzanien",
+        "airfares": "Billets d'avion",
+        "transfers": "Transferts aéroport (40 $ US par personne et par transfert)",
+        "insurance": "Assurance voyage",
+        "tips": "Pourboires pour l'équipe de montagne",
+        "singleSupplement": "Supplément single (si nécessaire)"
+      }
+    },
+    "accommodation": {
+      "title": "Hébergement",
+      "camps": {
+        "title": "Camps de montagne",
+        "description": "Sur la route Machame, vous séjournerez dans des tentes quatre saisons de haute qualité dans des campements désignés. Chaque camp est situé pour une acclimatation optimale et offre des vues spectaculaires sur la montagne."
+      }
+    },
+    "gallery": {
+      "title": "Galerie photo"
+    },
+    "faqs": {
+      "title": "Questions fréquemment posées",
+      "question1": "Quel est le taux de réussite de la route Machame ?",
+      "answer1": "La route Machame présente un excellent taux de réussite d'environ 85-90 % grâce à son profil d'acclimatation et son itinéraire plus long.",
+      "question2": "Quelle est la difficulté de la route Machame ?",
+      "answer2": "La route Machame est considérée comme modérément difficile. Elle requiert une bonne condition physique mais ne nécessite pas de compétences techniques en escalade.",
+      "question3": "Quel est le meilleur moment pour faire la route Machame ?",
+      "answer3": "Les meilleures périodes sont de janvier à mars et de juin à octobre, lorsque le temps est généralement sec et dégagé.",
+      "question4": "Que dois-je emporter pour la route Machame ?",
+      "answer4": "Prévoyez des vêtements en couches, un sac de couchage chaud, des chaussures de randonnée robustes et des articles personnels essentiels. Une liste d'équipement complète sera fournie après la réservation."
+    },
+    "newsletter": {
+      "title": "Si vous aimez voyager,",
+      "subtitle": "rejoignez notre newsletter",
+      "description": "Recevez les dernières actualités sur les trésors d'aventure, les offres de lancement et bien plus encore, directement dans votre boîte de réception",
+      "firstNamePlaceholder": "Prénom",
+      "emailPlaceholder": "E-mail",
+      "button": "S'inscrire !"
+    },
+    "contactModal": {
+      "title": "Réservez un appel avec notre équipe",
+      "name": "Nom complet",
+      "namePlaceholder": "Jean Dupont",
+      "email": "Adresse e-mail",
+      "emailPlaceholder": "jean@example.com",
+      "phone": "Numéro de téléphone",
+      "phonePlaceholder": "+255782825692",
+      "message": "Message",
+      "messagePlaceholder": "Parlez-nous de vos projets de voyage...",
+      "accept": "J'accepte la",
+      "privacyPolicy": "Politique de confidentialité",
+      "submit": "Envoyer la demande"
+    }
+  },
+  "LemoshoRoute": {
+    "defaultItinerary": "Route Lemosho",
+    "faqsTitle": "FAQ",
+    "hero": {
+      "title": "L'Aventure Panoramique : Itinéraire Lemosho en 7 Jours",
+      "breadcrumb": "Tanzanie > Kilimandjaro > Route Lemosho",
+      "duration": "7 jours",
+      "description": "La voie Lemosho est réputée comme l'un des itinéraires les plus spectaculaires. Elle offre des vues imprenables sur les flancs ouest et sud du Kilimandjaro. Avec un profil d'acclimatation en 7 jours, cet itinéraire maximise vos chances d'atteindre le sommet en toute sécurité, traversant cinq zones climatiques différentes.",
+      "price": "À partir de €2,200"
+    },
+    "miniNavbar": {
+      "datesAndPrices": "Dates et prix",
+      "proposeDate": "Proposer une date",
+      "details": "Détails",
+      "inclusions": "Inclusions",
+      "accommodation": "Hébergement"
+    },
+    "detailedItineraryTitle": "L'Itinéraire Lemosho en 7 Jours : La Route Panoramique",
+    "itinerary": {
+      "day0": {
+        "title": "Jour d'Arrivée : Aéroport International du Kilimandjaro (JRO) → Moshi ou Arusha",
+        "altitude": "Altitude : 850 m / 2 790 ft",
+        "accommodation": "Logement : Hôtel",
+        "description": "À votre arrivée à l'aéroport international du Kilimandjaro (JRO), un membre de notre équipe vous accueillera et vous conduira à votre hôtel à Moshi ou Arusha. Ce transfert vous permettra de vous détendre et de vous remettre de votre vol.\n\nDans la soirée, votre guide principal viendra à votre hôtel pour un briefing complet sur l'ascension. Il examinera votre équipement pièce par pièce pour s'assurer que vous avez tout ce qu'il faut, répondra à toutes vos questions et vous préparera mentalement pour l'aventure à venir."
+      },
+      "day1": {
+        "title": "Jour 1 : De l'hôtel au camp de Mti Mkubwa",
+        "description": "Après le petit-déjeuner et le briefing, nous prenons la route vers la porte du parc Lemosho. De là, une piste forestière accidentée nécessitant un véhicule 4x4 mène aux clairières de Lemosho. Nous nous promènerons tranquillement le long des sentiers forestiers luxuriants jusqu'au camping de Mti Mkubwa (le Grand Arbre).",
+        "altitude": "Altitude : de 1 830 m / 6 000 ft à 2 650 m / 8 700 ft",
+        "distanceDuration": "Distance : 6 km / 4 mi • Durée : 2-3 heures",
+        "habitat": "Habitat : Forêt"
+      },
+      "day2": {
+        "title": "Jour 2 : Du camp de Mti Mkubwa au camp de Shira 2",
+        "description": "Après le petit-déjeuner, nous continuons tandis que le sentier devient progressivement plus raide et pénètre dans la zone de landes de bruyère géante. Après avoir traversé plusieurs ruisseaux, nous continuons sur la crête de Shira, en passant par le camp de Shira 1 et jusqu'au camp de Shira 2 sur des prairies de landes près d'un ruisseau. Les vues sur l'horizon sont spectaculaires.",
+        "altitude": "Altitude : de 2 650 m / 8 700 pi à 3 850 m / 12 600 pi",
+        "distanceDuration": "Distance : 16 km / 10 mi • Durée : 7-8 heures",
+        "habitat": "Habitat : Landes"
+      },
+      "day3": {
+        "title": "Jour 3 : Du camp Shira 2 au camp Barranco (Acclimatation)",
+        "description": "Depuis le plateau de Shira, nous continuons vers l'est en remontant une crête, passant la jonction vers le sommet du Kibo. En continuant, notre direction change vers le Sud-Est en direction de la célèbre Tour de Lave, surnommée la « Dent de Requin » (altitude maximale de 4 650 m / 15 250 ft). Peu après la tour, nous arrivons à la deuxième jonction qui mène au glacier Arrow. Nous continuons ensuite la descente jusqu'au magnifique camp de Barranco. Même si nous terminons la journée à peu près à la même altitude qu'au début, cette journée est très importante pour l'acclimatation (\"Monter haut, dormir bas\").",
+        "altitude": "Altitude : de 3 850 m / 12 600 pi à 4 000 m / 13 000 pi",
+        "distanceDuration": "Distance : 8 km / 5 mi • Durée : 5-6 heures",
+        "habitat": "Habitat : Semi-désertique"
+      },
+      "day4": {
+        "title": "Jour 4 : Du camp de Barranco au camp de Karanga",
+        "description": "Après le petit-déjeuner, l'étape commence par l'ascension du célèbre Mur de Barranco. Nous continuons ensuite sur une crête escarpée jusqu'à la vallée de Karanga et la jonction qui relie le sentier Mweka. C'est une étape courte mais cruciale, vous permettant de vous reposer et de vous acclimater davantage à l'approche du camp de base.",
+        "altitude": "Altitude : de 4 000 m / 13 000 pi à 4 050 m / 13 250 pi",
+        "distanceDuration": "Distance : 5 km / 3 mi • Durée : 3-4 heures",
+        "habitat": "Habitat : Désert alpin"
+      },
+      "day5": {
+        "title": "Jour 5 : Du camp de Karanga au camp de Barafu",
+        "description": "Nous continuons notre progression régulière jusqu'au camp de Barafu. Vous aurez ainsi terminé le circuit Sud, qui offre des vues du sommet sous de nombreux angles différents. Ici, nous installons notre camp, nous nous reposons au maximum, profitons du dîner et nous nous préparons méticuleusement pour le départ matinal du jour du sommet.",
+        "altitude": "Altitude : de 4 050 m / 13 250 pi à 4 700 m / 15 350 pi",
+        "distanceDuration": "Distance : 4 km / 2 mi • Durée : 3-4 heures",
+        "habitat": "Habitat : Désert alpin"
+      },
+      "day6": {
+        "title": "Jour 6 : L'Assaut du Sommet et Descente vers Mweka",
+        "description": "Très tôt le matin (minuit à 2h), nous poursuivons notre chemin vers le sommet entre les glaciers Rebmann et Ratzel. Nous montons à travers d'épais éboulis vers Stella Point sur le bord du cratère. C'est la partie la plus difficile. À Stella Point, vous vous arrêterez pour un court repos et serez récompensé par un magnifique lever de soleil. De là, une heure d'ascension nous mène à l'Uhuru Peak (5 895 m), le point culminant de l'Afrique ! Du sommet, nous entamons la longue descente jusqu'au camp de Mweka, en nous arrêtant à Barafu pour le déjeuner.",
+        "altitude": "Altitude : de 4 700 m / 15 350 pi à 5 895 m / 19 340 pi puis descente à 3 090 m / 10 150 pi",
+        "distanceDuration": "Distance : 5 km / 3 mi en montée • 13 km / 8 mi en descente • Durée : montée 5-7h / descente 5-6h",
+        "habitat": "Habitat : Éboulis rocheux et sommets recouverts de glace"
+      },
+      "day7": {
+        "title": "Jour 7 : Du camp de Mweka à la Porte Mweka et à l'hôtel",
+        "description": "Après le petit-déjeuner, nous continuons la descente finale jusqu'à la Porte du parc Mweka pour recevoir vos certificats de sommet. À basse altitude, le sol peut être humide et boueux (guêtres et bâtons de randonnée sont utiles). Un véhicule vous attendra à la Porte Mweka pour vous ramener à votre hôtel à Moshi (environ 50 minutes). Fin de l'expédition.",
+        "altitude": "Altitude : de 3 090 m / 10 150 pi à 1 680 m / 5 500 pi",
+        "distanceDuration": "Distance : 10 km / 6 mi • Durée : 3-4 heures",
+        "habitat": "Habitat : Forêt"
+      },
+      "day8": {
+        "title": "Jour de départ : Moshi ou Arusha → Aéroport (JRO)",
+        "description": "Profitez d'un petit-déjeuner tranquille à votre hôtel. En fonction de votre horaire de vol, vous pourrez vous détendre, acheter des souvenirs ou explorer la ville. Nous organiserons votre transfert retour vers l'aéroport international du Kilimandjaro (JRO) pour votre vol de retour, ou pour la suite de votre aventure (safari ou Zanzibar)."
+      },
+      "departureDay": {
+        "title": "Jour de départ : Moshi ou Arusha → Aéroport (JRO)",
+        "description": "Profitez d'un petit-déjeuner tranquille à votre hôtel. En fonction de votre horaire de vol, vous pourrez vous détendre, acheter des souvenirs ou explorer la ville. Nous organiserons votre transfert retour vers l'aéroport international du Kilimandjaro (JRO) pour votre vol de retour, ou pour la suite de votre aventure (safari ou Zanzibar)."
+      }
+    },
+    "datesAndPrices": {
+      "title": "Dates et prix",
+      "subtitle": "Contactez-nous pour les dates et tarifs disponibles",
+      "groupDiscounts": "Réductions de groupe",
+      "dontSeeDates": "Vous ne voyez pas vos dates ?",
+      "proposeNewDate": "Proposer une nouvelle date",
+      "proposeDateDescription": "Veuillez proposer une nouvelle date de départ",
+      "proposeDateButton": "Proposer une nouvelle date",
+      "enquireButton": "Demander plus de détails",
+      "when": "Quand",
+      "groupOptions": "Options de groupe",
+      "selected": "sélectionné",
+      "selectMonth": "Sélectionner le mois",
+      "selectGroup": "Sélectionner le type de groupe",
+      "jan15_2026": "15 janvier 2026",
+      "nineDays": "10 jours",
+      "fromPrice": "À partir de €2 200",
+      "select": "Sélectionner",
+      "soloTraveler": "Voyageur solo",
+      "couple": "Couple",
+      "familyGroup": "Groupe familial",
+      "friendsGroup": "Groupe d'amis",
+      "corporateGroup": "Groupe corporatif"
+    },
+    "inclusions": {
+      "title": "Inclusions et exclusions",
+      "items": "Tous les droits d'entrée au parc|||Pension complète pendant le trek (petit-déjeuner, déjeuner, dîner)|||Équipe de montagne (guides, cuisiniers, porteurs)|||Équipement de camping (tentes, tente à manger, tables, chaises)|||Transferts (aéroport ↔ hôtel)",
+      "seeMore": "Voir plus",
+      "seeFewer": "Voir moins",
+      "priceIncludes": "Le prix comprend",
+      "priceDoesNotInclude": "Le prix ne comprend pas",
+      "exclusions": {
+        "visa": "Visa tanzanien",
+        "airfares": "Billets d'avion",
+        "transfers": "Transferts aéroport (40 $ US par personne et par transfert)",
+        "insurance": "Assurance voyage",
+        "tips": "Pourboires pour l'équipe de montagne",
+        "singleSupplement": "Supplément single (si nécessaire)",
+        "personalItems": "Articles personnels, articles de toilette et achats personnels"
+      }
+    },
+    "accommodation": {
+      "title": "Hébergement",
+      "camps": {
+        "title": "Camps de montagne",
+        "description": "Sur la route Lemosho, vous dormirez dans des tentes quatre saisons de haute qualité sur des emplacements de camp désignés. Chaque camp est stratégiquement situé pour une acclimatation optimale et offre de magnifiques vues sur la montagne."
+      }
+    },
+    "gallery": {
+      "title": "Galerie photo"
+    },
+    "faqs": {
+      "title": "Questions fréquentes",
+      "question1": "Quel est le taux de réussite de la route Lemosho ?",
+      "answer1": "La route Lemosho présente un excellent taux de réussite d'environ 90–95 % grâce à son profil d'acclimatation et à sa durée plus longue.",
+      "question2": "Quelle est la difficulté de la route Lemosho ?",
+      "answer2": "La route Lemosho est considérée comme modérément exigeante. Elle demande une bonne forme physique mais ne nécessite pas de compétences techniques d'alpinisme.",
+      "question3": "Quelle est la meilleure période pour faire la route Lemosho ?",
+      "answer3": "Les meilleures périodes sont de janvier à mars et de juin à octobre, lorsque le temps est généralement sec et dégagé.",
+      "question4": "Que faut-il emporter pour la route Lemosho ?",
+      "answer4": "Prévoyez des vêtements en couches, un sac de couchage chaud, des chaussures de randonnée solides et des articles personnels essentiels. Une liste complète d'équipement vous sera fournie lors de la réservation."
+    },
+    "newsletter": {
+      "title": "Si vous aimez voyager,",
+      "subtitle": "rejoignez notre newsletter",
+      "description": "Recevez les dernières nouveautés sur les joyaux d'aventure, les voyages de lancement à prix réduits et bien plus encore, directement dans votre boîte de réception",
+      "firstNamePlaceholder": "Prénom",
+      "emailPlaceholder": "Email",
+      "button": "S'inscrire !"
+    },
+    "contactModal": {
+      "title": "Contactez notre équipe",
+      "name": "Nom complet",
+      "namePlaceholder": "Jean Dupont",
+      "email": "Adresse email",
+      "emailPlaceholder": "jean@example.com",
+      "phone": "Numéro de téléphone",
+      "phonePlaceholder": "+255782825692",
+      "message": "Message",
+      "messagePlaceholder": "Dites-nous en plus sur vos projets de voyage...",
+      "accept": "J'accepte la",
+      "privacyPolicy": "Politique de confidentialité",
+      "submit": "Envoyer la demande"
+    }
+  },
+  "UmbweRoute": {
+    "hero": {
+      "title": "L'Itinéraire Umbwe : Le Défi Vertical du Kilimandjaro (6 Jours)",
+      "breadcrumb": "Tanzanie > Kilimandjaro > Route Umbwe",
+      "duration": "6 jours",
+      "description": "Souvent décrite comme la voie la plus courte et la plus ardue du Kilimandjaro, l'itinéraire Umbwe est parfait pour les randonneurs expérimentés à la recherche d'un défi unique et d'une relative solitude. Ce trek est intense et direct, exigeant une excellente condition physique et une gestion rigoureuse de l'altitude.",
+      "price": "À partir de €1 900"
+    },
+    "miniNavbar": {
+      "datesAndPrices": "Dates et prix",
+      "proposeDate": "Proposer une date",
+      "details": "Détails",
+      "inclusions": "Inclusions",
+      "accommodation": "Hébergement"
+    },
+    "detailedItineraryTitle": "Itinéraire détaillé",
+    "itinerary": {
+      "day0": {
+        "title": "Jour 0 : Jour d'arrivée (JRO → Moshi/Arusha)",
+        "altitude": "Altitude : 850 m / 2 790 pieds",
+        "accommodation": "Hébergement : Hôtel",
+        "description": "Installation à votre hôtel pour la nuit. Ce jour est essentiel pour le repos et le briefing final avec votre équipe de guides sur l'itinéraire rapide et les mesures de sécurité spécifiques à la voie Umbwe."
+      },
+      "day1": {
+        "title": "Jour 1 : De la forêt tropicale au camp d'Umbwe",
+        "altitude": "Altitude : de 1 600 m à 2 900 m",
+        "distance": "Distance : 11 km / 7 miles",
+        "walkingTime": "Temps de marche : 6-7 heures",
+        "habitat": "Habitat : Forêt",
+        "description": "Nous entrons dans le parc national par la porte (Umbwe/Machame selon l'approche). Le début de la randonnée s'engage immédiatement dans la dense forêt tropicale humide. Le sentier est raide et soutenu, menant directement au camp d'Umbwe, notre lieu de repos pour la nuit."
+      },
+      "day2": {
+        "title": "Jour 2 : Du camp d'Umbwe au camp de Barranco",
+        "altitude": "Altitude : de 2 940 m à 3 976 m",
+        "distance": "Distance : 6 km / 4 miles",
+        "walkingTime": "Temps de marche : 4-5 heures",
+        "habitat": "Habitat : Lande",
+        "description": "Le sentier devient plus rocailleux et spectaculaire à mesure que nous quittons la forêt pour les landes. Nous traversons une zone de séneçons géants. Après une marche soutenue sur des crêtes, nous rejoignons la zone plus animée de la route sud et arrivons au camp de Barranco pour la nuit."
+      },
+      "day3": {
+        "title": "Jour 3 : Mur de Barranco et camp de Karanga",
+        "altitude": "Altitude : de 3 976 m à 3 995 m",
+        "distance": "Distance : 5 km / 3 miles",
+        "walkingTime": "Temps de marche : 4-5 heures",
+        "habitat": "Habitat : Désert alpin",
+        "description": "Étape cruciale pour l'acclimatation. Après le petit-déjeuner, nous faisons face à la paroi de Barranco (le fameux 'Breakfast Wall'). Bien que verticale, il s'agit d'une montée non technique assistée par les mains. Au sommet, vues imprenables sur les champs de glace du sud. Le sentier serpente ensuite jusqu'au camp de Karanga, où nous nous reposons."
+      },
+      "day4": {
+        "title": "Jour 4 : Du camp de Karanga au camp de Barafu",
+        "altitude": "Altitude : de 3 995 m à 4 673 m",
+        "distance": "Distance : 4 km / 2 miles",
+        "walkingTime": "Temps de marche : ~3 heures",
+        "habitat": "Habitat : Désert alpin",
+        "description": "Journée courte mais importante : nous approchons du camp de base du sommet (Barafu). Les vues sont spectaculaires et la soirée est précoce pour préparer l'ascension finale qui commence vers minuit."
+      },
+      "day5": {
+        "title": "Jour 5 : Sommet Uhuru et descente à Mweka",
+        "part1": {
+          "title": "Partie 1 : Barafu → Pic Uhuru",
+          "altitude": "Altitude : de 4 673 m à 5 895 m",
+          "distance": "Distance : ~5 km / 3 miles",
+          "walkingTime": "Temps de marche : 6-8 heures (ascension)",
+          "habitat": "Habitat : Arctique",
+          "description": "Départ vers minuit dans l'obscurité et le froid. Itinéraire sur éboulis, progression lente 'pole pole'. Après plusieurs heures, arrivée à Stella Point puis Uhuru Peak (5 895 m). Moment emblématique au sommet."
+        },
+        "part2": {
+          "title": "Partie 2 : Pic Uhuru → Camp Mweka",
+          "altitude": "Altitude : de 5 895 m à 3 068 m",
+          "distance": "Distance : ~12 km / 7 miles",
+          "walkingTime": "Temps de marche : 6-8 heures (descente)",
+          "description": "Après les célébrations, longue descente vers le camp de Mweka. Retour progressif en zone forestière, récupération et nuit au camp."
+        }
+      },
+      "day6": {
+        "title": "Jour 6 : Descente finale et transfert à l'hôtel",
+        "altitude": "Altitude : de 3 068 m à 1 640 m",
+        "distance": "Distance : 10 km / 6 miles",
+        "walkingTime": "Temps de marche : ~3 heures",
+        "habitat": "Habitat : Forêt tropicale",
+        "description": "Descente finale à travers la forêt jusqu'à la porte Mweka. Transfert en véhicule vers votre hôtel à Moshi ou Arusha. Félicitations pour votre incroyable aventure !"
+      },
+      "departureDay": {
+        "title": "Jour du départ : Transfert vers l'aéroport",
+        "description": "Petit-déjeuner tranquille et transfert vers l'aéroport international du Kilimandjaro (JRO) selon votre horaire."
+      }
+    },
+    "datesAndPrices": {
+      "title": "Dates et prix",
+      "subtitle": "Contactez-nous pour les dates et tarifs disponibles",
+      "groupDiscounts": "Réductions de groupe",
+      "dontSeeDates": "Vous ne voyez pas vos dates ?",
+      "proposeNewDate": "Proposer une nouvelle date",
+      "proposeDateDescription": "Veuillez proposer une nouvelle date de départ",
+      "proposeDateButton": "Proposer une nouvelle date",
+      "enquireButton": "Demander plus de détails",
+      "when": "Quand",
+      "groupOptions": "Options de groupe",
+      "selected": "sélectionné",
+      "selectMonth": "Sélectionner le mois",
+      "selectGroup": "Sélectionner le type de groupe",
+      "fromPrice": "À partir de €1 900",
+      "soloTraveler": "Voyageur solo",
+      "couple": "Couple",
+      "familyGroup": "Groupe familial",
+      "friendsGroup": "Groupe d'amis",
+      "corporateGroup": "Groupe corporatif"
+    },
+    "inclusions": {
+      "title": "Ce prix comprend",
+      "items": "Deux nuits d'hébergement à l'hôtel ||| Transport privé aller-retour depuis l'aéroport international du Kilimandjaro jusqu'à votre hôtel à Moshi ||| Guides qualifiés avec équipage de montagne ||| Droits d'entrée au parc national ||| TVA de 18 % sur les frais d'excursion et les services ||| Tout le matériel de camping de haute qualité (tentes, sacs de couchage quatre saisons, matelas) ||| Tous les repas en montagne (petit-déjeuner, déjeuner et dîner) ||| Cuisinier expérimenté et porteurs ||| Oxymètre de pouls et trousse de premiers secours ||| Organisation du matériel de location si nécessaire ||| Certificat de montée",
+      "note": "Frais de sauvetage et équipement d'urgence inclus"
+    },
+    "priceDoesNotInclude": {
+      "title": "Ce prix ne comprend pas",
+      "items": "Billets d'avion ||| Visa ||| Pourboires ||| Assurance voyage ||| Effets personnels"
+    },
+    "accommodation": {
+      "title": "Hébergement",
+      "camps": {
+        "title": "Camps de montagne",
+        "description": "Sur la route Umbwe, vous séjournerez dans des tentes quatre saisons de haute qualité sur des emplacements de camp désignés. Chaque camp est situé pour une acclimatation optimale et offre de magnifiques vues sur la montagne."
+      }
+    },
+    "gallery": {
+      "title": "Galerie photo"
+    },
+    "faqs": {
+      "title": "Questions fréquentes",
+      "q1": "Les températures varient fortement selon l'altitude et la saison : en journée elles peuvent être entre ~5–15°C selon l'étape, et près du sommet il peut faire bien en dessous de zéro.",
+      "q2": "Habillez‑vous par couches : couche de base respirante, couche isolante (polaire), veste coupe‑vent/imperméable ; bonnet et gants sont essentiels.",
+      "q3": "Privilégiez des chaussures de trekking robustes et montantes avec bonne adhérence et imperméabilité. Emportez 3–4 paires de chaussettes techniques et évitez le coton."
+    },
+    "newsletter": {
+      "title": "Si vous aimez voyager,",
+      "subtitle": "rejoignez notre newsletter",
+      "description": "Recevez les dernières nouvelles sur des trésors d'aventure, des offres et des guides pratiques directement dans votre boîte de réception",
+      "firstNamePlaceholder": "Prénom",
+      "emailPlaceholder": "Votre adresse e-mail",
+      "button": "S'abonner"
+    },
+    "contactModal": {
+      "title": "Réservez un appel avec notre équipe",
+      "name": "Nom complet",
+      "namePlaceholder": "Jean Dupont",
+      "email": "Adresse e-mail",
+      "emailPlaceholder": "jean@example.com",
+      "phone": "Numéro de téléphone",
+      "phonePlaceholder": "+255782825692",
+      "message": "Message",
+      "messagePlaceholder": "Parlez-nous de vos projets de voyage...",
+      "accept": "J'accepte la",
+      "privacyPolicy": "Politique de confidentialité",
+      "submit": "Envoyer la demande"
+    }
+  },
+  "MaranguRoutePage": {
+    "hero": {
+      "title": "Conquérir le Toit de l'Afrique : Ascension par la Route Marangu (5 jours)",
+      "price": "À partir de 1 800€",
+      "description": "La route Marangu est la plus accessible et propose des hébergements en huttes. C'est une ascension directe vers le sommet avec un profil d'acclimatation solide.",
+      "breadcrumb": "Voyages/Grimper le Kilimandjaro",
+      "duration": "5 jours"
+    },
+    "miniNavbar": {
+      "datesAndPrices": "Dates & Prix",
+      "proposeDate": "Proposer une date",
+      "details": "Détails",
+      "inclusions": "Inclus / Non inclus",
+      "accommodation": "Hébergement"
+    },
+    "detailedItineraryTitle": "Itinéraire détaillé",
+    "itinerary": {
+      "altitude": "Altitude",
+      "distanceDuration": "Distance / Durée",
+      "day0": {
+        "title": "Jour 0 : Aéroport du Kilimandjaro — Moshi",
+        "location": "Moshi, Tanzanie",
+        "description": "À votre arrivée à l'aéroport international du Kilimandjaro, vous serez accueilli par votre guide. Ensemble, vous prendrez la route en direction de Moshi (environ 60 minutes). Nuit à votre lodge."
+      },
+      "day1": {
+        "title": "Jour 1 : Porte Marangu → Mandara Hut",
+        "description": "Le premier jour d'ascension commence par le transfert vers la Porte Marangu (1 860 m). Après les formalités d'enregistrement, la randonnée s'engage dans la forêt tropicale luxuriante. Le chemin est généralement facile et progressif. En option, un détour vers le cratère Maundi est possible. Après 3 à 4 heures de marche pour environ 8 km, vous atteignez Mandara Hut (2 700 m) pour la nuit.",
+        "altitude": "1 860 m → 2 700 m",
+        "distanceDuration": "≈ 8 km — 3–4 heures de randonnée"
+      },
+      "day2": {
+        "title": "Jour 2 : Mandara Hut → Horombo Hut",
+        "description": "Vous quittez la forêt tropicale pour les vastes zones de lande. Le chemin est ascendant et offre des vues magnifiques sur le sommet du Mawenzi et le dôme de Kibo. La zone est caractérisée par les lobélies géantes. Après 5 à 6 heures de marche pour environ 12 km, vous arrivez à Horombo Hut (3 700 m). C'est là que vous passerez la nuit et commencerez à ressentir les effets de l'altitude.",
+        "altitude": "2 700 m → 3 700 m",
+        "distanceDuration": "≈ 12 km — 5–6 heures de randonnée"
+      },
+      "day3": {
+        "title": "Jour 3 : Horombo Hut → Kibo Hut",
+        "description": "Cette étape vous mène à travers le désert alpin stérile. Le paysage devient rocheux, souvent décrit comme 'lunaire'. La marche s'effectue sur la selle du Kilimandjaro, entre le Kibo et le Mawenzi. Après 5 à 6 heures de marche pour environ 9 km, vous atteignez Kibo Hut (4 700 m), le camp de base. L'après‑midi est consacré au repos, au dîner et à la préparation méticuleuse pour l'ascension du sommet prévue très tôt le matin.",
+        "altitude": "3 700 m → 4 700 m",
+        "distanceDuration": "≈ 9 km — 5–6 heures de randonnée"
+      },
+      "day4": {
+        "title": "Jour 4 : L'assaut du sommet → Descente vers Horombo Hut",
+        "description": "Le quatrième jour est le plus décisif. L'ascension du sommet débute très tôt (entre minuit et 2h00) dans l'obscurité, nécessitant l'utilisation de lampes frontales. La progression s'effectue sur des éboulis raides et parfois de la neige, via de nombreux lacets, jusqu'à Gilman's Point (5 685 m) sur le bord du cratère. La montée se poursuit jusqu'à l'Uhuru Peak (5 895 m), le point culminant de l'Afrique. La phase d'ascension est la plus difficile et exige le port de toutes les couches chaudes. Un rythme lent — 'Pole Pole' — est essentiel. Après avoir immortalisé l'instant au sommet, la longue descente commence. Un arrêt est prévu à Kibo Hut pour déjeuner et se reposer, puis poursuite jusqu'à Horombo Hut (3 700 m).",
+        "altitude": "4 700 m → 5 895 m",
+        "distanceDuration": "≈ 15 km — 6–8 heures de marche"
+      },
+      "day5": {
+        "title": "Jour 5 : Horombo Hut → Porte Marangu",
+        "description": "Le dernier jour est une longue mais agréable descente finale. Vous traversez la lande, puis la forêt luxuriante jusqu'à la Porte Marangu (1 860 m). À basse altitude, le chemin peut être boueux. Après 5 à 6 heures de marche, vous atteignez la porte où un véhicule vous attend pour le transfert vers votre hôtel à Moshi. Remise du certificat d'ascension.",
+        "altitude": "3 700 m → 1 860 m",
+        "distanceDuration": "≈ 20 km — 5–6 heures de marche"
+      },
+      "day6": {
+        "title": "Jour 6 : Vol retour depuis l'aéroport international du Kilimanjaro (JRO)",
+        "description": "Après l'effort et le succès de l'ascension, le Jour 6 marque la fin de cette aventure extraordinaire. Après une dernière nuit de repos, vous prenez un petit‑déjeuner tranquille. Notre équipe vous transfèrera à l'aéroport international du Kilimandjaro (JRO) pour votre vol de retour. Si vous souhaitez prolonger, nous pouvons organiser un safari au Serengeti ou quelques jours de détente à Zanzibar."
+      }
+    },
+    "inclusions": {
+      "title": "Inclusions et exclusions",
+      "seeMore": "Voir plus",
+      "seeFewer": "Voir moins",
+      "priceIncludes": "Ce qui est inclus",
+      "priceDoesNotInclude": "Ce qui n'est pas inclus",
+      "items": "Prix : 1 800€ ||| Deux nuits d'hébergement à l'hôtel ||| Transport privé aller-retour depuis l'aéroport international du Kilimandjaro jusqu'à votre hôtel à Moshi ||| Guides qualifiés avec équipage de montagne ||| Droits d'entrée au parc national ||| TVA de 18 % sur les frais d'excursion et les services ||| Frais de hut (frais de montagne) ||| Frais de sauvetage (si nécessaires) ||| Tous les repas en montagne (petit-déjeuner, déjeuner et dîner) ||| Guides et porteurs ||| Hébergement et droits d'entrée en montagne ||| Oxymètre de pouls ||| Trousse de premiers secours ||| Assistance d'urgence respiratoire (oxygène d'urgence) ||| Salaires équitables pour les guides et les porteurs, approuvés par l'Autorité du parc national du Kilimandjaro",
+      "exclusions": {
+        "airfares": "Billets d'avion",
+        "visa": "Visa",
+        "transfers": "Transferts aéroport (40 $ US par personne et par transfert)",
+        "insurance": "Assurance voyage",
+        "tips": "Pourboires",
+        "singleSupplement": "Supplément single (si nécessaire)",
+        "personalItems": "Effets personnels"
+      }
+    },
+    "accommodation": {
+      "title": "Hébergement",
+      "huts": {
+        "title": "Huttes de montagne",
+        "description": "Sur la route Marangu, vous séjournerez dans des huttes confortables situées dans des camps désignés. Chaque hutte propose des lits superposés avec matelas et est située pour une acclimatation optimale."
+      }
+    },
+    "datesByMonth": {
+      "2025-Dec": []
+    },
+    "datesAndPrices": {
+      "title": "Dates et Prix",
+      "noDeparturesMessage": "Aucun départ pour cet itinéraire durant le mois sélectionné.",
+      "contactUsCTA": "Contactez-nous pour demander d'autres dates",
+      "groupDiscounts": "Réductions de groupe",
+      "dontSeeDates": "Vous ne voyez pas vos dates ?",
+      "proposeNewDate": "Proposez une nouvelle date",
+      "proposeDateDescription": "Veuillez proposer une nouvelle date de départ",
+      "proposeDateButton": "Proposer une nouvelle date",
+      "enquireButton": "Demander maintenant",
+      "when": "Quand",
+      "selected": "sélectionné",
+      "selectMonth": "Sélectionner le mois",
+      "groupOptions": "Options de groupe",
+      "selectGroup": "Sélectionner le type de groupe",
+      "showEarlier": "Afficher les dates antérieures",
+      "showEarlierHidden": "Masquer les dates antérieures"
+    },
+    "gallery": {
+      "title": "Galerie photo"
+    },
+    "faqs": {
+      "title": "Questions fréquemment posées",
+      "question1": "Quel est le meilleur moment pour gravir le Kilimandjaro via la route Marangu ?",
+      "answer1": "Les meilleurs mois pour gravir le Kilimandjaro sont janvier, février et septembre à octobre. Ces périodes offrent des ciels plus dégagés et des conditions généralement plus sèches.",
+      "question2": "Quelle est la difficulté de la route Marangu ?",
+      "answer2": "La route Marangu est considérée comme la plus accessible des routes du Kilimandjaro en raison de son profil d'ascension progressif et des hébergements en huttes. Néanmoins, toutes les ascensions restent exigeantes sur le plan physique.",
+      "question3": "Que dois-je emporter pour l'ascension ?",
+      "answer3": "Prévoyez des vêtements chauds par couches, des protections imperméables, de bonnes chaussures de randonnée, un sac de couchage adapté et vos médicaments personnels. Une liste d'équipement détaillée vous sera fournie après la réservation.",
+      "question4": "Quel est le taux de réussite de la route Marangu ?",
+      "answer4": "La route Marangu affiche un taux de réussite d'environ 85 %. Une acclimatation appropriée est essentielle pour augmenter vos chances d'atteindre le sommet."
+    },
+    "newsletter": {
+      "title": "Si vous aimez voyager,",
+      "subtitle": "rejoignez notre newsletter",
+      "description": "Recevez les dernières nouvelles sur des trésors d'aventure, des offres et guides pratiques directement dans votre boîte de réception",
+      "firstNamePlaceholder": "Prénom",
+      "emailPlaceholder": "Votre adresse e-mail",
+      "button": "S'abonner"
+    }
+  },
+  "TanzaniaSafariPage": {
+    "hero": {
+      "title": "Safari en Tanzanie",
+      "price": "À partir de 1500 EUR",
+      "description": "Découvrez le meilleur de la faune et de la beauté naturelle de la Tanzanie",
+      "bookCall": "Réserver un appel",
+      "downloadGuide": "Télécharger le guide",
+      "durationLabel": "Durée",
+      "duration": "2 - 9 jours",
+      "difficultyLabel": "Difficulté",
+      "difficulty": "Facile",
+      "groupSizeLabel": "Taille du groupe",
+      "groupSize": "2 - 8",
+      "adventureTypeLabel": "Type",
+      "adventureType": "Safari"
+    },
+    "routes": {
+      "title": "Nos Expériences Safari",
+      "description": "Choisissez parmi nos expériences safari soigneusement sélectionnées, des aventures en camping aux immersions culturelles",
+      "camping8Days": {
+        "title": "Safari en Camping (8 Jours)",
+        "price": "À partir de 1500 EUR",
+        "description": "Découvrez la faune tanzanienne de près en camping sous les étoiles",
+        "duration": "8 jours"
+      },
+      "safariBeach": {
+        "title": "Combo Safari & Plage",
+        "price": "À partir de 2300 EUR",
+        "description": "Combinez l'observation de la faune avec un séjour détente à Zanzibar",
+        "duration": "10 jours"
+      },
+      "safariKiliAdventure": {
+        "title": "Aventure Safari & Kilimandjaro",
+        "price": "À partir de 2200 EUR",
+        "description": "Un itinéraire combiné qui associe un safari à une expérience de trek au Kilimandjaro",
+        "duration": "9 - 12 jours"
+      },
+      "camping": {
+        "title": "Safari en Camping (8 Jours)",
+        "price": "À partir de 1500 EUR",
+        "description": "Découvrez la faune tanzanienne de près en camping sous les étoiles",
+        "duration": "8 jours"
+      },
+      "materuniChemka": {
+        "title": "Expérience Culturelle Materuni & Chemka (2 Jours)",
+        "price": "À partir de 150 EUR",
+        "description": "Immergez-vous dans la culture Chagga avec cascade, café et sources chaudes",
+        "duration": "2 jours"
+      }
+    },
+    "countryInfo": {
+      "title": "Informations et faits sur le pays",
+      "subtitle": "Voici ce que vous devez savoir logistiquement pour planifier un voyage en Tanzanie, des meilleures saisons aux exigences de visa.",
+      "languages": {
+        "title": "Langues",
+        "content": "Swahili, Anglais"
+      },
+      "currency": {
+        "title": "Devise",
+        "content": "Shilling tanzanien (TZS)"
+      },
+      "airports": {
+        "title": "Aéroports",
+        "content": "La plupart des visiteurs arrivent à l'aéroport international du Kilimandjaro (JRO) via l'aéroport international Jomo Kenyatta (NBO) à Nairobi ou l'aéroport international Julius Nyerere (DAR) à Dar es Salaam. Vous pouvez également arriver à l'aéroport d'Arusha (ARK), un aéroport régional qui vous rapproche du Kilimandjaro et des parcs animaliers du circuit nord."
+      },
+      "seasons": {
+        "title": "Saisons",
+        "intro": "Les parcs nationaux de Tanzanie sont ouverts toute l'année, et chaque saison a ses avantages et ses inconvénients.",
+        "longDry": "Cela dit, la longue saison sèche (mi-juin à octobre) est considérée par beaucoup comme la saison de safari optimale. C'est parce que les jours sont un peu plus frais, il y a peu de risque de pluie, et le paysage sec rend le repérage des animaux beaucoup plus facile (car la végétation ne cache pas les animaux, et ils sont également forcés de se regrouper autour des sources d'eau).",
+        "shortDry": "La courte saison sèche (janvier à mi-mars) est également une excellente période si vous aimez les paysages luxuriants, les oiseaux, et aimeriez être présent pendant la saison des naissances.",
+        "readMore": "Veuillez lire",
+        "link": "Le meilleur moment pour un safari en Tanzanie",
+        "moreInfo": "si vous souhaitez en savoir plus."
+      },
+      "visa": {
+        "title": "Visa et Immigration",
+        "content": "Un visa touristique tanzanien est valable jusqu'à 90 jours. Il coûte 50 USD pour les étrangers et 100 USD pour les citoyens américains. Cependant, un visa n'est pas requis pour les ressortissants d'environ 50 pays dans le monde, y compris l'Afrique du Sud, le Kenya, Hong Kong, Singapour, la Chine, l'Inde, le Brésil et la Turquie.",
+        "link": "En savoir plus ici"
+      },
+      "healthSafety": {
+        "title": "Santé et Sécurité",
+        "vaccines": "Il n'y a pas de vaccins obligatoires pour l'entrée en Tanzanie.",
+        "precautions": "Veuillez noter que certaines parties de la Tanzanie ont le paludisme et les mouches tsé-tsé (qui peuvent causer la maladie du sommeil). Vous souhaiterez peut-être prendre des précautions contre celles-ci. C'est aussi toujours une bonne idée d'être vacciné contre la rage, en particulier lors de voyages en zones rurales.",
+        "learnMore": "Vous pouvez en savoir plus dans",
+        "link": "Vos questions sur les voyages en Tanzanie répondues"
+      }
+    },
+    "downloadSection": {
+      "title": "Téléchargez Notre Guide Safari",
+      "subtitle": "Guide Complet de Planification de Safari en Tanzanie",
+      "description": "Obtenez des informations détaillées sur les itinéraires, la faune et les conseils de planification",
+      "button": "Télécharger le Guide PDF"
+    },
+    "topReads": {
+      "title": "Les Plus Lus",
+      "description": "Les trois articles de blog ci-dessous sont parmi les plus populaires. Ils répondent aux questions courantes sur la planification d'un safari, les coûts et ce qu'il faut emporter.",
+      "packingList": {
+        "title": "Liste de Bagages pour Safari",
+        "description": "Quoi emporter pour un safari en Tanzanie pour rester confortable et en sécurité dans la brousse."
+      },
+      "bestTime": {
+        "title": "Meilleur Moment pour Visiter",
+        "description": "Aperçu des saisons sèches et humides et des meilleures fenêtres pour observer la faune."
+      },
+      "wildlife": {
+        "title": "Points Forts de la Faune",
+        "description": "Quels animaux vous pouvez vous attendre à voir en safari et où les repérer."
+      }
+    },
+    "faq": {
+      "title": "FAQ"
+    },
+    "booking": {
+      "title": "Prêt à Commencer Votre Aventure Safari ?",
+      "button": "Réservez Votre Voyage",
+      "groupDiscounts": {
+        "title": "Réductions de Groupe",
+        "description": "Économisez plus en voyageant avec des amis ! Contactez-nous pour des tarifs de groupe spéciaux.",
+        "button": "En Savoir Plus"
+      }
+    },
+    "newsletter": {
+      "title": "Si vous aimez voyager,",
+      "subtitle": "abonnez-vous à notre newsletter",
+      "description": "Recevez les dernières nouvelles sur des trésors d'aventure, des voyages en promotion et bien plus directement dans votre boîte de réception",
+      "firstNamePlaceholder": "Prénom",
+      "emailPlaceholder": "Adresse e-mail",
+      "button": "S'inscrire !"
+    }
+  },
+  "SafariBivouac8Days": {
+    "hero": {
+      "title": "Safari Bivouac 8 Jours : L'Appel Sauvage de la Tanzanie du Nord",
+      "breadcrumb": "Tanzanie > Safaris > Safari Bivouac 8 Jours",
+      "description": "Oubliez le quotidien. Ce n'est pas un simple voyage, c'est une immersion totale. Pendant 8 jours, vous vivrez au rythme du cœur de l'Afrique, là où le luxe se mesure à l'immensité du ciel et à l'authenticité de l'instant.\n\nCe safari est taillé pour l'aventurier qui sommeille en vous. En choisissant le bivouac (camping), vous ne faites pas qu'observer la nature, vous y dormez. Écoutez le rugissement lointain d'un lion au Serengeti, sentez le sol vibrer au passage des éléphants du Tarangire, et laissez-vous bercer par le chant nocturne de la savane.",
+      "durationLabel": "Durée",
+      "duration": "8 jours",
+      "priceLabel": "À partir de",
+      "price": "€1 850"
+    },
+    "miniNavbar": {
+      "itinerary": "Itinéraire",
+      "inclusions": "Inclusions",
+      "practicalInfo": "Informations Pratiques"
+    },
+    "detailedItineraryTitle": "Itinéraire Détaillé",
+    "itinerary": {
+      "day1": {
+        "title": "Jour 1 – Arrivée",
+        "description": "À votre arrivée à l'aéroport international du Kilimandjaro (JRO), vous serez accueilli et transféré à Arusha jusqu'à votre hôtel."
+      },
+      "day2": {
+        "title": "Jour 2 – Parc national de Tarangire",
+        "description": "Aujourd'hui, nous nous dirigerons vers le parc national de Tarangire, en passant par les villages Maasaï locaux le long de la route principale. Ici vous verrez des Maasaï emmener leur bétail dans des pâturages verts, ainsi que des femmes à la recherche de bois de chauffage et d'eau. Tarangire est un endroit idéal pour voir de nombreux éléphants et de nombreux arbres Mbuyu. Il existe de nombreux animaux sauvages comme les girafes, buffles et léopards."
+      },
+      "day3": {
+        "title": "Jour 3 – Route vers le parc national du Serengeti",
+        "description": "Après le petit-déjeuner, nous nous dirigeons vers le parc national du Serengeti, via la zone de conservation de Ngorongoro. Nous nous arrêterons au bord du cratère pour une belle vue sur le cratère, en faisant le tour du bord du cratère jusqu'au parc du Serengeti. Géographiquement, le Serengeti est divisé en deux zones : l'Est-Sud, qui est recouverte par une vaste plaine de cendres volcaniques éjectées du plateau du Ngorongoro, d'où le nom de « Siringet », mot masaï pour plaine sans fin. La deuxième zone, au Nord-Ouest, est constituée de forêts et de petites collines."
+      },
+      "day4": {
+        "title": "Jour 4 – Journée complète de safari dans le parc national du Serengeti",
+        "description": "Après le petit-déjeuner, départ de votre camping en voiture de sport. Le parc national du Serengeti fait partie de l'écosystème du Serengeti qui abrite la plus grande population d'animaux sauvages au monde : plus d'un million de gnous et près d'un demi-million de zèbres suivent chaque année les pluies autour de cet écosystème, des plaines aux forêts de savane, au Masai Mara et de retour aux plaines."
+      },
+      "day5": {
+        "title": "Jour 5 – Du cratère du Ngorongoro au lac Manyara",
+        "description": "Descendez au cratère. Le cratère du Ngorongoro est l'un des plus beaux refuges fauniques du monde. Il s'agit plutôt d'un paradis animalier, où certains des derniers rhinocéros noirs d'Afrique sont encore bien protégés. Un troupeau de lions à dos noir se perche dans l'herbe, des flamants roses affluent vers le lac Magadi et le grand éléphant à défenses est le plus souvent vu dans les marais pérennes."
+      },
+      "day6": {
+        "title": "Jour 6 – Parc national du lac Manyara",
+        "description": "Ce parc est connu pour abriter des lions grimpeurs d'arbres. Après le petit-déjeuner, route vers le parc national du lac Manyara en passant par la vallée du Rift, l'un des sites les plus impressionnants au monde, qui s'étend de la mer Morte en Jordanie jusqu'au sud du Mozambique. Vous traverserez le pays Massaï. La réserve de chasse du lac Manyara doit son nom à la plante Euphorbia tirucalii, « Emanyar » en langue Massaï et « doigts de dame » en anglais."
+      },
+      "day7": {
+        "title": "Jour 7 – Du lac Eyasi à Arusha",
+        "description": "Vers 6h30 du matin, après un petit-déjeuner léger, vous quitterez le lodge et rendrez visite aux Bushmen Hadzabe. Ils sont les derniers chasseurs-cueilleurs encore présents en Afrique de l'Est, qui continuent leur vie avec très peu de changements depuis des dizaines de milliers d'années. Vous participerez à leurs activités matinales, notamment une randonnée en forêt, une chasse et un feu de camp. D'autres activités peuvent être réalisées pendant la journée : interagir avec les Hadza, participer à la collecte de miel, rechercher des fruits de baobab et profiter de leur vie quotidienne."
+      },
+      "day8": {
+        "title": "Jour 8 – Départ du Kilimandjaro",
+        "description": "Profitez d'un petit-déjeuner tranquille. Selon l'horaire de votre vol, nous organiserons votre transfert de retour à l'aéroport international du Kilimandjaro (JRO) pour votre vol de retour ou pour la poursuite de votre voyage (Zanzibar, etc.)."
+      }
+    },
+    "inclusions": {
+      "title": "Ce qui est inclus",
+      "priceIncludes": "Le prix est inclus",
+      "items": "1) Tous les taxes d'entrée dans les parcs indiqués dans le programme|||2) Tous les taxes du campement indiqués dans le programme|||3) Les chauffeurs – guides pour les clients|||4) Le guide francophone|||5) Le cuisine|||6) L'équipement du campement pour les clients (tentes, lits, matelas, oreillers, tables, chaises)|||7) L'accommodation complète pendant le safari (petit déjeuner, lunch et dîner)|||8) L'équipement de la cuisine|||9) Les Land Cruiser (4×4) avec le toit ouvrable pour observer les animaux dans les parcs|||10) L'offre de l'eau de Kilimanjaro, 2 bouteilles de litre et demie par jour par personne|||11) La toilette et douche sont disponibles au camp"
+    },
+    "exclusions": {
+      "title": "Ce qui n'est pas inclus",
+      "items": "1) Le ticket d'avion|||2) Le visa|||3) Les besoins personnels|||4) Les boissons|||5) Les pourboires"
+    },
+    "pricing": {
+      "price": "€1 850",
+      "included": {
+        "title": "Le prix est inclus:",
+        "items": "1) Tous les taxes d'entrée dans les parcs indiques dans le programme|||2) Tous les taxes du campement indiques dans le programme|||3) Les chauffeurs – guides pour les clients|||4) Le guide francophone|||5) Le cuisine|||6) L'équipement du campement pour les clients (tentes, lits, matelas, oreillers, tables, chaises)|||7) L'accommodation complète pendant le safari (petit déjeuner, lunch et dîner)|||8) L'équipement de la cuisine|||9) Les Land Cruiser (4×4) avec le toit ouvrable pour observer les animaux dans les parcs|||10) L'offre de l'eau de Kilimanjaro, 2 bouteilles de litre et demie par jour par personne|||11) La toilette et douche sont disponibles au camp"
+      },
+      "notIncluded": {
+        "title": "Le prix n'est pas inclus:",
+        "items": "1) Le ticket d'avion|||2) Le visa|||3) Les besoins personnels|||4) Les boissons|||5) Les pourboires"
+      }
+    },
+    "meals": {
+      "title": "REPAS",
+      "description": "Le petit-déjeuner, sauf mention contraire, est pris au sein même de l'hébergement. Selon le programme, les déjeuners seront pris dans les parcs et sous forme de pique-nique afin de profiter pleinement de votre safari. Merci de prévenir en avance si des demandes de repas spéciaux (végétariens, diabétiques, etc...) sont nécessaires. L'eau du robinet est généralement potable dans les grandes agglomérations mais pas dans les espaces rurals par précaution il est préférable de boire de l'eau en bouteille."
+    },
+    "transport": {
+      "title": "TRANSPORT",
+      "description": "Le safari est effectué en véhicule 4x4, des sièges de deux places sont installés dans le sens de la marche à côté d'une grande baie vitrée ouvrable. Un réservoir d'eau est réservé à l'intendance, un grand réservoir de carburant permet de réaliser de longues étapes.\n\nPossibilité de recharger les caméscopes et les appareils numériques sur la prise allume cigares de 12V (prévoir votre cordon). Dans les parcs et les réserves, il est strictement interdit de s'installer sur le toit du véhicule."
+    },
+    "wildlife": {
+      "title": "QUELS ANIMAUX VOIR?",
+      "description": "La Tanzanie regroupe des milliers d'animaux sauvages de toutes les espèces et vous ne serez pas déçu de la diversité que regroupe les parcs (même les plus petits ou les moins connus): Éléphants, girafes, buffles, guépards, léopards, lions, servals, chacal, Rhinocéros, Hippopotames, hyènes, impalas, zèbres, singes, antilopes, crocodiles, phacochères, Oiseaux... Il y a de nombreuses espèces à voir, vous ne serez pas déçus tant que vous savez être patients avec la nature."
+    },
+    "luggage": {
+      "title": "LES BAGAGES",
+      "intro": "Lors d'un safari préférez les bagages souples aux valises traditionnelles, les sacs sont beaucoup plus pratiques à manier dans les véhicules surtout si vous avez besoin de récupérer quelque chose pendant une journée d'observation. Prévoyez également un petit sac à dos dans lequel vous disposerez tout ce dont vous risquez d'avoir besoin dans la journée (crème solaire, lunettes, appareil photo…).",
+      "toTake": "Pensez safari : des chemises légères à manches longues pour vous protéger du soleil et des insectes, des pantalons souples avec des poches latérales, des chaussures type Pataugas pour les randonnées et des baskets légères pour les moments de repos. N'oubliez pas une polaire car les soirées peuvent être fraîches. Un maillot de bain vous sera utile lors de vos séjours dans les établissements possédant une piscine. Un chapeau et des lunettes de soleil compléteront la panoplie indispensable à tout voyage dans la savane. Pour l'ensemble de vos vêtements préférez des couleurs comme le kaki, vert foncé, gris, marron. Évitez les couleurs vives et le blanc. De même oubliez le bleu car les mouches tsé tsé sont particulièrement attirées par cette dominante.\n\nN'oubliez pas une trousse à pharmacie contenant de petits pansements (coupures ou autres), des antalgiques (paracétamol ou équivalent), des crèmes solaires et des anti-moustiques (le plus efficace restant le 5X5).\n\nPensez aussi à votre nécessaire de toilette ainsi qu'à une serviette de bain même si tous les établissements en sont pourvus.\n\nVous pouvez compléter cet équipement par une bonne paire de jumelle type « Bushnell légende » ou équivalent, car cet outil est certainement celui dont vous vous servirez le plus lors d'un safari."
+    },
+    "bivouac": {
+      "title": "Les bivouacs",
+      "philosophy": "Effectuer un voyage en Tanzanie en ayant opté pour un hébergement en bivouac est une philosophie en soi. Hors des sentiers battus c'est une vraie aventure que privilégient les baroudeurs. Il s'agit d'effectuer un séjour qui ramène aux valeurs fondamentales, laissant derrière nous un confort quotidien pour se concentrer sur la nature. Quoi de plus excitant que de poser sa tente en plein milieu de la savane, au cœur même de l'endroit où vivent les plus grands animaux d'Afrique.",
+      "nightlife": "Certes les nuits peuvent être courtes car elles sont propices à une activité intense de la faune. Il n'est pas rare d'entendre le feulement des lions, de voir passer des éléphants ou des herbivores à quelques mètres du bivouac, sans oublier les hyènes qui vous empêcheront peut-être de dormir d'un sommeil réparateur mais qui vous laisseront un souvenir mémorable.",
+      "comfort": "Ce genre de voyage peut être économique mais là n'est pas sa vocation première, il s'agit avant tout de se rapprocher au plus près de la nature, surtout dans les parcs, pour vivre une expérience inoubliable. Et bien évidemment il serait inconcevable d'effectuer un voyage en Tanzanie en ayant opté pour un hébergement en bivouac sans un minimum de confort, mais tout cela est géré de main de maître :\n\nLes tentes sont bi-place, équipées de matelas et de moustiquaires, adaptées à l'environnement, elles reflètent l'esprit d'un safari hors du commun. Les lieux de camping possèdent tous les sanitaires et infrastructures permettant un séjour confortable et ce au beau milieu d'une nature sauvage.",
+      "experience": "Bien évidemment, lors d'un voyage en bivouac, en plus du chauffeur guide, vous bénéficiez d'un cuisinier personnel qui vous assure tous les jours un petit déjeûner, un pique-nique le midi et un repas le soir. Lorsque l'on se trouve au bout du monde, au fin fond de la savane et que l'on voit ce qu'est capable de préparer un cuisinier itinérant dans des conditions inimaginables, lorsque l'on déguste ses mets, alors là il n'y a que le respect qui s'impose.",
+      "conclusion": "Le bivouac est une expérience hors du commun, il s'adresse à ceux qui veulent découvrir le pays avec un parfum d'aventure car on ne sait jamais ce qui se passera pendant la nuit ! C'est certainement le meilleur moyen pour vivre des instants hors normes en Tanzanie, qui s'adresse avant tout à ceux dont l'Aventure est une priorité. Loin des clichés, à faire une fois dans sa vie, car c'est une expérience unique dont on ressort grandi et humble."
+    }
+  },
+  "ZanzibarSafariBeach10Days": {
+    "hero": {
+      "title": "Safari et Plages de Zanzibar (10 Jours) : L'Appel Sauvage de l'Afrique de l'Est",
+      "breadcrumb": "Tanzanie > Safari & Zanzibar",
+      "duration": "10 jours",
+      "price": "€2 300",
+      "description": "Oubliez le quotidien : 10 jours combinant l'intensité d'un safari tanzanien et la détente sur les plages de Zanzibar."
+    },
+    "miniNavbar": {
+      "datesAndPrices": "Dates & Prix",
+      "proposeDate": "Proposer une Date",
+      "inclusions": "Inclusions"
+    },
+    "detailedItineraryTitle": "Itinéraire détaillé",
+    "itinerary": {
+      "day1": {
+        "title": "Jour 1 : Arusha / Le Premier Souffle d'Afrique",
+        "description": "Arrivée à l'aéroport international du Kilimandjaro (JRO). Accueil et transfert vers votre lodge à Arusha. Temps libre pour vous imprégner de l'atmosphère tanzanienne et préparation pour le safari."
+      },
+      "day2": {
+        "title": "Jour 2 : D'Arusha au Parc National de Tarangire – Le Royaume des Baobabs",
+        "description": "Départ matinal pour le Parc National de Tarangire. Journée complète de safari avec pique-nique. Observation d'éléphants, gnous, zèbres et baobabs majestueux. Nuit en lodge proche du parc."
+      },
+      "day3": {
+        "title": "Jour 3 : De Tarangire au Parc National du Serengeti – Vers la Plaine Infinie",
+        "description": "Route vers le mythique Serengeti. Safari d'après-midi suivi d'un safari en soirée lorsque les prédateurs sont plus actifs. Nuit en lodge ou camp dans le Serengeti."
+      },
+      "day4": {
+        "title": "Jour 4 : Du Serengeti au Ngorongoro – L'Aube des Chasseurs",
+        "description": "Safari matinal dans le Serengeti, puis route vers la zone de conservation du Ngorongoro. Safari en route et arrivée en fin de journée sur le bord du cratère."
+      },
+      "day5": {
+        "title": "Jour 5 : Cratère du Ngorongoro – L'Eden Retrouvé",
+        "description": "Descente au fond du cratère pour environ six heures de safari intensif à la recherche des Big Five (notamment le rhinocéros noir). Pique-nique à la source de Ngoitoktok. Remontée et route vers Arusha."
+      },
+      "day6": {
+        "title": "Jour 6 : Vol vers Zanzibar – Arrivée et Tranquillité Insulaire",
+        "description": "Vol matinal vers Zanzibar. Transfert à votre hôtel (probablement à Stone Town ou zone centrale). Journée libre pour se reposer, explorer les ruelles locales ou se préparer pour les activités marines."
+      },
+      "day7": {
+        "title": "Jour 7 : Safari Blue – L'Odyssée Aquatique",
+        "description": "Excursion Safari Blue : navigation en dhow, snorkeling dans la baie de Menai, détente sur bancs de sable isolés et déjeuner barbecue sur une île déserte."
+      },
+      "day8": {
+        "title": "Jour 8 : Demi-Journée Mnemba – Dauphins et Récifs",
+        "description": "Sortie matinale pour une demi-journée à Mnemba : observation et baignade respectueuse avec les dauphins (si présent), exploration des récifs coralliens. Retour et après-midi libre."
+      },
+      "day9": {
+        "title": "Jour 9 : Stone Town, Ferme d'Épices et Prison Island – Saveurs et Histoire",
+        "description": "Visite d'une ferme d'épices, puis découverte guidée de Stone Town (site UNESCO) et visite de Prison Island pour rencontrer les tortues géantes. Soirée libre."
+      },
+      "day10": {
+        "title": "Jour 10 : Transfert à l'Aéroport – Kwaheri (Au Revoir)",
+        "description": "Dernier petit-déjeuner, temps libre selon l'horaire du vol, puis transfert à l'aéroport de Zanzibar (ZNZ) pour votre départ."
+      }
+    },
+    "inclusions": {
+      "title": "Le Prix Comprend",
+      "items": "1) Tous les frais d'entrée dans les parcs nationaux mentionnés dans le programme|||2) Tous les transferts aéroportuaires et inter-hôtels mentionnés dans le programme|||3) Hébergement en lodge ou confort équivalent (selon programme)|||4) Guide local francophone certifié pour le safari|||5) 2 litres d'eau minérale par jour et par personne|||6) Transport pendant les excursions à Zanzibar|||7) Toutes les taxes et TVA applicables|||8) Hébergement et repas mentionnés dans le programme"
+    },
+    "exclusions": {
+      "title": "Pas inclus",
+      "items": "1) Vol international et vols locaux|||2) Pourboires pour le guide et le personnel|||3) Boissons personnelles hors eau fournie|||4) Visa et assurance"
+    },
+    "pricing": {
+      "price": "€2 300"
+    },
+    "datesAndPrices": {
+      "title": "Dates et Prix",
+      "groupDiscounts": "Réductions de groupe",
+      "dontSeeDates": "Vous ne voyez pas vos dates ?",
+      "enquireButton": "Demander",
+      "proposeDateButton": "Proposer une Date"
+    }
+  },
+  "EchappeeTemeraire6Days": {
+    "hero": {
+      "title": "L'Échappée Téméraire : Safari & Aventures au Kilimandjaro (6 Jours)",
+      "breadcrumb": "Tanzanie > Safari & Kilimandjaro",
+      "description": "Osez l'aventure d'une vie condensée. Ce n'est pas un circuit, c'est une incursion audacieuse au cœur de la Tanzanie. En six jours à peine, vous ferez l'expérience d'un contraste saisissant : l'intensité brute des pistes de la savane où les Big Five défient les lois du temps, suivie par la douceur et l'authenticité des contreforts du Kilimandjaro.",
+      "durationLabel": "Durée",
+      "duration": "6 jours",
+      "priceLabel": "À partir de",
+      "price": "€1 400"
+    },
+    "miniNavbar": {
+      "itinerary": "Itinéraire",
+      "inclusions": "Inclusions",
+      "practicalInfo": "Informations Pratiques"
+    },
+    "detailedItineraryTitle": "Itinéraire",
+    "itinerary": {
+      "day1": {
+        "title": "Jour 1 : D'Arusha au Parc National de Tarangire – Immersion au Milieu des Géants",
+        "description": "Après un petit-déjeuner matinal et énergisant, nous quittons Arusha pour le Parc National de Tarangire. La journée entière est consacrée au safari, au cœur d'un paysage dominé par les majestueux baobabs. Le Tarangire est un sanctuaire d'eau pour des centaines d'éléphants, de gnous et de zèbres. Déjeuner pique-nique en plein cœur du parc."
+      },
+      "day2": {
+        "title": "Jour 2 : De Tarangire au Parc National du Serengeti – Vers la Plaine Infinie",
+        "description": "Après un petit-déjeuner, notre chauffeur-guide vous conduira vers le mythique Parc National du Serengeti. La route elle-même est une aventure : vous pénétrez dans les plaines ouvertes sans fin (Siringet). Safari d'après-midi et safari en fin de soirée lorsque les prédateurs sont les plus actifs."
+      },
+      "day3": {
+        "title": "Jour 3 : Du Parc National du Serengeti au Ngorongoro – L'Aube des Chasseurs",
+        "description": "Réveillez-vous très tôt pour un safari matinal dans le Serengeti, le meilleur moment pour surprendre les lions, les léopards et les guépards. Brunch, puis route vers le Ngorongoro avec safari en route et arrivée tardive sur le bord du cratère."
+      },
+      "day4": {
+        "title": "Jour 4 : Du Cratère du Ngorongoro à l'Hôtel d'Arusha – L'Eden Retrouvé",
+        "description": "Après un petit-déjeuner matinal, descente spectaculaire au fond du Cratère pour environ six heures de safari intensif. Recherche des Big Five, pique-nique à la source de Ngoitoktok. Ascension et retour vers Arusha via un dernier safari en route."
+      },
+      "day5": {
+        "title": "Jour 5 : Village de Materuni – Arômes et Chutes d'Eau Secrètes",
+        "description": "Journée d'immersion culturelle au pied du Kilimandjaro : participation à la cérémonie du café, découverte du processus local et dégustation, puis randonnée facile jusqu'à la spectaculaire cascade de 90 mètres et baignade possible dans la piscine naturelle."
+      },
+      "day6": {
+        "title": "Jour 6 : Sources Chaudes de Chemka – Baignade dans l'Oasis et Départ",
+        "description": "Pour clore cette aventure, visite des fameuses Sources Chaudes de Chemka : baignade et détente dans une eau claire et filtrée par les nappes du Kilimandjaro. Transfert vers l'aéroport selon l'horaire du vol. Kwaheri!"
+      }
+    },
+    "inclusions": {
+      "title": "Le prix est inclus",
+      "items": "1) Tous les taxes d'entrée dans les parcs indiqués dans le programme|||2) Tous les taxes du campement indiqués dans le programme|||3) Les chauffeurs – guides pour les clients|||4) Le guide francophone|||5) Le cuisine|||6) L'equipement du campement pour les clients (tentes, lits, matelas, tables, chaises)|||7) L'accommodation complete pendant le safari (petit déjeuner, lunch et diner)|||8) L'equipement de la cuisine|||9) Les Land Cruiser (4×4) avec le toit ouvrable pour observer les animaux dans les parcs|||10) 2 bouteilles d'1,5L d'eau par jour et par personne|||11) Toilette et douche disponibles au camp"
+    },
+    "exclusions": {
+      "title": "Le prix n'est pas inclus",
+      "items": "1) Le ticket d'avion|||2) Le visa|||3) Les besoins personnels|||4) Les boissons|||5) Les pourboires"
+    },
+    "pricing": {
+      "price": "€1 400"
+    }
+  },
+  "SafariBivouac4Days": {
+    "hero": {
+      "title": "4 Jours Inoubliables au Cœur de la Vie Sauvage",
+      "breadcrumb": "Tanzanie > Safaris > 4 Jours",
+      "description": "Ce safari de 4 jours est une aventure intense qui vous plonge dans les merveilles naturelles du Nord de la Tanzanie, combinant l'excitation des célèbres parcs nationaux avec l'authenticité d'une expérience en bivouac.",
+      "durationLabel": "Durée",
+      "duration": "4 jours",
+      "priceLabel": "À partir de",
+      "price": "€1 000"
+    },
+    "miniNavbar": {
+      "itinerary": "Itinéraire",
+      "inclusions": "Inclusions",
+      "practicalInfo": "Informations Pratiques"
+    },
+    "detailedItineraryTitle": "Itinéraire",
+    "itinerary": {
+      "day1": {
+        "title": "Jour 1 – D'Arusha au Parc National de Tarangire",
+        "description": "Après un petit-déjeuner matinal, départ pour Tarangire pour une journée complète de safari avec pique-nique. Tarangire est réputé pour ses grands troupeaux d'éléphants et ses baobabs. Dîner et nuit au camping Lilac."
+      },
+      "day2": {
+        "title": "Jour 2 – De Tarangire au Parc National du Serengeti",
+        "description": "Après le petit-déjeuner, départ vers le Serengeti. Profitez d'un safari de quatre heures, suivi d'un safari en fin de soirée. Dîner et nuit au camp de Seronera."
+      },
+      "day3": {
+        "title": "Jour 3 – Serengeti au Ngorongoro",
+        "description": "Safari matinal dans le Serengeti pour observer la faune puis route vers Ngorongoro avec safari en route. Dîner et nuit au camping Ngorongoro Simba au bord du cratère."
+      },
+      "day4": {
+        "title": "Jour 4 – Cratère du Ngorongoro à l'hôtel d'Arusha",
+        "description": "Descente au fond du cratère pour un safari d'environ six heures à la recherche des Big Five. Pique-nique à la source de Ngoitoktok, puis remontée et retour vers Arusha avec arrivée à l'hôtel en soirée."
+      }
+    },
+    "inclusions": {
+      "title": "Le prix est inclus",
+      "items": "1) Tous les taxes d'entrée dans les parcs indiqués dans le programme|||2) Tous les taxes du campement indiqués dans le programme|||3) Les chauffeurs – guides pour les clients|||4) Le guide francophone|||5) Le cuisine|||6) L'equipement du campement pour les clients (tentes, lits, matelas, tables, chaises)|||7) L'accommodation complete pendant le safari (petit déjeuner, lunch et diner)|||8) L'equipement de la cuisine|||9) Les Land Cruiser (4×4) avec le toit ouvrable pour observer les animaux dans les parcs|||10) 2 bouteilles d'1,5L d'eau par jour et par personne|||11) Toilette et douche disponibles au camp"
+    },
+    "exclusions": {
+      "title": "Le prix n'est pas inclus",
+      "items": "1) Le ticket d'avion|||2) Le visa|||3) Les besoins personnels|||4) Les boissons|||5) Les pourboires"
+    },
+    "pricing": {
+      "price": "€1 000"
+    }
+  },
+  "SeasonalGuide": {
+    "hero": {
+      "title": "Choisir la bonne saison pour la randonnée",
+      "subtitle": "La vérité que tout randonneur doit connaître avant de partir",
+      "description": "Choisir la saison idéale pour votre randonnée n'est pas simplement une question de préférences personnelles : c'est un choix stratégique qui influence toute votre expérience."
+    },
+    "weather": {
+      "title": "La météo : le facteur qui change tout",
+      "intro": "Sur le Kilimandjaro, la météo ne se limite pas à savoir s'il fait beau ou non. En réalité, elle influence chaque pas que l'on fait.",
+      "drySeason": {
+        "title": "En saison sèche",
+        "content": "Quand il fait sec, la montée se transforme en une progression fluide. Le sol ne glisse pas, les pierres gardent une bonne adhérence, les racines se voient clairement, et les marches naturelles sont beaucoup plus régulières. Cette stabilité rend aussi la marche plus agréable mentalement. Le corps se relâche, la respiration se calme, et l'on profite davantage du paysage. Une météo stable vous permet d'économiser environ 25 à 40 % d'énergie par rapport à une ascension menée sous la pluie ou le vent."
+      },
+      "rainy": {
+        "title": "Et quand il pleut ?",
+        "content": "La pluie n'est pas seulement quelque chose qui mouille les vêtements. Sur le Kilimandjaro, elle transforme complètement le terrain. La terre devient collante et glissante, les rochers se comportent comme du savon, et certaines pentes deviennent instables. Cette transformation du sentier se ressent immédiatement dans les jambes : on glisse un peu, on se rattrape, on corrige sa posture. Le corps travaille deux fois plus. Le mental aussi est mis à l'épreuve. Ce n'est plus une marche fluide : c'est une bataille d'endurance."
+      }
+    },
+    "trails": {
+      "title": "L'état des sentiers : votre meilleur ami ou votre pire ennemi",
+      "drySeason": {
+        "title": "En saison sèche",
+        "content": "Les sentiers gardent une forme presque parfaite. Le sol est ferme, il ne glisse pas, et chaque pas est stable. Les pierres restent immobiles sous vos pieds, ce qui offre une sensation de sécurité immédiate. Les montées et descentes deviennent ainsi beaucoup plus contrôlables, même pour les personnes qui n'ont pas beaucoup d'expérience en trekking. On avance en confiance, on ne subit pas la marche."
+      },
+      "rainy": {
+        "title": "En saison humide",
+        "content": "Dès les premières pluies, le sentier se transforme littéralement. La terre devient glissante et collante, comme une glaise qui s'accroche aux semelles. Les sections qui semblaient faciles la veille deviennent soudain techniques. La boue est l'ennemi numéro un : elle peut réduire votre vitesse de 30 à 50 %, parfois plus. Même les chaussures de montagne les plus performantes montrent leurs limites. Dans ces conditions, il faut faire preuve de patience, de prudence et surtout d'une grande force mentale."
+      }
+    },
+    "cold": {
+      "title": "Le froid de la nuit : le piège invisible",
+      "intro": "Le froid en altitude n'a rien à voir avec le froid que nous connaissons en ville. Sur une montagne comme le Kilimandjaro, il est plus profond, plus sec, plus direct.",
+      "drySeason": {
+        "title": "En saison sèche",
+        "content": "Ce froid reste un froid prévisible. Les nuits sont fraîches, parfois même très froides, mais elles le sont de manière régulière. On sait à quoi s'attendre, on sait quel vêtement porter, et un bon sac de couchage suffit en général à maintenir un confort acceptable. Le corps s'adapte vite, car la température descend de manière progressive et logique."
+      },
+      "rainy": {
+        "title": "En saison humide",
+        "content": "Le froid devient bien plus agressif, non pas à cause de la température, mais à cause de l'humidité. C'est elle qui change tout. Les vêtements mettent beaucoup plus de temps à sécher. L'humidité s'accroche aux tissus, s'infiltre dans les couches, et finit par transformer le moindre souffle de vent en une sensation glaciale. Même si le thermomètre indique la même température qu'en saison sèche, vous aurez l'impression qu'il fait dix degrés de moins. Ce froid-là rentre dans les os, qui fatigue le corps plus rapidement."
+      }
+    },
+    "visibility": {
+      "title": "La visibilité : bien plus qu'une simple question de vue",
+      "safety": {
+        "title": "Impact sur la sécurité",
+        "content": "Une visibilité claire est la première ligne de défense contre les accidents. Elle permet au guide d'anticiper les dangers bien à l'avance : nous pouvons repérer les rochers instables, les plaques de glace ou les changements abrupts de sentier bien avant d'y être confrontés. À l'inverse, un brouillard épais cache ces obstacles, rendant chaque pas potentiellement dangereux."
+      },
+      "motivation": {
+        "title": "Impact sur la motivation",
+        "content": "En l'absence de repères visuels (lorsque l'on marche « dans le blanc »), l'effort semble infini. Le cerveau ne reçoit aucune récompense visuelle pour l'effort fourni, ce qui peut rapidement entraîner une fatigue mentale et une baisse du moral. Par contre, voir le sommet ou la prochaine colline vous donne un objectif tangible, rendant la progression plus légère."
+      },
+      "rhythm": {
+        "title": "Impact sur la gestion du rythme",
+        "content": "La visibilité vous permet de réguler votre effort. Lorsque vous voyez la crête ou le camp à 30 minutes, vous pouvez conserver votre énergie ou faire un dernier effort. Lorsque vous ne voyez rien, le rythme devient instinctivement lent et prudent, ce qui conduit souvent à une gestion énergétique sous-optimale sur une longue période."
+      }
+    },
+    "wind": {
+      "title": "Le vent : l'allié invisible ou l'ennemi redouté du randonneur",
+      "drySeason": {
+        "title": "Saison sèche : un compagnon rafraîchissant",
+        "content": "Pendant la saison sèche, le vent peut devenir un véritable allié. Un souffle léger rafraîchit le marcheur, stimule le rythme et améliore le confort général. L'air sec et léger rend l'ascension plus agréable, surtout sous un soleil éclatant. Le vent se fait discret mais précieux, un partenaire silencieux de chaque pas."
+      },
+      "rainy": {
+        "title": "Saison humide : un facteur imprévisible et dangereux",
+        "content": "À l'inverse, pendant la saison humide, le vent peut se transformer en véritable défi. Il pousse le corps, fatigue accélérée, sensation de froid accrue. L'humidité combinée au vent intensifie le risque d'hypothermie. Les guides doivent parfois adapter l'itinéraire ou ralentir le rythme pour assurer la sécurité du groupe. La vigilance devient alors indispensable."
+      }
+    },
+    "seasons": {
+      "title": "Saisons idéales et à éviter",
+      "january": {
+        "title": "Saison idéale 1 : janvier à début mars",
+        "content": "La période de janvier à début mars est l'un des meilleurs moments pour partir à la conquête du Kilimandjaro. Le temps est sec, les matinées sont claires et les vues sur les sommets sont spectaculaires. Cette saison offre un parfait équilibre entre température agréable, ciel dégagé et faible risque de pluie. Les sentiers restent praticables, ce qui facilite la marche, surtout pour les débutants. La lumière est magnifique pour les photos, et les variations climatiques entre les zones de végétation sont particulièrement bien marquées. Cette période permet une acclimatation progressive et un séjour confortable dans les camps, car l'humidité est nettement plus faible qu'en d'autres moments de l'année."
+      },
+      "june": {
+        "title": "Saison idéale 2 : fin juin à octobre",
+        "content": "La période allant de fin juin à octobre est considérée comme la meilleure saison globale pour randonner sur le Kilimandjaro. C'est la grande saison sèche en Tanzanie : les journées sont lumineuses, la pluie est rare et la météo reste stable pendant de longues semaines. Les chemins sont secs du bas jusqu'aux zones alpines, ce qui offre une progression plus facile et un excellent taux de réussite. Les températures, bien que fraîches la nuit, restent régulières et permettent une acclimatation efficace. Les panoramas sont absolument superbes, surtout au lever du soleil au sommet. Cette période attire plus de voyageurs, mais l'ambiance est conviviale, motivante et parfaitement adaptée à une ascension réussie."
+      },
+      "april": {
+        "title": "À éviter autant que possible : avril – mai",
+        "content": "Les mois d'avril et mai correspondent à la grande saison des pluies en Tanzanie, et ce sont les moments les moins adaptés pour tenter le Kilimandjaro. Durant cette période, il pleut souvent plusieurs heures par jour, rendant les sentiers glissants et la progression difficile. La visibilité se réduit fortement, les températures deviennent plus sévères en altitude et l'humidité ne permet pas aux vêtements ni aux tentes de sécher correctement. Les journées sont donc physiquement exigeantes et mentalement fatigantes. Pour ces raisons, les guides recommandent fortement d'éviter cette saison, surtout pour une première ascension."
+      }
+    },
+    "conclusion": {
+      "title": "Dernier mot du guide",
+      "content": "En tant que guide local, mon conseil final est simple : pour vivre une ascension réussie, confortable et sécurisée, choisissez la saison sèche — janvier à début mars ou fin juin à octobre — et évitez autant que possible avril, mai et novembre. Ces choix influencent directement vos chances d'atteindre le sommet, la qualité de votre expérience et le plaisir que vous prendrez à découvrir l'une des plus belles montagnes du monde."
+    },
+    "cta": {
+      "title": "Prêt à gravir le Kilimandjaro ?",
+      "subtitle": "Planifiez votre aventure avec un guide expert",
+      "description": "Choisissez la bonne saison et maximisez vos chances de réussite. Nos guides vous accompagneront chaque pas du voyage."
+    }
+  },
+  "BestSeason": {
+    "title": "Quelle est la meilleure période pour faire l’ascension du Kilimandjaro ?",
+    "meta": {
+      "author": "Guide Local Kilimandjaro",
+      "date": "Décembre 2025",
+      "readingTime": "10 min de lecture"
+    },
+    "sections": {
+      "intro": "Gravir le Kilimandjaro est une aventure unique. Cette montagne emblématique, culminant à 5 895 mètres, offre une expérience inoubliable en traversant plusieurs zones climatiques, des forêts tropicales luxuriantes aux zones arides et glaciaires près du sommet. Mais pour réussir votre ascension et profiter pleinement des paysages spectaculaires, choisir la bonne période pour monter le Kilimandjaro est essentiel.",
+      "jan_mar": "La période de janvier à début mars est considérée comme l’une des meilleures périodes pour gravir le Kilimandjaro. Pendant ces mois, la météo est généralement stable et les matins sont souvent dégagés, offrant une visibilité exceptionnelle sur le sommet et les glaciers. Les températures sont plus douces dans les zones basses et intermédiaires, ce qui rend la marche plus confortable et moins fatigante, même si les nuits restent froides en altitude.",
+      "jan_mar_additional": "L’après-midi, l’apparition de quelques nuages peut ajouter des jeux de lumière spectaculaires sur les paysages, offrant des vues incroyables pour les photographies. Les sentiers sont généralement plus secs et moins boueux qu’en saison de pluie, ce qui facilite la progression et permet de profiter pleinement de l’expérience. Cette période est idéale pour les randonneurs qui veulent allier confort et sécurité. Les conditions stables augmentent les chances d’atteindre Uhuru Peak avec succès, tout en permettant de profiter de panoramas dégagés et de paysages photogéniques.",
+      "routes_jan": {
+        "title": "Pourquoi choisir Machame, Lemosho ou Marangu en janvier à début mars ?",
+        "machame": "Le Machame, souvent surnommé la route ‘Whiskey’, est l’une des options les plus populaires pour gravir le Kilimandjaro. En janvier à début mars, cette période offre des conditions idéales pour profiter pleinement de ses paysages variés et de son itinéraire progressif. Les sentiers sont secs et praticables, les matins dégagés permettent d’admirer des panoramas spectaculaires, et les après-midis offrent parfois des nuages qui créent un jeu de lumière impressionnant sur les vallées et les glaciers.",
+        "lemosho": "Le Lemosho est réputé pour offrir une expérience plus tranquille et immersive. Cette route traverse des forêts luxuriantes, des landes couvertes de bruyères et des zones moins fréquentées que Machame, tout en offrant des vues exceptionnelles sur la montagne. Pendant la saison sèche, les conditions sont idéales : les sentiers sont fermes, la visibilité est excellente, et la lumière du matin rend les paysages encore plus photogéniques.",
+        "marangu": "Le Marangu est souvent appelé la route ‘Coca-Cola’ pour son confort et ses camps aménagés. Cette période permet de profiter de sentiers secs et de conditions climatiques favorables, tout en bénéficiant d’une logistique plus simple grâce aux hébergements fixes.",
+        "summary": "En résumé, janvier à début mars est une période parfaite pour toutes ces routes. Que vous choisissiez Machame, Lemosho ou Marangu, vous bénéficierez de sentiers praticables, d’une météo stable et de panoramas spectaculaires."
+      },
+      "june_oct": "La période de fin juin à octobre est considérée comme la meilleure saison pour faire l’ascension du Kilimandjaro, notamment pour les voyageurs qui recherchent une météo stable, une excellente visibilité et des sentiers en parfait état. C’est durant ces mois que la grande saison sèche s’installe sur le massif, créant les conditions idéales pour un trek long, régulier et sécurisé. Le faible risque de pluie, la visibilité exceptionnelle et les sentiers en parfait état font de cette saison le choix privilégié. Les glaciers brillent sous le soleil matinal et les levers de soleil au-dessus des nuages deviennent de véritables moments de magie.",
+      "advice": "Enfin, je conseille toujours d’avancer lentement, de boire régulièrement et d’écouter les signaux de votre corps. La stabilité de la météo ne doit pas faire oublier que le Kilimandjaro est une haute montagne. Prenez le temps d’apprécier chaque étape, chaque paysage et chaque lever de soleil : c’est souvent dans ces moments-là que l’on réalise pourquoi cette ascension est l’une des plus belles aventures d’Afrique.",
+      "rain": "Entre mars et mai, puis de nouveau en novembre, le Kilimandjaro entre dans la saison des pluies. C’est une période où la montagne change complètement de visage. Les nuages deviennent plus lourds, l’humidité s’installe, et les sentiers se transforment progressivement en terrains glissants. Pour beaucoup de voyageurs, c’est la période la moins recommandée pour l’ascension, car elle demande davantage d’endurance et d’adaptation. Les averses peuvent durer plusieurs heures et parfois s’installer toute la journée. L’eau s’infiltre dans les vêtements, alourdit l’équipement et rend la marche plus fatigante. La visibilité diminue énormément et les sentiers subissent l’effet de la boue. Malgré ces défis, la saison des pluies possède un charme : la montagne devient d’un vert intense et les visiteurs sont beaucoup moins nombreux."
+    }
+  }
+}

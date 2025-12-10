@@ -9,6 +9,7 @@ import { Park } from '@/types/park'
 import { usePathname } from 'next/navigation'
 import { routing } from '@/i18n/routing'
 import { useTranslations } from 'next-intl'
+import { blogCategories } from '@/lib/blogCategories'
 
 interface NavigationProps {
   parks: Pick<Park, '_id' | 'title' | 'slug'>[]
@@ -69,10 +70,15 @@ export function Navigation({ parks }: NavigationProps) {
                     </svg>
                   </Link>
                     <div className="absolute left-0 mt-0 w-64 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-60 pt-0">
-                      <Link href={`/${currentLocale}/travel-blogs/1`} className="block px-4 py-2 text-gray-700 hover:bg-gray-100">{t('blogKilimanjaro')}</Link>
-                      <Link href={`/${currentLocale}/travel-blogs/3`} className="block px-4 py-2 text-gray-700 hover:bg-gray-100">{t('blogMountMeru')}</Link>
-                      <Link href={`/${currentLocale}/travel-blogs/4`} className="block px-4 py-2 text-gray-700 hover:bg-gray-100">{t('blogTanzaniaSafari')}</Link>
-                      <Link href={`/${currentLocale}/travel-blogs/6`} className="block px-4 py-2 text-gray-700 hover:bg-gray-100">{t('blogZanzibar')}</Link>
+                      {blogCategories.map((cat) => (
+                        <Link
+                          key={cat.link}
+                          href={`/${currentLocale}/travel-blogs/${cat.link}`}
+                          className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                        >
+                          {currentLocale === 'fr' ? cat.titleFr : cat.titleEn}
+                        </Link>
+                      ))}
                     </div>
                 </div>
               </div>

@@ -117,30 +117,32 @@ export default function MachameRoutePage() {
   // detect locale from the earlier-determined `currentLocale` to tweak mobile-only layout
   const isFrench = currentLocale === 'fr'
   
-  // All inclusions data
-  const allInclusions = [
-    "Dedicated trip manager",
-    "In-depth preparation documents",
-    "Pre-climb Zoom consult",
-    "2 overnight stays at Lindrin Lodge in Moshi (incl. breakfasts and dinners)",
-    "In-depth pre-climb safety briefing at Lindrin Lodge",
-    "Transport to and from trailheads",
-    "Kilimanjaro National Park entrance fee",
-    "Qualified, experienced, English-speaking guides",
-    "Porters",
-    "Experienced cook",
-    "All meals on the mountain",
-    "Snacks and hot drinks",
-    "Purified drinking water",
-    "Daily bowl of water for 'washy washy'",
-    "High-quality, four-season sleeping bag",
-    "High-quality, four-season sleeping tent",
-    "Sleeping mat",
-    "Private Latanzanieaucourdelanature toilet (1 per 8 climbers)",
-    "Organisation of any rental equipment, if required",
-    "Medical equipment (incl. pulse oximeter and emergency oxygen)",
-    "Climb certificate"
-  ];
+  // All inclusions data - load from translations
+  const allInclusions = Array.isArray(t('inclusions.items', ''))
+    ? (t('inclusions.items', '') as unknown as string[])
+    : [
+        "Dedicated trip manager",
+        "In-depth preparation documents",
+        "Pre-climb Zoom consult",
+        "2 overnight stays at Lindrin Lodge in Moshi (incl. breakfasts and dinners)",
+        "In-depth pre-climb safety briefing at Lindrin Lodge",
+        "Transport to and from trailheads",
+        "Kilimanjaro National Park entrance fee",
+        "Qualified, experienced, English-speaking guides",
+        "Porters",
+        "Experienced cook",
+        "All meals on the mountain",
+        "Snacks and hot drinks",
+        "Purified drinking water",
+        "Daily bowl of water for 'washy washy'",
+        "High-quality, four-season sleeping bag",
+        "High-quality, four-season sleeping tent",
+        "Sleeping mat",
+        "Private Latanzanieaucourdelanature toilet (1 per 8 climbers)",
+        "Organisation of any rental equipment, if required",
+        "Medical equipment (incl. pulse oximeter and emergency oxygen)",
+        "Climb certificate"
+      ]
 
   // Display inclusions based on state
   const displayedInclusions = showAllInclusions ? allInclusions : allInclusions.slice(0, 10)

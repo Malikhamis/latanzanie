@@ -4,12 +4,18 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { ChevronUp, ChevronDown, Plus, Minus, Users, Clock, TrendingUp, ArrowRight } from 'lucide-react'
 import { useLocale } from 'next-intl'
+import AuthorMeta from '@/components/ui/AuthorMeta'
+import TOC from '@/components/ui/TOC'
+import Image from 'next/image'
+import { useTranslations } from 'next-intl'
+import TopReads from '@/components/ui/TopReads'
 
 export default function KilimanjaroRoutesPage() {
-  const [expandedRoute, setExpandedRoute] = useState<string | null>('machame')
+  const [expandedRoute, setExpandedRoute] = useState<string | null>(null)
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(0)
   const [isScrolled, setIsScrolled] = useState(false)
   const locale = useLocale()
+  const t = useTranslations('ClimbKilimanjaroPage')
 
   useEffect(() => {
     const handleScroll = () => {
@@ -478,14 +484,15 @@ export default function KilimanjaroRoutesPage() {
       </div>
       <div className="p-5 space-y-4">
         <h4 className="font-bold text-gray-800 line-clamp-2">{route.title}</h4>
+        <div className="flex flex-wrap gap-2">
+          <span className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">{route.duration}</span>
+          <span className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">{locale === 'fr' ? `Difficulté: ${route.difficulty}` : `Difficulty: ${route.difficulty}`}</span>
+        </div>
         <div className="space-y-2 text-sm">
           <div className="flex items-center text-gray-600">
             <Clock className="h-4 w-4 mr-2 text-[#00A896]" />
-            <span>{route.duration}</span>
-          </div>
-          <div className="flex items-center text-gray-600">
-            <TrendingUp className="h-4 w-4 mr-2 text-[#00A896]" />
-            <span>{locale === 'fr' ? `Difficulté: ${route.difficulty}` : `Difficulty: ${route.difficulty}`}</span>
+            <span className="sr-only">Duration</span>
+            <span className="text-sm text-gray-600">{route.duration}</span>
           </div>
         </div>
         <button
@@ -500,36 +507,13 @@ export default function KilimanjaroRoutesPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <style>{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes slideInLeft {
-          from { opacity: 0; transform: translateX(-30px); }
-          to { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes slideInRight {
-          from { opacity: 0; transform: translateX(30px); }
-          to { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes pulse-glow {
-          0%, 100% { box-shadow: 0 0 0 0 rgba(0, 168, 150, 0.4); }
-          50% { box-shadow: 0 0 0 10px rgba(0, 168, 150, 0); }
-        }
-        .animate-fadeIn { animation: fadeIn 0.6s ease-out; }
-        .animate-slideInLeft { animation: slideInLeft 0.6s ease-out; }
-        .animate-slideInRight { animation: slideInRight 0.6s ease-out; }
-        .animate-pulse-glow { animation: pulse-glow 2s infinite; }
-      `}</style>
-
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[#5BC4AF] to-[#008576] text-white py-20 pt-32 md:pt-40">
+      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero1.jpg')" }}>
         <div className="container mx-auto px-4">
           <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
             {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fadeIn">
+          <h1 className="text-5xl md:text-7xl font-bold mb-4 animate-fadeIn leading-tight">
             {locale === 'fr' ? "Les 7 Voies d'Ascension du Kilimandjaro" : 'The 7 Ascent Routes of Kilimanjaro'}
           </h1>
           <p className="text-lg md:text-xl text-[#E8F8F5] max-w-3xl animate-slideInRight">
@@ -538,67 +522,102 @@ export default function KilimanjaroRoutesPage() {
         </div>
       </section>
 
-      {/* Routes Grid Summary Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center animate-fadeIn">
-            {locale === 'fr' ? 'Comparaison des Voies Principales' : 'Main Route Comparison'}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {routes.map((route, idx) => (
-              <div key={route.id} style={{ animationDelay: `${idx * 0.1}s` }} className="animate-fadeIn">
-                <RouteSummaryCard route={route} />
-              </div>
-            ))}
-          </div>
+      {/* Article Meta Section */}
+      <section className="py-12 border-b border-gray-200">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <AuthorMeta
+            author={locale === 'fr' ? 'Guide Local Kilimandjaro' : 'Kilimanjaro Local Guide'}
+            date={locale === 'fr' ? 'Décembre 2025' : 'December 2025'}
+            readingTime={locale === 'fr' ? '12 min de lecture' : '12 min read'}
+          />
         </div>
       </section>
 
+      {/* Inline TOC removed — using left sticky TOC inside detailed section */}
+
+      {/* Routes grid removed — summaries are available via the left sticky TOC and detailed section */}
+
       {/* Detailed Routes Section */}
         <section className="py-16 bg-white" data-section="detailed-analyses">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center animate-fadeIn">
-            {locale === 'fr' ? 'Analyses Détaillées' : 'Detailed Analyses'}
-          </h2>
-          <div className="max-w-5xl mx-auto space-y-4">
-            {routes.map((route) => (
-              <div key={route.id} className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 animate-fadeIn">
-                {/* Route Header - Expandable */}
-                <button
-                  onClick={() => setExpandedRoute(expandedRoute === route.id ? null : route.id)}
-                  className="w-full px-6 py-6 hover:bg-gray-100 transition-colors text-left flex justify-between items-start"
-                >
-                  <div className="flex-1 pr-4">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-2">{route.title}</h2>
-                    <p className="text-gray-600">{route.description}</p>
-                  </div>
-                  <div className="mt-1 flex-shrink-0">
-                    {expandedRoute === route.id ? (
-                      <ChevronUp className="h-6 w-6 text-[#00A896] animate-pulse-glow" />
-                    ) : (
-                      <ChevronDown className="h-6 w-6 text-gray-400" />
-                    )}
-                  </div>
-                </button>
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center animate-fadeIn">
+              {locale === 'fr' ? 'Analyses Détaillées' : 'Detailed Analyses'}
+            </h2>
 
-                {/* Expanded Content */}
-                {expandedRoute === route.id && (
-                  <div className="px-6 pb-6 border-t border-gray-200 space-y-6 animate-slideInLeft">
-                    {route.sections.map((section, idx) => (
-                      <div key={idx} className="animate-fadeIn" style={{ animationDelay: `${idx * 0.1}s` }}>
-                        <h3 className="text-xl font-bold text-gray-800 mb-3 flex items-center">
-                          <span className="inline-block w-1 h-6 bg-[#00A896] mr-3 rounded"></span>
-                              {section.heading}
-                        </h3>
-                        {section.content && (
-                          <p className="text-gray-700 leading-relaxed mb-4">{section.content}</p>
-                        )}
-                        {section.subSections && (
-                          <div className="space-y-4 ml-4 border-l-4 border-[#72D9C4] pl-4">
-                            {section.subSections.map((subSection, subIdx) => (
-                              <div key={subIdx} className="animate-slideInRight" style={{ animationDelay: `${subIdx * 0.05}s` }}>
-                                <h4 className="font-semibold text-gray-800 mb-2">{subSection.title}</h4>
-                                <p className="text-gray-700 leading-relaxed text-sm">{subSection.content}</p>
+            <div className="max-w-6xl mx-auto">
+              <div className="md:flex md:items-start md:gap-8">
+                {/* Left sidebar: sticky TOC + compact accordion / summaries */}
+                <aside className="hidden md:block md:w-72 lg:w-80 sticky top-24 self-start transform md:-translate-x-8 lg:-translate-x-12">
+                  <div className="bg-white rounded-lg border border-gray-100 p-4 shadow-sm mb-6">
+                    <TOC
+                      title={locale === 'fr' ? 'Sommaire' : 'Overview'}
+                      items={routes.map(r => ({ id: `${r.id}-detail`, label: locale === 'fr' ? r.title : r.title, level: 2 }))}
+                      onSelect={(id: string) => { const routeId = id.replace('-detail',''); setExpandedRoute(routeId) }}
+                    />
+                  </div>
+
+                  <div className="space-y-3">
+                    {routes.map((route) => (
+                      <div key={route.id} className={`bg-white rounded-lg border ${expandedRoute === route.id ? 'border-[#00A896] shadow-md' : 'border-gray-100'} p-3`}>
+                        <button onClick={() => setExpandedRoute(expandedRoute === route.id ? null : route.id)} className="text-left w-full">
+                          <div className="flex items-start justify-between">
+                            <div className="flex-1">
+                              <h4 className="text-sm font-semibold text-gray-800 line-clamp-2">{route.title}</h4>
+                              <div className="text-xs text-gray-500 mt-1">{route.duration} • {locale === 'fr' ? `Difficulté: ${route.difficulty}` : `Difficulty: ${route.difficulty}`}</div>
+                            </div>
+                            <div className="ml-3 flex-shrink-0 text-gray-400">{expandedRoute === route.id ? '–' : '+'}</div>
+                          </div>
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </aside>
+
+                {/* Main content area */}
+                <div className="flex-1">
+                  <div className="space-y-4">
+                    {routes.map((route) => (
+                      <div key={route.id} id={`${route.id}-detail`} className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 animate-fadeIn">
+                        {/* Route Header - Expandable */}
+                        <button
+                          onClick={() => setExpandedRoute(expandedRoute === route.id ? null : route.id)}
+                          className="w-full px-6 py-6 hover:bg-gray-100 transition-colors text-left flex justify-between items-start"
+                        >
+                          <div className="flex-1 pr-4">
+                            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2 leading-snug">{route.title}</h2>
+                            <p className="text-gray-600">{route.description}</p>
+                          </div>
+                          <div className="mt-1 flex-shrink-0">
+                            {expandedRoute === route.id ? (
+                              <ChevronUp className="h-6 w-6 text-[#00A896] animate-pulse-glow" />
+                            ) : (
+                              <ChevronDown className="h-6 w-6 text-gray-400" />
+                            )}
+                          </div>
+                        </button>
+
+                        {/* Expanded Content */}
+                        {expandedRoute === route.id && (
+                          <div className="px-6 pb-6 border-t border-gray-200 space-y-6 animate-slideInLeft">
+                            {route.sections.map((section, idx) => (
+                              <div key={idx} className="animate-fadeIn" style={{ animationDelay: `${idx * 0.1}s` }}>
+                                <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-3 flex items-center leading-snug">
+                                  <span className="inline-block w-1 h-6 bg-[#00A896] mr-3 rounded"></span>
+                                  {section.heading}
+                                </h3>
+                                {section.content && (
+                                  <p className="text-gray-700 leading-relaxed mb-4">{section.content}</p>
+                                )}
+                                {section.subSections && (
+                                  <div className="space-y-4 ml-4 border-l-4 border-[#72D9C4] pl-4">
+                                    {section.subSections.map((subSection, subIdx) => (
+                                      <div key={subIdx} className="animate-slideInRight" style={{ animationDelay: `${subIdx * 0.05}s` }}>
+                                        <h4 className="font-semibold text-gray-800 mb-2">{subSection.title}</h4>
+                                        <p className="text-gray-700 leading-relaxed text-sm">{subSection.content}</p>
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
                               </div>
                             ))}
                           </div>
@@ -606,12 +625,11 @@ export default function KilimanjaroRoutesPage() {
                       </div>
                     ))}
                   </div>
-                )}
+                </div>
               </div>
-            ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
       {/* FAQ Section */}
       <section className="py-16 bg-gray-50">
@@ -650,19 +668,65 @@ export default function KilimanjaroRoutesPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-[#5BC4AF] to-[#008576] text-white">
-        <div className="container mx-auto px-4 text-center max-w-3xl">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-fadeIn">
-            {locale === 'fr' ? 'Prêt à Grimper le Kilimandjaro?' : 'Ready to Climb Kilimanjaro?'}
-          </h2>
-          <p className="text-lg text-[#E8F8F5] mb-8 animate-slideInLeft">
-            {locale === 'fr' ? 'Choisissez votre route et laissez nos experts vous guider vers le sommet avec sécurité et succès.' : 'Choose your route and let our experts guide you safely to the summit.'}
-          </p>
-          <button className="bg-white hover:bg-gray-100 text-[#00A896] font-bold py-3 px-8 rounded-lg transition-all duration-300 hover:scale-105 transform animate-slideInRight flex items-center justify-center mx-auto">
-            {locale === 'fr' ? 'Demander une consultation' : 'Request a consultation'}
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </button>
+      {/* Top Reads Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <TopReads
+            title={locale === 'fr' ? 'Lectures Connexes' : 'Related Reads'}
+            locale={locale}
+            posts={[
+              {
+                id: 'packing',
+                titleEn: 'Packing Checklist: Layers, Boots & Sleep System',
+                titleFr: 'Checklist : Couches, Chaussures et Système de Couchage',
+                descriptionEn: 'Detailed guidance on layering, footwear, sleeping systems and essentials for Kilimanjaro.',
+                descriptionFr: 'Guide détaillé sur les couches, chaussures, matériel de couchage et essentiels pour le Kilimandjaro.',
+                link: `/${locale}/trips/packing-guide`,
+              },
+              {
+                id: 'acclimatisation',
+                titleEn: 'Acclimatisation: Climb High, Sleep Low & Hydration',
+                titleFr: 'Acclimatation : Monter Haut, Dormir Bas & Hydratation',
+                descriptionEn: 'Proven acclimatisation strategies, pacing and hydration practices to increase summit success.',
+                descriptionFr: 'Stratégies éprouvées d\'acclimatation, rythme et hydratation pour augmenter les chances d\'atteindre le sommet.',
+                link: `/${locale}/trips/acclimatisation`,
+              },
+            ]}
+          />
+        </div>
+      </section>
+
+
+      {/* Newsletter CTA - same style used on trip pages */}
+      <section className="py-16 text-white relative">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/kilimanjaro-summit.jpg"
+            alt="Kilimanjaro background"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-black/50"></div>
+        </div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h2 className="text-2xl font-semibold mb-4">{t('newsletter.title')}</h2>
+          <h3 className="text-2xl font-bold mb-6">{t('newsletter.subtitle')}</h3>
+          <p className="text-xl md:text-2xl max-w-2xl mx-auto mb-8">{t('newsletter.description')}</p>
+          <div className="max-w-md mx-auto flex flex-col sm:flex-row gap-4 w-full">
+            <input
+              type="text"
+              placeholder={locale === 'fr' ? 'Prénom' : 'First name'}
+              className="flex-grow px-4 py-3 rounded-lg text-gray-800 focus:outline-none bg-white w-full"
+            />
+            <input
+              type="email"
+              placeholder={locale === 'fr' ? 'Votre adresse email' : 'Email address'}
+              className="flex-grow px-4 py-3 rounded-lg text-gray-800 focus:outline-none bg-white w-full"
+            />
+            <button className="bg-[#00A896] hover:bg-[#008576] text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 w-full sm:w-auto">
+              {locale === 'fr' ? "S'abonner" : 'Subscribe'}
+            </button>
+          </div>
         </div>
       </section>
 

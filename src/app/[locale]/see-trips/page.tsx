@@ -182,12 +182,26 @@ export default function SeeTripsPage() {
 
   const visibleTrips = adventureTrips.filter(trip => allowedSlugs.includes(trip.slug))
 
+  // Safe accessor for Common translations with a fallback from `.name` -> `.title`
+  const getCommon = (key: string) => {
+    try {
+      return tCommon(key)
+    } catch (e) {
+      try {
+        // fallback to older key name
+        return tCommon(key.replace('.name', '.title'))
+      } catch (e2) {
+        return ''
+      }
+    }
+  }
+
   // Filter trips based on search term (applies to the visible subset)
   const filteredTrips = visibleTrips.filter(trip => {
     // For trips with translation keys
-    if (!isDirectTrip(trip)) {
-      return tCommon(`trips.${trip.tripKey}.title`).toLowerCase().includes(searchTerm.toLowerCase()) ||
-             tCommon(`trips.${trip.tripKey}.description`).toLowerCase().includes(searchTerm.toLowerCase())
+                if (!isDirectTrip(trip)) {
+                return getCommon(`trips.${trip.tripKey}.name`).toLowerCase().includes(searchTerm.toLowerCase()) ||
+                  getCommon(`trips.${trip.tripKey}.description`).toLowerCase().includes(searchTerm.toLowerCase())
     }
     // For trips with direct title/description (like Marangu Route)
     else {
@@ -246,7 +260,7 @@ export default function SeeTripsPage() {
                 <div className="h-48 bg-gray-200 relative">
                   <Image
                     src={!isDirectTrip(trip) ? (imageByTripKey[trip.tripKey] || '/images/kilimanjaro-marangu.jpg') : '/images/kilimanjaro-marangu.jpg'}
-                    alt={(isDirectTrip(trip) ? trip.title[currentLocale as 'fr' | 'en'] : tCommon(`trips.${trip.tripKey}.title`)) as string}
+                    alt={(isDirectTrip(trip) ? trip.title[currentLocale as 'fr' | 'en'] : getCommon(`trips.${trip.tripKey}.name`)) as string}
                     fill
                     className="object-cover"
                   />
@@ -254,14 +268,14 @@ export default function SeeTripsPage() {
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-3">
                     <h3 className="text-xl font-bold text-gray-800">
-                      {isDirectTrip(trip) ? trip.title[currentLocale as 'fr' | 'en'] : tCommon(`trips.${trip.tripKey}.title`)}
+                      {isDirectTrip(trip) ? trip.title[currentLocale as 'fr' | 'en'] : getCommon(`trips.${trip.tripKey}.name`)}
                     </h3>
                     <span className="text-lg font-bold text-gray-800">
                       {tCommon('fromPrice', { price: trip.price.toString() })}
                     </span>
                   </div>
                   <p className="text-gray-600 mb-4">
-                    {isDirectTrip(trip) ? trip.description[currentLocale as 'fr' | 'en'] : tCommon(`trips.${trip.tripKey}.description`)}
+                    {isDirectTrip(trip) ? trip.description[currentLocale as 'fr' | 'en'] : getCommon(`trips.${trip.tripKey}.description`)}
                   </p>
                   <div className="flex justify-between items-center">
                     <div className="flex items-center">

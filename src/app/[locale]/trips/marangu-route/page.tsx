@@ -29,6 +29,31 @@ export default function MaranguRoutePage() {
   const t = useTranslations('MaranguRoutePage')
   // Safe translation accessor that returns a fallback string when the key is missing
   const safeT = (key: string, fallback = ''): string => {
+    // Prefer reading raw locale JSON first to avoid next-intl errors when
+    // the message is an array or missing for this locale. Only fall back to
+    // `t()` when the raw JSON doesn't contain a value.
+    try {
+      const raw = getRawMessage(key)
+      if (typeof raw === 'string' && raw.length) return raw
+      // If the raw message is an array or object, stringify it and return
+      // so callers that expect a string (e.g. JSON or delimited formats)
+      // can still parse it. Crucially, do NOT call `t()` when the raw
+      // message exists but is not a string — next-intl will throw if the
+      // message is an array.
+      if (Array.isArray(raw) || (typeof raw === 'object' && raw !== null)) {
+        try {
+          return JSON.stringify(raw)
+        } catch (e) {
+          return fallback
+        }
+      }
+    } catch (e) {
+      // ignore and try t()
+    }
+
+    // Final attempt: call next-intl's `t()` only when the raw value was
+    // not present. Guard it so that if next-intl returns a non-string we
+    // still fall back gracefully.
     try {
       const maybe = t(key) as unknown
       if (typeof maybe === 'string') return maybe
@@ -37,6 +62,24 @@ export default function MaranguRoutePage() {
       return fallback
     }
   }
+
+  // Helper to safely read nested keys from the imported raw locale JSON
+  const getRawMessage = (key: string): any => {
+    try {
+      const parts = key.split('.')
+      let node: any = localeMessages?.MaranguRoutePage
+      for (const part of parts) {
+        if (!node) return undefined
+        node = node[part]
+      }
+      return node
+    } catch (e) {
+      return undefined
+    }
+  }
+  const params = useParams() as { locale?: string }
+  const currentLocale = params?.locale || 'en'
+  const localeMessages: any = currentLocale === 'fr' ? frMessages : enMessages
   
   // Refs for scrolling to sections
   const inclusionsRef = useRef<HTMLElement>(null);
@@ -47,10 +90,25 @@ export default function MaranguRoutePage() {
   // We try to read an array from the translations; if missing, fall back to an empty array.
   const allInclusions: string[] = (() => {
     try {
-      const maybe = t('inclusions.items') as unknown
-      if (typeof maybe === 'string' && maybe.length) {
-        return (maybe as string).split('|||').map(s => s.trim()).filter(Boolean)
+      // Try reading raw locale JSON first (supports string or array shapes)
+      const node = localeMessages?.MaranguRoutePage?.inclusions?.items
+      if (typeof node === 'string' && node.length) {
+        return (node as string).split('|||').map((s: string) => s.trim()).filter(Boolean)
       }
+      if (Array.isArray(node)) {
+        return node.map((it: any) => String(it).trim()).filter(Boolean)
+      }
+
+      // Fallback: attempt to use next-intl t() but guard against thrown errors
+      try {
+        const maybe = t('inclusions.items') as unknown
+        if (typeof maybe === 'string' && maybe.length) {
+          return (maybe as string).split('|||').map(s => s.trim()).filter(Boolean)
+        }
+      } catch (e) {
+        // swallow
+      }
+
       return []
     } catch (e) {
       return []
@@ -88,9 +146,6 @@ export default function MaranguRoutePage() {
     // (which results in MALFORMED_ARGUMENT errors). To avoid that, we attempt `t()` but fall back
     // to reading the raw locale JSON for the current route when necessary.
     // We import the JSONs directly so we can safely handle both string and array shapes.
-  const params = useParams() as { locale?: string }
-  const currentLocale = params?.locale || 'en'
-  const localeMessages: any = currentLocale === 'fr' ? frMessages : enMessages
 
     const getDatesForMonth = (monthKey: string): Array<any> => {
       let rawStr = ''
@@ -417,10 +472,6 @@ export default function MaranguRoutePage() {
           <div className="w-full mt-12">
             <div className="bg-white p-4 md:p-8 rounded-lg shadow-md">
               
-              {/* Map Image - Full width */}
-              <div className="relative w-full h-96 mb-8 rounded-xl overflow-hidden">
-                <Image src="/images/marangu-route-map.jpg" alt="Carte de la Route Marangu" fill className="object-cover" />
-              </div>
               
               {/* Day 0 - Details first, then image for both desktop and mobile */}
               <div className="mb-12 pb-8 border-b border-gray-200">

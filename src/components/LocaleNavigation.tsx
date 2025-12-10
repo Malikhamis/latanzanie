@@ -8,6 +8,7 @@ import { Menu, X, User, Mail, Phone, MessageSquare, Home, Info, Map, Book } from
 import { Park } from '@/types/park'
 import { usePathname } from 'next/navigation'
 import { useTranslations } from 'next-intl'
+import { blogCategories } from '@/lib/blogCategories'
 
 interface LocaleNavigationProps {
   parks: Pick<Park, '_id' | 'title' | 'slug'>[]
@@ -94,21 +95,15 @@ export function LocaleNavigation({ parks }: LocaleNavigationProps) {
                     </svg>
                   </Link>
                   <div className="absolute left-0 mt-0 w-48 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-[60] pt-0">
-                    <Link href={`/${currentLocale}/blog`} className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
-                      {t('destinations')}
-                    </Link>
-                    <Link href={`/${currentLocale}/blog/kilimanjaro-trekking`} className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
-                      {t('trips')}
-                    </Link>
-                    <Link href={`/${currentLocale}/blog/tanzania-safari`} className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
-                      {t('blog')}
-                    </Link>
-                    <Link href={`/${currentLocale}/blog/zanzibar`} className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
-                      {t('contact')}
-                    </Link>
-                    <Link href={`/${currentLocale}/blog/mount-meru-climb`} className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
-                      {t('about')}
-                    </Link>
+                    {blogCategories.map((cat) => (
+                      <Link
+                        key={cat.link}
+                        href={`/${currentLocale}/travel-blogs/${cat.link}`}
+                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                      >
+                        {currentLocale === 'fr' ? cat.titleFr : cat.titleEn}
+                      </Link>
+                    ))}
                   </div>
                 </div>
               </div>

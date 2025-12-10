@@ -12,12 +12,12 @@ import enMessages from '../../../../../locales/en.json'
 import frMessages from '../../../../../locales/fr.json'
 import { MapPin, Clock, Calendar, User, CheckCircle, X, XCircle, Users } from 'lucide-react'
 
-export default function SafariKiliAdventure6DaysPage() {
+export default function EchappeeTemeraire6DaysPage() {
   const params = useParams() as { locale?: string }
   const currentLocale = params?.locale === 'fr' ? 'fr' : 'en'
 
-  const enJsonMessages: any = (enMessages as any).SafariKiliAdventure6Days || {}
-  const localeJsonMessages: any = currentLocale === 'fr' ? ((frMessages as any).SafariKiliAdventure6Days || {}) : enJsonMessages
+  const enJsonMessages: any = (enMessages as any).EchappeeTemeraire6Days || {}
+  const localeJsonMessages: any = currentLocale === 'fr' ? ((frMessages as any).EchappeeTemeraire6Days || {}) : enJsonMessages
   const wholeEnMessages: any = (enMessages as any) || {}
   const wholeLocaleMessages: any = currentLocale === 'fr' ? ((frMessages as any) || {}) : wholeEnMessages
 

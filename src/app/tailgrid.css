@@ -170,3 +170,33 @@
 .grid-hero-precision .search-overlay {
   margin-bottom: -2rem; /* Pull the search bar down to overlap the geometric break */
 }
+
+/* Hero wavy bottom border and background helpers */
+.hero-wavy {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-wavy::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 84px;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'><path fill='%23ffffff' d='M0,64L60,58.7C120,53,240,43,360,58.7C480,74,600,122,720,122C840,122,960,74,1080,58.7C1200,43,1320,53,1380,58.7L1440,64L1440,120L0,120Z'/></svg>") bottom center / cover no-repeat;
+  pointer-events: none;
+}
+
+/* Optional small shadow to make the wavy edge stand out on light backgrounds */
+.hero-wavy::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 12px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.06), rgba(0,0,0,0));
+  pointer-events: none;
+}
