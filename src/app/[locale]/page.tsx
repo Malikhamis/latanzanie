@@ -282,12 +282,12 @@ export default function Home() {
             </div>
             
             <div className="text-center mt-12">
-              <a 
-                href="/see-trips" 
+              <Link 
+                href={`/${locale}/see-trips`}
                 className="inline-block bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 {t('seeAllTrips')}
-              </a>
+              </Link>
             </div>
           </div>
         </section>
