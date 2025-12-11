@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { Instagram, Facebook, Twitter, MapPin, Phone, Mail } from 'lucide-react'
 // We purposely avoid calling `useTranslations('Footer')` here because
 // next-intl will throw MISSING_MESSAGE when the namespace isn't loaded.
 // Instead import the locale JSON files directly and pick the correct
@@ -47,9 +48,15 @@ export function LocaleFooter() {
             </p>
             {/* tagline removed as requested */}
             <div className="flex space-x-4">
-              <div className="bg-gray-200 border-2 border-dashed rounded-xl w-8 h-8" />
-              <div className="bg-gray-200 border-2 border-dashed rounded-xl w-8 h-8" />
-              <div className="bg-gray-200 border-2 border-dashed rounded-xl w-8 h-8" />
+              <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="p-2 bg-gray-700 rounded-full hover:bg-gray-600">
+                <Instagram className="h-5 w-5 text-white" />
+              </a>
+              <a href="https://facebook.com/yourpage" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="p-2 bg-gray-700 rounded-full hover:bg-gray-600">
+                <Facebook className="h-5 w-5 text-white" />
+              </a>
+              <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="p-2 bg-gray-700 rounded-full hover:bg-gray-600">
+                <Twitter className="h-5 w-5 text-white" />
+              </a>
             </div>
           </div>
           
@@ -115,17 +122,17 @@ export function LocaleFooter() {
             </h4>
             <ul className="space-y-2 text-gray-300">
               <li className="flex items-start">
-                <div className="bg-gray-200 border-2 border-dashed rounded-xl w-4 h-4 mt-1 mr-2" />
+                <MapPin className="h-4 w-4 text-gray-300 mt-1 mr-2" />
                 <span>
                   {t('address')}
                 </span>
               </li>
               <li className="flex items-center">
-                <div className="bg-gray-200 border-2 border-dashed rounded-xl w-4 h-4 mr-2" />
+                <Phone className="h-4 w-4 text-gray-300 mr-2" />
                 <span>{t('phone')}</span>
               </li>
               <li className="flex items-center">
-                <div className="bg-gray-200 border-2 border-dashed rounded-xl w-4 h-4 mr-2" />
+                <Mail className="h-4 w-4 text-gray-300 mr-2" />
                 <span>{t('email')}</span>
               </li>
             </ul>

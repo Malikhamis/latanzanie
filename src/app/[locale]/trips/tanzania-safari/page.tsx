@@ -187,16 +187,16 @@ export default function TanzaniaSafariPage() {
             <Link href={`/${currentLocale}/trips/safari-bivouac-4-days`} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow block border-2 border-[#00A896]/20">
               <div className="h-48 relative bg-gradient-to-br from-[#5BC4AF] to-[#008576]">
                 <Image src="/images/camping-safari.jpg" alt="Camping Safari" fill className="object-cover" />
+                <div className="absolute top-3 left-3">
+                  <span className="inline-block bg-gradient-to-r from-[#72D9C4] to-[#00A896] text-white px-4 py-2 rounded-full shadow-md text-sm font-bold">
+                    {t('routes.camping.price')}
+                  </span>
+                </div>
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-800 mb-2">
                   {t('routes.camping.title')}
                 </h3>
-                <div className="flex justify-between items-center mb-3">
-                  <span className="text-lg font-semibold text-[#00A896]">
-                    {t('routes.camping.price')}
-                  </span>
-                </div>
                 <p className="text-gray-600 mb-4">
                   {t('routes.camping.description')}
                 </p>
@@ -225,16 +225,16 @@ export default function TanzaniaSafariPage() {
             <Link href={`/${currentLocale}/trips/safari-bivouac-8-days`} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow block border-2 border-[#00A896]/20">
               <div className="h-48 relative bg-gradient-to-br from-[#5BC4AF] to-[#008576]">
                 <Image src="/images/safari-bivouac.jpg" alt="8 Day Camping Safari" fill className="object-cover" />
+                <div className="absolute top-3 left-3">
+                  <span className="inline-block bg-gradient-to-r from-[#72D9C4] to-[#00A896] text-white px-4 py-2 rounded-full shadow-md text-sm font-bold">
+                    {t('routes.camping8Days.price')}
+                  </span>
+                </div>
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-800 mb-2">
                   {t('routes.camping8Days.title')}
                 </h3>
-                <div className="flex justify-between items-center mb-3">
-                  <span className="text-lg font-semibold text-[#00A896]">
-                    {t('routes.camping8Days.price')}
-                  </span>
-                </div>
                 <p className="text-gray-600 mb-4">
                   {t('routes.camping8Days.description')}
                 </p>
@@ -263,16 +263,16 @@ export default function TanzaniaSafariPage() {
             <Link href={`/${currentLocale}/trips/zanzibar-safari-beach-10-days`} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow block border-2 border-[#00A896]/20">
               <div className="h-48 relative bg-gradient-to-br from-[#72D9C4] to-[#00A896]">
                 <Image src="/images/zanzibarbeach.jpg" alt="Safari & Beach" fill className="object-cover" />
+                <div className="absolute top-3 left-3">
+                  <span className="inline-block bg-gradient-to-r from-[#72D9C4] to-[#00A896] text-white px-4 py-2 rounded-full shadow-md text-sm font-bold">
+                    {t('routes.safariBeach.price')}
+                  </span>
+                </div>
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-800 mb-2">
                   {t('routes.safariBeach.title')}
                 </h3>
-                <div className="flex justify-between items-center mb-3">
-                  <span className="text-lg font-semibold text-[#00A896]">
-                    {t('routes.safariBeach.price')}
-                  </span>
-                </div>
                 <p className="text-gray-600 mb-4">
                   {t('routes.safariBeach.description')}
                 </p>
@@ -301,16 +301,16 @@ export default function TanzaniaSafariPage() {
             <Link href={`/${currentLocale}/trips/materuni-chemka-2-days`} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow block border-2 border-[#00A896]/20">
               <div className="h-48 relative bg-gradient-to-br from-[#B8EDE3] to-[#72D9C4]">
                 <Image src="/images/materuni-waterfall.jpg" alt="Materuni & Chemka" fill className="object-cover" />
+                <div className="absolute top-3 left-3">
+                  <span className="inline-block bg-gradient-to-r from-[#72D9C4] to-[#00A896] text-white px-4 py-2 rounded-full shadow-md text-sm font-bold">
+                    {t('routes.materuniChemka.price')}
+                  </span>
+                </div>
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-800 mb-2">
                   {t('routes.materuniChemka.title')}
                 </h3>
-                <div className="flex justify-between items-center mb-3">
-                  <span className="text-lg font-semibold text-[#00A896]">
-                    {t('routes.materuniChemka.price')}
-                  </span>
-                </div>
                 <p className="text-gray-600 mb-4">
                   {t('routes.materuniChemka.description')}
                 </p>
@@ -339,16 +339,16 @@ export default function TanzaniaSafariPage() {
             <Link href={`/${currentLocale}/trips/safari-kilimanjaro-6-days`} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow block border-2 border-[#00A896]/20">
               <div className="h-48 relative bg-gradient-to-br from-[#4DC5B5] to-[#00A896]">
                 <Image src="/images/serengeti.jpg" alt="Safari & Kilimanjaro" fill className="object-cover" />
+                <div className="absolute top-3 left-3">
+                  <span className="inline-block bg-gradient-to-r from-[#72D9C4] to-[#00A896] text-white px-4 py-2 rounded-full shadow-md text-sm font-bold">
+                    {t('routes.safariKiliAdventure.price')}
+                  </span>
+                </div>
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-800 mb-2">
                   {t('routes.safariKiliAdventure.title')}
                 </h3>
-                <div className="flex justify-between items-center mb-3">
-                  <span className="text-lg font-semibold text-[#00A896]">
-                    {t('routes.safariKiliAdventure.price')}
-                  </span>
-                </div>
                 <p className="text-gray-600 mb-4">
                   {t('routes.safariKiliAdventure.description')}
                 </p>

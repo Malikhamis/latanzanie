@@ -124,7 +124,68 @@ export default function TravelBlogsPage() {
         </div>
       </section>
 
-      
+      {/* All Topics Section - After Categories Grid */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">
+            {t('allTopics.title')}
+          </h2>
+          <p className="text-gray-600 mb-12 leading-relaxed max-w-4xl">
+            {t('allTopics.intro')}
+          </p>
+
+          {/* Categories displayed horizontally with vertical topic lists */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            {/* Climate and Seasons Category */}
+            <div>
+              <div className="flex items-center mb-6">
+                <div className="flex-shrink-0 mr-3">
+                  <div className="relative h-12 w-12 rounded-full overflow-hidden bg-gray-100">
+                    <Image 
+                      src="/images/climate-icon.svg" 
+                      alt="Climate and Seasons"
+                      fill
+                      style={{ objectFit: 'cover' }}
+                    />
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800">
+                  {t('allTopics.climateSeasons')}
+                </h3>
+              </div>
+
+              {/* Topic links list - vertical */}
+              <ul className="space-y-3">
+                <li>
+                  <Link href={`/${locale}/travel-blogs/climate-zones`} className="text-[#00A896] hover:text-[#008076] hover:underline transition">
+                    {locale === 'fr' ? 'Kilimandjaro : Le Guide Complet des 5 Zones Climatiques et Altitudes' : 'Kilimanjaro — The 5 Climate Zones and Altitudes'}
+                  </Link>
+                </li>
+                <li>
+                  <Link href={`/${locale}/travel-blogs/choose-season`} className="text-[#00A896] hover:text-[#008076] hover:underline transition">
+                    {locale === 'fr' ? 'Choisir la Bonne Saison pour la Randonnée' : 'Choosing the Right Season for Hiking'}
+                  </Link>
+                </li>
+                <li>
+                  <Link href={`/${locale}/travel-blogs/best-season`} className="text-[#00A896] hover:text-[#008076] hover:underline transition">
+                    {locale === 'fr' ? 'Quelle est la meilleure période pour faire l\'ascension du Kilimandjaro ?' : 'Best time to climb Kilimanjaro'}
+                  </Link>
+                </li>
+                <li>
+                  <Link href={`/${locale}/travel-blogs/dress-for-zones`} className="text-[#00A896] hover:text-[#008076] hover:underline transition">
+                    {locale === 'fr' ? 'Comment s\'habiller pour affronter les 5 zones climatiques du Kilimandjaro ?' : 'How to dress for the 5 climate zones of Kilimanjaro'}
+                  </Link>
+                </li>
+                <li>
+                  <Link href={`/${locale}/travel-blogs/drying-gear`} className="text-[#00A896] hover:text-[#008076] hover:underline transition">
+                    {locale === 'fr' ? 'Comment sécher ses affaires en trek quand il pleut ?' : 'How to dry your gear when it rains'}
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

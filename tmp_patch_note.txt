@@ -1,0 +1,1 @@
+patch notes: reduce hero h1 to text-4xl md:text-5xl; hero p to text-base md:text-lg; accordion h2 from text-3xl md:text-4xl to text-2xl md:text-3xl; append missing closures to dress-for-zones

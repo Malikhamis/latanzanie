@@ -8,9 +8,6 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Faq from '@/components/ui/faq'
 
-// Disable static generation for this page
-export const dynamic = 'force-dynamic';
-
 // Define types for our trips
 type TranslatedTrip = {
   id: number
@@ -51,119 +48,28 @@ export default function SeeTripsPage() {
   const segments = pathname?.split('/').filter(Boolean) || []
   const currentLocale = segments[0] && ['fr', 'en'].includes(segments[0]) ? segments[0] : 'fr'
 
-  // Adventure trips data - using translation keys
+  // Adventure trips data - using SeeTripsPage translation keys
   const adventureTrips: AdventureTrip[] = [
     {
       id: 1,
       slug: "climb-kilimanjaro",
       price: 2000,
       rating: 5.0,
-      tripKey: "kilimanjaro"
+      tripKey: "climb_kilimanjaro"
     },
     {
       id: 2,
       slug: "tanzania-safari",
       price: 1000,
       rating: 5.0,
-      tripKey: "safari"
+      tripKey: "tanzania_safari"
     },
     {
       id: 3,
-      slug: "nepal-peak-climbing",
-      price: 3390,
-      rating: 5.0,
-      tripKey: "nepal"
-    },
-    {
-      id: 4,
-      slug: "everest-base-camp-trek",
-      price: 1790,
-      rating: 5.0,
-      tripKey: "everest"
-    },
-    {
-      id: 5,
-      slug: "annapurna-circuit",
-      price: 1590,
-      rating: 5.0,
-      tripKey: "annapurna"
-    },
-    {
-      id: 6,
-      slug: "machu-picchu-trekking",
-      price: 1990,
-      rating: 5.0,
-      tripKey: "machuPicchu"
-    },
-    {
-      id: 7,
-      slug: "explore-peru",
-      price: 485,
-      rating: 5.0,
-      tripKey: "peru"
-    },
-    {
-      id: 8,
-      slug: "gorilla-trekking-rwanda",
-      price: 3600,
-      rating: 5.0,
-      tripKey: "rwanda"
-    },
-    {
-      id: 9,
-      slug: "gorilla-trekking-uganda",
-      price: 3590,
-      rating: 5.0,
-      tripKey: "uganda"
-    },
-    {
-      id: 10,
-      slug: "kenya-safari",
-      price: 2270,
-      rating: 5.0,
-      tripKey: "kenya"
-    },
-    {
-      id: 11,
-      slug: "discover-bhutan",
-      price: 2990,
-      rating: 5.0,
-      tripKey: "bhutan"
-    },
-    {
-      id: 12,
-      slug: "manaslu-circuit",
-      price: 2290,
-      rating: 5.0,
-      tripKey: "manaslu"
-    },
-    {
-      id: 13,
       slug: "zanzibar-beach-holidays",
       price: 2050,
       rating: 5.0,
-      tripKey: "zanzibar"
-    },
-    {
-      id: 15,
-      slug: "wonders-of-iceland",
-      price: 3195,
-      rating: 5.0,
-      tripKey: "iceland"
-    },
-    {
-      id: 16,
-      slug: "kayaking-sweden",
-      price: 1790,
-      rating: 5.0,
-      tripKey: "sweden"
-    },
-    {
-      id: 17,
-      slug: "explore-sri-lanka",
-      price: 1980,
-      rating: 5.0,
-      tripKey: "sriLanka"
+      tripKey: "zanzibar_beach"
     }
   ]
 
@@ -176,32 +82,17 @@ export default function SeeTripsPage() {
   const allowedSlugs = [
     'climb-kilimanjaro',
     'tanzania-safari',
-    'zanzibar-beach-holidays',
-    'climb-meru'
+    'zanzibar-beach-holidays'
   ]
 
   const visibleTrips = adventureTrips.filter(trip => allowedSlugs.includes(trip.slug))
 
-  // Safe accessor for Common translations with a fallback from `.name` -> `.title`
-  const getCommon = (key: string) => {
-    try {
-      return tCommon(key)
-    } catch (e) {
-      try {
-        // fallback to older key name
-        return tCommon(key.replace('.name', '.title'))
-      } catch (e2) {
-        return ''
-      }
-    }
-  }
-
   // Filter trips based on search term (applies to the visible subset)
   const filteredTrips = visibleTrips.filter(trip => {
     // For trips with translation keys
-                if (!isDirectTrip(trip)) {
-                return getCommon(`trips.${trip.tripKey}.name`).toLowerCase().includes(searchTerm.toLowerCase()) ||
-                  getCommon(`trips.${trip.tripKey}.description`).toLowerCase().includes(searchTerm.toLowerCase())
+    if (!isDirectTrip(trip)) {
+      return t(`trips.${trip.tripKey}.title`).toLowerCase().includes(searchTerm.toLowerCase()) ||
+             t(`trips.${trip.tripKey}.shortDescription`).toLowerCase().includes(searchTerm.toLowerCase())
     }
     // For trips with direct title/description (like Marangu Route)
     else {
@@ -211,10 +102,9 @@ export default function SeeTripsPage() {
   })
 
   const imageByTripKey: Record<string, string> = {
-    kilimanjaro: '/images/climb.jpg',
-    safari: '/images/moshi.jpg',
-    meru: '/images/mlima.jpg',
-    zanzibar: '/images/zanzibar.jpg'
+    climb_kilimanjaro: '/images/climb.jpg',
+    tanzania_safari: '/images/moshi.jpg',
+    zanzibar_beach: '/images/zanzibar.jpg'
   }
 
   return (
@@ -260,22 +150,22 @@ export default function SeeTripsPage() {
                 <div className="h-48 bg-gray-200 relative">
                   <Image
                     src={!isDirectTrip(trip) ? (imageByTripKey[trip.tripKey] || '/images/kilimanjaro-marangu.jpg') : '/images/kilimanjaro-marangu.jpg'}
-                    alt={(isDirectTrip(trip) ? trip.title[currentLocale as 'fr' | 'en'] : getCommon(`trips.${trip.tripKey}.name`)) as string}
+                    alt={(isDirectTrip(trip) ? trip.title[currentLocale as 'fr' | 'en'] : t(`trips.${trip.tripKey}.title`)) as string}
                     fill
                     className="object-cover"
                   />
-                </div>
-                <div className="p-6">
-                  <div className="flex justify-between items-start mb-3">
-                    <h3 className="text-xl font-bold text-gray-800">
-                      {isDirectTrip(trip) ? trip.title[currentLocale as 'fr' | 'en'] : getCommon(`trips.${trip.tripKey}.name`)}
-                    </h3>
-                    <span className="text-lg font-bold text-gray-800">
-                      {tCommon('fromPrice', { price: trip.price.toString() })}
+                  <div className="absolute top-3 left-3">
+                    <span className="inline-block bg-gradient-to-r from-[#72D9C4] to-[#00A896] text-white px-4 py-2 rounded-full shadow-md text-sm font-bold">
+                      {isDirectTrip(trip) ? tCommon('fromPrice', { price: trip.price.toString() }) : t(`trips.${trip.tripKey}.price`)}
                     </span>
                   </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-800 mb-3">
+                    {isDirectTrip(trip) ? trip.title[currentLocale as 'fr' | 'en'] : t(`trips.${trip.tripKey}.title`)}
+                  </h3>
                   <p className="text-gray-600 mb-4">
-                    {isDirectTrip(trip) ? trip.description[currentLocale as 'fr' | 'en'] : getCommon(`trips.${trip.tripKey}.description`)}
+                    {isDirectTrip(trip) ? trip.description[currentLocale as 'fr' | 'en'] : t(`trips.${trip.tripKey}.shortDescription`)}
                   </p>
                   <div className="flex justify-between items-center">
                     <div className="flex items-center">
@@ -289,7 +179,7 @@ export default function SeeTripsPage() {
                     <div className="flex items-center text-gray-500">
                       <Clock className="w-4 h-4 mr-1" />
                       <span className="text-sm">
-                        {isDirectTrip(trip) ? trip.duration[currentLocale as 'fr' | 'en'] : tCommon(`trips.${trip.tripKey}.duration`)}
+                        {isDirectTrip(trip) ? trip.duration[currentLocale as 'fr' | 'en'] : t(`trips.${trip.tripKey}.duration`)}
                       </span>
                     </div>
                   </div>
@@ -315,10 +205,10 @@ export default function SeeTripsPage() {
 
           <Faq
             items={[
-              { question: "Quel est la température les différents jours et comment s'habiller.", answer: t('faq.items.faq1Answer') },
-              { question: "Quelles chaussures pour marcher et sur le campement.", answer: t('faq.items.faq2Answer') },
-              { question: "Et les chaussettes ? Lesquelles et combien ?", answer: t('faq.items.faq3Answer') },
-              { question: "Comment on sėche ses affaires s'il pleut ?", answer: t('faq.items.faq4Answer') }
+              { question: t('faq.items.faq1'), answer: t('faq.items.faq1Answer') },
+              { question: t('faq.items.faq2'), answer: t('faq.items.faq2Answer') },
+              { question: t('faq.items.faq3'), answer: t('faq.items.faq3Answer') },
+              { question: t('faq.items.faq4'), answer: t('faq.items.faq4Answer') }
             ]}
           />
         </div>

@@ -205,7 +205,9 @@ export default function ZanzibarBeachHolidaysPage() {
                 src="/images/zanzibar-beach-holidays.jpg" 
                 alt="Zanzibar Beach Holidays" 
                 fill
-                className="object-cover" />
+                className="object-cover"
+                unoptimized
+              />
             </div>
           </div>
         </div>
@@ -229,17 +231,19 @@ export default function ZanzibarBeachHolidaysPage() {
                   src="/images/zanzibar-diving.jpg" 
                   alt="Zanzibar Diving & Culture" 
                   fill
-                  className="object-cover" />
+                  className="object-cover"
+                  unoptimized
+                />
+                <div className="absolute top-3 left-3">
+                  <span className="inline-block bg-gradient-to-r from-[#72D9C4] to-[#00A896] text-white px-4 py-2 rounded-full shadow-md text-sm font-bold">
+                    {t('itineraries.divingCulture.price')}
+                  </span>
+                </div>
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-800 mb-2">
                   {t('itineraries.divingCulture.title')}
                 </h3>
-                <div className="flex justify-between items-center mb-3">
-                  <span className="text-lg font-semibold text-[#00A896]">
-                    {t('itineraries.divingCulture.price')}
-                  </span>
-                </div>
                 <p className="text-gray-600 mb-4">
                   {t('itineraries.divingCulture.description')}
                 </p>
@@ -271,17 +275,19 @@ export default function ZanzibarBeachHolidaysPage() {
                   src="/images/zanzibar-complete-escape.jpg" 
                   alt="Zanzibar Complete Escape" 
                   fill
-                  className="object-cover" />
+                  className="object-cover"
+                  unoptimized
+                />
+                <div className="absolute top-3 left-3">
+                  <span className="inline-block bg-gradient-to-r from-[#72D9C4] to-[#00A896] text-white px-4 py-2 rounded-full shadow-md text-sm font-bold">
+                    {t('itineraries.completeEscape.price')}
+                  </span>
+                </div>
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-800 mb-2">
                   {t('itineraries.completeEscape.title')}
                 </h3>
-                <div className="flex justify-between items-center mb-3">
-                  <span className="text-lg font-semibold text-[#00A896]">
-                    {t('itineraries.completeEscape.price')}
-                  </span>
-                </div>
                 <p className="text-gray-600 mb-4">
                   {t('itineraries.completeEscape.description')}
                 </p>
@@ -651,9 +657,9 @@ export default function ZanzibarBeachHolidaysPage() {
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">{t('faqs.title')}</h2>
           <Faq
             items={[
-              { question: "Quel est la température les différents jours et comment s'habiller.", answer: "Les températures varient fortement selon l'altitude et la saison : en journée elles peuvent se situer entre ~5–15°C selon l'étape, et près du sommet il peut faire bien en dessous de zéro. Habillez‑vous par couches : couche de base respirante, couche isolante (polaire), veste coupe‑vent/imperméable ; bonnet et gants sont essentiels pour les nuits et le sommet." },
-              { question: "Quelles chaussures pour marcher et sur le campement.", answer: "Privilégiez des chaussures de trekking robustes et montantes (protection de la cheville), avec bonne adhérence et imperméabilité (Gore‑Tex ou équivalent). Emportez également des sandales ou chaussures légères pour le campement." },
-              { question: "Et les chaussettes ? Lesquelles et combien ?", answer: "Apportez 3–4 paires de chaussettes techniques (laine mérinos ou synthétique) : une paire par jour et une paire chaude pour la nuit. Évitez le coton ; des liners peuvent aider contre les ampoules." }
+              { question: t('faqs.question1'), answer: t('faqs.answer1') },
+              { question: t('faqs.question2'), answer: t('faqs.answer2') },
+              { question: t('faqs.question3'), answer: t('faqs.answer3') }
             ]}
           />
         </div>
@@ -758,23 +764,6 @@ export default function ZanzibarBeachHolidaysPage() {
                     className="block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-[#00A896] focus:border-[#00A896]"
                     placeholder={t('contactModal.phonePlaceholder')}
                   />
-                </div>
-                
-                <div>
-                  <label htmlFor="travellers" className="block text-sm font-medium text-gray-700 mb-1">
-                    {t('contactModal.travellersLabel')}
-                  </label>
-                  <select
-                    id="travellers"
-                    className="block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-[#00A896] focus:border-[#00A896]"
-                    required
-                  >
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
-                      <option key={num} value={num}>
-                        {num} {num === 1 ? 'person' : 'people'}
-                      </option>
-                    ))}
-                  </select>
                 </div>
                 
                 <div>

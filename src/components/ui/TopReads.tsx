@@ -26,7 +26,7 @@ export default function TopReads({
   if (!posts || posts.length === 0) return null
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 p-8 mb-8">
+    <div className="bg-white rounded-lg p-8 mb-8">
       <h3 className="text-2xl font-bold text-gray-800 mb-6">{title}</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {posts.map((post, idx) => {

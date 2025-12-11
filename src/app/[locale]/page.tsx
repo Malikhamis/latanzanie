@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { getAllParks } from '@/lib/sanity/fetch'
 import { Park } from '@/types/park'
 import { Hero } from '@/components/Hero'
@@ -8,29 +8,16 @@ import { useTranslations, useLocale } from 'next-intl'
 import Link from 'next/link'
 import Image from 'next/image'
 
-// Disable static generation for this page
-export const dynamic = 'force-dynamic';
-
 export default function Home() {
   const [parks, setParks] = useState<Park[]>([])
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const totalSlides = 5
   const t = useTranslations('HomePage');
   const tCommon = useTranslations('Common');
   const locale = useLocale();
-
-  // Slider navigation functions
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides)
-  }
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides)
-  }
-
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index)
-  }
+  const [sliderIndex, setSliderIndex] = useState(0)
+  const sliderCount = 8
+  const touchStartX = useRef<number | null>(null)
+  const touchEndX = useRef<number | null>(null)
+  const autoPlayRef = useRef<number | null>(null)
 
   // Function to map park data to translations based on current locale
   const mapParkDataToTranslations = (park: Park) => {
@@ -97,6 +84,68 @@ export default function Home() {
     fetchParks()
   }, [tCommon])
 
+  // Start autoplay for mobile slider and cleanup
+  useEffect(() => {
+    if (autoPlayRef.current == null) {
+      autoPlayRef.current = window.setInterval(() => {
+        setSliderIndex((prev) => (prev + 1) % sliderCount)
+      }, 4000)
+    }
+
+    return () => {
+      if (autoPlayRef.current != null) {
+        clearInterval(autoPlayRef.current)
+        autoPlayRef.current = null
+      }
+    }
+  }, [sliderCount])
+
+  const pauseAutoPlay = () => {
+    if (autoPlayRef.current != null) {
+      clearInterval(autoPlayRef.current)
+      autoPlayRef.current = null
+    }
+  }
+
+  const resumeAutoPlay = () => {
+    if (autoPlayRef.current == null) {
+      autoPlayRef.current = window.setInterval(() => {
+        setSliderIndex((prev) => (prev + 1) % sliderCount)
+      }, 4000)
+    }
+  }
+
+  const goNext = () => setSliderIndex((prev) => (prev + 1) % sliderCount)
+  const goPrev = () => setSliderIndex((prev) => (prev - 1 + sliderCount) % sliderCount)
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    pauseAutoPlay()
+    touchStartX.current = e.touches[0].clientX
+    touchEndX.current = null
+  }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX
+  }
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current == null || touchEndX.current == null) {
+      resumeAutoPlay()
+      return
+    }
+    const diff = touchStartX.current - touchEndX.current
+    const threshold = 50
+    if (diff > threshold) {
+      goNext()
+    } else if (diff < -threshold) {
+      goPrev()
+    }
+    touchStartX.current = null
+    touchEndX.current = null
+    // resume autoplay after touch
+    resumeAutoPlay()
+  }
+
   // Adventure trips data - Only Tanzania trips
   const adventureTrips = [
     {
@@ -123,7 +172,7 @@ export default function Home() {
       id: 3,
       title: tCommon('trips.materuni.title'),
       image: "/images/materuni-waterfall.jpg",
-      price: 80,
+      price: 150,
       rating: 5.0,
       duration: tCommon('trips.materuni.duration'),
       description: tCommon('trips.materuni.description'),
@@ -234,7 +283,7 @@ export default function Home() {
             
             <div className="text-center mt-12">
               <a 
-                href={`/${locale}/see-trips`}
+                href="/see-trips" 
                 className="inline-block bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 {t('seeAllTrips')}
@@ -255,14 +304,14 @@ export default function Home() {
             
             {/* Grid for desktop, slider for mobile */}
             <div className="hidden md:grid grid-cols-2 md:grid-cols-4 gap-4">
-              {[1, 2, 3, 4, 5].map((num) => (
-                <div key={num} className="aspect-square relative rounded-xl overflow-hidden">
-                  <Image 
-                    src={`/images/slider${num}.jpg`}
-                    alt={`Adventure ${num}`}
+              {[...Array(8)].map((_, i) => (
+                <div key={i} className="aspect-square rounded-xl overflow-hidden w-full relative">
+                  <Image
+                    src={`/images/g${i + 1}.jpg`}
+                    alt={`Recent adventure ${i + 1}`}
                     fill
                     className="object-cover"
-                    sizes="(max-width: 768px) 50vw, 25vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
                 </div>
               ))}
@@ -272,16 +321,21 @@ export default function Home() {
             <div className="md:hidden max-w-4xl mx-auto">
               <div className="relative overflow-hidden rounded-xl">
                 {/* Slider container */}
-                <div 
+                <div
                   className="flex transition-transform duration-500 ease-in-out"
-                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                  style={{ transform: `translateX(-${sliderIndex * 100}%)` }}
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={handleTouchEnd}
+                  onMouseEnter={pauseAutoPlay}
+                  onMouseLeave={resumeAutoPlay}
                 >
-                  {[1, 2, 3, 4, 5].map((num) => (
-                    <div key={num} className="min-w-full">
-                      <div className="aspect-square relative rounded-xl overflow-hidden w-full">
-                        <Image 
-                          src={`/images/slider${num}.jpg`}
-                          alt={`Adventure ${num}`}
+                  {[...Array(sliderCount)].map((_, i) => (
+                    <div key={i} className="min-w-full relative">
+                      <div className="aspect-square rounded-xl overflow-hidden w-full relative">
+                        <Image
+                          src={`/images/g${i + 1}.jpg`}
+                          alt={`Recent adventure ${i + 1}`}
                           fill
                           className="object-cover"
                           sizes="100vw"
@@ -292,19 +346,19 @@ export default function Home() {
                 </div>
                 
                 {/* Slider controls */}
-                <button 
-                  onClick={prevSlide}
+                <button
+                  onClick={() => { pauseAutoPlay(); goPrev(); }}
                   className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full p-2 shadow-md transition-all"
-                  aria-label="Previous slide"
+                  aria-label="Previous"
                 >
                   <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
                   </svg>
                 </button>
-                <button 
-                  onClick={nextSlide}
+                <button
+                  onClick={() => { pauseAutoPlay(); goNext(); }}
                   className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full p-2 shadow-md transition-all"
-                  aria-label="Next slide"
+                  aria-label="Next"
                 >
                   <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
@@ -313,14 +367,12 @@ export default function Home() {
                 
                 {/* Slider indicators */}
                 <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                  {[1, 2, 3, 4, 5].map((num, index) => (
+                  {[...Array(sliderCount)].map((_, i) => (
                     <button
-                      key={num}
-                      onClick={() => goToSlide(index)}
-                      className={`w-3 h-3 rounded-full transition-all ${
-                        index === currentSlide ? 'bg-white scale-110' : 'bg-white bg-opacity-50'
-                      }`}
-                      aria-label={`Go to slide ${num}`}
+                      key={i}
+                      onClick={() => setSliderIndex(i)}
+                      className={`w-3 h-3 rounded-full ${i === sliderIndex ? 'bg-white' : 'bg-white bg-opacity-50'}`}
+                      aria-label={`Go to slide ${i + 1}`}
                     />
                   ))}
                 </div>

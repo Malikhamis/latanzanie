@@ -1,4 +1,5 @@
 import { Park } from '@/types/park'
+import { getClient } from './client'
 
 // Function to get the base URL for API calls
 function getBaseUrl(): string {
@@ -17,13 +18,21 @@ function getBaseUrl(): string {
 // Function to fetch all parks via our API route (proxy)
 export async function getAllParks(): Promise<Park[]> {
   try {
+    // Prefer using the Sanity client server-side to avoid calling internal API routes
+    const client = getClient()
+    if (client) {
+      const query = `*[_type == "park"]{_id, title, slug, region, overview}`
+      const parks = await client.fetch(query)
+      return parks as Park[]
+    }
+
     const baseUrl = getBaseUrl()
     const url = `${baseUrl}/api/parks`
-    
-    const response = await fetch(url, { 
+
+    const response = await fetch(url, {
       next: { revalidate: 3600 } // Revalidate every hour
     })
-    
+
     if (!response.ok) {
       console.warn(`Failed to fetch parks: ${response.status} ${response.statusText}`)
       // Return fallback data when API route fails
@@ -87,13 +96,25 @@ export async function getAllParks(): Promise<Park[]> {
 // Function to fetch navigation data
 export async function getNavigationData(): Promise<Pick<Park, '_id' | 'title' | 'slug'>[]> {
   try {
+    // Try Sanity client first (server-side). Falls back to API route proxy when client unavailable.
+    const client = getClient()
+    if (client) {
+      const query = `*[_type == "park"]{_id, title, slug}`
+      const parks = await client.fetch(query)
+      return (parks || []).map((park: Park) => ({
+        _id: park._id,
+        title: park.title,
+        slug: park.slug
+      }))
+    }
+
     const baseUrl = getBaseUrl()
     const url = `${baseUrl}/api/parks`
-    
+
     const response = await fetch(url, {
       next: { revalidate: 3600 } // Revalidate every hour
     })
-    
+
     if (!response.ok) {
       console.warn(`Failed to fetch navigation data: ${response.status} ${response.statusText}`)
       // Return fallback navigation items when API route fails

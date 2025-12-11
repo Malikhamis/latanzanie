@@ -312,7 +312,7 @@
       "groupSize": "2 - 8",
       "adventureTypeLabel": "Type",
       "adventureType": "Beach",
-      "price": "From €2,300",
+      "price": "From 850 €",
       "bookCall": "Book a call with our team",
       "downloadGuide": "Download guide"
     },
@@ -970,6 +970,11 @@
     "categories": {
       "title": "Choose a topic"
     },
+    "allTopics": {
+      "title": "All Topics",
+      "intro": "Practical guides and local tips to help you prepare for Kilimanjaro: how to pick the right route, what gear to prioritise, sensible training steps, and the logistical basics to expect on the mountain. You’ll also find short checklists and firsthand accounts to help you leave well-prepared and confident.",
+      "climateSeasons": "Climate and seasons"
+    },
     "explore": "Explore",
     "noTopicsFound": "No travel topics found matching your search.",
     "cta": {
@@ -991,13 +996,40 @@
       "placeholder": "Search adventure trips..."
     },
     "noTripsFound": "No adventure trips found matching your search.",
+    "trips": {
+      "climb_kilimanjaro": {
+        "title": "Climb Kilimanjaro",
+        "shortDescription": "Want to stand on the roof of Africa? Climb Kilimanjaro with us and create unforgettable memories!",
+        "rating": 5,
+        "duration": "9 - 11 days",
+        "price": "From €2,000"
+      },
+      "tanzania_safari": {
+        "title": "Tanzania Safari",
+        "shortDescription": "Tanzania is arguably the best country in the world for big game safari. It houses the Big Five as well as the Great Migration!",
+        "rating": 5,
+        "duration": "2 - 9 days",
+        "price": "From €1,000"
+      },
+      "zanzibar_beach": {
+        "title": "Zanzibar Beach Holidays",
+        "shortDescription": "The calm waters, white sandy beaches and lush forest of Zanzibar offer the perfect tropical getaway!",
+        "rating": 5,
+        "duration": "8 days",
+        "price": "From €2,050"
+      }
+    },
     "faq": {
       "title": "FAQ",
       "items": {
         "faq1": "Do you organize adventure trips for families?",
+        "faq1Answer": "Yes — we design family-friendly adventure trips suitable for a wide range of ages. Our experienced guides adapt pace and activities so everyone can join safely and comfortably.",
         "faq2": "Does Latanzanieaucourdelanature organize adventure honeymoons?",
+        "faq2Answer": "Absolutely — we offer romantic adventure honeymoon packages that combine thrilling activities with private moments in beautiful Tanzanian settings. Tell us your preferences and we’ll craft a memorable itinerary.",
         "faq3": "Do you offer budget adventure travel packages?",
-        "faq4": "What is the typical size of a Latanzanieaucourdelanature group?"
+        "faq3Answer": "Yes, we provide packages across different budgets. Contact our team with your priorities and we’ll propose cost-conscious options that still deliver authentic experiences.",
+        "faq4": "What is the typical size of a Latanzanieaucourdelanature group?",
+        "faq4Answer": "Group sizes typically range from 4 to 12 people to ensure personalized service while keeping a friendly group dynamic. Private departures are available on request."
       }
     },
     "newsletter": {
