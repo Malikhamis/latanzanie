@@ -641,64 +641,7 @@ export default function TanzaniaSafariPage() {
         </div>
       </section>
 
-      {/* Top Reads */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            {t('topReads.title')}
-          </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto text-center mb-12">
-            {t('topReads.description')}
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Packing List */}
-            <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="h-48 bg-gray-200 relative">
-                <div className="bg-gray-300 border-2 border-dashed rounded-xl w-full h-full" />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 mb-3">
-                  {t('topReads.packingList.title')}
-                </h3>
-                <p className="text-gray-600">
-                  {t('topReads.packingList.description')}
-                </p>
-              </div>
-            </div>
 
-            {/* Best Time */}
-            <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="h-48 bg-gray-200 relative">
-                <div className="bg-gray-300 border-2 border-dashed rounded-xl w-full h-full" />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 mb-3">
-                  {t('topReads.bestTime.title')}
-                </h3>
-                <p className="text-gray-600">
-                  {t('topReads.bestTime.description')}
-                </p>
-              </div>
-            </div>
-
-            {/* Wildlife Guide */}
-            <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="h-48 bg-gray-200 relative">
-                <div className="bg-gray-300 border-2 border-dashed rounded-xl w-full h-full" />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 mb-3">
-                  {t('topReads.wildlife.title')}
-                </h3>
-                <p className="text-gray-600">
-                  {t('topReads.wildlife.description')}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* FAQs */}
       <section className="py-16 bg-gray-50">
@@ -717,6 +660,10 @@ export default function TanzaniaSafariPage() {
               { 
                 question: "Et les chaussettes ? Lesquelles et combien ?", 
                 answer: "Apportez 3–4 paires de chaussettes techniques (laine mérinos ou synthétique) : une paire par jour et une paire chaude pour la nuit. Évitez le coton ; des liners peuvent aider contre les ampoules."
+              },
+              { 
+                question: "Kilimandjaro : Faut-il se doucher pendant une ascension de 8 à 10 jours ?", 
+                answer: "Non, il n’est généralement pas possible de prendre une vraie douche lors d'une ascension du Kilimandjaro. Les camps de haute altitude sont situés dans des zones sauvages protégées, dépourvues d'installations sanitaires modernes ou d'eau courante. L’eau y est une ressource précieuse, réservée en priorité à la cuisine et à l’hydratation des grimpeurs.\n\nCependant, ne pas se doucher ne signifie pas négliger l’hygiène. Nos randonneurs utilisent des solutions simples et efficaces pour rester frais et en bonne santé tout au long du trek :\n\n1). Toilette quotidienne : Une bassine d'eau tiède et un gant de toilette sont fournis par notre équipe chaque matin et soir.\n\n2). Lingettes biodégradables : Idéales pour un nettoyage rapide du corps tout en respectant l'environnement.\n\n3). Lavage fréquent des mains : Une étape cruciale pour garantir votre santé et éviter les bactéries en groupe.\n\n4). Change régulier : Le renouvellement des vêtements techniques et des sous-vêtements est essentiel.\n\n5). Hygiène des pieds : Un soin rigoureux pour prévenir les ampoules et les infections durant la marche.\n\nPourquoi la douche n’est pas une priorité en altitude ?\nEn haute montagne, votre corps mobilise toute son énergie pour l'acclimatation. Se doucher à l'eau froide augmente considérablement le risque de fatigue et de refroidissement (hypothermie légère). Pour réussir votre sommet, votre priorité doit rester l’hydratation, le repos et l’adaptation progressive à l’altitude.\n\nL’avis du guide : Passer 8 à 10 jours sans douche est tout à fait normal et fait partie de l'aventure. Avec une hygiène de base bien gérée, vous resterez en pleine forme et concentré sur votre objectif : atteindre le pic Uhuru."
               }
             ]}
           />

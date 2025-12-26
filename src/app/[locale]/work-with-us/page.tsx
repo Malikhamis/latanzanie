@@ -1,399 +1,210 @@
 'use client'
 
 import { useState } from 'react'
-import { useTranslations } from 'next-intl'
-import Image from 'next/image'
-import { Briefcase, Users, TrendingUp, Award, Globe, Heart, Mail, Phone, MapPin, ChevronRight } from 'lucide-react'
+import { Briefcase, Heart, Mail, Phone, MapPin } from 'lucide-react'
 
 export default function WorkWithUsPage() {
-  const [isApplicationModalOpen, setIsApplicationModalOpen] = useState(false)
-  const t = useTranslations('WorkWithUsPage')
+  const [formData, setFormData] = useState({
+    name: '',
+    company: '',
+    email: '',
+    message: ''
+  })
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    setIsApplicationModalOpen(false)
+    console.log('Partnership request:', formData)
+    // Reset form
+    setFormData({ name: '', company: '', email: '', message: '' })
+    alert('Votre demande de partenariat a été envoyée avec succès!')
   }
 
-  const benefits = [
-    {
-      icon: Globe,
-      titleKey: 'benefits.globalImpact.title',
-      descKey: 'benefits.globalImpact.description'
-    },
-    {
-      icon: Users,
-      titleKey: 'benefits.teamCulture.title',
-      descKey: 'benefits.teamCulture.description'
-    },
-    {
-      icon: TrendingUp,
-      titleKey: 'benefits.growth.title',
-      descKey: 'benefits.growth.description'
-    },
-    {
-      icon: Award,
-      titleKey: 'benefits.recognition.title',
-      descKey: 'benefits.recognition.description'
-    }
-  ]
-
-  const positions = [
-    {
-      id: 1,
-      titleKey: 'positions.tourGuide.title',
-      locationKey: 'positions.tourGuide.location',
-      typeKey: 'positions.tourGuide.type',
-      descKey: 'positions.tourGuide.description'
-    },
-    {
-      id: 2,
-      titleKey: 'positions.travelCoordinator.title',
-      locationKey: 'positions.travelCoordinator.location',
-      typeKey: 'positions.travelCoordinator.type',
-      descKey: 'positions.travelCoordinator.description'
-    },
-    {
-      id: 3,
-      titleKey: 'positions.contentCreator.title',
-      locationKey: 'positions.contentCreator.location',
-      typeKey: 'positions.contentCreator.type',
-      descKey: 'positions.contentCreator.description'
-    },
-    {
-      id: 4,
-      titleKey: 'positions.customerSuccess.title',
-      locationKey: 'positions.customerSuccess.location',
-      typeKey: 'positions.customerSuccess.type',
-      descKey: 'positions.customerSuccess.description'
-    }
-  ]
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+  }
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative bg-gray-900 text-white py-24">
-        <div className="absolute inset-0 opacity-20">
-          <Image 
-            src="/images/kilimanjaro-summit.jpg" 
-            alt="Work With Us" 
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-        <div className="container mx-auto px-4 relative z-10">
+      {/* Introduction */}
+      <section className="py-8">
+        <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-block mb-6">
-              <Briefcase className="w-16 h-16 mx-auto text-gray-300" />
-            </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              {t('hero.title')}
+            <h1 className="text-2xl md:text-3xl text-gray-900 mb-4">
+              Collaborons pour des ascensions responsables et authentiques du Kilimandjaro
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
-              {t('hero.subtitle')}
+            <p className="text-base md:text-lg text-gray-600 mb-6 leading-relaxed">
+              Collaborons pour offrir des ascensions responsables et authentiques du Kilimandjaro
             </p>
-            <button 
-              onClick={() => setIsApplicationModalOpen(true)}
-              className="bg-white text-gray-900 hover:bg-gray-100 font-semibold py-4 px-8 rounded-lg transition-colors duration-200 inline-flex items-center text-lg"
-            >
-              {t('hero.cta')}
-              <ChevronRight className="ml-2 w-5 h-5" />
-            </button>
           </div>
         </div>
       </section>
-
+      
       {/* Mission Statement */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <Heart className="w-12 h-12 mx-auto text-gray-700 mb-4" />
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                {t('mission.title')}
+              <h2 className="text-2xl md:text-3xl text-gray-900 mb-6">
+                Vous êtes une agence de voyage, un tour-opérateur, un guide indépendant, une entreprise ou un créateur de voyages d'aventure ?
               </h2>
             </div>
             <div className="bg-white rounded-2xl shadow-sm p-8 md:p-12 border border-gray-100">
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                {t('mission.paragraph1')}
+                Nous serions ravis de collaborer avec vous.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                {t('mission.paragraph2')}
+                En tant que guide local certifié du Kilimandjaro, né et basé en Tanzanie, je propose des partenariats solides fondés sur la sécurité, l'éthique et l'expérience terrain.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Why Join Us */}
-      <section className="py-20 bg-white">
+      {/* Why Work With Us */}
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
-              {t('benefits.title')}
+            <h2 className="text-3xl md:text-4xl text-center text-gray-900 mb-12">
+              Pourquoi travailler avec nous ?
             </h2>
-            <p className="text-lg text-gray-600 text-center mb-16 max-w-3xl mx-auto">
-              {t('benefits.subtitle')}
-            </p>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {benefits.map((benefit, index) => {
-                const Icon = benefit.icon
-                return (
-                  <div key={index} className="bg-gray-50 rounded-xl p-8 border border-gray-100 hover:shadow-lg transition-shadow">
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0">
-                        <div className="w-14 h-14 bg-gray-900 rounded-lg flex items-center justify-center">
-                          <Icon className="w-7 h-7 text-white" />
-                        </div>
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-3">
-                          {t(benefit.titleKey)}
-                        </h3>
-                        <p className="text-gray-600 leading-relaxed">
-                          {t(benefit.descKey)}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                )
-              })}
+            <div className="space-y-12">
+              <div>
+                <div>
+                  <h3 className="text-2xl text-gray-900 mb-4">
+                    ❤️ Nous aimons profondément ce que nous faisons
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    Guider sur le Kilimandjaro est bien plus qu'un travail pour nous. C'est une passion, une fierté et une responsabilité. Cet amour de la montagne se reflète dans notre engagement, notre énergie sur le terrain et la qualité de chaque ascension que nous encadrons.
+                  </p>
+                </div>
+              </div>
+              
+              <div>
+                <div>
+                  <h3 className="text-2xl text-gray-900 mb-4">
+                    🤝 Un partenaire fiable et transparent
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    Travailler avec nous, c'est choisir un partenaire :
+                  </p>
+                  <ul className="text-gray-700 space-y-2">
+                    <li>1) ponctuel et organisé,</li>
+                    <li>2) clair sur les coûts et la logistique,</li>
+                    <li>3) Personnalisation : Des itinéraires adaptés aux besoins spécifiques de vos clients.</li>
+                    <li>4) engagé dans une communication simple et honnête.</li>
+                    <li>5) Éthique & Respect : Une gestion humaine des équipes (porteurs et cuisiniers).</li>
+                  </ul>
+                  <p className="text-gray-700 leading-relaxed mt-4">
+                    Nous construisons des partenariats durables, basés sur la confiance.
+                  </p>
+                </div>
+              </div>
+              
+              <div>
+                <div>
+                  <h3 className="text-2xl text-gray-900 mb-4">
+                    ⭐ Une expérience centrée sur le client
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    La réussite, la sécurité et le bien-être des clients sont toujours notre priorité. Chaque programme est adapté au niveau, aux attentes et aux objectifs du groupe.
+                  </p>
+                </div>
+              </div>
+              
+              <div>
+                <div>
+                  <h3 className="text-2xl text-gray-900 mb-4">
+                    🤍 Plus qu'une collaboration, une aventure partagée
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    Nous ne cherchons pas seulement des partenaires, mais des collaborateurs qui partagent les mêmes valeurs : passion, respect, professionnalisme et amour de la montagne.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Open Positions */}
-      <section className="py-20 bg-gray-50">
+      {/* Contact Form */}
+      <section className="py-16 bg-gray-900 text-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
-              {t('positions.title')}
+          <div className="max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl text-center mb-12">
+              Me contacter
             </h2>
-            <p className="text-lg text-gray-600 text-center mb-16">
-              {t('positions.subtitle')}
-            </p>
             
-            <div className="space-y-6">
-              {positions.map((position) => (
-                <div key={position.id} className="bg-white rounded-xl border border-gray-200 p-8 hover:shadow-lg transition-shadow">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                        {t(position.titleKey)}
-                      </h3>
-                      <div className="flex flex-wrap items-center gap-4 mb-4">
-                        <div className="flex items-center text-gray-600">
-                          <MapPin className="w-4 h-4 mr-2" />
-                          <span>{t(position.locationKey)}</span>
-                        </div>
-                        <div className="flex items-center text-gray-600">
-                          <Briefcase className="w-4 h-4 mr-2" />
-                          <span>{t(position.typeKey)}</span>
-                        </div>
-                      </div>
-                      <p className="text-gray-600 leading-relaxed">
-                        {t(position.descKey)}
-                      </p>
-                    </div>
-                    <div className="flex-shrink-0">
-                      <button 
-                        onClick={() => setIsApplicationModalOpen(true)}
-                        className="bg-gray-900 hover:bg-gray-800 text-white font-semibold py-3 px-6 rounded-lg transition-colors inline-flex items-center whitespace-nowrap"
-                      >
-                        {t('positions.apply')}
-                        <ChevronRight className="ml-2 w-4 h-4" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-semibold mb-2">Nom & prénom</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 bg-white text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  placeholder="Entrez votre nom complet"
+                  required
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="company" className="block text-sm font-semibold mb-2">Société/Marque</label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 bg-white text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  placeholder="Nom de votre société ou marque"
+                  required
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="email" className="block text-sm font-semibold mb-2">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 bg-white text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  placeholder="votre@email.com"
+                  required
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="message" className="block text-sm font-semibold mb-2">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  rows={6}
+                  className="w-full px-4 py-3 bg-white text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  placeholder="Décrivez votre projet de partenariat..."
+                  required
+                ></textarea>
+              </div>
+              
+              <button
+                type="submit"
+                className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-4 px-6 rounded-lg transition-colors duration-200 text-lg"
+              >
+                Envoyer ma demande de partenariat
+              </button>
+            </form>
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
-              {t('contact.title')}
-            </h2>
-            <p className="text-lg text-gray-600 text-center mb-12">
-              {t('contact.subtitle')}
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-100 rounded-full mb-4">
-                  <Mail className="w-7 h-7 text-gray-700" />
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2">{t('contact.email.label')}</h3>
-                <a href="mailto:careers@latanzanie.com" className="text-gray-600 hover:text-gray-900">
-                  careers@latanzanie.com
-                </a>
-              </div>
-              
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-100 rounded-full mb-4">
-                  <Phone className="w-7 h-7 text-gray-700" />
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2">{t('contact.phone.label')}</h3>
-                <a href="tel:+255782825692" className="text-gray-600 hover:text-gray-900">
-                  +255782825692
-                </a>
-              </div>
-              
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-100 rounded-full mb-4">
-                  <MapPin className="w-7 h-7 text-gray-700" />
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2">{t('contact.location.label')}</h3>
-                <p className="text-gray-600">
-                  Arusha, Tanzania
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Application Modal */}
-      {isApplicationModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <div 
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-            onClick={() => setIsApplicationModalOpen(false)}
-          ></div>
-          
-          <div className="relative bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto z-10">
-            <div className="p-8">
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-3xl font-bold text-gray-900">{t('modal.title')}</h2>
-                <button 
-                  onClick={() => setIsApplicationModalOpen(false)}
-                  className="text-gray-500 hover:text-gray-700"
-                >
-                  <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-              
-              <p className="text-gray-600 mb-8">
-                {t('modal.description')}
-              </p>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="firstName" className="block text-sm font-semibold text-gray-900 mb-2">
-                      {t('modal.firstName')}
-                    </label>
-                    <input
-                      type="text"
-                      id="firstName"
-                      className="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
-                      required
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="lastName" className="block text-sm font-semibold text-gray-900 mb-2">
-                      {t('modal.lastName')}
-                    </label>
-                    <input
-                      type="text"
-                      id="lastName"
-                      className="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
-                      required
-                    />
-                  </div>
-                </div>
-                
-                <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
-                    {t('modal.email')}
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
-                    required
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-semibold text-gray-900 mb-2">
-                    {t('modal.phone')}
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    className="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
-                    required
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="position" className="block text-sm font-semibold text-gray-900 mb-2">
-                    {t('modal.position')}
-                  </label>
-                  <select
-                    id="position"
-                    className="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
-                    required
-                  >
-                    <option value="">{t('modal.selectPosition')}</option>
-                    {positions.map((pos) => (
-                      <option key={pos.id} value={pos.id}>
-                        {t(pos.titleKey)}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                
-                <div>
-                  <label htmlFor="resume" className="block text-sm font-semibold text-gray-900 mb-2">
-                    {t('modal.resume')}
-                  </label>
-                  <input
-                    type="file"
-                    id="resume"
-                    accept=".pdf,.doc,.docx"
-                    className="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200"
-                    required
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="coverLetter" className="block text-sm font-semibold text-gray-900 mb-2">
-                    {t('modal.coverLetter')}
-                  </label>
-                  <textarea
-                    id="coverLetter"
-                    rows={4}
-                    className="block w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
-                    placeholder={t('modal.coverLetterPlaceholder')}
-                    required
-                  ></textarea>
-                </div>
-                
-                <div>
-                  <button
-                    type="submit"
-                    className="w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold py-4 px-6 rounded-lg transition-colors duration-200"
-                  >
-                    {t('modal.submit')}
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   )
 }

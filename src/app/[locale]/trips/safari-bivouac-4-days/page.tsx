@@ -3,57 +3,57 @@
 import { useState, useRef, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import Image from 'next/image'
-import { useTranslations } from 'next-intl'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import enMessages from '../../../../../locales/en.json'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import frMessages from '../../../../../locales/fr.json'
 import { MapPin, Clock, Calendar, User, CheckCircle, X, XCircle, Users } from 'lucide-react'
 
 export default function SafariBivouac4DaysPage() {
   const params = useParams() as { locale?: string }
   const currentLocale = params?.locale === 'fr' ? 'fr' : 'en'
 
-  const enJsonMessages: any = (enMessages as any).SafariBivouac4Days || {}
-  const localeJsonMessages: any = currentLocale === 'fr' ? ((frMessages as any).SafariBivouac4Days || {}) : enJsonMessages
-  const wholeEnMessages: any = (enMessages as any) || {}
-  const wholeLocaleMessages: any = currentLocale === 'fr' ? ((frMessages as any) || {}) : wholeEnMessages
+  const isFrench = true
 
-  const safeT = (key: string, fallback = ''): string => {
-    const parts = key.split('.')
-
-    const lookup = (obj: any): any => {
-      try {
-        let node: any = obj
-        for (const p of parts) {
-          if (!node) return undefined
-          node = node[p]
-        }
-        return node
-      } catch (e) {
-        return undefined
-      }
+  // French content hardcoded
+  const t = (key: string, fallback = ''): string => {
+    const frenchContent: Record<string, string> = {
+      'hero.title': 'Les safari tanzanien',
+      'hero.breadcrumb': 'Tanzanie / Safari Bivouac',
+      'hero.duration': '4 Jours',
+      'hero.description': 'Inoubliable jours au cœur de la vie sauvage',
+      'hero.price': '1,000€',
+      'miniNavbar.datesAndPrices': 'Dates & Prix',
+      'miniNavbar.proposeDate': 'Proposer une Date',
+      'miniNavbar.inclusions': 'Inclus',
+      'detailedItineraryTitle': 'Itinéraire détaillé',
+      'itinerary.day1.title': 'Jour 1 - D\'Arusha au parc national de Tarangire',
+      'itinerary.day1.description': 'Après un petit-déjeuner matinal, départ pour Tarangire pour une journée complète de safari dans le parc national de Tarangire avec pique-nique. Des troupeaux allant jusqu\'à 300 éléphants grattent le lit sans eau de la rivière à la recherche de ruisseaux alternatifs, tandis que des gnous nomades, des zèbres, des buffles, des impalas, des gazelles, des bubales et des élans se massent dans les lagons réduits. Ce parc national accueille des migrants pendant la saison sèche et est un foyer accueillant pour les éléphants. Nous dînons et passons la nuit au camping Lilac.',
+      'itinerary.day2.title': 'Jour 2 - De Tarangire au parc national du Serengeti',
+      'itinerary.day2.description': 'Après un petit-déjeuner matinal, notre chauffeur-guide vous conduira du camp au parc national du Serengeti. Partez pour les plaines ouvertes sans fin et le ciel magnifique du Serengeti. Profitez du safari de quatre heures et partez plus tard pour un safari en fin de soirée. Le dîner et la nuit auront lieu au camping de Seronera.',
+      'itinerary.day3.title': 'Jour 3 - Du parc national du Serengeti au Ngorongoro',
+      'itinerary.day3.description': 'Réveillez-vous tôt le matin pour un safari dans le parc national du Serengeti où vous pourrez voir des gnous, des lions, des éléphants, des léopards, des impalas, des gazelles, des guépards et peut-être la migration des gnous. Profitez du brunch et faites vos bagages pour vous rendre à Ngorongoro. Vous ferez un safari en route du Serengeti au Ngorongoro, avec une arrivée tard dans la soirée. Arrivée au camping Ngorongoro Simba situé sur le bord du cratère pour le dîner et la nuit.',
+      'itinerary.day4.title': 'Jour 4 - Du cratère du Ngorongoro à l\'hôtel d\'Arusha',
+      'itinerary.day4.description': 'Après un petit-déjeuner matinal, dirigez-vous directement vers le fond du cratère pour un safari de six heures à l\'intérieur du cratère. Cherchez les Big Five (lion, léopard, éléphant, buffle et peut-être un rhinocéros noir). Faites votre pique-nique dans le cratère de la source de Ngoitoktok où vous pourrez également voir d\'autres grands mammifères, notamment des hippopotames, des girafes, des phacochères, des babouins et des oiseaux. Après environ 6 heures, montez le bord du cratère et dirigez-vous vers Arusha avec un safari en route via le village de Mto wa Mbu. Dans la soirée, nous vous déposerons à votre hôtel à Arusha.',
+      'inclusions.title': 'Ce qui est inclus',
+      'inclusions.priceIncludes': 'Le prix comprend',
+      'exclusions.title': 'Le prix n\'est pas inclus',
+      'newsletter.title': 'Si vous aimez voyager',
+      'newsletter.subtitle': 'rejoignez notre newsletter',
+      'newsletter.description': 'Recevez les dernières nouvelles sur les joyaux cachés des aventures, les voyages de lancement à prix réduit et bien plus encore directement dans votre boîte de réception',
+      'newsletter.firstNamePlaceholder': 'Prénom',
+      'newsletter.emailPlaceholder': 'Adresse e-mail',
+      'newsletter.button': 'S\'inscrire',
+      'inquiryForm.title': 'Réservez votre expérience de safari',
+      'inquiryForm.name': 'Nom complet',
+      'inquiryForm.email': 'E-mail',
+      'inquiryForm.groupSize': 'Taille du groupe',
+      'inquiryForm.date': 'Date préférée',
+      'inquiryForm.message': 'Message',
+      'inquiryForm.submit': 'Soumettre la demande',
     }
-
-    const fromLocale = lookup(localeJsonMessages)
-    if (typeof fromLocale === 'string' && fromLocale.length > 0) return fromLocale
-
-    const fromEnglish = lookup(enJsonMessages)
-    if (typeof fromEnglish === 'string' && fromEnglish.length > 0) return fromEnglish
-
-    const fromWholeLocale = lookup(wholeLocaleMessages)
-    if (typeof fromWholeLocale === 'string' && fromWholeLocale.length > 0) return fromWholeLocale
-
-    const fromWholeEnglish = lookup(wholeEnMessages)
-    if (typeof fromWholeEnglish === 'string' && fromWholeEnglish.length > 0) return fromWholeEnglish
-
-    return fallback
+    return frenchContent[key] || fallback
   }
 
-  const t = (key: string, fallback = '') => safeT(key, fallback)
-  const isFrench = currentLocale === 'fr'
+  const safeT = (key: string, fallback = ''): string => {
+    return t(key, fallback)
+  }
 
   const [activeSection, setActiveSection] = useState('')
   const [showInquiryForm, setShowInquiryForm] = useState(false)
@@ -108,8 +108,27 @@ export default function SafariBivouac4DaysPage() {
     ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
-  const inclusions = safeT('inclusions.items', '').split('|||').filter(Boolean)
-  const exclusions = safeT('exclusions.items', '').split('|||').filter(Boolean)
+  const inclusions = [
+    "Tous les taxes d'entrée dans les parcs indiques dans le programme",
+    "Tous les taxes du campement indiques dans le programme",
+    "Les  chauffeurs – guides pour les clients",
+    "Le guide francophone",
+    "Le cuisine",
+    "L'equipement du campement pour les clients (tentes  ,lits, matelas , Oreilles,  tables , chaises )",
+    "L'accommodation complete pendant le safari ( petit dejeuner, lunch et diner) ",
+    "L'equipement de la cuisine.",
+    "Les land cruser (4×4 ) avec le toit ouvrable pour observer les animaux dans les parcs.",
+    "L'offre de l'eau de Kilimanjaro , 2 boutelles de litre et demie par jour par personne.",
+    "La toilette et douche sont disponible au camp"
+  ]
+  
+  const exclusions = [
+    "Le ticket d'avion",
+    "Le visa",
+    "Les besoins personnels",
+    "Les boissons",
+    "Les pourboires"
+  ]
 
   const itineraryDays = [
     { day: 'day1', title: safeT('itinerary.day1.title'), description: safeT('itinerary.day1.description') },
@@ -192,7 +211,7 @@ export default function SafariBivouac4DaysPage() {
         <div className="container mx-auto px-4">
           <div className="flex justify-center">
             <div className="flex flex-wrap gap-4 items-center">
-              <span className="text-[#00A896] font-bold text-xl bg-gradient-to-r from-[#72D9C4] to-[#00A896] bg-clip-text text-transparent pr-4 border-r border-gray-300">{t('hero.price', '€1,000')}</span>
+              <span className="text-[#00A896] font-bold text-xl bg-gradient-to-r from-[#72D9C4] to-[#00A896] bg-clip-text text-transparent pr-4 border-r border-gray-300">{t('hero.price', '1,000€')}</span>
               <button 
                 className={`font-medium px-4 py-2 border-2 rounded-lg flex items-center transition-all duration-300 text-base ${
                   activeSection === 'datesPrices' 
@@ -292,6 +311,17 @@ export default function SafariBivouac4DaysPage() {
                   </div>
                 )
               })}
+              
+              {/* Additional Bivouac Experience Content */}
+              <div className="mt-12 pt-8 border-t border-gray-200">
+                <div className="prose max-w-none">
+                  <p className="text-gray-500 text-lg md:text-xl leading-relaxed whitespace-pre-line">Le bivouac est une expérience hors du commun, il s’adresse à ceux qui veulent découvrir le pays avec un parfum d’aventure car on ne se sait jamais ce qui se passera pendant la nuit !</p>
+                  
+                  <p className="text-gray-500 text-lg md:text-xl leading-relaxed whitespace-pre-line mt-4">C’est certainement le meilleur moyen pour vivre des instants hors normes en Tanzanie, qui s’adresse avant tout à ceux dont l’Aventure est une priorité.</p>
+                  
+                  <p className="text-gray-500 text-lg md:text-xl leading-relaxed whitespace-pre-line mt-4">Loin des clichés, à faire une fois dans sa vie, car c’est une expérience unique dont on ressort grandi et humble..</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -557,8 +587,8 @@ export default function SafariBivouac4DaysPage() {
                   </div>
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
                     <div className="text-right">
-                      <div className="text-base text-gray-600">from <span className="font-semibold text-gray-900">€820</span></div>
-                      <div className="text-sm text-gray-500">Deposit €150</div>
+                      <div className="text-base text-gray-600">from <span className="font-semibold text-gray-900">1,000€</span></div>
+                      <div className="text-sm text-gray-500">Deposit 200€</div>
                     </div>
                     <button 
                       onClick={() => setShowInquiryForm(true)}

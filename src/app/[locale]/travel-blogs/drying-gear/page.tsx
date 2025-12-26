@@ -1,289 +1,485 @@
- 'use client'
+'use client'
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import '../../../tailgrid.css'
-import { useLocale, useTranslations } from 'next-intl'
+import { useLocale } from 'next-intl'
 import AuthorMeta from '@/components/ui/AuthorMeta'
 import TOC from '@/components/ui/TOC'
 
+interface Section {
+  id: string
+  title: string
+}
+
 export default function DryingGearPage() {
-  const [expandedSection, setExpandedSection] = useState<string | null>(null)
+  const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({
+    intro: true, // Keep introduction expanded by default
+    method1: false,
+    method2: false,
+    method3: false,
+    method4: false,
+    method5: false,
+    errors: false,
+    conclusion: false,
+    tip: false
+  })
+  const [isScrolled, setIsScrolled] = useState(false)
   const locale = useLocale()
-  const t = useTranslations('DryingGear')
 
-  const sections = [
-    { id: 'intro', title: t('sections.introTitle') },
-    { id: 'method1', title: t('sections.method1Title') },
-    { id: 'method2', title: t('sections.method2Title') },
-    { id: 'method3', title: t('sections.method3Title') },
-    { id: 'method4', title: t('sections.method4Title') },
-    { id: 'method5', title: t('sections.method5Title') },
-    { id: 'mistakes', title: t('sections.mistakesTitle') },
-    { id: 'conclusion', title: t('sections.conclusionTitle') }
-  ]
+  // Toggle section expansion - only one section open at a time
+  const toggleSection = (sectionId: string) => {
+    setExpandedSections(prev => {
+      // If the clicked section is already open, close it
+      if (prev[sectionId]) {
+        return {
+          ...prev,
+          [sectionId]: false
+        };
+      }
+      
+      // Close all sections and open only the clicked one
+      const newSections: Record<string, boolean> = {};
+      Object.keys(prev).forEach(key => {
+        newSections[key] = key === sectionId;
+      });
+      
+      return newSections;
+    });
+    
+    // Scroll to the section header
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
+  }
 
+  // Handle scroll for header effects
   useEffect(() => {
-    const handleHash = () => {
-      const id = window.location.hash.replace('#', '')
-      if (id) setExpandedSection(id)
-    }
-    handleHash()
+    const handleScroll = () => setIsScrolled(window.scrollY > 50)
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Add pulse animation to headers on initial load
+  useEffect(() => {
+    const headers = document.querySelectorAll('section[id^="method"] h2, section[id^="errors"] h2, section[id^="conclusion"] h2, section[id^="tip"] h2');
+    headers.forEach(header => {
+      header.classList.add('animate-pulse-once');
+    });
+    
+    // Clean up animation class after initial pulse
+    const timeout = setTimeout(() => {
+      headers.forEach(header => {
+        header.classList.remove('animate-pulse-once');
+      });
+    }, 2000);
+    
+    return () => clearTimeout(timeout);
+  }, [])
+
+  // Define sections for TOC with hardcoded French titles
+  const sections: Section[] = [
+    { id: 'intro', title: 'Comment sécher ses affaires en trek quand il pleut ?' },
+    { id: 'method1', title: 'La méthode la plus fiable : utiliser la chaleur du corps' },
+    { id: 'method2', title: 'Sécher sous la tente : possible, mais pas n\'importe comment' },
+    { id: 'method3', title: 'Profiter de la chaleur du camp : la méthode locale pour sécher ses vêtements en trek' },
+    { id: 'method4', title: 'Le sac de secours : votre assurance anti-pluie pour le trek Kilimandjaro' },
+    { id: 'method5', title: 'Profiter du vent et des accalmies : le séchage express en trek' },
+    { id: 'errors', title: 'Les erreurs les plus fréquentes des trekkeurs et comment les éviter' },
+    { id: 'conclusion', title: 'Conclusion : la pluie n\'est pas l\'ennemie, l\'humidité oui' },
+    { id: 'tip', title: 'Conseil du guide local : anticiper l\'humidité pour réussir son trek Kilimandjaro' }
+  ]
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero5.jpg')" }}>
+      {/* Hero section with back-link */}
+      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero6.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium">{locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}</Link>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">{t('title')}</h1>
-          <p className="text-base md:text-lg text-[#E8F8F5] max-w-3xl">{t('subtitle')}</p>
+          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+            {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
+          </Link>
         </div>
       </section>
 
+      {/* Author meta */}
       <section className="py-12 border-b border-gray-200">
         <div className="container mx-auto px-4 max-w-4xl">
-          <AuthorMeta author={t('meta.author')} date={t('meta.date')} readingTime={t('meta.readingTime')} />
+          <AuthorMeta
+            author="Guide Local Kilimandjaro"
+            date="Décembre 2025"
+            readingTime="15 min de lecture"
+          />
         </div>
       </section>
 
-      {/* Mobile TOC (visible on sm screens, below meta) */}
+      {/* TOC mobile */}
       <section className="md:hidden py-8 bg-white border-b border-gray-200">
         <div className="container mx-auto px-4">
           <TOC
             title={locale === 'fr' ? 'Sommaire' : 'Overview'}
             items={sections.map(s => ({ id: s.id, label: s.title, level: 2 }))}
-            onSelect={(id: string) => setExpandedSection(id)}
+            onSelect={(id: string) => { setExpandedSections({ ...expandedSections, [id]: true }) }}
           />
         </div>
       </section>
 
-      <section className="py-16 bg-white" data-section="detailed-article">
+      {/* Main content with TOC desktop */}
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-            <div className="max-w-7xl mx-auto">
-            <div className="md:flex md:items-start md:gap-8">
-              <aside className="hidden md:block md:w-72 lg:w-80 sticky top-24 self-start transform md:-translate-x-20 lg:-translate-x-32">
-                <div className="bg-white rounded-lg border p-4 shadow-sm mb-6">
-                  <TOC title={locale === 'fr' ? 'Sommaire' : 'Overview'} items={sections.map(s => ({ id: s.id, label: s.title, level: 2 }))} onSelect={(id: string) => setExpandedSection(id)} />
-                </div>
-              </aside>
-
-              <div className="flex-1">
-                <div className="space-y-6">
-                  <article id="intro" className="bg-gray-50 rounded-lg shadow-md p-6">
-                    <p className="text-gray-700 leading-relaxed">{t('sections.intro')}</p>
-                  </article>
-
-                  <article id="method1" className="bg-gray-50 rounded-lg shadow-md p-6">
-                    <h2 className="text-2xl font-bold mb-4">{t('sections.method1Title')}</h2>
-                    <p className="text-gray-700 leading-relaxed">{t('sections.method1')}</p>
-                  </article>
-
-                  <article id="method2" className="bg-gray-50 rounded-lg shadow-md p-6">
-                    <h2 className="text-2xl font-bold mb-4">{t('sections.method2Title')}</h2>
-                    <p className="text-gray-700 leading-relaxed">{t('sections.method2')}</p>
-                  </article>
-
-                  <article id="method3" className="bg-gray-50 rounded-lg shadow-md p-6">
-                    <h2 className="text-2xl font-bold mb-4">{t('sections.method3Title')}</h2>
-                    <p className="text-gray-700 leading-relaxed">{t('sections.method3')}</p>
-                  </article>
-
-                  <article id="method4" className="bg-gray-50 rounded-lg shadow-md p-6">
-                    <h2 className="text-2xl font-bold mb-4">{t('sections.method4Title')}</h2>
-                    <p className="text-gray-700 leading-relaxed">{t('sections.method4')}</p>
-                  </article>
-
-                  <article id="method5" className="bg-gray-50 rounded-lg shadow-md p-6">
-                    <h2 className="text-2xl font-bold mb-4">{t('sections.method5Title')}</h2>
-                    <p className="text-gray-700 leading-relaxed">{t('sections.method5')}</p>
-                  </article>
-
-                  <article id="mistakes" className="bg-gray-50 rounded-lg shadow-md p-6">
-                    <h2 className="text-2xl font-bold mb-4">{t('sections.mistakesTitle')}</h2>
-                    <p className="text-gray-700 leading-relaxed">{t('sections.mistakes')}</p>
-                  </article>
-
-                  <article id="conclusion" className="bg-gray-50 rounded-lg shadow-md p-6">
-                    <h2 className="text-2xl font-bold mb-4">{t('sections.conclusionTitle')}</h2>
-                    <p className="text-gray-700 leading-relaxed">{t('sections.conclusion')}</p>
-                    <p className="text-gray-700 leading-relaxed mt-4 font-semibold">{t('sections.tip')}</p>
-                  </article>
-
-                </div>
+          <div className="max-w-7xl mx-auto md:flex md:gap-8">
+            <aside className="hidden md:block md:w-72 lg:w-80 sticky top-24 self-start">
+              <div className="bg-white rounded-lg border p-4 shadow-sm mb-6">
+                <TOC
+                  title={locale === 'fr' ? 'Sommaire' : 'Overview'}
+                  items={sections.map(s => ({ id: s.id, label: s.title, level: 2 }))}
+                  onSelect={(id: string) => { setExpandedSections({ ...expandedSections, [id]: true }) }}
+                />
               </div>
+            </aside>
+            
+            <div className="flex-1 space-y-8">
+              {/* Introduction Section */}
+              <section id="intro" className="bg-white rounded-lg shadow-md p-8">
+                <h1 className="text-3xl font-bold text-gray-900 mb-6">
+                  Comment sécher ses affaires en trek quand il pleut ?
+                </h1>
+                <div className="prose prose-lg max-w-none text-gray-700">
+                  <p className="mb-4">Conseils pratiques d'un guide local en Tanzanie</p>
+                  <p className="mb-4">Quand on part en trek, surtout sur une montagne comme le Kilimandjaro, un vêtement mouillé n'est jamais "juste" un inconfort. C'est du froid en plus, de l'énergie perdue, un risque d'irritation ou d'ampoules.</p>
+                  <p className="mb-4">Et en saison des pluies, tout peut être mouillé : vêtements, gants, chaussettes, sac...</p>
+                  <p className="mb-4">Heureusement, il existe des méthodes simples et efficaces que les guides locaux utilisent chaque jour pour sécher les affaires malgré l'humidité.</p>
+                </div>
+              </section>
+
+              {/* Method 1 Section */}
+              <section id="method1" className="bg-white rounded-lg shadow-md p-8">
+                <h2 
+                  className="text-3xl font-bold text-gray-900 mb-6 cursor-pointer flex justify-between items-center hover:text-[#00A896] transition-colors duration-200"
+                  onClick={() => toggleSection('method1')}
+                >
+                  <span>La méthode la plus fiable : utiliser la chaleur du corps</span>
+                  <svg 
+                    className={`w-6 h-6 transition-transform duration-300 ${expandedSections.method1 ? 'rotate-180' : ''} animate-bounce`}
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </h2>
+                <div 
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.method1 ? 'max-h-[3000px]' : 'max-h-0'}`}
+                >
+                  <div className="prose prose-lg max-w-none text-gray-700">
+                    <p className="mb-4">Lorsque le soleil est caché derrière les nuages, que le vent est faible ou inexistant, et qu'aucune source de chaleur n'est disponible autour de vous, la meilleure façon de sécher vos vêtements reste celle que la nature vous fournit gratuitement : votre propre corps. Cette méthode repose sur la chaleur que vous produisez en marchant ou simplement en restant actif, et elle est particulièrement efficace en montagne où chaque degré de chaleur compte.</p>
+                    
+                    <p className="mb-4">Pour que cette technique fonctionne, il faut d'abord préparer correctement le vêtement humide. Il est essentiel de l'essorer au maximum afin d'éliminer l'excès d'eau. Plus le tissu contient d'humidité, plus il mettra de temps à sécher et plus vous perdrez de chaleur si vous le portez trop tôt. Une fois que l'eau superflue a été évacuée, vous devez enfiler une couche sèche contre votre peau. Cette couche sert à maintenir votre chaleur corporelle et à éviter que le froid ne pénètre pendant le processus de séchage. Elle crée un espace protecteur entre vous et le vêtement humide.</p>
+                    
+                    <p className="mb-4">Le vêtement mouillé peut ensuite être placé sous votre polaire ou votre doudoune, directement contre le torse. La chaleur générée par votre corps va progressivement s'infiltrer dans le tissu, évaporant l'humidité. Cette technique est particulièrement utile pour les petits vêtements comme les gants, les chaussettes, les sous-vêtements ou les buffs, qui sèchent plus rapidement grâce à la chaleur concentrée.</p>
+                    
+                    <p className="mb-4">Enfin, il faut laisser le vêtement humide profiter de cette chaleur pendant la marche ou quelques heures au camp. Même si le séchage est lent, cette méthode est sûre et fiable, et elle permet de conserver un minimum de confort et de chaleur pendant votre trek. C'est une approche simple mais efficace, qui ne dépend ni du soleil ni du vent et qui fait partie des secrets bien connus des guides locaux.</p>
+                  </div>
+                </div>
+              </section>
+
+              {/* Method 2 Section */}
+              <section id="method2" className="bg-white rounded-lg shadow-md p-8">
+                <h2 
+                  className="text-3xl font-bold text-gray-900 mb-6 cursor-pointer flex justify-between items-center hover:text-[#00A896] transition-colors duration-200"
+                  onClick={() => toggleSection('method2')}
+                >
+                  <span>Sécher sous la tente : possible, mais pas n'importe comment</span>
+                  <svg 
+                    className={`w-6 h-6 transition-transform duration-300 ${expandedSections.method2 ? 'rotate-180' : ''} animate-bounce`}
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </h2>
+                <div 
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.method2 ? 'max-h-[3000px]' : 'max-h-0'}`}
+                >
+                  <div className="prose prose-lg max-w-none text-gray-700">
+                    <p className="mb-4">Beaucoup de trekkeurs pensent qu'il suffit de suspendre leurs vêtements dans la tente pour qu'ils sèchent. En réalité, la tente est souvent l'un des endroits les plus humides que vous puissiez trouver en montagne. L'air y est confiné, la condensation s'accumule sur les parois et la chaleur reste faible. Si l'on ne gère pas correctement l'espace, les vêtements peuvent rester mouillés pendant des heures, voire devenir encore plus humides.</p>
+                    
+                    <p className="mb-4">Pour sécher efficacement à l'intérieur de la tente, il faut comprendre comment l'air circule et comment l'humidité se déplace. Il est conseillé de suspendre les vêtements en hauteur, là où l'air circule un peu mieux que près du sol, tout en évitant de les coller directement aux parois. Les parois sont souvent couvertes de gouttelettes ou de condensation qui retomberaient sur le tissu. Si la tente possède des aérations, il est préférable de rapprocher les vêtements de ces zones, sans jamais les toucher, car l'air qui entre peut faciliter le séchage en éliminant une partie de l'humidité. Lorsque la pluie faiblit, même légèrement, il est utile de laisser une petite ouverture pour créer un léger courant d'air. Ce mouvement subtil permet à l'air de circuler autour des vêtements et accélère le séchage, tout en évitant que l'humidité stagnante ne s'y accumule.</p>
+                    
+                    <p className="mb-4">Certaines erreurs courantes peuvent compromettre totalement le séchage à l'intérieur. Coller les vêtements au toit de la tente est une mauvaise idée, car l'eau de condensation ruisselle facilement et mouille à nouveau le tissu. Laisser les habits dans un tas au fond de la tente crée un microclimat humide où les vêtements peuvent moisir. Enfin, poser les affaires sur le sol est également contre-productif, car le sol est souvent froid et humide, ce qui empêche l'évaporation et peut transformer vos vêtements en linges détrempés encore plus rapidement.</p>
+                    
+                    <p className="mb-4">En comprenant ces principes et en organisant soigneusement l'espace à l'intérieur de la tente, il est possible de faire sécher une partie de vos vêtements même lorsque la pluie ne s'arrête pas. Ce n'est jamais aussi rapide qu'à l'extérieur par temps sec, mais avec un peu d'attention, vous pouvez conserver au moins un minimum de confort et de chaleur au camp.</p>
+                  </div>
+                </div>
+              </section>
+
+              {/* Method 3 Section */}
+              <section id="method3" className="bg-white rounded-lg shadow-md p-8">
+                <h2 
+                  className="text-3xl font-bold text-gray-900 mb-6 cursor-pointer flex justify-between items-center hover:text-[#00A896] transition-colors duration-200"
+                  onClick={() => toggleSection('method3')}
+                >
+                  <span>Profiter de la chaleur du camp : la méthode locale pour sécher ses vêtements en trek</span>
+                  <svg 
+                    className={`w-6 h-6 transition-transform duration-300 ${expandedSections.method3 ? 'rotate-180' : ''} animate-bounce`}
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </h2>
+                <div 
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.method3 ? 'max-h-[3000px]' : 'max-h-0'}`}
+                >
+                  <div className="prose prose-lg max-w-none text-gray-700">
+                    <p className="mb-4">Lors d'un trek sur le Kilimandjaro, gérer l'humidité est un défi quotidien, surtout pendant la saison des pluies Kilimandjaro. Même lorsque la pluie tombe sans interruption, il existe une astuce que les guides locaux connaissent bien : exploiter la chaleur autour du camp pour sécher les vêtements mouillés. Les zones situées près de la cuisine extérieure des camps sont légèrement plus chaudes que le reste du camp, et cette chaleur indirecte peut être utilisée pour accélérer le séchage des affaires.</p>
+                    
+                    <p className="mb-4">Pour utiliser cette méthode de façon sécurisée, il est essentiel de maintenir une distance d'au moins un mètre du feu. Placer un vêtement directement au-dessus des flammes ou trop près de la cuisson peut le brûler rapidement, surtout s'il est déjà humide. En le positionnant dans un espace proche mais sûr, la chaleur ambiante se diffuse autour du tissu, favorisant l'évaporation sans danger. Les guides recommandent également de retourner régulièrement les vêtements, afin que l'humidité ne reste pas piégée dans les fibres et que le séchage se fasse de manière homogène.</p>
+                    
+                    <p className="mb-4">Une technique locale très efficace consiste à placer les vêtements dans un sac plastique percé. Cette méthode crée une mini-serre qui concentre légèrement la chaleur autour du tissu, accélérant le séchage des gants, chaussettes, sous-vêtements ou autres petites affaires. Grâce à cette approche, même lors d'un trek Kilimandjaro sous la pluie, il est possible de garder vos vêtements essentiels au sec, préservant ainsi votre confort et votre sécurité en altitude.</p>
+                    
+                    <p className="mb-4">Exploiter intelligemment la chaleur du camp est une stratégie que tout trekkeur devrait connaître. Les guides locaux l'utilisent quotidiennement pour éviter que les vêtements mouillés ne deviennent un problème, surtout pendant la saison des pluies. En combinant cette méthode avec la chaleur corporelle et la circulation de l'air dans la tente, il est possible de garder ses affaires sèches et de profiter pleinement de l'expérience unique d'un trek Kilimandjaro.</p>
+                  </div>
+                </div>
+              </section>
+
+              {/* Method 4 Section */}
+              <section id="method4" className="bg-white rounded-lg shadow-md p-8">
+                <h2 
+                  className="text-3xl font-bold text-gray-900 mb-6 cursor-pointer flex justify-between items-center hover:text-[#00A896] transition-colors duration-200"
+                  onClick={() => toggleSection('method4')}
+                >
+                  <span>Le sac de secours : votre assurance anti-pluie pour le trek Kilimandjaro</span>
+                  <svg 
+                    className={`w-6 h-6 transition-transform duration-300 ${expandedSections.method4 ? 'rotate-180' : ''} animate-bounce`}
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </h2>
+                <div 
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.method4 ? 'max-h-[3000px]' : 'max-h-0'}`}
+                >
+                  <div className="prose prose-lg max-w-none text-gray-700">
+                    <p className="mb-4">Lors d'un trek Kilimandjaro, surtout pendant la saison des pluies, il est impossible de garantir que tous vos vêtements resteront secs. Même avec les meilleures méthodes pour sécher vos affaires, l'humidité et les averses peuvent rendre certains vêtements totalement inutilisables. C'est pour cette raison que chaque guide local recommande vivement de préparer un sac de secours étanche, un véritable "kit de survie sèche". Ce sac vous assure d'avoir toujours à disposition un ensemble de vêtements secs, essentiels pour rester au chaud et confortable, quelles que soient les conditions météorologiques.</p>
+                    
+                    <p className="mb-4">Dans ce sac étanche, il est crucial de conserver un ensemble complet : un t-shirt sec, une sous-couche thermique, une paire de chaussettes propres, un pantalon léger et une couche chaude supplémentaire. Ces vêtements ne doivent jamais être utilisés pour marcher ou grimper pendant la journée. Leur rôle est de vous protéger après une longue marche sous la pluie, de maintenir votre chaleur corporelle et de vous permettre de dormir confortablement. Même si tout le reste de votre sac est mouillé, ces vêtements restent intacts et vous offrent une sécurité essentielle face à l'humidité en montagne.</p>
+                    
+                    <p className="mb-4">Le sac de secours agit comme une véritable assurance anti-pluie. Il permet au trekkeur de rester sec et protégé, même en pleine saison des pluies Kilimandjaro, et de continuer son trek sans perdre d'énergie ou de confort. Les guides locaux insistent sur l'importance de ce sac, car il garantit que vous pourrez toujours vous changer et rester au chaud, même si la météo devient difficile. Adopter cette stratégie simple mais efficace fait une grande différence entre un trek agréable et un trek éprouvant.</p>
+                    
+                    <p className="mb-4">En préparant correctement votre sac de secours, vous vous assurez non seulement de rester sec, mais aussi de profiter pleinement de votre aventure sur le Kilimandjaro. C'est une méthode essentielle que tout trekkeur devrait suivre et qui est utilisée quotidiennement par les guides locaux pour protéger leurs clients contre les imprévus liés à la pluie et à l'humidité en montagne.</p>
+                  </div>
+                </div>
+              </section>
+
+              {/* Method 5 Section */}
+              <section id="method5" className="bg-white rounded-lg shadow-md p-8">
+                <h2 
+                  className="text-3xl font-bold text-gray-900 mb-6 cursor-pointer flex justify-between items-center hover:text-[#00A896] transition-colors duration-200"
+                  onClick={() => toggleSection('method5')}
+                >
+                  <span>Profiter du vent et des accalmies : le séchage express en trek</span>
+                  <svg 
+                    className={`w-6 h-6 transition-transform duration-300 ${expandedSections.method5 ? 'rotate-180' : ''} animate-bounce`}
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </h2>
+                <div 
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.method5 ? 'max-h-[3000px]' : 'max-h-0'}`}
+                >
+                  <div className="prose prose-lg max-w-none text-gray-700">
+                    <p className="mb-4">Même pendant la saison des pluies sur le Kilimandjaro, il existe toujours de courtes périodes où le temps s'améliore légèrement. Une accalmie de quelques minutes ou un souffle de vent plus soutenu peut suffire à faire sécher vos vêtements mouillés et à rendre votre trek beaucoup plus confortable. Ces moments, bien utilisés, permettent de tirer parti des éléments naturels pour limiter l'humidité et garder vos affaires sèches.</p>
+                    
+                    <p className="mb-4">Le vent joue un rôle essentiel dans ce processus. Il agit comme un sèche-linge naturel, parfois même plus efficace que le soleil, surtout dans les zones froides et humides de la montagne. Lorsqu'un vêtement humide est exposé à un flux d'air constant, l'humidité qu'il contient s'évapore progressivement. Il suffit d'étirer le tissu et de l'exposer directement au vent pour augmenter la surface de contact avec l'air et accélérer le séchage. Les petits accessoires comme les chaussettes, les gants, les buffs ou les t-shirts légers bénéficient particulièrement de cette technique, car ils sèchent beaucoup plus vite lorsqu'ils sont correctement orientés face au vent.</p>
+                    
+                    <p className="mb-4">L'anticipation et l'observation sont la clé. Un trekkeur expérimenté sait reconnaître le moment où le vent se lève ou où la pluie faiblit et agit immédiatement pour suspendre ses vêtements ou les étendre sur une pierre ou un bâton. Même une courte pause de dix minutes peut suffire à transformer un vêtement trempé en vêtement presque sec, réduisant l'inconfort et le risque de froid. En combinant cette méthode avec la chaleur corporelle et les techniques de séchage au camp ou dans la tente, il est possible de garder ses affaires au sec et de profiter pleinement de l'expérience du trek.</p>
+                    
+                    <p className="mb-4">Exploiter intelligemment le vent et les accalmies est donc une stratégie simple mais efficace que tous les guides locaux enseignent. C'est une astuce essentielle pour tout trek Kilimandjaro, car elle permet de rester confortable, chaud et sec, même en pleine saison des pluies.</p>
+                  </div>
+                </div>
+              </section>
+
+              {/* Errors Section */}
+              <section id="errors" className="bg-white rounded-lg shadow-md p-8">
+                <h2 
+                  className="text-3xl font-bold text-gray-900 mb-6 cursor-pointer flex justify-between items-center hover:text-[#00A896] transition-colors duration-200"
+                  onClick={() => toggleSection('errors')}
+                >
+                  <span>Les erreurs les plus fréquentes des trekkeurs et comment les éviter</span>
+                  <svg 
+                    className={`w-6 h-6 transition-transform duration-300 ${expandedSections.errors ? 'rotate-180' : ''} animate-bounce`}
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </h2>
+                <div 
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.errors ? 'max-h-[3000px]' : 'max-h-0'}`}
+                >
+                  <div className="prose prose-lg max-w-none text-gray-700">
+                    <p className="mb-4">Lors d'un trek sur le Kilimandjaro, surtout pendant la saison des pluies, il est facile de commettre des erreurs qui aggravent l'humidité et rendent l'expérience beaucoup plus difficile. Beaucoup de randonneurs pensent que certaines habitudes sont sans conséquence, mais elles peuvent transformer un simple vêtement mouillé en véritable source d'inconfort ou de fatigue.</p>
+                    
+                    <p className="mb-4">Une erreur très courante est de laver ses vêtements pendant le trek. Bien que cela semble logique pour rester propre, en réalité, les conditions en altitude rendent le séchage extrêmement difficile. L'air est froid et humide, et même après plusieurs heures, les vêtements restent souvent détrempés. Laver ses affaires dans ces conditions revient donc à ajouter encore plus d'humidité et à compliquer le confort et la gestion thermique.</p>
+                    
+                    <p className="mb-4">Beaucoup de trekkeurs essaient également de sécher leurs vêtements directement dans la tente, sans prêter attention à la condensation. Or, l'intérieur d'une tente est souvent saturé d'humidité, surtout la nuit. Suspendre ses affaires dans cet environnement ne fait qu'empêcher le séchage et peut même accélérer le développement de mauvaises odeurs.</p>
+                    
+                    <p className="mb-4">Poser les vêtements sur une pierre ou un sol mouillé est une autre erreur fréquente. Les surfaces froides et humides empêchent l'évaporation et peuvent au contraire retenir l'eau dans les fibres. Les vêtements restent alors trempés beaucoup plus longtemps, augmentant le risque d'inconfort et de froid.</p>
+                    
+                    <p className="mb-4">Enfin, marcher avec des vêtements mouillés, surtout ceux en contact direct avec la peau, est une erreur à éviter. Cela augmente rapidement la perte de chaleur corporelle et peut provoquer des irritations, des frottements douloureux ou même des ampoules. En altitude, ce simple geste peut avoir un impact significatif sur votre énergie et votre sécurité.</p>
+                    
+                    <p className="mb-4">Comprendre ces erreurs et savoir les éviter est essentiel pour tout trekkeur sur le Kilimandjaro. En anticipant la gestion des vêtements mouillés, en utilisant correctement la chaleur corporelle, la chaleur du camp, le vent et les accalmies, et en conservant un sac de secours, vous pouvez transformer un trek sous la pluie en une expérience beaucoup plus agréable, confortable et sûre.</p>
+                  </div>
+                </div>
+              </section>
+
+              {/* Conclusion Section */}
+              <section id="conclusion" className="bg-white rounded-lg shadow-md p-8">
+                <h2 
+                  className="text-3xl font-bold text-gray-900 mb-6 cursor-pointer flex justify-between items-center hover:text-[#00A896] transition-colors duration-200"
+                  onClick={() => toggleSection('conclusion')}
+                >
+                  <span>Conclusion : la pluie n'est pas l'ennemie, l'humidité oui</span>
+                  <svg 
+                    className={`w-6 h-6 transition-transform duration-300 ${expandedSections.conclusion ? 'rotate-180' : ''} animate-bounce`}
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </h2>
+                <div 
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.conclusion ? 'max-h-[3000px]' : 'max-h-0'}`}
+                >
+                  <div className="prose prose-lg max-w-none text-gray-700">
+                    <p className="mb-4">Lors d'un trek sur le Kilimandjaro, beaucoup de randonneurs considèrent la pluie comme le principal obstacle à leur confort. En réalité, ce n'est pas la pluie elle-même qui pose problème, mais l'humidité qu'elle entraîne et la manière dont elle est gérée. Un vêtement mouillé, mal séché ou laissé à l'air libre dans des conditions humides peut rapidement transformer une simple randonnée en une expérience inconfortable, fatigante et même risquée pour la santé.</p>
+                    
+                    <p className="mb-4">Avec de bonnes techniques et un peu d'organisation, il est tout à fait possible de rester sec et au chaud, même pendant la saison des pluies Kilimandjaro. Utiliser la chaleur corporelle, profiter intelligemment de la chaleur du camp, exploiter les courants d'air et le vent, savoir tirer parti des accalmies et conserver un sac de secours avec un ensemble de vêtements essentiels sont des stratégies simples mais efficaces. Ces méthodes, enseignées et utilisées quotidiennement par les guides locaux, permettent de minimiser l'humidité et de garder le confort tout au long du trek.</p>
+                    
+                    <p className="mb-4">En adoptant ces pratiques, la pluie cesse d'être une ennemie. Elle devient simplement un élément de la nature à anticiper et à gérer. L'humidité, si elle est maîtrisée, ne compromet plus votre aventure. Vous pouvez ainsi profiter pleinement de l'ascension, des paysages spectaculaires et de l'expérience unique d'un trek Kilimandjaro, même lorsque le ciel est gris et que la pluie tombe.</p>
+                  </div>
+                </div>
+              </section>
+
+              {/* Tip Section */}
+              <section id="tip" className="bg-white rounded-lg shadow-md p-8">
+                <h2 
+                  className="text-3xl font-bold text-gray-900 mb-6 cursor-pointer flex justify-between items-center hover:text-[#00A896] transition-colors duration-200"
+                  onClick={() => toggleSection('tip')}
+                >
+                  <span>Conseil du guide local : anticiper l'humidité pour réussir son trek Kilimandjaro</span>
+                  <svg 
+                    className={`w-6 h-6 transition-transform duration-300 ${expandedSections.tip ? 'rotate-180' : ''} animate-bounce`}
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </h2>
+                <div 
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.tip ? 'max-h-[3000px]' : 'max-h-0'}`}
+                >
+                  <div className="prose prose-lg max-w-none text-gray-700">
+                    <p className="mb-4">Lors d'un trek Kilimandjaro, la météo peut changer très rapidement. Pluie, vent, brouillard et humidité font partie de l'expérience, surtout pendant la saison des pluies Kilimandjaro. Comme le répète souvent un guide local : "On ne choisit pas la météo, mais on choisit comment on s'y prépare. Celui qui anticipe gagne toujours contre l'humidité." Cette phrase illustre parfaitement l'approche à adopter pour rester sec et confortable en montagne.</p>
+                    
+                    <p className="mb-4">Anticiper signifie utiliser toutes les techniques disponibles pour gérer l'humidité et protéger ses vêtements et accessoires de trek. Cela inclut préparer un sac de secours avec un ensemble de vêtements secs essentiels, exploiter la chaleur corporelle et la chaleur du camp, profiter des accalmies et du vent, et éviter les erreurs courantes comme laisser sécher ses habits dans une tente saturée ou marcher en vêtements mouillés. Chaque geste compte pour minimiser l'humidité et préserver votre énergie tout au long de l'ascension.</p>
+                    
+                    <p className="mb-4">Suivre ce conseil de guide local permet de transformer la pluie et l'humidité en éléments maîtrisés plutôt qu'en obstacles. En anticipant les conditions, le trekkeur peut rester sec, profiter pleinement des paysages spectaculaires du Kilimandjaro et vivre une expérience inoubliable, même lorsque le ciel est gris et que la pluie tombe. C'est une stratégie essentielle pour tout trek Kilimandjaro réussi, et elle fait partie des secrets que tous les guides locaux enseignent à leurs groupes.</p>
+                  </div>
+                </div>
+              </section>
+
+              {/* Canonical route cards section */}
+              <section className="py-16 bg-white">
+                <div className="container mx-auto px-4 max-w-6xl">
+                  <div className="text-center mb-12">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4">{locale === 'fr' ? 'Prêt pour une aventure ?' : 'Ready for an adventure?'}</h2>
+                    <p className="text-gray-600 text-lg">{locale === 'fr' ? 'Explorez nos meilleures routes du Kilimandjaro' : 'Explore our top Kilimanjaro routes'}</p>
+                  </div>
+
+                  <div className="grid md:grid-cols-3 gap-8">
+                    <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
+                      <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/marangu-route.jpg')" }}></div>
+                      <div className="p-6">
+                        <div className="flex justify-between items-start mb-4">
+                          <div>
+                            <h3 className="text-xl font-bold text-gray-800">Marangu Route</h3>
+                            <p className="text-[#00A896] font-semibold">{locale === 'fr' ? "À partir de 1 800 €" : 'From €1,800'}</p>
+                          </div>
+                          <div className="text-right">
+                            <div className="text-sm text-gray-500">⏱️5 {locale === 'fr' ? 'jours' : 'days'}</div>
+                            <div className="text-yellow-400">★★★★★ (5.0)</div>
+                          </div>
+                        </div>
+                        <p className="text-gray-700 mb-4">{locale === 'fr' ? "Conquérir le Toit de l'Afrique : L'Ascension du Kilimandjaro par la Route Marangu en 5 Jours" : 'Conquer Africa\'s Roof: Marangu Route in 5 days'}</p>
+                        <p className="text-gray-600 text-sm mb-4">{locale === 'fr' ? "Envie de vous tenir sur le toit de l'Afrique ? Grimpez le Kilimandjaro avec nous et créez des souvenirs inoubliables !" : 'Want to stand on Africa\'s roof? Climb Kilimanjaro with us.'}</p>
+                        <Link href={`/${locale}/trips/marangu-route`} className="bg-[#00A896] hover:bg-[#008576] text-white px-6 py-2 rounded-lg font-medium transition-colors inline-block">{locale === 'fr' ? 'En savoir plus' : 'Learn more'}</Link>
+                      </div>
+                    </div>
+
+                    <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
+                      <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/lemosho-route.jpg')" }}></div>
+                      <div className="p-6">
+                        <div className="flex justify-between items-start mb-4">
+                          <div>
+                            <h3 className="text-xl font-bold text-gray-800">Lemosho Route</h3>
+                            <p className="text-[#00A896] font-semibold">{locale === 'fr' ? "À partir de 2 200 €" : 'From €2,200'}</p>
+                          </div>
+                          <div className="text-right">
+                            <div className="text-sm text-gray-500">⏱️7 {locale === 'fr' ? 'jours' : 'days'}</div>
+                            <div className="text-yellow-400">★★★★★ (5.0)</div>
+                          </div>
+                        </div>
+                        <p className="text-gray-700 mb-4">{locale === 'fr' ? "L'Aventure Panoramique : Itinéraire Lemosho en 7 Jours" : 'Panoramic adventure: Lemosho in 7 days'}</p>
+                        <p className="text-gray-600 text-sm mb-4">{locale === 'fr' ? "La voie Lemosho est réputée comme l'un des itinéraires les plus spectaculaires." : 'Lemosho is renowned for spectacular views across the western and southern flanks.'}</p>
+                        <Link href={`/${locale}/trips/lemosho-route`} className="bg-[#00A896] hover:bg-[#008576] text-white px-6 py-2 rounded-lg font-medium transition-colors inline-block">{locale === 'fr' ? 'En savoir plus' : 'Learn more'}</Link>
+                      </div>
+                    </div>
+
+                    <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
+                      <div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/kilimanjaro-umbwe.jpg')" }}></div>
+                      <div className="p-6">
+                        <div className="flex justify-between items-start mb-4">
+                          <div>
+                            <h3 className="text-xl font-bold text-gray-800">Umbwe Route</h3>
+                            <p className="text-[#00A896] font-semibold">{locale === 'fr' ? "À partir de 1 900 €" : 'From €1,900'}</p>
+                          </div>
+                          <div className="text-right">
+                            <div className="text-sm text-gray-500">⏱️6 {locale === 'fr' ? 'jours' : 'days'}</div>
+                            <div className="text-yellow-400">★★★★☆ (4.5)</div>
+                          </div>
+                        </div>
+                        <p className="text-gray-700 mb-4">{locale === 'fr' ? "L'Itinéraire Umbwe : Le Défi Vertical du Kilimandjaro (6 Jours)" : 'Umbwe: the vertical challenge in 6 days'}</p>
+                        <p className="text-gray-600 text-sm mb-4">{locale === 'fr' ? "Souvent décrite comme la voie la plus courte et la plus ardue, l'itinéraire Umbwe est parfait pour les randonneurs expérimentés." : 'Often the shortest and steepest route, Umbwe suits experienced trekkers.'}</p>
+                        <Link href={`/${locale}/trips/umbwe-route`} className="bg-[#00A896] hover:bg-[#008576] text-white px-6 py-2 rounded-lg font-medium transition-colors inline-block">{locale === 'fr' ? 'En savoir plus' : 'Learn more'}</Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Packages Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-4 text-gray-800">
-            {locale === 'fr' ? 'Prêt pour une aventure ?' : 'Ready for an adventure?'}
-          </h2>
-          <p className="text-center text-gray-600 mb-12 text-lg">
-            {locale === 'fr' ? 'Explorez nos meilleures routes du Kilimandjaro' : 'Explore our best Kilimanjaro routes'}
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Marangu Route */}
-            <Link href={`/${locale}/trips/marangu-route`} className="block">
-              <div className="bg-[#E8F8F5] border border-[#B8EDE3] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer h-full">
-                <div className="relative h-64 bg-gradient-to-b from-gray-300 to-gray-200 flex items-center justify-center">
-                  <Image
-                    src="/images/marangu-route.jpg"
-                    alt="Marangu Route"
-                    fill
-                    className="object-cover"
-                  />
-                  <span className="absolute top-4 left-4 bg-[#00A896] text-white px-4 py-2 rounded-full font-semibold text-sm">
-                    {locale === 'fr' ? 'À partir de 1 800 €' : 'From $1,800'}
-                  </span>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-[#00A896] mb-2">
-                    {locale === 'fr' ? 'Route Marangu' : 'Marangu Route'}
-                  </h3>
-                  <p className="text-gray-600 mb-4 text-sm">
-                    {locale === 'fr' 
-                      ? 'Conquérir le Toit de l\'Afrique : L\'Ascension du Kilimandjaro par la Route Marangu en 5 Jours'
-                      : 'Conquer the Roof of Africa: Climbing Kilimanjaro via the Marangu Route in 5 Days'}
-                  </p>
-                  <p className="text-gray-700 mb-4 text-sm">
-                    {locale === 'fr' 
-                      ? 'Envie de vous tenir sur le toit de l\'Afrique ? Grimpez le Kilimandjaro avec nous et créez des souvenirs inoubliables !'
-                      : 'Want to stand on the roof of Africa? Climb Kilimanjaro with us and create unforgettable memories!'}
-                  </p>
-                  <div className="flex items-center justify-between text-gray-700">
-                    <span className="flex items-center gap-2">
-                      <span>⏱️</span>
-                      <span>{locale === 'fr' ? '5 jours' : '5 days'}</span>
-                    </span>
-                    <span className="flex items-center gap-1 text-red-500">
-                      ★★★★★ <span className="text-gray-600 text-sm">(5.0)</span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </Link>
-
-            {/* Lemosho Route */}
-            <Link href={`/${locale}/trips/lemosho-route`} className="block">
-              <div className="bg-[#E8F8F5] border border-[#B8EDE3] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer h-full">
-                <div className="relative h-64 bg-gradient-to-b from-gray-300 to-gray-200 flex items-center justify-center">
-                  <Image
-                    src="/images/lemosho-route.jpg"
-                    alt="Lemosho Route"
-                    fill
-                    className="object-cover"
-                  />
-                  <span className="absolute top-4 left-4 bg-[#00A896] text-white px-4 py-2 rounded-full font-semibold text-sm">
-                    {locale === 'fr' ? 'À partir de 2 200 €' : 'From $2,200'}
-                  </span>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-[#00A896] mb-2">
-                    {locale === 'fr' ? 'Route Lemosho' : 'Lemosho Route'}
-                  </h3>
-                  <p className="text-gray-600 mb-4 text-sm">
-                    {locale === 'fr' 
-                      ? 'L\'Aventure Panoramique : Itinéraire Lemosho en 7 Jours'
-                      : 'The Panoramic Adventure: Lemosho Itinerary in 7 Days'}
-                  </p>
-                  <p className="text-gray-700 mb-4 text-sm">
-                    {locale === 'fr' 
-                      ? 'La voie Lemosho est réputée comme l\'un des itinéraires les plus spectaculaires. Elle offre des vues imprenables sur les flancs ouest et sud du Kilimandjaro. Avec un profil d\'acclimatation en 7 jours, cet itinéraire maximise vos chances d\'atteindre le sommet en toute sécurité, traversant cinq zones climatiques différentes'
-                      : 'The Lemosho route is renowned as one of the most spectacular itineraries. It offers breathtaking views of the west and south flanks of Kilimanjaro. With a 7-day acclimatization profile, this itinerary maximizes your chances of reaching the summit safely, traversing five different climate zones'}
-                  </p>
-                  <div className="flex items-center justify-between text-gray-700">
-                    <span className="flex items-center gap-2">
-                      <span>⏱️</span>
-                      <span>{locale === 'fr' ? '7 jours' : '7 days'}</span>
-                    </span>
-                    <span className="flex items-center gap-1 text-red-500">
-                      ★★★★★ <span className="text-gray-600 text-sm">(5.0)</span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </Link>
-
-            {/* Umbwe Route */}
-            <Link href={`/${locale}/trips/umbwe-route`} className="block">
-              <div className="bg-[#E8F8F5] border border-[#B8EDE3] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer h-full">
-                <div className="relative h-64 bg-gradient-to-b from-gray-300 to-gray-200 flex items-center justify-center">
-                  <Image
-                    src="/images/umbwe-route.jpg"
-                    alt="Umbwe Route"
-                    fill
-                    className="object-cover"
-                  />
-                  <span className="absolute top-4 left-4 bg-[#00A896] text-white px-4 py-2 rounded-full font-semibold text-sm">
-                    {locale === 'fr' ? 'À partir de 1 900 €' : 'From $1,900'}
-                  </span>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-[#00A896] mb-2">
-                    {locale === 'fr' ? 'Route Umbwe' : 'Umbwe Route'}
-                  </h3>
-                  <p className="text-gray-600 mb-4 text-sm">
-                    {locale === 'fr' 
-                      ? 'L\'Itinéraire Umbwe : Le Défi Vertical du Kilimandjaro (6 Jours)'
-                      : 'The Umbwe Itinerary: The Vertical Challenge of Kilimanjaro (6 Days)'}
-                  </p>
-                  <p className="text-gray-700 mb-4 text-sm">
-                    {locale === 'fr' 
-                      ? 'Souvent décrite comme la voie la plus courte et la plus ardue du Kilimandjaro, l\'itinéraire Umbwe est parfait pour les randonneurs expérimentés à la recherche d\'un défi unique et d\'une solitude relative. C\'est un trek intense et direct, exigeant une excellente condition physique et une gestion rigoureuse de l\'altitude.'
-                      : 'Often described as the shortest and most challenging route on Kilimanjaro, the Umbwe itinerary is perfect for experienced hikers seeking a unique challenge and relative solitude. It\'s an intense and direct trek, requiring excellent physical condition and rigorous altitude management.'}
-                  </p>
-                  <div className="flex items-center justify-between text-gray-700">
-                    <span className="flex items-center gap-2">
-                      <span>⏱️</span>
-                      <span>{locale === 'fr' ? '6 jours' : '6 days'}</span>
-                    </span>
-                    <span className="flex items-center gap-1 text-red-500">
-                      ★★★★☆ <span className="text-gray-600 text-sm">(4.5)</span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 text-white relative">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/kilimanjaro-summit.jpg"
-            alt="Kilimanjaro background"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-black/50"></div>
-        </div>
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <h2 className="text-2xl font-semibold mb-4">{locale === 'fr' ? 'Prêt à commencer ?' : 'Ready to begin?'}</h2>
-          <h3 className="text-2xl font-bold mb-6">{locale === 'fr' ? 'Rejoignez-nous pour l\'aventure' : 'Join us for the adventure'}</h3>
-          <p className="text-xl md:text-2xl max-w-2xl mx-auto mb-8">{locale === 'fr' ? 'Contactez-nous pour en savoir plus sur nos routes' : 'Contact us to learn more about our routes'}</p>
-          <div className="max-w-md mx-auto flex flex-col sm:flex-row gap-4 w-full">
-            <input
-              type="text"
-              placeholder={locale === 'fr' ? 'Prénom' : 'First name'}
-              className="flex-grow px-4 py-3 rounded-lg text-gray-800 focus:outline-none bg-white w-full"
-            />
-            <input
-              type="email"
-              placeholder={locale === 'fr' ? 'Votre adresse email' : 'Email address'}
-              className="flex-grow px-4 py-3 rounded-lg text-gray-800 focus:outline-none bg-white w-full"
-            />
-            <button className="bg-[#00A896] hover:bg-[#008576] text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 w-full sm:w-auto">
-              {locale === 'fr' ? "S'abonner" : 'Subscribe'}
-            </button>
           </div>
         </div>
       </section>

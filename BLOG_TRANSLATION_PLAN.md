@@ -113,3 +113,66 @@ Please provide:
 1. **French copy for TravelBlogsPage** (hero title, description, placeholders, etc.)
 2. **English equivalents** for the same sections
 3. **Decision**: Do you want to move the detailed route descriptions to JSON or keep them in component?
+
+---
+
+## Blog Post Template (Canonical)
+
+When creating new category blog pages, follow this canonical component pattern so TOC, verbatim French content and English fallbacks are consistent.
+
+- File path: `src/app/[locale]/travel-blogs/<slug>/page.tsx`
+- Required constants per page (keep French verbatim in `FR_SECTIONS`):
+
+```ts
+const ids = ['overview','sectionA','sectionB', /* ... */]
+
+const FR_TITLES: Record<string,string> = {
+  overview: 'FR title for overview',
+  sectionA: 'FR title for section A',
+  sectionB: 'FR title for section B',
+}
+
+const FR_SECTIONS: Record<string,string> = {
+  overview: `Exact French text for overview (preserve newlines)`,
+  sectionA: `Exact French text for section A`,
+  sectionB: `Exact French text for section B`,
+}
+
+const contentEn = `English overview paragraph...` // short helper for long overview
+
+const EN_TITLES: Record<string,string> = { overview: 'English overview', sectionA: 'English A', sectionB: 'English B' }
+const EN_SECTIONS: Record<string,string> = { overview: contentEn, sectionA: 'English A content', sectionB: 'English B content' }
+```
+
+- Rendering guidance:
+  - Add a `renderContent(content: string)` helper that preserves blockquotes (lines starting with `>`), groups paragraphs, and returns React nodes.
+  - Build `sections` using `ids.map(id => ({ id, title, content }))` where title/content are selected by `locale === 'fr' ? FR_TITLES[id] : locale === 'en' ? EN_TITLES[id] : t(...)` to allow locale fallbacks.
+  - Use `TOC` component for both mobile and desktop with `items={sections.map(s => ({ id: s.id, label: s.title, level: 2 }))}`.
+
+- Page skeleton (inside default export):
+
+```tsx
+export default function Page() {
+  const locale = useLocale()
+  const t = useTranslations('BlogPosts.<slug>')
+
+  const sections = ids.map(id => ({
+    id,
+    title: locale === 'fr' ? FR_TITLES[id] ?? id : locale === 'en' ? EN_TITLES[id] ?? id : t(`sections.${id}.title`),
+    content: locale === 'fr' ? FR_SECTIONS[id] ?? '' : locale === 'en' ? EN_SECTIONS[id] ?? '' : t(`sections.${id}.content`)
+  }))
+
+  return (
+    <div>/* hero, author meta, TOC, and article rendering using renderContent */</div>
+  )
+}
+```
+
+- Checklist before submitting page details:
+  - [ ] `ids` array matches all sections to show in TOC
+  - [ ] `FR_TITLES`/`FR_SECTIONS` contain verbatim French copy
+  - [ ] `EN_TITLES`/`EN_SECTIONS` provide English fallbacks to avoid MISSING_MESSAGE
+  - [ ] `renderContent` available or referenced from shared helper
+  - [ ] Page file path matches `src/app/[locale]/travel-blogs/<slug>/page.tsx`
+
+When you're ready, provide the first category's page 1 content and I'll create the TSX page following this exact template. 

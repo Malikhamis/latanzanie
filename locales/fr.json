@@ -100,7 +100,7 @@
     "contactInfo": {
       "address": {
         "title": "Adresse",
-        "line1": "Latanzanieaucourdelanature Tours (T) LTD",
+        "line1": "la Tanzanie au cœur de la nature Tours (T) LTD",
         "line2": "BP 1923, Moshi, Tanzanie"
       },
       "phone": {
@@ -335,7 +335,7 @@
       }
     },
     "whyChooseUs": {
-      "title": "Pourquoi choisir Latanzanieaucourdelanature ?",
+      "title": "Pourquoi choisir la Tanzanie au cœur de la nature ?",
       "easyAdventure": {
         "title": "Aventure facilitée",
         "description": "Nos consultants dédiés rendent l'aventure facile pour vous en prenant en charge toute la paperasse. Vos seules tâches sont de vous entraîner pour l'aventure si nécessaire et de faire vos bagages !"
@@ -382,7 +382,7 @@
         },
         "cost": {
           "title": "How much does it cost to trek Kilimanjaro?",
-          "description": "A seven-day Kilimanjaro climb costs US$2,850 with Latanzanieaucourdelanature. This price includes all of your food, camping equipment, and much more. Here's a breakdown of what's included in the price as well as the costs of any exclusions like your Tanzanian visa."
+          "description": "A seven-day Kilimanjaro climb costs US$2,850 with la Tanzanie au cœur de la nature. This price includes all of your food, camping equipment, and much more. Here's a breakdown of what's included in the price as well as the costs of any exclusions like your Tanzanian visa."
         },
         "kilimanjaroVsEverest": {
           "title": "Kilimanjaro vs Everest Base Camp: which is harder?",
@@ -487,7 +487,7 @@
   "TravelBlogsPage": {
     "hero": {
       "title": "Bibliothèque de connaissances",
-      "subtitle": "Apprenez avant de voyager. La bibliothèque de voyage de Latanzanieaucourdelanature est la ressource ultime pour planifier votre voyage. Notre objectif est de donner à chaque voyageur un sentiment de sécurité avant le départ."
+      "subtitle": "Apprenez avant de voyager. La bibliothèque de voyage de la Tanzanie au cœur de la nature est la ressource ultime pour planifier votre voyage. Notre objectif est de donner à chaque voyageur un sentiment de sécurité avant le départ."
     },
     "search": {
       "placeholder": "Rechercher des sujets de voyage..."
@@ -495,20 +495,31 @@
     "categories": {
       "title": "Choisissez un sujet"
     },
-    "allTopics": {
-      "title": "Tous les sujets",
-      "intro": "Conseils pratiques et repères locaux pour préparer votre ascension du Kilimandjaro : comment choisir un itinéraire adapté, quelles sont les protections essentielles à emporter, les étapes d'entraînement recommandées et les aspects logistiques à prévoir. Retrouvez aussi des listes rapides et des témoignages pour vous aider à partir en toute sérénité.",
-      "climateSeasons": "Climat et saisons"
-    },
+    "noResults": "Aucun sujet trouvé.",
     "explore": "Explorer",
     "noTopicsFound": "Aucun sujet de voyage trouvé correspondant à votre recherche.",
     "cta": {
+      "title": "Curieux d'en savoir plus ?",
+      "subtitle": "Réservez un appel avec notre équipe.",
       "description": "Curieux d'en savoir plus ? Réservez un appel avec notre équipe.",
       "button": "Réserver un appel avec notre équipe"
     },
     "topReads": {
       "title": "Lectures populaires",
       "description": "Les trois articles de blog ci-dessous sont parmi nos plus populaires. Parce que tout le monde veut savoir combien coûte une ascension du Kilimandjaro. Ils veulent aussi savoir quoi emporter pour l'ascension afin d'être correctement équipés. Et nous constatons que beaucoup de gens sont curieux de savoir si gravir le Kilimandjaro est plus difficile ou plus facile que de faire la randonnée jusqu'au camp de base de l'Everest."
+    },
+    "sections": {
+      "topReads": {
+        "title": "Lectures Essentielles",
+        "description": "Lectures essentielles pour vous aider à vous préparer à votre aventure."
+      },
+      "allTopics": {
+        "title": "Tous les Sujets",
+        "description": "Tout ce que vous devez savoir pour planifier une aventure réussie."
+      },
+      "otherAdventures": {
+        "title": "Autres Aventures"
+      }
     }
   },
   "SeeTripsPage": {
@@ -525,21 +536,21 @@
       "climb_kilimanjaro": {
         "title": "Grimper le Kilimandjaro",
         "shortDescription": "Vous rêvez de vous tenir au sommet du toit de l'Afrique ? Grimpez le Kilimandjaro avec nous et créez des souvenirs inoubliables !",
-        "rating": 5,
+        "rating": "5",
         "duration": "9 - 11 jours",
         "price": "À partir de €2 000"
       },
       "tanzania_safari": {
         "title": "Safari en Tanzanie",
         "shortDescription": "La Tanzanie est sans doute le meilleur pays du monde pour un safari d'observation des grands animaux. Elle abrite les Grands Cinq ainsi que la Grande Migration !",
-        "rating": 5,
+        "rating": "5",
         "duration": "2 - 9 jours",
         "price": "À partir de €1 000"
       },
       "zanzibar_beach": {
         "title": "Vacances à Zanzibar",
         "shortDescription": "Les eaux calmes, les plages de sable blanc et la forêt luxuriante de Zanzibar offrent la fuite tropicale parfaite !",
-        "rating": 5,
+        "rating": "5",
         "duration": "8 jours",
         "price": "À partir de €2 050"
       }
@@ -549,11 +560,11 @@
       "items": {
         "faq1": "Organisez-vous des voyages d'aventure pour les familles ?",
         "faq1Answer": "Oui ! Nous sommes spécialisés dans les voyages d'aventure adaptés aux familles et convenant à tous les âges. Nos guides expérimentés garantissent des expériences sûres et agréables pour toute la famille.",
-        "faq2": "Latanzanieaucourdelanature organise-t-elle des lunes de miel d'aventure ?",
+        "faq2": "la Tanzanie au cœur de la nature organise-t-elle des lunes de miel d'aventure ?",
         "faq2Answer": "Absolument ! Nous proposons des forfaits d'aventure romantiques parfaits pour les jeunes mariés, combinant activités palpitantes et moments intimes dans les plus beaux endroits de Tanzanie.",
         "faq3": "Proposez-vous des circuits touristiques d'aventure à petit prix ?",
         "faq3Answer": "Oui, nous avons une gamme de forfaits d'aventure adaptés à différents budgets. Contactez-nous pour discuter de vos préférences et nous créerons un itinéraire personnalisé qui correspond à votre budget.",
-        "faq4": "Quelle est la taille typique d'un groupe Latanzanieaucourdelanature ?",
+        "faq4": "Quelle est la taille typique d'un groupe la Tanzanie au cœur de la nature ?",
         "faq4Answer": "La taille de nos groupes varie généralement de 4 à 12 personnes, permettant une attention personnalisée tout en maintenant une atmosphère de groupe intime. Nous proposons également des voyages privés pour ceux qui recherchent une expérience plus exclusive."
       }
     },
@@ -573,7 +584,7 @@
     },
     "mission": {
       "title": "Notre mission",
-      "paragraph1": "Chez Latanzanieaucourdelanature, nous croyons que le voyage doit être transformateur. Notre mission est de connecter les voyageurs avec les paysages les plus spectaculaires de la Tanzanie tout en soutenant les communautés locales et en préservant l'environnement naturel pour les générations futures.",
+      "paragraph1": "Chez la Tanzanie au cœur de la nature, nous croyons que le voyage doit être transformateur. Notre mission est de connecter les voyageurs avec les paysages les plus spectaculaires de la Tanzanie tout en soutenant les communautés locales et en préservant l'environnement naturel pour les générations futures.",
       "paragraph2": "Nous nous engageons en faveur d'un tourisme responsable qui respecte à la fois la faune et les cultures locales, en veillant à ce que chaque voyage contribue positivement aux lieux et aux personnes que nous visitons."
     },
     "story": {
@@ -599,7 +610,23 @@
           "title": "Vers l'avenir",
           "description": "Continuer à innover dans le tourisme durable tout en élargissant nos offres pour inclure de nouvelles destinations et expériences à travers la Tanzanie."
         }
-      }
+      },
+      "heritage": {
+        "title": "Un Héritage du Sommet",
+        "paragraph1": "L'idée de La Tanzanie au cœur de la nature repose sur un respect profond et générationnel de la montagne et de sa nature.",
+        "paragraph2": "Mon parcours a commencé dans les traces de mon père, un porteur dévoué et résilient qui a servi la communauté des grimpeurs pendant plus de deux décennies, parcourant les sentiers jusqu'à l'âge de 42 ans. Sa force, son expérience et sa connaissance intime de chaque crête et chaque sentier sont devenues le plan de ma propre vie.",
+        "paragraph3": "J'ai grandi imprégné de la culture de la montagne, inspiré par son engagement. J'ai suivi son chemin, maîtrisant les pistes dès mon plus jeune âge pour devenir un Guide Local certifié.",
+        "paragraph4": "Aujourd'hui, je dirige des treks et des safaris avec la sagesse et la passion transmises par ma famille. La Tanzanie au cœur de la nature est plus qu'un simple voyagiste ; c'est l'aboutissement d'une vie vécue sur ces pentes, honorant l'héritage des véritables héros de la montagne. Nous sommes une famille de guides locaux engagés à vous offrir une aventure authentique, sécurisée et profondément significative."
+      },
+      "imageCaption": "Guides locaux partant à l'aube près de Moshi, Tanzanie",
+      "imageCatchphrase": "Où communauté, culture et conservation se rencontrent"
+    },
+    "engagement": {
+      "title": "Engagement communautaire",
+      "paragraph1": "Nous soutenons des projets de conservation et de moyens de subsistance dirigés par les communautés qui apportent des avantages à long terme.",
+      "paragraph2": "Nos partenariats financent des programmes d'éducation, de santé et d'environnement dans les communautés où nous opérons.",
+      "paragraph3": "Nous travaillons en étroite collaboration avec les dirigeants locaux pour concevoir des circuits qui respectent les protocoles culturels et favorisent des revenus durables.",
+      "paragraph4": "Chaque réservation contribue à des initiatives de développement à petite échelle supervisées par des partenaires communautaires."
     },
     "team": {
       "title": "Découvrez notre équipe",
@@ -623,6 +650,47 @@
       "title": "Prêt à découvrir la Tanzanie ?",
       "subtitle": "Rejoignez-nous pour un voyage inoubliable à travers les paysages les plus spectaculaires de la Tanzanie.",
       "button": "Planifiez votre aventure"
+    },
+    "values": {
+      "title": "Nos Valeurs",
+      "subtitle": "Ce qui guide notre travail",
+      "conviction": "Nous croyons que le voyage responsable peut créer des résultats positifs et mesurables pour les personnes et la nature.",
+      "heritage": {
+        "title": "Notre Héritage",
+        "paragraph1": "L'héritage culturel riche de la Tanzanie inspire tout ce que nous faisons.",
+        "paragraph2": "Nous travaillons en partenariat avec les communautés locales pour préserver les traditions et assurer que le tourisme profite aux moyens de subsistance locaux."
+      },
+      "nature": {
+        "title": "Respect de la Nature",
+        "description": "Nous opérons avec la conservation au cœur de nos préoccupations, minimisant l'impact tout en maximisant la contribution positive aux écosystèmes et à la faune."
+      },
+      "authenticity": {
+        "title": "Authenticité",
+        "description": "Nous créons des expériences authentiques — pas des attractions mises en scène — afin que les voyageurs rencontrent de vraies personnes et découvrent de vrais lieux."
+      }
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": {
+        "question": "Soutenez-vous le tourisme communautaire ?",
+        "answer": "Oui — nous travaillons avec les communautés locales pour créer des avantages partagés."
+      },
+      "q2": {
+        "question": "Vos guides sont-ils locaux ?",
+        "answer": "Tous nos guides sont des experts locaux avec des années d'expérience."
+      },
+      "q3": {
+        "question": "Quelle est votre politique d'annulation ?",
+        "answer": "Consultez nos termes et conditions ou contactez-nous pour plus de détails."
+      }
+    },
+    "newsletter": {
+      "title": "Si vous aimez voyager,",
+      "subtitle": "rejoignez notre newsletter",
+      "description": "Recevez les dernières pépites cachées, les offres de lancement et plus encore directement dans votre boîte de réception.",
+      "firstNamePlaceholder": "Prénom",
+      "emailPlaceholder": "Votre adresse e-mail",
+      "button": "S'abonner"
     }
   },
   "ClimbKilimanjaroPage": {
@@ -708,11 +776,11 @@
       "title": "Guides locaux",
       "chris": {
         "name": "Chris Sichalwe",
-        "description": "Chris a commencé à travailler sur le Kilimandjaro en 1999 et a atteint le sommet plus de 300 fois depuis. Il est le père fondateur de Latanzanieaucourdelanature Tanzanie et adore emmener les gens sur le toit de l'Afrique ! C'est la main sûre et compétente dont vous avez besoin, mais aussi un excellent conteur qui ajoute beaucoup à chaque voyage !"
+        "description": "Chris a commencé à travailler sur le Kilimandjaro en 1999 et a atteint le sommet plus de 300 fois depuis. Il est le père fondateur de la Tanzanie au cœur de la nature Tanzanie et adore emmener les gens sur le toit de l'Afrique ! C'est la main sûre et compétente dont vous avez besoin, mais aussi un excellent conteur qui ajoute beaucoup à chaque voyage !"
       },
       "robert": {
         "name": "Robert Sichalwe",
-        "description": "Robert est un guide de trek leader au Kilimandjaro très expérimenté. Il dirige des treks avec Latanzanieaucourdelanature depuis des années, et nous savons que nos grimpeurs sont entre de bonnes mains avec Robert comme chef d'expédition. C'est aussi un type formidable qui deviendra bientôt votre ami et une partie intégrante de vos souvenirs du Kilimandjaro !"
+        "description": "Robert est un guide de trek leader au Kilimandjaro très expérimenté. Il dirige des treks avec la Tanzanie au cœur de la nature depuis des années, et nous savons que nos grimpeurs sont entre de bonnes mains avec Robert comme chef d'expédition. C'est aussi un type formidable qui deviendra bientôt votre ami et une partie intégrante de vos souvenirs du Kilimandjaro !"
       }
     },
     "bookTripTitle": "Réservez votre voyage",
@@ -862,11 +930,11 @@
       "description": "Récompensez-vous après le Kilimandjaro avec un safari ! Un safari est un moyen populaire de se détendre après votre ascension du Kilimandjaro. Le Serengeti et le cratère du Ngorongoro ne sont qu'à quelques heures de route !",
       "button": "Demander maintenant"
     },
-    "whyFollowAliceTitle": "Pourquoi Latanzanieaucourdelanature ?",
+    "whyFollowAliceTitle": "Pourquoi la Tanzanie au cœur de la nature ?",
     "outOfFive": "sur 5",
     "stars": "étoiles",
     "whyFollowAlice": {
-      "title": "Pourquoi Latanzanieaucourdelanature ?",
+      "title": "Pourquoi la Tanzanie au cœur de la nature ?",
       "rating": "sur 5",
       "stars": {
         "five": "5 étoiles",
@@ -902,12 +970,25 @@
       "cost": {
         "title": "Randonneurs sur le mont Kilimandjaro",
         "subtitle": "Combien coûte un trek au Kilimandjaro ?",
-        "description": "Une ascension de sept jours au Kilimandjaro coûte 2 850 $ avec Latanzanieaucourdelanature. Ce prix inclut toute votre nourriture, votre équipement de camping, et bien plus encore. Voici une ventilation de ce qui est inclus dans le prix ainsi que les coûts des exclusions comme votre visa tanzanien."
+        "description": "Une ascension de sept jours au Kilimandjaro coûte 2 850 $ avec la Tanzanie au cœur de la nature. Ce prix inclut toute votre nourriture, votre équipement de camping, et bien plus encore. Voici une ventilation de ce qui est inclus dans le prix ainsi que les coûts des exclusions comme votre visa tanzanien."
       },
       "kilimanjaroVsEverest": {
         "title": "Vue du mont Kilimandjaro",
         "subtitle": "Kilimandjaro vs Camp de base de l'Everest : lequel est le plus difficile ?",
         "description": "Le Kilimandjaro et le camp de base de l'Everest sont deux des treks d'altitude les plus célèbres et les plus exigeants au monde. Mais ils sont très différents l'un de l'autre. Nous discutons de ces différences et faisons valoir que le Kilimandjaro est le trek le plus difficile dans l'ensemble."
+      }
+    },
+    "sections": {
+      "topReads": {
+        "title": "Lectures Essentielles",
+        "description": "Lectures essentielles pour vous aider à vous préparer à votre aventure."
+      },
+      "allTopics": {
+        "title": "Tous les Sujets",
+        "description": "Tout ce que vous devez savoir pour planifier une aventure réussie."
+      },
+      "otherAdventures": {
+        "title": "Autres Aventures"
       }
     },
     "faqsTitle": "FAQ",
@@ -919,7 +1000,7 @@
       "question1": "Grimper au mont Kilimandjaro est-il sûr ?",
       "question2": "Où dors-je sur le mont Kilimandjaro ?",
       "question3": "Quel est le meilleur moment pour grimper au mont Kilimandjaro ?",
-      "answer1": "Grimper le Kilimandjaro est sûr quand vous voyagez avec un opérateur touristique réputé comme Latanzanieaucourdelanature. Nous donnons la priorité à votre santé et à votre sécurité avec des guides expérimentés, un équipement approprié et des itinéraires bien planifiés qui permettent une bonne acclimatation. Notre taux de réussite est de plus de 90 % pour les grimpeurs qui suivent nos conseils.",
+      "answer1": "Grimper le Kilimandjaro est sûr quand vous voyagez avec un opérateur touristique réputé comme la Tanzanie au cœur de la nature. Nous donnons la priorité à votre santé et à votre sécurité avec des guides expérimentés, un équipement approprié et des itinéraires bien planifiés qui permettent une bonne acclimatation. Notre taux de réussite est de plus de 90 % pour les grimpeurs qui suivent nos conseils.",
       "answer2": "Sur le Kilimandjaro, vous dormirez dans des tentes sur des camps désignés. Chaque site de camping dispose d'installations de base, notamment des toilettes et des aires de restauration. Notre équipement de camping est de haute qualité et conçu pour les conditions de la montagne. Sur certaines routes comme la route Marangu, vous dormirez dans des huttes avec des lits superposés au lieu de tentes.",
       "answer3": "Les meilleures périodes pour grimper le Kilimandjaro sont les saisons sèches : de janvier à mars et de juin à octobre. Pendant ces périodes, vous aurez des ciels plus clairs, moins de pluie et une meilleure visibilité. La météo peut être imprévisible en montagne, alors un équipement approprié est essentiel quel que soit le moment de votre ascension."
     },
@@ -947,6 +1028,7 @@
       "messageLabel": "Message",
       "messagePlaceholder": "Dites-nous en plus sur vos projets de voyage...",
       "accept": "J'accepte la",
+      "agreeTo": "J'accepte",
       "privacyPolicy": "Politique de confidentialité",
       "submit": "Envoyer la demande"
     },
@@ -975,6 +1057,7 @@
     }
   },
   "MachameRoute": {
+    "defaultItinerary": "Route Machame",
     "hero": {
       "title": "L'Itinéraire Machame (7 Jours de Trek) : L'Ascension Panoramique",
       "breadcrumb": "Tanzanie > Kilimandjaro > Route Machame",
@@ -1632,12 +1715,12 @@
     }
   },
   "Footer": {
-    "company": "Latanzanieaucourdelanature",
+    "company": "la Tanzanie au cœur de la nature",
     "description": "Nous sommes un opérateur touristique de niche proposant une sélection des meilleurs voyages d'aventure en Tanzanie.",
     "quickLinks": "Liens rapides",
     "destinations": "Destinations",
     "contactInfo": "Informations de contact",
-    "address": "Latanzanieaucourdelanature Tours (T) LTD, BP 1923, Moshi, Tanzanie",
+    "address": "la Tanzanie au cœur de la nature Tours (T) LTD, BP 1923, Moshi, Tanzanie",
     "phone": "+255782825692",
     "email": "info@latanzanieaucourdelanature.com",
     "rights": "Tous droits réservés",
@@ -1742,11 +1825,34 @@
         "duration": "5 jours"
       }
     },
+    "topReads": {
+      "title": "Lectures Essentielles",
+      "description": "Les trois articles ci-dessous sont utiles pour préparer votre safari : ce qu'il faut emporter, la meilleure période et où voir la faune.",
+      "packingList": {
+        "title": "Liste de Bagages Safari",
+        "description": "Ce qu'il faut emporter pour un safari en Tanzanie afin de rester à l'aise et en sécurité dans la brousse."
+      },
+      "bestTime": {
+        "title": "Meilleure période pour visiter",
+        "description": "Aperçu des saisons sèches et humides et des meilleures fenêtres pour observer la faune."
+      },
+      "wildlife": {
+        "title": "Points Forts de la Faune",
+        "description": "Quels animaux vous pouvez espérer voir en safari et où les repérer."
+      }
+    },
+    "faq": {
+      "title": "FAQ"
+    },
     "downloadSection": {
       "title": "Téléchargez Notre Guide Safari",
       "subtitle": "Guide Complet de Planification Safari en Tanzanie",
       "description": "Obtenez des informations détaillées sur les itinéraires, la faune et les conseils de planification",
       "button": "Télécharger le Guide PDF"
+    },
+    "itineraries": {
+      "title": "Nos Expériences Safari",
+      "description": "Choisissez parmi nos expériences safari soigneusement sélectionnées, des aventures en camping aux immersions culturelles"
     },
     "booking": {
       "title": "Prêt à Commencer Votre Aventure Safari ?",
@@ -1778,24 +1884,40 @@
         "button": "Réserver Maintenant"
       }
     },
+    "reward": {
+      "title": "Récompensez-vous après votre safari avec une visite du Kilimandjaro !",
+      "description": "Un trek sur le Kilimandjaro est une façon populaire de prolonger votre aventure après votre safari. Les contreforts du Kilimandjaro ne sont qu'à quelques heures de route !",
+      "button": "Demander un Devis"
+    },
     "topReads": {
       "title": "Lectures Essentielles",
       "description": "Guides essentiels pour votre safari en Tanzanie",
       "cta": "Lire Plus",
       "packingList": {
         "title": "Liste de Bagages Safari",
+        "subtitle": "Tout ce dont vous avez besoin pour votre aventure safari en Tanzanie",
         "description": "Tout ce dont vous avez besoin pour votre aventure safari en Tanzanie"
       },
       "bestTime": {
-        "title": "Meilleure Période pour Safari",
-        "description": "Quand visiter la Tanzanie pour une observation optimale de la faune"
+        "title": "Meilleure période pour visiter",
+        "description": "Aperçu des saisons sèches et humides et des meilleures fenêtres pour observer la faune."
       },
       "wildlife": {
-        "title": "Guide de la Faune Tanzanienne",
-        "description": "Guide complet de l'incroyable faune de Tanzanie"
+        "title": "Points Forts de la Faune",
+        "description": "Quels animaux vous pouvez espérer voir en safari et où les repérer."
+      },
+      "cost": {
+        "title": "Combien coûte un safari en Tanzanie ?",
+        "subtitle": "Prix détaillé d'un safari de 7 jours",
+        "description": "Un safari de 7 jours en Tanzanie coûte 1500€ avec la Tanzanie au cœur de la nature. Ce prix comprend toute votre nourriture, votre équipement de camping, et bien plus. Voici une ventilation de ce qui est inclus dans le prix ainsi que les coûts des exclusions comme votre visa tanzanien."
+      },
+      "kilimanjaroVsEverest": {
+        "title": "Safari vs Kilimandjaro : quelle aventure choisir ?",
+        "subtitle": "Comparaison des deux expériences emblématiques",
+        "description": "Le safari en Tanzanie et l'ascension du Kilimandjaro sont deux des aventures les plus célèbres d'Afrique de l'Est. Mais ils sont très différents l'un de l'autre. Nous discutons de ces différences et présentons le cas selon lequel le safari offre une expérience plus accessible et variée."
       }
     },
-    "faq": {
+    "faqs": {
       "title": "Questions Fréquemment Posées",
       "q1": {
         "question": "Quelle est la meilleure période pour un safari en Tanzanie ?",
@@ -1831,6 +1953,124 @@
       "agreeTo": "J'accepte la",
       "privacyPolicy": "Politique de Confidentialité",
       "submit": "Envoyer la Demande"
+    },
+    "sections": {
+      "topReads": {
+        "title": "Lectures Essentielles",
+        "description": "Lectures essentielles pour vous aider à vous préparer à votre aventure."
+      },
+      "allTopics": {
+        "title": "Tous les Sujets",
+        "description": "Tout ce que vous devez savoir pour planifier une aventure réussie."
+      },
+      "otherAdventures": {
+        "title": "Autres Aventures"
+      },
+      "shabituer-altitude-tanzanie": {
+        "title": "Peut-on s'habituer à l'altitude avant de partir en Tanzanie ?",
+        "subtitle": "Comprendre l'acclimatation et préparer son corps au manque d'oxygène",
+        "meta": {
+          "author": "Guide Local Kilimandjaro",
+          "date": "Décembre 2025",
+          "readingTime": "10 min de lecture"
+        },
+        "sections": {
+          "introduction": {
+            "title": "Introduction : S'habituer à l'altitude avant le Kilimandjaro",
+            "content": {
+              "1": "Avant de tenter l'ascension du Mont Kilimandjaro (5 895 m), beaucoup de voyageurs se posent une question essentielle : est-il possible de s'habituer à l'altitude avant même d'arriver en Tanzanie ?",
+              "2": "Cette question est légitime, car l'altitude représente le principal défi du Kilimandjaro, bien plus que la difficulté physique. Pourtant, de nombreuses idées reçues circulent à ce sujet. En tant que guide local, il est important de donner une réponse honnête et réaliste.",
+              "3": "👉 Non, on ne peut pas réellement s'acclimater à l'altitude sans être en altitude.",
+              "4": "👉 Oui, on peut préparer son corps et son mental pour mieux réagir une fois sur la montagne.",
+              "5": "Comprendre cette différence permet d'éviter des erreurs fréquentes et d'augmenter considérablement les chances d'atteindre le sommet.",
+              "6": " "
+            }
+          },
+          "comprendre_acclimatation": {
+            "title": "Qu'est-ce que l'acclimatation à l'altitude ?",
+            "content": {
+              "1": "L'acclimatation est un processus naturel par lequel le corps humain s'adapte progressivement au manque d'oxygène en altitude. Sur le Kilimandjaro, ce processus est absolument crucial, car il détermine si vous pourrez atteindre le sommet en toute sécurité ou si vous risquez le mal aigu des montagnes.",
+              "2": "Contrairement à ce que beaucoup pensent, l'acclimatation ne se fait pas en quelques heures, et elle ne dépend pas uniquement de votre niveau sportif. Même un athlète très entraîné doit respecter les étapes de montée progressive pour que son corps s'adapte correctement."
+            }
+          },
+          "respiration": {
+            "title": "La respiration devient plus rapide et plus profonde",
+            "content": {
+              "1": "En altitude, l'air contient moins d'oxygène que celui que l'on respire au niveau de la mer. Pour compenser ce manque, le corps augmente la fréquence et la profondeur de la respiration. Cela permet d'apporter plus d'oxygène au sang.",
+              "2": "Cette adaptation est essentielle, mais elle a aussi des conséquences : vous pouvez vous sentir essoufflé plus rapidement, surtout si vous essayez de marcher à un rythme trop rapide. C'est pourquoi le rythme \"pole pole\" (lent et régulier) est indispensable sur le Kilimandjaro.",
+              "3": " "
+            }
+          },
+          "coeur": {
+            "title": "Le cœur travaille davantage",
+            "content": {
+              "1": "Pour distribuer l'oxygène dans tout le corps, le cœur doit travailler plus fort et battre plus vite. Cette augmentation du rythme cardiaque permet aux muscles et aux organes de continuer à fonctionner malgré la baisse d'oxygène.",
+              "2": "C'est une des raisons pour lesquelles vous pouvez ressentir une fatigue plus importante, même lors d'efforts modérés. Le corps apprend progressivement à gérer cette contrainte, mais il faut laisser le temps à ces adaptations de se mettre en place."
+            }
+          },
+          "globules_rouges": {
+            "title": "La production de globules rouges augmente",
+            "content": {
+              "1": "Avec le temps, le corps commence à produire davantage de globules rouges, qui sont responsables du transport de l'oxygène dans le sang. Cette adaptation est plus lente et se produit sur plusieurs jours, pas immédiatement.",
+              "2": "C'est pourquoi les itinéraires longs et progressifs du Kilimandjaro sont plus efficaces pour réussir le sommet : ils donnent au corps le temps nécessaire pour augmenter sa capacité à transporter l'oxygène.",
+              "3": " "
+            }
+          },
+          "effort_physique": {
+            "title": "L'effort physique devient plus lent et plus fatigant",
+            "content": {
+              "1": "Toutes ces adaptations combinées signifient que votre corps fonctionne différemment en altitude. Même si vous êtes en bonne forme, vous vous sentez plus fatigué et moins rapide que d'habitude. Les muscles reçoivent moins d'oxygène et l'endurance est réduite.",
+              "2": "C'est exactement la raison pour laquelle la patience et le rythme lent sont cruciaux : le corps apprend progressivement à gérer l'effort avec moins d'oxygène, étape par étape."
+            }
+          },
+          "ce_quon_ne_peut_pas_faire": {
+            "title": "Ce que l'on NE peut PAS faire avant de partir pour le Kilimandjaro",
+            "content": {
+              "1": "Avant de gravir le Mont Kilimandjaro, il est essentiel de comprendre ce que votre corps ne peut pas anticiper. Beaucoup de voyageurs pensent que leur condition physique ou certains compléments peuvent les protéger de l'altitude, mais ce n'est pas le cas. En tant que guide local, il est important de clarifier ces idées reçues pour éviter des erreurs qui peuvent coûter cher en sécurité et en réussite.",
+              "2": " "
+            }
+          },
+          "manque_oxygene": {
+            "title": "1. On ne peut pas habituer le corps au manque d'oxygène sans altitude réelle",
+            "content": {
+              "1": "L'acclimatation est un processus physiologique qui se déclenche uniquement lorsque le corps est exposé à un air contenant moins d'oxygène. Tant que vous vivez au niveau de la mer ou en ville, votre corps ne reçoit aucun signal pour s'adapter.",
+              "2": "Même des semaines de marche, de course ou d'endurance en ville ne permettent pas de « simuler » cette adaptation. C'est la montagne elle-même qui entraîne le corps à mieux gérer l'altitude."
+            }
+          },
+          "sport_intensif": {
+            "title": "2. Le sport intensif ne protège pas contre le mal des montagnes",
+            "content": {
+              "1": "Beaucoup de voyageurs pensent que courir un marathon ou suivre un entraînement intense les rendra invincibles en altitude. En réalité, la condition physique générale ne protège pas du mal aigu des montagnes. Le corps peut être en excellente forme, mais sans acclimatation réelle, il peut souffrir de maux de tête, nausées, vertiges et fatigue extrême dès 3 000–4 000 mètres.",
+              "2": "C'est pourquoi le rythme lent et régulier, le respect des journées d'acclimatation et l'expérience du guide sont beaucoup plus efficaces pour réussir le sommet que la simple force physique.",
+              "3": " "
+            }
+          },
+          "personnes_sportives": {
+            "title": "3. Les personnes très sportives ne sont pas forcément avantagées",
+            "content": {
+              "1": "Paradoxalement, certains sportifs très entraînés échouent plus souvent que des personnes moins sportives. Pourquoi ? Parce qu'ils ont tendance à marcher trop vite, à vouloir maintenir un rythme soutenu, ou à ignorer les signaux de leur corps.",
+              "2": "Le corps a besoin de temps pour s'adapter au manque d'oxygène, et aller trop vite peut compromettre l'acclimatation, même chez les meilleurs athlètes.",
+              "3": " "
+            }
+          },
+          "complements": {
+            "title": "4. Les compléments alimentaires ne remplacent pas l'acclimatation",
+            "content": {
+              "1": "Beaucoup pensent que des pilules, des suppléments ou des boissons enrichies peuvent aider à s'adapter à l'altitude avant le départ. Malheureusement, aucun produit ne remplace le processus naturel d'acclimatation. Ces produits peuvent éventuellement soulager certains symptômes ou soutenir l'énergie, mais ils ne font pas évoluer la physiologie du corps.",
+              "2": "La seule manière de véritablement s'acclimater reste la montée progressive en altitude, avec des étapes bien planifiées et un rythme adapté.",
+              "3": " "
+            }
+          },
+          "conseil_guide": {
+            "title": "Conseil de guide",
+            "content": {
+              "1": "Même les sportifs les plus entraînés peuvent échouer sur le Kilimandjaro s'ils sous-estiment l'altitude. Comprendre ce que l'on ne peut pas faire avant le départ est essentiel pour réussir.",
+              "2": "Suivez ces conseils : préparez votre corps et votre mental, respectez le rythme \"pole pole\", écoutez votre guide et privilégiez la patience plutôt que la vitesse.",
+              "3": "Avec cette approche, l'ascension devient beaucoup plus sûre, confortable et gratifiante."
+            }
+          }
+        }
+      }
     }
   },
   "MateruniCulturalTour": {
@@ -2514,6 +2754,8 @@
   "ZanzibarBeachHolidaysPage": {
     "hero": {
       "title": "Vacances à la Plage de Zanzibar",
+      "breadcrumb": "Trips/Zanzibar Beach Holidays",
+      "pageTitle": "Zanzibar Beach Holidays",
       "durationLabel": "Durée",
       "duration": "5-14 jours",
       "difficultyLabel": "Difficulté",
@@ -2564,13 +2806,62 @@
         "title": "L'Archipel des Sens : Plongée & Culture à Zanzibar (5 Jours)",
         "price": "À partir de 850 €",
         "duration": "5 jours",
-        "description": "Le meilleur de l'Île aux Épices en format express. Ce n'est pas un simple séjour balnéaire, c'est une immersion intense dans le cœur palpitant de l'océan Indien. En cinq jours seulement, vous vivrez le contraste saisissant de Zanzibar : de l'éclat turquoise des fonds marins de Mnemba et du Safari Blue à l'authenticité vibrante des ruelles labyrinthiques de Stone Town, berceau de l'histoire et des épices. Préparez-vous à plonger dans l'aventure et à embrasser la culture swahilie."
+        "description": "Le meilleur de l'Île aux Épices en format express. Ce n'est pas un simple séjour balnéaire, c'est une immersion intense dans le cœur palpitant de l'océan Indien. En cinq jours seulement, vous vivrez le contraste saisissant de Zanzibar : de l'éclat turquoise des fonds marins de Mnemba et du Safari Blue à l'authenticité vibrante des ruelles labyrinthiques de Stone Town, berceau de l'histoire et des épices. Préparez-vous à plonger dans l'aventure et à embrasser la culture swahilie.",
+        "rating": "(5.0)",
+        "shortLabel": "5 jours",
+        "cta": "Book your trip"
       },
       "completeEscape": {
         "title": "L'Évasion Totale : Culture, Aventure & Saveurs de Zanzibar (8 Jours)",
         "price": "À partir de 1 500 €",
         "duration": "8 jours",
         "description": "Le meilleur de l'Île aux Épices en immersion complète. Ce n'est pas un simple séjour balnéaire, c'est une plongée intense au cœur de l'océan Indien. En huit jours, vous vivrez le contraste saisissant de Zanzibar : de l'éclat turquoise des fonds marins de Mnemba au goût authentique du marché Darajani, en passant par l'histoire vibrante des ruelles de Stone Town. Préparez-vous à une aventure complète, conçue par un guide local."
+      }
+    },
+    "topReads": {
+      "title": "Lectures Essentielles",
+      "description": "Guides essentiels pour planifier vos vacances plage à Zanzibar",
+      "cta": "Curieux d'en savoir plus ? Réservez un appel avec notre équipe.",
+      "packingList": {
+        "title": "Quoi Emporter pour Zanzibar",
+        "subtitle": "Essentiels pour vacances plage",
+        "description": "Tout ce que vous devez emporter pour vos vacances plage à Zanzibar, des tenues de plage au matériel de snorkeling et considérations culturelles pour les visites de Stone Town."
+      },
+      "cost": {
+        "title": "Combien coûte un séjour à Zanzibar ?",
+        "subtitle": "Coûts typiques et budgets",
+        "description": "Les prix varient selon le forfait et la saison ; nous détaillons ce qui est inclus et les options supplémentaires."
+      },
+      "bestTime": {
+        "title": "Meilleure Période pour Visiter Zanzibar",
+        "subtitle": "Quand partir pour un temps parfait",
+        "description": "Découvrez les meilleurs mois pour visiter Zanzibar pour le soleil, les mers calmes et des conditions de plage optimales. Apprenez-en plus sur les saisons et à quoi vous attendre."
+      },
+      "thingsToDo": {
+        "title": "Choses à Faire à Zanzibar",
+        "subtitle": "Au-delà des plages",
+        "description": "Des ruelles sinueuses de Stone Town aux tours de fermes d'épices, rencontres avec les dauphins et récifs coralliens immaculés - découvrez toutes les expériences que Zanzibar offre."
+      },
+      "kilimanjaroVsEverest": {
+        "title": "Kilimandjaro vs Everest : différences clés",
+        "subtitle": "Comparaison des deux expériences de trek",
+        "description": "Comparaison des exigences, de l'altitude et de la difficulté pour vous aider à choisir la meilleure aventure."
+      }
+    },
+    "faqs": {
+      "title": "FAQs"
+    },
+    "sections": {
+      "topReads": {
+        "title": "Top Reads",
+        "description": "Essential reading to help you prepare for your adventure."
+      },
+      "allTopics": {
+        "title": "All Topics",
+        "description": "Everything you need to know to plan for a successful adventure."
+      },
+      "otherAdventures": {
+        "title": "Other Adventures"
       }
     },
     "destinationInfo": {
@@ -3006,6 +3297,785 @@
       "june_oct": "De fin juin à octobre est considéré comme la meilleure saison globale pour grimper le Kilimandjaro, particulièrement pour les voyageurs cherchant une météo stable, une excellente visibilité et des sentiers en très bon état. Durant ces mois, la longue saison sèche s'installe sur le massif, offrant des conditions idéales pour un trek long, régulier et sûr. La faible chance de pluie, la visibilité exceptionnelle et les sentiers fermes font de cette saison le choix préféré. Les glaciers brillent sous le soleil du matin et les leviers de soleil au sommet deviennent des moments véritablement magiques. Cette saison attire plus de randonneurs mais fournit des conditions amicales et motivantes adaptées à une ascension réussie.",
       "advice": "Enfin, je conseille toujours de bouger lentement, de boire régulièrement et d'écouter les signaux de votre corps. La stabilité météorologique ne devrait pas vous faire oublier que le Kilimandjaro est une haute montagne. Prenez le temps de profiter de chaque étape, de chaque paysage et de chaque lever de soleil : ce sont souvent les moments qui révèlent pourquoi cette ascension est l'une des plus grandes aventures d'Afrique.",
       "rain": "Entre mars et mai, et à nouveau en novembre, le Kilimandjaro entre dans les saisons des pluies. Durant ces périodes, la montagne change de caractère : les nuages deviennent lourds, l'humidité s'installe, et les sentiers deviennent progressivement glissants. Pour de nombreux voyageurs, c'est la période la moins recommandée pour grimper car elle demande plus d'endurance et d'adaptation. Les averses peuvent durer plusieurs heures et parfois persister toute la journée. L'eau détrempe les vêtements et l'équipement, rendant le trek plus épuisant. La visibilité diminue considérablement et les pistes souffrent de la boue. Malgré ces défis, la saison des pluies a son charme : la montagne devient d'un vert intense et il y a beaucoup moins de visiteurs."
+    }
+  }
+  ,
+  "SanteEnAltitude": {
+    "title": "Santé en altitude : Symptômes et prévention du Mal Aigu des Montagnes (MAM)",
+    "subtitle": "Reconnaître les véritables symptômes du MAM et conseils pratiques pour gravir le Kilimandjaro.",
+    "meta": {
+      "author": "Guide Local du Kilimandjaro",
+      "date": "Décembre 2025",
+      "readingTime": "10 min de lecture"
+    },
+    "sections": {
+      "introTitle": "Introduction",
+      "intro": "L’ascension du Kilimandjaro est un voyage extraordinaire : en seulement quelques jours, on traverse des forêts tropicales, des landes alpines, des déserts de haute altitude… jusqu’à près de 5000 mètres, là où l’air contient presque 50 % d’oxygène en moins qu’au niveau de la mer.",
+      "intro2": "Cette montée rapide – unique au monde – expose les trekkeurs au Mal Aigu des Montagnes (MAM), un phénomène naturel qui peut toucher n’importe qui, même les plus sportifs. Comprendre ce qu’est vraiment le MAM, savoir reconnaître ses symptômes et adopter les bons réflexes, c’est la clé pour atteindre le sommet en sécurité et dans les meilleures conditions.",
+
+      "what_is_ams_title": "1. Le MAM, c’est quoi exactement ?",
+      "what_is_ams_1": "Quand on parle du Kilimandjaro, on pense souvent aux paysages, aux glaciers, à l’aventure. Mais il y a un élément dont on parle moins, et qui pourtant fait partie intégrante de l’ascension : le Mal Aigu des Montagnes (MAM). Contrairement à ce que certains imaginent, ce n’est pas une maladie grave qui surgit soudainement. C’est simplement une réaction naturelle du corps face à un changement rapide : celui du manque d’oxygène en altitude.",
+      "what_is_ams_2": "À partir d’environ 2 800 à 3 200 mètres, l’air devient plus léger, la pression de l’atmosphère diminue et chaque respiration apporte un peu moins d’oxygène qu’en plaine. Le corps le ressent immédiatement : il doit travailler davantage pour fournir de l’oxygène au cerveau, aux muscles et à tous les organes. C’est un effort invisible, mais bien réel.",
+      "what_is_ams_3": "Normalement, le corps s’adapte peu à peu à cette nouvelle réalité. C’est ce qu’on appelle l’acclimatation : la respiration change, le cœur s’ajuste, la production de globules rouges augmente. Mais tout cela prend du temps. Et sur le Kilimandjaro, la montée est souvent plus rapide que la capacité d’adaptation du corps. C’est là que le MAM apparaît.",
+      "what_is_ams_4": "Beaucoup de voyageurs pensent que le MAM ne touche que ceux qui ne sont “pas en forme” ou qui ne sont “pas habitués”. En réalité, c’est tout l’inverse : le MAM peut toucher absolument tout le monde. Peu importe l’âge, la condition physique ou l’expérience en trek : les règles de l’altitude sont les mêmes pour tous.",
+
+      "symptoms_early_title": "2. Les véritables symptômes du Mal Aigu des Montagnes (MAM) : comment les reconnaître",
+      "symptoms_intro": "Sur le Kilimandjaro, les symptômes apparaissent souvent en fin d’après-midi ou pendant la nuit, après une journée de marche intense. Le corps, épuisé par l’altitude et le manque d’oxygène, commence à envoyer des signaux clairs.",
+      "symptom_headache_title": "Le mal de tête persistant : le premier signal",
+      "symptom_headache": "Le mal de tête est souvent le premier symptôme du MAM. Contrairement à un mal de tête classique lié à la fatigue ou au soleil, celui-ci ne disparaît pas facilement avec le repos ou un simple analgésique. Il indique que le cerveau reçoit moins d’oxygène que nécessaire, et que le corps doit redoubler d’efforts pour maintenir ses fonctions vitales. Pour un trekkeur, cela se traduit par une sensation de pression continue dans la tête, parfois accompagnée d’irritabilité ou de difficulté à se concentrer.",
+      "symptom_fatigue_title": "La fatigue anormale : quand le corps ralentit",
+      "symptom_fatigue": "La fatigue en altitude n’est pas seulement une question d’effort physique. Même un randonneur expérimenté peut ressentir une lourdeur inhabituelle dans les jambes, un manque d’énergie ou un ralentissement général. Cela montre que les muscles et les organes travaillent plus fort pour compenser le manque d’oxygène. Le corps devient moins efficace et demande des pauses plus fréquentes. Cette fatigue est souvent un signal clair que le rythme doit être ralenti.",
+      "symptom_sleep_title": "Les troubles du sommeil : un corps en adaptation",
+      "symptom_sleep": "En haute altitude, le sommeil est rarement paisible. Les réveils fréquents, la difficulté à respirer confortablement ou un cœur qui bat plus vite sont tous des signes que le corps continue de s’adapter à l’air raréfié. Même si le trekkeur se couche tôt et se sent fatigué, la qualité du sommeil peut être réduite. Ces perturbations sont normales, mais elles constituent aussi un indicateur que l’acclimatation n’est pas encore complète.",
+      "symptom_appetite_title": "La perte d’appétit : un signe subtil mais important",
+      "symptom_appetite": "En altitude, il est fréquent de manger moins, mais une perte d’appétit marquée doit attirer l’attention. Même après une journée de marche intense, un trekkeur peut ne pas ressentir l’envie de manger. Lorsque cette perte d’appétit s’accompagne d’un mal de tête ou de fatigue, elle devient un signal précoce de MAM. Ignorer ce symptôme peut entraîner une baisse d’énergie supplémentaire et compliquer l’acclimatation.",
+      "symptom_nausea_title": "Légères nausées et respiration rapide : le corps qui compense",
+      "symptom_nausea": "Les légères nausées et la respiration plus rapide au repos complètent souvent le tableau des premiers symptômes. Ces réactions montrent que le corps essaie de maintenir un niveau d’oxygène suffisant malgré la faible teneur en oxygène dans l’air. La respiration rapide permet d’apporter un peu plus d’oxygène au sang, tandis que le malaise digestif traduit l’impact de l’altitude sur le métabolisme.",
+      "guide_mantra": "« La montagne ne juge pas, elle répond. Écoutez votre corps et avancez doucement, pole pole. »",
+      "symptoms_conclusion": "Rappelez-vous : écouter votre corps n’est pas un signe de faiblesse, c’est le meilleur moyen de grimper en toute sécurité et d’atteindre le sommet avec succès.",
+
+      "symptoms_moderate_title": "Symptômes modérés du MAM : pourquoi il faut agir rapidement",
+      "symptoms_moderate_intro": "Quand les symptômes s'intensifient, ils deviennent modérés et nécessitent une action rapide pour éviter une évolution défavorable.",
+      "mod_headache_title": "Violents maux de tête malgré hydratation et antidouleurs",
+      "mod_headache": "Lorsque le mal de tête persistant devient intense et continu, même après avoir bu de l’eau ou pris un analgésique, c’est un signal clair : le cerveau manque sérieusement d’oxygène. Ce symptôme est souvent le premier indicateur que l’acclimatation n’est pas suffisante et qu’une intervention est nécessaire avant que les autres signes ne s’aggravent.",
+      "mod_vomit_title": "Nausées importantes et vomissements",
+      "mod_vomit": "Les nausées légères sont fréquentes en altitude, mais des vomissements répétés indiquent que le corps est en stress. Cela entraîne rapidement une déshydratation, ce qui aggrave le manque d’oxygène et fatigue le corps. À ce stade, il devient essentiel de ralentir, s’hydrater et signaler le problème à son guide.",
+      "mod_breathless_title": "Essoufflement même en marchant doucement",
+      "mod_breathless": "Si un trekkeur s’essouffle en marchant très lentement, le corps lutte pour apporter assez d’oxygène aux muscles. La respiration devient laborieuse et le rythme cardiaque s’accélère, même sans effort intense. Ce symptôme montre clairement que la montée doit être stoppée ou ralentie immédiatement.",
+      "mod_balance_title": "Marche instable et manque d’équilibre",
+      "mod_balance": "Le manque d’oxygène affecte le cerveau et le système nerveux. Une personne peut vaciller, perdre l’équilibre ou marcher de manière hésitante. C’est un signe que le corps ne réagit plus correctement à l’altitude et qu’une action immédiate est nécessaire pour éviter une aggravation.",
+      "mod_chest_title": "Pression dans la poitrine",
+      "mod_chest": "Certains trekkeurs ressentent une sensation de serrement ou de pression dans la poitrine. Cela traduit un effort supplémentaire du cœur et des poumons pour compenser le manque d’oxygène. Ce symptôme doit être pris très au sérieux : il peut annoncer une évolution rapide vers un MAM sévère.",
+      "mod_confusion_title": "Irritabilité ou confusion légère",
+      "mod_confusion": "Le manque d’oxygène peut affecter l’humeur et les capacités cognitives. L’irritabilité, l’agitation ou une légère confusion indiquent que le cerveau est déjà impacté. À ce stade, la sécurité du trekkeur peut être compromise, et une surveillance rapprochée ou une descente partielle peut devenir nécessaire.",
+
+      "prevention_title": "Comment éviter le Mal Aigu des Montagnes (MAM) sur le Kilimandjaro : conseils de guide local",
+      "prevention_intro": "Gravir le Kilimandjaro est une aventure extraordinaire, mais l’altitude peut rapidement mettre le corps à l’épreuve. Le MAM touche presque tous les trekkeurs à un moment donné, même les plus expérimentés. La bonne nouvelle, c’est qu’avec une bonne préparation, un rythme adapté et une écoute attentive du corps, le MAM peut être évité ou fortement atténué.",
+      "prevention_pole_title": "Monter lentement : la règle d’or “Pole Pole”",
+      "prevention_pole": "“Pole Pole” signifie doucement, lentement. Ce rythme n’est pas un simple conseil, c’est la clé de l’acclimatation réussie. Le corps a besoin de temps pour produire des globules rouges supplémentaires, essentiels pour transporter l’oxygène en haute altitude. Toutes mes ascensions suivent un rythme lent, contrôlé et régulier, avec des pauses fréquentes pour permettre au corps de s’adapter sans stress inutile. Monter trop vite augmente fortement le risque de MAM.",
+      "prevention_hydration_title": "Hydratation : 3 à 4 litres par jour",
+      "prevention_hydration": "L’eau est un allié indispensable contre le MAM. En haute altitude, la déshydratation se produit rapidement et amplifie les symptômes tels que fatigue, maux de tête et essoufflement. Sur le Kilimandjaro, nous fournissons de l’eau bouillie, filtrée ou traitée à chaque camp pour garantir votre sécurité. L’important est de boire régulièrement tout au long de la journée, même si vous n’avez pas soif. L’hydratation constante aide le corps à fonctionner efficacement et favorise une meilleure acclimatation.",
+      "prevention_sleep_title": "Principe “monter haut, dormir bas”",
+      "prevention_sleep": "Pour acclimater le corps, il est essentiel de ne pas rester dormir trop haut après une montée. Le principe “monter haut, dormir bas” consiste à grimper un peu plus haut pendant la journée pour stimuler l’adaptation, puis à redescendre à une altitude plus basse pour passer la nuit. Ces journées d’acclimatation préparent le corps à gérer les variations d’altitude et réduisent fortement le risque de MAM.",
+      "prevention_diamox_title": "Médicaments comme le Diamox (si prescrits)",
+      "prevention_diamox": "Le Diamox peut aider certaines personnes à mieux s’adapter à l’altitude en facilitant la respiration et en accélérant l’acclimatation. Cependant, il doit toujours être prescrit par un médecin avant le voyage. Attention : le Diamox ne remplace jamais une bonne acclimatation, une montée lente et une hydratation suffisante. C’est un outil complémentaire, et non une solution miracle.",
+      "prevention_listen_title": "Écouter son corps et communiquer avec votre guide",
+      "prevention_listen": "Le MAM se manifeste toujours par des signes visibles ou ressentis par le trekkeur : mal de tête, nausées, fatigue ou troubles du sommeil. Plus tôt ces signaux sont détectés et communiqués, plus vite l’équipe peut agir pour éviter que la situation ne s’aggrave. En tant que guide local, je surveille constamment mon groupe et encourage chacun à parler ouvertement de ses sensations. Écouter son corps n’est pas un signe de faiblesse, c’est la meilleure garantie pour atteindre le sommet en toute sécurité.",
+      "prevention_sleep_recovery_title": "Sommeil et récupération : le meilleur allié du trekkeur",
+      "prevention_sleep_recovery": "Un sommeil suffisant est indispensable pour que le corps s’adapte à l’altitude. En moyenne, 7 à 8 heures de repos par nuit permettent de réguler la respiration, de produire plus de globules rouges et d’améliorer l’énergie du lendemain. Négliger le sommeil augmente le risque de maux de tête, de fatigue et d’autres symptômes du MAM.",
+      "prevention_conclusion": "« La montagne ne se précipite jamais, et votre corps non plus. Avancez doucement, pole pole, et écoutez chaque signal. »",
+
+      "practical_title": "Conseils pratiques",
+      "tip1": "Ne jamais ignorer les premiers signes – même un léger mal de tête peut être le début du MAM.",
+      "tip2": "Montez lentement – le rythme swahili “Pole Pole” est la clé de l’acclimatation.",
+      "tip3": "Hydratez-vous régulièrement – 3 à 4 litres par jour pour compenser la perte d’eau et faciliter l’adaptation.",
+      "tip4": "Reposez-vous et dormez suffisamment – laissez au corps le temps de récupérer et de s’habituer à l’altitude.",
+      "tip5": "Mangez même si l’appétit baisse – privilégiez des repas chauds, légers et riches en énergie.",
+      "tip6": "Communiquez avec votre guide – nous sommes là pour surveiller, conseiller et, si nécessaire, gérer toute situation critique.",
+      "conclusion": "Rappelez-vous : écouter votre corps n’est pas un signe de faiblesse, c’est le meilleur moyen de grimper en toute sécurité et d’atteindre le sommet avec succès."
+    }
+  }
+  ,
+  "EvacuationUrgence": {
+    "title": "Évacuation d'urgence sur le Kilimandjaro : guide complet pour les randonneurs",
+    "subtitle": "Gravir le Kilimandjaro, culminant à 5 895 mètres, est une aventure exceptionnelle. Mais cette ascension rapide, combinée à l'altitude et au terrain varié, peut parfois provoquer des situations critiques.",
+    "meta": {
+      "author": "Guide Local du Kilimandjaro",
+      "date": "Décembre 2025",
+      "readingTime": "8 min de lecture"
+    },
+    "sections": {
+      "introTitle": "Introduction",
+      "intro": "Gravir le Kilimandjaro, culminant à 5 895 mètres, est une aventure exceptionnelle. Mais cette ascension rapide, combinée à l'altitude et au terrain varié, peut parfois provoquer des situations critiques. Les randonneurs peuvent souffrir d'un Mal Aigu des Montagnes (MAM) sévère, d'un accident ou d'autres urgences médicales. En tant que guide local, ma priorité absolue est la sécurité de chaque randonneur et la prévention des incidents.",
+
+      "descente_immediate_title": "Descente immédiate sur le Kilimandjaro : première étape pour stabiliser un randonneur en difficulté",
+      "descente_immediate_intro": "Lors d'une ascension du Kilimandjaro, le Mal Aigu des Montagnes (MAM) sévère peut survenir rapidement, même chez les randonneurs expérimentés. Dans ces situations, la descente immédiate est la mesure la plus efficace pour protéger la santé et éviter les complications graves.",
+      "pourquoi_descendre_title": "Pourquoi descendre immédiatement ?",
+      "pourquoi_descendre": "À haute altitude, la pression en oxygène diminue, ce qui force le corps à travailler davantage pour oxygéner le cerveau, les muscles et les organes. Si le randonneur reste en altitude malgré des symptômes graves, le risque d'œdème cérébral ou pulmonaire de haute altitude augmente considérablement. Descendre rapidement permet :",
+      "effets_immediats_title": "Quels sont les effets immédiats de la descente ?",
+      "effets_immediats": "Même une descente de quelques centaines de mètres peut avoir un impact significatif :",
+
+      "comment_descendre_title": "Comment descendre en toute sécurité sur le Kilimandjaro",
+      "comment_descendre_intro": "Lorsqu'un randonneur souffre de Mal Aigu des Montagnes (MAM) sévère ou d'un accident, la descente est l'étape la plus importante pour stabiliser son état. Mais descendre trop vite ou sans précaution peut aggraver la situation. Pour cela, il est essentiel de suivre des pratiques sécurisées et contrôlées.",
+      "rythme_lent_title": "1. Rythme lent et régulier",
+      "rythme_lent": "La règle d'or est de descendre lentement et régulièrement. Même si l'urgence pousse à aller vite, courir ou précipiter la descente peut provoquer :",
+      "pauses_frequentes_title": "2. Pauses fréquentes",
+      "pauses_frequentes": "Pendant la descente, il est important de faire des pauses régulières pour :",
+      "protection_froid_title": "3. Protection contre le froid",
+      "protection_froid": "À haute altitude, le froid peut rapidement aggraver les symptômes du MAM et provoquer une hypothermie. Pour cela :",
+      "communication_guide_title": "4. Communication continue avec le guide",
+      "communication_guide": "La communication est essentielle pour une descente sûre :",
+      "conseil_guide": "Conseil du guide local : La descente sécurisée est un art autant qu'une nécessité. Même en situation d'urgence, avancer trop vite ou ignorer les signaux du corps peut mettre le randonneur en danger. Monter lentement, faire des pauses régulières, se protéger du froid et rester en contact constant avec le guide sont les clés pour une descente efficace et sûre.",
+
+      "conclusion_title": "Conclusion",
+      "conclusion": "La sécurité sur le Kilimandjaro passe par la prévention et la réaction rapide en cas d'urgence. La descente immédiate et sécurisée est souvent la solution la plus efficace pour stabiliser un randonneur en difficulté. Avec un guide expérimenté et une communication constante, chaque ascension peut se dérouler dans les meilleures conditions."
+    }
+  }
+  ,
+  "DiamoxKilimanjar": {
+    "title": "Le Diamox pour l'ascension du Kilimandjaro : tout ce que les trekkeurs doivent savoir",
+    "subtitle": "Gravir le Kilimandjaro, avec ses 5 895 mètres de sommet, est un rêve pour de nombreux aventuriers. Mais cette ascension rapide expose le corps à un défi majeur : le Mal Aigu des Montagnes (MAM).",
+    "meta": {
+      "author": "Guide Local du Kilimandjaro",
+      "date": "Décembre 2025",
+      "readingTime": "6 min de lecture"
+    },
+    "sections": {
+      "introTitle": "Introduction",
+      "intro": "Gravir le Kilimandjaro, avec ses 5 895 mètres de sommet, est un rêve pour de nombreux aventuriers. Mais cette ascension rapide expose le corps à un défi majeur : le Mal Aigu des Montagnes (MAM). Même les randonneurs les plus expérimentés peuvent ressentir des maux de tête, une fatigue intense ou des nausées en altitude. Le Diamox, ou acétazolamide, est un médicament souvent utilisé pour prévenir ou atténuer les symptômes du MAM. Il agit en facilitant l'adaptation du corps à l'altitude, notamment en stimulant la respiration et en améliorant l'oxygénation du sang.",
+
+      "role_diamox_title": "Le rôle du Diamox : comment il aide à s'acclimater au Kilimandjaro",
+      "role_diamox_intro": "Le Diamox, ou acétazolamide, est un médicament souvent recommandé pour aider les trekkeurs à mieux supporter l'altitude. Son principal rôle est de faciliter l'acclimatation du corps au manque d'oxygène rencontré en haute altitude.",
+      "role_diamox_explanation": "Concrètement, le Diamox agit en stimulant la respiration. Cela permet au corps de mieux oxygéner le sang, ce qui peut réduire certains symptômes courants du Mal Aigu des Montagnes (MAM), tels que :",
+      "role_diamox_note": "Cependant, il est important de comprendre que le Diamox n'est pas indispensable pour réussir l'ascension. La plupart des trekkeurs atteignent le sommet en toute sécurité sans médicament, à condition de respecter quelques règles simples :",
+
+      "quand_commencer_title": "Quand commencer le Diamox pour l'ascension du Kilimandjaro ?",
+      "quand_commencer_intro": "Si votre médecin recommande le Diamox pour prévenir le Mal Aigu des Montagnes (MAM), le moment où vous commencez à le prendre est crucial pour son efficacité.",
+
+      "dosage_title": "Diamox pour le Kilimandjaro : quel dosage pour prévenir le MAM ?",
+      "dosage_intro": "Le Diamox (acétazolamide) est un outil efficace pour réduire les symptômes du Mal Aigu des Montagnes (MAM), mais son dosage doit être précis pour garantir son efficacité et éviter les effets secondaires.",
+      "dosage_habituel": "Le dosage varie selon le trekkeur et le protocole médical, mais les schémas les plus courants sont :",
+      "dosage_personnalise": "Chaque trekkeur est différent : l'âge, le poids, l'expérience en montagne, la santé générale et les antécédents médicaux influencent la réaction au Diamox. Par conséquent, il est crucial de ne jamais ajuster la dose par vous-même. Seul un médecin pourra déterminer le dosage optimal pour maximiser les bénéfices tout en minimisant les effets secondaires.",
+      "dosage_retenir": "Le Diamox peut aider à mieux s'acclimater, mais il ne remplace jamais un rythme de montée lent, une bonne hydratation et un sommeil suffisant. Respecter ces règles, combiné à un dosage approprié, est la meilleure manière de profiter de l'ascension du Kilimandjaro en toute sécurité.",
+
+      "conclusion_title": "Conclusion",
+      "conseil_guide": "En tant que guide local, je recommande toujours de discuter du Diamox avec un médecin avant le voyage. Avec ou sans médicament, le respect de votre corps et des règles d'acclimatation reste la clé pour atteindre le sommet en sécurité et en pleine forme."
+    }
+  }
+  ,
+  "AlimentationKilimanjar": {
+    "title": "Quels types de repas sont servis en altitude sur le Kilimandjaro pour maintenir l'énergie malgré la perte d'appétit ?",
+    "subtitle": "Sur le Kilimandjaro, l'alimentation est un élément clé de la réussite de l'ascension, au même titre que l'hydratation et le rythme de montée.",
+    "meta": {
+      "author": "Guide Local du Kilimandjaro",
+      "date": "Décembre 2025",
+      "readingTime": "7 min de lecture"
+    },
+    "sections": {
+      "introTitle": "Introduction",
+      "intro": "À mesure que l'on gagne en altitude, de nombreux randonnéeurs ressentent une diminution progressive de l'appétit, parfois dès les premiers jours du trek. Cette réaction est normale, mais elle peut devenir problématique si elle entraîne une baisse des apports énergétiques.",
+      "intro2": "En altitude, le corps travaille davantage : il doit fournir de l'énergie pour marcher, lutter contre le froid, maintenir la température corporelle et surtout s'adapter au manque d'oxygène. C'est pourquoi, même lorsque la faim se fait rare, l'alimentation reste indispensable.",
+      "conseil_intro": "👉 même sans sensation de faim, continuer à manger est essentiel pour préserver l'énergie, la force physique et une bonne acclimatation.",
+
+      "pourquoi_appetit_title": "Pourquoi l'appétit diminue en altitude",
+      "pourquoi_appetit": "En altitude, le corps priorise l'oxygénation et l'adaptation physiologique. Le système digestif fonctionne plus lentement, ce qui peut entraîner une sensation de satiété rapide, des nausées légères ou une simple envie de manger moins. Le froid et la fatigue accentuent encore ce phénomène. C'est pour cette raison que les repas servis sur le Kilimandjaro sont adaptés à l'altitude : faciles à digérer, riches en énergie et fractionnés tout au long de la journée.",
+
+      "glucides_energie_title": "Des repas riches en glucides pour l'énergie immédiate",
+      "glucides_energie": "En altitude, les glucides sont la source d'énergie la plus efficace. Ils demandent moins d'oxygène pour être transformés en énergie que les lipides ou les protéines. Les menus privilégient donc :",
+      "glucides_energie_note": "Ces aliments apportent une énergie rapide, soutiennent l'effort et aident à limiter la fatigue liée à l'altitude.",
+
+      "repas_simples_title": "Des repas simples et faciles à digérer",
+      "repas_simples": "Les plats servis en altitude sont volontairement simples, sans excès de gras ni d'épices fortes. L'objectif est d'éviter les troubles digestifs tout en maintenant un apport calorique suffisant. Les cuisiniers de montagne préparent généralement des plats chauds et familiers, qui rassurent le corps et l'esprit, même lorsque l'appétit est réduit.",
+
+      "proteines_moderation_title": "Des protéines en quantité modérée pour la récupération",
+      "proteines_moderation": "Les protéines restent importantes pour la récupération musculaire, mais en altitude elles sont servies en quantité modérée pour ne pas alourdir la digestion. On retrouve souvent :",
+      "proteines_moderation_note": "Ces aliments aident à préserver la masse musculaire sans fatiguer inutilement le système digestif.",
+
+      "soupes_chaudes_title": "Soupes chaudes : un élément clé en altitude",
+      "soupes_chaudes": "La soupe est l'un des repas les plus importants sur le Kilimandjaro. Elle combine plusieurs avantages essentiels :",
+      "soupes_chaudes_note": "En altitude, beaucoup de randonnéeurs mangent plus volontiers une soupe qu'un plat solide, surtout le soir.",
+
+      "repas_fractionnes_title": "Repas fractionnés et collations régulières",
+      "repas_fractionnes": "Plutôt que de forcer de gros repas, l'alimentation est répartie sur la journée. Des collations sont proposées pendant la marche ou aux pauses :",
+      "repas_fractionnes_note": "Manger en petites quantités mais régulièrement permet de maintenir l'énergie sans provoquer de nausées.",
+
+      "conclusion_title": "Conseil du guide local",
+      "conseil_conclusion": "\"Sur le Kilimandjaro, manger n'est pas une question de faim, mais de survie énergétique. Même si l'appétit diminue, il est essentiel de continuer à consommer de petites portions régulièrement pour rester fort et bien acclimaté.\""
+    }
+  },
+  "AcclimatationKilimanjar": {
+    "hero": {
+      "title": "Techniques d'acclimatation pour le Kilimandjaro",
+      "subtitle": "Maîtrisez les principes essentiels de l'acclimatation pour une ascension réussie du toit de l'Afrique"
+    },
+    "meta": {
+      "author": "Guide Local du Kilimandjaro",
+      "date": "Décembre 2025",
+      "readingTime": "6 min de lecture"
+    },
+    "sections": {
+      "introduction": {
+        "title": "Introduction à l'acclimatation",
+        "content": {
+          "1": "L'acclimatation est le processus par lequel votre corps s'adapte aux conditions extrêmes de haute altitude. Sur le Kilimandjaro, culminant à 5 895 mètres, cette adaptation est cruciale pour éviter le Mal Aigu des Montagnes (MAM).",
+          "2": "Comprendre et appliquer les bonnes techniques d'acclimatation peut faire la différence entre une ascension réussie et un échec prématuré.",
+          "3": "Les deux principes fondamentaux sont : \"Pole Pole\" (lentement lentement) et \"Monter haut, dormir bas\"."
+        }
+      },
+      "pole-pole": {
+        "title": "Pole Pole : le rythme de l'acclimatation",
+        "content": {
+          "1": "Le principe \"Pole Pole\" (lentement lentement en swahili) est la base de toute ascension réussie du Kilimandjaro.",
+          "2": "Ce rythme permet à votre corps de s'adapter progressivement aux changements de pression atmosphérique et au manque d'oxygène.",
+          "3": "Marcher lentement signifie moins d'effort cardiovasculaire et une meilleure oxygénation des tissus.",
+          "4": "Ce principe s'applique aussi bien à la montée qu'aux descentes pour éviter les chutes et les blessures."
+        }
+      },
+      "monter-dormir": {
+        "title": "Monter haut, dormir bas : la clé de l'adaptation",
+        "content": {
+          "1": "Le principe \"Monter haut, dormir bas\" est essentiel pour une bonne acclimatation.",
+          "2": "Pendant la journée, vous montez à des altitudes plus élevées pour stimuler l'adaptation physiologique.",
+          "3": "Le soir, vous redescendez dormir à une altitude inférieure où l'air est plus riche en oxygène.",
+          "4": "Cette technique permet au corps de bénéficier des effets positifs de l'exposition à l'altitude tout en récupérant dans de meilleures conditions.",
+          "5": "C'est pourquoi les itinéraires de plusieurs jours sont préférables aux ascensions rapides."
+        }
+      },
+      "conclusion": {
+        "title": "Conclusion",
+        "content": {
+          "1": "L'acclimatation est un art qui demande patience et discipline.",
+          "2": "En appliquant ces principes avec un guide expérimenté, vous maximiserez vos chances de succès."
+        }
+      }
+    },
+    "routes": {
+      "title": "Prêt pour une aventure ?",
+      "subtitle": "Découvrez nos itinéraires d'exception sur le Kilimandjaro",
+      "marangu": {
+        "title": "Route Marangu",
+        "description": "La route \"Coca-Cola\" offre un confort relatif avec ses cabanes et son ascension progressive.",
+        "button": "Découvrir Marangu"
+      },
+      "machame": {
+        "title": "Route Machame",
+        "description": "La plus populaire des routes, offrant des paysages spectaculaires et une excellente acclimatation.",
+        "button": "Découvrir Machame"
+      },
+      "lemosho": {
+        "title": "Route Lemosho",
+        "description": "Une route sauvage et isolée, parfaite pour une immersion totale dans la nature africaine.",
+        "button": "Découvrir Lemosho"
+      }
+    },
+    "cta": {
+      "title": "Votre aventure vous attend",
+      "subtitle": "Contactez nos experts pour planifier votre ascension du Kilimandjaro",
+      "contact": "Nous contacter",
+      "routes": "Voir les routes"
+    }
+  },
+  "SommeilKilimanjar": {
+    "hero": {
+      "title": "Sommeil et récupération sur le Kilimandjaro",
+      "subtitle": "Optimisez votre repos en altitude pour une ascension réussie et en pleine forme"
+    },
+    "meta": {
+      "author": "Guide Local du Kilimandjaro",
+      "date": "Décembre 2025",
+      "readingTime": "7 min de lecture"
+    },
+    "sections": {
+      "introduction": {
+        "title": "Introduction",
+        "content": {
+          "1": "Le sommeil est crucial lors d'une ascension du Kilimandjaro, mais l'altitude affecte considérablement la qualité du repos.",
+          "2": "Comprendre ces effets et savoir comment les gérer est essentiel pour maintenir votre énergie et favoriser l'acclimatation.",
+          "3": "Un bon sommeil permet au corps de récupérer et de s'adapter aux conditions extrêmes."
+        }
+      },
+      "altitude-effects": {
+        "title": "Les effets de l'altitude sur le sommeil",
+        "content": {
+          "1": "À partir de 3 000 mètres, la plupart des randonneurs éprouvent des difficultés à dormir.",
+          "2": "Le manque d'oxygène peut causer des réveils nocturnes, des maux de tête et une sensation de fatigue persistante.",
+          "3": "La respiration peut devenir irrégulière, entrecoupée de pauses qui perturbent le sommeil profond.",
+          "4": "Le froid nocturne et l'inconfort des tentes ajoutent aux difficultés."
+        }
+      },
+      "sleep-requirements": {
+        "title": "Besoins en sommeil sur le Kilimandjaro",
+        "content": {
+          "1": "En altitude, votre corps a besoin de plus de sommeil qu'en plaine.",
+          "2": "Comptez 8 à 10 heures de repos par nuit, parfois avec des siestes diurnes.",
+          "3": "Le sommeil en altitude est moins récupérateur, d'où la nécessité de dormir plus longtemps.",
+          "4": "Les nuits courtes peuvent entraîner une fatigue accumulée et augmenter les risques de MAM.",
+          "5": "Un sommeil de qualité est aussi important que l'hydratation et l'alimentation."
+        }
+      },
+      "preparation-tips": {
+        "title": "Conseils pour optimiser le sommeil",
+        "content": {
+          "1": "Préparez-vous physiquement avant le départ avec des randonnées en altitude.",
+          "2": "Apportez un bon sac de couchage adapté au froid extrême (jusqu'à -20°C).",
+          "3": "Utilisez des boules Quiès pour atténuer les ronflements des autres randonneurs.",
+          "4": "Évitez la caféine et l'alcool qui déshydratent et perturbent le sommeil.",
+          "5": "Pratiquez des exercices de respiration pour améliorer l'oxygénation nocturne."
+        }
+      },
+      "conclusion": {
+        "title": "Conclusion",
+        "content": {
+          "1": "Un sommeil de qualité est essentiel pour réussir l'ascension du Kilimandjaro.",
+          "2": "Avec une bonne préparation et les bons équipements, vous pourrez récupérer efficacement malgré l'altitude."
+        }
+      }
+    },
+    "routes": {
+      "title": "Prêt pour une aventure ?",
+      "subtitle": "Découvrez nos itinéraires d'exception sur le Kilimandjaro",
+      "marangu": {
+        "title": "Route Marangu",
+        "description": "La route \"Coca-Cola\" offre un confort relatif avec ses cabanes et son ascension progressive.",
+        "button": "Découvrir Marangu"
+      },
+      "machame": {
+        "title": "Route Machame",
+        "description": "La plus populaire des routes, offrant des paysages spectaculaires et une excellente acclimatation.",
+        "button": "Découvrir Machame"
+      },
+      "lemosho": {
+        "title": "Route Lemosho",
+        "description": "Une route sauvage et isolée, parfaite pour une immersion totale dans la nature africaine.",
+        "button": "Découvrir Lemosho"
+      }
+    },
+    "cta": {
+      "title": "Votre aventure vous attend",
+      "subtitle": "Contactez nos experts pour planifier votre ascension du Kilimandjaro",
+      "contact": "Nous contacter",
+      "routes": "Voir les routes"
+    }
+  },
+  "CheckUpMedicalKilimanjar": {
+    "hero": {
+      "title": "Check-up médical pour le Kilimandjaro",
+      "subtitle": "Évaluez votre condition physique et préparez-vous médicalement pour l'ascension"
+    },
+    "meta": {
+      "author": "Guide Local du Kilimandjaro",
+      "date": "Décembre 2025",
+      "readingTime": "8 min de lecture"
+    },
+    "sections": {
+      "introduction": {
+        "title": "Introduction",
+        "content": {
+          "1": "Un check-up médical complet est indispensable avant d'entreprendre l'ascension du Kilimandjaro.",
+          "2": "Cette évaluation permet d'identifier les risques potentiels et de prendre les mesures préventives nécessaires.",
+          "3": "Consultez un médecin spécialisé en médecine de montagne au moins 2-3 mois avant le départ."
+        }
+      },
+      "medical-exam": {
+        "title": "L'examen médical complet",
+        "content": {
+          "1": "Le check-up comprend un examen cardiovasculaire complet (ECG, échographie cardiaque).",
+          "2": "Une évaluation pulmonaire pour détecter d'éventuelles pathologies respiratoires.",
+          "3": "Des analyses sanguines pour vérifier l'anémie, le diabète et les fonctions rénales.",
+          "4": "Un bilan orthopédique pour évaluer l'état des articulations et prévenir les blessures."
+        }
+      },
+      "vaccinations": {
+        "title": "Vaccinations et prophylaxie",
+        "content": {
+          "1": "Mise à jour des vaccins universels (DTCP, hépatite A, typhoïde).",
+          "2": "Vaccin contre la rage si vous approchez des animaux sauvages.",
+          "3": "Prophylaxie antipaludéenne selon la saison et l'itinéraire.",
+          "4": "Vaccins spécifiques selon vos antécédents médicaux."
+        }
+      },
+      "health-conditions": {
+        "title": "Conditions médicales à considérer",
+        "content": {
+          "1": "Évaluation des antécédents de Mal Aigu des Montagnes (MAM).",
+          "2": "Gestion des pathologies chroniques (asthme, diabète, hypertension).",
+          "3": "Évaluation des risques cardiovasculaires et pulmonaires.",
+          "4": "Conseils sur la prise de médicaments en altitude (contraceptifs, anticoagulants).",
+          "5": "Recommandations pour les femmes enceintes ou allaitantes."
+        }
+      },
+      "altitude-considerations": {
+        "title": "Considérations spécifiques à l'altitude",
+        "content": {
+          "1": "Évaluation de votre tolérance personnelle à l'altitude.",
+          "2": "Recommandations pour la prévention du MAM (Diamox, acclimatation progressive).",
+          "3": "Conseils pour gérer les effets secondaires des médicaments.",
+          "4": "Plan d'urgence en cas de problème médical en altitude."
+        }
+      },
+      "conclusion": {
+        "title": "Conclusion",
+        "content": {
+          "1": "Un check-up médical rigoureux est votre meilleure assurance pour une ascension réussie.",
+          "2": "N'hésitez pas à consulter plusieurs spécialistes pour une évaluation complète."
+        }
+      }
+    },
+    "routes": {
+      "title": "Prêt pour une aventure ?",
+      "subtitle": "Découvrez nos itinéraires d'exception sur le Kilimandjaro",
+      "marangu": {
+        "title": "Route Marangu",
+        "description": "La route \"Coca-Cola\" offre un confort relatif avec ses cabanes et son ascension progressive.",
+        "button": "Découvrir Marangu"
+      },
+      "machame": {
+        "title": "Route Machame",
+        "description": "La plus populaire des routes, offrant des paysages spectaculaires et une excellente acclimatation.",
+        "button": "Découvrir Machame"
+      },
+      "lemosho": {
+        "title": "Route Lemosho",
+        "description": "Une route sauvage et isolée, parfaite pour une immersion totale dans la nature africaine.",
+        "button": "Découvrir Lemosho"
+      }
+    },
+    "cta": {
+      "title": "Votre aventure vous attend",
+      "subtitle": "Contactez nos experts pour planifier votre ascension du Kilimandjaro",
+      "contact": "Nous contacter",
+      "routes": "Voir les routes"
+    }
+  },
+  "BlogPosts": {
+    "comment-maintenir-bonne-hygiene-kilimandjaro": {
+      "title": "Comment maintenir une bonne hygiène personnelle pendant l’ascension du Kilimandjaro ?",
+      "subtitle": "Guide pratique par un guide local du Kilimandjaro",
+      "meta": { "author": "Guide Local Kilimandjaro", "date": "Décembre 2025", "readingTime": "4 min de lecture" },
+      "sections": {
+        "overview": { "title": "Aperçu", "content": "L’ascension du mont Kilimandjaro est une aventure exceptionnelle, mais elle se déroule dans des conditions très différentes du quotidien. L’un des sujets les plus sous-estimés par les randonneurs est l’hygiène personnelle. Sans douches, avec une eau limitée et des camps isolés, beaucoup se demandent comment rester propre pendant plusieurs jours de trek. La réalité est simple : une bonne hygiène sur le Kilimandjaro est indispensable pour rester en bonne santé et réussir le sommet. En tant que guide local, je constate souvent que les grimpeurs qui respectent les règles d’hygiène sont ceux qui terminent le trek dans les meilleures conditions." },
+        "conditions": { "title": "Conditions", "content": "Le confort moderne n’existe pas sur la montagne. Le Kilimandjaro est une zone naturelle protégée, sans infrastructures hôtelières. Il n’y a aucune douche sur le mont Kilimandjaro, quelle que soit la voie choisie. L’eau disponible est collectée depuis des rivières ou des sources naturelles, puis traitée par l’équipe. Cette eau est prioritairement utilisée pour la boisson, la préparation des repas et le lavage des mains et de la vaisselle." },
+        "toilettes": { "title": "Toilettes", "content": "Chaque camp dispose généralement de toilettes publiques fournies par le parc national. Elles sont très rudimentaires : cabines simples ou structures temporaires, parfois sans papier toilette ni eau pour se laver les mains. Certaines équipes proposent des toilettes portables privées, plus propres et offrant plus d’intimité. Pour les longues ascensions, elles sont fortement recommandées." },
+        "autonomie": { "title": "Autonomie personnelle", "content": "Les camps sont rustiques et l’hygiène repose sur l’autonomie personnelle du randonneur. Lingettes humides, gel hydroalcoolique, vêtements propres et accessoires d’hygiène deviennent essentiels. Une routine quotidienne — se nettoyer chaque soir, se changer, prendre soin des pieds — aide à conserver de l’énergie et éviter les problèmes de santé." },
+        "mental": { "title": "Préparation mentale", "content": "La discipline tout au long du trek est essentielle. La préparation mentale permet d’accepter les contraintes, réduire le stress et favoriser une meilleur acclimatation. Prévoir son équipement et ses habitudes aide à transformer l’expérience en une aventure positive." }
+      }
+    },
+    "toilettes-privees-necessaires": {
+      "title": "Les toilettes privées sont-elles nécessaires pour l’ascension du Kilimandjaro ?",
+      "subtitle": "Conseils d’un guide local",
+      "meta": { "author": "Guide Local Kilimandjaro", "date": "Décembre 2025", "readingTime": "6 min de lecture" },
+      "sections": {
+        "overview": { "title": "Aperçu", "content": "La plupart des camps disposent de toilettes publiques fournies par le parc national. Elles sont simples, partagées et peuvent être peu entretenues en haute saison. Le papier toilette n’est pas toujours fourni et l’eau pour se laver les mains peut manquer." },
+        "public": { "title": "Toilettes publiques", "content": "Ces installations répondent aux besoins de base mais n’offrent pas le confort moderne. Elles doivent être anticipées en apportant du matériel personnel (papier, gel, lingettes)." },
+        "private": { "title": "Toilettes privées", "content": "Les toilettes portables privées offrent plus de propreté, d’intimité et réduisent les risques sanitaires. Elles sont nettoyées régulièrement et recommandées pour les itinéraires longs." },
+        "recommandation": { "title": "Recommandation", "content": "Pour les ascensions de plusieurs jours, surtout sur Lemosho ou le circuit long, prévoir au moins une toilette privée par camp améliore le confort et la santé du groupe." }
+      }
+    },
+    "articles-hygiene-emporter": {
+      "title": "Quels articles d’hygiène emporter pour un trek sur le Kilimandjaro ?",
+      "subtitle": "Conseils d’un guide local",
+      "meta": { "author": "Guide Local Kilimandjaro", "date": "Décembre 2025", "readingTime": "5 min de lecture" },
+      "sections": {
+        "overview": { "title": "Aperçu", "content": "L’hygiène sur le Kilimandjaro est un défi : pas de douche, toilettes rudimentaires, températures basses et manque d’eau courante. Bien préparer son sac est essentiel pour rester propre et en bonne santé." },
+        "corporelle": { "title": "Hygiène corporelle", "content": "Lingettes biodégradables, savon ou gel antibactérien, déodorant solide, crème hydratante, baume à lèvres sont des indispensables même sans douche." },
+        "pieds": { "title": "Soins des pieds", "content": "Chaussettes propres et respirantes, crème anti-frottement, pansements et bandes adhésives pour prévenir ampoules et infections." },
+        "toilettes": { "title": "Hygiène des toilettes", "content": "Papier toilette biodégradable, sacs pour déchets, gel hydroalcoolique et lingettes humides pour nettoyage rapide lorsque l’eau est rare." },
+        "autres": { "title": "Autres indispensables", "content": "Serviette microfibre compacte, petite trousse de premiers soins, brosse à dents et dentifrice en petit format." }
+      }
+    },
+    "rester-propre-sans-eau": {
+      "title": "Comment rester propre sans eau sur le Kilimandjaro ?",
+      "subtitle": "Conseils d’un guide local",
+      "meta": { "author": "Guide Local Kilimandjaro", "date": "Décembre 2025", "readingTime": "5 min de lecture" },
+      "sections": {
+        "overview": { "title": "Aperçu", "content": "Les camps sont rustiques, il n’y a pas de douches, et l’eau disponible est principalement utilisée pour boire et cuisiner. Pourtant, il est possible de maintenir une hygiène correcte avec le bon équipement et les bonnes techniques." },
+        "importance": { "title": "Pourquoi c'est crucial", "content": "Prévenir infections et troubles digestifs, protéger la peau et les pieds, et maintenir le moral sont des raisons essentielles de garder une hygiène minimale même sans eau." },
+        "pratique": { "title": "Conseils pratiques", "content": "Utilisez des lingettes biodégradables, du gel hydroalcoolique, gardez un jeu de vêtements secs chaque soir et entretenez vos pieds régulièrement." },
+        "soins-pieds": { "title": "Soins des pieds", "content": "Nettoyez et séchez les pieds, appliquez des baumes protecteurs et changez de chaussettes pour prévenir ampoules et infections." }
+      }
+    },
+    "hygiene-femmes-ascension": {
+      "title": "Conseils d’hygiène pour les femmes lors de l’ascension du Kilimandjaro",
+      "subtitle": "Guide pratique par un guide local",
+      "meta": { "author": "Guide Local Kilimandjaro", "date": "Décembre 2025", "readingTime": "7 min de lecture" },
+      "sections": {
+        "overview": { "title": "Aperçu", "content": "Gravir le Kilimandjaro impose des conditions différentes de la vie quotidienne. Pour les femmes, certaines préoccupations liées à l’hygiène deviennent particulièrement importantes entre camps rustiques, absence de douches et toilettes rudimentaires." },
+        "kit": { "title": "Trousse d'hygiène", "content": "Serviettes hygiéniques ou tampons biodégradables, lingettes intimes, gel hydroalcoolique, sacs étanches pour déchets, crème hydratante et baume à lèvres sont essentiels." },
+        "toilets": { "title": "Toilettes", "content": "Les installations sanitaires sont limitées. Les toilettes portables privées offrent plus d’intimité et de propreté et sont recommandées sur les itinéraires longs." },
+        "periods": { "title": "Gérer les règles", "content": "Prévoir suffisamment de protections, options de nettoyage (lingettes, gel) et solutions de rechange (coupes menstruelles + alternatives) pour toute la durée du trek." },
+        "cycle": { "title": "Cycle menstruel", "content": "L’altitude et le stress peuvent modifier légèrement le cycle menstruel. Prévoyez des protections supplémentaires même si vos règles ne sont pas prévues." }
+      }
+    },
+    "hygiene-alimentaire": {
+      "title": "Hygiène alimentaire lors de l’ascension du Kilimandjaro",
+      "subtitle": "Guide pratique par un guide local pour un trek sûr et sain",
+      "meta": { "author": "Guide Local Kilimandjaro", "date": "Décembre 2025", "readingTime": "4 min de lecture" },
+      "sections": {
+        "overview": { "title": "Aperçu", "content": "Gravir le Kilimandjaro est exigeant. L’hygiène alimentaire joue un rôle crucial pour éviter intoxications, maux de ventre et fatigue. Une bonne hygiène alimentaire aide à rester énergique tout au long de l’ascension." },
+        "preparation": { "title": "Préparation des repas", "content": "Les cuisiniers expérimentés filtrent ou font bouillir l’eau utilisée pour la cuisine et la boisson. Les surfaces de préparation sont nettoyées et les aliments périssables stockés de façon sûre pour limiter le développement bactérien." },
+        "conseils": { "title": "Conseils pratiques", "content": "Se laver les mains avec du savon ou du gel hydroalcoolique avant chaque repas, éviter aliments crus ou mal cuits, privilégier repas chauds et ne pas partager assiettes ou couverts." },
+        "eau-logistique": { "title": "Eau et logistique", "content": "Chaque camp dispose de zones séparées pour cuisiner et manger. Filtrer ou traiter l’eau personnelle si nécessaire et rester bien hydraté pour prévenir le mal de montagne." }
+      }
+    },
+    "preparation-medicale-kilimandjaro": {
+      "title": "Quelle préparation médicale faut-il prévoir avant le Kilimandjaro ?",
+      "subtitle": "Conseils médicaux pratiques et prévention avant le trek",
+      "meta": { "author": "Médecin de trek", "date": "Décembre 2025", "readingTime": "6 min de lecture" },
+      "sections": {
+        "overview": { "title": "Aperçu", "content": "La préparation médicale est essentielle avant une ascension du Kilimandjaro. Elle permet d’anticiper les risques liés à l’altitude, la fatigue et le froid, et d’éviter que de petits problèmes ne deviennent dangereux. Consultez un médecin en cas d’antécédents cardiaques, pulmonaires ou autres maladies chroniques." },
+        "medical-check": { "title": "Faire un bilan médical avant le départ", "content": "Consultez votre médecin pour évaluer la capacité du corps à supporter l’effort prolongé et l’altitude. Discutez de vos antécédents et recevez des conseils personnalisés pour adapter le rythme et l’itinéraire." },
+        "understand-risks": { "title": "Comprendre les risques liés à l’altitude", "content": "Le mal aigu des montagnes (MAM) peut apparaître dès 3 000 mètres. Connaître les symptômes (maux de tête, nausées, fatigue) et respecter une montée progressive aide à limiter les complications." },
+        "medications": { "title": "Les médicaments utiles", "content": "Certains médicaments (comme l’acétazolamide) peuvent aider à l’acclimatation mais doivent être prescrits par un médecin. Emportez également des antalgiques et des traitements contre les troubles digestifs." },
+        "first-aid": { "title": "Préparer une trousse de premiers secours", "content": "Une trousse bien fournie (pansements, désinfectant, bandages, protections contre les ampoules, crème solaire) est indispensable pour traiter rapidement les petits incidents et rester autonome." },
+        "vaccines": { "title": "Les vaccins et prévention", "content": "Vérifiez que vos vaccins de routine sont à jour et suivez les recommandations médicales selon votre profil. La prévention inclut aussi l’hygiène alimentaire et la protection contre les moustiques." },
+        "hydration": { "title": "Hydratation et alimentation", "content": "Boire régulièrement et privilégier une alimentation riche en glucides soutient l’acclimatation et la récupération. La déshydratation aggrave les symptômes d’altitude, gardez donc un rythme d’hydratation constant." }
+      }
+    },
+    "preparer-son-corps-altitude-kilimandjaro": {
+      "title": "Comment préparer son corps à l’altitude du Kilimandjaro ?",
+      "subtitle": "Conseils pour se préparer à l’altitude et améliorer vos chances au sommet.",
+      "meta": { "author": "Guide Local Kilimandjaro", "date": "Décembre 2025", "readingTime": "8 min de lecture" },
+      "sections": {
+        "overview": { "title": "Comment préparer son corps à l’altitude du Kilimandjaro ?", "content": "L’altitude est le principal défi lors de l’ascension du Kilimandjaro et le facteur qui influence le plus la réussite du sommet. À partir de 3 000 mètres, la quantité d’oxygène dans l’air diminue progressivement. Le corps est alors obligé de s’adapter à ce manque d’oxygène pour continuer à fonctionner normalement.\n\nContrairement à la condition physique, l’altitude ne se « travaille » pas en salle de sport. On peut être très sportif et malgré tout rencontrer des difficultés en altitude. La réussite sur le Kilimandjaro repose donc sur une bonne acclimatation, un rythme adapté, une hydratation rigoureuse et un comportement responsable en montagne.\n\nEn tant que guide local, je constate chaque saison que les personnes qui respectent l’altitude ont beaucoup plus de chances d’atteindre le sommet que celles qui la sous-estiment." },
+        "how-body-reacts": { "title": "Comprendre comment le corps réagit à l’altitude", "content": "En altitude, le corps reçoit moins d’oxygène à chaque respiration. Pour compenser, le cœur bat plus vite et la respiration devient plus rapide. C’est une réaction naturelle et normale, mais cette adaptation demande du temps.\n\nSi l’on monte trop rapidement, le corps n’a pas le temps de s’adapter correctement. Cela peut provoquer des symptômes comme des maux de tête, des nausées, une fatigue intense, une perte d’appétit ou des troubles du sommeil. Ces signes indiquent que l’organisme est en difficulté face à l’altitude.\n\nLa préparation commence donc par une règle fondamentale : monter lentement n’est pas un choix, c’est une nécessité." },
+        "slow-pace": { "title": "Adopter un rythme lent et régulier", "content": "Sur le Kilimandjaro, une règle s’applique à tous, sans exception : « pole pole », ce qui signifie marcher lentement. Ce rythme permet au corps d’économiser de l’énergie et d’améliorer l’oxygénation des muscles et du cerveau.\n\nMême les personnes très sportives doivent accepter cette lenteur. L’altitude ne fait aucune différence entre un athlète et un débutant. Marcher trop vite augmente le risque de mal aigu des montagnes et réduit les capacités de récupération.\n\nUn rythme lent et régulier, maintenu jour après jour, est l’un des facteurs les plus efficaces pour atteindre le sommet en sécurité." },
+        "choose-itinerary": { "title": "Choisir un itinéraire favorable à l’acclimatation", "content": "La préparation à l’altitude commence avant même de poser le pied sur la montagne. Le choix de l’itinéraire est essentiel. Certains parcours du Kilimandjaro proposent une montée plus progressive et incluent des journées ou des montées d’acclimatation, ce qui permet au corps de s’adapter plus efficacement.\n\nPasser davantage de nuits en altitude aide l’organisme à produire plus de globules rouges, améliorant ainsi le transport de l’oxygène dans le sang. Un bon guide local adapte l’itinéraire en fonction du niveau, du rythme et des réactions du groupe." },
+        "hydrate-eat": { "title": "Bien s’hydrater et bien s’alimenter", "content": "En altitude, le corps se déshydrate plus rapidement, même lorsque la sensation de soif est faible. Boire régulièrement tout au long de la journée est indispensable pour soutenir l’acclimatation et limiter les effets négatifs de l’altitude.\n\nUne alimentation équilibrée, riche en glucides, permet de fournir l’énergie nécessaire à l’effort et aide le corps à mieux gérer le manque d’oxygène. Manger suffisamment, même sans appétit, fait partie intégrante de la préparation à l’altitude." },
+        "listen-guide": { "title": "Écouter son corps et communiquer avec le guide", "content": "Chaque personne réagit différemment à l’altitude. Certains s’adaptent rapidement, d’autres ont besoin de plus de temps. Il est donc essentiel d’écouter les signaux de son corps et d’informer le guide dès l’apparition de symptômes inhabituels.\n\nUne communication rapide permet d’ajuster le rythme, de prendre des mesures préventives et, si nécessaire, d’éviter des complications plus graves. Un guide local expérimenté surveille quotidiennement l’état de santé du groupe et agit avant que la situation ne s’aggrave." },
+        "guide-tip": { "title": "Conseil du guide local 🏔️", "content": "Sur le Kilimandjaro, l’altitude ne se défie pas. Celui qui la respecte, marche lentement et écoute son corps arrive plus haut et plus sereinement." }
+      }
+    },
+    "engager-guide-local-kilimandjaro": {
+      "title": "Pourquoi engager un guide local est essentiel pour gravir le Kilimandjaro",
+      "subtitle": "Le rôle du guide, la sécurité et les bénéfices locaux",
+      "meta": { "author": "Guide Local", "date": "Décembre 2025", "readingTime": "5 min de lecture" },
+      "sections": {
+        "overview": { "title": "Pourquoi engager un guide local est essentiel pour gravir le Kilimandjaro", "content": "Un guide local n’est pas un luxe : il est protecteur, conseiller et garant de la sécurité." },
+        "role-guide": { "title": "Le rôle du guide au quotidien", "content": "Le guide accompagne le groupe, surveille l’état de santé et adapte le rythme." },
+        "safety": { "title": "Sécurité avant tout", "content": "Le guide prend des décisions pour ralentir, acclimater ou descendre si nécessaire." },
+        "logistics": { "title": "Gestion logistique et confort", "content": "Il organise le matériel, la nourriture et supervise les porteurs pour un confort optimal." },
+        "morale": { "title": "Soutien moral et motivation", "content": "Le guide maintient la motivation et rassure les randonneurs dans les moments difficiles." },
+        "culture": { "title": "Découverte culturelle et environnementale", "content": "Le guide partage connaissances locales sur la faune, flore et traditions." },
+        "economy": { "title": "Soutien à l’économie locale", "content": "Engager un guide soutient l’économie locale et crée des emplois durables." },
+        "mam-role": { "title": "Le rôle du guide face au mal aigu des montagnes", "content": "Le guide détecte les signes de MAM et intervient rapidement avec mesures adaptées." }
+      }
+    },
+    "choix-itineraire-preparation-kilimandjaro": {
+      "title": "En quoi le choix de l’itinéraire fait-il partie de la préparation au Kilimandjaro ?",
+      "subtitle": "Choisir le bon itinéraire pour favoriser l’acclimatation",
+      "meta": { "author": "Guide d’itinéraire", "date": "Décembre 2025", "readingTime": "4 min de lecture" },
+      "sections": {
+        "overview": { "title": "En quoi le choix de l’itinéraire fait-il partie de la préparation au Kilimandjaro ?", "content": "Le choix de l’itinéraire influence l’acclimatation, la difficulté et le confort quotidien. Les itinéraires progressifs augmentent les chances de réussite." },
+        "route-role": { "title": "L’itinéraire détermine le rythme et l’acclimatation", "content": "Certains itinéraires offrent une montée plus progressive et plus de nuits en altitude, favorisant la production de globules rouges." },
+        "ascent-rate": { "title": "Montée progressive et nuits en altitude", "content": "Des itinéraires comme Lemosho commencent lentement et incluent des journées d’acclimatation; d’autres montent plus directement." },
+        "difficulty": { "title": "Le niveau de difficulté selon l’itinéraire", "content": "Le Machame est exigeant; le Lemosho est plus progressif; le Rongai est plus régulier. Choisissez selon votre niveau." },
+        "daily-comfort": { "title": "Le confort quotidien dépend du parcours choisi", "content": "L’itinéraire impacte la fréquentation des camps, le bruit et le confort psychologique." },
+        "weather": { "title": "Impact de l’itinéraire sur la météo et le terrain", "content": "Les itinéraires traversent différentes zones climatiques; le Rongai est souvent plus sec, utile en saison des pluies." },
+        "success-rate": { "title": "Le choix influence les chances de succès", "content": "Les itinéraires plus longs et progressifs montrent des taux de réussite au sommet plus élevés." },
+        "guide-role": { "title": "Le rôle clé du guide local", "content": "Un guide expérimenté conseille l’itinéraire le mieux adapté selon l’âge, la condition et la saison." }
+      }
+    },
+    "choisir-chaussures-randonnee-kilimandjaro": {
+      "title": "Comment choisir ses chaussures de randonnée pour le Kilimandjaro ?",
+      "subtitle": "Conseils d'un guide local",
+      "meta": { "author": "Expert Matériel", "date": "Décembre 2025", "readingTime": "6 min de lecture" },
+      "sections": {
+        "overview": { "title": "Aperçu", "content": "Choisir les bonnes chaussures de randonnée pour le Kilimandjaro est une étape essentielle dans la préparation de l’ascension. Le Mont Kilimandjaro est une montagne exigeante qui traverse plusieurs zones climatiques et types de terrains. Une paire de chaussures mal adaptée peut provoquer des douleurs, des ampoules, des blessures ou une fatigue excessive, mettant en danger la réussite du sommet. À l’inverse, des chaussures de randonnée adaptées au Kilimandjaro assurent confort, stabilité et sécurité.\n\nEn tant que guide local du Kilimandjaro, je constate régulièrement que le mauvais choix de chaussures est l’une des principales causes d’abandon ou de souffrance inutile pendant l’ascension." },
+        "terrain": { "title": "Des chaussures adaptées aux terrains variés du Kilimandjaro", "content": "Le Kilimandjaro n’est pas une simple randonnée. Les sentiers traversent la forêt tropicale humide, les zones volcaniques sèches, les pentes rocailleuses et les zones froides proches du sommet. Les chaussures de randonnée pour le Kilimandjaro doivent donc offrir une excellente adhérence, une bonne protection du pied et une grande stabilité. Les terrains peuvent être boueux, glissants ou poussiéreux selon la saison, ce qui rend indispensable une semelle de qualité avec une accroche fiable." },
+        "high-cut": { "title": "Pourquoi choisir des chaussures de randonnée montantes", "content": "Les chaussures de randonnée montantes sont fortement recommandées pour l’ascension du Kilimandjaro. Elles maintiennent efficacement la cheville, ce qui réduit le risque d’entorses, notamment lors des longues descentes où les articulations sont très sollicitées. Le maintien de la cheville est particulièrement important lorsque la fatigue s’installe et que le terrain devient irrégulier. Les chaussures montantes protègent également mieux contre le froid et les frottements." },
+        "comfort": { "title": "Le confort avant tout pour réussir l’ascension", "content": "Sur le Kilimandjaro, la priorité n’est pas la vitesse mais l’endurance. Les chaussures doivent être confortables sur de longues journées de marche, parfois plus de six heures par jour. Il est essentiel de choisir des chaussures de randonnée qui s’adaptent à la forme du pied et qui offrent suffisamment d’espace à l’avant, car les pieds gonflent avec l’effort et l’altitude. Une chaussure trop serrée peut provoquer des ampoules, des ongles noirs et des douleurs qui s’aggravent jour après jour." },
+        "sole": { "title": "L’importance de la semelle", "content": "La semelle est un élément clé dans le choix des chaussures pour le Kilimandjaro. Elle doit être suffisamment rigide pour protéger la plante du pied des pierres et des terrains volcaniques, tout en restant confortable pour la marche prolongée. Une bonne absorption des chocs limite la fatigue musculaire et protège les genoux, surtout lors des descentes longues et raides. Une semelle avec une excellente adhérence est indispensable pour marcher en sécurité sur sol humide ou instable." },
+        "waterproof": { "title": "Chaussures imperméables et respirantes", "content": "Les conditions météorologiques sur le Kilimandjaro peuvent changer rapidement. Dans la forêt, la pluie et l’humidité sont fréquentes, tandis qu’en altitude, le froid est intense. Des chaussures de randonnée imperméables permettent de garder les pieds secs et d’éviter les ampoules et les infections. Toutefois, elles doivent aussi être respirantes pour éviter l’accumulation de transpiration pendant l’effort. Un bon équilibre entre imperméabilité et respirabilité garantit un confort durable tout au long du trek." },
+        "test-shoes": { "title": "L’importance de tester ses chaussures avant le trek", "content": "Partir avec des chaussures neuves est une erreur fréquente. Les chaussures de randonnée pour le Kilimandjaro doivent être testées et rodées plusieurs semaines avant le départ. Il est recommandé de les porter lors de randonnées longues, avec un sac à dos, afin de s’assurer qu’elles ne provoquent pas de frottements ou de douleurs. Des chaussures bien rodées réduisent considérablement le risque de blessures pendant l’ascension." },
+        "season": { "title": "Adapter ses chaussures à la saison et à l’itinéraire", "content": "La saison et l’itinéraire choisis influencent fortement le type de chaussures nécessaires. En saison froide ou lors de l’ascension du sommet, les températures peuvent descendre très bas, rendant indispensable une bonne isolation thermique. Certains itinéraires du Kilimandjaro sont plus longs ou plus techniques et nécessitent des chaussures plus robustes. Un guide local expérimenté saura conseiller le modèle le mieux adapté en fonction des conditions." }
+      }
+    },
+    "preparation-mentale-kilimandjaro": {
+      "title": "Préparation mentale pour gravir le Kilimandjaro",
+      "subtitle": "Techniques et conseils pour aborder l'ascension sereinement",
+      "meta": { "author": "Guide Local", "date": "Décembre 2025", "readingTime": "5 min de lecture" },
+      "sections": {
+        "overview": { "title": "Introduction à la préparation mentale", "content": "La préparation mentale est aussi importante que la préparation physique. Apprendre à gérer le stress, rester concentré et accepter le rythme de la montagne aide à mieux vivre l'ascension." },
+        "techniques": { "title": "Techniques de préparation mentale", "content": "Respiration contrôlée, visualisation positive, fixation d'objectifs quotidiens et support mutuel dans le groupe sont des outils efficaces." },
+        "routine": { "title": "Établir une routine", "content": "Des routines simples (respiration, relaxation, alimentation régulière) aident à stabiliser le moral et l'énergie pendant plusieurs jours." }
+      }
+    },
+    "preparation-physique-ascension-kilimandjaro": {
+      "title": "Préparation physique pour l’ascension du Kilimandjaro",
+      "subtitle": "Exercices et conseils pour améliorer l'endurance et la résistance",
+      "meta": { "author": "Guide Local", "date": "Décembre 2025", "readingTime": "8 min de lecture" },
+      "sections": {
+        "overview": { "title": "Pourquoi se préparer physiquement", "content": "La préparation physique augmente vos chances de réussite et réduit le risque de blessure. Concentrez-vous sur l'endurance, la force des jambes et l'endurance aérobie." },
+        "training": { "title": "Programme d'entraînement recommandé", "content": "Marche longue, montée de côtes, entraînement cardiovasculaire et renforcement musculaire sont recommandés sur plusieurs semaines avant le départ." },
+        "tips": { "title": "Conseils pratiques", "content": "Intégrez des randonnées avec sac lesté, travaillez la souplesse et la récupération, et consultez un médecin si nécessaire." }
+      }
+    },
+    "preparation-physique-kilimandjaro": {
+      "title": "Comment s’entraîner pour le Kilimandjaro quand on habite en ville : Guide complet pour réussir votre ascension",
+      "subtitle": "Préparez votre corps à gravir le toit de l'Afrique même sans vivre près des montagnes",
+      "meta": {
+        "author": "Guide Local Kilimandjaro",
+        "date": "Décembre 2025",
+        "readingTime": "12 min de lecture"
+      },
+      "sections": {
+        "introduction": {
+          "title": "Introduction : Gravir le Kilimandjaro depuis la ville",
+          "content": {
+            "1": "Gravir le Mont Kilimandjaro, le plus haut sommet d’Afrique culminant à 5 895 mètres, est un rêve pour de nombreux voyageurs. Cependant, beaucoup pensent à tort qu’il faut vivre près des montagnes ou être un sportif aguerri pour réussir.",
+            "2": "La bonne nouvelle, c’est qu’il est tout à fait possible de préparer son corps en ville, sans altitude ni sentiers escarpés, en utilisant des méthodes adaptées et progressives. L’objectif est de préparer votre corps à marcher plusieurs heures chaque jour, à porter un sac et à gérer la fatigue progressive tout en développant l’endurance et la résistance mentale.",
+            "3": "L’objectif est de préparer votre corps à marcher plusieurs heures chaque jour, à porter un sac et à gérer la fatigue progressive tout en développant l’endurance et la résistance mentale.",
+            "4": "Gravir le Mont Kilimandjaro, le plus haut sommet d’Afrique culminant à 5 895 mètres, est un rêve pour de nombreux voyageurs."
+          }
+        },
+        "marche_reguliere": {
+          "title": "Marcher régulièrement : la base de l’entraînement",
+          "content": {
+            "1": "La marche est le cœur de votre préparation. Contrairement aux sports de haute intensité, le Kilimandjaro exige une endurance sur plusieurs jours. Vous devez pouvoir marcher 5 à 7 heures chaque jour, souvent sur des terrains variés.",
+            "2": "Cette pratique régulière prépare votre corps à marcher tous les jours, ce qui est fondamental pour l’ascension."
+          },
+          "subsections": {
+            "urbain": {
+              "title": "En ville, vous pouvez simuler cette expérience",
+              "escaliers": "Escaliers et ponts : Monter et descendre des escaliers reproduit la pente et le mouvement des sentiers. Même quelques étages répétés plusieurs fois par jour font travailler les jambes et le cardio.",
+              "balades": "Balades longues : Commencez avec 1 à 2 heures de marche, puis augmentez progressivement jusqu’à 3 à 5 heures. L’important est de maintenir un rythme modéré et régulier, comme le fameux \"pole pole\" (doucement, doucement) utilisé sur le Kilimandjaro.",
+              "variation": "Variation de rythme : Alterner marche rapide et lente permet à vos muscles, articulations et système cardiovasculaire de s’adapter à différents efforts."
+            }
+          }
+        },
+        "renforcement_musculaire": {
+          "title": "Renforcer les jambes et le dos : préparer le corps à l’effort",
+          "content": {
+            "1": "Porter un sac léger et marcher plusieurs heures sollicite fortement les jambes et le dos. Les muscles des cuisses, des mollets, du tronc et du dos doivent être capables de supporter la charge sans se fatiguer trop vite.",
+            "2": "Ces exercices réduisent le risque de blessures et permettent de marcher plus longtemps sans fatigue excessive."
+          },
+          "subsections": {
+            "exercices": {
+              "title": "Vous pouvez travailler ces muscles en ville",
+              "squats": "Squats et fentes : renforcent les cuisses et les fessiers, essentiels pour grimper et descendre des pentes.",
+              "escaliers": "Montées d’escaliers avec sac : porter un sac léger pendant que vous montez et descendez des escaliers prépare le corps à l’effort du trek.",
+              "gainage": "Gainage et abdos : un tronc solide stabilise le dos et aide à maintenir l’équilibre sur les terrains instables."
+            }
+          }
+        },
+        "cardio": {
+          "title": "Travailler le cardio : préparer le cœur et les poumons",
+          "content": {
+            "1": "Le Kilimandjaro n’est pas une course, mais votre corps a besoin de capacité cardiovasculaire pour supporter l’effort prolongé, surtout en altitude.",
+            "2": "L’objectif n’est pas la vitesse, mais la résistance : marcher longtemps sans être essoufflé."
+          },
+          "subsections": {
+            "activites": {
+              "title": "Même en ville, vous pouvez",
+              "courir": "Courir ou faire du jogging 2 à 3 fois par semaine pour améliorer votre souffle et votre endurance.",
+              "velo": "Faire du vélo pour renforcer les jambes tout en travaillant le cœur.",
+              "step": "Utiliser le step ou le tapis roulant pour simuler les montées et pentes du trek."
+            }
+          }
+        },
+        "sac_trek": {
+          "title": "S’habituer à porter un sac : simuler le poids du trek",
+          "content": {
+            "1": "Pendant l’ascension, vous porterez un sac léger avec vos affaires personnelles. Commencer à porter un sac pendant vos marches longues en ville prépare le dos, les épaules et le tronc à l’effort.",
+            "2": "Augmentez progressivement le poids et ajustez les sangles pour que le sac soit confortable. Cette habitude permet de prévenir les douleurs et les tensions musculaires le jour de l’ascension."
+          }
+        },
+        "altitude": {
+          "title": "Préparer le corps à l’altitude",
+          "content": {
+            "1": "Même si vous ne pouvez pas reproduire la haute altitude en ville, vous pouvez",
+            "2": "Ces habitudes préparent le corps à mieux gérer le manque d’oxygène sur le Kilimandjaro."
+          },
+          "subsections": {
+            "preparation": {
+              "title": "Vous pouvez",
+              "randonnees": "Faire des randonnées le week-end hors de la ville pour simuler des terrains vallonnés.",
+              "respiratoires": "Pratiquer des exercices respiratoires : respirer lentement et profondément améliore la capacité pulmonaire et l’endurance.",
+              "sommeil": "Maintenir un bon sommeil et une alimentation équilibrée, essentiels pour la récupération et la résistance à la fatigue."
+            }
+          }
+        },
+        "mental": {
+          "title": "Préparer le mental : un facteur clé",
+          "content": {
+            "1": "Le Kilimandjaro est autant un défi mental que physique. Les journées longues, la fatigue accumulée, le froid et la monotonie peuvent décourager même les plus motivés.",
+            "2": "Un mental solide vous permettra de suivre le rythme \"pole pole\", d’écouter les conseils du guide et de surmonter les moments difficiles."
+          },
+          "subsections": {
+            "preparation": {
+              "title": "En ville, vous pouvez entraîner votre mental en",
+              "longues": "Acceptant que certaines marches soient longues et monotones",
+              "visualisation": "Visualisant chaque jour le sommet que vous atteindrez",
+              "patience": "Pratiquant la patience et la concentration lors des marches longues"
+            }
+          }
+        },
+        "programme": {
+          "title": "Programme d’entraînement en ville pour gravir le Kilimandjaro – 8 semaines",
+          "content": {
+            "1": "Objectif : Préparer votre corps à marcher plusieurs heures par jour, à porter un sac, à gérer la fatigue et à développer l’endurance nécessaire pour atteindre le sommet Uhuru Peak.",
+            "2": "Principe : Commencez doucement et augmentez progressivement la durée, l’intensité et la charge pour éviter les blessures et améliorer l’endurance."
+          },
+          "semaines": {
+            "1_2": {
+              "title": "Semaine 1–2 : Mise en route",
+              "objectif": "Objectif : Habituer le corps à la marche régulière et au travail musculaire léger.",
+              "lundi": "Marche 45 minutes à rythme modéré + 2 séries de 10 squats et 10 fentes. Explication : marcher 45 min prépare les jambes à l’effort continu, les squats et fentes renforcent cuisses et fessiers.",
+              "mardi": "Jogging ou vélo 20–30 minutes. Explication : améliore l’endurance cardiovasculaire pour mieux respirer en altitude.",
+              "mercredi": "Repos ou yoga/stretching 30 min. Explication : favorise la récupération musculaire et la souplesse.",
+              "jeudi": "Marche 1 heure avec un sac léger (2–5 kg) + gainage 2×30 sec. Explication : habitue le dos et le tronc à porter un sac.",
+              "vendredi": "Escaliers ou step 15–20 min. Explication : renforce mollets, cuisses et articulation du genou.",
+              "samedi": "Marche longue 1,5–2 heures, rythme \"pole pole\". Explication : simule l’effort d’une journée de trek et améliore l’endurance.",
+              "dimanche": "Repos ou promenade facile 30 min"
+            },
+            "3_4": {
+              "title": "Semaine 3–4 : Progression",
+              "objectif": "Objectif : Augmenter la durée de marche et la charge du sac, renforcer le corps.",
+              "lundi": "Marche 1 heure + 3 séries de 12 squats et 12 fentes + gainage 3×30 sec",
+              "mardi": "Jogging 30 min ou vélo 45 min",
+              "mercredi": "Repos ou yoga/stretching 30–40 min",
+              "jeudi": "Marche 1h15 avec sac léger + montée d’escaliers 10 min",
+              "vendredi": "Escaliers ou step 20–25 min + exercices abdos 3×15",
+              "samedi": "Marche longue 2,5–3 heures avec sac 4–5 kg. Explication : augmente progressivement la durée pour simuler les conditions réelles.",
+              "dimanche": "Repos ou promenade facile 30–45 min"
+            },
+            "5_6": {
+              "title": "Semaine 5–6 : Renforcement et endurance avancée",
+              "objectif": "Objectif : Préparer le corps aux journées de marche longues et consécutives.",
+              "lundi": "Marche 1h15 + squats/fentes 3×15 + gainage 3×40 sec",
+              "mardi": "Jogging 40 min ou vélo 1 heure",
+              "mercredi": "Repos ou yoga/stretching 40 min",
+              "jeudi": "Marche 1h30 avec sac 5–6 kg + escaliers 15 min",
+              "vendredi": "Step ou escaliers 25–30 min + abdos 3×20",
+              "samedi": "Marche longue 3,5 heures avec sac 6 kg, terrain varié si possible. Explication : simule l’effort réel du trek, prépare les jambes et le mental.",
+              "dimanche": "Repos complet ou promenade légère 30 min"
+            },
+            "7_8": {
+              "title": "Semaine 7–8 : Préparation finale et simulation",
+              "objectif": "Objectif : Préparer le corps à l’effort maximal et habituer le mental à la marche prolongée.",
+              "lundi": "Marche 1h30–1h45 + squats/fentes 3×20 + gainage 3×50 sec",
+              "mardi": "Jogging 45 min ou vélo 1h",
+              "mercredi": "Repos ou yoga/stretching 45 min",
+              "jeudi": "Marche 2 heures avec sac 6–7 kg + escaliers 20 min",
+              "vendredi": "Escaliers ou step 30 min + abdos 3×25",
+              "samedi": "Marche longue 4–5 heures avec sac 7–8 kg. Explication : dernière simulation avant le trek, prépare les jambes, le cardio et le mental.",
+              "dimanche": "Repos complet ou marche très légère 30 min"
+            }
+          },
+          "common": {
+            "lundi": "Lundi",
+            "mardi": "Mardi",
+            "mercredi": "Mercredi",
+            "jeudi": "Jeudi",
+            "vendredi": "Vendredi",
+            "samedi": "Samedi",
+            "dimanche": "Dimanche"
+          }
+        },
+        "conseils": {
+          "title": "Conseils pratiques",
+          "progressivite": {
+            "title": "Progressivité",
+            "content": "augmentez toujours la durée et le poids du sac progressivement."
+          },
+          "rythme": {
+            "title": "Rythme",
+            "content": "marchez toujours à un rythme modéré, similaire au rythme \"pole pole\" du Kilimandjaro."
+          },
+          "hydratation": {
+            "title": "Hydratation et nutrition",
+            "content": "buvez régulièrement et consommez des encas pour habituer le corps à rester énergique."
+          },
+          "terrains": {
+            "title": "Variez les terrains",
+            "content": "utilisez escaliers, ponts, parcs ou petites collines pour simuler différents types de terrain."
+          },
+          "mental": {
+            "title": "Travail mental",
+            "content": "entraînez-vous à rester concentré et patient lors des marches longues, visualisez le sommet chaque jour."
+          }
+        }
+      }
     }
   }
 }

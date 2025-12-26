@@ -52,14 +52,13 @@
   "DryingGear": {
     "title": "How to dry your gear when it rains",
     "subtitle": "Practical advice from a local Tanzanian guide",
-    "meta": {
-      "author": "Kilimanjaro Local Guide",
-      "date": "December 2025",
-      "readingTime": "12 min read"
+    "cta": {
+      "title": "Your adventure awaits",
+      "subtitle": "Contact our experts to plan your Kilimanjaro ascent",
+      "contact": "Contact us",
+      "routes": "See routes"
     },
-    "sections": {
-      "introTitle": "Introduction",
-      "intro": "When you go on a trek, especially on a mountain like Kilimanjaro, wet clothing is never just an inconvenience — it adds cold, lost energy, and the risk of irritation or blisters. During the rainy season everything can get wet: clothing, gloves, socks, pack — but there are simple, effective methods local guides use every day to dry gear despite humidity.",
+    "methods": {
       "method1Title": "Most reliable method: use body heat",
       "method1": "When the sun is hidden, wind is low and no external heat source is available, the best way to dry clothes is to use your own body heat. Prepare wet garments by wringing them out as much as possible, put a dry layer next to your skin, then tuck the damp item under your jacket or fleece so your body heat slowly evaporates the moisture. This works especially well for small items such as gloves, socks and buffs.",
       "method2Title": "Drying inside the tent: possible but not automatically effective",
@@ -75,6 +74,136 @@
       "conclusionTitle": "Conclusion: rain isn't the enemy, humidity is",
       "conclusion": "With simple techniques — body heat, camp heat, wind and a dry-bag — you can manage moisture and stay comfortable on a wet trek. Anticipation and small habits make the difference between a miserable journey and an enjoyable adventure.",
       "tip": "Guide tip: anticipate humidity to succeed on your Kilimanjaro trek"
+    }
+  },
+  "BlogPosts": {
+    "comment-maintenir-bonne-hygiene-kilimandjaro": {
+      "title": "Maintaining good personal hygiene on Kilimanjaro",
+      "subtitle": "Practical guide from a local Kilimanjaro guide",
+      "meta": { "author": "Kilimanjaro Local Guide", "date": "December 2025", "readingTime": "4 min read" },
+      "sections": {
+        "overview": { "title": "Overview", "content": "Climbing Mount Kilimanjaro is an extraordinary adventure, but it takes place in conditions very different from daily life. One often overlooked topic is personal hygiene. With no showers, limited water and remote camps, many trekkers wonder how to stay clean for several days. Good hygiene on Kilimanjaro is essential to stay healthy and reach the summit. From my experience as a local guide, trekkers who follow basic hygiene routines complete the trek in better condition." },
+        "conditions": { "title": "Conditions", "content": "Modern comforts don't exist on the mountain. Kilimanjaro is a protected natural area without hotel infrastructure. There are no showers on the mountain, whatever the route. Water is collected from rivers or natural springs and treated by the team. This water is prioritised for drinking, meal preparation and basic washing." },
+        "toilettes": { "title": "Toilets", "content": "Most camps provide basic public toilets supplied by the national park. These are simple cabins or temporary structures, sometimes without toilet paper or water for handwashing. Some teams provide private portable toilets, which are cleaner and more private — recommended for longer routes." },
+        "autonomie": { "title": "Personal autonomy", "content": "Camps are simple and hygiene relies on the trekker's personal autonomy. Biodegradable wipes, hand sanitizer, clean clothes and hygiene accessories are essential. A nightly routine — cleaning up each evening, changing clothes, foot care — helps conserve energy and avoid health issues." },
+        "mental": { "title": "Mental preparation", "content": "Discipline throughout the trek is crucial. Mental preparation helps accept constraints, reduce stress and support better acclimatisation. Planning equipment and habits transforms the experience into a positive adventure." }
+      }
+    },
+    "toilettes-privees-necessaires": {
+      "title": "Are private toilets necessary for a Kilimanjaro ascent?",
+      "subtitle": "Local guide advice",
+      "meta": { "author": "Kilimanjaro Local Guide", "date": "December 2025", "readingTime": "6 min read" },
+      "sections": {
+        "overview": { "title": "Overview", "content": "Most camps provide basic public toilets supplied by the national park. These are simple, shared facilities that can be poorly maintained during high season. Toilet paper is not always provided, and water for handwashing may be lacking." },
+        "public": { "title": "Public toilets", "content": "These facilities meet basic needs but do not offer modern comfort. Prepare by bringing personal supplies (paper, sanitizer, wipes)." },
+        "private": { "title": "Private toilets", "content": "Private portable toilets offer greater cleanliness, privacy and lower health risk. They are cleaned regularly and recommended on longer routes." },
+        "recommandation": { "title": "Recommendation", "content": "For multi-day ascents, especially on Lemosho or long circuits, plan for at least one private toilet per camp to improve group comfort and health." }
+      }
+    },
+    "articles-hygiene-emporter": {
+      "title": "Which hygiene items to pack for a Kilimanjaro trek?",
+      "subtitle": "Local guide advice",
+      "meta": { "author": "Kilimanjaro Local Guide", "date": "December 2025", "readingTime": "5 min read" },
+      "sections": {
+        "overview": { "title": "Overview", "content": "Hygiene on Kilimanjaro is a real challenge: no showers, basic toilets, cold temperatures and limited water. Packing the right items is essential to stay clean and healthy." },
+        "corporelle": { "title": "Personal hygiene", "content": "Biodegradable wipes for body, soap or antibacterial gel, solid deodorant, moisturiser and lip balm are essential even without showers." },
+        "pieds": { "title": "Foot care", "content": "Clean breathable hiking socks, anti-friction balm and small dressings or adhesive strips help prevent blisters and infections." },
+        "toilettes": { "title": "Toilet hygiene", "content": "Biodegradable toilet paper, waste bags to pack out used items, hand sanitizer and wet wipes for quick cleaning when water is scarce." },
+        "autres": { "title": "Other essentials", "content": "Compact microfiber towel, small first-aid kit and travel toothbrush/toothpaste." }
+      }
+    },
+    "rester-propre-sans-eau": {
+      "title": "How to stay clean without water on Kilimanjaro?",
+      "subtitle": "Local guide advice",
+      "meta": { "author": "Kilimanjaro Local Guide", "date": "December 2025", "readingTime": "5 min read" },
+      "sections": {
+        "overview": { "title": "Overview", "content": "Camps are rustic, there are no showers and water is prioritised for drinking and cooking. Still, hygiene is possible with the right kit and techniques." },
+        "importance": { "title": "Why it matters", "content": "Preventing infections and digestive issues, protecting skin and feet, and maintaining morale are vital reasons to keep basic hygiene even without water." },
+        "pratique": { "title": "Practical tips", "content": "Use biodegradable wet wipes, hand sanitizer, keep a clean set of dry clothes for the evening and care for your feet." },
+        "soins-pieds": { "title": "Foot care", "content": "Clean and dry feet, apply protective balms and rotate socks to prevent blisters and infections." }
+      }
+    },
+    "hygiene-femmes-ascension": {
+      "title": "Hygiene advice for women during the ascent",
+      "subtitle": "Practical guidance from a local guide",
+      "meta": { "author": "Kilimanjaro Local Guide", "date": "December 2025", "readingTime": "7 min read" },
+      "sections": {
+        "overview": { "title": "Overview", "content": "Climbing Kilimanjaro presents specific hygiene challenges for women: rustic camps, limited water and basic toilet facilities. Preparing a complete hygiene kit and knowing how to manage needs makes the trek more comfortable and safer." },
+        "kit": { "title": "Hygiene kit", "content": "Bring biodegradable pads or tampons, intimate wipes, hand sanitizer, sealable bags for used items, moisturiser and lip balm." },
+        "toilets": { "title": "Toilets", "content": "Sanitary facilities are limited. Private portable toilets provide more privacy and cleanliness and are recommended on longer routes." },
+        "periods": { "title": "Managing periods", "content": "Bring enough menstrual supplies, cleaning options (wipes, sanitizer) and backup solutions (menstrual cup + alternatives) for the entire trek." },
+        "cycle": { "title": "Menstrual cycle", "content": "Altitude and stress can slightly alter the menstrual cycle. Pack extra supplies even if your period is not expected." }
+      }
+    },
+    "hygiene-alimentaire": {
+      "title": "Food hygiene during the ascent of Kilimanjaro",
+      "subtitle": "Practical guidance from a local guide for a safe, healthy trek",
+      "meta": { "author": "Kilimanjaro Local Guide", "date": "December 2025", "readingTime": "4 min read" },
+      "sections": {
+        "overview": { "title": "Overview", "content": "Climbing Kilimanjaro is demanding. Food hygiene is crucial to avoid foodborne illness, stomach problems and fatigue. Good food hygiene helps maintain energy throughout the ascent." },
+        "preparation": { "title": "Meal preparation", "content": "Cooks filter or boil all water used for cooking and drinking. Prep surfaces are cleaned and perishables stored safely to limit bacterial growth." },
+        "conseils": { "title": "Practical tips", "content": "Wash hands with soap or sanitizer before meals, avoid raw or undercooked foods, prefer hot meals and do not share plates or cutlery." },
+        "eau-logistique": { "title": "Water & logistics", "content": "Each camp has separate areas for cooking and eating. Potable water is available but personal filtration/treatment is recommended. Stay hydrated to prevent altitude illness and protect digestive health." }
+      }
+    },
+    "preparer-son-corps-altitude-kilimandjaro": {
+      "title": "How to prepare your body for Kilimanjaro's altitude",
+      "subtitle": "Advice to prepare for altitude and improve your summit chances.",
+      "meta": { "author": "Kilimanjaro Local Guide", "date": "December 2025", "readingTime": "8 min read" },
+      "sections": {
+        "overview": { "title": "How to prepare your body for Kilimanjaro's altitude", "content": "Altitude is the main challenge when climbing Kilimanjaro and the biggest factor affecting summit success. From around 3,000 meters, the amount of oxygen in the air decreases gradually. The body must adapt to this lower oxygen level to continue functioning normally.\n\nUnlike physical fitness, altitude cannot be \"trained\" in a gym. A very fit person can still struggle at altitude. Success on Kilimanjaro therefore depends on good acclimatization, a suitable pace, strict hydration, and responsible behaviour in the mountains.\n\nAs a local guide I see each season that people who respect the altitude have far greater chances of reaching the summit than those who underestimate it." },
+        "how-body-reacts": { "title": "How the body reacts to altitude", "content": "At altitude, the body receives less oxygen with each breath. To compensate, the heart rate increases and breathing becomes faster. This is a natural and normal reaction, but it takes time for the body to adapt.\n\nIf you ascend too quickly, the body does not have time to adapt properly. This can cause symptoms like headaches, nausea, severe fatigue, loss of appetite or sleep disturbances. These signs indicate the body is struggling with altitude.\n\nPreparation therefore starts with a fundamental rule: ascending slowly is not a choice—it's a necessity." },
+        "slow-pace": { "title": "Adopt a slow, steady pace", "content": "On Kilimanjaro one rule applies to everyone without exception: \"pole pole\", which means to walk slowly. This pace conserves energy and improves oxygenation of the muscles and brain.\n\nEven very fit people must accept this slowness. Altitude makes no distinction between an athlete and a beginner. Walking too fast increases the risk of acute mountain sickness and reduces recovery capacity.\n\nA slow, steady pace maintained day after day is one of the most effective factors for safely reaching the summit." },
+        "choose-itinerary": { "title": "Choose an itinerary that aids acclimatization", "content": "Preparing for altitude starts before you set foot on the mountain. The choice of itinerary is essential. Some Kilimanjaro routes offer a more gradual ascent and include acclimatization days or climbs, helping the body adapt more effectively.\n\nSpending more nights at altitude helps the body produce more red blood cells, improving oxygen transport in the blood. A good local guide adapts the itinerary to the group's level, pace, and reactions." },
+        "hydrate-eat": { "title": "Stay hydrated and eat well", "content": "At altitude the body dehydrates faster, even when thirst is low. Drinking regularly throughout the day is essential to support acclimatization and limit negative effects of altitude.\n\nA balanced diet rich in carbohydrates provides the energy needed for the effort and helps the body manage reduced oxygen. Eating enough, even without appetite, is an integral part of altitude preparation." },
+        "listen-guide": { "title": "Listen to your body and communicate with the guide", "content": "Everyone reacts differently to altitude. Some adapt quickly, others need more time. It's therefore essential to listen to your body's signals and inform the guide as soon as unusual symptoms appear.\n\nQuick communication allows pace adjustments, preventive measures and, if necessary, avoids more serious complications. An experienced local guide monitors the group's health daily and acts before situations worsen." },
+        "guide-tip": { "title": "Guide tip 🏔️", "content": "On Kilimanjaro, altitude is not to be challenged. Those who respect it, walk slowly and listen to their body, reach higher and more calmly." }
+      }
+    },
+    "engager-guide-local-kilimandjaro": {
+      "title": "Why hiring a local guide is essential for Kilimanjaro",
+      "subtitle": "The guide's role, safety and local benefits",
+      "meta": { "author": "Kilimanjaro Local Guide", "date": "December 2025", "readingTime": "5 min read" },
+      "sections": {
+        "overview": { "title": "Why hiring a local guide is essential for Kilimanjaro", "content": "A local guide is more than a pathfinder: they protect, advise and ensure safety." },
+        "role-guide": { "title": "The guide’s daily role", "content": "The guide accompanies the group, monitors health and adapts the pace." },
+        "safety": { "title": "Safety first", "content": "They make decisions to slow the pace, add acclimatization days or descend when needed." },
+        "logistics": { "title": "Logistics and comfort management", "content": "They organise gear, food and supervise porters to keep the group comfortable." },
+        "morale": { "title": "Moral support and motivation", "content": "Guides provide encouragement and help maintain motivation during hard moments." },
+        "culture": { "title": "Cultural and environmental discovery", "content": "They share knowledge about local flora, fauna, history and traditions." },
+        "economy": { "title": "Support to the local economy", "content": "Hiring guides supports local livelihoods and sustainable employment." },
+        "mam-role": { "title": "Guide’s role regarding acute mountain sickness", "content": "Guides spot early MAM signs and act quickly with appropriate measures." }
+      }
+    },
+    "choix-itineraire-preparation-kilimandjaro": {
+      "title": "How route choice is part of Kilimanjaro preparation",
+      "subtitle": "Choose the right route to improve acclimatization",
+      "meta": { "author": "Route Guide", "date": "December 2025", "readingTime": "4 min read" },
+      "sections": {
+        "overview": { "title": "How route choice is part of Kilimanjaro preparation", "content": "Route choice affects acclimatization, difficulty and daily comfort. Progressive routes increase summit chances." },
+        "route-role": { "title": "Route role in pace and acclimatization", "content": "Some routes offer a gentler ascent and more nights at altitude, promoting red blood cell production." },
+        "ascent-rate": { "title": "Ascent rate and nights at altitude", "content": "Lemosho starts slowly with acclimatization days; other routes ascend more directly." },
+        "difficulty": { "title": "Difficulty varies by route", "content": "Machame is demanding; Lemosho is more gradual; Rongai is steadier—pick by ability." },
+        "daily-comfort": { "title": "Daily comfort depends on route", "content": "Route affects campsite crowding and psychological comfort." },
+        "weather": { "title": "Route impact on weather and terrain", "content": "Routes cross different climate zones; Rongai tends to be drier and may suit wet seasons." },
+        "success-rate": { "title": "Route choice affects summit success", "content": "Longer, progressive routes tend to have higher summit success rates." },
+        "guide-role": { "title": "Guide’s key role", "content": "An experienced guide recommends the best route based on age, fitness and season." }
+      }
+    },
+    "choisir-chaussures-randonnee-kilimandjaro": {
+      "title": "How to choose hiking boots for Kilimanjaro",
+      "subtitle": "Gear advice from a local guide",
+      "meta": { "author": "Gear Expert", "date": "December 2025", "readingTime": "6 min read" },
+      "sections": {
+        "overview": { "title": "Overview", "content": "Choosing the right hiking boots for Kilimanjaro is essential. The mountain covers many climates and terrains. Poorly chosen boots can cause pain, blisters or injury and jeopardise summit success. Well-chosen boots provide comfort, stability and protection. As a local guide, I often see poorly chosen footwear cause unnecessary suffering or abandonment during climbs." },
+        "terrain": { "title": "Adapt shoes for Kilimanjaro’s varied terrain", "content": "Kilimanjaro is not a simple walk. Trails pass through humid forest, dry volcanic slopes, rocky scree and cold near-summit zones. Boots must provide grip, protection and stability. Soles need reliable traction for muddy, slippery or dusty conditions depending on the season." },
+        "high-cut": { "title": "Why high-cut hiking boots", "content": "High-cut boots are strongly recommended for Kilimanjaro. They support the ankle, reducing sprain risk, notably on long descents. Ankle support becomes crucial as fatigue sets in and terrain becomes uneven. High-cut boots also offer better protection from cold and rubbing." },
+        "comfort": { "title": "Comfort first", "content": "On Kilimanjaro the priority is endurance, not speed. Boots must be comfortable for long walking days, often over six hours. Choose boots that fit your foot shape and provide toe-box space — feet swell with exertion and altitude. Tight boots cause blisters, black toenails and worsening pain day after day." },
+        "sole": { "title": "Importance of the sole", "content": "The sole is key for Kilimanjaro boots. It should be stiff enough to protect the foot from rocks and volcanic terrain while remaining comfortable for long walks. Good shock absorption reduces muscle fatigue and protects knees during long descents. Excellent traction is essential for wet or unstable ground." },
+        "waterproof": { "title": "Waterproof yet breathable", "content": "Weather on Kilimanjaro changes fast. In the forest rain and humidity are frequent, while high altitudes are cold. Waterproof boots keep feet dry and prevent blisters and infections but must be breathable to avoid sweat buildup during exertion. Balance waterproofing with breathability for lasting comfort." },
+        "test-shoes": { "title": "Break in your boots before the trek", "content": "Starting a trek in new boots is a common mistake. Boots for Kilimanjaro should be tested and broken in several weeks before departure. Wear them on long hikes with your pack to ensure no rubbing or pain. Well-broken-in boots greatly reduce injury risk during the climb." },
+        "season": { "title": "Match shoes to season and route", "content": "Season and chosen route strongly influence the type of boots required. In cold season or near-summit climbs insulation matters. Some routes are longer or more technical and need more robust boots. A local guide can advise the best model for the conditions." }
+      }
     }
   },
   "DressForZones": {
@@ -331,6 +460,18 @@
         "description": "An 8-day island escape combining culture, beaches and relaxation",
         "duration": "8 days"
       }
+      ,
+      "safariBeach": {
+        "title": "Safari & Beach (10 Days)",
+        "price": "From €2,500",
+        "description": "Combine a classic Tanzania safari with a relaxing Zanzibar beach stay for a varied, unforgettable trip.",
+        "duration": "10 days"
+      }
+    },
+    "reward": {
+      "title": "Special reward",
+      "description": "Book this package now and receive a complimentary local experience voucher to enrich your stay.",
+      "button": "Claim reward"
     },
     "topReads": {
       "title": "Top Reads",
@@ -362,6 +503,19 @@
       "firstNamePlaceholder": "First Name",
       "emailPlaceholder": "Email",
       "button": "Sign Up!"
+    },
+    "sections": {
+      "topReads": {
+        "title": "Top Reads",
+        "description": "Essential reading to help you prepare for your adventure."
+      },
+      "allTopics": {
+        "title": "All Topics",
+        "description": "Everything you need to know to plan for a successful adventure."
+      },
+      "otherAdventures": {
+        "title": "Other Adventures"
+      }
     }
   },
   "ZanzibarCompleteEscape8Days": {
@@ -911,6 +1065,7 @@
       "messageLabel": "Message",
       "messagePlaceholder": "Tell us more about your travel plans...",
       "accept": "I accept the",
+      "agreeTo": "I agree to",
       "privacyPolicy": "Privacy Policy",
       "submit": "Send request"
     },
@@ -935,6 +1090,19 @@
         "title": "Tanzania Safari",
         "duration": "2 - 9 days",
         "description": "Tanzania is arguably the best country in the world for big game safari. It houses the Big Five as well as the Great Migration!"
+      }
+    },
+    "sections": {
+      "topReads": {
+        "title": "Top Reads",
+        "description": "Essential reading to help you prepare for your adventure."
+      },
+      "allTopics": {
+        "title": "All Topics",
+        "description": "Everything you need to know to plan for a successful adventure."
+      },
+      "otherAdventures": {
+        "title": "Other Adventures"
       }
     }
   },
@@ -970,20 +1138,31 @@
     "categories": {
       "title": "Choose a topic"
     },
-    "allTopics": {
-      "title": "All Topics",
-      "intro": "Practical guides and local tips to help you prepare for Kilimanjaro: how to pick the right route, what gear to prioritise, sensible training steps, and the logistical basics to expect on the mountain. You’ll also find short checklists and firsthand accounts to help you leave well-prepared and confident.",
-      "climateSeasons": "Climate and seasons"
-    },
+    "noResults": "No topics found.",
     "explore": "Explore",
     "noTopicsFound": "No travel topics found matching your search.",
     "cta": {
+      "title": "Curious to learn more?",
+      "subtitle": "Book a call with our team.",
       "description": "Curious to learn more? Book a call with our team.",
       "button": "Book a call with our team"
     },
     "topReads": {
       "title": "Top Reads",
       "description": "The three blog posts below are some of our most popular. Because everyone wants to know how much a Kilimanjaro climb costs. They also want to know what to pack for the climb to ensure they're properly equipped. And we find that many folks are curious to know if climbing Mt Kilimanjaro is harder or easier than trekking to Everest Base Camp."
+    },
+    "sections": {
+      "topReads": {
+        "title": "Top Reads",
+        "description": "Essential reading to help you prepare for your adventure."
+      },
+      "allTopics": {
+        "title": "All Topics",
+        "description": "Everything you need to know to plan for a successful adventure."
+      },
+      "otherAdventures": {
+        "title": "Other Adventures"
+      }
     }
   },
   "SeeTripsPage": {
@@ -1000,21 +1179,21 @@
       "climb_kilimanjaro": {
         "title": "Climb Kilimanjaro",
         "shortDescription": "Want to stand on the roof of Africa? Climb Kilimanjaro with us and create unforgettable memories!",
-        "rating": 5,
+        "rating": "5",
         "duration": "9 - 11 days",
         "price": "From €2,000"
       },
       "tanzania_safari": {
         "title": "Tanzania Safari",
         "shortDescription": "Tanzania is arguably the best country in the world for big game safari. It houses the Big Five as well as the Great Migration!",
-        "rating": 5,
+        "rating": "5",
         "duration": "2 - 9 days",
         "price": "From €1,000"
       },
       "zanzibar_beach": {
         "title": "Zanzibar Beach Holidays",
         "shortDescription": "The calm waters, white sandy beaches and lush forest of Zanzibar offer the perfect tropical getaway!",
-        "rating": 5,
+        "rating": "5",
         "duration": "8 days",
         "price": "From €2,050"
       }
@@ -1076,11 +1255,11 @@
         }
       },
       "heritage": {
-        "title": "Our Heritage",
-        "paragraph1": "Tanzania's culture, traditions and landscapes form the foundation of our work.",
-        "paragraph2": "We collaborate closely with local communities to protect heritage and ensure tourism delivers shared benefits.",
-        "paragraph3": "Our trips are designed to celebrate local crafts, food and storytelling while respecting cultural boundaries.",
-        "paragraph4": "We invest in training and partnerships that help communities sustainably manage tourism income."
+        "title": "A Summit Heritage",
+        "paragraph1": "The idea of La Tanzanie au cœur de la nature is based on a deep, generational respect for the mountain and its nature.",
+        "paragraph2": "My journey began in the footsteps of my father, a devoted and resilient porter who served the climbing community for more than two decades, walking the trails until the age of 42. His strength, his experience and his intimate knowledge of every ridge and every path became the blueprint for my own life.",
+        "paragraph3": "I grew up immersed in mountain culture, inspired by his commitment. I followed his path, mastering the trails from a young age to become a certified Local Guide.",
+        "paragraph4": "Today, I lead treks and safaris with the wisdom and passion passed down by my family. La Tanzanie au cœur de la nature is more than just a tour operator; it is the culmination of a life lived on these slopes, honoring the legacy of the true mountain heroes. We are a family of local guides committed to offering you an authentic, safe and deeply meaningful adventure."
       },
       "imageCaption": "Local guides setting off at dawn near Moshi, Tanzania",
       "imageCatchphrase": "Where community, culture and conservation meet"
@@ -2199,6 +2378,19 @@
         "description": "Save more when you travel with friends! Contact us for special group rates.",
         "button": "Learn More"
       }
+    },
+    "sections": {
+      "topReads": {
+        "title": "Top Reads",
+        "description": "Essential reading to help you prepare for your adventure."
+      },
+      "allTopics": {
+        "title": "All Topics",
+        "description": "Everything you need to know to plan for a successful adventure."
+      },
+      "otherAdventures": {
+        "title": "Other Adventures"
+      }
     }
   },
   "SafariBivouac8Days": {
@@ -2619,6 +2811,193 @@
       "june_oct": "Late June to October is considered the best overall season to climb Kilimanjaro, particularly for travellers seeking stable weather, excellent visibility and trails in very good condition. During these months the long dry season settles over the massif, offering ideal conditions for a long, steady and safe trek. The low chance of rain, exceptional visibility and firm trails make this season the preferred choice. Glaciers shine in the morning sun and summit sunrises become truly magical moments. This season attracts more hikers but provides friendly, motivating conditions suited to a successful climb.",
       "advice": "Finally, I always advise moving slowly, drinking regularly and listening to your body's signals. Weather stability shouldn't make you forget that Kilimanjaro is a high mountain. Take time to enjoy each stage, each landscape and every sunrise: these are often the moments that reveal why this ascent is one of Africa's greatest adventures.",
       "rain": "Between March and May, and again in November, Kilimanjaro enters the rainy seasons. During these periods the mountain changes character: clouds become heavy, humidity sets in, and trails progressively turn slippery. For many travellers, this is the least recommended time to climb because it demands more endurance and adaptation. Showers can last several hours and sometimes persist all day. Water soaks clothing and equipment, making the trek more tiring. Visibility decreases greatly and tracks suffer from mud. Despite these challenges, the rainy season has its charm: the mountain turns an intense green and there are far fewer visitors."
+    }
+  }
+  ,
+  "SanteEnAltitude": {
+    "title": "Altitude Health: Symptoms and How to Prevent Acute Mountain Sickness (AMS)",
+    "subtitle": "Recognize true AMS symptoms and practical prevention tips for climbing Kilimanjaro.",
+    "meta": {
+      "author": "Kilimanjaro Local Guide",
+      "date": "December 2025",
+      "readingTime": "10 min read"
+    },
+    "sections": {
+      "introTitle": "Introduction",
+      "intro": "Climbing Kilimanjaro is an extraordinary journey: in just a few days you pass from tropical forests to alpine moorland and high-altitude desert — up to nearly 5,000 metres, where the air contains roughly 50% less oxygen than at sea level.",
+      "intro2": "This rapid ascent — unique in the world — exposes trekkers to Acute Mountain Sickness (AMS), a natural phenomenon that can affect anyone, even the fittest. Understanding what AMS really is, recognising its symptoms and adopting the right responses is the key to reaching the summit safely and comfortably.",
+
+      "what_is_ams_title": "1. What exactly is AMS?",
+      "what_is_ams_1": "When we talk about Kilimanjaro we often think of landscapes, glaciers and adventure. One less discussed element, but central to the climb, is Acute Mountain Sickness (AMS). Contrary to some expectations, AMS is not a sudden severe disease — it is the body's natural reaction to a rapid change: reduced oxygen at altitude.",
+      "what_is_ams_2": "Above roughly 2,800–3,200 metres the air becomes thinner, atmospheric pressure drops and each breath brings less oxygen than at sea level. The body must work harder to supply oxygen to the brain, muscles and organs — an invisible but real effort.",
+      "what_is_ams_3": "Normally the body adapts gradually — a process called acclimatisation: breathing patterns change, the heart adjusts and red blood cell production increases. This takes time, and on Kilimanjaro the ascent is often faster than the body's capacity to adapt — that is when AMS appears.",
+      "what_is_ams_4": "Many travellers assume AMS only affects those who are 'unfit' or inexperienced. In fact, AMS can affect absolutely anyone regardless of age, fitness or trekking experience. The rules of altitude are the same for everyone.",
+
+      "symptoms_early_title": "2. Early symptoms — how to recognise them",
+      "symptoms_intro": "On Kilimanjaro symptoms commonly appear in the late afternoon or at night after a day of strenuous walking. The body, tired from altitude and low oxygen, starts to send clear signals.",
+      "symptom_headache": "Persistent headache — often the first sign. Unlike an ordinary headache caused by fatigue or sun, an AMS headache does not easily subside with rest or simple analgesics. It signals that the brain is receiving less oxygen than needed.",
+      "symptom_fatigue": "Unusual fatigue — even experienced hikers can feel heavy legs, low energy or general slowing. This indicates muscles and organs are working harder to compensate for low oxygen and that the pace should be reduced.",
+      "symptom_sleep": "Sleep disturbance — frequent waking, breathing discomfort or faster heartbeat during sleep are signs the body is still adapting. Poor sleep quality is common at altitude and signals incomplete acclimatisation.",
+      "symptom_appetite": "Loss of appetite — common but important. A marked reduction in appetite, especially when combined with headache or fatigue, is an early warning sign of AMS.",
+      "symptom_nausea": "Mild nausea and faster breathing — the body compensates by breathing quicker to increase oxygen intake, and digestive discomfort can reflect altitude effects on metabolism.",
+      "guide_mantra": "Guide's advice: 'The mountain does not judge — it responds. Listen to your body and move slowly, pole pole.'",
+      "symptoms_conclusion": "Remember: listening to your body is not a sign of weakness — it is the best way to climb safely and reach the summit successfully.",
+
+      "symptom_headache_title": "Persistent headache — the first signal",
+      "symptom_fatigue_title": "Unusual fatigue — when the body slows",
+      "symptom_sleep_title": "Sleep disturbance — a body adapting",
+      "symptom_appetite_title": "Loss of appetite — a subtle but important sign",
+      "symptom_nausea_title": "Mild nausea and rapid breathing — the body compensates",
+
+      "symptoms_moderate_title": "Moderate symptoms — act quickly",
+      "symptoms_moderate_intro": "Mild symptoms may be normal, but if they intensify they become moderate AMS and require prompt action to prevent deterioration.",
+      "mod_headache": "Severe headache despite hydration and painkillers — a clear sign the brain is significantly oxygen-deprived and intervention is required.",
+      "mod_vomit": "Marked nausea and repeated vomiting — leads to dehydration and worsens AMS; slow down, rehydrate and inform your guide.",
+      "mod_breathless": "Shortness of breath even when walking very slowly — indicates the body is struggling to deliver oxygen and ascent should stop or descent start.",
+      "mod_balance": "Unsteady walking or loss of balance — neurological signs that require immediate attention and likely descent.",
+      "mod_chest": "Chest tightness or pressure — take seriously, as it signals extra strain on heart and lungs and may precede severe AMS.",
+      "mod_confusion": "Irritability or mild confusion — cognitive changes show the brain is affected and urgent measures are necessary.",
+
+      "mod_headache_title": "Severe headache despite fluids and painkillers",
+      "mod_vomit_title": "Marked nausea and repeated vomiting",
+      "mod_breathless_title": "Breathlessness even when walking slowly",
+      "mod_balance_title": "Unsteady walking or loss of balance",
+      "mod_chest_title": "Chest tightness or pressure",
+      "mod_confusion_title": "Irritability or mild confusion",
+
+      "prevention_title": "How to avoid AMS on Kilimanjaro — local guide tips",
+      "prevention_intro": "With good preparation, a measured pace and attentive listening to your body, AMS can be prevented or greatly reduced.",
+      "prevention_pole": "Climb slowly — the Swahili rule 'Pole Pole' (slowly, slowly) is essential. The body needs time to produce extra red blood cells for oxygen transport.",
+      "prevention_hydration": "Hydrate: aim for 3–4 litres per day. Dehydration worsens AMS symptoms; drink regularly even if you are not thirsty.",
+      "prevention_sleep": "'Climb high, sleep low' — ascend during the day to stimulate acclimatisation, then descend to sleep at a lower altitude.",
+      "prevention_diamox": "Medication such as Acetazolamide (Diamox) can help acclimatise but must be prescribed by a doctor in advance. It is an aid, not a substitute for slow ascent and hydration.",
+      "prevention_listen": "Communicate with your guide — report any symptoms early. Guides monitor groups continuously and will act if necessary.",
+      "prevention_sleep_recovery": "Prioritise sleep and recovery — aim for 7–8 hours when possible to support acclimatisation.",
+      "prevention_conclusion": "Remember: listening to your body is not weakness — it is the best way to climb safely and reach the summit.",
+
+      "prevention_pole_title": "Climb slowly: the 'Pole Pole' rule",
+      "prevention_hydration_title": "Hydration: 3–4 litres per day",
+      "prevention_sleep_title": "Climb high, sleep low",
+      "prevention_diamox_title": "Medication such as Acetazolamide (Diamox)",
+      "prevention_listen_title": "Listen to your body and communicate with your guide",
+      "prevention_sleep_recovery_title": "Sleep and recovery: the trekker's ally",
+
+      "practical_title": "Practical tips",
+      "tip1": "Never ignore early signs — even a mild headache can be the start of AMS.",
+      "tip2": "Move slowly — 'Pole Pole' is the key to acclimatisation.",
+      "tip3": "Drink regularly — 3–4 litres per day.",
+      "tip4": "Rest and sleep well — allow time for the body to adjust.",
+      "tip5": "Eat even if your appetite drops — choose warm, light, energy-dense meals.",
+      "tip6": "Talk to your guide — they are there to monitor and manage any critical situation.",
+      "conclusion": "Remember: listening to your body is not a sign of weakness — it is the best way to climb safely and reach the summit successfully."
+    }
+  }
+  ,
+  "EvacuationUrgence": {
+    "title": "Emergency Evacuation on Kilimanjaro: Complete Guide for Hikers",
+    "subtitle": "Climbing Kilimanjaro to 5,895 meters is an exceptional adventure. But this rapid ascent, combined with altitude and varied terrain, can sometimes lead to critical situations.",
+    "meta": {
+      "author": "Kilimanjaro Local Guide",
+      "date": "December 2025",
+      "readingTime": "8 min read"
+    },
+    "sections": {
+      "introTitle": "Introduction",
+      "intro": "Climbing Kilimanjaro to 5,895 meters is an exceptional adventure. But this rapid ascent, combined with altitude and varied terrain, can sometimes lead to critical situations. Hikers may suffer from severe Acute Mountain Sickness (AMS), accidents, or other medical emergencies. As a local guide, my absolute priority is the safety of every hiker and the prevention of incidents.",
+
+      "descente_immediate_title": "Immediate Descent on Kilimanjaro: First Step to Stabilize a Hiker in Difficulty",
+      "descente_immediate_intro": "During a Kilimanjaro ascent, severe Acute Mountain Sickness (AMS) can occur quickly, even among experienced hikers. In these situations, immediate descent is the most effective measure to protect health and avoid serious complications.",
+      "pourquoi_descendre_title": "Why descend immediately?",
+      "pourquoi_descendre": "At high altitude, oxygen pressure decreases, forcing the body to work harder to oxygenate the brain, muscles, and organs. If the hiker remains at altitude despite severe symptoms, the risk of cerebral or pulmonary edema increases significantly. Descending quickly allows:",
+      "effets_immediats_title": "What are the immediate effects of descent?",
+      "effets_immediats": "Even a descent of a few hundred meters can have a significant impact:",
+
+      "comment_descendre_title": "How to Descend Safely on Kilimanjaro",
+      "comment_descendre_intro": "When a hiker suffers from severe Acute Mountain Sickness (AMS) or an accident, descent is the most important step to stabilize their condition. But descending too fast or without precaution can worsen the situation. For this, it is essential to follow secure and controlled practices.",
+      "rythme_lent_title": "1. Slow and Regular Pace",
+      "rythme_lent": "The golden rule is to descend slowly and regularly. Even if urgency pushes to go fast, running or rushing the descent can cause:",
+      "pauses_frequentes_title": "2. Frequent Pauses",
+      "pauses_frequentes": "During descent, it is important to take regular pauses to:",
+      "protection_froid_title": "3. Protection Against Cold",
+      "protection_froid": "At high altitude, cold can quickly worsen AMS symptoms and cause hypothermia. For this:",
+      "communication_guide_title": "4. Continuous Communication with the Guide",
+      "communication_guide": "Communication is essential for a safe descent:",
+      "conseil_guide": "Local guide's advice: Safe descent is as much an art as a necessity. Even in an emergency situation, moving too fast or ignoring the body's signals can endanger the hiker. Climbing slowly, taking regular pauses, protecting against cold, and staying in constant contact with the guide are the keys to an effective and safe descent.",
+
+      "conclusion_title": "Conclusion",
+      "conclusion": "Safety on Kilimanjaro comes through prevention and rapid reaction in case of emergency. Immediate and safe descent is often the most effective solution to stabilize a hiker in difficulty. With an experienced guide and constant communication, every ascent can take place under the best conditions."
+    }
+  }
+  ,
+  "DiamoxKilimanjar": {
+    "title": "Diamox for Kilimanjaro Climbing: Everything Hikers Need to Know",
+    "subtitle": "Climbing Kilimanjaro, with its 5,895 meters summit, is a dream for many adventurers. But this rapid ascent exposes the body to a major challenge: Acute Mountain Sickness (AMS).",
+    "meta": {
+      "author": "Kilimanjaro Local Guide",
+      "date": "December 2025",
+      "readingTime": "6 min read"
+    },
+    "sections": {
+      "introTitle": "Introduction",
+      "intro": "Climbing Kilimanjaro, with its 5,895 meters summit, is a dream for many adventurers. But this rapid ascent exposes the body to a major challenge: Acute Mountain Sickness (AMS). Even the most experienced hikers can experience headaches, intense fatigue, or nausea at altitude. Diamox, or acetazolamide, is a medication often used to prevent or alleviate AMS symptoms. It works by facilitating the body's adaptation to altitude, particularly by stimulating breathing and improving blood oxygenation.",
+
+      "role_diamox_title": "The Role of Diamox: How It Helps Acclimatize to Kilimanjaro",
+      "role_diamox_intro": "Diamox, or acetazolamide, is a medication often recommended to help trekkers better tolerate altitude. Its main role is to facilitate the body's acclimatization to the lack of oxygen encountered at high altitude.",
+      "role_diamox_explanation": "Specifically, Diamox works by stimulating breathing. This allows the body to better oxygenate the blood, which can reduce some common symptoms of Acute Mountain Sickness (AMS), such as:",
+      "role_diamox_note": "However, it is important to understand that Diamox is not essential to successfully complete the climb. Most trekkers reach the summit safely without medication, provided they follow a few simple rules:",
+
+      "quand_commencer_title": "When to Start Diamox for Kilimanjaro Climbing?",
+      "quand_commencer_intro": "If your doctor recommends Diamox to prevent Acute Mountain Sickness (AMS), the timing of when you start taking it is crucial for its effectiveness.",
+
+      "dosage_title": "Diamox for Kilimanjaro: What Dosage to Prevent AMS?",
+      "dosage_intro": "Diamox (acetazolamide) is an effective tool for reducing Acute Mountain Sickness (AMS) symptoms, but its dosage must be precise to ensure effectiveness and avoid side effects.",
+      "dosage_habituel": "The dosage varies depending on the trekker and medical protocol, but the most common regimens are:",
+      "dosage_personnalise": "Each trekker is different: age, weight, mountain experience, general health, and medical history influence the reaction to Diamox. Therefore, it is crucial never to adjust the dose yourself. Only a doctor can determine the optimal dosage to maximize benefits while minimizing side effects.",
+      "dosage_retenir": "Diamox can help acclimatize better, but it never replaces a slow climbing pace, good hydration, and sufficient sleep. Following these rules, combined with appropriate dosage, is the best way to enjoy Kilimanjaro climbing safely.",
+
+      "conclusion_title": "Conclusion",
+      "conseil_guide": "As a local guide, I always recommend discussing Diamox with a doctor before the trip. With or without medication, respecting your body and acclimatization rules remains the key to reaching the summit safely and in great shape."
+    }
+  }
+  ,
+  "AlimentationKilimanjar": {
+    "title": "What Types of Meals Are Served at Altitude on Kilimanjaro to Maintain Energy Despite Loss of Appetite?",
+    "subtitle": "On Kilimanjaro, nutrition is a key element in the success of the climb, just like hydration and climbing pace.",
+    "meta": {
+      "author": "Local Kilimanjaro Guide",
+      "date": "December 2025",
+      "readingTime": "7 min read"
+    },
+    "sections": {
+      "introTitle": "Introduction",
+      "intro": "As altitude increases, many hikers experience a gradual decrease in appetite, sometimes from the first days of the trek. This reaction is normal, but it can become problematic if it leads to a decrease in energy intake.",
+      "intro2": "At altitude, the body works harder: it must provide energy for walking, fighting the cold, maintaining body temperature, and especially adapting to the lack of oxygen. That's why, even when hunger is rare, nutrition remains essential.",
+      "conseil_intro": "👉 even without feeling hungry, continuing to eat is essential to preserve energy, physical strength, and good acclimatization.",
+
+      "pourquoi_appetit_title": "Why Appetite Decreases at Altitude",
+      "pourquoi_appetit": "At altitude, the body prioritizes oxygenation and physiological adaptation. The digestive system works more slowly, which can lead to a feeling of rapid satiety, mild nausea, or simply a desire to eat less. The cold and fatigue further accentuate this phenomenon. This is why meals served on Kilimanjaro are adapted to altitude: easy to digest, energy-rich, and spread throughout the day.",
+
+      "glucides_energie_title": "Carbohydrate-Rich Meals for Immediate Energy",
+      "glucides_energie": "At altitude, carbohydrates are the most effective energy source. They require less oxygen to be converted into energy than fats or proteins. Menus therefore prioritize:",
+      "glucides_energie_note": "These foods provide quick energy, support effort, and help limit altitude-related fatigue.",
+
+      "repas_simples_title": "Simple Meals That Are Easy to Digest",
+      "repas_simples": "Dishes served at altitude are deliberately simple, without excess fat or strong spices. The goal is to avoid digestive problems while maintaining sufficient caloric intake. Mountain cooks generally prepare hot, familiar dishes that reassure both body and mind, even when appetite is reduced.",
+
+      "proteines_moderation_title": "Moderate Proteins for Recovery",
+      "proteines_moderation": "Proteins remain important for muscle recovery, but at altitude they are served in moderate quantities to not burden digestion. You often find:",
+      "proteines_moderation_note": "These foods help preserve muscle mass without unnecessarily tiring the digestive system.",
+
+      "soupes_chaudes_title": "Hot Soups: A Key Element at Altitude",
+      "soupes_chaudes": "Soup is one of the most important meals on Kilimanjaro. It combines several essential advantages:",
+      "soupes_chaudes_note": "At altitude, many hikers eat soup more willingly than solid food, especially in the evening.",
+
+      "repas_fractionnes_title": "Fractionated Meals and Regular Snacks",
+      "repas_fractionnes": "Rather than forcing large meals, nutrition is spread throughout the day. Snacks are offered during the hike or at breaks:",
+      "repas_fractionnes_note": "Eating small amounts but regularly allows maintaining energy without causing nausea.",
+
+      "conclusion_title": "Local Guide's Advice",
+      "conseil_conclusion": "\"On Kilimanjaro, eating is not a question of hunger, but of energy survival. Even if appetite decreases, it is essential to continue consuming small portions regularly to stay strong and well-acclimatized.\""
     }
   }
 }

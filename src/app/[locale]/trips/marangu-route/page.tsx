@@ -1,16 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { useParams } from 'next/navigation'
-// Import raw locale JSON so we can safely read non-string message shapes
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import enMessages from '../../../../../locales/en.json'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import frMessages from '../../../../../locales/fr.json'
 import { Phone, Download, Star, Users, Clock, MapPin, User, Calendar, Bed, Map, CheckCircle, XCircle, Info } from 'lucide-react'
-import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Faq from '@/components/ui/faq'
 
@@ -26,180 +17,37 @@ export default function MaranguRoutePage() {
   const [activeSection, setActiveSection] = useState('')
   const [showAllInclusions, setShowAllInclusions] = useState(false)
   const navbarRef = useRef<HTMLDivElement>(null);
-  const t = useTranslations('MaranguRoutePage')
-  // Safe translation accessor that returns a fallback string when the key is missing
-  const safeT = (key: string, fallback = ''): string => {
-    // Prefer reading raw locale JSON first to avoid next-intl errors when
-    // the message is an array or missing for this locale. Only fall back to
-    // `t()` when the raw JSON doesn't contain a value.
-    try {
-      const raw = getRawMessage(key)
-      if (typeof raw === 'string' && raw.length) return raw
-      // If the raw message is an array or object, stringify it and return
-      // so callers that expect a string (e.g. JSON or delimited formats)
-      // can still parse it. Crucially, do NOT call `t()` when the raw
-      // message exists but is not a string — next-intl will throw if the
-      // message is an array.
-      if (Array.isArray(raw) || (typeof raw === 'object' && raw !== null)) {
-        try {
-          return JSON.stringify(raw)
-        } catch (e) {
-          return fallback
-        }
-      }
-    } catch (e) {
-      // ignore and try t()
-    }
 
-    // Final attempt: call next-intl's `t()` only when the raw value was
-    // not present. Guard it so that if next-intl returns a non-string we
-    // still fall back gracefully.
-    try {
-      const maybe = t(key) as unknown
-      if (typeof maybe === 'string') return maybe
-      return fallback
-    } catch (e) {
-      return fallback
-    }
-  }
-
-  // Helper to safely read nested keys from the imported raw locale JSON
-  const getRawMessage = (key: string): any => {
-    try {
-      const parts = key.split('.')
-      let node: any = localeMessages?.MaranguRoutePage
-      for (const part of parts) {
-        if (!node) return undefined
-        node = node[part]
-      }
-      return node
-    } catch (e) {
-      return undefined
-    }
-  }
-  const params = useParams() as { locale?: string }
-  const currentLocale = params?.locale || 'en'
-  const localeMessages: any = currentLocale === 'fr' ? frMessages : enMessages
-  
   // Refs for scrolling to sections
   const inclusionsRef = useRef<HTMLElement>(null);
   const accommodationRef = useRef<HTMLElement>(null);
   const datesPricesRef = useRef<HTMLElement>(null);
-  
-  // All inclusions data is provided via i18n to ensure localized content.
-  // We try to read an array from the translations; if missing, fall back to an empty array.
-  const allInclusions: string[] = (() => {
-    try {
-      // Try reading raw locale JSON first (supports string or array shapes)
-      const node = localeMessages?.MaranguRoutePage?.inclusions?.items
-      if (typeof node === 'string' && node.length) {
-        return (node as string).split('|||').map((s: string) => s.trim()).filter(Boolean)
-      }
-      if (Array.isArray(node)) {
-        return node.map((it: any) => String(it).trim()).filter(Boolean)
-      }
 
-      // Fallback: attempt to use next-intl t() but guard against thrown errors
-      try {
-        const maybe = t('inclusions.items') as unknown
-        if (typeof maybe === 'string' && maybe.length) {
-          return (maybe as string).split('|||').map(s => s.trim()).filter(Boolean)
-        }
-      } catch (e) {
-        // swallow
-      }
-
-      return []
-    } catch (e) {
-      return []
-    }
-  })()
+  // Hardcoded French inclusions content
+  const allInclusions: string[] = [
+    "Deux nuits d'hébergement à l'hôtel",
+    "Transport privé aller-retour depuis l'aéroport international du Kilimandjaro jusqu'à votre hôtel à Moshi",
+    "Guides qualifiés avec équipage de montagne",
+    "Droits d'entrée au parc national",
+    "TVA de 18 % sur les frais d'excursion et les services",
+    "hut fee montagne",
+    "Frais de sauvetage",
+    "Tous les repas en montagne (petit-déjeuner, déjeuner et dîner)",
+    "Guides et porteurs",
+    "Hébergement et droits d'entrée en montagne",
+    "Oxymètre de pouls",
+    "Trousse de premiers secours",
+    "Urgence respiratoire",
+    "Salaires équitables pour les guides et les porteurs, approuvés par l'Autorité du parc national du Kilimandjaro"
+  ]
 
   // Display inclusions based on state
   const displayedInclusions = showAllInclusions ? allInclusions : allInclusions.slice(0, 10)
-  
+
   // Scroll to section function
   const scrollToSection = (ref: React.RefObject<HTMLElement | null>) => {
     ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
-
-    // Fallback sample dates (used when translations haven't been provided yet)
-    const fallbackSampleDates: Record<string, Array<any>> = {
-      '2026-Feb': [
-        { date: 'Feb 4, 2026', route: '8 Day - Lemosho Route', status: 'Open for bookings', price: 'from USD3,350', deposit: 'Deposit USD250' },
-        { date: 'Feb 14, 2026', route: '7 Day - Lemosho Route', status: 'Open for bookings', price: 'from USD3,050', deposit: 'Deposit USD250' },
-        { date: 'Feb 17, 2026', route: '8 Day - Lemosho Route', status: 'Few spaces left', price: 'from USD3,350', deposit: 'Deposit USD250' },
-        { date: 'Feb 25, 2026', route: '8 Day - Lemosho Route • Full Moon', status: 'Few spaces left', price: 'from USD3,350', deposit: 'Deposit USD250', promo: true }
-      ],
-      '2026-Mar': [
-        { date: 'Mar 3, 2026', route: '8 Day - Lemosho Route', status: 'Open for bookings', price: 'from USD3,350', deposit: 'Deposit USD250' },
-        { date: 'Mar 10, 2026', route: '7 Day - Lemosho Route', status: 'Open for bookings', price: 'from USD3,050', deposit: 'Deposit USD250' },
-        { date: 'Mar 17, 2026', route: '8 Day - Lemosho Route', status: 'Open for bookings', price: 'from USD3,350', deposit: 'Deposit USD250' },
-        { date: 'Mar 27, 2026', route: '8 Day - Lemosho Route • Full Moon', status: 'Open for bookings', price: 'from USD3,350', deposit: 'Deposit USD250' }
-      ]
-    }
-
-    // Read translated month data. Supports two formats from translations:
-    // 1) A JSON string containing an array of objects (preferred), e.g. '[{"date":"...","route":"..."}]'
-    // 2) A delimited string where entries are separated by '|||' and fields by ':::' (legacy fallback).
-    // Implementation note: next-intl's `t()` may throw or return non-string values for message keys
-    // (which results in MALFORMED_ARGUMENT errors). To avoid that, we attempt `t()` but fall back
-    // to reading the raw locale JSON for the current route when necessary.
-    // We import the JSONs directly so we can safely handle both string and array shapes.
-
-    const getDatesForMonth = (monthKey: string): Array<any> => {
-      let rawStr = ''
-
-      // Prefer reading the raw locale JSON directly (safer than calling t() for complex values)
-      try {
-        const node = localeMessages?.MaranguRoutePage?.datesByMonth?.[monthKey]
-        if (typeof node === 'string') rawStr = node
-        else if (Array.isArray(node)) rawStr = JSON.stringify(node)
-      } catch (e) {
-        // ignore and try t() below
-      }
-
-      // If raw JSON didn't yield a value, try using next-intl safely as a fallback
-      if (!rawStr) {
-        try {
-          const maybe = t(`datesByMonth.${monthKey}`) as unknown
-          if (typeof maybe === 'string') rawStr = maybe
-        } catch (e) {
-          // swallow and continue to final fallback
-        }
-      }
-
-      if (rawStr && typeof rawStr === 'string' && rawStr.length) {
-        const s = rawStr
-        // Try JSON first
-        if (s.trim().startsWith('[')) {
-          try {
-            const parsed = JSON.parse(s)
-            if (Array.isArray(parsed)) return parsed
-          } catch (e) {
-            // fallthrough to delimited parsing
-          }
-        }
-
-        // Delimited format: entry1|||entry2|||... where each entry is date:::route:::status:::price:::deposit:::promo
-        const entries = s.split('|||').map(e => e.trim()).filter(Boolean)
-        const parsedEntries = entries.map((entry) => {
-          const parts = entry.split(':::').map(p => p.trim())
-          return {
-            date: parts[0] || '',
-            route: parts[1] || '',
-            status: parts[2] || '',
-            price: parts[3] || '',
-            deposit: parts[4] || '',
-            promo: parts[5] === 'promo' || parts[5] === 'true'
-          }
-        })
-        if (parsedEntries.length) return parsedEntries
-      }
-
-      // Final fallback to in-file samples
-      return fallbackSampleDates[monthKey] || []
-    }
 
   // Handle form submission
   const handleSubmit = (e: React.FormEvent) => {
@@ -207,44 +55,6 @@ export default function MaranguRoutePage() {
     // Form submission logic would go here
     setIsContactModalOpen(false)
   }
-
-  // On mount, set sensible defaults:
-  // - show the current month by default in the "When" selector
-  // - select the current route as the default itinerary for filtering
-  useEffect(() => {
-    // Smart default month picker: pick the next month (from now) that has translated entries
-    const now = new Date()
-    const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
-
-    const monthsToCheck: string[] = []
-    for (let i = 0; i < 18; i++) {
-      const d = new Date(now.getFullYear(), now.getMonth() + i, 1)
-      const m = monthNames[d.getMonth()]
-      monthsToCheck.push(`${d.getFullYear()}-${m}`)
-    }
-
-    let foundMonth: string | null = null
-    for (const mk of monthsToCheck) {
-      const raw = safeT(`datesByMonth.${mk}`, '')
-      if (raw && raw.length > 0) {
-        foundMonth = mk
-        break
-      }
-    }
-
-    const initialMonth = foundMonth || `${now.getFullYear()}-${monthNames[now.getMonth()]}`
-
-    setSelectedMonths((prev) => {
-      if (!prev || prev.length === 0) return [initialMonth]
-      return prev
-    })
-
-    // default itinerary: leave empty so we show all available routes by default
-    setSelectedItineraries((prev) => {
-      if (!prev || prev.length === 0) return []
-      return prev
-    })
-  }, [])
 
   // Handle scroll to determine active section
   useEffect(() => {
@@ -323,21 +133,21 @@ export default function MaranguRoutePage() {
         <div className="hidden md:block absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-[700px] translate-y-[50%] bg-gradient-to-r from-[#008576]/40 to-[#00968A]/40 backdrop-blur-sm rounded-lg shadow-xl overflow-hidden z-30" style={{height: 'auto'}}>
           <div className="p-6">
             <h1 className="text-xl font-serif font-semibold mb-3 text-white">
-              {t('hero.title')}
+              Conquérir le Toit de l'Afrique : L'Ascension du Kilimandjaro par la Route Marangu en 5 Jours
             </h1>
             
             <div className="flex items-center mb-2">
               <MapPin className="mr-2 h-4 w-4 text-white" />
-              <span className="text-lg text-white">{t('hero.breadcrumb')}</span>
+              <span className="text-lg text-white">Kilimandjaro</span>
             </div>
             
             <div className="flex items-center mb-3">
               <Clock className="mr-2 h-4 w-4 text-white" />
-              <span className="text-lg font-bold text-white">{t('hero.duration')}</span>
+              <span className="text-lg font-bold text-white">5 jours</span>
             </div>
             
             <p className="text-white text-base leading-relaxed">
-              {t('hero.description')}
+              Tanzanie. Bienvenue en Tanzanie ! À votre arrivée à l'aéroport international du Kilimandjaro, vous serez accueilli par votre guide. Ensemble, vous prendrez la route en direction de Moshi (environ 60 minutes de route). Vous êtes déjà à votre lodge.
             </p>
           </div>
         </div>
@@ -357,21 +167,21 @@ export default function MaranguRoutePage() {
           </div>
           <div className="p-4 pt-10">
             <h1 className="text-xl font-serif font-semibold mb-4 text-white">
-              {t('hero.title')}
+              Conquérir le Toit de l'Afrique : L'Ascension du Kilimandjaro par la Route Marangu en 5 Jours
             </h1>
             
             <div className="flex items-center mb-3">
               <MapPin className="mr-2 h-5 w-5 text-white" />
-              <span className="text-2xl text-white">{t('hero.breadcrumb')}</span>
+              <span className="text-2xl text-white">Kilimandjaro</span>
             </div>
             
             <div className="flex items-center mb-4">
               <Clock className="mr-2 h-5 w-5 text-white" />
-              <span className="text-xl text-white">{t('hero.duration')}</span>
+              <span className="text-xl text-white">5 jours</span>
             </div>
             
             <p className="text-white mb-4 text-xl">
-              {t('hero.description')}
+              Tanzanie. Bienvenue en Tanzanie ! À votre arrivée à l'aéroport international du Kilimandjaro, vous serez accueilli par votre guide. Ensemble, vous prendrez la route en direction de Moshi (environ 60 minutes de route). Vous êtes déjà à votre lodge.
             </p>
           </div>
         </div>
@@ -383,7 +193,7 @@ export default function MaranguRoutePage() {
           <div className="flex justify-center">
             <div className="flex flex-wrap gap-4 items-center">
               <span className="text-[#00A896] font-bold text-xl bg-gradient-to-r from-[#72D9C4] to-[#00A896] bg-clip-text text-transparent pr-4 border-r border-gray-300">
-                {t('hero.price')}
+                1800€
               </span>
               <button 
                 className={`font-medium px-4 py-2 border-2 rounded-lg flex items-center transition-all duration-300 text-base ${
@@ -394,7 +204,7 @@ export default function MaranguRoutePage() {
                 onClick={() => scrollToSection(datesPricesRef)}
               >
                 <Calendar className="mr-2 h-4 w-4" />
-                {t('miniNavbar.datesAndPrices')}
+                Dates et Prix
               </button>
               <button 
                 className={`font-medium px-4 py-2 border-2 rounded-lg flex items-center transition-all duration-300 text-base ${
@@ -405,7 +215,7 @@ export default function MaranguRoutePage() {
                 onClick={() => setIsInquiryFormOpen(true)}
               >
                 <User className="mr-2 h-4 w-4" />
-                {t('miniNavbar.proposeDate')}
+                Proposer une date
               </button>
               <button 
                 className={`font-medium px-4 py-2 rounded-lg transition-all duration-300 text-base ${
@@ -415,7 +225,7 @@ export default function MaranguRoutePage() {
                 }`}
                 onClick={() => scrollToSection(inclusionsRef)}
               >
-                {t('miniNavbar.details')}
+                Détails
               </button>
               <button 
                 className={`font-medium px-4 py-2 rounded-lg transition-all duration-300 text-base ${
@@ -425,7 +235,7 @@ export default function MaranguRoutePage() {
                 }`}
                 onClick={() => scrollToSection(inclusionsRef)}
               >
-                {t('miniNavbar.inclusions')}
+                Inclusions
               </button>
               <button 
                 className={`font-medium px-4 py-2 rounded-lg transition-all duration-300 text-base ${
@@ -435,7 +245,7 @@ export default function MaranguRoutePage() {
                 }`}
                 onClick={() => scrollToSection(accommodationRef)}
               >
-                {t('miniNavbar.accommodation')}
+                Hébergement
               </button>
             </div>
           </div>
@@ -448,11 +258,11 @@ export default function MaranguRoutePage() {
           <div className="flex flex-wrap gap-4 justify-center">
             <button className="text-gray-600 font-medium hover:text-gray-800 px-4 py-2 border-2 border-gray-300 rounded-lg flex items-center text-lg" onClick={() => scrollToSection(datesPricesRef)}>
               <Calendar className="mr-2 h-4 w-4" />
-              {t('miniNavbar.datesAndPrices')}
+              Dates et Prix
             </button>
             <button className="text-gray-600 font-medium hover:text-gray-800 px-4 py-2 border-2 border-gray-300 rounded-lg flex items-center text-lg" onClick={() => setIsInquiryFormOpen(true)}>
               <User className="mr-2 h-4 w-4" />
-              {t('miniNavbar.proposeDate')}
+              Proposer une date
             </button>
           </div>
         </div>
@@ -465,7 +275,7 @@ export default function MaranguRoutePage() {
           {/* Detailed Itinerary Title - Only on left side below mini navbar */}
           <div className="container mx-auto px-4">
             <h2 className="text-2xl font-bold text-gray-800 mb-8 md:mb-12 mt-4 md:mt-0">
-              {t('detailedItineraryTitle')}
+              Itinéraire détaillé
             </h2>
           </div>
           
@@ -479,13 +289,13 @@ export default function MaranguRoutePage() {
                   {/* Details - Always first on mobile and desktop */}
                   <div className="order-1">
                     <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                      {t('itinerary.day0.title')}
+                      Jour 0 : Aéroport du Kilimanjaro Moshi
                     </h3>
                     <p className="text-gray-600 mb-4 text-xl">
-                      {t('itinerary.day0.location')}
+                      Kilimanjaro depuis Moshi,
                     </p>
                     <p className="text-gray-600 mb-4 text-xl">
-                      {t('itinerary.day0.description')}
+                      Tanzanie. Bienvenue en Tanzanie ! À votre arrivée à l'aéroport international du Kilimandjaro, vous serez accueilli par votre guide. Ensemble, vous prendrez la route en direction de Moshi (environ 60 minutes de route). Vous êtes déjà à votre lodge.
                     </p>
                   </div>
                   {/* Image - Always second on mobile and desktop */}
@@ -503,16 +313,16 @@ export default function MaranguRoutePage() {
                   {/* Details - Always first on mobile, right on desktop */}
                   <div className="order-1 md:order-2">
                     <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                      {t('itinerary.day1.title')}
+                      Jour 1 : Porte Marangu vers Mandara Hut
                     </h3>
                     <p className="text-gray-500 mb-4 text-lg md:text-xl">
-                      {t('itinerary.day1.description')}
+                      Le premier jour d'ascension commence par le transfert vers la Porte Marangu (1,860,m). Après les formalités d'enregistrement, la randonnée s'engage dans la forêt tropicale luxuriante. Le chemin est généralement facile et progressif. En option, un détour vers le Cratère Maundi est possible. Après 3 à 4 heures de marche pour environ 8,km, vous atteignez Mandara Hut (2700m) pour la nuit.
                     </p>
                     <p className="text-gray-600 mb-2">
-                      <strong>{t('itinerary.altitude')}:</strong> {t('itinerary.day1.altitude')}
+                      <strong>Altitude:</strong> 1,860,m (6,100,ft) - 2,700,m (8,875,ft)
                     </p>
                     <p className="text-gray-600 mb-2">
-                      <strong>{t('itinerary.distanceDuration')}:</strong> {t('itinerary.day1.distanceDuration')}
+                      <strong>Distance / Durée:</strong> 8,km (5,mi) - temps de randonnée 3-4
                     </p>
                   </div>
                   {/* Image - Always second on mobile, left on desktop */}
@@ -530,16 +340,16 @@ export default function MaranguRoutePage() {
                   {/* Details - Always first on mobile and desktop */}
                   <div className="order-1">
                     <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                      {t('itinerary.day2.title')}
+                      Jour 2 : Mandara Hut vers Horombo Hut
                     </h3>
                     <p className="text-gray-500 mb-4 text-lg md:text-xl">
-                      {t('itinerary.day2.description')}
+                      Vous quittez la forêt tropicale pour les vastes zones de lande. Le chemin est ascendant et offre des vues magnifiques sur le sommet du Mawenzi et le dôme de Kibo. La zone est caractérisée par les lobélies géantes. Après 5 à 6 heures de marche pour environ 12,km, vous arrivez à Horombo Hut (3,700,m). C'est là que vous passerez la nuit et commencerez à ressentir les effets de l'altitude.
                     </p>
                     <p className="text-gray-600 mb-2">
-                      <strong>{t('itinerary.altitude')}:</strong> {t('itinerary.day2.altitude')}
+                      <strong>Altitude:</strong> 2,700,m (8,875,ft) - 3,700,m
                     </p>
                     <p className="text-gray-600 mb-2">
-                      <strong>{t('itinerary.distanceDuration')}:</strong> {t('itinerary.day2.distanceDuration')}
+                      <strong>Distance / Durée:</strong> 12,km (7,5,mi) - temps de randonnée 5-6
                     </p>
                   </div>
                   {/* Image - Always second on mobile and desktop */}
@@ -557,16 +367,16 @@ export default function MaranguRoutePage() {
                   {/* Details - Always first on mobile, right on desktop */}
                   <div className="order-1 md:order-2">
                     <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                      {t('itinerary.day3.title')}
+                      Jour 3 : Horombo Hut vers Kibo Hut
                     </h3>
                     <p className="text-gray-500 mb-4 text-lg md:text-xl">
-                      {t('itinerary.day3.description')}
+                      Cette étape vous mène à travers le désert alpin stérile. Le paysage devient rocheux, souvent décrit comme « lunaire ». La marche s'effectue sur le col du Kilimanjaro, entre le Kibo et le Mawenzi. Après 5 à 6 heures de marche pour environ 9,km, vous atteignez Kibo Hut (4,700,m), le camp de base. L'après-midi est consacré au repos, au dîner et à la préparation méticuleuse pour l'ascension du sommet prévue très tôt le matin.
                     </p>
                     <p className="text-gray-600 mb-2">
-                      <strong>{t('itinerary.altitude')}:</strong> {t('itinerary.day3.altitude')}
+                      <strong>Altitude:</strong> 3,700,m (12,200,ft) - 4,700m
                     </p>
                     <p className="text-gray-600 mb-2">
-                      <strong>{t('itinerary.distanceDuration')}:</strong> {t('itinerary.day3.distanceDuration')}
+                      <strong>Distance Durée:</strong> 9,km (5,5,mi) - temps de randonnée 5-6
                     </p>
                   </div>
                   {/* Image - Always second on mobile, left on desktop */}
@@ -584,16 +394,16 @@ export default function MaranguRoutePage() {
                   {/* Details - Always first on mobile and desktop */}
                   <div className="order-1">
                     <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                      {t('itinerary.day4.title')}
+                      Jour 4 : L'Assaut du Sommet et Descente vers Horombo Hut
                     </h3>
                     <p className="text-gray-500 mb-4 text-lg md:text-xl">
-                      {t('itinerary.day4.description')}
+                      Le quatrième jour est le plus décisif. L'ascension du sommet débute très tôt (entre minuit et 2h00 du matin) dans l'obscurité, nécessitant l'utilisation de lampes frontales. La progression s'effectue sur des éboulis raides et épais ou de la neige, via de nombreux lacets, jusqu'à Gilman's Point (5,685,m) situé sur le bord du cratère. La montée se poursuit jusqu'à l'Uhuru Peak (5,895,m), le point culminant de l'Afrique. La phase d'ascension est la plus difficile et exige le port de toutes les couches vestimentaires chaudes. Un rythme lent, (Pole Pole) (lentement en Swahili), est essentiel. Après avoir immortalisé l'instant au sommet, la longue descente commence. Un arrêt est prévu à Kibo Hut pour un déjeuner et un court repos avant de poursuivre la descente jusqu'à Horombo Hut (3,700,m).
                     </p>
                     <p className="text-gray-600 mb-2">
-                      <strong>{t('itinerary.altitude')}:</strong> {t('itinerary.day4.altitude')}
+                      <strong>Altitude:</strong> 4,700,m (15,500,ft) - 5,895,m (19,340,ft)
                     </p>
                     <p className="text-gray-600 mb-2">
-                      <strong>{t('itinerary.distanceDuration')}:</strong> {t('itinerary.day4.distanceDuration')}
+                      <strong>Distance / Durée:</strong> 15,km (13mi) - temps de randonnée 6-8
                     </p>
                   </div>
                   {/* Image - Always second on mobile and desktop */}
@@ -611,16 +421,16 @@ export default function MaranguRoutePage() {
                   {/* Details - Always first on mobile, right on desktop */}
                   <div className="order-1 md:order-2">
                     <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                      {t('itinerary.day5.title')}
+                      Jour 5 : Horombo Hut vers la Porte Marangu
                     </h3>
                     <p className="text-gray-500 mb-4 text-lg md:text-xl">
-                      {t('itinerary.day5.description')}
+                      Le dernier jour est une longue mais agréable descente finale. Vous traversez la lande, puis le sentier forestier luxuriant jusqu'à la Porte Marangu (1,860,m). À basse altitude, le chemin peut être boueux. Après 5 à 6 heures de marche, vous atteignez la porte où un véhicule vous attend pour le transfert vers votre hôtel à Moshi. Vous recevez alors votre certificat d'ascension, marquant l'achèvement de votre expédition
                     </p>
                     <p className="text-gray-600 mb-2">
-                      <strong>{t('itinerary.altitude')}:</strong> {t('itinerary.day5.altitude')}
+                      <strong>Altitude:</strong> 3,700\,m (12,200,ft)
                     </p>
                     <p className="text-gray-600 mb-2">
-                      <strong>{t('itinerary.distanceDuration')}:</strong> {t('itinerary.day5.distanceDuration')}
+                      <strong>Distance / Durée:</strong> 20,km (12,5,mi) / 5 - 6 heures de marche
                     </p>
                   </div>
                   {/* Image - Always second on mobile, left on desktop */}
@@ -638,10 +448,10 @@ export default function MaranguRoutePage() {
                   {/* Details - Always first on mobile and desktop */}
                   <div className="order-1">
                     <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                      {t('itinerary.day6.title')}
+                      VOL DE RETOUR AU DÉPART DE L'AÉROPORT INTERNATIONAL DU KILIMANDJARO (JRO)
                     </h3>
                     <p className="text-gray-500 mb-4 text-lg md:text-xl">
-                      {t('itinerary.day6.description')}
+                      Après l'effort et le succès de l'ascension, le Jour 6 marque la fin de cette aventure extraordinaire. Suite à une dernière nuit de repos bien méritée, vous profitez d'un petit-déjeuner tranquille. Notre équipe viendra vous chercher à votre hébergement et assurera votre transfert privé vers l'Aéroport International du Kilimanjaro (JRO). C'est l'occasion de faire vos adieux à la Tanzanie, emportant avec vous des souvenirs inoubliables du Toit de l'Afrique. Si vous ne souhaitez pas que le voyage se termine si vite, n'hésitez pas à prolonger votre séjour pour un safari dans le Serengeti ou quelques jours de détente sur les plages de Zanzibar !
                     </p>
                   </div>
                   {/* Image - Always second on mobile and desktop */}
@@ -661,7 +471,7 @@ export default function MaranguRoutePage() {
       <section ref={inclusionsRef} className="py-16">
         <div className="container mx-auto px-0">
           <h2 className="text-2xl font-semibold text-center mb-12 text-gray-800">
-            {t('inclusions.title')}
+            Inclusions et Exclusions
           </h2>
           
           <div className="w-full">
@@ -669,7 +479,7 @@ export default function MaranguRoutePage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
                 {/* Price Includes - Full width on mobile */}
                 <div className="border-r-0 md:border-r border-gray-200 pr-0 md:pr-8 pb-8 md:pb-0">
-                  <h3 className="text-2xl font-semibold mb-6 text-gray-800">{t('inclusions.priceIncludes')}</h3>
+                  <h3 className="text-2xl font-semibold mb-6 text-gray-800">Prix comprend</h3>
                   <ul className="space-y-3">
                     {displayedInclusions.map((inclusion, index) => (
                       <li key={index} className="flex items-start">
@@ -683,7 +493,7 @@ export default function MaranguRoutePage() {
                       onClick={() => setShowAllInclusions(!showAllInclusions)}
                       className="mt-6 text-[#00A896] hover:text-[#008576] font-medium flex items-center"
                     >
-                      {showAllInclusions ? t('inclusions.seeFewer') : t('inclusions.seeMore')}
+                      {showAllInclusions ? 'Voir moins' : 'Voir plus'}
                       <svg className={`ml-1 h-4 w-4 transform ${showAllInclusions ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={showAllInclusions ? "M5 15l7-7 7 7" : "M19 9l-7 7-7-7"} />
                       </svg>
@@ -693,31 +503,27 @@ export default function MaranguRoutePage() {
                 
                 {/* Price Does Not Include - Full width on mobile */}
                 <div className="pl-0 md:pl-8 pt-8 md:pt-0 border-t md:border-t-0 border-gray-200 md:border-t-transparent">
-                  <h3 className="text-2xl font-semibold mb-6 text-gray-800">{t('inclusions.priceDoesNotInclude')}</h3>
+                  <h3 className="text-2xl font-semibold mb-6 text-gray-800">Prix ne comprend pas</h3>
                   <ul className="space-y-3">
                     <li className="flex items-start">
                       <XCircle className="mr-3 h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" />
-                      <span>{t('inclusions.exclusions.visa')}</span>
+                      <span>L'avion</span>
                     </li>
                     <li className="flex items-start">
                       <XCircle className="mr-3 h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" />
-                      <span>{t('inclusions.exclusions.airfares')}</span>
+                      <span>Visa</span>
                     </li>
                     <li className="flex items-start">
                       <XCircle className="mr-3 h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" />
-                      <span>{t('inclusions.exclusions.transfers')}</span>
+                      <span>Pourboires</span>
                     </li>
                     <li className="flex items-start">
                       <XCircle className="mr-3 h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" />
-                      <span>{t('inclusions.exclusions.insurance')}</span>
+                      <span>Assurance</span>
                     </li>
                     <li className="flex items-start">
                       <XCircle className="mr-3 h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" />
-                      <span>{t('inclusions.exclusions.tips')}</span>
-                    </li>
-                    <li className="flex items-start">
-                      <XCircle className="mr-3 h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" />
-                      <span>{t('inclusions.exclusions.singleSupplement')}</span>
+                      <span>Objet personnels</span>
                     </li>
                   </ul>
                 </div>
@@ -733,7 +539,7 @@ export default function MaranguRoutePage() {
           <div className="flex items-center justify-center mb-8">
             <Bed className="mr-2 h-6 w-6 text-gray-800" />
             <h2 className="text-2xl font-semibold text-center text-gray-800">
-              {t('accommodation.title')}
+              Hébergement
             </h2>
           </div>
           
@@ -744,9 +550,9 @@ export default function MaranguRoutePage() {
                   <Image src="/images/lala.jpg" alt="Marangu Huts Exterior" fill className="object-cover" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-semibold mb-4 text-gray-800">{t('accommodation.huts.title')}</h3>
+                  <h3 className="text-2xl font-semibold mb-4 text-gray-800">Huttes Marangu</h3>
                   <p className="text-gray-500 mb-6 text-lg md:text-xl">
-                    {t('accommodation.huts.description')}
+                    Les huttes Marangu sont les seules huttes permanentes du Kilimandjaro. Elles sont plus confortables que les tentes, avec des murs en pierre et des toits en tôle. Chaque hutte accueille 6 personnes et dispose de lits avec matelas (pas de draps fournis). Les toilettes et les douches sont situées à l'extérieur des huttes.
                   </p>
                 </div>
               </div>
@@ -759,7 +565,7 @@ export default function MaranguRoutePage() {
       <section ref={datesPricesRef} className="py-16 bg-gradient-to-br from-[#F0FCF9] via-[#E8F8F5] to-[#DDF5F0]">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-[#72D9C4] to-[#00A896] bg-clip-text text-transparent">
-            {t('datesAndPrices.title')}
+            Dates et Prix
           </h2>
           
           <div className="w-full md:max-w-5xl md:mx-auto">
@@ -770,14 +576,14 @@ export default function MaranguRoutePage() {
                   <div className="p-3 bg-gradient-to-br from-[#4DC5B5] to-[#00A896] rounded-xl mr-4">
                     <Users className="h-6 w-6 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">{t('datesAndPrices.groupDiscounts')}</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Réductions de Groupe</h3>
                 </div>
-                <p className="text-gray-600 mb-6 text-lg leading-relaxed">{t('datesAndPrices.dontSeeDates')}</p>
+                <p className="text-gray-600 mb-6 text-lg leading-relaxed">Vous ne voyez pas les dates qui vous conviennent ? Nous proposons des réductions pour les groupes de 4 personnes ou plus.</p>
                 <button 
                   onClick={() => setIsInquiryFormOpen(true)}
                   className="bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full"
                 >
-                  {t('datesAndPrices.enquireButton')}
+                  Demander un devis
                 </button>
               </div>
               
@@ -786,14 +592,14 @@ export default function MaranguRoutePage() {
                   <div className="p-3 bg-gradient-to-br from-[#4DC5B5] to-[#00A896] rounded-xl mr-4">
                     <Calendar className="h-6 w-6 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">{t('datesAndPrices.proposeNewDate')}</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">Proposer une nouvelle date</h3>
                 </div>
-                <p className="text-gray-600 mb-6 text-lg leading-relaxed">{t('datesAndPrices.proposeDateDescription')}</p>
+                <p className="text-gray-600 mb-6 text-lg leading-relaxed">Proposez vos dates préférées et nous ferons de notre mieux pour vous accompagner dans votre aventure.</p>
                 <button 
                   onClick={() => setIsInquiryFormOpen(true)}
                   className="bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full"
                 >
-                  {t('datesAndPrices.proposeDateButton')}
+                  Proposer une date
                 </button>
               </div>
             </div>
@@ -806,10 +612,10 @@ export default function MaranguRoutePage() {
                   <div className="flex items-center justify-between mb-6">
                     <h3 className="text-2xl font-bold text-gray-900 flex items-center">
                       <Calendar className="mr-2 h-6 w-6 text-[#00A896]" />
-                      {t('datesAndPrices.when')}
+                      Quand
                     </h3>
                     <span className="bg-gradient-to-r from-[#E8F8F5] to-[#D0F0E8] text-[#008576] px-4 py-2 rounded-full text-sm font-bold shadow-sm">
-                      {selectedMonths.length} {t('datesAndPrices.selected')}
+                      {selectedMonths.length} sélectionné(s)
                     </span>
                   </div>
                   <div className="mb-6">
@@ -817,7 +623,7 @@ export default function MaranguRoutePage() {
                       onClick={() => setIsWhenDropdownOpen(!isWhenDropdownOpen)}
                       className="w-full p-4 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00A896] focus:border-[#00A896] bg-white text-left flex justify-between items-center hover:border-[#72D9C4] transition-colors"
                     >
-                      <span className="font-medium text-gray-700">{selectedMonths.length > 0 ? `${selectedMonths.length} ${t('datesAndPrices.selected')}` : t('datesAndPrices.selectMonth')}</span>
+                      <span className="font-medium text-gray-700">{selectedMonths.length > 0 ? `${selectedMonths.length} sélectionné(s)` : 'Sélectionner un mois'}</span>
                       <svg className={`transform transition-transform ${isWhenDropdownOpen ? 'rotate-180' : ''} fill-current h-5 w-5 text-gray-500`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                         <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
                       </svg>
@@ -830,7 +636,6 @@ export default function MaranguRoutePage() {
                           {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month, index) => {
                             const monthKey = `2025-${month}`;
                             const isSelected = selectedMonths.includes(monthKey);
-                            const translatedMonth = safeT(`months.${month}`, month);
                             return (
                               <button 
                                 key={monthKey} 
@@ -847,7 +652,7 @@ export default function MaranguRoutePage() {
                                     : 'bg-white hover:bg-[#E8F8F5] text-gray-700 border border-gray-200 hover:border-[#B8EDE3]'
                                 }`}
                               >
-                                {translatedMonth}
+                                {month}
                               </button>
                             );
                           })}
@@ -855,7 +660,6 @@ export default function MaranguRoutePage() {
                           {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month, index) => {
                             const monthKey = `2026-${month}`;
                             const isSelected = selectedMonths.includes(monthKey);
-                            const translatedMonth = safeT(`months.${month}`, month);
                             return (
                               <button 
                                 key={monthKey} 
@@ -872,7 +676,7 @@ export default function MaranguRoutePage() {
                                     : 'bg-white hover:bg-[#E8F8F5] text-gray-700 border border-gray-200 hover:border-[#B8EDE3]'
                                 }`}
                               >
-                                {translatedMonth}
+                                {month}
                               </button>
                             );
                           })}
@@ -880,7 +684,6 @@ export default function MaranguRoutePage() {
                           {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month, index) => {
                             const monthKey = `2027-${month}`;
                             const isSelected = selectedMonths.includes(monthKey);
-                            const translatedMonth = safeT(`months.${month}`, month);
                             return (
                               <button 
                                 key={monthKey} 
@@ -897,7 +700,7 @@ export default function MaranguRoutePage() {
                                     : 'bg-white hover:bg-[#E8F8F5] text-gray-700 border border-gray-200 hover:border-[#B8EDE3]'
                                 }`}
                               >
-                                {translatedMonth}
+                                {month}
                               </button>
                             );
                           })}
@@ -911,10 +714,10 @@ export default function MaranguRoutePage() {
                     <div className="pt-6 border-t-2 border-gray-200 bg-gradient-to-br from-[#E8F8F5] to-[#D0F0E8] rounded-xl p-6 mt-4">
                       <div className="flex items-center justify-between mb-4">
                         <div className="flex items-center gap-4">
-                          <h4 className="text-xl font-bold text-gray-900">{selectedMonths.length > 1 ? `${selectedMonths.length} ${t('datesAndPrices.selected')}` : t('datesAndPrices.when')}</h4>
+                          <h4 className="text-xl font-bold text-gray-900">{selectedMonths.length > 1 ? `${selectedMonths.length} sélectionné(s)` : 'Quand'}</h4>
                         </div>
                         <button onClick={() => setShowEarlierDates(!showEarlierDates)} className="text-sm text-gray-600 underline">
-                          {showEarlierDates ? safeT('datesAndPrices.showEarlierHidden', 'Hide earlier dates') : safeT('datesAndPrices.showEarlier', 'Show earlier dates')}
+                          {showEarlierDates ? 'Cacher les dates antérieures' : 'Afficher les dates antérieures'}
                         </button>
                       </div>
 
@@ -924,19 +727,14 @@ export default function MaranguRoutePage() {
                         const [year, month] = monthKey.split('-')
                         const heading = `${month} ${year}`
 
-                        // Read translated dates for this month (supports JSON string or delimited string), falls back to sample data
-                        const rawList = getDatesForMonth(monthKey)
                         // If the user has selected itineraries, filter the list to those routes (default includes current route)
-                        const list = (rawList || []).filter((item) => {
-                          if (!selectedItineraries || selectedItineraries.length === 0) return true
-                          return selectedItineraries.some(si => {
-                            try {
-                              return item.route && item.route.toLowerCase().includes(si.toLowerCase())
-                            } catch (e) {
-                              return false
-                            }
-                          })
-                        })
+                        const list = [{
+                          date: `${month} 10, ${year}`,
+                          route: '5 Day - Marangu Route',
+                          status: 'Ouvert pour les réservations',
+                          price: 'à partir de 1800€',
+                          deposit: 'Acompte 100€'
+                        }]
 
                         return (
                           <div key={monthKey} className="mb-6">
@@ -944,38 +742,35 @@ export default function MaranguRoutePage() {
                                 <div className="space-y-4">
                                   {list.length > 0 ? (
                                     list.map((item, idx) => (
-                                      <div key={idx} className={`w-full bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg transition-all duration-300 transform hover:-translate-y-1 border ${item.promo ? 'border-pink-300' : 'border-[#E8F8F5]'}`}>
-                                        {item.promo && (
-                                          <div className="bg-pink-100 text-pink-800 px-4 py-2 rounded-t-2xl text-center">Save $150pp on all trips booked before 30th November — Quote "WONDERLAND" to your Destination Expert. exclusions apply</div>
-                                        )}
-                                          <div className="p-3 md:p-5 flex flex-col md:flex-row items-start md:items-center gap-3 md:gap-4 w-full">
-                                            <div className="flex items-start gap-3 w-full md:w-1/3">
-                                              <div className="rounded-md border border-gray-200 p-2 md:p-3 text-gray-700 bg-white flex-shrink-0">
-                                                <Calendar className="h-4 w-4 md:h-5 md:w-5" />
-                                              </div>
-                                              <div>
-                                                <div className="text-lg md:text-xl font-semibold leading-tight text-gray-900">{item.date}</div>
-                                                <div className="text-sm md:text-sm text-gray-500 mt-1">{item.route}</div>
-                                              </div>
+                                      <div key={idx} className={`w-full bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg transition-all duration-300 transform hover:-translate-y-1 border ${item.status && item.status.includes('Open') ? 'border-green-300' : 'border-[#E8F8F5]'}`}>
+                                        <div className="p-3 md:p-5 flex flex-col md:flex-row items-start md:items-center gap-3 md:gap-4 w-full">
+                                          <div className="flex items-start gap-3 w-full md:w-1/3">
+                                            <div className="rounded-md border border-gray-200 p-2 md:p-3 text-gray-700 bg-white flex-shrink-0">
+                                              <Calendar className="h-4 w-4 md:h-5 md:w-5" />
                                             </div>
-
-                                            <div className="md:flex-1 mt-2 md:mt-0 md:px-6 flex flex-col md:flex-row md:items-center md:justify-start gap-1 w-full">
-                                              <div className={`text-sm md:text-sm font-semibold ${item.status && item.status.includes('Open') ? 'text-green-500' : 'text-orange-500'}`}>{item.status}</div>
-                                              <div className="text-sm md:text-sm text-gray-500">{item.price} <span className="mx-2">|</span> {item.deposit}</div>
-                                            </div>
-
-                                            <div className="w-full md:w-auto flex items-center justify-between md:justify-end gap-3">
-                                              <button onClick={() => setIsContactModalOpen(true)} className="bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white px-6 py-3 rounded-[12px] shadow-sm w-full md:w-auto text-base font-semibold">{t('datesAndPrices.enquireButton')}</button>
-                                              <button className="text-gray-400 p-2 md:hidden" aria-label="expand">▾</button>
-                                              <button className="text-gray-400 p-2 hidden md:block" aria-label="expand">▾</button>
+                                            <div>
+                                              <div className="text-lg md:text-xl font-semibold leading-tight text-gray-900">{item.date}</div>
+                                              <div className="text-sm md:text-sm text-gray-500 mt-1">{item.route}</div>
                                             </div>
                                           </div>
+
+                                          <div className="md:flex-1 mt-2 md:mt-0 md:px-6 flex flex-col md:flex-row md:items-center md:justify-start gap-1 w-full">
+                                            <div className={`text-sm md:text-sm font-semibold ${item.status && item.status.includes('Open') ? 'text-green-500' : 'text-orange-500'}`}>{item.status}</div>
+                                            <div className="text-sm md:text-sm text-gray-500">{item.price} <span className="mx-2">|</span> {item.deposit}</div>
+                                          </div>
+
+                                          <div className="w-full md:w-auto flex items-center justify-between md:justify-end gap-3">
+                                            <button onClick={() => setIsContactModalOpen(true)} className="bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white px-6 py-3 rounded-[12px] shadow-sm w-full md:w-auto text-base font-semibold">Demander un devis</button>
+                                            <button className="text-gray-400 p-2 md:hidden" aria-label="expand">▾</button>
+                                            <button className="text-gray-400 p-2 hidden md:block" aria-label="expand">▾</button>
+                                          </div>
+                                        </div>
                                       </div>
                                     ))
                                   ) : (
                                     <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg p-6 text-center">
-                                      <p className="text-gray-700 text-lg mb-4">{safeT('datesAndPrices.noDeparturesMessage', 'No departures for this itinerary in the selected month.')}</p>
-                                      <button onClick={() => setIsContactModalOpen(true)} className="bg-gradient-to-r from-[#72D9C4] to-[#00A896] text-white font-semibold py-2 px-6 rounded-lg">{safeT('datesAndPrices.contactUsCTA', 'Contact us to request alternate dates')}</button>
+                                      <p className="text-gray-700 text-lg mb-4">Aucun départ pour cet itinéraire dans le mois sélectionné.</p>
+                                      <button onClick={() => setIsContactModalOpen(true)} className="bg-gradient-to-r from-[#72D9C4] to-[#00A896] text-white font-semibold py-2 px-6 rounded-lg">Contactez-nous pour demander des dates alternatives</button>
                                     </div>
                                   )}
                                 </div>
@@ -991,10 +786,10 @@ export default function MaranguRoutePage() {
                   <div className="flex items-center justify-between mb-6">
                     <h3 className="text-2xl font-bold text-gray-900 flex items-center">
                       <Users className="mr-2 h-6 w-6 text-[#00A896]" />
-                      {t('datesAndPrices.groupOptions')}
+                      Options de groupe
                     </h3>
                     <span className="bg-gradient-to-r from-[#E8F8F5] to-[#D0F0E8] text-[#008576] px-4 py-2 rounded-full text-sm font-bold shadow-sm">
-                      {selectedItineraries.length} {t('datesAndPrices.selected')}
+                      {selectedItineraries.length} sélectionné(s)
                     </span>
                   </div>
                   
@@ -1003,7 +798,7 @@ export default function MaranguRoutePage() {
                       onClick={() => setIsItineraryDropdownOpen(!isItineraryDropdownOpen)}
                       className="w-full p-4 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00A896] focus:border-[#00A896] bg-white text-left flex justify-between items-center hover:border-[#72D9C4] transition-colors mb-4"
                     >
-                      <span className="font-medium text-gray-700">{selectedItineraries.length > 0 ? `${selectedItineraries.length} ${t('datesAndPrices.selected')}` : t('datesAndPrices.selectGroup')}</span>
+                      <span className="font-medium text-gray-700">{selectedItineraries.length > 0 ? `${selectedItineraries.length} sélectionné(s)` : 'Sélectionner un groupe'}</span>
                       <svg className={`transform transition-transform ${isItineraryDropdownOpen ? 'rotate-180' : ''} fill-current h-5 w-5 text-gray-500`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                         <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
                       </svg>
@@ -1011,7 +806,7 @@ export default function MaranguRoutePage() {
                     
                     {isItineraryDropdownOpen && (
                       <div className="border-2 border-[#B8EDE3] rounded-xl p-6 bg-gradient-to-br from-white to-[#E8F8F5] shadow-lg space-y-3">
-                        {[safeT('datesAndPrices.soloTraveler', 'Solo Traveler'), safeT('datesAndPrices.couple', 'Couple'), safeT('datesAndPrices.familyGroup', 'Family Group'), safeT('datesAndPrices.friendsGroup', 'Friends Group'), safeT('datesAndPrices.corporateGroup', 'Corporate Group')].map((groupOption) => {
+                        {['Voyageur solo', 'Couple', 'Groupe familial', 'Groupe d\'amis', 'Groupe d\'entreprise'].map((groupOption) => {
                           const isSelected = selectedItineraries.includes(groupOption);
                           return (
                             <div key={groupOption} className="flex items-center p-3 rounded-lg hover:bg-white/80 transition-colors">
@@ -1048,7 +843,7 @@ export default function MaranguRoutePage() {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-0">
           <h2 className="text-2xl font-semibold text-center mb-12 text-gray-800">
-            {t('gallery.title')}
+            Galerie
           </h2>
           
           <div className="w-full">
@@ -1073,12 +868,12 @@ export default function MaranguRoutePage() {
       {/* FAQs Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-semibold text-center mb-12 text-gray-800">{t('faqs.title')}</h2>
+          <h2 className="text-2xl font-semibold text-center mb-12 text-gray-800">FAQs</h2>
           <Faq
             items={[
-              { question: "Quel est la température les différents jours et comment s'habiller.", answer: "Les températures varient fortement selon l'altitude et la saison : en journée elles peuvent se situer entre ~5–15°C selon l'étape, et près du sommet il peut faire bien en dessous de zéro. Habillez‑vous par couches : couche de base respirante, couche isolante (polaire), veste coupe‑vent/imperméable ; bonnet et gants sont essentiels pour les nuits et le sommet." },
+              { question: "Quel est la température les différents jours et comment s'habiller.", answer: "Les températures varient fortement selon l'altitude et la saison : en journée elles peuvent se situer entre ~5–15°C selon l'étape, et près du sommet il peut faire bien en dessous de zéro. Habillez‑vous par couches : couche de base respirante, couche isolante (polaire), veste coupe‑vent/imperméable ; bonnet et gants sont essentiels pour les nuits et le sommet." },
               { question: "Quelles chaussures pour marcher et sur le campement.", answer: "Privilégiez des chaussures de trekking robustes et montantes (protection de la cheville), avec bonne adhérence et imperméabilité (Gore‑Tex ou équivalent). Emportez également des sandales ou chaussures légères pour le campement." },
-              { question: "Et les chaussettes ? Lesquelles et combien ?", answer: "Apportez 3–4 paires de chaussettes techniques (laine mérinos ou synthétique) : une paire par jour et une paire chaude pour la nuit. Évitez le coton ; des liners peuvent aider contre les ampoules." },
+              { question: "Et les chaussettes ? Lesquelles et combien ?", answer: "Apportez 3–4 paires de chaussettes techniques (laine mérinos ou synthétique) : une paire par jour et une paire chaude pour la nuit. Évitez le coton ; des liners peuvent aider contre les ampoules." },
               { question: "Comment on sėche ses affaires s'il pleut ?", answer: "Utilisez des sacs étanches et des sacs zip pour isoler le linge mouillé. Au camp, étendez vos affaires sur une corde (l'équipe aide souvent) et changez rapidement en couches sèches. Privilégiez les tissus à séchage rapide." }
             ]}
           />
@@ -1099,27 +894,27 @@ export default function MaranguRoutePage() {
         </div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-2xl font-semibold mb-4">
-            {t('newsletter.title')}
+            Restez informé
           </h2>
           <h3 className="text-2xl font-bold mb-6">
-            {t('newsletter.subtitle')}
+            Recevez nos conseils d'experts
           </h3>
           <p className="text-xl md:text-2xl max-w-2xl mx-auto mb-8">
-            {t('newsletter.description')}
+            Inscrivez-vous à notre newsletter pour recevoir les dernières informations sur les ascensions du Kilimandjaro.
           </p>
           <div className="max-w-md mx-auto flex flex-col sm:flex-row gap-4 w-full">
             <input
               type="text"
-              placeholder={t('newsletter.firstNamePlaceholder')}
+              placeholder="Prénom"
               className="flex-grow px-4 py-3 rounded-lg text-gray-800 focus:outline-none bg-white w-full"
             />
             <input
               type="email"
-              placeholder={t('newsletter.emailPlaceholder')}
+              placeholder="Adresse e-mail"
               className="flex-grow px-4 py-3 rounded-lg text-gray-800 focus:outline-none bg-white w-full"
             />
             <button className="bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white px-6 py-3 rounded-lg font-medium transition-colors w-full">
-              {t('newsletter.button')}
+              S'inscrire
             </button>
           </div>
         </div>
@@ -1139,7 +934,7 @@ export default function MaranguRoutePage() {
             <div className="p-6">
               {/* Close Button */}
               <div className="flex justify-between items-center mb-4">
-                <h2 className="text-2xl font-bold text-gray-800">{t('contactModal.title')}</h2>
+                <h2 className="text-2xl font-bold text-gray-800">Contact</h2>
                 <button 
                   onClick={() => setIsContactModalOpen(false)}
                   className="text-gray-500 hover:text-gray-700"
@@ -1154,51 +949,51 @@ export default function MaranguRoutePage() {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label htmlFor="name" className="block text-lg md:text-xl font-medium text-gray-700 mb-1">
-                    {t('contactModal.name')}
+                    Nom
                   </label>
                   <input
                     type="text"
                     id="name"
                     className="block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-[#00A896] focus:border-[#00A896]"
-                    placeholder={t('contactModal.namePlaceholder')}
+                    placeholder="Votre nom"
                     required
                   />
                 </div>
                 
                 <div>
                   <label htmlFor="email" className="block text-lg md:text-xl font-medium text-gray-700 mb-1">
-                    {t('contactModal.email')}
+                    E-mail
                   </label>
                   <input
                     type="email"
                     id="email"
                     className="block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-[#00A896] focus:border-[#00A896]"
-                    placeholder={t('contactModal.emailPlaceholder')}
+                    placeholder="Votre e-mail"
                     required
                   />
                 </div>
                 
                 <div>
                   <label htmlFor="phone" className="block text-lg md:text-xl font-medium text-gray-700 mb-1">
-                    {t('contactModal.phone')}
+                    Téléphone
                   </label>
                   <input
                     type="tel"
                     id="phone"
                     className="block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-[#00A896] focus:border-[#00A896]"
-                    placeholder={t('contactModal.phonePlaceholder')}
+                    placeholder="Votre téléphone"
                   />
                 </div>
                 
                 <div>
                   <label htmlFor="message" className="block text-lg md:text-xl font-medium text-gray-700 mb-1">
-                    {t('contactModal.message')}
+                    Message
                   </label>
                   <textarea
                     id="message"
                     rows={4}
                     className="block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-[#00A896] focus:border-[#00A896]"
-                    placeholder={t('contactModal.messagePlaceholder')}
+                    placeholder="Votre message"
                     required
                   ></textarea>
                 </div>
@@ -1211,7 +1006,7 @@ export default function MaranguRoutePage() {
                     required
                   />
                   <label htmlFor="privacy-policy" className="ml-2 block text-lg md:text-xl text-gray-700">
-                    {t('contactModal.agreeTo')} <a href="/privacy" className="text-[#00A896] hover:text-[#008576]">{t('contactModal.privacyPolicy')}</a>
+                    J'accepte la <a href="/privacy" className="text-[#00A896] hover:text-[#008576]">politique de confidentialité</a>
                   </label>
                 </div>
                 
@@ -1220,7 +1015,7 @@ export default function MaranguRoutePage() {
                     type="submit"
                     className="w-full bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white font-medium py-2 px-4 rounded-lg transition-all duration-300"
                   >
-                    {t('contactModal.sendRequest')}
+                    Envoyer la demande
                   </button>
                 </div>
               </form>
@@ -1243,7 +1038,7 @@ export default function MaranguRoutePage() {
             <div className="p-6">
               {/* Close Button */}
               <div className="flex justify-between items-center mb-4">
-                <h2 className="text-2xl font-bold text-gray-800">{t('inquiryForm.title')}</h2>
+                <h2 className="text-2xl font-bold text-gray-800">Prêt à conquérir le Mont Kilimandjaro ?</h2>
                 <button 
                   onClick={() => setIsInquiryFormOpen(false)}
                   className="text-gray-500 hover:text-gray-700"
@@ -1255,7 +1050,7 @@ export default function MaranguRoutePage() {
               </div>
               
               <p className="text-gray-500 mb-6 text-lg md:text-xl">
-                {t('inquiryForm.description')}
+                Nous vous enverrons un itinéraire personnalisé et vous mettrons en contact avec l'un de nos experts en Tanzanie.
               </p>
               
               {/* Inquiry Form */}
@@ -1266,190 +1061,89 @@ export default function MaranguRoutePage() {
               }} className="space-y-4">
                 <div>
                   <label htmlFor="inquiry-name" className="block text-lg md:text-xl font-medium text-gray-700 mb-1">
-                    {t('inquiryForm.yourName')}
+                    Votre nom
                   </label>
                   <input
                     type="text"
                     id="inquiry-name"
                     className="block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-[#00A896] focus:border-[#00A896]"
-                    placeholder={t('inquiryForm.enterYourName')}
+                    placeholder="Entrez votre nom"
                     required
                   />
                 </div>
                 
                 <div>
                   <label htmlFor="inquiry-email" className="block text-lg md:text-xl font-medium text-gray-700 mb-1">
-                    {t('inquiryForm.yourEmail')}
+                    Votre e-mail
                   </label>
                   <input
                     type="email"
                     id="inquiry-email"
                     className="block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-[#00A896] focus:border-[#00A896]"
-                    placeholder={t('inquiryForm.enterYourEmail')}
+                    placeholder="Entrez votre e-mail"
                     required
                   />
                 </div>
                 
                 <div>
                   <label htmlFor="inquiry-travellers" className="block text-lg md:text-xl font-medium text-gray-700 mb-1">
-                    {t('inquiryForm.noOfTravellers')}
+                    Nombre de voyageurs
                   </label>
                   <select
                     id="inquiry-travellers"
                     className="block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-[#00A896] focus:border-[#00A896]"
                     required
                   >
-                    <option value="">{t('inquiryForm.selectNumber')}</option>
+                    <option value="">Sélectionner le nombre</option>
                     {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => (
-                      <option key={num} value={num}>{num} {num === 1 ? t('inquiryForm.traveller') : t('inquiryForm.travellers')}</option>
+                      <option key={num} value={num}>{num} {num === 1 ? 'voyageur' : 'voyageurs'}</option>
                     ))}
-                    <option value="10+">{t('inquiryForm.tenPlusTravellers')}</option>
+                    <option value="10+">10+ voyageurs</option>
                   </select>
                 </div>
                 
                 <div>
                   <label htmlFor="inquiry-dates" className="block text-lg md:text-xl font-medium text-gray-700 mb-1">
-                    {t('inquiryForm.whenTravel')}
+                    Quand souhaitez-vous voyager ?
                   </label>
                   <select
                     id="inquiry-dates"
                     className="block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-[#00A896] focus:border-[#00A896]"
                     required
                   >
-                    <option value="">{t('inquiryForm.selectNumber')}</option>
-                    <option value="January 2025">{t('inquiryForm.jan2025')}</option>
-                    <option value="February 2025">{t('inquiryForm.feb2025')}</option>
-                    <option value="March 2025">{t('inquiryForm.mar2025')}</option>
-                    <option value="April 2025">{t('inquiryForm.apr2025')}</option>
-                    <option value="May 2025">{t('inquiryForm.may2025')}</option>
-                    <option value="June 2025">{t('inquiryForm.jun2025')}</option>
-                    <option value="July 2025">{t('inquiryForm.jul2025')}</option>
-                    <option value="August 2025">{t('inquiryForm.aug2025')}</option>
-                    <option value="September 2025">{t('inquiryForm.sep2025')}</option>
-                    <option value="October 2025">{t('inquiryForm.oct2025')}</option>
-                    <option value="November 2025">{t('inquiryForm.nov2025')}</option>
-                    <option value="December 2025">{t('inquiryForm.dec2025')}</option>
-                    <option value="January 2026">{t('inquiryForm.jan2026')}</option>
-                    <option value="February 2026">{t('inquiryForm.feb2026')}</option>
-                    <option value="March 2026">{t('inquiryForm.mar2026')}</option>
-                    <option value="April 2026">{t('inquiryForm.apr2026')}</option>
-                    <option value="May 2026">{t('inquiryForm.may2026')}</option>
-                    <option value="June 2026">{t('inquiryForm.jun2026')}</option>
-                    <option value="July 2026">{t('inquiryForm.jul2026')}</option>
-                    <option value="August 2026">{t('inquiryForm.aug2026')}</option>
-                    <option value="September 2026">{t('inquiryForm.sep2026')}</option>
-                    <option value="October 2026">{t('inquiryForm.oct2026')}</option>
-                    <option value="November 2026">{t('inquiryForm.nov2026')}</option>
-                    <option value="December 2026">{t('inquiryForm.dec2026')}</option>
-                    <option value="January 2027">{t('inquiryForm.jan2027')}</option>
-                    <option value="February 2027">{t('inquiryForm.feb2027')}</option>
-                    <option value="March 2027">{t('inquiryForm.mar2027')}</option>
-                    <option value="April 2027">{t('inquiryForm.apr2027')}</option>
-                    <option value="May 2027">{t('inquiryForm.may2027')}</option>
-                    <option value="June 2027">{t('inquiryForm.jun2027')}</option>
-                    <option value="July 2027">{t('inquiryForm.jul2027')}</option>
-                    <option value="August 2027">{t('inquiryForm.aug2027')}</option>
-                    <option value="September 2027">{t('inquiryForm.sep2027')}</option>
-                    <option value="October 2027">{t('inquiryForm.oct2027')}</option>
-                    <option value="November 2027">{t('inquiryForm.nov2027')}</option>
-                    <option value="December 2027">{t('inquiryForm.dec2027')}</option>
+                    <option value="">Sélectionner le nombre</option>
+                    <option value="Janvier 2025">Janvier 2025</option>
+                    <option value="Février 2025">Février 2025</option>
+                    <option value="Mars 2025">Mars 2025</option>
+                    <option value="Avril 2025">Avril 2025</option>
+                    <option value="Mai 2025">Mai 2025</option>
+                    <option value="Juin 2025">Juin 2025</option>
+                    <option value="Juillet 2025">Juillet 2025</option>
+                    <option value="Août 2025">Août 2025</option>
+                    <option value="Septembre 2025">Septembre 2025</option>
+                    <option value="Octobre 2025">Octobre 2025</option>
+                    <option value="Novembre 2025">Novembre 2025</option>
+                    <option value="Décembre 2025">Décembre 2025</option>
+                    <option value="Janvier 2026">Janvier 2026</option>
+                    <option value="Février 2026">Février 2026</option>
+                    <option value="Mars 2026">Mars 2026</option>
+                    <option value="Avril 2026">Avril 2026</option>
+                    <option value="Mai 2026">Mai 2026</option>
+                    <option value="Juin 2026">Juin 2026</option>
+                    <option value="Juillet 2026">Juillet 2026</option>
+                    <option value="Août 2026">Août 2026</option>
+                    <option value="Septembre 2026">Septembre 2026</option>
+                    <option value="Octobre 2026">Octobre 2026</option>
+                    <option value="Novembre 2026">Novembre 2026</option>
+                    <option value="Décembre 2026">Décembre 2026</option>
+                    <option value="Janvier 2027">Janvier 2027</option>
+                    <option value="Février 2027">Février 2027</option>
+                    <option value="Mars 2027">Mars 2027</option>
                   </select>
                 </div>
                 
-                <div>
-                  <button
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white font-medium py-2 px-4 rounded-lg transition-all duration-300"
-                  >
-                    {t('contactModal.go')}
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Download Modal */}
-      {isDownloadModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          {/* Backdrop with blur */}
-          <div 
-            className="absolute inset-0 backdrop-blur-lg"
-            onClick={() => setIsDownloadModalOpen(false)}
-          ></div>
-          
-          {/* Modal Content */}
-          <div className="relative bg-white rounded-lg shadow-xl max-w-md w-full z-10">
-            <div className="p-6">
-              {/* Close Button */}
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="text-2xl font-bold text-gray-800">{t('downloadModal.title')}</h2>
-                <button 
-                  onClick={() => setIsDownloadModalOpen(false)}
-                  className="text-gray-500 hover:text-gray-700"
-                >
-                  <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-              
-              <p className="text-gray-600 mb-6 text-lg md:text-xl">
-                {t('downloadModal.description')}
-              </p>
-              
-              {/* Download Form */}
-              <form onSubmit={(e) => {
-                e.preventDefault()
-                // Download logic would go here
-                setIsDownloadModalOpen(false)
-              }} className="space-y-4">
-                <div>
-                  <label htmlFor="download-name" className="block text-lg md:text-xl font-medium text-gray-700 mb-1">
-                    {t('downloadModal.name')}
-                  </label>
-                  <input
-                    type="text"
-                    id="download-name"
-                    className="block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-[#00A896] focus:border-[#00A896]"
-                    placeholder={t('downloadModal.namePlaceholder')}
-                    required
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="download-email" className="block text-lg md:text-xl font-medium text-gray-700 mb-1">
-                    {t('downloadModal.email')}
-                  </label>
-                  <input
-                    type="email"
-                    id="download-email"
-                    className="block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-[#00A896] focus:border-[#00A896]"
-                    placeholder={t('downloadModal.emailPlaceholder')}
-                    required
-                  />
-                </div>
-                
-                <div className="flex items-center">
-                  <input
-                    id="download-privacy-policy"
-                    type="checkbox"
-                    className="h-4 w-4 text-[#00A896] focus:ring-[#00A896] border-gray-300 rounded"
-                    required
-                  />
-                  <label htmlFor="download-privacy-policy" className="ml-2 block text-lg md:text-xl text-gray-700">
-                    {t('downloadModal.agreeTo')} <a href="/privacy" className="text-[#00A896] hover:text-[#008576]">{t('downloadModal.privacyPolicy')}</a>
-                  </label>
-                </div>
-                
-                <div>
-                  <button
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white font-medium py-2 px-4 rounded-lg transition-all duration-300"
-                  >
-                    {t('downloadModal.download')}
-                  </button>
+                <div className="pt-2">
+                  <button type="submit" className="w-full bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white font-semibold py-3 px-6 rounded-lg transition-colors">Go</button>
                 </div>
               </form>
             </div>
@@ -1459,3 +1153,5 @@ export default function MaranguRoutePage() {
     </div>
   )
 }
+
+                

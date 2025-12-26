@@ -65,6 +65,29 @@ export const blogCategories = [
     image: '/images/dress-zones.jpg',
     link: 'dress-for-zones'
   }
+  ,
+  {
+    id: 7,
+    titleEn: 'Altitude Health: Symptoms and How to Prevent Acute Mountain Sickness (AMS)',
+    titleFr: 'Santé en altitude : Symptômes et prévention du Mal Aigu des Montagnes (MAM)',
+    subtitleEn: 'Health & Safety',
+    subtitleFr: 'Santé en altitude',
+    descriptionEn: 'Recognize true AMS symptoms and practical prevention tips for climbing Kilimanjaro.',
+    descriptionFr: 'Reconnaître les véritables symptômes du MAM et conseils pratiques pour prévenir le MAM lors de l ascension du Kilimandjaro.',
+    image: '/images/altitude-health.jpg',
+    link: 'sante-en-altitude'
+  },
+  {
+    id: 8,
+    titleEn: 'Physical Preparation for Kilimanjaro',
+    titleFr: 'Préparation physique pour le Kilimandjaro',
+    subtitleEn: 'Fitness & Training Guide',
+    subtitleFr: 'Guide forme & entraînement',
+    descriptionEn: 'What fitness level is really needed for Kilimanjaro? How to train, what to expect, and how to succeed even if you are not an athlete.',
+    descriptionFr: 'Quel niveau physique est réellement nécessaire pour le Kilimandjaro ? Comment se préparer, à quoi s’attendre, et réussir même sans être sportif.',
+    image: '/images/hero2.jpg',
+    link: 'niveau-physique-kilimandjaro'
+  }
 ]
 
 export type BlogCategory = (typeof blogCategories)[number]

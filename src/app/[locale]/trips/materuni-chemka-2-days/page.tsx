@@ -3,57 +3,78 @@
 import { useState, useRef, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import Image from 'next/image'
-import { useTranslations } from 'next-intl'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import enMessages from '../../../../../locales/en.json'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import frMessages from '../../../../../locales/fr.json'
 import { MapPin, Clock, Calendar, User, CheckCircle, X, XCircle, Users } from 'lucide-react'
 
 export default function MateruniChemka2DaysPage() {
-  const params = useParams() as { locale?: string }
-  const currentLocale = params?.locale === 'fr' ? 'fr' : 'en'
-
-  const enJsonMessages: any = (enMessages as any).MateruniChemka2Days || {}
-  const localeJsonMessages: any = currentLocale === 'fr' ? ((frMessages as any).MateruniChemka2Days || {}) : enJsonMessages
-  const wholeEnMessages: any = (enMessages as any) || {}
-  const wholeLocaleMessages: any = currentLocale === 'fr' ? ((frMessages as any) || {}) : wholeEnMessages
-
-  const safeT = (key: string, fallback = ''): string => {
-    const parts = key.split('.')
-
-    const lookup = (obj: any): any => {
-      try {
-        let node: any = obj
-        for (const p of parts) {
-          if (!node) return undefined
-          node = node[p]
-        }
-        return node
-      } catch (e) {
-        return undefined
-      }
+  const t = (key: string, fallback = ''): string => {
+    const frenchContent: Record<string, string> = {
+      'hero.title': 'Expérience Authentique Kilimandjaro : Materuni & Chemka (2 Jours)',
+      'hero.breadcrumb': 'Tanzanie / Kilimanjaro Region',
+      'hero.duration': '2 Jours',
+      'hero.description': 'Plongez au cœur de la Tanzanie rurale avec cet itinéraire de deux jours. Découvrez la richesse culturelle du peuple Chagga et terminez par la relaxation absolue dans une oasis naturelle. Idéal pour ceux qui cherchent l\'aventure, la culture et la détente.',
+      'hero.price': '150€',
+      'miniNavbar.datesAndPrices': 'Dates & Prix',
+      'miniNavbar.proposeDate': 'Proposer une Date',
+      'miniNavbar.inclusions': 'Inclus',
+      'miniNavbar.practicalInfo': 'Informations Pratiques',
+      'detailedItineraryTitle': 'Itinéraire détaillé',
+      'itinerary.day1.title': 'Jour 1 : Immersion Culturelle Chagga, Café et Cascade Secrète de Materuni',
+      'itinerary.day1.desc1': 'Le voyage jusqu\'aux chutes implique une promenade guidée facile à modérée à travers des plantations de café Arabica et les villages Chagga locaux. Cette randonnée offre un aperçu authentique et intime de la culture locale et de la vie quotidienne sur les pentes du Kilimandjaro.',
+      'itinerary.day1.desc2': 'La cascade de 80 mètres est spectaculaire. Vous pourrez profiter d\'un plongeon rafraîchissant et vivifiant dans l\'eau cristalline et fraîche au pied des chutes, alimentée par les neiges éternelles.',
+      'itinerary.day1.desc3': 'Après la visite de la cascade, vous participerez à une visite interactive de fabrication du café. Vous découvrirez et participerez au processus complet de préparation du célèbre café tanzanien, du grain à la tasse.',
+      'itinerary.day1.desc4': 'Vous traverserez les villages Chagga, où vous pourrez interagir directement avec les habitants, découvrir leurs traditions et profiter de la chaleur de l\'hospitalité locale',
+      'itinerary.day2.title': 'Jour 2 : Détente Absolue aux Sources Chaudes de Kikuletwa (Chemka)',
+      'itinerary.day2.feature1': 'La couleur bleu vif et turquoise de la source est absolument fascinante, contrastant avec le paysage environnant.',
+      'itinerary.day2.feature2': 'L\'eau reste à une température constante et chaude toute l\'année, la rendant parfaite pour une baignade profondément relaxante.',
+      'itinerary.day2.feature3': 'La source chaude est située dans un contexte de verdure épaisse et d\'arbres majestueux, créant une atmosphère sereine, isolée et idéale pour se détendre en pleine nature. C\'est une véritable oasis de la savane.',
+      'itinerary.day2.feature4': 'Passez du temps à flotter et à nager dans l\'eau claire et chaude, un moment de pure évasion et de ressourcement.',
+      'inclusions.title': 'Ce qui est inclus',
+      'inclusions.priceIncludes': 'Le prix comprend',
+      'exclusions.title': 'Le prix n\'est pas inclus',
+      'newsletter.title': 'Si vous aimez voyager',
+      'newsletter.subtitle': 'rejoignez notre newsletter',
+      'newsletter.description': 'Recevez les dernières nouvelles sur les joyaux cachés des aventures, les voyages de lancement à prix réduit et bien plus encore directement dans votre boîte de réception',
+      'newsletter.firstNamePlaceholder': 'Prénom',
+      'newsletter.emailPlaceholder': 'Adresse e-mail',
+      'newsletter.button': 'S\'inscrire',
+      'inquiryForm.title': 'Réservez votre expérience',
+      'inquiryForm.name': 'Nom complet',
+      'inquiryForm.email': 'E-mail',
+      'inquiryForm.groupSize': 'Taille du groupe',
+      'inquiryForm.date': 'Date préférée',
+      'inquiryForm.message': 'Message',
+      'inquiryForm.submit': 'Soumettre la demande',
+      'datesAndPrices.title': 'Dates et Prix',
+      'datesAndPrices.groupDiscounts': 'Réductions de Groupe',
+      'datesAndPrices.dontSeeDates': 'Vous ne voyez pas vos dates? Nous offrons une planification flexible et des réductions de groupe.',
+      'datesAndPrices.enquireButton': 'Demander maintenant',
+      'datesAndPrices.proposeNewDate': 'Proposer une Nouvelle Date',
+      'datesAndPrices.proposeDateDescription': 'Vous avez des dates spécifiques en tête? Nous pouvons organiser un safari privé rien que pour vous.',
+      'datesAndPrices.proposeDateButton': 'Proposer une date',
+      'datesAndPrices.when': 'Quand?',
+      'datesAndPrices.selected': 'sélectionné',
+      'datesAndPrices.selectMonth': 'Sélectionner mois',
+      'datesAndPrices.perPerson': 'par personne',
+      'datesAndPrices.availability': 'Départs toute l\'année disponibles',
+      'datesAndPrices.groupType': 'Type de Groupe',
+      'datesAndPrices.selectGroup': 'Sélectionner groupe',
+      'datesAndPrices.soloTraveler': 'Voyageur Solo',
+      'datesAndPrices.couple': 'Couple',
+      'datesAndPrices.familyGroup': 'Groupe Familial',
+      'datesAndPrices.friendsGroup': 'Groupe d\'Amis',
+      'datesAndPrices.corporateGroup': 'Groupe d\'Entreprise',
+      'datesAndPrices.groupNote': 'Des tarifs spéciaux sont disponibles pour les groupes de 4 personnes ou plus. Contactez-nous pour des devis personnalisés.',
+      'practicalInfo.title': 'Informations Pratiques',
+      'practicalInfo.meals.title': 'Repas',
+      'practicalInfo.transport.title': 'Transport',
+      'practicalInfo.animals.title': 'Quels Animaux Voir?',
+      'practicalInfo.luggage.title': 'Bagages',
+      'practicalInfo.whatToPack.title': 'À Emporter',
+      'practicalInfo.campingPhilosophy.title': 'Les bivouacs',
     }
-
-    const fromLocale = lookup(localeJsonMessages)
-    if (typeof fromLocale === 'string' && fromLocale.length > 0) return fromLocale
-
-    const fromEnglish = lookup(enJsonMessages)
-    if (typeof fromEnglish === 'string' && fromEnglish.length > 0) return fromEnglish
-
-    const fromWholeLocale = lookup(wholeLocaleMessages)
-    if (typeof fromWholeLocale === 'string' && fromWholeLocale.length > 0) return fromWholeLocale
-
-    const fromWholeEnglish = lookup(wholeEnMessages)
-    if (typeof fromWholeEnglish === 'string' && fromWholeEnglish.length > 0) return fromWholeEnglish
-
-    return fallback
+    return frenchContent[key] || fallback
   }
-
-  const t = (key: string, fallback = '') => safeT(key, fallback)
-  const isFrench = currentLocale === 'fr'
+  const isFrench = true
 
   const [activeSection, setActiveSection] = useState('')
   const [showInquiryForm, setShowInquiryForm] = useState(false)
@@ -64,6 +85,7 @@ export default function MateruniChemka2DaysPage() {
 
   const itineraryRef = useRef<HTMLElement>(null)
   const inclusionsRef = useRef<HTMLElement>(null)
+  const practicalInfoRef = useRef<HTMLElement>(null)
   const datesPricesRef = useRef<HTMLElement>(null)
   const monthDropdownRef = useRef<HTMLDivElement>(null)
 
@@ -83,6 +105,7 @@ export default function MateruniChemka2DaysPage() {
       const sections = [
         { ref: itineraryRef, name: 'itinerary' },
         { ref: inclusionsRef, name: 'inclusions' },
+        { ref: practicalInfoRef, name: 'practicalInfo' },
         { ref: datesPricesRef, name: 'datesPrices' }
       ]
 
@@ -105,28 +128,39 @@ export default function MateruniChemka2DaysPage() {
     ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
-  const inclusions = safeT('inclusions.items', '').split('|||').filter(Boolean)
-  const exclusions = safeT('exclusions.items', '').split('|||').filter(Boolean)
+  const inclusions = [
+    "Le Transport : Tous les transports routiers nécessaires pour l'itinéraire de 2 jours (transferts depuis/vers votre hébergement dans la région de Moshi et trajets entre les sites).",
+    "Guide Francophone : Les services d'un guide professionnel francophone tout au long du circuit (2 jours), ainsi que les guides locaux pour les activités spécifiques.",
+    "Frais d'Entrée : L'intégralité des frais d'entrée et de conservation pour : La Cascade de Materuni et l'accès au village Chagga. Les Sources Chaudes de Kikuletwa (Chemka). Les frais pour l'atelier de fabrication du café.",
+    "Repas & Boissons : Deux déjeuners (Jour 1 au village de Materuni et Jour 2 à Chemka). d'eau minérale en bouteille fournie tout au long du circuit."
+  ];
+  
+  const exclusions = [
+    "Vol international et local",
+    "Pourboire pour le guide",
+    "Boisson personnel",
+    "Visa et assurance"
+  ];
 
   const itineraryDays = [
     { 
       day: 'day1', 
-      title: safeT('itinerary.day1.title'), 
+      title: t('itinerary.day1.title'), 
       description: [
-        safeT('itinerary.day1.desc1'),
-        safeT('itinerary.day1.desc2'),
-        safeT('itinerary.day1.desc3'),
-        safeT('itinerary.day1.desc4')
+        t('itinerary.day1.desc1'),
+        t('itinerary.day1.desc2'),
+        t('itinerary.day1.desc3'),
+        t('itinerary.day1.desc4')
       ].filter(Boolean).join('\n\n')
     },
     { 
       day: 'day2', 
-      title: safeT('itinerary.day2.title'), 
+      title: t('itinerary.day2.title'), 
       description: [
-        safeT('itinerary.day2.feature1'),
-        safeT('itinerary.day2.feature2'),
-        safeT('itinerary.day2.feature3'),
-        safeT('itinerary.day2.feature4')
+        t('itinerary.day2.feature1'),
+        t('itinerary.day2.feature2'),
+        t('itinerary.day2.feature3'),
+        t('itinerary.day2.feature4')
       ].filter(Boolean).join('\n\n')
     }
   ]
@@ -160,15 +194,15 @@ export default function MateruniChemka2DaysPage() {
             
             <div className="flex items-center mb-2">
               <MapPin className="mr-2 h-4 w-4 text-white" />
-              <span className="text-lg text-white">{t('hero.breadcrumb', 'Tanzania / Kilimanjaro Region')}</span>
+              <span className="text-lg text-white">{t('hero.breadcrumb')}</span>
             </div>
             
             <div className="flex items-center mb-3">
               <Clock className="mr-2 h-4 w-4 text-white" />
-              <span className="text-lg font-bold text-white">{t('hero.duration', '2 Days')}</span>
+              <span className="text-lg font-bold text-white">{t('hero.duration')}</span>
             </div>
             
-            <p className="text-white text-base leading-relaxed">{t('hero.description', 'Authentic cultural experience with Chagga people')}</p>
+            <p className="text-white text-base leading-relaxed">{t('hero.description')}</p>
           </div>
         </div>
       </section>
@@ -187,15 +221,15 @@ export default function MateruniChemka2DaysPage() {
             
             <div className="flex items-center mb-3">
               <MapPin className="mr-2 h-5 w-5 text-white" />
-              <span className="text-2xl text-white">{t('hero.breadcrumb', 'Tanzania / Kilimanjaro Region')}</span>
+              <span className="text-2xl text-white">{t('hero.breadcrumb')}</span>
             </div>
             
             <div className="flex items-center mb-4">
               <Clock className="mr-2 h-5 w-5 text-white" />
-              <span className="text-xl text-white">{t('hero.duration', '2 Days')}</span>
+              <span className="text-xl text-white">{t('hero.duration')}</span>
             </div>
             
-            <p className="text-white mb-4 text-xl">{t('hero.description', 'Authentic cultural experience with Chagga people')}</p>
+            <p className="text-white mb-4 text-xl">{t('hero.description')}</p>
           </div>
         </div>
       </div>
@@ -204,7 +238,7 @@ export default function MateruniChemka2DaysPage() {
         <div className="container mx-auto px-4">
           <div className="flex justify-center">
             <div className="flex flex-wrap gap-4 items-center">
-              <span className="text-[#00A896] font-bold text-xl bg-gradient-to-r from-[#72D9C4] to-[#00A896] bg-clip-text text-transparent pr-4 border-r border-gray-300">{t('hero.price', '€150')}</span>
+              <span className="text-[#00A896] font-bold text-xl bg-gradient-to-r from-[#72D9C4] to-[#00A896] bg-clip-text text-transparent pr-4 border-r border-gray-300">{t('hero.price')}</span>
               <button 
                 className={`font-medium px-4 py-2 border-2 rounded-lg flex items-center transition-all duration-300 text-base ${
                   activeSection === 'datesPrices' 
@@ -214,7 +248,7 @@ export default function MateruniChemka2DaysPage() {
                 onClick={() => scrollToSection(datesPricesRef)}
               >
                 <Calendar className="mr-2 h-4 w-4" />
-                {t('miniNavbar.datesAndPrices', 'Dates & Prices')}
+                {t('miniNavbar.datesAndPrices')}
               </button>
               <button 
                 className={`font-medium px-4 py-2 border-2 rounded-lg flex items-center transition-all duration-300 text-base ${
@@ -225,7 +259,7 @@ export default function MateruniChemka2DaysPage() {
                 onClick={() => setShowInquiryForm(true)}
               >
                 <User className="mr-2 h-4 w-4" />
-                {t('miniNavbar.proposeDate', 'Propose a Date')}
+                {t('miniNavbar.proposeDate')}
               </button>
               <button 
                 className={`font-medium px-4 py-2 rounded-lg transition-all duration-300 text-base ${
@@ -235,7 +269,16 @@ export default function MateruniChemka2DaysPage() {
                 }`}
                 onClick={() => scrollToSection(inclusionsRef)}
               >
-                {t('miniNavbar.inclusions', 'Inclusions')}
+                {t('miniNavbar.inclusions')}</button>
+              <button 
+                className={`font-medium px-4 py-2 rounded-lg transition-all duration-300 text-base ${
+                  activeSection === 'practicalInfo' 
+                    ? 'bg-gradient-to-r from-[#72D9C4] to-[#00A896] text-white border-2 border-[#00A896] shadow-lg' 
+                    : 'bg-white text-gray-600 hover:text-gray-800 border-2 border-gray-300 hover:bg-gray-50'
+                }`}
+                onClick={() => scrollToSection(practicalInfoRef)}
+              >
+                {t('miniNavbar.practicalInfo')}
               </button>
             </div>
           </div>
@@ -247,14 +290,16 @@ export default function MateruniChemka2DaysPage() {
           <div className="flex flex-wrap gap-4 justify-center">
             <button className="text-gray-600 font-medium hover:text-gray-800 px-4 py-2 border-2 border-gray-300 rounded-lg flex items-center text-lg" onClick={() => scrollToSection(datesPricesRef)}>
               <Calendar className="mr-2 h-4 w-4" />
-              {t('miniNavbar.datesAndPrices', 'Dates & Prices')}
+              {t('miniNavbar.datesAndPrices')}
             </button>
             <button className="text-gray-600 font-medium hover:text-gray-800 px-4 py-2 border-2 border-gray-300 rounded-lg flex items-center text-lg" onClick={() => setShowInquiryForm(true)}>
               <User className="mr-2 h-4 w-4" />
-              {t('miniNavbar.proposeDate', 'Propose a Date')}
+              {t('miniNavbar.proposeDate')}
             </button>
             <button className="text-gray-600 font-medium hover:text-gray-800 px-4 py-2 border-2 border-gray-300 rounded-lg flex items-center text-lg" onClick={() => scrollToSection(inclusionsRef)}>
-              {t('miniNavbar.inclusions', 'Inclusions')}
+              {t('miniNavbar.inclusions')}</button>
+            <button className="text-gray-600 font-medium hover:text-gray-800 px-4 py-2 border-2 border-gray-300 rounded-lg flex items-center text-lg" onClick={() => scrollToSection(practicalInfoRef)}>
+              {t('miniNavbar.practicalInfo')}
             </button>
           </div>
         </div>
@@ -267,7 +312,7 @@ export default function MateruniChemka2DaysPage() {
           {/* Detailed Itinerary Title */}
           <div className="container mx-auto px-4">
             <h2 className="text-2xl font-bold text-gray-800 mb-8 md:mb-12 mt-4 md:mt-0">
-              {safeT('detailedItineraryTitle', 'Detailed Itinerary')}
+              {t('detailedItineraryTitle')}
             </h2>
           </div>
           
@@ -313,7 +358,7 @@ export default function MateruniChemka2DaysPage() {
           <div className="flex items-center justify-center mb-8">
             <CheckCircle className="mr-2 h-6 w-6 text-gray-800" />
             <h2 className="text-2xl font-semibold text-center text-gray-800">
-              {safeT('inclusions.title', 'What\'s Included')}
+              {t('inclusions.title')}
             </h2>
           </div>
           
@@ -327,6 +372,60 @@ export default function MateruniChemka2DaysPage() {
                   </li>
                 ))}
               </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Practical Information Section */}
+      <section ref={practicalInfoRef} className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-center mb-8">
+            <CheckCircle className="mr-2 h-6 w-6 text-gray-800" />
+            <h2 className="text-2xl font-semibold text-center text-gray-800">
+              {t('practicalInfo.title')}
+            </h2>
+          </div>
+          
+          <div className="max-w-6xl mx-auto">
+            <div className="bg-gradient-to-br from-white to-gray-50 p-4 md:p-8 rounded-lg shadow-md">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Meals */}
+                <div className="pr-0 md:pr-8">
+                  <h3 className="text-2xl font-semibold mb-6 text-gray-800">{t('practicalInfo.meals.title')}</h3>
+                  <p className="text-gray-600">Pendant votre expérience Materuni & Chemka, vous profiterez de déjeuners préparés avec des ingrédients frais et locaux. Le premier déjeuner aura lieu au village de Materuni après la visite de la cascade et de la plantation de café. Le second déjeuner sera servi à Chemka, dans un cadre naturel exceptionnel.</p>
+                </div>
+                
+                {/* Transport */}
+                <div className="pl-0 md:pl-8 pt-8 md:pt-0 border-t md:border-t-0 border-gray-200 md:border-t-transparent">
+                  <h3 className="text-2xl font-semibold mb-6 text-gray-800">{t('practicalInfo.transport.title')}</h3>
+                  <p className="text-gray-600">Le transport est assuré par un véhicule 4x4 confortable spécialement adapté aux routes de montagne et aux pistes non goudronnées. Le véhicule est équipé de sièges spacieux, de rangements pour vos effets personnels et dispose d'une grande ouverture pour l'observation de la faune et la photographie.</p>
+                </div>
+
+                {/* What to see */}
+                <div className="pr-0 md:pr-8 pt-8 md:pt-0 border-t md:border-t-0 border-gray-200 md:border-t-transparent">
+                  <h3 className="text-2xl font-semibold mb-6 text-gray-800">{t('practicalInfo.animals.title')}</h3>
+                  <p className="text-gray-600">Bien que cette expérience se concentre principalement sur la culture et les paysages, vous pourriez apercevoir des singes colobes, des oiseaux endémiques et diverses espèces de papillons dans les zones de forêt autour de la cascade de Materuni et des sources chaudes de Chemka.</p>
+                </div>
+
+                {/* Luggage */}
+                <div className="pl-0 md:pl-8 pt-8 md:pt-0 border-t md:border-t-0 border-gray-200 md:border-t-transparent">
+                  <h3 className="text-2xl font-semibold mb-6 text-gray-800">{t('practicalInfo.luggage.title')}</h3>
+                  <p className="text-gray-600">Un sac de voyage souple est préférable à une valise rigide, surtout pour les transferts dans les villages. Prévoyez des vêtements légers et respirants pour la journée, un maillot de bain pour les bains dans la cascade et les sources chaudes, et un pull pour les soirées fraîches en altitude. Un sac à dos pour les randonnées est également recommandé.</p>
+                </div>
+
+                {/* What to pack */}
+                <div className="pr-0 md:pr-8 pt-8 md:pt-0 border-t md:border-t-0 border-gray-200 md:border-t-transparent">
+                  <h3 className="text-2xl font-semibold mb-6 text-gray-800">{t('practicalInfo.whatToPack.title')}</h3>
+                  <p className="text-gray-600">Emportez des vêtements aux couleurs neutres (kaki, beige), un chapeau, des lunettes de soleil, une crème solaire, un anti-moustique efficace, une lampe frontale, un appareil photo avec zoom, des chaussures confortables pour la marche, et un adaptateur électrique (type G au Royaume-Uni). N'oubliez pas un maillot de bain pour profiter des sources chaudes de Chemka.</p>
+                </div>
+
+                {/* Camping philosophy */}
+                <div className="pl-0 md:pl-8 pt-8 md:pt-0 border-t md:border-t-0 border-gray-200 md:border-t-transparent">
+                  <h3 className="text-2xl font-semibold mb-6 text-gray-800">{t('practicalInfo.campingPhilosophy.title')}</h3>
+                  <p className="text-gray-600">Notre approche respecte l'environnement et les communautés locales. Nous privilégions les activités durables et soutenons les économies locales. Les visites se déroulent dans le respect des traditions et de la vie quotidienne des communautés Chagga.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -603,27 +702,27 @@ export default function MateruniChemka2DaysPage() {
         </div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-2xl font-semibold mb-4">
-            {safeT('newsletter.title', 'If you love to travel')}
+            {t('newsletter.title')}
           </h2>
           <h3 className="text-2xl font-bold mb-6">
-            {safeT('newsletter.subtitle', 'join our newsletter')}
+            {t('newsletter.subtitle')}
           </h3>
           <p className="text-xl md:text-2xl max-w-2xl mx-auto mb-8">
-            {safeT('newsletter.description', 'Get the latest news on hidden adventure gems, discounted launch trips and much more straight to your inbox')}
+            {t('newsletter.description')}
           </p>
           <div className="max-w-md mx-auto flex flex-col sm:flex-row gap-4 w-full">
             <input
               type="text"
-              placeholder={safeT('newsletter.firstNamePlaceholder', 'First name')}
+              placeholder={t('newsletter.firstNamePlaceholder')}
               className="flex-grow px-4 py-3 rounded-lg text-gray-800 focus:outline-none bg-white w-full"
             />
             <input
               type="email"
-              placeholder={safeT('newsletter.emailPlaceholder', 'Email address')}
+              placeholder={t('newsletter.emailPlaceholder')}
               className="flex-grow px-4 py-3 rounded-lg text-gray-800 focus:outline-none bg-white w-full"
             />
             <button className="bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white px-6 py-3 rounded-lg font-medium transition-colors w-full">
-              {safeT('newsletter.button', 'Subscribe')}
+              {t('newsletter.button')}
             </button>
           </div>
         </div>
@@ -635,30 +734,30 @@ export default function MateruniChemka2DaysPage() {
             <button onClick={() => setShowInquiryForm(false)} className="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
               <X className="w-6 h-6" />
             </button>
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">{safeT('inquiryForm.title', 'Book Your Experience')}</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">{t('inquiryForm.title')}</h3>
             <form className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">{safeT('inquiryForm.name', 'Full Name')}</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">{t('inquiryForm.name')}</label>
                 <input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#00A896] focus:border-transparent" required />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">{safeT('inquiryForm.email', 'Email')}</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">{t('inquiryForm.email')}</label>
                 <input type="email" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#00A896] focus:border-transparent" required />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">{safeT('inquiryForm.groupSize', 'Group Size')}</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">{t('inquiryForm.groupSize')}</label>
                 <input type="number" min="1" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#00A896] focus:border-transparent" required />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">{safeT('inquiryForm.date', 'Preferred Date')}</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">{t('inquiryForm.date')}</label>
                 <input type="date" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#00A896] focus:border-transparent" required />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">{safeT('inquiryForm.message', 'Message')}</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">{t('inquiryForm.message')}</label>
                 <textarea rows={4} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#00A896] focus:border-transparent"></textarea>
               </div>
               <button type="submit" className="w-full bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white py-3 rounded-md transition-colors font-semibold">
-                {safeT('inquiryForm.submit', 'Submit Inquiry')}
+                {t('inquiryForm.submit')}
               </button>
             </form>
           </div>

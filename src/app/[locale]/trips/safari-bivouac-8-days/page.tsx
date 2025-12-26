@@ -3,13 +3,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import Image from 'next/image'
-import { useTranslations } from 'next-intl'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import enMessages from '../../../../../locales/en.json'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import frMessages from '../../../../../locales/fr.json'
 import { MapPin, Clock, Calendar, User, CheckCircle, X, XCircle, Users, Bed } from 'lucide-react'
 import Faq from '@/components/ui/faq'
 
@@ -17,47 +10,87 @@ export default function SafariBivouac8DaysPage() {
   const params = useParams() as { locale?: string }
   const currentLocale = params?.locale === 'fr' ? 'fr' : 'en'
 
-  const jsonMessages: any = currentLocale === 'fr' ? (frMessages as any).SafariBivouac8Days : (enMessages as any).SafariBivouac8Days
+  const isFrench = true
 
-  // Use a safer approach - don't try to use the hook at all, just use JSON
-  const enJsonMessages: any = (enMessages as any).SafariBivouac8Days || {}
-  const localeJsonMessages: any = currentLocale === 'fr' ? ((frMessages as any).SafariBivouac8Days || {}) : enJsonMessages
-  const wholeEnMessages: any = (enMessages as any) || {}
-  const wholeLocaleMessages: any = currentLocale === 'fr' ? ((frMessages as any) || {}) : wholeEnMessages
-
-  const safeT = (key: string, fallback = ''): string => {
-    const parts = key.split('.')
-
-    const lookup = (obj: any): any => {
-      try {
-        let node: any = obj
-        for (const p of parts) {
-          if (!node) return undefined
-          node = node[p]
-        }
-        return node
-      } catch (e) {
-        return undefined
-      }
+  // French content hardcoded
+  const t = (key: string, fallback = ''): string => {
+    const frenchContent: Record<string, string> = {
+      'hero.title': 'Expérience bivouac et camping dans les parcs nationaux de Tanzanie',
+      'hero.breadcrumb': 'Tanzanie / Safari Bivouac',
+      'hero.duration': '8 Jours',
+      'hero.description': 'Safari Bivouac 8 Jours : L\'Appel Sauvage de la Tanzanie du Nord',
+      'hero.price': '1,850€',
+      'miniNavbar.datesAndPrices': 'Dates & Prix',
+      'miniNavbar.proposeDate': 'Proposer une Date',
+      'miniNavbar.inclusions': 'Inclus',
+      'miniNavbar.practicalInfo': 'Informations Pratiques',
+      'detailedItineraryTitle': 'Itinéraire détaillé',
+      'itinerary.day1.title': 'Jour 1 – Arrivée',
+      'itinerary.day1.description': 'À votre arrivée à l\'aéroport international du Kilimandjaro (JRO), vous serez accueilli et transféré à Arusha jusqu\'à votre hôtel.',
+      'itinerary.day2.title': 'Jour 2 - 2jours au parc national de Tarangire',
+      'itinerary.day2.description': 'Aujourd\'hui, nous nous dirigerons vers le parc national de Tarangire, en passant par les villages Maasaï locaux le long de la route principale, ici vous verrez des Maasaï emmener leur bétail dans des pâturages verts, ainsi que des femmes à la recherche de bois de chauffage et d\'eau, Tarangire est un endroit idéal pour voir de nombreux éléphants et de nombreux arbres Mbuyu. Il existe de nombreux animaux sauvages comme les girafes,',
+      'itinerary.day3.title': 'Jour 3 Route vers le parc national du Serengeti',
+      'itinerary.day3.description': 'Après le petit-déjeuner, nous nous dirigeons vers le parc national du Serengeti, via la zone de conservation de Ngorongoro. Nous nous arrêterons au bord du cratère pour une belle vue sur le cratère, en faisant le tour du bord du cratère jusqu\'au parc du Serengeti. Géographiquement, le Serengeti est divisé en deux zones : l\'Est-Sud, qui est recouverte par une vaste plaine de cendres volcaniques éjectées du plateau du Ngorongoro, d\'où le nom de « Siringet », mot masaï pour plaine sans fin. La deuxième zone, au Nord-Ouest, est constituée de forêts et de petites collines. Passez la nuit au pub Seronera',
+      'itinerary.day4.title': 'Jour 4 Journée complète de safari dans le parc national du Serengeti',
+      'itinerary.day4.description': 'Après le petit-déjeuner, départ de votre camping en voiture de sport. Le parc national du Serengeti fait partie de l\'écosystème du Serengeti qui abrite la plus grande population d\'animaux sauvage au monde : plus d\'un million de gnous et près d\'un demi-million de zèbres suivent chaque année les pluies autour de cet écosystème, des plaines aux forêts de savane, au Masai Mara et de retour aux plaines.',
+      'itinerary.day5.title': 'Jour 5 Du cratère du Ngorongoro au lac Manyara',
+      'itinerary.day5.description': 'Descendez au cratère. Le cratère du Ngorongoro est l\'un des plus beaux refuges fauniques du monde. Il s\'agit plutôt d\'un paradis animalier, où certains des derniers rhinocéros noirs d\'Afrique sont encore bien protégés. Un troupeau de lions à dos noir se perche dans l\'herbe, des flamants roses affluent vers le lac Magadi et le grand éléphant à défenses est le plus souvent vu dans les marais pérennes.',
+      'itinerary.day6.title': 'Jour 6 Parc national du lac Manyara',
+      'itinerary.day6.description': 'Ce parc est connu pour abriter des lions grimpeurs d\'arbres. Après le petit-déjeuner, route vers le parc national du lac Manyara en passant par la vallée du Rift, l\'un des sites les plus impressionnants au monde, qui s\'étend de la mer Morte en Jordanie jusqu\'au sud du Mozambique. Vous traverserez le pays Massaï. La réserve de chasse du lac Manyara doit son nom à la plante Euphorbia tirucalii, « Emanyar » en langue Massaï et « doigts de dame » en anglais.',
+      'itinerary.day7.title': 'Jour 7 Du lac Eyasi à Arusha',
+      'itinerary.day7.description': 'Vers 6h30 du matin, après un petit-déjeuner léger, vous quitterez le lodge et rendrez visite aux Bushmen Hadzabe. Ils sont les derniers chasseurs-cueilleurs encore présents en Afrique de l\'Est, qui continuent leur vie avec très peu de changements depuis des dizaines de milliers d\'années. Vous participerez à leurs activités matinales, notamment une randonnée en forêt, une chasse et un feu de camp. D\'autres activités peuvent être réalisées pendant la journée : interagir avec les Hadza, participer à la collecte de miel, rechercher des fruits de baobab et profiter de leur vie quotidienne.',
+      'itinerary.day8.title': 'Jour 8 du départ : Départ du Kilimandjaro',
+      'itinerary.day8.description': 'Profitez d\'un petit-déjeuner tranquille. Selon l\'horaire de votre vol, nous organiserons votre transfert de retour à l\'aéroport international du Kilimandjaro (JRO) pour votre vol de retour ou pour la poursuite de votre voyage , Zanzibar, etc.).',
+      'inclusions.title': 'Ce qui est inclus',
+      'inclusions.priceIncludes': 'Le prix comprend',
+      'exclusions.title': 'Le prix n\'est pas inclus',
+      'newsletter.title': 'Si vous aimez voyager',
+      'newsletter.subtitle': 'rejoignez notre newsletter',
+      'newsletter.description': 'Recevez les dernières nouvelles sur les joyaux cachés des aventures, les voyages de lancement à prix réduit et bien plus encore directement dans votre boîte de réception',
+      'newsletter.firstNamePlaceholder': 'Prénom',
+      'newsletter.emailPlaceholder': 'Adresse e-mail',
+      'newsletter.button': 'S\'inscrire',
+      'inquiryForm.title': 'Réservez votre safari',
+      'inquiryForm.name': 'Nom complet',
+      'inquiryForm.email': 'E-mail',
+      'inquiryForm.groupSize': 'Taille du groupe',
+      'inquiryForm.date': 'Date préférée',
+      'inquiryForm.message': 'Message',
+      'inquiryForm.submit': 'Soumettre la demande',
+      'datesAndPrices.title': 'Dates et Prix',
+      'datesAndPrices.groupDiscounts': 'Réductions de Groupe',
+      'datesAndPrices.dontSeeDates': 'Vous ne voyez pas vos dates? Nous offrons une planification flexible et des réductions de groupe.',
+      'datesAndPrices.enquireButton': 'Demander maintenant',
+      'datesAndPrices.proposeNewDate': 'Proposer une Nouvelle Date',
+      'datesAndPrices.proposeDateDescription': 'Vous avez des dates spécifiques en tête? Nous pouvons organiser un safari privé rien que pour vous.',
+      'datesAndPrices.proposeDateButton': 'Proposer une date',
+      'datesAndPrices.when': 'Quand?',
+      'datesAndPrices.selected': 'sélectionné',
+      'datesAndPrices.selectMonth': 'Sélectionner mois',
+      'datesAndPrices.perPerson': 'par personne',
+      'datesAndPrices.availability': 'Départs toute l\'année disponibles',
+      'datesAndPrices.groupType': 'Type de Groupe',
+      'datesAndPrices.selectGroup': 'Sélectionner groupe',
+      'datesAndPrices.soloTraveler': 'Voyageur Solo',
+      'datesAndPrices.couple': 'Couple',
+      'datesAndPrices.familyGroup': 'Groupe Familial',
+      'datesAndPrices.friendsGroup': 'Groupe d\'Amis',
+      'datesAndPrices.corporateGroup': 'Groupe d\'Entreprise',
+      'datesAndPrices.groupNote': 'Des tarifs spéciaux sont disponibles pour les groupes de 4 personnes ou plus. Contactez-nous pour des devis personnalisés.',
+      'practicalInfo.title': 'Informations Pratiques',
+      'practicalInfo.meals.title': 'Repas',
+      'practicalInfo.transport.title': 'Transport',
+      'practicalInfo.animals.title': 'Quels Animaux Voir?',
+      'practicalInfo.luggage.title': 'Bagages',
+      'practicalInfo.whatToPack.title': 'À Emporter',
+      'practicalInfo.campingPhilosophy.title': 'Les bivouacs',
     }
-
-    const fromLocale = lookup(localeJsonMessages)
-    if (typeof fromLocale === 'string' && fromLocale.length > 0) return fromLocale
-
-    const fromEnglish = lookup(enJsonMessages)
-    if (typeof fromEnglish === 'string' && fromEnglish.length > 0) return fromEnglish
-
-    const fromWholeLocale = lookup(wholeLocaleMessages)
-    if (typeof fromWholeLocale === 'string' && fromWholeLocale.length > 0) return fromWholeLocale
-
-    const fromWholeEnglish = lookup(wholeEnMessages)
-    if (typeof fromWholeEnglish === 'string' && fromWholeEnglish.length > 0) return fromWholeEnglish
-
-    return fallback
+    return frenchContent[key] || fallback
   }
 
-  const t = (key: string, fallback = '') => safeT(key, fallback)
-  const isFrench = currentLocale === 'fr'
+  const safeT = (key: string, fallback = ''): string => {
+    return t(key, fallback)
+  }
 
   const [activeSection, setActiveSection] = useState('')
   const [showInquiryForm, setShowInquiryForm] = useState(false)
@@ -99,8 +132,27 @@ export default function SafariBivouac8DaysPage() {
     ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
-  const inclusions = safeT('inclusions.items', '').split('|||').filter(Boolean)
-  const exclusions = safeT('exclusions.items', '').split('|||').filter(Boolean)
+  const inclusions = [
+    "Tous les taxes d'entrée dans les parcs indiques dans le programme",
+    "Tous les taxes du campement indiques dans le programme",
+    "Les  chauffeurs – guides pour les clients",
+    "Le guide francophone",
+    "Le cuisine",
+    "L'equipement du campement pour les clients (tentes  ,lits, matelas , Oreilles,  tables , chaises )",
+    "L'accommodation complete pendant le safari ( petit dejeuner, lunch et diner) ",
+    "L'equipement de la cuisine.",
+    "Les land cruser (4×4 ) avec le toit ouvrable pour observer les animaux dans les parcs.",
+    "L'offre de l'eau de Kilimanjaro , 2 boutelles de litre et demie par jour par personne.",
+    "La toilette et douche sont disponible au camp"
+  ]
+  
+  const exclusions = [
+    "Le ticket d'avion",
+    "Le visa",
+    "Les besoins personnels",
+    "Les boissons",
+    "Les pourboires"
+  ]
 
   const itineraryDays = [
     { day: 'day1', title: safeT('itinerary.day1.title'), description: safeT('itinerary.day1.description') },
@@ -571,7 +623,7 @@ export default function SafariBivouac8DaysPage() {
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#72D9C4] to-[#00A896] flex items-center justify-center text-white font-bold">1</div>
                   {safeT('practicalInfo.meals.title', 'Meals')}
                 </h3>
-                <p className="text-gray-700 leading-relaxed whitespace-pre-line">{safeT('practicalInfo.meals.description')}</p>
+                <p className="text-gray-700 leading-relaxed whitespace-pre-line">Le petit-déjeuner, sauf mention contraire, est pris au sein même de l'hébergement. Selon le programme, les déjeuners seront pris dans les parcs et sous forme de pique-nique afin de profiter pleinement de votre safari. Merci de prévenir en avance si des demandes de repas spéciaux (végétariens, diabétiques, etc...) sont nécessaires. L'eau du robinet est généralement potable dans les grandes agglomérations mais pas dans les espaces ruraux par précaution il est préférable de boire de l'eau en bouteille.</p>
               </div>
 
               <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-[#00A896]">
@@ -579,7 +631,7 @@ export default function SafariBivouac8DaysPage() {
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#72D9C4] to-[#00A896] flex items-center justify-center text-white font-bold">2</div>
                   {safeT('practicalInfo.transport.title', 'Transport')}
                 </h3>
-                <p className="text-gray-700 leading-relaxed whitespace-pre-line">{safeT('practicalInfo.transport.description')}</p>
+                <p className="text-gray-700 leading-relaxed whitespace-pre-line">Le safari est effectué en véhicule 4x4, des sièges de deux places sont installés dans le sens de la marche à côté d'une grande baie vitrée ouvrable. Un réservoir d'eau est réservé à l'intendance, un grand  réservoir de carburant permet de réaliser de longues étapes. Possibilité de recharger les caméscopes et les appareils numériques sur la prise allume cigares de 12V (prévoir votre cordon). Dans les parcs et les réserves, Il est strictement interdit de s'installer sur le toit du véhicule.</p>
               </div>
 
               <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-[#00A896]">
@@ -587,7 +639,7 @@ export default function SafariBivouac8DaysPage() {
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#72D9C4] to-[#00A896] flex items-center justify-center text-white font-bold">3</div>
                   {safeT('practicalInfo.animals.title', 'Which Animals to See?')}
                 </h3>
-                <p className="text-gray-700 leading-relaxed whitespace-pre-line">{safeT('practicalInfo.animals.description')}</p>
+                <p className="text-gray-700 leading-relaxed whitespace-pre-line">La Tanzanie regroupe des milliers d'animaux sauvages de toutes les espèces et vous ne serez pas déçu de la diversité que regroupe les parcs (même les plus petits ou les moins connus): Éléphants, girafes, buffles, guépards, léopards, lions, servals, chacal, Rhinocéros, Hippopotames, hyènes, impalas, zèbres, singes, antilopes, crocodiles, phacochères, Oiseaux...... BREF il y'a de nombreux espèces à voir, vous ne serez pas déçus tant que vous savez être patients avec la nature.</p>
               </div>
 
               <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-[#00A896]">
@@ -595,7 +647,7 @@ export default function SafariBivouac8DaysPage() {
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#72D9C4] to-[#00A896] flex items-center justify-center text-white font-bold">4</div>
                   {safeT('practicalInfo.luggage.title', 'Luggage')}
                 </h3>
-                <p className="text-gray-700 leading-relaxed whitespace-pre-line">{safeT('practicalInfo.luggage.description')}</p>
+                <p className="text-gray-700 leading-relaxed whitespace-pre-line">Lors d’un safari préférez les bagages souples aux valises traditionnelles, les sacs sont beaucoup plus pratiques à manier dans les véhicules surtout si vous avez besoin de récupérer quelque chose pendant une journée d’observation. Prévoyez également un petit sac à dos dans lequel vous disposerez tout ce dont vous risquez d’avoir besoin dans la journée (crème solaire, lunettes, appareil photo…).</p>
               </div>
 
               <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-[#00A896]">
@@ -603,7 +655,7 @@ export default function SafariBivouac8DaysPage() {
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#72D9C4] to-[#00A896] flex items-center justify-center text-white font-bold">5</div>
                   {safeT('practicalInfo.whatToPack.title', 'What to Pack')}
                 </h3>
-                <p className="text-gray-700 leading-relaxed whitespace-pre-line">{safeT('practicalInfo.whatToPack.description')}</p>
+                <p className="text-gray-700 leading-relaxed whitespace-pre-line">Pensez safari : des chemises légères à manches longues pour vous protéger du soleil et des insectes, des pantalons souples avec des poches latérales, des chaussures type Pataugas pour les randonnées et des baskets légères pour les moments de repos. N'oubliez pas une polaire car les soirées peuvent être fraîches. Un maillot de bain vous sera utile lors de vos séjours dans les établissements possédant une piscine. Un chapeau et des lunettes de soleil compléteront la panoplie indispensable à tout voyage dans la savane. Pour l'ensemble de vos vêtements préférez des couleurs comme le kaki, vert foncé, gris, marron. Evitez les couleurs vives et le blanc. De même oubliez le bleu car les mouches tsé tsé sont particulièrement attirées par cette dominante. N'oubliez pas une trousse à pharmacie contenant de petits pansements (coupures ou autres), des antalgiques (paracétamol ou équivalent), des crèmes solaires et des anti-moustiques (le plus efficace restant le 5X5). Pensez aussi à votre nécessaire de toilette ainsi qu'à une serviette de bain même si tous les établissements en sont pourvus. Vous pouvez compléter cet équipement par une bonne paire de jumelle type « Bushnell légende » ou équivalent, car cet outil est certainement celui dont vous vous servirez le plus lors d’un safari. C’est cela qui vous permettra d’observer des scènes inoubliables dans les parcs.</p>
               </div>
 
               <div className="bg-gradient-to-br from-[#72D9C4] to-[#00A896] text-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300">
@@ -611,7 +663,7 @@ export default function SafariBivouac8DaysPage() {
                   <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center font-bold">6</div>
                   {safeT('practicalInfo.campingPhilosophy.title', 'The Bivouac Experience')}
                 </h3>
-                <p className="leading-relaxed whitespace-pre-line">{safeT('practicalInfo.campingPhilosophy.description')}</p>
+                <p className="leading-relaxed whitespace-pre-line">Effectuer un voyage en Tanzanie en ayant opté pour un hébergement en bivouac est une philosophie en soi. Hors des sentiers battus c'est une vraie aventure que privilégient les baroudeurs. Il s'agit d'effectuer un séjour qui ramène aux valeurs fondamentales, laissant derrière nous un confort quotidien pour se concentrer sur la nature. Quoi de plus excitant que de poser sa tente en plein milieu de la savane, au cœur même de l'endroit où vivent les plus grands animaux d'Afrique. Certes les nuits peuvent être courtes car elles sont propices à une activité intense de la faune. Il n'est pas rare d'entendre le feulement des lions, de voir passer des éléphants ou des herbivores à quelques mètres du bivouac, sans oublier les hyènes qui vous empêcheront peut-être de dormir d'un sommeil réparateur mais qui vous laisseront un souvenir mémorable. Ce genre de voyage peut être économique mais là n'est pas sa vocation première, il s'agit avant tout de se rapprocher au plus près de la nature, surtout dans les parcs, pour vivre une expérience inoubliable. Et bien évidemment il serait inconcevable d'effectuer un voyage en Tanzanie en ayant opté pour un hébergement en bivouac sans un minimum de confort, mais tout cela est géré de main de maître : Les tentes sont bi-places, équipées de matelas et de moustiquaires, adaptées à l'environnement, elles reflètent l'esprit d'un safari hors du commun. Les lieux de camping possèdent tous les sanitaires et infrastructures permettant un séjour confortable et ce au beau milieu d'une nature sauvage. Bien évidemment, lors d'un voyage en bivouac, en plus du chauffeur guide, vous bénéficiez d'un cuisinier personnel qui vous assure tous les jours un petit déjeûner, un pique-nique le midi et un repas le soir. Lorsque l'on se trouve au bout du monde, au fin fond de la savane et que l'on voit ce qu'est capable de préparer un cuisinier itinérant dans des conditions inimaginables, lorsque l'on déguste ses mets, alors là il n'y a que le respect qui s'impose. Le bivouac est une expérience hors du commun, il s'adresse à ceux qui veulent découvrir le pays avec un parfum d'aventure car on ne se sait jamais ce qui se passera pendant la nuit ! C'est certainement le meilleur moyen pour vivre des instants hors normes en Tanzanie, qui s'adresse avant tout à ceux dont l'Aventure est une priorité. Loin des clichés, à faire une fois dans sa vie, car c'est une expérience unique dont on ressort grandi et humble.</p>
               </div>
             </div>
           </div>

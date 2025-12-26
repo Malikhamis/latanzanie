@@ -1,15 +1,12 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { getAllParks } from '@/lib/sanity/fetch'
-import { Park } from '@/types/park'
 import { Hero } from '@/components/Hero'
 import { useTranslations, useLocale } from 'next-intl'
 import Link from 'next/link'
 import Image from 'next/image'
 
 export default function Home() {
-  const [parks, setParks] = useState<Park[]>([])
   const t = useTranslations('HomePage');
   const tCommon = useTranslations('Common');
   const locale = useLocale();
@@ -18,71 +15,6 @@ export default function Home() {
   const touchStartX = useRef<number | null>(null)
   const touchEndX = useRef<number | null>(null)
   const autoPlayRef = useRef<number | null>(null)
-
-  // Function to map park data to translations based on current locale
-  const mapParkDataToTranslations = (park: Park) => {
-    // Map French park names to translation keys
-    const parkTranslations: Record<string, string> = {
-      'Parc National du Serengeti': 'parks.serengeti',
-      'Cratère du Ngorongoro': 'parks.ngorongoro',
-      'Parc National de la Tarangire': 'parks.tarangire',
-      'Serengeti National Park': 'parks.serengeti',
-      'Ngorongoro Crater': 'parks.ngorongoro',
-      'Tarangire National Park': 'parks.tarangire'
-    };
-
-    const translationKey = parkTranslations[park.title];
-    if (translationKey) {
-      return {
-        ...park,
-        title: tCommon(`${translationKey}.title`),
-        region: tCommon(`${translationKey}.region`),
-        overview: tCommon(`${translationKey}.overview`)
-      };
-    }
-    
-    // If no mapping found, return the park as is
-    return park;
-  };
-
-  useEffect(() => {
-    const fetchParks = async () => {
-      try {
-        const fetchedParks = await getAllParks()
-        // Map all parks to their translated versions
-        const translatedParks = fetchedParks.map(mapParkDataToTranslations);
-        setParks(translatedParks)
-      } catch (error) {
-        console.error('Failed to fetch parks:', error)
-        // Set fallback data when API fails - using translations
-        setParks([
-          {
-            _id: '1',
-            title: tCommon('parks.serengeti.title'),
-            slug: { current: 'serengeti' },
-            region: tCommon('parks.serengeti.region'),
-            overview: tCommon('parks.serengeti.overview')
-          },
-          {
-            _id: '2',
-            title: tCommon('parks.ngorongoro.title'),
-            slug: { current: 'ngorongoro' },
-            region: tCommon('parks.ngorongoro.region'),
-            overview: tCommon('parks.ngorongoro.overview')
-          },
-          {
-            _id: '3',
-            title: tCommon('parks.tarangire.title'),
-            slug: { current: 'tarangire' },
-            region: tCommon('parks.tarangire.region'),
-            overview: tCommon('parks.tarangire.overview')
-          }
-        ])
-      }
-    }
-    
-    fetchParks()
-  }, [tCommon])
 
   // Start autoplay for mobile slider and cleanup
   useEffect(() => {
@@ -381,55 +313,7 @@ export default function Home() {
           </div>
         </section>
         
-        {/* Parks Section - Modernized */}
-        <section className="py-20 bg-gradient-to-br from-[#F0FCF9] to-[#E8F8F5]">
-          <div className="container mx-auto px-4">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-900">
-              {tCommon('exploreParks.title')}
-            </h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {parks && parks.length > 0 ? (
-                parks.map((park) => (
-                  <div 
-                    key={park._id} 
-                    className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
-                  >
-                    <div className="p-8">
-                      <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                        {park.title}
-                      </h2>
-                      <p className="text-[#00A896] font-medium mb-4">
-                        {tCommon('region')}: {park.region}
-                      </p>
-                      <p className="text-gray-700 mb-6 leading-relaxed">
-                        {park.overview}
-                      </p>
-                      <div className="mt-4">
-                        <a 
-                          href={`/parks/${park.slug.current}`} 
-                          className="inline-flex items-center text-[#00A896] hover:text-[#008576] font-bold group"
-                        >
-                          {tCommon('learnMore')}
-                          <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                          </svg>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                ))
-              ) : (
-                <div className="col-span-full text-center py-16">
-                  <div className="bg-gray-200 border-2 border-dashed border-gray-300 rounded-2xl w-24 h-24 mx-auto mb-6" />
-                  <p className="text-gray-500 text-xl">
-                    {tCommon('noParksFound')}
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
-        </section>
+
       </div>
     </div>
   )

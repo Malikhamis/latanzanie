@@ -1,41 +1,149 @@
-"use client"
+'use client'
 
 import { useState, useRef, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import Image from 'next/image'
 import Faq from '@/components/ui/faq'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import enMessages from '../../../../../locales/en.json'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import frMessages from '../../../../../locales/fr.json'
 import { MapPin, Clock, Calendar, User, CheckCircle, X, Users, Bed, XCircle } from 'lucide-react'
 
 export default function UmbweRoutePage() {
-  const params = useParams() as { locale?: string }
-  const currentLocale = params?.locale === 'fr' ? 'fr' : 'en'
+  // read locale from the route params
+  const params = useParams() as { locale?: string };
+  const currentLocale = params?.locale === 'fr' ? 'fr' : 'en';
 
-  // pick JSON messages for a fast, safe lookup (prefer locale JSON -> fallback to English JSON)
-  const jsonMessages: any = currentLocale === 'fr' ? (frMessages as any).UmbweRoute : (enMessages as any).UmbweRoute
-
-  // We intentionally avoid calling next-intl's runtime hook here to prevent
-  // MISSING_MESSAGE errors during prerender or when namespaces are not
-  // available. All lookups are JSON-first and fall back to English/root
-  // bundles; runtime hook usage is omitted to keep prerender stable.
-
-  const enJsonMessages: any = (enMessages as any).UmbweRoute || {}
-  const localeJsonMessages: any = currentLocale === 'fr' ? ((frMessages as any).UmbweRoute || {}) : enJsonMessages
-  const wholeEnMessages: any = (enMessages as any) || {}
-  const wholeLocaleMessages: any = currentLocale === 'fr' ? ((frMessages as any) || {}) : wholeEnMessages
-
+  // Hardcoded French content for Umbwe Route
+  const safeT = (key: string, fallback = ''): string => {
+    const frMessages: Record<string, string> = {
+      'hero.title': "L'Itinéraire Umbwe : Le Défi Vertical du Kilimandjaro (6 Jours)",
+      'hero.breadcrumb': "Tanzanie > Kilimandjaro > Route Umbwe",
+      'hero.duration': "6 jours",
+      'hero.description': "Souvent décrite comme la voie la plus courte et la plus ardue du Kilimandjaro, l'itinéraire Umbwe est parfait pour les randonneurs expérimentés à la recherche d'un défi unique et d'une solitude relative. C'est un trek intense et direct, exigeant une excellente condition physique et une gestion rigoureuse de l'altitude.",
+      'hero.price': "1,900€",
+      'miniNavbar.datesAndPrices': "Dates & Prix",
+      'miniNavbar.proposeDate': "Proposer une date",
+      'miniNavbar.details': "Détails",
+      'miniNavbar.inclusions': "Inclusions",
+      'miniNavbar.accommodation': "Hébergement",
+      'detailedItineraryTitle': "La Voie Umbwe : L'Itinéraire Le Plus Direct (6 Jours)",
+      'itinerary.day0.title': "Jour 0 : Jour d'arrivée",
+      'itinerary.day0.altitude': "Altitude : 850 m / 2 790 pieds",
+      'itinerary.day0.accommodation': "Hébergement : Hôtel",
+      'itinerary.day0.description': "Aéroport international du Kilimandjaro (JRO) → Moshi ou Arusha\n\nInstallation à votre hôtel pour la nuit. Ce jour est essentiel pour le repos et le briefing final avec votre équipe de guides sur l'itinéraire rapide et les mesures de sécurité spécifiques à la voie Umbwe.",
+      'itinerary.day1.title': "Jour 1 : De la forêt tropicale au camp d'Umbwe",
+      'itinerary.day1.walkingTime': "Temps de marche : 6-7 heures",
+      'itinerary.day1.distance': "Distance : 11 km / 7 miles",
+      'itinerary.day1.altitude': "Altitude : de 1 600 m à2 900m",
+      'itinerary.day1.habitat': "Habitat : Forêt",
+      'itinerary.day1.description': "Nous entrons dans le parc national du Kilimandjaro par la Porte Machame, où nous nous enregistrons pour le trek. Le début de la randonnée s'engage immédiatement dans la dense forêt tropicale humide. Le sentier est raide et soutenu, nous menant directement au camp d'Umbwe, notre lieu de repos pour la nuit",
+      'itinerary.day2.title': "Jour 2 : Du camp d'Umbwe au camp de Barranco",
+      'itinerary.day2.walkingTime': "Temps de marche : 4-5 heures",
+      'itinerary.day2.distance': "Distance : 6 km / 4 miles",
+      'itinerary.day2.altitude': "Altitude : de 2 940 m à 3 976 m",
+      'itinerary.day2.habitat': "Habitat : Lande",
+      'itinerary.day2.description': "Le sentier devient plus rocailleux et spectaculaire à mesure que nous quittons la forêt pour les landes. Nous traversons une forêt de séneçons, où l'on peut admirer les séneçons géants, une curiosité botanique unique. Après une marche soutenue sur des crêtes, nous rejoignons la zone plus animée de la route sud et arrivons au camp de Barranco pour la nuit.",
+      'itinerary.day3.title': "Jour 3 : Mur de Barranco et camp de Karanga",
+      'itinerary.day3.walkingTime': "Temps de marche : 4-5 heures",
+      'itinerary.day3.distance': "Distance : 5 km / 3 miles",
+      'itinerary.day3.altitude': "Altitude : de 3 976 m à 3 995 m",
+      'itinerary.day3.habitat': "Habitat : Désert alpin",
+      'itinerary.day3.description': "Cette étape est cruciale pour l'acclimatation. Après un petit-déjeuner matinal, nous faisons face à l'impressionnante paroi de Barranco (le fameux \"Breakfast Wall\"). Bien que vertical, il s'agit d'une escalade assistée par les mains, non technique et souvent moins difficile que ce à quoi l'on s'attend. Au sommet, nous profitons de vues imprenables sur les champs de glace du sud. Le sentier serpente ensuite jusqu'au camp de Karanga, où nous nous reposons et nous préparons.",
+      'itinerary.day4.title': "Jour 4 : Du camp de Karanga au camp de Barafu",
+      'itinerary.day4.walkingTime': "Temps de marche : 3 heures",
+      'itinerary.day4.distance': "Distance : 4 km / 2 miles",
+      'itinerary.day4.altitude': "Altitude : de 3 995 m à 4 673 m",
+      'itinerary.day4.habitat': "Habitat : Désert alpin",
+      'itinerary.day4.description': "Les choses sérieuses continuent ! Nous sommes maintenant très proches du sommet. Aujourd'hui, une courte marche nous mène au camp de Barafu (\"glace\" en swahili), le camp de base du sommet. Les vues tout au long de la randonnée sont à couper le souffle, nous permettant d'apercevoir le Kibo sous différents angles. Ce soir, le coucher est précoce, car l'ascension finale commence vers minuit.",
+      'itinerary.day5.title': "Jour 5 : Sommet Uhuru et descente à Mweka",
+      'itinerary.day5.walkingTime': "Temps de marche : 6-8 heures",
+      'itinerary.day5.distance': "Distance : 5 km / 3 miles",
+      'itinerary.day5.altitude': "Altitude : de 4 673 m à 5 895 m",
+      'itinerary.day5.habitat': "Habitat : Arctique",
+      'itinerary.day5.description': "C'est le grand jour ! L'ascension du sommet commence vers minuit dans l'obscurité et le froid.\nPartie 1 : Camp de Barafu au pic Uhuru\nL'itinéraire se dirige vers le nord-ouest sur un sentier principalement composé d'éboulis glissants. Après environ six à huit heures d'effort, vous atteignez Uhuru Peak, qui culmine à 5 895 m d'altitude. L'émotion d'être au sommet de l'Afrique est indescriptible !\n\nPartie 2 : Pic Uhuru au camp de Mweka\nAprès avoir immortalisé l'instant au sommet, nous commençons la longue descente vers le camp de Mweka à 3 068 m d'altitude. Le retour dans la zone forestière est un soulagement, vous permettant de respirer plus facilement et de profiter de votre dernière nuit sur la montagne.",
+      'itinerary.day6.title': "Jour 6 : Descente finale et transfert à l'hôtel",
+      'itinerary.day6.walkingTime': "Temps de marche : 3 heures",
+      'itinerary.day6.distance': "Distance : 10 km / 6 miles",
+      'itinerary.day6.altitude': "Altitude : de 3 068 m à 1 640 m",
+      'itinerary.day6.habitat': "Habitat : Forêt tropicale",
+      'itinerary.day6.description': "Aujourd'hui, nous terminons la descente en traversant la forêt tropicale pour atteindre la Porte Mweka, au pied de la montagne. Votre chauffeur vous attendra pour vous transférer à votre hôtel à Moshi ou Arusha. Félicitations pour votre incroyable aventure !",
+      'itinerary.departureDay.title': "Jour du départ : Départ du Kilimandjaro",
+      'itinerary.departureDay.description': "Profitez d'un petit-déjeuner tranquille. Selon l'horaire de votre vol, nous organiserons votre transfert de retour à l'aéroport international du Kilimandjaro (JRO) pour votre vol de retour ou pour la poursuite de votre voyage (safari, Zanzibar, etc.).",
+      'inclusions.title': "Inclusions et Exclusions",
+      'inclusions.priceIncludes': "Le Prix Comprend",
+      'inclusions.priceDoesNotInclude': "Le Prix Ne Comprend Pas",
+      'inclusions.seeMore': "Voir plus",
+      'inclusions.seeFewer': "Voir moins",
+      'inclusions.exclusions.visa': "Visa",
+      'inclusions.exclusions.airfares': "L'avion",
+      'inclusions.exclusions.transfers': "Pourboires",
+      'inclusions.exclusions.insurance': "Assurance",
+      'inclusions.exclusions.tips': "Pourboires",
+      'inclusions.exclusions.singleSupplement': "Objet personnels",
+      'inclusions.items': "Deux nuits d'hébergement à l'hôtel|||Transport privé aller-retour depuis l'aéroport international du Kilimandjaro jusqu'à votre hôtel à Moshi|||Guides qualifiés avec équipage de montagne|||Droits d'entrée au parc national|||TVA de 18 % sur les frais d'excursion et les services|||Tout le matériel de camping ; montagne|||Frais de sauvetage|||Tous les repas en montagne (petit-déjeuner, déjeuner et dîner)|||Guides et porteurs|||Hébergement et droits d'entrée en montagne|||Oxymètre de pouls|||Trousse de premiers secours|||Urgence respiratoire|||Salaires équitables pour les guides et les porteurs, approuvés par l'Autorité du parc national du Kilimandjaro",
+      'datesAndPrices.title': "Dates et Prix",
+      'datesAndPrices.groupDiscounts': "Réductions de Groupe",
+      'datesAndPrices.dontSeeDates': "Ne trouvez pas les dates qui vous conviennent? Nous pouvons organiser un départ privé pour votre groupe.",
+      'datesAndPrices.enquireButton': "Demander un devis",
+      'datesAndPrices.proposeNewDate': "Proposer une Nouvelle Date",
+      'datesAndPrices.proposeDateDescription': "Proposez vos dates préférées et nous vous répondrons avec un itinéraire personnalisé.",
+      'datesAndPrices.proposeDateButton': "Proposer une date",
+      'datesAndPrices.when': "Quand?",
+      'datesAndPrices.selected': "sélectionné",
+      'datesAndPrices.selectMonth': "Sélectionnez un mois",
+      'datesAndPrices.groupOptions': "Options de Groupe",
+      'datesAndPrices.selectGroup': "Sélectionnez un groupe",
+      'datesAndPrices.soloTraveler': "Voyageur solo",
+      'datesAndPrices.couple': "Couple",
+      'datesAndPrices.familyGroup': "Groupe familial",
+      'datesAndPrices.friendsGroup': "Groupe d'amis",
+      'datesAndPrices.corporateGroup': "Groupe d'entreprise",
+      'datesAndPrices.fromPrice': "1,900€",
+      'accommodation.title': "Hébergement",
+      'accommodation.camps.title': "Camps",
+      'accommodation.camps.description': "Tout au long de l'ascension, vous serez hébergé dans des tentes résistantes aux intempéries fournies par nos soins. Chaque camp dispose de toilettes et de lieux d'hygiène de base. Les tentes sont partagées (deux personnes par tente sauf si une chambre individuelle a été réservée).",
+      'gallery.title': "Galerie",
+      'faqsTitle': "Foire aux Questions",
+      'newsletter.title': "Prêt à vivre l'aventure?",
+      'newsletter.subtitle': "Rejoignez notre newsletter",
+      'newsletter.description': "Inscrivez-vous pour recevoir des conseils d'experts, des offres exclusives et des histoires inspirantes directement dans votre boîte de réception.",
+      'newsletter.firstNamePlaceholder': "Prénom",
+      'newsletter.emailPlaceholder': "Email",
+      'newsletter.button': "S'inscrire",
+      'contactModal.title': "Demander des informations",
+      'contactModal.name': "Nom",
+      'contactModal.namePlaceholder': "Entrez votre nom",
+      'contactModal.email': "Email",
+      'contactModal.emailPlaceholder': "Entrez votre email",
+      'contactModal.phone': "Téléphone",
+      'contactModal.phonePlaceholder': "Entrez votre téléphone",
+      'contactModal.message': "Message",
+      'contactModal.messagePlaceholder': "Entrez votre message",
+      'contactModal.accept': "J'accepte",
+      'contactModal.privacyPolicy': "la politique de confidentialité",
+      'contactModal.submit': "Envoyer",
+      'months.Jan': "Jan",
+      'months.Feb': "Fév",
+      'months.Mar': "Mar",
+      'months.Apr': "Avr",
+      'months.May': "Mai",
+      'months.Jun': "Juin",
+      'months.Jul': "Juil",
+      'months.Aug': "Août",
+      'months.Sep': "Sep",
+      'months.Oct': "Oct",
+      'months.Nov': "Nov",
+      'months.Dec': "Déc",
+    };
+    
+    return frMessages[key] || fallback;
+  }
+  
   // Fallback sample dates (small set) and parser to read translated month data if provided
   const fallbackSampleDates: Record<string, Array<any>> = {
     '2026-Feb': [
       { date: 'Feb 10, 2026', route: '6 Day - Umbwe Route', status: 'Open for bookings', price: 'from USD2,990', deposit: 'Deposit USD250' }
     ]
   }
-
+  
   const getDatesForMonth = (monthKey: string): Array<any> => {
     try {
       const raw = safeT(`datesByMonth.${monthKey}`, '') as unknown
@@ -55,49 +163,7 @@ export default function UmbweRoutePage() {
     }
     return fallbackSampleDates[monthKey] || []
   }
-
-  const safeT = (key: string, fallback = ''): string => {
-    const parts = key.split('.')
-    const lookup = (obj: any): any => {
-      try {
-        let node: any = obj
-        for (const p of parts) {
-          if (!node) return undefined
-          node = node[p]
-        }
-        return node
-      } catch (e) {
-        return undefined
-      }
-    }
-
-    const fromLocale = lookup(localeJsonMessages)
-    if (typeof fromLocale === 'string' && fromLocale.length > 0) return fromLocale
-
-    const fromEnglish = lookup(enJsonMessages)
-    if (typeof fromEnglish === 'string' && fromEnglish.length > 0) return fromEnglish
-
-    // Avoid attempting to parse large JSON-encoded month data keys here.
-    // We specifically guard only the `datesByMonth.*` keys which can contain
-    // JSON arrays encoded as strings. Allow `datesAndPrices.title` and other
-    // simple keys to resolve normally so section headings render.
-    if (key.startsWith('datesByMonth.')) {
-      return fallback
-    }
-
-    const fromWholeLocale = lookup(wholeLocaleMessages)
-    if (typeof fromWholeLocale === 'string' && fromWholeLocale.length > 0) return fromWholeLocale
-
-    const fromWholeEnglish = lookup(wholeEnMessages)
-    if (typeof fromWholeEnglish === 'string' && fromWholeEnglish.length > 0) return fromWholeEnglish
-
-    // Do not call next-intl's runtime hook here; prefer static JSON lookups
-    // to avoid throwing MISSING_MESSAGE exceptions during prerender or when
-    // namespaces are partially loaded.
-
-    return fallback
-  }
-
+  
   const [activeSection, setActiveSection] = useState('')
   const [isContactModalOpen, setIsContactModalOpen] = useState(false)
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false)
@@ -113,7 +179,7 @@ export default function UmbweRoutePage() {
   const accommodationRef = useRef<HTMLElement>(null)
 
   const t = (key: string, fallback = '') => safeT(key, fallback)
-  const isFrench = currentLocale === 'fr'
+  const isFrench = true
 
   // Debugging: log selected translation keys to browser console to diagnose
   // missing headings (remove after verification).
@@ -133,33 +199,19 @@ export default function UmbweRoutePage() {
     }
   }, [])
 
-  // Build inclusions from i18n (fallback to English list if missing)
-  const inclusionsString = t('inclusions.items', '')
-  const allInclusions = inclusionsString && inclusionsString.length > 0
-    ? inclusionsString.split('|||').map((s) => s.trim()).filter(Boolean)
-    : [
-      "Dedicated trip manager",
-      "In-depth preparation documents",
-      "Pre-climb Zoom consult",
-      "2 overnight stays at Lindrin Lodge in Moshi (incl. breakfasts and dinners)",
-      "In-depth pre-climb safety briefing at Lindrin Lodge",
-      "Transport to and from trailheads",
-      "Kilimanjaro National Park entrance fee",
-      "Qualified, experienced, English-speaking guides",
-      "Porters",
-      "Experienced cook",
-      "All meals on the mountain",
-      "Snacks and hot drinks",
-      "Purified drinking water",
-      "Daily bowl of water for 'washy washy'",
-      "High-quality, four-season sleeping bag",
-      "High-quality, four-season sleeping tent",
-      "Sleeping mat",
-      "Private Latanzanieaucourdelanature toilet (1 per 8 climbers)",
-      "Organisation of any rental equipment, if required",
-      "Medical equipment (incl. pulse oximeter and emergency oxygen)",
-      "Climb certificate"
-    ]
+  // All inclusions data - load from hardcoded messages
+  const allInclusions = (() => {
+    try {
+      const itemsString = safeT('inclusions.items', '')
+      if (itemsString && itemsString.includes('|||')) {
+        return itemsString.split('|||')
+      }
+      // Fallback if items not found
+      return []
+    } catch (e) {
+      return []
+    }
+  })()
 
   const displayedInclusions = showAllInclusions ? allInclusions : allInclusions.slice(0, 10)
 
@@ -463,7 +515,7 @@ export default function UmbweRoutePage() {
                   <div className="order-1">
                     <h3 className="text-2xl font-bold text-gray-800 mb-4">{t('itinerary.day6.title')}</h3>
                     <div className="flex flex-wrap gap-2 md:gap-4 mb-4">
-                      <span className="text-xs md:text-sm px-2 md:px-3 py-1 bg-[#E8F8F5] text-[#008576] rounded-full font-semibold">{t('itinerary.day6.duration')}</span>
+                      <span className="text-xs md:text-sm px-2 md:px-3 py-1 bg-[#E8F8F5] text-[#008576] rounded-full font-semibold">{t('itinerary.day6.walkingTime')}</span>
                       <span className="text-xs md:text-sm px-2 md:px-3 py-1 bg-[#E8F8F5] text-[#008576] rounded-full font-semibold">{t('itinerary.day6.distance')}</span>
                       <span className="text-xs md:text-sm px-2 md:px-3 py-1 bg-[#E8F8F5] text-[#008576] rounded-full font-semibold">{t('itinerary.day6.altitude')}</span>
                       <span className="text-xs md:text-sm px-2 md:px-3 py-1 bg-[#E8F8F5] text-[#008576] rounded-full font-semibold">{t('itinerary.day6.habitat')}</span>
@@ -516,6 +568,28 @@ export default function UmbweRoutePage() {
               ))}
             </ul>
             <div className="mt-6 text-gray-600">{t('inclusions.priceDoesNotInclude')}</div>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 mt-4">
+              <li className="flex items-start gap-3">
+                <XCircle className="text-red-500 mt-1" />
+                <span>{t('inclusions.exclusions.airfares')}</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <XCircle className="text-red-500 mt-1" />
+                <span>{t('inclusions.exclusions.visa')}</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <XCircle className="text-red-500 mt-1" />
+                <span>{t('inclusions.exclusions.tips')}</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <XCircle className="text-red-500 mt-1" />
+                <span>{t('inclusions.exclusions.insurance')}</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <XCircle className="text-red-500 mt-1" />
+                <span>{t('inclusions.exclusions.singleSupplement')}</span>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
@@ -850,7 +924,8 @@ export default function UmbweRoutePage() {
                 items={[
                   { question: "Quel est la température les différents jours et comment s'habiller.", answer: "Les températures varient fortement selon l'altitude et la saison : en journée elles peuvent se situer entre ~5–15°C selon l'étape, et près du sommet il peut faire bien en dessous de zéro. Habillez‑vous par couches : couche de base respirante, couche isolante (polaire), veste coupe‑vent/imperméable ; bonnet et gants sont essentiels pour les nuits et le sommet." },
                   { question: "Quelles chaussures pour marcher et sur le campement.", answer: "Privilégiez des chaussures de trekking robustes et montantes (protection de la cheville), avec bonne adhérence et imperméabilité (Gore‑Tex ou équivalent). Emportez également des sandales ou chaussures légères pour le campement." },
-                  { question: "Et les chaussettes ? Lesquelles et combien ?", answer: "Apportez 3–4 paires de chaussettes techniques (laine mérinos ou synthétique) : une paire par jour et une paire chaude pour la nuit. Évitez le coton ; des liners peuvent aider contre les ampoules." }
+                  { question: "Et les chaussettes ? Lesquelles et combien ?", answer: "Apportez 3–4 paires de chaussettes techniques (laine mérinos ou synthétique) : une paire par jour et une paire chaude pour la nuit. Évitez le coton ; des liners peuvent aider contre les ampoules." },
+                  { question: "Kilimandjaro : Faut-il se doucher pendant une ascension de 8 à 10 jours ?", answer: "Non, il n’est généralement pas possible de prendre une vraie douche lors d'une ascension du Kilimandjaro. Les camps de haute altitude sont situés dans des zones sauvages protégées, dépourvues d'installations sanitaires modernes ou d'eau courante. L’eau y est une ressource précieuse, réservée en priorité à la cuisine et à l’hydratation des grimpeurs.\n\nCependant, ne pas se doucher ne signifie pas négliger l’hygiène. Nos randonneurs utilisent des solutions simples et efficaces pour rester frais et en bonne santé tout au long du trek :\n\n1). Toilette quotidienne : Une bassine d'eau tiède et un gant de toilette sont fournis par notre équipe chaque matin et soir.\n\n2). Lingettes biodégradables : Idéales pour un nettoyage rapide du corps tout en respectant l'environnement.\n\n3). Lavage fréquent des mains : Une étape cruciale pour garantir votre santé et éviter les bactéries en groupe.\n\n4). Change régulier : Le renouvellement des vêtements techniques et des sous-vêtements est essentiel.\n\n5). Hygiène des pieds : Un soin rigoureux pour prévenir les ampoules et les infections durant la marche.\n\nPourquoi la douche n’est pas une priorité en altitude ?\nEn haute montagne, votre corps mobilise toute son énergie pour l'acclimatation. Se doucher à l’eau froide augmente considérablement le risque de fatigue et de refroidissement (hypothermie légère). Pour réussir votre sommet, votre priorité doit rester l’hydratation, le repos et l’adaptation progressive à l’altitude.\n\nL’avis du guide : Passer 8 à 10 jours sans douche est tout à fait normal et fait partie de l'aventure. Avec une hygiène de base bien gérée, vous resterez en pleine forme et concentré sur votre objectif : atteindre le pic Uhuru." }
                 ]}
               />
         </div>

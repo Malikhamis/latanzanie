@@ -4,100 +4,146 @@ import { useState, useRef, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import Image from 'next/image'
 import Faq from '@/components/ui/faq'
-import { useTranslations } from 'next-intl'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import enMessages from '../../../../../locales/en.json'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import frMessages from '../../../../../locales/fr.json'
 import { MapPin, Clock, Calendar, User, CheckCircle, X, Users, Bed, XCircle } from 'lucide-react'
 
 export default function LemoshoRoutePage() {
-  // read locale from the route params (hook) early so we can prefer JSON-based lookups
-  const params = useParams() as { locale?: string }
-  const currentLocale = params?.locale === 'fr' ? 'fr' : 'en'
+  // read locale from the route params
+  const params = useParams() as { locale?: string };
+  const currentLocale = params?.locale === 'fr' ? 'fr' : 'en';
 
-  // pick JSON messages for a fast, safe lookup (prefer locale JSON -> fallback to English JSON)
-  const jsonMessages: any = currentLocale === 'fr' ? (frMessages as any).LemoshoRoute : (enMessages as any).LemoshoRoute
-
-  // Try to get the next-intl translations hook if available.
-  // We keep this separate and attempt to use it only after checking the static JSON to avoid
-  // next-intl throwing a MISSING_MESSAGE at runtime for partially-loaded namespaces.
-  let tHook: ((key: string) => string) | null = null
-  try {
-  tHook = useTranslations('LemoshoRoute')
-  } catch (e) {
-    // Namespace not loaded via next-intl; continue using JSON lookups only.
-    // eslint-disable-next-line no-console
-    console.warn('[i18n] LemoshoRoute translations hook unavailable; using JSON fallback', e)
-    tHook = null
-  }
-
-  // Safe translation accessor that first checks the locale JSON messages,
-  // then falls back to the English JSON bundle, and finally returns the
-  // provided fallback. We intentionally avoid calling the next-intl
-  // hook here because it can throw MISSING_MESSAGE during prerender when
-  // namespaces are partially loaded; the JSON-first approach is safer.
-  const enJsonMessages: any = (enMessages as any).LemoshoRoute || {}
-  const localeJsonMessages: any = currentLocale === 'fr' ? ((frMessages as any).LemoshoRoute || {}) : enJsonMessages
-  // Whole-root message bundles (not limited to the LemoshoRoute namespace).
-  // We use these as a final fallback for shared keys like the newsletter which
-  // are defined at the root of the locale JSON rather than inside the
-  // LemoshoRoute namespace.
-  const wholeEnMessages: any = (enMessages as any) || {}
-  const wholeLocaleMessages: any = currentLocale === 'fr' ? ((frMessages as any) || {}) : wholeEnMessages
-
+  // Hardcoded French content for Lemosho Route
   const safeT = (key: string, fallback = ''): string => {
-    const parts = key.split('.')
-
-    const lookup = (obj: any): any => {
-      try {
-        let node: any = obj
-        for (const p of parts) {
-          if (!node) return undefined
-          node = node[p]
-        }
-        return node
-      } catch (e) {
-        return undefined
-      }
-    }
-
-    const fromLocale = lookup(localeJsonMessages)
-    if (typeof fromLocale === 'string' && fromLocale.length > 0) return fromLocale
-
-    const fromEnglish = lookup(enJsonMessages)
-    if (typeof fromEnglish === 'string' && fromEnglish.length > 0) return fromEnglish
-
-    // For complex JSON-encoded keys we prefer the static JSON and do not
-    // attempt to call the next-intl hook which may throw during prerender.
-    if (key.startsWith('datesByMonth.') || key.startsWith('datesAndPrices.')) {
-      return fallback
-    }
-
-    // As an extra fallback, check the whole root message bundles (outside
-    // the LemoshoRoute namespace). This covers shared keys like
-    // `newsletter.title` which are defined at the top-level in our JSON.
-    const fromWholeLocale = lookup(wholeLocaleMessages)
-    if (typeof fromWholeLocale === 'string' && fromWholeLocale.length > 0) return fromWholeLocale
-
-    const fromWholeEnglish = lookup(wholeEnMessages)
-    if (typeof fromWholeEnglish === 'string' && fromWholeEnglish.length > 0) return fromWholeEnglish
-
-    // As a final attempt, if we're in the browser and a hook is available,
-    // try it — but wrap in try/catch to avoid surfacing MISSING_MESSAGE.
-    if (typeof window !== 'undefined' && tHook) {
-      try {
-        const maybe = tHook(key) as unknown
-        if (typeof maybe === 'string') return maybe
-      } catch (e) {
-        // swallow any next-intl missing message errors
-      }
-    }
-
-    return fallback
-  }
+    const frMessages: Record<string, string> = {
+      'hero.title': "L'Aventure Panoramique : Itinéraire Lemosho en 7 Jours",
+      'hero.breadcrumb': "Lemosho Route",
+      'hero.duration': "7 Jours",
+      'hero.description': "La voie Lemosho est réputée comme l'un des itinéraires les plus spectaculaires. Elle offre des vues imprenables sur les flancs ouest et sud du Kilimandjaro. Avec un profil d'acclimatation en 7 jours, cet itinéraire maximise vos chances d'atteindre le sommet en toute sécurité, traversant cinq zones climatiques différentes",
+      'hero.price': "2200€",
+      'miniNavbar.datesAndPrices': "Dates & Prix",
+      'miniNavbar.proposeDate': "Proposer une date",
+      'miniNavbar.details': "Détails",
+      'miniNavbar.inclusions': "Inclusions",
+      'miniNavbar.accommodation': "Hébergement",
+      'detailedItineraryTitle': "L'Itinéraire Lemosho en 7 Jours : La Route Panoramique",
+      'itinerary.day0.title': "Jour d'Arrivée : Aéroport International du Kilimandjaro (JRO) → Moshi ou Arusha",
+      'itinerary.day0.altitude': "Altitude : 850 m  2 790 ft",
+      'itinerary.day0.accommodation': "Logement : Hôtel",
+      'itinerary.day0.description': "À votre arrivée à l'aéroport international du Kilimandjaro (JRO), un membre de notre équipe vous accueillera et vous conduira à votre hôtel à Moshi ou Arusha. Ce transfert vous permettra de vous détendre et de vous remettre de votre vol\n\nDans la soirée, votre guide principal viendra à votre hôtel pour un briefing complet sur l'ascension. Il examinera votre équipement pièce par pièce pour s'assurer que vous avez tout ce qu'il faut, répondra à toutes vos questions et vous préparera mentalement pour l'aventure à venir",
+      'itinerary.day1.title': "Jour 1 : De l'hôtel au camp de Mti Mkubwa",
+      'itinerary.day1.walkingTime': "Durée de la randonnée : 2 à 3 heures",
+      'itinerary.day1.distance': "Distance : 6 km / 4 mi",
+      'itinerary.day1.altitudeGain': "Altitude : de 1 830 m / 6 000 pieds à 2 650 m / 8 700 pieds",
+      'itinerary.day1.habitat': "Habitat : ",
+      'itinerary.day1.description': "Après le petit-déjeuner et le briefing, nous prenons la route vers la porte du parc Lemosho. De là, une piste forestière accidentée nécessitant un véhicule 4x4 mène aux clairières de Lemosho. Nous nous promènerons tranquillement le long des sentiers forestiers luxuriants jusqu'au camping de Mti Mkubwa (le Grand Arbre).",
+      'itinerary.day2.title': "Jour 2 : Du camp de Mti Mkubwa au camp de Shira 2",
+      'itinerary.day2.walkingTime': "Durée de la randonnée : 7 à 8 heures",
+      'itinerary.day2.distance': "Distance : 16 km / 10 mi",
+      'itinerary.day2.altitudeGain': "Altitude : de 2 650 m / 8 700 pi à 3 850 m / 12 600 pi",
+      'itinerary.day2.habitat': "Habitat : Landes",
+      'itinerary.day2.description': "Après le petit-déjeuner, nous continuons tandis que le sentier devient progressivement plus raide et pénètre dans la zone de landes de bruyère géante. Après avoir traversé plusieurs ruisseaux, nous continuons sur la crête de Shira, en passant par le camp de Shira 1 et jusqu'au camp de Shira 2 sur des prairies de landes près d'un ruisseau. Les vues sur l'horizon sont spectaculaires.",
+      'itinerary.day3.title': "Jour 3 : Du camp Shira 2 au camp Barranco (Acclimatation)",
+      'itinerary.day3.walkingTime': "Durée de la marche : 5 à 6 heures",
+      'itinerary.day3.distance': "Distance : 8 km / 5 mi",
+      'itinerary.day3.altitudeMax': "Altitude : de 3 850 m / 12 600 pi à 4 000 m / 13 000 pi",
+      'itinerary.day3.habitat': "Habitat : Semi-désertique",
+      'itinerary.day3.description': "Depuis le plateau de Shira, nous continuons vers l'est en remontant une crête, passant la jonction vers le sommet du Kibo. En continuant, notre direction change vers le Sud-Est en direction de la célèbre Tour de Lave, surnommée la « Dent de Requin » (altitude maximale de 4 650 m / 15 250 pieds). Peu après la tour, nous arrivons à la deuxième jonction qui mène au glacier Arrow. Nous continuons ensuite la descente jusqu'au magnifique camp de Barranco. Même si nous terminons la journée à peu près à la même altitude qu'au début, cette journée est très importante pour l'acclimatation (\"Monter haut, dormir bas\").",
+      'itinerary.day4.title': "Jour 4 : Du camp de Barranco au camp de Karanga",
+      'itinerary.day4.walkingTime': "Durée de l'ascension : 3-4 heures",
+      'itinerary.day4.distance': "Distance : 5 km / 3 mi",
+      'itinerary.day4.altitudeGain': "Altitude : de 4 000 m / 13 000 pi à 4 050 m / 13 250 pi",
+      'itinerary.day4.habitat': "Habitat : Désert alpin",
+      'itinerary.day4.description': "Après le petit-déjeuner, l'étape commence par l'ascension du célèbre Mur de Barranco. Nous continuons ensuite sur une crête escarpée jusqu'à la vallée de Karanga et la jonction qui relie le sentier Mweka. C'est une étape courte mais cruciale, vous permettant de vous reposer et de vous acclimater davantage à l'approche du camp de base.",
+      'itinerary.day5.title': "Jour 5 : Du camp de Karanga au camp de Barafu",
+      'itinerary.day5.walkingTime': "Durée de l'ascension : 3-4 heures",
+      'itinerary.day5.distance': "Distance : 4 km / 2 mi",
+      'itinerary.day5.altitudeGain': "Altitude : de 4 050 m / 13 250 pi à 4 700 m / 15 350 pi",
+      'itinerary.day5.habitat': "Habitat : Désert alpin",
+      'itinerary.day5.description': "Nous continuons notre progression régulière jusqu'au camp de Barafu. Vous aurez ainsi terminé le circuit Sud, qui offre des vues du sommet sous de nombreux angles différents. Ici, nous installons notre camp, nous nous reposons au maximum, profitons du dîner et nous nous préparons méticuleusement pour le départ matinal du jour du sommet.",
+      'itinerary.day6.title': "Jour 6 : L'Assaut du Sommet et Descente vers Mweka",
+      'itinerary.day6.walkingTime': "Durée de la randonnée : 5 à 7 heures pour la montée / 5 à 6 heures pour la descente",
+      'itinerary.day6.distance': "Distance : 5 km / 3 mi en montée / 13 km / 8 mi en descente",
+      'itinerary.day6.altitudeGain': "Altitude : de 4 700 m / 15 350 pi à 5 895 m / 19 340 pi puis descente à 3 090 m / 10 150 pieds",
+      'itinerary.day6.habitat': "Habitat : Éboulis rocheux et sommets recouverts de glace",
+      'itinerary.day6.description': "Très tôt le matin (minuit à 2h), nous poursuivons notre chemin vers le sommet entre les glaciers Rebmann et Ratzel. Nous montons à travers d'épais éboulis vers Stella Point sur le bord du cratère. C'est la partie la plus difficile. À Stella Point, vous vous arrêterez pour un court repos et serez récompensé par un magnifique lever de soleil. De là, une heure d'ascension nous mène à l'Uhuru Peak (5 895 m), le point culminant de l'Afrique ! Du sommet, nous entamons la longue descente jusqu'au camp de Mweka, en nous arrêtant à Barafu pour le déjeuner.",
+      'itinerary.day7.title': "Jour 7 : Du camp de Mweka à la Porte Mweka et à l'hôtel",
+      'itinerary.day7.walkingTime': "Durée de la randonnée : 3-4 heures",
+      'itinerary.day7.distance': "Distance : 10 km / 6 mi",
+      'itinerary.day7.altitudeLoss': "Altitude : de 3 090 m / 10 150 pieds à 1 680 m / 5 500 pieds",
+      'itinerary.day7.habitat': "Habitat : Forêt",
+      'itinerary.day7.description': "Après le petit-déjeuner, nous continuons la descente finale jusqu'à la Porte du parc Mweka pour recevoir vos certificats de sommet. À basse altitude, le sol peut être humide et boueux (guêtres et bâtons de randonnée sont utiles). Un véhicule vous attendra à la Porte Mweka pour vous ramener à votre hôtel à Moshi (environ 50 minutes). Fin de l'expédition.",
+      'itinerary.departureDay.title': "Jour de Départ : Moshi ou Arusha → Aéroport (JRO)",
+      'itinerary.departureDay.description': "Profitez d'un petit-déjeuner tranquille à votre hôtel. En fonction de votre horaire de vol, vous pourrez vous détendre, acheter des souvenirs ou explorer la ville. Nous organiserons votre transfert retour vers l'aéroport international du Kilimandjaro (JRO) pour votre vol de retour, ou pour la suite de votre aventure (safari ou Zanzibar).",
+      'inclusions.title': "Inclusions et Exclusions",
+      'inclusions.priceIncludes': "Prix Inclus",
+      'inclusions.priceDoesNotInclude': "Pas Inclus",
+      'inclusions.seeMore': "Voir plus",
+      'inclusions.seeFewer': "Voir moins",
+      'inclusions.exclusions.visa': "Visa",
+      'inclusions.exclusions.airfares': "L'avion",
+      'inclusions.exclusions.transfers': "Pourboires",
+      'inclusions.exclusions.insurance': "Assurance",
+      'inclusions.exclusions.tips': "Pourboires",
+      'inclusions.exclusions.personalItems': "Objet personnels",
+      'inclusions.items': "Deux nuits d'hébergement à l'hôtel|||Transport privé aller-retour depuis l'aéroport international du Kilimandjaro jusqu'à votre hôtel à Moshi|||Guides qualifiés avec équipage de montagne|||Droits d'entrée au parc national|||TVA de 18 % sur les frais d'excursion et les services|||Tout le matériel de camping ; montagne|||Frais de sauvetage|||Tous les repas en montagne (petit-déjeuner, déjeuner et dîner)|||Guides et porteurs|||Hébergement et droits d'entrée en montagne|||Oxymètre de pouls|||Trousse de premiers secours|||Urgence respiratoire|||Salaires équitables pour les guides et les porteurs, approuvés par l'Autorité du parc national du Kilimandjaro",
+      'datesAndPrices.title': "Dates et Prix",
+      'datesAndPrices.groupDiscounts': "Réductions de Groupe",
+      'datesAndPrices.dontSeeDates': "Ne trouvez pas les dates qui vous conviennent? Nous pouvons organiser un départ privé pour votre groupe.",
+      'datesAndPrices.enquireButton': "Demander un devis",
+      'datesAndPrices.proposeNewDate': "Proposer une Nouvelle Date",
+      'datesAndPrices.proposeDateDescription': "Proposez vos dates préférées et nous vous répondrons avec un itinéraire personnalisé.",
+      'datesAndPrices.proposeDateButton': "Proposer une date",
+      'datesAndPrices.when': "Quand?",
+      'datesAndPrices.selected': "sélectionné",
+      'datesAndPrices.selectMonth': "Sélectionnez un mois",
+      'datesAndPrices.groupOptions': "Options de Groupe",
+      'datesAndPrices.selectGroup': "Sélectionnez un groupe",
+      'datesAndPrices.soloTraveler': "Voyageur solo",
+      'datesAndPrices.couple': "Couple",
+      'datesAndPrices.familyGroup': "Groupe familial",
+      'datesAndPrices.friendsGroup': "Groupe d'amis",
+      'datesAndPrices.corporateGroup': "Groupe d'entreprise",
+      'datesAndPrices.fromPrice': "2200€",
+      'datesAndPrices.noDeparturesMessage': "Aucun départ pour cet itinéraire dans le mois sélectionné.",
+      'datesAndPrices.contactUsCTA': "Contactez-nous pour demander des dates alternatives",
+      'accommodation.title': "Hébergement",
+      'accommodation.camps.title': "Camps",
+      'accommodation.camps.description': "Tout au long de l'ascension, vous serez hébergé dans des tentes résistantes aux intempéries fournies par nos soins. Chaque camp dispose de toilettes et de lieux d'hygiène de base. Les tentes sont partagées (deux personnes par tente sauf si une chambre individuelle a été réservée).",
+      'gallery.title': "Galerie",
+      'faqsTitle': "Foire aux Questions",
+      'newsletter.title': "Prêt à vivre l'aventure?",
+      'newsletter.subtitle': "Rejoignez notre newsletter",
+      'newsletter.description': "Inscrivez-vous pour recevoir des conseils d'experts, des offres exclusives et des histoires inspirantes directement dans votre boîte de réception.",
+      'newsletter.firstNamePlaceholder': "Prénom",
+      'newsletter.emailPlaceholder': "Email",
+      'newsletter.button': "S'inscrire",
+      'contactModal.title': "Demander des informations",
+      'contactModal.name': "Nom",
+      'contactModal.namePlaceholder': "Entrez votre nom",
+      'contactModal.email': "Email",
+      'contactModal.emailPlaceholder': "Entrez votre email",
+      'contactModal.phone': "Téléphone",
+      'contactModal.phonePlaceholder': "Entrez votre téléphone",
+      'contactModal.message': "Message",
+      'contactModal.messagePlaceholder': "Entrez votre message",
+      'contactModal.accept': "J'accepte",
+      'contactModal.privacyPolicy': "la politique de confidentialité",
+      'contactModal.submit': "Envoyer",
+      'months.Jan': "Jan",
+      'months.Feb': "Fév",
+      'months.Mar': "Mar",
+      'months.Apr': "Avr",
+      'months.May': "Mai",
+      'months.Jun': "Juin",
+      'months.Jul': "Juil",
+      'months.Aug': "Août",
+      'months.Sep': "Sep",
+      'months.Oct': "Oct",
+      'months.Nov': "Nov",
+      'months.Dec': "Déc",
+    };
+    
+    return frMessages[key] || fallback;
+  };
   
   // Fallback sample dates (small set) and parser to read translated month data if provided
   const fallbackSampleDates: Record<string, Array<any>> = {
@@ -124,7 +170,9 @@ export default function LemoshoRoutePage() {
       // ignore
     }
     return fallbackSampleDates[monthKey] || []
-  }
+  };
+  
+
   const [activeSection, setActiveSection] = useState('')
   const [isContactModalOpen, setIsContactModalOpen] = useState(false)
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false)
@@ -144,7 +192,7 @@ export default function LemoshoRoutePage() {
   const t = (key: string, fallback = '') => safeT(key, fallback)
 
   // detect locale from the earlier-determined `currentLocale` to tweak mobile-only layout
-  const isFrench = currentLocale === 'fr'
+  const isFrench = true
   
   // All inclusions data - load from i18n with fallback
   const allInclusions = (() => {

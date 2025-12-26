@@ -70,15 +70,24 @@ export function Navigation({ parks }: NavigationProps) {
                     </svg>
                   </Link>
                     <div className="absolute left-0 mt-0 w-64 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-60 pt-0">
-                      {blogCategories.map((cat) => (
-                        <Link
-                          key={cat.link}
-                          href={`/${currentLocale}/travel-blogs/${cat.link}`}
-                          className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                        >
-                          {currentLocale === 'fr' ? cat.titleFr : cat.titleEn}
-                        </Link>
-                      ))}
+                      <Link
+                        href={`/${currentLocale}/travel-blogs/climb-kilimanjaro`}
+                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                      >
+                        {t('blogKilimanjaro')}
+                      </Link>
+                      <Link
+                        href={`/${currentLocale}/travel-blogs/tanzania-safari`}
+                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                      >
+                        {t('blogTanzaniaSafari')}
+                      </Link>
+                      <Link
+                        href={`/${currentLocale}/travel-blogs/zanzibar-beach-holidays`}
+                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                      >
+                        {t('blogZanzibar')}
+                      </Link>
                     </div>
                 </div>
               </div>
@@ -223,68 +232,7 @@ export function Navigation({ parks }: NavigationProps) {
                     </ul>
                   </nav>
                   
-                  {/* Right Column - Language Switcher */}
-                  <div className="border-l border-gray-200 pl-8">
-                    <div className="mb-3">
-                      <span className="text-gray-700 font-medium text-base block mb-3">{t('language')}</span>
-                      <div className="flex items-center gap-2">
-                        <button
-                          onClick={() => {
-                            const newLocale = 'fr';
-                            const pathSegments = pathname?.split('/').filter(Boolean) || [];
-                            let newPath: string;
-                            if (pathSegments[0] === 'en' || pathSegments[0] === 'fr') {
-                              if (pathSegments.length === 1) {
-                                newPath = `/${newLocale}`;
-                              } else {
-                                const restOfPath = pathSegments.slice(1).join('/');
-                                newPath = `/${newLocale}/${restOfPath}`;
-                              }
-                            } else {
-                              newPath = `/${newLocale}${pathname === '/' ? '' : pathname}`;
-                            }
-                            if (!newPath.startsWith('/')) newPath = `/${newPath}`;
-                            if (newPath === '/') newPath = `/${newLocale}`;
-                            window.location.assign(newPath);
-                          }}
-                          className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-                            currentLocale === 'fr'
-                              ? 'bg-gradient-to-r from-[#72D9C4] to-[#00A896] text-white shadow-md'
-                              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                          }`}
-                        >
-                          FR
-                        </button>
-                        <button
-                          onClick={() => {
-                            const newLocale = 'en';
-                            const pathSegments = pathname?.split('/').filter(Boolean) || [];
-                            let newPath: string;
-                            if (pathSegments[0] === 'en' || pathSegments[0] === 'fr') {
-                              if (pathSegments.length === 1) {
-                                newPath = `/${newLocale}`;
-                              } else {
-                                const restOfPath = pathSegments.slice(1).join('/');
-                                newPath = `/${newLocale}/${restOfPath}`;
-                              }
-                            } else {
-                              newPath = `/${newLocale}${pathname === '/' ? '' : pathname}`;
-                            }
-                            if (!newPath.startsWith('/')) newPath = `/${newPath}`;
-                            if (newPath === '/') newPath = `/${newLocale}`;
-                            window.location.assign(newPath);
-                          }}
-                          className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-                            currentLocale === 'en'
-                              ? 'bg-gradient-to-r from-[#72D9C4] to-[#00A896] text-white shadow-md'
-                              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                          }`}
-                        >
-                          EN
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+
                 </div>
               </div>
             </div>
@@ -342,68 +290,7 @@ export function Navigation({ parks }: NavigationProps) {
                 </ul>
               </nav>
               
-              {/* Language Switcher Section */}
-              <div className="mt-8 pt-6 border-t border-gray-300">
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-700 font-medium text-lg">{t('language')}</span>
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => {
-                        const newLocale = 'fr';
-                        const pathSegments = pathname?.split('/').filter(Boolean) || [];
-                        let newPath: string;
-                        if (pathSegments[0] === 'en' || pathSegments[0] === 'fr') {
-                          if (pathSegments.length === 1) {
-                            newPath = `/${newLocale}`;
-                          } else {
-                            const restOfPath = pathSegments.slice(1).join('/');
-                            newPath = `/${newLocale}/${restOfPath}`;
-                          }
-                        } else {
-                          newPath = `/${newLocale}${pathname === '/' ? '' : pathname}`;
-                        }
-                        if (!newPath.startsWith('/')) newPath = `/${newPath}`;
-                        if (newPath === '/') newPath = `/${newLocale}`;
-                        window.location.assign(newPath);
-                      }}
-                      className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-                        currentLocale === 'fr'
-                          ? 'bg-gradient-to-r from-[#72D9C4] to-[#00A896] text-white shadow-md'
-                          : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                      }`}
-                    >
-                      FR
-                    </button>
-                    <button
-                      onClick={() => {
-                        const newLocale = 'en';
-                        const pathSegments = pathname?.split('/').filter(Boolean) || [];
-                        let newPath: string;
-                        if (pathSegments[0] === 'en' || pathSegments[0] === 'fr') {
-                          if (pathSegments.length === 1) {
-                            newPath = `/${newLocale}`;
-                          } else {
-                            const restOfPath = pathSegments.slice(1).join('/');
-                            newPath = `/${newLocale}/${restOfPath}`;
-                          }
-                        } else {
-                          newPath = `/${newLocale}${pathname === '/' ? '' : pathname}`;
-                        }
-                        if (!newPath.startsWith('/')) newPath = `/${newPath}`;
-                        if (newPath === '/') newPath = `/${newLocale}`;
-                        window.location.assign(newPath);
-                      }}
-                      className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-                        currentLocale === 'en'
-                          ? 'bg-gradient-to-r from-[#72D9C4] to-[#00A896] text-white shadow-md'
-                          : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                      }`}
-                    >
-                      EN
-                    </button>
-                  </div>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>

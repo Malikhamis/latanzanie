@@ -4,71 +4,147 @@ import { useState, useRef, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import Image from 'next/image'
 import Faq from '@/components/ui/faq'
-import { useTranslations } from 'next-intl'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import enMessages from '../../../../../locales/en.json'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import frMessages from '../../../../../locales/fr.json'
 import { MapPin, Clock, Calendar, User, CheckCircle, X, Users, Bed, XCircle } from 'lucide-react'
 
 export default function MachameRoutePage() {
-  // read locale from the route params (hook) early so we can prefer JSON-based lookups
-  const params = useParams() as { locale?: string }
-  const currentLocale = params?.locale === 'fr' ? 'fr' : 'en'
+  // read locale from the route params
+  const params = useParams() as { locale?: string };
+  const currentLocale = params?.locale === 'fr' ? 'fr' : 'en';
 
-  // pick JSON messages for a fast, safe lookup (prefer locale JSON -> fallback to English JSON)
-  const jsonMessages: any = currentLocale === 'fr' ? (frMessages as any).MachameRoute : (enMessages as any).MachameRoute
-
-  // Try to get the next-intl translations hook if available.
-  // We keep this separate and attempt to use it only after checking the static JSON to avoid
-  // next-intl throwing a MISSING_MESSAGE at runtime for partially-loaded namespaces.
-  let tHook: ((key: string) => string) | null = null
-  try {
-    tHook = useTranslations('MachameRoute')
-  } catch (e) {
-    // Namespace not loaded via next-intl; continue using JSON lookups only.
-    // eslint-disable-next-line no-console
-    console.warn('[i18n] MachameRoute translations hook unavailable; using JSON fallback', e)
-    tHook = null
-  }
-
-  // Safe translation accessor that first checks the JSON messages for the current locale,
-  // then falls back to next-intl hook (if present), and finally returns a provided fallback.
+  // Hardcoded French content for Machame Route
   const safeT = (key: string, fallback = ''): string => {
-    try {
-      const parts = key.split('.')
-      let node: any = jsonMessages
-      for (const p of parts) {
-        if (!node) { node = undefined; break }
-        node = node[p]
-      }
-      if (typeof node === 'string' && node.length > 0) return node
-    } catch (e) {
-      // ignore and try hook next
-    }
-
-    // Avoid calling the next-intl hook for complex, JSON-driven keys
-    // (datesByMonth and datesAndPrices) because those are authored as
-    // JSON-encoded strings in the locale files and we prefer the static
-    // JSON lookup; calling tHook for keys that aren't present in the
-    // loaded messages causes next-intl to throw MISSING_MESSAGE.
-    if (key.startsWith('datesByMonth.') || key.startsWith('datesAndPrices.')) {
-      return fallback
-    }
-
-    if (tHook) {
-      try {
-        const maybe = tHook(key) as unknown
-        if (typeof maybe === 'string') return maybe
-      } catch (e) {
-        // If tHook throws for missing keys, swallow and return fallback
-      }
-    }
-
-    return fallback
-  }
+    const frMessages: Record<string, string> = {
+      'hero.title': "L'Itinéraire Machame (7 Jours de Trek) : L'Ascension Panoramique",
+      'hero.breadcrumb': "Tanzanie > Kilimandjaro > Route Machame",
+      'hero.duration': "9 jours (7 jours de trek)",
+      'hero.description': "Souvent appelée la \"voie du Whisky\", la voie Machame est l'itinéraire le plus populaire du Kilimandjaro, et ce, pour de bonnes raisons. Elle offre des paysages spectaculaires et variés, traversant cinq zones climatiques distinctes. Cet itinéraire de 7 jours sur la montagne est fortement recommandé. Il comprend un jour d'acclimatation plus court entre le camp de Barranco et le camp de Karanga, ce qui est crucial pour s'adapter à l'altitude et augmente considérablement vos chances d'atteindre le sommet en toute sécurité.",
+      'hero.price': "À partir de 2 000 €",
+      'miniNavbar.datesAndPrices': "Dates & Prix",
+      'miniNavbar.proposeDate': "Proposer une date",
+      'miniNavbar.details': "Détails",
+      'miniNavbar.inclusions': "Inclusions",
+      'miniNavbar.accommodation': "Hébergement",
+      'detailedItineraryTitle': "Itinéraire détaillé",
+      'itinerary.day0.title': "Jour d'Arrivée : Aéroport International du Kilimandjaro (JRO) → Moshi ou Arusha",
+      'itinerary.day0.altitude': "Altitude : 850 m / 2 790 ft",
+      'itinerary.day0.accommodation': "Logement : Hôtel",
+      'itinerary.day0.description': "À votre arrivée à l'aéroport international du Kilimandjaro (JRO), un membre de notre équipe vous accueillera et vous conduira à votre hôtel à Moshi ou Arusha. Ce transfert vous permettra de vous détendre et de vous remettre de votre vol.\n\nDans la soirée, votre guide principal viendra à votre hôtel pour un briefing complet sur l'ascension. Il examinera votre équipement pièce par pièce pour s'assurer que vous avez tout ce qu'il faut, répondra à toutes vos questions et vous préparera mentalement pour l'aventure à venir.",
+      'itinerary.day1.title': "Jour 1 du Trek : Machame Gate (1 800 m) → Machame Camp (2 835 m)",
+      'itinerary.day1.walkingTime': "Temps de marche : 5-7 heures",
+      'itinerary.day1.distance': "Distance : 11 km / 7 miles",
+      'itinerary.day1.altitudeGain': "Altitude (Gain) : 1 035 m / 3 396 ft",
+      'itinerary.day1.habitat': "Habitat : Forêt tropicale",
+      'itinerary.day1.description': "Après le petit-déjeuner, nous nous rendons à la porte Machame (environ 1 heure de route de Moshi). Une fois les formalités d'enregistrement terminées, vous ferez vos adieux à la civilisation et commencerez votre ascension. Le premier jour est une montée régulière à travers une magnifique et dense forêt tropicale. Le sentier est bien entretenu mais peut être boueux et glissant. En chemin, gardez les yeux ouverts pour apercevoir les singes Colobes noirs et blancs. Vous arriverez au camp Machame en fin d'après-midi, où vos tentes seront déjà montées.",
+      'itinerary.day2.title': "Jour 2 du Trek : Machame Camp (2 835 m) → Shira Camp (3 850 m)",
+      'itinerary.day2.walkingTime': "Temps de marche : 4-6 heures",
+      'itinerary.day2.distance': "Distance : 5 km / 3 miles",
+      'itinerary.day2.altitudeGain': "Altitude (Gain) : 1 015 m / 3 330 ft",
+      'itinerary.day2.habitat': "Habitat : Landes",
+      'itinerary.day2.description': "Vous quitterez la forêt tropicale pour entrer dans la zone des landes. Le sentier devient plus raide et le paysage s'ouvre, offrant des vues magnifiques sur les plaines en contrebas. La végétation change radicalement, avec des bruyères géantes et des séneçons. L'étape d'aujourd'hui est plus courte, ce qui aide à l'acclimatation. Vous traverserez une petite vallée avant de monter sur le plateau de Shira, où vous atteindrez le camp Shira 2. Par temps clair, le sommet de Kibo et le mont Meru à l'ouest sont visibles.",
+      'itinerary.day3.title': "Jour 3 du Trek : Shira Camp (3 850 m) → Lava Tower (4 600 m) → Barranco Camp (3 900 m)",
+      'itinerary.day3.walkingTime': "Temps de marche : 6-8 heures",
+      'itinerary.day3.distance': "Distance : 10 km / 6 miles",
+      'itinerary.day3.altitudeMax': "Altitude (Max) : 4 600 m / 15 090 ft",
+      'itinerary.day3.habitat': "Habitat : Désert alpin",
+      'itinerary.day3.description': "Aujourd'hui est crucial pour l'acclimatation : \"Monter haut, dormir bas\". Vous monterez jusqu'à la Lava Tower (4 600 m), où vous déjeunerez. Vous pourriez commencer à ressentir les effets de l'altitude, mais c'est parfaitement normal. Après le déjeuner, vous descendrez dans la magnifique vallée de Barranco (3 900 m), où vous passerez la nuit. Cette descente aide énormément votre corps à s'adapter à l'altitude. Le camp de Barranco est spectaculaire, niché sous l'imposant mur de Barranco et entouré de séneçons géants.",
+      'itinerary.day4.title': "Jour 4 du Trek : Barranco Camp (3 900 m) → Karanga Camp (3 995 m)",
+      'itinerary.day4.walkingTime': "Temps de marche : 3-5 heures",
+      'itinerary.day4.distance': "Distance : 5 km / 3 miles",
+      'itinerary.day4.altitudeGain': "Altitude (Gain) : 95 m / 311 ft",
+      'itinerary.day4.habitat': "Habitat : Désert alpin",
+      'itinerary.day4.description': "C'est la journée qui distingue l'itinéraire de 7 jours de celui de 6 jours. Elle commence par le défi le plus excitant de la journée : le Mur de Barranco. Il ne s'agit pas d'escalade technique, mais d'une \"escalade facile\" (scrambling) où vous devrez utiliser vos mains et vos pieds pour gravir la paroi de 250 mètres. Vos guides seront là pour vous assurer une progression sûre et amusante.\n\nUne fois au sommet, vous serez récompensé par des vues imprenables. Le reste de la journée est une série de montées et de descentes à travers les vallées alpines jusqu'au camp de Karanga. Cette courte journée est essentielle pour renforcer votre acclimatation avant la montée finale vers le camp de base.",
+      'itinerary.day5.title': "Jour 5 du Trek : Karanga Camp (3 995 m) → Barafu Camp (4 673 m)",
+      'itinerary.day5.walkingTime': "Temps de marche : 3-4 heures",
+      'itinerary.day5.distance': "Distance : 4 km / 2.5 miles",
+      'itinerary.day5.altitudeGain': "Altitude (Gain) : 678 m / 2 224 ft",
+      'itinerary.day5.habitat': "Habitat : Désert alpin / Arctique",
+      'itinerary.day5.description': "Une autre journée de marche courte et régulière pour préserver votre énergie. Vous traverserez un paysage aride et rocheux, rejoignant la jonction avec la voie Mweka. La montée vers le camp Barafu (\"glace\" en swahili) est constante. Le camp est situé sur une crête exposée et venteuse, offrant des vues spectaculaires sur les pics de Kibo et Mawenzi.\n\nVous arriverez au camp pour le déjeuner, ce qui vous laissera tout l'après-midi pour vous reposer, préparer votre équipement pour le sommet, manger un dîner tôt (vers 17h30) et essayer de dormir le plus possible. L'excitation et la nervosité montent !",
+      'itinerary.day6.title': "Jour 6 du Trek : JOUR DU SOMMET - Barafu (4 673 m) → Uhuru Peak (5 895 m) → Mweka Camp (3 100 m)",
+      'itinerary.day6.walkingTime': "Temps de marche : 11-14 heures (6-8h de montée / 5-6h de descente)",
+      'itinerary.day6.distance': "Distance : 17 km / 10.5 miles (5 km montée / 12 km descente)",
+      'itinerary.day6.altitudeGain': "Altitude (Gain) : 1 222 m / 4 009 ft",
+      'itinerary.day6.altitudeLoss': "Altitude (Perte) : 2 795 m / 9 170 ft",
+      'itinerary.day6.habitat': "Habitat : Arctique / Landes",
+      'itinerary.day6.description': "Le grand jour commence. Le réveil a lieu vers 23h30. Après un thé chaud et des biscuits, vous commencerez votre ascension finale dans l'obscurité et le froid. La montée est raide, se faisant \"pole pole\" (lentement, lentement) sur un sentier en lacets à travers les éboulis. C'est l'épreuve mentale et physique la plus difficile du trek.\n\nAprès environ 6 heures, vous atteindrez Stella Point (5 756 m), sur le bord du cratère, juste à temps pour assister au lever de soleil le plus spectaculaire de votre vie. Après une courte pause, vous continuerez le long du bord du cratère enneigé pendant encore 45 à 60 minutes pour atteindre le véritable sommet : Uhuru Peak (5 895 m), le point le plus haut de l'Afrique !\n\nAprès les photos et les célébrations, vous entamerez la longue descente. Vous retournerez à Barafu pour un repas chaud bien mérité et une courte sieste, avant de continuer à descendre vers le camp de Mweka.",
+      'itinerary.day7.title': "Jour 7 du Trek : Mweka Camp (3 100 m) → Mweka Gate (1 640 m) → Hôtel",
+      'itinerary.day7.walkingTime': "Temps de marche : 3-4 heures",
+      'itinerary.day7.distance': "Distance : 10 km / 6 miles",
+      'itinerary.day7.altitudeLoss': "Altitude (Perte) : 1 460 m / 4 790 ft",
+      'itinerary.day7.habitat': "Habitat : Forêt tropicale",
+      'itinerary.day7.description': "Votre dernier matin sur la montagne commence par un petit-déjeuner copieux, suivi de la traditionnelle cérémonie des pourboires pour remercier vos guides, cuisiniers et porteurs.\n\nEnsuite, vous entamerez une descente pittoresque et facile à travers la forêt tropicale luxuriante. Le sentier est bien tracé mais peut être glissant. À votre arrivée à la porte Mweka, vous signerez le registre et recevrez votre certificat de sommet officiel (certificat vert pour Stella Point, or pour Uhuru Peak).\n\nNotre véhicule vous attendra pour vous ramener à votre hôtel à Moshi ou Arusha. La première douche chaude depuis une semaine sera inoubliable !",
+      'itinerary.departureDay.title': "Jour de Départ : Moshi ou Arusha → Aéroport (JRO)",
+      'itinerary.departureDay.description': "Profitez d'un petit-déjeuner tranquille à votre hôtel. En fonction de votre horaire de vol, vous pourrez vous détendre, acheter des souvenirs ou explorer la ville. Nous organiserons votre transfert retour vers l'aéroport international du Kilimandjaro (JRO) pour votre vol de retour, ou pour la suite de votre aventure (safari ou Zanzibar).",
+      'inclusions.title': "Inclusions et Exclusions",
+      'inclusions.priceIncludes': "Le Prix Comprend",
+      'inclusions.priceDoesNotInclude': "Le Prix Ne Comprend Pas",
+      'inclusions.seeMore': "Voir plus",
+      'inclusions.seeFewer': "Voir moins",
+      'inclusions.exclusions.visa': "Visa tanzanien",
+      'inclusions.exclusions.airfares': "Billets d'avion",
+      'inclusions.exclusions.transfers': "Transferts aéroport (40 $ US par personne par transfert)",
+      'inclusions.exclusions.insurance': "Assurance voyage",
+      'inclusions.exclusions.tips': "Pourboires pour l'équipe de montagne",
+      'inclusions.exclusions.singleSupplement': "Supplément chambre simple (si nécessaire)",
+      'inclusions.items': "Deux nuits d'hébergement à l'hôtel|||Transport privé aller-retour depuis l'aéroport international du Kilimandjaro jusqu'à votre hôtel à Moshi|||Guides qualifiés avec équipage de montagne|||Droits d'entrée au parc national|||TVA de 18 % sur les frais d'excursion et les services|||Tout le matériel de camping ; montagne|||Frais de sauvetage|||Tous les repas en montagne (petit-déjeuner, déjeuner et dîner)|||Guides et porteurs|||Hébergement et droits d'entrée en montagne|||Oxymètre de pouls|||Trousse de premiers secours|||Urgence respiratoire|||Salaires équitables pour les guides et les porteurs, approuvés par l'Autorité du parc national du Kilimandjaro",
+      'datesAndPrices.title': "Dates et Prix",
+      'datesAndPrices.groupDiscounts': "Réductions de groupe",
+      'datesAndPrices.dontSeeDates': "Vous ne voyez pas vos dates ?",
+      'datesAndPrices.enquireButton': "Demander plus de détails",
+      'datesAndPrices.proposeNewDate': "Proposer une nouvelle date",
+      'datesAndPrices.proposeDateDescription': "Veuillez proposer une nouvelle date de départ",
+      'datesAndPrices.proposeDateButton': "Proposer une Nouvelle Date",
+      'datesAndPrices.when': "Quand",
+      'datesAndPrices.selected': "sélectionné(s)",
+      'datesAndPrices.selectMonth': "Sélectionnez les mois",
+      'datesAndPrices.groupOptions': "Options de groupe",
+      'datesAndPrices.selectGroup': "Sélectionnez le type de groupe",
+      'datesAndPrices.soloTraveler': "Voyageur solo",
+      'datesAndPrices.couple': "Couple",
+      'datesAndPrices.familyGroup': "Groupe familial",
+      'datesAndPrices.friendsGroup': "Groupe d'amis",
+      'datesAndPrices.corporateGroup': "Groupe d'entreprise",
+      'datesAndPrices.fromPrice': "À partir de 2 000 €",
+      'datesAndPrices.noDeparturesMessage': "Aucun départ pour cet itinéraire dans le mois sélectionné.",
+      'datesAndPrices.contactUsCTA': "Contactez-nous pour demander des dates alternatives",
+      'accommodation.title': "Hébergement",
+      'accommodation.camps.title': "Camps de montagne",
+      'accommodation.camps.description': "Sur la route Machame, vous séjournerez dans des tentes de haute qualité à quatre saisons dans des camps désignés. Chaque campement est situé stratégiquement pour une acclimatation optimale et offre une vue imprenable sur la montagne.",
+      'gallery.title': "Galerie de photos",
+      'faqs.title': "Questions fréquemment posées",
+      'newsletter.title': "Si vous aimez voyager,",
+      'newsletter.subtitle': "rejoignez notre newsletter",
+      'newsletter.description': "Recevez les dernières nouvelles sur les joyaux d'aventure cachés, les voyages de lancement à prix réduit et bien plus encore directement dans votre boîte de réception",
+      'newsletter.firstNamePlaceholder': "Prénom",
+      'newsletter.emailPlaceholder': "Email",
+      'newsletter.button': "S'inscrire !",
+      'contactModal.title': "Réserver un appel avec notre équipe",
+      'contactModal.name': "Nom complet",
+      'contactModal.namePlaceholder': "Jean Dupont",
+      'contactModal.email': "Adresse email",
+      'contactModal.emailPlaceholder': "jean@example.com",
+      'contactModal.phone': "Numéro de téléphone",
+      'contactModal.phonePlaceholder': "+255 123 456 789",
+      'contactModal.message': "Message",
+      'contactModal.messagePlaceholder': "Dites-nous en plus sur vos projets de voyage...",
+      'contactModal.accept': "J'accepte la",
+      'contactModal.privacyPolicy': "Politique de confidentialité",
+      'contactModal.submit': "Envoyer la demande",
+      'months.Jan': "Jan",
+      'months.Feb': "Fév",
+      'months.Mar': "Mar",
+      'months.Apr': "Avr",
+      'months.May': "Mai",
+      'months.Jun': "Juin",
+      'months.Jul': "Juil",
+      'months.Aug': "Août",
+      'months.Sep': "Sep",
+      'months.Oct': "Oct",
+      'months.Nov': "Nov",
+      'months.Dec': "Déc",
+    };
+    
+    return frMessages[key] || fallback;
+  };
   
   // Fallback sample dates (small set) and parser to read translated month data if provided
   const fallbackSampleDates: Record<string, Array<any>> = {
@@ -115,34 +191,21 @@ export default function MachameRoutePage() {
   const t = (key: string, fallback = '') => safeT(key, fallback)
 
   // detect locale from the earlier-determined `currentLocale` to tweak mobile-only layout
-  const isFrench = currentLocale === 'fr'
+  const isFrench = true
   
-  // All inclusions data - load from translations
-  const allInclusions = Array.isArray(t('inclusions.items', ''))
-    ? (t('inclusions.items', '') as unknown as string[])
-    : [
-        "Dedicated trip manager",
-        "In-depth preparation documents",
-        "Pre-climb Zoom consult",
-        "2 overnight stays at Lindrin Lodge in Moshi (incl. breakfasts and dinners)",
-        "In-depth pre-climb safety briefing at Lindrin Lodge",
-        "Transport to and from trailheads",
-        "Kilimanjaro National Park entrance fee",
-        "Qualified, experienced, English-speaking guides",
-        "Porters",
-        "Experienced cook",
-        "All meals on the mountain",
-        "Snacks and hot drinks",
-        "Purified drinking water",
-        "Daily bowl of water for 'washy washy'",
-        "High-quality, four-season sleeping bag",
-        "High-quality, four-season sleeping tent",
-        "Sleeping mat",
-        "Private Latanzanieaucourdelanature toilet (1 per 8 climbers)",
-        "Organisation of any rental equipment, if required",
-        "Medical equipment (incl. pulse oximeter and emergency oxygen)",
-        "Climb certificate"
-      ]
+  // All inclusions data - load from hardcoded messages
+  const allInclusions = (() => {
+    try {
+      const itemsString = safeT('inclusions.items', '')
+      if (itemsString && itemsString.includes('|||')) {
+        return itemsString.split('|||')
+      }
+      // Fallback if items not found
+      return []
+    } catch (e) {
+      return []
+    }
+  })()
 
   // Display inclusions based on state
   const displayedInclusions = showAllInclusions ? allInclusions : allInclusions.slice(0, 10)

@@ -176,6 +176,7 @@
   position: relative;
   background-size: cover;
   background-position: center;
+  z-index: 0;
 }
 
 .hero-wavy::after {
@@ -187,6 +188,7 @@
   height: 84px;
   background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'><path fill='%23ffffff' d='M0,64L60,58.7C120,53,240,43,360,58.7C480,74,600,122,720,122C840,122,960,74,1080,58.7C1200,43,1320,53,1380,58.7L1440,64L1440,120L0,120Z'/></svg>") bottom center / cover no-repeat;
   pointer-events: none;
+  z-index: -1;
 }
 
 /* Optional small shadow to make the wavy edge stand out on light backgrounds */
@@ -199,4 +201,26 @@
   height: 12px;
   background: linear-gradient(to bottom, rgba(0,0,0,0.06), rgba(0,0,0,0));
   pointer-events: none;
+  z-index: -1;
+}
+
+/* Custom animations for zone headers */
+@keyframes pulseOnce {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+.animate-pulse-once {
+  animation: pulseOnce 1s ease-in-out;
+}
+
+/* Reduce bounce animation intensity */
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
 }
