@@ -2091,7 +2091,7 @@ export default function TravelBlogDetailPage() {
                       required
                     />
                     <label htmlFor="privacy-policy" className="ml-2 block text-sm text-gray-700">
-                      {t('contactModal.agreeTo')} <a href="/privacy" className="text-[#00A896] hover:text-[#008576]">{t('contactModal.privacyPolicy')}</a>
+                      {t('contactModal.agreeTo')} <Link href={`/${currentLocale}/privacy`} className="text-[#00A896] hover:text-[#008576]">{t('contactModal.privacyPolicy')}</Link>
                     </label>
                   </div>
 
@@ -2178,7 +2178,7 @@ export default function TravelBlogDetailPage() {
                       required
                     />
                     <label htmlFor="download-privacy-policy" className="ml-2 block text-sm text-gray-700">
-                      {t('downloadModal.agreeTo')} <a href="/privacy" className="text-[#00A896] hover:text-[#008576]">{t('downloadModal.privacyPolicy')}</a>
+                      {t('downloadModal.agreeTo')} <Link href={`/${currentLocale}/privacy`} className="text-[#00A896] hover:text-[#008576]">{t('downloadModal.privacyPolicy')}</Link>
                     </label>
                   </div>
 

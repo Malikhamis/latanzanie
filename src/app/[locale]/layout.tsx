@@ -76,7 +76,7 @@ export default async function LocaleLayout({
   const { locale } = await params;
   
   // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(locale as any)) notFound();
+  if (!locales.includes(locale as typeof locales[number])) notFound();
 
   // Providing all messages to the client side for the specific locale
   const messages = await getMessages({ locale });
@@ -87,10 +87,10 @@ export default async function LocaleLayout({
     // eslint-disable-next-line no-console
     console.log('[i18n] loaded message namespaces for', locale, Object.keys(messages));
     // eslint-disable-next-line no-console
-    console.log('[i18n] MaranguRoutePage present?', Boolean((messages as any).MaranguRoutePage));
+    console.log('[i18n] MaranguRoutePage present?', Boolean((messages as Record<string, unknown>).MaranguRoutePage));
     if ((messages as any).MaranguRoutePage) {
       // eslint-disable-next-line no-console
-      console.log('[i18n] datesAndPrices keys:', Object.keys((messages as any).MaranguRoutePage.datesAndPrices || {}));
+      console.log('[i18n] datesAndPrices keys:', Object.keys(((messages as Record<string, unknown>).MaranguRoutePage as Record<string, unknown>)?.datesAndPrices || {}));
     }
   } catch (e) {
     // eslint-disable-next-line no-console

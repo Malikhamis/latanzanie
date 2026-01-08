@@ -37,10 +37,10 @@ export default function LocaleError({
             </svg>
           </div>
           <h2 className="text-2xl font-bold text-gray-900 mb-2">
-            Une erreur s'est produite
+            Une erreur s&apos;est produite
           </h2>
           <p className="text-gray-600 mb-1">
-            Nous sommes désolés, quelque chose d'inattendu s'est produit.
+            Nous sommes désolés, quelque chose d&apos;inattendu s&apos;est produit.
           </p>
         </div>
 
@@ -56,7 +56,7 @@ export default function LocaleError({
             onClick={() => router.push('/fr')}
             className="block w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 rounded-lg transition-all"
           >
-            Retour à l'accueil
+            Retour à l&apos;accueil
           </button>
         </div>
       </div>

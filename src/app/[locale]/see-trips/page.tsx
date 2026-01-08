@@ -318,7 +318,7 @@ export default function SeeTripsPage() {
                 <li className="text-gray-600 flex items-start">
                   <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
                   <Link href={`/${currentLocale}/travel-blogs/articles-hygiene-emporter`} className="text-[#00A896] hover:text-[#008576] transition-colors">
-                    Articles d'hygiène à emporter
+                    Articles d&apos;hygiène à emporter
                   </Link>
                 </li>
                 <li className="text-gray-600 flex items-start">
@@ -330,7 +330,7 @@ export default function SeeTripsPage() {
                 <li className="text-gray-600 flex items-start">
                   <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
                   <Link href={`/${currentLocale}/travel-blogs/hygiene-femmes-ascension`} className="text-[#00A896] hover:text-[#008576] transition-colors">
-                    Hygiène des femmes pendant l'ascension
+                    Hygiène des femmes pendant l&apos;ascension
                   </Link>
                 </li>
                 <li className="text-gray-600 flex items-start">
@@ -406,25 +406,25 @@ export default function SeeTripsPage() {
                 <li className="text-gray-600 flex items-start">
                   <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
                   <Link href={`/${currentLocale}/travel-blogs/evacuation-urgence`} className="text-[#00A896] hover:text-[#008576] transition-colors">
-                    Évacuation d'urgence sur le Kilimandjaro : guide complet pour les randonneurs
+                    Évacuation d&apos;urgence sur le Kilimandjaro : guide complet pour les randonneurs
                   </Link>
                 </li>
                 <li className="text-gray-600 flex items-start">
                   <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
                   <Link href={`/${currentLocale}/travel-blogs/diamox-kilimanjar`} className="text-[#00A896] hover:text-[#008576] transition-colors">
-                    Le Diamox pour l'ascension du Kilimandjaro : tout ce que les trekkeurs doivent savoir
+                    Le Diamox pour l&apos;ascension du Kilimandjaro : tout ce que les trekkeurs doivent savoir
                   </Link>
                 </li>
                 <li className="text-gray-600 flex items-start">
                   <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
                   <Link href={`/${currentLocale}/travel-blogs/alimentation-kilimanjar`} className="text-[#00A896] hover:text-[#008576] transition-colors">
-                    Quels types de repas sont servis en altitude sur le Kilimandjaro pour maintenir l'énergie malgré la perte d'appétit ?
+                    Quels types de repas sont servis en altitude sur le Kilimandjaro pour maintenir l&apos;énergie malgré la perte d&apos;appétit ?
                   </Link>
                 </li>
                 <li className="text-gray-600 flex items-start">
                   <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
                   <Link href={`/${currentLocale}/travel-blogs/acclimatation-kilimanjar`} className="text-[#00A896] hover:text-[#008576] transition-colors">
-                    Techniques d'acclimatation pour le Kilimandjaro
+                    Techniques d&apos;acclimatation pour le Kilimandjaro
                   </Link>
                 </li>
                 <li className="text-gray-600 flex items-start">

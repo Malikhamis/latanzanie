@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { Hero } from '@/components/Hero'
-import { useTranslations, useLocale } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'

@@ -3,7 +3,7 @@
 // Disable static generation for this page
 export const dynamic = 'force-dynamic';
 
-import { useState } from 'react';
+
 import { useTranslations } from 'next-intl';
 import ContactFormClient from '@/components/ContactFormClient';
 
