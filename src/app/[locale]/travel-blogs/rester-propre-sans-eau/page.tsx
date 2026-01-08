@@ -190,9 +190,9 @@ export default function ResterPropreSansEauPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero5.jpg')" }}>
+      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hygiene-hero.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
             {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
@@ -249,7 +249,7 @@ export default function ResterPropreSansEauPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/marangu-route.jpg')" }}></div>
+              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/hygiene-hero.jpg')" }}></div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>
@@ -270,7 +270,7 @@ export default function ResterPropreSansEauPage() {
             </div>
 
             <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/lemosho-route.jpg')" }}></div>
+              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/hygiene-hero.jpg')" }}></div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>
@@ -291,7 +291,7 @@ export default function ResterPropreSansEauPage() {
             </div>
 
             <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/kilimanjaro-umbwe.jpg')" }}></div>
+              <div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/hygiene-hero.jpg')" }}></div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>

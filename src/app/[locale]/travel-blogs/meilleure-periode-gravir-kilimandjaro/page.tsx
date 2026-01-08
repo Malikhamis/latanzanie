@@ -314,7 +314,117 @@ Trails also suffer from the effect of mud and small streams of water that form a
 
 const ids = ['overview', 'january', 'routes', 'june', 'advice', 'rainy']
 
-function renderContent(content: string) {
+function processRouteLinks(text: string, locale: string) {
+  // Split text by the route names to create an array of parts
+  const parts = text.split(/(Machame|Lemosho|Marangu)/gi);
+  
+  const processedParts = parts.map((part, index) => {
+    const lowerPart = part.toLowerCase();
+    if (lowerPart === 'machame') {
+      return (
+        <Link 
+          key={`route-link-${index}`}
+          href={`/${locale}/trips/machame-route`}
+          className="text-[#00A896] hover:text-[#008576] font-medium font-medium"
+        >
+          {part}
+        </Link>
+      );
+    } else if (lowerPart === 'lemosho') {
+      return (
+        <Link 
+          key={`route-link-${index}`}
+          href={`/${locale}/trips/lemosho-route`}
+          className="text-[#00A896] hover:text-[#008576] font-medium font-medium"
+        >
+          {part}
+        </Link>
+      );
+    } else if (lowerPart === 'marangu') {
+      return (
+        <Link 
+          key={`route-link-${index}`}
+          href={`/${locale}/trips/marangu-route`}
+          className="text-[#00A896] hover:text-[#008576] font-medium font-medium"
+        >
+          {part}
+        </Link>
+      );
+    } else {
+      // Process seasonal links ("mars et mai" and similar)
+      const seasonalRegex = /(Entre mars et mai|entre mars et mai|mars et mai)/g;
+      const seasonalParts = [];
+      let lastSeasonalIndex = 0;
+      let seasonalMatch;
+      
+      while ((seasonalMatch = seasonalRegex.exec(part)) !== null) {
+        // Add text before the match
+        if (seasonalMatch.index > lastSeasonalIndex) {
+          seasonalParts.push(part.substring(lastSeasonalIndex, seasonalMatch.index));
+        }
+        
+        // Add the linked seasonal text
+        seasonalParts.push(
+          <Link key={`seasonal-${seasonalParts.length}`} href={`/${locale}/travel-blogs/choisir-bonne-saison-randonnee`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">
+            {seasonalMatch[0]}
+          </Link>
+        );
+        
+        lastSeasonalIndex = seasonalMatch.index + seasonalMatch[0].length;
+      }
+      
+      // Add any remaining text after the last seasonal match
+      if (lastSeasonalIndex < part.length) {
+        seasonalParts.push(part.substring(lastSeasonalIndex));
+      }
+      
+      const seasonalProcessedText = seasonalParts.join('');
+      
+      // Process couchage links ("sac de couchage", "sacs de couchage", etc.)
+      const couchageRegex = /(sac de couchage|sacs de couchage|Sac de couchage|Sacs de couchage)/g;
+      const couchageParts = [];
+      let lastCouchageIndex = 0;
+      let couchageMatch;
+      
+      while ((couchageMatch = couchageRegex.exec(seasonalProcessedText)) !== null) {
+        // Add text before the match
+        if (couchageMatch.index > lastCouchageIndex) {
+          couchageParts.push(seasonalProcessedText.substring(lastCouchageIndex, couchageMatch.index));
+        }
+        
+        // Add the linked couchage text
+        couchageParts.push(
+          <Link key={`couchage-${couchageParts.length}`} href={`/${locale}/travel-blogs/kilimanjaro-packing-list`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">
+            {couchageMatch[0]}
+          </Link>
+        );
+        
+        lastCouchageIndex = couchageMatch.index + couchageMatch[0].length;
+      }
+      
+      // Add any remaining text after the last couchage match
+      if (lastCouchageIndex < seasonalProcessedText.length) {
+        couchageParts.push(seasonalProcessedText.substring(lastCouchageIndex));
+      }
+      
+      return couchageParts;
+    }
+  });
+  
+  // Flatten the result in case nested arrays are returned
+  const flattened: (string | JSX.Element)[] = [];
+  processedParts.forEach(item => {
+    if (Array.isArray(item)) {
+      flattened.push(...item);
+    } else {
+      flattened.push(item);
+    }
+  });
+  
+  return flattened;
+}
+
+function renderContent(content: string, locale: string) {
   const lines = content.split(/\r?\n/)
   const nodes: any[] = []
   let i = 0
@@ -360,12 +470,16 @@ function renderContent(content: string) {
       } else if (text.startsWith('*') && text.endsWith('*')) {
         // Handle emphasized text (surrounded by *)
         const emphasizedText = text.substring(1, text.length - 1);
-        nodes.push(<p key={keyIndex++} className="mb-4 font-semibold">{emphasizedText}</p>);
+        // Process route links in emphasized text
+        const processedText = processRouteLinks(emphasizedText, locale);
+        nodes.push(<p key={keyIndex++} className="mb-4 font-semibold">{processedText}</p>);
       } else if (text.startsWith('🌤️') || text.startsWith('🌧️')) {
         // Handle weather emoji headings
         nodes.push(<h2 key={keyIndex++} className="text-2xl font-semibold mt-6 mb-3 text-black">{text}</h2>);
       } else {
-        nodes.push(<p key={keyIndex++} className="mb-4">{text}</p>)
+        // Process route links in regular paragraphs
+        const processedText = processRouteLinks(text, locale);
+        nodes.push(<p key={keyIndex++} className="mb-4">{processedText}</p>)
       }
     } else {
       i++
@@ -390,9 +504,9 @@ export default function MeilleurePeriodeGravirKilimandjaroPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero5.jpg')" }}>
+      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/climate-hero.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
             {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
@@ -430,7 +544,7 @@ export default function MeilleurePeriodeGravirKilimandjaroPage() {
                   {sections.map(s => (
                     <article key={s.id} id={s.id} className="mb-8">
                       <h2 className="text-2xl font-semibold mb-2 text-black">{s.title}</h2>
-                        <div className="prose max-w-none text-black">{renderContent(s.content)}</div>
+                        <div className="prose max-w-none text-black">{renderContent(s.content, locale)}</div>
                     </article>
                   ))}
                 </div>

@@ -7,6 +7,291 @@ import TOC from "@/components/ui/TOC";
 import Image from "next/image";
 import "../../../../tailgrid.css";
 
+// Helper function to process park links in text
+function processParkLinks(text: string, keyPrefix: string = ''): string {
+  const parts = text.split('###PARK_LINK###');
+  
+  if (parts.length <= 1) {
+    return text; // Return the original string if no park found
+  }
+  
+  // Join the parts with a temporary placeholder that won't conflict with other markers
+  let result = '';
+  for (let j = 0; j < parts.length; j++) {
+    result += parts[j];
+    if (j < parts.length - 1) {
+      // Add a temporary marker that we'll replace later with the actual link
+      result += `###PARK_TEMP_LINK_${keyPrefix}${j}###`;
+    }
+  }
+  
+  return result;
+}
+
+// Helper function to convert temporary park markers to actual links
+function convertParkTempMarkersToLinks(text: string | (string | JSX.Element)[], locale: string): (string | JSX.Element)[] {
+  if (typeof text === 'string') {
+    // If it's a string, convert any temporary markers to links
+    const parts = text.split(/(###PARK_TEMP_LINK_[^#]+###)/);
+    const result: (string | JSX.Element)[] = [];
+    
+    for (const part of parts) {
+      if (part.startsWith('###PARK_TEMP_LINK_') && part.endsWith('###')) {
+        // Extract the key prefix from the temporary marker
+        const keyMatch = part.match(/###PARK_TEMP_LINK_(.+?)###/);
+        const keyPrefix = keyMatch ? keyMatch[1] : 'default-';
+        
+        result.push(
+          <Link 
+            key={`park-${keyPrefix}`} 
+            href="https://www.tanzaniaparks.go.tz/national_parks/kilimanjaro-national-park" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-[#00A896] hover:text-[#008576] font-medium font-medium"
+          >
+            parcs nationaux
+          </Link>
+        );
+      } else {
+        result.push(part);
+      }
+    }
+    return result;
+  } else {
+    // If it's already an array, process each element
+    const result: (string | JSX.Element)[] = [];
+    for (const element of text) {
+      if (typeof element === 'string') {
+        const converted = convertParkTempMarkersToLinks(element, locale);
+        result.push(...converted);
+      } else {
+        result.push(element);
+      }
+    }
+    return result;
+  }
+}
+
+// Helper function to process guide local links in text
+function processGuideLocalLinks(text: string, keyPrefix: string = ''): string {
+  const parts = text.split('###GUIDE_LOCAL_LINK###');
+  
+  if (parts.length <= 1) {
+    return text; // Return the original string if no guide local found
+  }
+  
+  // Join the parts with a temporary placeholder that won't conflict with other markers
+  let result = '';
+  for (let j = 0; j < parts.length; j++) {
+    result += parts[j];
+    if (j < parts.length - 1) {
+      // Add a temporary marker that we'll replace later with the actual link
+      result += `###GUIDE_LOCAL_TEMP_LINK_${keyPrefix}${j}###`;
+    }
+  }
+  
+  return result;
+}
+
+// Helper function to convert temporary guide local markers to actual links
+function convertGuideLocalTempMarkersToLinks(text: string | (string | JSX.Element)[], locale: string): (string | JSX.Element)[] {
+  if (typeof text === 'string') {
+    // If it's a string, convert any temporary markers to links
+    const parts = text.split(/(###GUIDE_LOCAL_TEMP_LINK_[^#]+###)/);
+    const result: (string | JSX.Element)[] = [];
+    
+    for (const part of parts) {
+      if (part.startsWith('###GUIDE_LOCAL_TEMP_LINK_') && part.endsWith('###')) {
+        // Extract the key prefix from the temporary marker
+        const keyMatch = part.match(/###GUIDE_LOCAL_TEMP_LINK_(.+?)###/);
+        const keyPrefix = keyMatch ? keyMatch[1] : 'default-';
+        
+        result.push(
+          <Link 
+            key={`guide-local-${keyPrefix}`} 
+            href={`/${locale}/about#heritage`} 
+            className="text-[#00A896] hover:text-[#008576] font-medium font-medium"
+          >
+            guide local
+          </Link>
+        );
+      } else {
+        result.push(part);
+      }
+    }
+    return result;
+  } else {
+    // If it's already an array, process each element
+    const result: (string | JSX.Element)[] = [];
+    for (const element of text) {
+      if (typeof element === 'string') {
+        const converted = convertGuideLocalTempMarkersToLinks(element, locale);
+        result.push(...converted);
+      } else {
+        result.push(element);
+      }
+    }
+    return result;
+  }
+}
+
+// Helper function to process additional terms for linking
+function processTermsForLinking(text: string, keyPrefix: string = ''): string {
+  // Replace terms with markers
+  let processedText = text
+    .replace(/\baltitude\b/g, '###ALTITUDE_LINK###')
+    .replace(/\bcondition physique\b/g, '###CONDITION_PHYSIQUE_LINK###')
+    .replace(/\bmal aigu des montagnes\b/gi, '###MAM_LINK###')
+    .replace(/\bacclimatation\b/g, '###ACCLIMATATION_LINK###')
+    .replace(/\bhydratation\b/g, '###HYDRATATION_LINK###');
+  
+  // Replace markers with temporary placeholders
+  const parts = processedText.split('###ALTITUDE_LINK###');
+  let result = '';
+  for (let j = 0; j < parts.length; j++) {
+    result += parts[j];
+    if (j < parts.length - 1) {
+      result += `###ALTITUDE_TEMP_LINK_${keyPrefix}${j}###`;
+    }
+  }
+  
+  const parts2 = result.split('###CONDITION_PHYSIQUE_LINK###');
+  result = '';
+  for (let j = 0; j < parts2.length; j++) {
+    result += parts2[j];
+    if (j < parts2.length - 1) {
+      result += `###CONDITION_PHYSIQUE_TEMP_LINK_${keyPrefix}${j}###`;
+    }
+  }
+  
+  const parts3 = result.split('###MAM_LINK###');
+  result = '';
+  for (let j = 0; j < parts3.length; j++) {
+    result += parts3[j];
+    if (j < parts3.length - 1) {
+      result += `###MAM_TEMP_LINK_${keyPrefix}${j}###`;
+    }
+  }
+  
+  const parts4 = result.split('###ACCLIMATATION_LINK###');
+  result = '';
+  for (let j = 0; j < parts4.length; j++) {
+    result += parts4[j];
+    if (j < parts4.length - 1) {
+      result += `###ACCLIMATATION_TEMP_LINK_${keyPrefix}${j}###`;
+    }
+  }
+  
+  const parts5 = result.split('###HYDRATATION_LINK###');
+  result = '';
+  for (let j = 0; j < parts5.length; j++) {
+    result += parts5[j];
+    if (j < parts5.length - 1) {
+      result += `###HYDRATATION_TEMP_LINK_${keyPrefix}${j}###`;
+    }
+  }
+  
+  return result;
+}
+
+// Helper function to convert temporary term markers to actual links
+function convertTermTempMarkersToLinks(text: string | (string | JSX.Element)[], locale: string): (string | JSX.Element)[] {
+  if (typeof text === 'string') {
+    // If it's a string, convert any temporary markers to links
+    const parts = text.split(/(###ALTITUDE_TEMP_LINK_[^#]+###|###CONDITION_PHYSIQUE_TEMP_LINK_[^#]+###|###MAM_TEMP_LINK_[^#]+###|###ACCLIMATATION_TEMP_LINK_[^#]+###|###HYDRATATION_TEMP_LINK_[^#]+###)/);
+    const result: (string | JSX.Element)[] = [];
+    
+    for (const part of parts) {
+      if (part.startsWith('###ALTITUDE_TEMP_LINK_') && part.endsWith('###')) {
+        // Extract the key prefix from the temporary marker
+        const keyMatch = part.match(/###ALTITUDE_TEMP_LINK_(.+?)###/);
+        const keyPrefix = keyMatch ? keyMatch[1] : 'default-';
+        
+        result.push(
+          <Link 
+            key={`altitude-${keyPrefix}`} 
+            href={`/${locale}/travel-blogs/preparer-son-corps-altitude-kilimandjaro`} 
+            className="text-[#00A896] hover:text-[#008576] font-medium font-medium"
+          >
+            altitude
+          </Link>
+        );
+      } else if (part.startsWith('###CONDITION_PHYSIQUE_TEMP_LINK_') && part.endsWith('###')) {
+        // Extract the key prefix from the temporary marker
+        const keyMatch = part.match(/###CONDITION_PHYSIQUE_TEMP_LINK_(.+?)###/);
+        const keyPrefix = keyMatch ? keyMatch[1] : 'default-';
+        
+        result.push(
+          <Link 
+            key={`condition-physique-${keyPrefix}`} 
+            href={`/${locale}/travel-blogs/niveau-physique-kilimandjaro`} 
+            className="text-[#00A896] hover:text-[#008576] font-medium font-medium"
+          >
+            condition physique
+          </Link>
+        );
+      } else if (part.startsWith('###MAM_TEMP_LINK_') && part.endsWith('###')) {
+        // Extract the key prefix from the temporary marker
+        const keyMatch = part.match(/###MAM_TEMP_LINK_(.+?)###/);
+        const keyPrefix = keyMatch ? keyMatch[1] : 'default-';
+        
+        result.push(
+          <Link 
+            key={`mam-${keyPrefix}`} 
+            href={`/${locale}/travel-blogs/sante-en-altitude`} 
+            className="text-[#00A896] hover:text-[#008576] font-medium font-medium"
+          >
+            mal aigu des montagnes
+          </Link>
+        );
+      } else if (part.startsWith('###ACCLIMATATION_TEMP_LINK_') && part.endsWith('###')) {
+        // Extract the key prefix from the temporary marker
+        const keyMatch = part.match(/###ACCLIMATATION_TEMP_LINK_(.+?)###/);
+        const keyPrefix = keyMatch ? keyMatch[1] : 'default-';
+        
+        result.push(
+          <Link 
+            key={`acclimatation-${keyPrefix}`} 
+            href={`/${locale}/travel-blogs/acclimatation-kilimanjar`} 
+            className="text-[#00A896] hover:text-[#008576] font-medium font-medium"
+          >
+            acclimatation
+          </Link>
+        );
+      } else if (part.startsWith('###HYDRATATION_TEMP_LINK_') && part.endsWith('###')) {
+        // Extract the key prefix from the temporary marker
+        const keyMatch = part.match(/###HYDRATATION_TEMP_LINK_(.+?)###/);
+        const keyPrefix = keyMatch ? keyMatch[1] : 'default-';
+        
+        result.push(
+          <Link 
+            key={`hydratation-${keyPrefix}`} 
+            href={`/${locale}/travel-blogs/sommeil-kilimanjar`} 
+            className="text-[#00A896] hover:text-[#008576] font-medium font-medium"
+          >
+            hydratation
+          </Link>
+        );
+      } else {
+        result.push(part);
+      }
+    }
+    return result;
+  } else {
+    // If it's already an array, process each element
+    const result: (string | JSX.Element)[] = [];
+    for (const element of text) {
+      if (typeof element === 'string') {
+        const converted = convertTermTempMarkersToLinks(element, locale);
+        result.push(...converted);
+      } else {
+        result.push(element);
+      }
+    }
+    return result;
+  }
+}
+
 export default function PoidsLegalPage() {
   const locale = useLocale();
   const author = locale === "fr" ? "Par un guide local" : "By a local guide";
@@ -21,12 +306,12 @@ export default function PoidsLegalPage() {
 
 Une question revient souvent : combien de poids un porteur peut-il légalement porter sur le Kilimandjaro ? Cette information est essentielle pour comprendre la logistique d’une ascension, protéger la santé des porteurs et garantir la réussite de votre trek.
 
-En tant que guide local et fils d’un ancien porteur, j’ai été témoin de l’importance cruciale de respecter ces limites.`
+En tant que ${'###GUIDE_LOCAL_LINK###'} et fils d’un ancien porteur, j’ai été témoin de l’importance cruciale de respecter ces limites.`
     },
     {
       id: "regles-officielles",
       title: locale === "fr" ? "Les règles officielles pour protéger les porteurs" : "Official rules to protect porters",
-      content: `Gravir le Kilimandjaro est une aventure qui demande une préparation rigoureuse, et le rôle des porteurs est au cœur de chaque expédition. Pour protéger leur santé et assurer la sécurité des randonneurs, le gouvernement tanzanien et les parcs nationaux ont fixé des limites strictes de poids que chaque porteur peut transporter. La limite légale est de 20 kg par porteur, et cette restriction inclut tous les éléments essentiels à la réussite de l’ascension.
+      content: `Gravir le Kilimandjaro est une aventure qui demande une préparation rigoureuse, et le rôle des porteurs est au cœur de chaque expédition. Pour protéger leur santé et assurer la sécurité des randonneurs, le gouvernement tanzanien et les ${'###PARK_LINK###'} ont fixé des limites strictes de poids que chaque porteur peut transporter. La limite légale est de 20 kg par porteur, et cette restriction inclut tous les éléments essentiels à la réussite de l’ascension.
 
 Cette limite n’est pas arbitraire. Porter plus de 20 kg sur des sentiers escarpés, en altitude et souvent dans des conditions climatiques difficiles, peut provoquer des blessures graves, de la fatigue extrême, voire des accidents. C’est pourquoi la loi protège les porteurs, qui sont les piliers invisibles de chaque ascension.`
     },
@@ -38,7 +323,7 @@ Cette limite n’est pas arbitraire. Porter plus de 20 kg sur des sentiers escar
     {
       id: "nourriture-eau",
       title: locale === "fr" ? "La nourriture et l’eau pour l’équipe" : "Food and water for the team",
-      content: `Une partie des provisions, incluant la nourriture et l’eau, est transportée par les porteurs. Ces éléments sont vitaux pour la survie et l’énergie des randonneurs. Cependant, ces charges sont lourdes et augmentent rapidement la fatigue. La limite de 20 kg assure que le porteur puisse transporter ces éléments de manière sécurisée, tout en restant capable de marcher plusieurs heures par jour, souvent sur des pentes raides ou dans des conditions météorologiques difficiles. Une surcharge pourrait réduire la vigilance du porteur et mettre l’équipe entière en danger.`
+      content: `Une partie des provisions, incluant la nourriture et l'eau, est transportée par les porteurs. Ces éléments sont vitaux pour la survie et l’énergie des randonneurs. Cependant, ces charges sont lourdes et augmentent rapidement la fatigue. La limite de 20 kg assure que le porteur puisse transporter ces éléments de manière sécurisée, tout en restant capable de marcher plusieurs heures par jour, souvent sur des pentes raides ou dans des conditions météorologiques difficiles. Une surcharge pourrait réduire la vigilance du porteur et mettre l’équipe entière en danger.`
     },
     {
       id: "materiel-cuisine-securite",
@@ -75,7 +360,7 @@ En résumé, les porteurs peuvent ou non atteindre Uhuru Peak, mais ce qui est c
       {/* Hero + back-link */}
       <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero4.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
             {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
@@ -102,12 +387,46 @@ En résumé, les porteurs peuvent ou non atteindre Uhuru Peak, mais ce qui est c
               </div>
             </aside>
             <div className="flex-1 space-y-8">
-              {sections.map(s => (
-                <section key={s.id} id={s.id} className="bg-white rounded-lg shadow-md p-8">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">{s.title}</h2>
-                  <div className="prose prose-lg max-w-none text-gray-700 whitespace-pre-wrap">{s.content}</div>
-                </section>
-              ))}
+              {sections.map((s, index) => {
+                // Replace the marker placeholders with the actual markers for processing
+                let contentToProcess = s.content.replace(/\${'###PARK_LINK###'}/g, '###PARK_LINK###');
+                contentToProcess = contentToProcess.replace(/\${'###GUIDE_LOCAL_LINK###'}/g, '###GUIDE_LOCAL_LINK###');
+                
+                // Process content to convert both park and guide local markers to links
+                // First process the original string content with temporary markers
+                const contentWithTempMarkers = processTermsForLinking(
+                  processGuideLocalLinks(
+                    processParkLinks(contentToProcess, `section-${index}-parks-`),
+                    `section-${index}-guides-`
+                  ),
+                  `section-${index}-terms-`
+                );
+                
+                // Then convert the temporary markers to actual links
+                const contentWithGuideLocalLinks = convertGuideLocalTempMarkersToLinks(
+                  contentWithTempMarkers,
+                  locale
+                );
+                
+                const contentWithParkLinks = convertParkTempMarkersToLinks(
+                  contentWithGuideLocalLinks,
+                  locale
+                );
+                
+                const processedContent = convertTermTempMarkersToLinks(
+                  contentWithParkLinks,
+                  locale
+                );
+                
+                return (
+                  <section key={s.id} id={s.id} className="bg-white rounded-lg shadow-md p-8">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-6">{s.title}</h2>
+                    <div className="prose prose-xl max-w-none text-gray-700 whitespace-pre-wrap">
+                      {processedContent}
+                    </div>
+                  </section>
+                );
+              })}
               {/* Canonical route cards section (after notes) */}
               <section className="py-16 bg-white">
                 <div className="container mx-auto px-4 max-w-6xl">

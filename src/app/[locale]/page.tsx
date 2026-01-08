@@ -3,13 +3,16 @@
 import { useState, useEffect, useRef } from 'react'
 import { Hero } from '@/components/Hero'
 import { useTranslations, useLocale } from 'next-intl'
+import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 
 export default function Home() {
   const t = useTranslations('HomePage');
   const tCommon = useTranslations('Common');
-  const locale = useLocale();
+  const pathname = usePathname();
+  const segments = pathname?.split('/').filter(Boolean) || []
+  const locale = segments[0] && ['fr', 'en'].includes(segments[0]) ? segments[0] : 'fr'
   const [sliderIndex, setSliderIndex] = useState(0)
   const sliderCount = 8
   const touchStartX = useRef<number | null>(null)
@@ -78,7 +81,7 @@ export default function Home() {
     resumeAutoPlay()
   }
 
-  // Adventure trips data - Only Tanzania trips
+  // Adventure trips data - Including both Materuni experiences
   const adventureTrips = [
     {
       id: 1,
@@ -102,16 +105,26 @@ export default function Home() {
     },
     {
       id: 3,
-      title: tCommon('trips.materuni.title'),
+      title: 'Expérience Authentique Kilimandjaro : Materuni & Chemka (2 Jours)',
       image: "/images/materuni-waterfall.jpg",
       price: 150,
       rating: 5.0,
-      duration: tCommon('trips.materuni.duration'),
-      description: tCommon('trips.materuni.description'),
-      link: `/${locale}/trips/materuni-cultural-tour`
+      duration: '2 jours',
+      description: 'Plongez au cœur de la Tanzanie rurale avec cet itinéraire de deux jours. Découvrez la richesse culturelle du peuple Chagga et terminez par la relaxation absolue dans une oasis naturelle. Idéal pour ceux qui cherchent l\'aventure, la culture et la détente.',
+      link: `/${locale}/trips/materuni-chemka-2-days`
     },
     {
       id: 4,
+      title: 'Immersion Culturelle Chagga',
+      image: "/images/materuni-cultural-tour.jpg",
+      price: 80,
+      rating: 5.0,
+      duration: '1 jour',
+      description: 'Plongez dans la culture Chagga authentique avec café, cascade secrète et traditions locales au pied du Kilimandjaro.',
+      link: `/${locale}/trips/materuni-cultural-tour`
+    },
+    {
+      id: 5,
       title: tCommon('trips.zanzibar.title'),
       image: "/images/zanzibar-beach.jpg",
       price: 1500,
@@ -145,15 +158,15 @@ export default function Home() {
                 <Link 
                   key={trip.id} 
                   href={trip.link}
-                  className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow flex flex-col h-96 cursor-pointer"
+                  className={`bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow flex flex-col h-96 cursor-pointer ${trip.id === 3 || trip.id === 4 ? 'h-[32rem]' : ''}`}
                 >
                   {/* Image part with zigzag bottom border */}
-                  <div className="h-[60%] bg-gray-200 relative">
+                  <div className={`${trip.id === 3 || trip.id === 4 ? 'h-[70%]' : 'h-[60%]'} bg-gray-200 relative`}>
                     <Image 
                       src={trip.image} 
                       alt={trip.title}
                       fill
-                      className="object-cover"
+                      className={`${trip.id === 3 ? 'object-cover object-[50%_30%]' : (trip.id === 4 ? 'object-cover object-top' : 'object-cover')}`}
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                     {/* Zigzag border pattern */}
@@ -171,8 +184,9 @@ export default function Home() {
                     </div>
                   </div>
                   
-                  {/* Details part - 40% of the card */}
+                  {/* Details part - adjusted for different card types */}
                   <div className="flex-1 flex flex-col justify-between p-5 bg-white">
+
                     <div>
                       <h3 className="text-xl font-bold text-gray-800 mb-2">
                         {trip.title}
@@ -215,7 +229,7 @@ export default function Home() {
             
             <div className="text-center mt-12">
               <Link 
-                href={`/${locale}/see-trips`}
+                href={`/${locale}/trips/tanzania-safari`}
                 className="inline-block bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 {t('seeAllTrips')}

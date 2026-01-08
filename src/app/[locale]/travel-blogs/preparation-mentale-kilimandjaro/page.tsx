@@ -54,8 +54,38 @@ const EN_SECTIONS: Record<string,string> = {
   'guide-tip': `> "Patience, confidence and mental preparation are the true keys to reaching Kilimanjaro's summit."`
 }
 
-function renderContent(content: string){
-  return content.split('\n\n').map((b,i)=> b.trim().startsWith('>') ? <blockquote key={i} className="pl-4 border-l-4 italic text-black">{b.replace(/^>\s?/,'')}</blockquote> : <p key={i} className="my-4 text-black">{b}</p>)
+function renderContent(content: string, locale: string){
+  // Add markers for terms we want to link
+  let processedContent = content
+    .replace(/\bphysique\b/g, '###PHYSIQUE_LINK###')
+    .replace(/\bcondition physique\b/g, '###CONDITION_PHYSIQUE_LINK###')
+    .replace(/\baltitude\b/g, '###ALTITUDE_LINK###');
+  
+  return processedContent.split('\n\n').map((b,i)=> {
+    if (b.trim().startsWith('>')) {
+      // Process blockquotes
+      let processedBlock = b.replace(/^>\s?/, '');
+      
+      // Convert our custom markers to links
+      processedBlock = processedBlock
+        .replace(/###PHYSIQUE_LINK###/g, `<a href="/${locale}/travel-blogs/niveau-physique-kilimandjaro" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">physique</a>`)
+        .replace(/###CONDITION_PHYSIQUE_LINK###/g, `<a href="/${locale}/travel-blogs/niveau-physique-kilimandjaro" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">condition physique</a>`)
+        .replace(/###ALTITUDE_LINK###/g, `<a href="/${locale}/travel-blogs/preparer-son-corps-altitude-kilimandjaro" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">altitude</a>`);
+      
+      return <blockquote key={i} className="pl-4 border-l-4 italic text-black" dangerouslySetInnerHTML={{__html: processedBlock}}></blockquote>;
+    } else {
+      // Process paragraphs
+      let processedParagraph = b;
+      
+      // Convert our custom markers to links
+      processedParagraph = processedParagraph
+        .replace(/###PHYSIQUE_LINK###/g, `<a href="/${locale}/travel-blogs/niveau-physique-kilimandjaro" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">physique</a>`)
+        .replace(/###CONDITION_PHYSIQUE_LINK###/g, `<a href="/${locale}/travel-blogs/niveau-physique-kilimandjaro" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">condition physique</a>`)
+        .replace(/###ALTITUDE_LINK###/g, `<a href="/${locale}/travel-blogs/preparer-son-corps-altitude-kilimandjaro" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">altitude</a>`);
+      
+      return <p key={i} className="my-4 text-black" dangerouslySetInnerHTML={{__html: processedParagraph}}></p>;
+    }
+  });
 }
 
 export default function MentalPrepPage({ params }: { params: { locale?: string } }) {
@@ -69,12 +99,12 @@ export default function MentalPrepPage({ params }: { params: { locale?: string }
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero5.jpg')" }}>
+      <section className="relative hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/preparation-hero.jpg')" }}>
         <div className="absolute inset-0 -z-10">
-          <img src="/images/hero5.jpg" alt="" className="w-full h-full object-cover" />
+          <img src="/images/preparation-hero.jpg" alt="" className="w-full h-full object-cover" />
         </div>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-white mb-6 inline-flex items-center text-sm font-medium">← {locale === 'fr' ? 'Retour aux blogs' : 'Back to blogs'}</Link>
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-white mb-6 inline-flex items-center text-sm font-medium">← {locale === 'fr' ? 'Retour aux blogs' : 'Back to blogs'}</Link>
         </div>
       </section>
 
@@ -109,7 +139,7 @@ export default function MentalPrepPage({ params }: { params: { locale?: string }
                 {sections.map(s => (
                   <article key={s.id} id={s.id} className="mb-8">
                     <h2 className="text-2xl font-semibold mb-2 text-black">{s.title}</h2>
-                    <div className="prose max-w-none text-black" style={{ whiteSpace: 'pre-wrap' }}>{renderContent(s.content)}</div>
+                    <div className="prose max-w-none text-black" style={{ whiteSpace: 'pre-wrap' }}>{renderContent(s.content, locale)}</div>
                   </article>
                 ))}
               </div>

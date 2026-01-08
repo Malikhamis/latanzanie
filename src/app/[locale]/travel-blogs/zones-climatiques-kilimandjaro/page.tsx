@@ -658,7 +658,7 @@ Local guides say that morning mist in the alpine zone is considered the "breath 
 
 const ids = ['overview', 'zone1', 'zone2', 'zone3']
 
-function renderContent(content: string) {
+function renderContent(content: string, locale: string) {
   const lines = content.split(/\r?\n/)
   const nodes: any[] = []
   let i = 0
@@ -709,7 +709,7 @@ function renderContent(content: string) {
         // Handle zone headings
         nodes.push(<h2 key={keyIndex++} className="text-2xl font-semibold mt-6 mb-3 text-black">{text}</h2>);
       } else {
-        nodes.push(<p key={keyIndex++} className="mb-4">{text}</p>)
+        nodes.push(<p key={keyIndex++} className="mb-4">{processAlpineZoneLinks(text, locale)}</p>)
       }
     } else {
       i++
@@ -718,6 +718,65 @@ function renderContent(content: string) {
 
   return <div>{nodes}</div>
 }
+
+// Helper function to process temperature links in text
+function processTemperatureLinks(text: string, locale: string) {
+  // Split text by the keyword 'températures' to create an array of parts
+  const parts = text.split(/(températures)/gi);
+  
+  return parts.map((part, index) => {
+    if (part.toLowerCase() === 'températures') {
+      return (
+        <Link 
+          key={`temp-link-${index}`}
+          href={`/${locale}/travel-blogs/zones-climatiques-kilimandjaro`}
+          className="text-[#00A896] hover:text-[#008576] font-medium font-medium"
+        >
+          {part}
+        </Link>
+      );
+    } else {
+      return part;
+    }
+  });
+}
+
+// Helper function to process alpine zone links in text
+function processAlpineZoneLinks(text: string, locale: string) {
+  // First process alpine zone links, then process temperature links on the remaining text
+  const alpineParts = text.split(/(zone alpine|la zone alpine|la Zone Alpine|Zone Alpine)/gi);
+  
+  const processedParts = alpineParts.map((part, index) => {
+    if (part.toLowerCase().includes('zone alpine')) {
+      return (
+        <Link 
+          key={`alpine-link-${index}`}
+          href={`/${locale}/travel-blogs/zones-climatiques-kilimandjaro`}
+          className="text-[#00A896] hover:text-[#008576] font-medium font-medium"
+        >
+          {part}
+        </Link>
+      );
+    } else {
+      // For non-alpine parts, process temperature links
+      return processTemperatureLinks(part, locale);
+    }
+  });
+  
+  // Flatten the result in case processTemperatureLinks returns an array
+  const flattened: (string | JSX.Element)[] = [];
+  processedParts.forEach(item => {
+    if (Array.isArray(item)) {
+      flattened.push(...item);
+    } else {
+      flattened.push(item);
+    }
+  });
+  
+  return flattened;
+}
+
+
 
 export default function ZonesClimatiquesKilimandjaroPage() {
   const locale = useLocale()
@@ -737,9 +796,9 @@ export default function ZonesClimatiquesKilimandjaroPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero5.jpg')" }}>
+      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/climate-hero.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
             {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
@@ -777,7 +836,7 @@ export default function ZonesClimatiquesKilimandjaroPage() {
                   {sections.map(s => (
                     <article key={s.id} id={s.id} className="mb-8">
                       <h2 className="text-2xl font-semibold mb-2 text-black">{s.title}</h2>
-                        <div className="prose max-w-none text-black">{renderContent(s.content)}</div>
+                        <div className="prose prose-xl max-w-none text-black">{renderContent(s.content, locale)}</div>
                     </article>
                   ))}
                 </div>

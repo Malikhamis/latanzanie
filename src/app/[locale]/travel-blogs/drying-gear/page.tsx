@@ -14,48 +14,8 @@ interface Section {
 }
 
 export default function DryingGearPage() {
-  const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({
-    intro: true, // Keep introduction expanded by default
-    method1: false,
-    method2: false,
-    method3: false,
-    method4: false,
-    method5: false,
-    errors: false,
-    conclusion: false,
-    tip: false
-  })
   const [isScrolled, setIsScrolled] = useState(false)
   const locale = useLocale()
-
-  // Toggle section expansion - only one section open at a time
-  const toggleSection = (sectionId: string) => {
-    setExpandedSections(prev => {
-      // If the clicked section is already open, close it
-      if (prev[sectionId]) {
-        return {
-          ...prev,
-          [sectionId]: false
-        };
-      }
-      
-      // Close all sections and open only the clicked one
-      const newSections: Record<string, boolean> = {};
-      Object.keys(prev).forEach(key => {
-        newSections[key] = key === sectionId;
-      });
-      
-      return newSections;
-    });
-    
-    // Scroll to the section header
-    setTimeout(() => {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, 100);
-  }
 
   // Handle scroll for header effects
   useEffect(() => {
@@ -97,9 +57,9 @@ export default function DryingGearPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero section with back-link */}
-      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero6.jpg')" }}>
+      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/climate-hero.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
             {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
@@ -122,7 +82,7 @@ export default function DryingGearPage() {
           <TOC
             title={locale === 'fr' ? 'Sommaire' : 'Overview'}
             items={sections.map(s => ({ id: s.id, label: s.title, level: 2 }))}
-            onSelect={(id: string) => { setExpandedSections({ ...expandedSections, [id]: true }) }}
+            onSelect={(id: string) => {}}
           />
         </div>
       </section>
@@ -136,7 +96,7 @@ export default function DryingGearPage() {
                 <TOC
                   title={locale === 'fr' ? 'Sommaire' : 'Overview'}
                   items={sections.map(s => ({ id: s.id, label: s.title, level: 2 }))}
-                  onSelect={(id: string) => { setExpandedSections({ ...expandedSections, [id]: true }) }}
+                  onSelect={(id: string) => {}}
                 />
               </div>
             </aside>
@@ -147,7 +107,7 @@ export default function DryingGearPage() {
                 <h1 className="text-3xl font-bold text-gray-900 mb-6">
                   Comment sécher ses affaires en trek quand il pleut ?
                 </h1>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Conseils pratiques d'un guide local en Tanzanie</p>
                   <p className="mb-4">Quand on part en trek, surtout sur une montagne comme le Kilimandjaro, un vêtement mouillé n'est jamais "juste" un inconfort. C'est du froid en plus, de l'énergie perdue, un risque d'irritation ou d'ampoules.</p>
                   <p className="mb-4">Et en saison des pluies, tout peut être mouillé : vêtements, gants, chaussettes, sac...</p>
@@ -157,25 +117,11 @@ export default function DryingGearPage() {
 
               {/* Method 1 Section */}
               <section id="method1" className="bg-white rounded-lg shadow-md p-8">
-                <h2 
-                  className="text-3xl font-bold text-gray-900 mb-6 cursor-pointer flex justify-between items-center hover:text-[#00A896] transition-colors duration-200"
-                  onClick={() => toggleSection('method1')}
-                >
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   <span>La méthode la plus fiable : utiliser la chaleur du corps</span>
-                  <svg 
-                    className={`w-6 h-6 transition-transform duration-300 ${expandedSections.method1 ? 'rotate-180' : ''} animate-bounce`}
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </h2>
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.method1 ? 'max-h-[3000px]' : 'max-h-0'}`}
-                >
-                  <div className="prose prose-lg max-w-none text-gray-700">
+                <div>
+                  <div className="prose prose-xl max-w-none text-gray-700">
                     <p className="mb-4">Lorsque le soleil est caché derrière les nuages, que le vent est faible ou inexistant, et qu'aucune source de chaleur n'est disponible autour de vous, la meilleure façon de sécher vos vêtements reste celle que la nature vous fournit gratuitement : votre propre corps. Cette méthode repose sur la chaleur que vous produisez en marchant ou simplement en restant actif, et elle est particulièrement efficace en montagne où chaque degré de chaleur compte.</p>
                     
                     <p className="mb-4">Pour que cette technique fonctionne, il faut d'abord préparer correctement le vêtement humide. Il est essentiel de l'essorer au maximum afin d'éliminer l'excès d'eau. Plus le tissu contient d'humidité, plus il mettra de temps à sécher et plus vous perdrez de chaleur si vous le portez trop tôt. Une fois que l'eau superflue a été évacuée, vous devez enfiler une couche sèche contre votre peau. Cette couche sert à maintenir votre chaleur corporelle et à éviter que le froid ne pénètre pendant le processus de séchage. Elle crée un espace protecteur entre vous et le vêtement humide.</p>
@@ -189,25 +135,11 @@ export default function DryingGearPage() {
 
               {/* Method 2 Section */}
               <section id="method2" className="bg-white rounded-lg shadow-md p-8">
-                <h2 
-                  className="text-3xl font-bold text-gray-900 mb-6 cursor-pointer flex justify-between items-center hover:text-[#00A896] transition-colors duration-200"
-                  onClick={() => toggleSection('method2')}
-                >
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   <span>Sécher sous la tente : possible, mais pas n'importe comment</span>
-                  <svg 
-                    className={`w-6 h-6 transition-transform duration-300 ${expandedSections.method2 ? 'rotate-180' : ''} animate-bounce`}
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </h2>
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.method2 ? 'max-h-[3000px]' : 'max-h-0'}`}
-                >
-                  <div className="prose prose-lg max-w-none text-gray-700">
+                <div>
+                  <div className="prose prose-xl max-w-none text-gray-700">
                     <p className="mb-4">Beaucoup de trekkeurs pensent qu'il suffit de suspendre leurs vêtements dans la tente pour qu'ils sèchent. En réalité, la tente est souvent l'un des endroits les plus humides que vous puissiez trouver en montagne. L'air y est confiné, la condensation s'accumule sur les parois et la chaleur reste faible. Si l'on ne gère pas correctement l'espace, les vêtements peuvent rester mouillés pendant des heures, voire devenir encore plus humides.</p>
                     
                     <p className="mb-4">Pour sécher efficacement à l'intérieur de la tente, il faut comprendre comment l'air circule et comment l'humidité se déplace. Il est conseillé de suspendre les vêtements en hauteur, là où l'air circule un peu mieux que près du sol, tout en évitant de les coller directement aux parois. Les parois sont souvent couvertes de gouttelettes ou de condensation qui retomberaient sur le tissu. Si la tente possède des aérations, il est préférable de rapprocher les vêtements de ces zones, sans jamais les toucher, car l'air qui entre peut faciliter le séchage en éliminant une partie de l'humidité. Lorsque la pluie faiblit, même légèrement, il est utile de laisser une petite ouverture pour créer un léger courant d'air. Ce mouvement subtil permet à l'air de circuler autour des vêtements et accélère le séchage, tout en évitant que l'humidité stagnante ne s'y accumule.</p>
@@ -221,25 +153,11 @@ export default function DryingGearPage() {
 
               {/* Method 3 Section */}
               <section id="method3" className="bg-white rounded-lg shadow-md p-8">
-                <h2 
-                  className="text-3xl font-bold text-gray-900 mb-6 cursor-pointer flex justify-between items-center hover:text-[#00A896] transition-colors duration-200"
-                  onClick={() => toggleSection('method3')}
-                >
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   <span>Profiter de la chaleur du camp : la méthode locale pour sécher ses vêtements en trek</span>
-                  <svg 
-                    className={`w-6 h-6 transition-transform duration-300 ${expandedSections.method3 ? 'rotate-180' : ''} animate-bounce`}
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </h2>
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.method3 ? 'max-h-[3000px]' : 'max-h-0'}`}
-                >
-                  <div className="prose prose-lg max-w-none text-gray-700">
+                <div>
+                  <div className="prose prose-xl max-w-none text-gray-700">
                     <p className="mb-4">Lors d'un trek sur le Kilimandjaro, gérer l'humidité est un défi quotidien, surtout pendant la saison des pluies Kilimandjaro. Même lorsque la pluie tombe sans interruption, il existe une astuce que les guides locaux connaissent bien : exploiter la chaleur autour du camp pour sécher les vêtements mouillés. Les zones situées près de la cuisine extérieure des camps sont légèrement plus chaudes que le reste du camp, et cette chaleur indirecte peut être utilisée pour accélérer le séchage des affaires.</p>
                     
                     <p className="mb-4">Pour utiliser cette méthode de façon sécurisée, il est essentiel de maintenir une distance d'au moins un mètre du feu. Placer un vêtement directement au-dessus des flammes ou trop près de la cuisson peut le brûler rapidement, surtout s'il est déjà humide. En le positionnant dans un espace proche mais sûr, la chaleur ambiante se diffuse autour du tissu, favorisant l'évaporation sans danger. Les guides recommandent également de retourner régulièrement les vêtements, afin que l'humidité ne reste pas piégée dans les fibres et que le séchage se fasse de manière homogène.</p>
@@ -253,25 +171,11 @@ export default function DryingGearPage() {
 
               {/* Method 4 Section */}
               <section id="method4" className="bg-white rounded-lg shadow-md p-8">
-                <h2 
-                  className="text-3xl font-bold text-gray-900 mb-6 cursor-pointer flex justify-between items-center hover:text-[#00A896] transition-colors duration-200"
-                  onClick={() => toggleSection('method4')}
-                >
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   <span>Le sac de secours : votre assurance anti-pluie pour le trek Kilimandjaro</span>
-                  <svg 
-                    className={`w-6 h-6 transition-transform duration-300 ${expandedSections.method4 ? 'rotate-180' : ''} animate-bounce`}
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </h2>
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.method4 ? 'max-h-[3000px]' : 'max-h-0'}`}
-                >
-                  <div className="prose prose-lg max-w-none text-gray-700">
+                <div>
+                  <div className="prose prose-xl max-w-none text-gray-700">
                     <p className="mb-4">Lors d'un trek Kilimandjaro, surtout pendant la saison des pluies, il est impossible de garantir que tous vos vêtements resteront secs. Même avec les meilleures méthodes pour sécher vos affaires, l'humidité et les averses peuvent rendre certains vêtements totalement inutilisables. C'est pour cette raison que chaque guide local recommande vivement de préparer un sac de secours étanche, un véritable "kit de survie sèche". Ce sac vous assure d'avoir toujours à disposition un ensemble de vêtements secs, essentiels pour rester au chaud et confortable, quelles que soient les conditions météorologiques.</p>
                     
                     <p className="mb-4">Dans ce sac étanche, il est crucial de conserver un ensemble complet : un t-shirt sec, une sous-couche thermique, une paire de chaussettes propres, un pantalon léger et une couche chaude supplémentaire. Ces vêtements ne doivent jamais être utilisés pour marcher ou grimper pendant la journée. Leur rôle est de vous protéger après une longue marche sous la pluie, de maintenir votre chaleur corporelle et de vous permettre de dormir confortablement. Même si tout le reste de votre sac est mouillé, ces vêtements restent intacts et vous offrent une sécurité essentielle face à l'humidité en montagne.</p>
@@ -285,25 +189,11 @@ export default function DryingGearPage() {
 
               {/* Method 5 Section */}
               <section id="method5" className="bg-white rounded-lg shadow-md p-8">
-                <h2 
-                  className="text-3xl font-bold text-gray-900 mb-6 cursor-pointer flex justify-between items-center hover:text-[#00A896] transition-colors duration-200"
-                  onClick={() => toggleSection('method5')}
-                >
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   <span>Profiter du vent et des accalmies : le séchage express en trek</span>
-                  <svg 
-                    className={`w-6 h-6 transition-transform duration-300 ${expandedSections.method5 ? 'rotate-180' : ''} animate-bounce`}
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </h2>
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.method5 ? 'max-h-[3000px]' : 'max-h-0'}`}
-                >
-                  <div className="prose prose-lg max-w-none text-gray-700">
+                <div>
+                  <div className="prose prose-xl max-w-none text-gray-700">
                     <p className="mb-4">Même pendant la saison des pluies sur le Kilimandjaro, il existe toujours de courtes périodes où le temps s'améliore légèrement. Une accalmie de quelques minutes ou un souffle de vent plus soutenu peut suffire à faire sécher vos vêtements mouillés et à rendre votre trek beaucoup plus confortable. Ces moments, bien utilisés, permettent de tirer parti des éléments naturels pour limiter l'humidité et garder vos affaires sèches.</p>
                     
                     <p className="mb-4">Le vent joue un rôle essentiel dans ce processus. Il agit comme un sèche-linge naturel, parfois même plus efficace que le soleil, surtout dans les zones froides et humides de la montagne. Lorsqu'un vêtement humide est exposé à un flux d'air constant, l'humidité qu'il contient s'évapore progressivement. Il suffit d'étirer le tissu et de l'exposer directement au vent pour augmenter la surface de contact avec l'air et accélérer le séchage. Les petits accessoires comme les chaussettes, les gants, les buffs ou les t-shirts légers bénéficient particulièrement de cette technique, car ils sèchent beaucoup plus vite lorsqu'ils sont correctement orientés face au vent.</p>
@@ -317,25 +207,11 @@ export default function DryingGearPage() {
 
               {/* Errors Section */}
               <section id="errors" className="bg-white rounded-lg shadow-md p-8">
-                <h2 
-                  className="text-3xl font-bold text-gray-900 mb-6 cursor-pointer flex justify-between items-center hover:text-[#00A896] transition-colors duration-200"
-                  onClick={() => toggleSection('errors')}
-                >
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   <span>Les erreurs les plus fréquentes des trekkeurs et comment les éviter</span>
-                  <svg 
-                    className={`w-6 h-6 transition-transform duration-300 ${expandedSections.errors ? 'rotate-180' : ''} animate-bounce`}
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </h2>
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.errors ? 'max-h-[3000px]' : 'max-h-0'}`}
-                >
-                  <div className="prose prose-lg max-w-none text-gray-700">
+                <div>
+                  <div className="prose prose-xl max-w-none text-gray-700">
                     <p className="mb-4">Lors d'un trek sur le Kilimandjaro, surtout pendant la saison des pluies, il est facile de commettre des erreurs qui aggravent l'humidité et rendent l'expérience beaucoup plus difficile. Beaucoup de randonneurs pensent que certaines habitudes sont sans conséquence, mais elles peuvent transformer un simple vêtement mouillé en véritable source d'inconfort ou de fatigue.</p>
                     
                     <p className="mb-4">Une erreur très courante est de laver ses vêtements pendant le trek. Bien que cela semble logique pour rester propre, en réalité, les conditions en altitude rendent le séchage extrêmement difficile. L'air est froid et humide, et même après plusieurs heures, les vêtements restent souvent détrempés. Laver ses affaires dans ces conditions revient donc à ajouter encore plus d'humidité et à compliquer le confort et la gestion thermique.</p>
@@ -353,25 +229,11 @@ export default function DryingGearPage() {
 
               {/* Conclusion Section */}
               <section id="conclusion" className="bg-white rounded-lg shadow-md p-8">
-                <h2 
-                  className="text-3xl font-bold text-gray-900 mb-6 cursor-pointer flex justify-between items-center hover:text-[#00A896] transition-colors duration-200"
-                  onClick={() => toggleSection('conclusion')}
-                >
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   <span>Conclusion : la pluie n'est pas l'ennemie, l'humidité oui</span>
-                  <svg 
-                    className={`w-6 h-6 transition-transform duration-300 ${expandedSections.conclusion ? 'rotate-180' : ''} animate-bounce`}
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </h2>
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.conclusion ? 'max-h-[3000px]' : 'max-h-0'}`}
-                >
-                  <div className="prose prose-lg max-w-none text-gray-700">
+                <div>
+                  <div className="prose prose-xl max-w-none text-gray-700">
                     <p className="mb-4">Lors d'un trek sur le Kilimandjaro, beaucoup de randonneurs considèrent la pluie comme le principal obstacle à leur confort. En réalité, ce n'est pas la pluie elle-même qui pose problème, mais l'humidité qu'elle entraîne et la manière dont elle est gérée. Un vêtement mouillé, mal séché ou laissé à l'air libre dans des conditions humides peut rapidement transformer une simple randonnée en une expérience inconfortable, fatigante et même risquée pour la santé.</p>
                     
                     <p className="mb-4">Avec de bonnes techniques et un peu d'organisation, il est tout à fait possible de rester sec et au chaud, même pendant la saison des pluies Kilimandjaro. Utiliser la chaleur corporelle, profiter intelligemment de la chaleur du camp, exploiter les courants d'air et le vent, savoir tirer parti des accalmies et conserver un sac de secours avec un ensemble de vêtements essentiels sont des stratégies simples mais efficaces. Ces méthodes, enseignées et utilisées quotidiennement par les guides locaux, permettent de minimiser l'humidité et de garder le confort tout au long du trek.</p>
@@ -383,25 +245,11 @@ export default function DryingGearPage() {
 
               {/* Tip Section */}
               <section id="tip" className="bg-white rounded-lg shadow-md p-8">
-                <h2 
-                  className="text-3xl font-bold text-gray-900 mb-6 cursor-pointer flex justify-between items-center hover:text-[#00A896] transition-colors duration-200"
-                  onClick={() => toggleSection('tip')}
-                >
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   <span>Conseil du guide local : anticiper l'humidité pour réussir son trek Kilimandjaro</span>
-                  <svg 
-                    className={`w-6 h-6 transition-transform duration-300 ${expandedSections.tip ? 'rotate-180' : ''} animate-bounce`}
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </h2>
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.tip ? 'max-h-[3000px]' : 'max-h-0'}`}
-                >
-                  <div className="prose prose-lg max-w-none text-gray-700">
+                <div>
+                  <div className="prose prose-xl max-w-none text-gray-700">
                     <p className="mb-4">Lors d'un trek Kilimandjaro, la météo peut changer très rapidement. Pluie, vent, brouillard et humidité font partie de l'expérience, surtout pendant la saison des pluies Kilimandjaro. Comme le répète souvent un guide local : "On ne choisit pas la météo, mais on choisit comment on s'y prépare. Celui qui anticipe gagne toujours contre l'humidité." Cette phrase illustre parfaitement l'approche à adopter pour rester sec et confortable en montagne.</p>
                     
                     <p className="mb-4">Anticiper signifie utiliser toutes les techniques disponibles pour gérer l'humidité et protéger ses vêtements et accessoires de trek. Cela inclut préparer un sac de secours avec un ensemble de vêtements secs essentiels, exploiter la chaleur corporelle et la chaleur du camp, profiter des accalmies et du vent, et éviter les erreurs courantes comme laisser sécher ses habits dans une tente saturée ou marcher en vêtements mouillés. Chaque geste compte pour minimiser l'humidité et préserver votre énergie tout au long de l'ascension.</p>

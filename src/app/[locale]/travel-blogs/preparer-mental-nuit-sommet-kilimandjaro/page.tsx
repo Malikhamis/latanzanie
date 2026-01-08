@@ -437,8 +437,15 @@ export default function PreparerMentalNuitSommetKilimandjaroPage() {
     }
   ]
 
-  function renderContent(content: string) {
-    const lines = content.split(/\r?\n/)
+  function renderContent(content: string, locale: string) {
+    // Add markers for terms we want to link
+    let processedContent = content
+      .replace(/\baltitude\b/g, '###ALTITUDE_LINK###')
+      .replace(/\bcondition physique\b/g, '###CONDITION_PHYSIQUE_LINK###')
+      .replace(/\bmal aigu des montagnes\b/gi, '###MAM_LINK###')
+      .replace(/\bacclimatation\b/g, '###ACCLIMATATION_LINK###');
+    
+    const lines = processedContent.split(/\r?\n/)
     const nodes: any[] = []
     let i = 0
     let keyIndex = 0
@@ -450,9 +457,21 @@ export default function PreparerMentalNuitSommetKilimandjaroPage() {
           blockLines.push(lines[i].replace(/^>\s?/, ''))
           i++
         }
+        
+        // Process blockquotes for links
+        const processedBlockLines = blockLines.map(line => 
+          line
+            .replace(/###ALTITUDE_LINK###/g, `<Link href="/${locale}/travel-blogs/preparer-son-corps-altitude-kilimandjaro" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">altitude</Link>`)
+            .replace(/###CONDITION_PHYSIQUE_LINK###/g, `<Link href="/${locale}/travel-blogs/niveau-physique-kilimandjaro" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">condition physique</Link>`)
+            .replace(/###MAM_LINK###/g, `<Link href="/${locale}/travel-blogs/sante-en-altitude" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">mal aigu des montagnes</Link>`)
+            .replace(/###ACCLIMATATION_LINK###/g, `<Link href="/${locale}/travel-blogs/acclimatation-kilimanjar" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">acclimatation</Link>`)
+        );
+        
         nodes.push(
           <blockquote key={`b-${keyIndex++}`} className="border-l-4 pl-4 italic text-sm text-black mb-4">
-            {blockLines.join('\n')}
+            {processedBlockLines.map((line, idx) => (
+              <p key={idx} className="mb-2 last:mb-0">{parseLinksToJSX(line)}</p>
+            ))}
           </blockquote>
         )
       } else if (lines[i].trim() === '') {
@@ -460,13 +479,20 @@ export default function PreparerMentalNuitSommetKilimandjaroPage() {
       } else if (lines[i].startsWith('• ')) {
         const listItems: string[] = []
         while (i < lines.length && lines[i].startsWith('• ')) {
-          listItems.push(lines[i].substring(2))
+          // Process list items for links
+          let processedItem = lines[i].substring(2)
+            .replace(/###ALTITUDE_LINK###/g, `<a href="/${locale}/travel-blogs/preparer-son-corps-altitude-kilimandjaro" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">altitude</a>`)
+            .replace(/###CONDITION_PHYSIQUE_LINK###/g, `<a href="/${locale}/travel-blogs/niveau-physique-kilimandjaro" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">condition physique</a>`)
+            .replace(/###MAM_LINK###/g, `<a href="/${locale}/travel-blogs/sante-en-altitude" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">mal aigu des montagnes</a>`)
+            .replace(/###ACCLIMATATION_LINK###/g, `<a href="/${locale}/travel-blogs/acclimatation-kilimanjar" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">acclimatation</a>`);
+          
+          listItems.push(processedItem);
           i++
         }
         nodes.push(
           <ul key={`ul-${keyIndex++}`} className="list-disc list-inside ml-4 mb-4">
             {listItems.map((item, idx) => (
-              <li key={`li-${keyIndex++}-${idx}`} className="mb-1">{item}</li>
+              <li key={`li-${keyIndex++}-${idx}`} className="mb-1" dangerouslySetInnerHTML={{__html: item}}></li>
             ))}
           </ul>
         )
@@ -476,10 +502,16 @@ export default function PreparerMentalNuitSommetKilimandjaroPage() {
           paragraphLines.push(lines[i])
           i++
         }
+        
+        // Process paragraph content for links
+        const processedParagraph = paragraphLines.join('\n')
+          .replace(/###ALTITUDE_LINK###/g, `<Link href="/${locale}/travel-blogs/preparer-son-corps-altitude-kilimandjaro" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">altitude</Link>`)
+          .replace(/###CONDITION_PHYSIQUE_LINK###/g, `<Link href="/${locale}/travel-blogs/niveau-physique-kilimandjaro" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">condition physique</Link>`)
+          .replace(/###MAM_LINK###/g, `<Link href="/${locale}/travel-blogs/sante-en-altitude" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">mal aigu des montagnes</Link>`)
+          .replace(/###ACCLIMATATION_LINK###/g, `<Link href="/${locale}/travel-blogs/acclimatation-kilimanjar" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">acclimatation</Link>`);
+        
         nodes.push(
-          <p key={`p-${keyIndex++}`} className="mb-4">
-            {paragraphLines.join('\n')}
-          </p>
+          <p key={`p-${keyIndex++}`} className="mb-4">{parseLinksToJSX(processedParagraph)}</p>
         )
       }
     }
@@ -487,13 +519,43 @@ export default function PreparerMentalNuitSommetKilimandjaroPage() {
     return nodes
   }
 
+  // Function to parse string links to JSX elements
+  function parseLinksToJSX(text: string) {
+    // Split text by Link tags
+    const parts = text.split(/(<Link\s+[^>]*href\s*=\s*["'][^"']*["'][^>]*className\s*=\s*["'][^"']*["'][^>]*>[^<]*<\/Link>)/g);
+    
+    return parts.map((part, index) => {
+      // Check if this part is a Link element
+      const linkMatch = part.match(/<Link\s+[^>]*href\s*=\s*["']([^"']*)["'][^>]*className\s*=\s*["']([^"']*)["'][^>]*>([^<]*)<\/Link>/);
+      
+      if (linkMatch) {
+        const href = linkMatch[1];
+        const className = linkMatch[2];
+        const children = linkMatch[3];
+        
+        return (
+          <Link 
+            key={`link-${index}`} 
+            href={href} 
+            className={className}
+          >
+            {children}
+          </Link>
+        );
+      } else {
+        // Return plain text
+        return part;
+      }
+    });
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero section with back-link */}
       <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero4.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
-            {isFrench ? '← Retour aux blogs' : '← Back to blogs'}
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+            {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
       </section>
@@ -540,7 +602,7 @@ export default function PreparerMentalNuitSommetKilimandjaroPage() {
                   {sections.map(s => (
                     <article key={s.id} id={s.id} className="mb-8">
                       <h2 className="text-2xl font-semibold mb-2">{s.title}</h2>
-                      <div className="prose max-w-none text-black">{renderContent(s.content)}</div>
+                      <div className="prose max-w-none text-black">{renderContent(s.content, locale)}</div>
                     </article>
                   ))}
                 </div>

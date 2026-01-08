@@ -55,7 +55,87 @@ const EN_SECTIONS: Record<string,string> = {
   season: `Select boots considering season and route; local guides can advise.`
 }
 
-function renderContent(c: string){return c.split('\n\n').map((b,i)=> b.trim().startsWith('>') ? <blockquote key={i} className="pl-4 border-l-4 italic">{b.replace(/^>\s?/,'')}</blockquote> : <p key={i} className="my-4">{b}</p>)}
+function renderContent(content: string, locale: string){
+  // Process 'forêt tropicale' and similar terms
+  const forestRegex = /(forêt tropicale|Forêt tropicale|forêt tropicale humide|Forêt tropicale humide)/g;
+  let processedContent = content;
+  
+  // Find all matches and replace with temporary markers
+  const matches: { match: string; index: number }[] = [];
+  let match;
+  let index = 0;
+  
+  while ((match = forestRegex.exec(processedContent)) !== null) {
+    matches.push({
+      match: match[0],
+      index: match.index
+    });
+  }
+  
+  // Process matches in reverse order to maintain correct indices
+  for (let i = matches.length - 1; i >= 0; i--) {
+    const match = matches[i];
+    const before = processedContent.substring(0, match.index);
+    const after = processedContent.substring(match.index + match.match.length);
+    processedContent = before + `###FOREST_TEMP_LINK_${i}###` + after;
+  }
+  
+  // Split the content by paragraphs
+  const paragraphs = processedContent.split('\n\n');
+  
+  return paragraphs.map((paragraph, i) => {
+    if (paragraph.trim().startsWith('>')) {
+      // Handle blockquotes
+      const blockContent = paragraph.replace(/^>\s?/, '');
+      
+      // Process temporary markers in blockquote content
+      const blockParts = blockContent.split(/(###FOREST_TEMP_LINK_\d+###)/);
+      const blockElements = blockParts.map((part, idx) => {
+        if (part.startsWith('###FOREST_TEMP_LINK_') && part.endsWith('###')) {
+          const indexMatch = part.match(/###FOREST_TEMP_LINK_(\d+)###/);
+          const index = indexMatch ? parseInt(indexMatch[1], 10) : 0;
+          const originalMatch = matches[index];
+          
+          return (
+            <Link 
+              key={`forest-block-${i}-${idx}`} 
+              href={`/${locale}/travel-blogs/zones-climatiques-kilimandjaro`} 
+              className="text-[#00A896] hover:text-[#008576] font-medium font-medium"
+            >
+              {originalMatch ? originalMatch.match : 'forêt tropicale'}
+            </Link>
+          );
+        }
+        return part;
+      });
+      
+      return <blockquote key={i} className="pl-4 border-l-4 italic">{blockElements}</blockquote>;
+    } else {
+      // Process temporary markers in paragraph content
+      const parts = paragraph.split(/(###FOREST_TEMP_LINK_\d+###)/);
+      const elements = parts.map((part, idx) => {
+        if (part.startsWith('###FOREST_TEMP_LINK_') && part.endsWith('###')) {
+          const indexMatch = part.match(/###FOREST_TEMP_LINK_(\d+)###/);
+          const index = indexMatch ? parseInt(indexMatch[1], 10) : 0;
+          const originalMatch = matches[index];
+          
+          return (
+            <Link 
+              key={`forest-${i}-${idx}`} 
+              href={`/${locale}/travel-blogs/zones-climatiques-kilimandjaro`} 
+              className="text-[#00A896] hover:text-[#008576] font-medium font-medium"
+            >
+              {originalMatch ? originalMatch.match : 'forêt tropicale'}
+            </Link>
+          );
+        }
+        return part;
+      });
+      
+      return <p key={i} className="my-4">{elements}</p>;
+    }
+  });
+}
 
 export default function ShoesPage({ params }: { params: { locale?: string } }) {
   const locale = useLocale() || params?.locale || 'fr'
@@ -68,12 +148,12 @@ export default function ShoesPage({ params }: { params: { locale?: string } }) {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero5.jpg')" }}>
+      <section className="relative hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/preparation-hero.jpg')" }}>
         <div className="absolute inset-0 -z-10">
-          <img src="/images/hero5.jpg" alt="" className="w-full h-full object-cover" />
+          <img src="/images/preparation-hero.jpg" alt="" className="w-full h-full object-cover" />
         </div>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-white mb-6 inline-flex items-center text-sm font-medium">← {locale === 'fr' ? 'Retour aux blogs' : 'Back to blogs'}</Link>
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-white mb-6 inline-flex items-center text-sm font-medium">← {locale === 'fr' ? 'Retour aux blogs' : 'Back to blogs'}</Link>
         </div>
       </section>
 
@@ -108,7 +188,7 @@ export default function ShoesPage({ params }: { params: { locale?: string } }) {
                 {sections.map(s => (
                   <article key={s.id} id={s.id} className="mb-8">
                     <h2 className="text-2xl font-semibold mb-2">{s.title}</h2>
-                    <div className="prose max-w-none text-black" style={{ whiteSpace: 'pre-wrap' }}>{renderContent(s.content)}</div>
+                    <div className="prose max-w-none text-black" style={{ whiteSpace: 'pre-wrap' }}>{renderContent(s.content, locale)}</div>
                   </article>
                 ))}
               </div>

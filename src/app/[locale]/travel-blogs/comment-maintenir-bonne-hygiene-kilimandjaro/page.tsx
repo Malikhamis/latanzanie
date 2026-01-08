@@ -6,6 +6,49 @@ import { useLocale, useTranslations } from 'next-intl'
 import AuthorMeta from '@/components/ui/AuthorMeta'
 import TOC from '@/components/ui/TOC'
 
+// Helper function to process route links in text
+function processRouteLinks(text: string, locale: string) {
+  // Split text by the route names to create an array of parts
+  const parts = text.split(/(Machame|Lemosho|Marangu)/gi);
+  
+  return parts.map((part, index) => {
+    const lowerPart = part.toLowerCase();
+    if (lowerPart === 'machame') {
+      return (
+        <Link 
+          key={`route-link-${index}`}
+          href={`/${locale}/trips/machame-route`}
+          className="text-[#00A896] hover:text-[#008576] font-medium font-medium"
+        >
+          {part}
+        </Link>
+      );
+    } else if (lowerPart === 'lemosho') {
+      return (
+        <Link 
+          key={`route-link-${index}`}
+          href={`/${locale}/trips/lemosho-route`}
+          className="text-[#00A896] hover:text-[#008576] font-medium font-medium"
+        >
+          {part}
+        </Link>
+      );
+    } else if (lowerPart === 'marangu') {
+      return (
+        <Link 
+          key={`route-link-${index}`}
+          href={`/${locale}/trips/marangu-route`}
+          className="text-[#00A896] hover:text-[#008576] font-medium font-medium"
+        >
+          {part}
+        </Link>
+      );
+    } else {
+      return part;
+    }
+  });
+}
+
 const contentFr = `Comment maintenir une bonne hygiène personnelle pendant l’ascension du Kilimandjaro ?
 
 Guide pratique par un guide local du Kilimandjaro
@@ -254,7 +297,7 @@ export default function CommentMaintenirPage() {
 	const title = t('title')
 	const subtitle = t('subtitle')
 	const meta = { author: t('meta.author'), date: t('meta.date'), readingTime: t('meta.readingTime') }
-	function renderContent(content: string) {
+	function renderContent(content: string, locale: string) {
 		const lines = content.split(/\r?\n/)
 		const nodes: any[] = []
 		let i = 0
@@ -283,7 +326,7 @@ export default function CommentMaintenirPage() {
 					if (para.length) {
 						nodes.push(
 							<p key={`p-${keyIndex++}`} className="mb-2 text-black">
-								{para.join(' ')}
+								{processRouteLinks(para.join(' '), locale)}
 							</p>
 						)
 					}
@@ -305,9 +348,9 @@ export default function CommentMaintenirPage() {
 
 	return (
 		<div className="min-h-screen bg-white">
-			<section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero5.jpg')" }}>
+			<section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hygiene-hero.jpg')" }}>
 				<div className="container mx-auto px-4">
-					<Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+					<Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
 						{locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
 					</Link>
 				</div>
@@ -345,7 +388,7 @@ export default function CommentMaintenirPage() {
 									{sections.map(s => (
 										<article key={s.id} id={s.id} className="mb-8">
 											<h2 className="text-2xl font-semibold mb-2">{s.title}</h2>
-														<div className="prose max-w-none text-black">{renderContent(s.content)}</div>
+														<div className="prose max-w-none text-black">{renderContent(s.content, locale)}</div>
 										</article>
 									))}
 								</div>
@@ -364,7 +407,7 @@ export default function CommentMaintenirPage() {
 
 								<div className="grid md:grid-cols-3 gap-8">
 									<div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-										<div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/marangu-route.jpg')" }}></div>
+										<div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/hygiene-hero.jpg')" }}></div>
 										<div className="p-6">
 											<div className="flex justify-between items-start mb-4">
 												<div>
@@ -385,7 +428,7 @@ export default function CommentMaintenirPage() {
 									</div>
 
 									<div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-										<div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/lemosho-route.jpg')" }}></div>
+										<div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/hygiene-hero.jpg')" }}></div>
 										<div className="p-6">
 											<div className="flex justify-between items-start mb-4">
 												<div>
@@ -406,7 +449,7 @@ export default function CommentMaintenirPage() {
 									</div>
 
 									<div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-										<div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/kilimanjaro-umbwe.jpg')" }}></div>
+										<div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/hygiene-hero.jpg')" }}></div>
 										<div className="p-6">
 											<div className="flex justify-between items-start mb-4">
 												<div>

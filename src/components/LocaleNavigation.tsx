@@ -360,7 +360,7 @@ export function LocaleNavigation({ parks }: LocaleNavigationProps) {
                         <h4 className="font-medium text-gray-800">
                           {t('contactModal.emailUs')}
                         </h4>
-                        <p className="text-gray-600">info@latanzanieaucourdelanature.com</p>
+                        <p className="text-gray-600">info@latanzanieaucoeurdelanature.com</p>
                       </div>
                     </div>
                     

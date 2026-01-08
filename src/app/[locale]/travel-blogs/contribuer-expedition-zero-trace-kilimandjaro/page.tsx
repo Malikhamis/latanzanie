@@ -20,7 +20,7 @@ const FR_TITLES: Record<string,string> = {
 const FR_SECTIONS: Record<string,string> = {
   overview: `Gravir le Mont Kilimandjaro est une aventure unique, mais elle implique une grande responsabilité. Le concept Zéro Trace, ou Leave No Trace, ne se limite pas à la protection de la nature : il inclut aussi le respect des porteurs, guides et communautés locales. Chaque randonneur peut agir de manière concrète pour réduire son impact et garantir que la montagne reste intacte pour les générations futures.
 
-En tant que guide local, voici les principales façons dont les voyageurs peuvent contribuer activement à une expédition Zéro Trace.`,
+En tant que ${'###GUIDE_LOCAL_LINK###'}, voici les principales façons dont les voyageurs peuvent contribuer activement à une expédition Zéro Trace.`,
   
   preparation: `La contribution d'un voyageur à une expédition Zéro Trace commence bien avant d'arriver au pied du Kilimandjaro. Une préparation intelligente de l'équipement permet de réduire l'impact environnemental tout en facilitant le travail des porteurs.
 
@@ -54,7 +54,7 @@ En respectant ces règles simples, les voyageurs contribuent à préserver une e
 
 Une expédition harmonieuse est toujours le résultat d'un respect mutuel entre voyageurs, guides et porteurs.`,
   
-  mindset: `Au-delà des règles pratiques, le Zéro Trace est avant tout un état d'esprit. Être attentif aux consignes du guide local, comprendre les contraintes de l'altitude et accepter certaines limites font partie de l'expérience.
+  mindset: `Au-delà des règles pratiques, le Zéro Trace est avant tout un état d'esprit. Être attentif aux consignes du ${'###GUIDE_LOCAL_LINK###'}, comprendre les contraintes de l'altitude et accepter certaines limites font partie de l'expérience.
 
 Chaque action compte : un déchet ramassé, un sentier respecté, une consigne suivie. Cette conscience transforme le voyageur en acteur actif de la préservation du Kilimandjaro, et non en simple consommateur d'aventure.`,
   
@@ -75,7 +75,7 @@ const EN_TITLES: Record<string,string> = {
 const EN_SECTIONS: Record<string,string> = {
   overview: `Climbing Mount Kilimanjaro is a unique adventure, but it involves great responsibility. The Zero Trace concept, or Leave No Trace, goes beyond protecting nature: it also includes respecting porters, guides, and local communities. Every hiker can take concrete action to reduce their impact and ensure the mountain remains intact for future generations.
 
-As a local guide, here are the main ways travelers can actively contribute to a Zero Trace expedition.`,
+As a ${'###GUIDE_LOCAL_LINK###'}, here are the main ways travelers can actively contribute to a Zero Trace expedition.`,
   
   preparation: `A traveler's contribution to a Zero Trace expedition begins well before arriving at the foot of Kilimanjaro. Intelligent equipment preparation helps reduce environmental impact while facilitating porters' work.
 
@@ -109,7 +109,7 @@ Avoiding overloading porters, respecting their pace and rest times, and not hand
 
 A harmonious expedition is always the result of mutual respect between travelers, guides, and porters.`,
   
-  mindset: `Beyond practical rules, Zero Trace is above all a mindset. Being attentive to local guide instructions, understanding altitude constraints, and accepting certain limitations are part of the experience.
+  mindset: `Beyond practical rules, Zero Trace is above all a mindset. Being attentive to ${'###GUIDE_LOCAL_LINK###'} instructions, understanding altitude constraints, and accepting certain limitations are part of the experience.
 
 Every action counts: picking up litter, respecting trails, following instructions. This awareness transforms the traveler into an active actor in preserving Kilimanjaro, rather than a simple adventure consumer.`,
   
@@ -170,8 +170,217 @@ export default function ContribuerExpeditionZeroTraceKilimandjaroPage() {
     }
   ]
 
+  // Helper function to process KPAP links in text
+  function processKpapLinks(text: string, keyPrefix: string = ''): string {
+    const parts = text.split('###KPAP_LINK###');
+    
+    if (parts.length <= 1) {
+      return text; // Return the original string if no KPAP found
+    }
+    
+    // Join the parts with a temporary placeholder that won't conflict with Zero Trace markers
+    let result = '';
+    for (let j = 0; j < parts.length; j++) {
+      result += parts[j];
+      if (j < parts.length - 1) {
+        // Add a temporary marker that we'll replace later with the actual link
+        result += `###KPAP_TEMP_LINK_${keyPrefix}${j}###`;
+      }
+    }
+    
+    return result;
+  }
+
+  // Helper function to convert temporary KPAP markers to actual links
+  function convertKpapTempMarkersToLinks(text: string | (string | JSX.Element)[]): (string | JSX.Element)[] {
+    if (typeof text === 'string') {
+      // If it's a string, convert any temporary markers to links
+      const parts = text.split(/(###KPAP_TEMP_LINK_[^#]+###)/);
+      const result: (string | JSX.Element)[] = [];
+      
+      for (const part of parts) {
+        if (part.startsWith('###KPAP_TEMP_LINK_') && part.endsWith('###')) {
+          // Extract the key prefix from the temporary marker
+          const keyMatch = part.match(/###KPAP_TEMP_LINK_(.+?)###/);
+          const keyPrefix = keyMatch ? keyMatch[1] : 'default-';
+          
+          result.push(
+            <Link 
+              key={`kpap-${keyPrefix}`} 
+              href="https://kiliporters.org/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-pink-600 hover:text-pink-800 font-semibold"
+            >
+              KPAP
+            </Link>
+          );
+        } else {
+          result.push(part);
+        }
+      }
+      return result;
+    } else {
+      // If it's already an array, process each element
+      const result: (string | JSX.Element)[] = [];
+      for (const element of text) {
+        if (typeof element === 'string') {
+          const converted = convertKpapTempMarkersToLinks(element);
+          result.push(...converted);
+        } else {
+          result.push(element);
+        }
+      }
+      return result;
+    }
+  }
+
+  // Helper function to process guide local links in text
+  function processGuideLocalLinks(text: string, keyPrefix: string = ''): string {
+    // Process 'guide local' first
+    let result = text;
+    const guideLocalParts = result.split('###GUIDE_LOCAL_LINK###');
+    
+    if (guideLocalParts.length > 1) {
+      result = '';
+      for (let j = 0; j < guideLocalParts.length; j++) {
+        result += guideLocalParts[j];
+        if (j < guideLocalParts.length - 1) {
+          result += `###GUIDE_LOCAL_TEMP_LINK_${keyPrefix}${j}###`;
+        }
+      }
+    }
+    
+    // Process 'local guide' next
+    const localGuideParts = result.split('###LOCAL_GUIDE_LINK###');
+    
+    if (localGuideParts.length > 1) {
+      result = '';
+      for (let j = 0; j < localGuideParts.length; j++) {
+        result += localGuideParts[j];
+        if (j < localGuideParts.length - 1) {
+          result += `###LOCAL_GUIDE_TEMP_LINK_${keyPrefix}${j}###`;
+        }
+      }
+    }
+    
+    return result;
+  }
+
+  // Helper function to convert temporary guide local markers to actual links
+  function convertGuideLocalTempMarkersToLinks(text: string | (string | JSX.Element)[], locale: string): (string | JSX.Element)[] {
+    if (typeof text === 'string') {
+      // First process 'guide local' markers
+      let processedText = text;
+      const guideLocalParts = processedText.split(/(###GUIDE_LOCAL_TEMP_LINK_[^#]+###)/);
+      let guideLocalResult: (string | JSX.Element)[] = [];
+      
+      for (const part of guideLocalParts) {
+        if (part.startsWith('###GUIDE_LOCAL_TEMP_LINK_') && part.endsWith('###')) {
+          // Extract the key prefix from the temporary marker
+          const keyMatch = part.match(/###GUIDE_LOCAL_TEMP_LINK_(.+?)###/);
+          const keyPrefix = keyMatch ? keyMatch[1] : 'default-';
+          
+          guideLocalResult.push(
+            <Link 
+              key={`guide-local-${keyPrefix}`} 
+              href={`/${locale}/about#heritage`} 
+              className="text-[#00A896] hover:text-[#008576] font-medium"
+            >
+              guide local
+            </Link>
+          );
+        } else {
+          guideLocalResult.push(part);
+        }
+      }
+      
+      // Now process 'local guide' markers in the result
+      let finalResult: (string | JSX.Element)[] = [];
+      for (const element of guideLocalResult) {
+        if (typeof element === 'string') {
+          const localGuideParts = element.split(/(###LOCAL_GUIDE_TEMP_LINK_[^#]+###)/);
+          
+          for (const localPart of localGuideParts) {
+            if (localPart.startsWith('###LOCAL_GUIDE_TEMP_LINK_') && localPart.endsWith('###')) {
+              // Extract the key prefix from the temporary marker
+              const keyMatch = localPart.match(/###LOCAL_GUIDE_TEMP_LINK_(.+?)###/);
+              const keyPrefix = keyMatch ? keyMatch[1] : 'default-';
+              
+              finalResult.push(
+                <Link 
+                  key={`local-guide-${keyPrefix}`} 
+                  href={`/${locale}/about#heritage`} 
+                  className="text-[#00A896] hover:text-[#008576] font-medium"
+                >
+                  local guide
+                </Link>
+              );
+            } else {
+              finalResult.push(localPart);
+            }
+          }
+        } else {
+          finalResult.push(element);
+        }
+      }
+      
+      return finalResult;
+    } else {
+      // If it's already an array, process each element
+      const result: (string | JSX.Element)[] = [];
+      for (const element of text) {
+        if (typeof element === 'string') {
+          const converted = convertGuideLocalTempMarkersToLinks(element, locale);
+          result.push(...converted);
+        } else {
+          result.push(element);
+        }
+      }
+      return result;
+    }
+  }
+
+  function processZeroTraceLinks(text: string, keyPrefix: string = '') {
+    const parts = text.split('###ZERO_TRACE_LINK###');
+    
+    if (parts.length <= 1) {
+      return [text];
+    }
+    
+    const result = [];
+    
+    for (let j = 0; j < parts.length; j++) {
+      if (j > 0) {
+        // Add the link element between parts
+        result.push(
+          <Link 
+            key={`${keyPrefix}link-${j}`} 
+            href="https://lnt.org/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-[#00A896] hover:text-[#008576] font-medium"
+          >
+            Zéro Trace
+          </Link>
+        );
+      }
+      result.push(parts[j]);
+    }
+    
+    return result;
+  }
+
   function renderContent(content: string) {
-    const lines = content.split(/\r?\n/)
+    // First, let's replace 'guide local' and 'local guide' with special markers that we'll convert to links
+    let markedContent = content.replace(/guide local/gi, '###GUIDE_LOCAL_LINK###');
+    markedContent = markedContent.replace(/local guide/gi, '###LOCAL_GUIDE_LINK###');
+    // Then, replace 'KPAP' with a special marker that we'll convert to links
+    markedContent = markedContent.replace(/KPAP/g, '###KPAP_LINK###');
+    // Then, replace 'Zéro Trace' with a special marker that we'll convert to links
+    markedContent = markedContent.replace(/Zéro Trace/g, '###ZERO_TRACE_LINK###');
+    
+    const lines = markedContent.split(/\r?\n/)
     const nodes: any[] = []
     let i = 0
     let keyIndex = 0
@@ -183,9 +392,25 @@ export default function ContribuerExpeditionZeroTraceKilimandjaroPage() {
           blockLines.push(lines[i].replace(/^>\s?/, ''))
           i++
         }
+        // Process each line in blockLines to handle the special markers
+        const processedBlockLines = blockLines.map((line, idx) => 
+          convertGuideLocalTempMarkersToLinks(
+            convertKpapTempMarkersToLinks(
+              processZeroTraceLinks(
+                processKpapLinks(
+                  processGuideLocalLinks(line, `block-${keyIndex}-${idx}-`),
+                  `block-${keyIndex}-${idx}-kpap-`
+                ), 
+                `block-${keyIndex}-${idx}-`
+              )
+            ),
+            locale
+          )
+        ).reduce((acc, curr) => [...acc, ...curr], []);
+        
         nodes.push(
           <blockquote key={`b-${keyIndex++}`} className="border-l-4 pl-4 italic text-sm text-black mb-4">
-            {blockLines.join('\n')}
+            {processedBlockLines}
           </blockquote>
         )
       } else if (lines[i].trim() === '') {
@@ -196,9 +421,25 @@ export default function ContribuerExpeditionZeroTraceKilimandjaroPage() {
           paragraphLines.push(lines[i])
           i++
         }
+        // Process each paragraph line to handle the special markers
+        const processedParagraphLines = paragraphLines.map((line, idx) => 
+          convertGuideLocalTempMarkersToLinks(
+            convertKpapTempMarkersToLinks(
+              processZeroTraceLinks(
+                processKpapLinks(
+                  processGuideLocalLinks(line, `para-${keyIndex}-${idx}-`),
+                  `para-${keyIndex}-${idx}-kpap-`
+                ), 
+                `para-${keyIndex}-${idx}-`
+              )
+            ),
+            locale
+          )
+        ).reduce((acc, curr) => [...acc, ...curr], []);
+        
         nodes.push(
           <p key={`p-${keyIndex++}`} className="mb-4">
-            {paragraphLines.join('\n')}
+            {processedParagraphLines}
           </p>
         )
       }
@@ -210,10 +451,10 @@ export default function ContribuerExpeditionZeroTraceKilimandjaroPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero section with back-link */}
-      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero4.jpg')" }}>
+      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/zero-expedition hero.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
-            {isFrench ? '← Retour aux blogs' : '← Back to blogs'}
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+            {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
       </section>
@@ -248,10 +489,16 @@ export default function ContribuerExpeditionZeroTraceKilimandjaroPage() {
             <div className="flex-1 space-y-6">
               <div className="mb-8">
                 <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight text-black">
-                  {isFrench ? FR_TITLES.overview : EN_TITLES.overview}
+                  {isFrench 
+                    ? convertGuideLocalTempMarkersToLinks(convertKpapTempMarkersToLinks(processZeroTraceLinks(processKpapLinks(processGuideLocalLinks(FR_TITLES.overview, 'title-1-'), 'title-1-kpap-'), 'title-1-')), locale)
+                    : convertGuideLocalTempMarkersToLinks(convertKpapTempMarkersToLinks(processZeroTraceLinks(processKpapLinks(processGuideLocalLinks(EN_TITLES.overview as string, 'title-2-'), 'title-2-kpap-'), 'title-2-')), locale)
+                  }
                 </h1>
                 <p className="text-base md:text-lg text-black max-w-3xl">
-                  {isFrench ? 'Contribuer activement à une expédition Zéro Trace sur le Kilimandjaro.' : 'Actively contributing to a Zero Trace expedition on Kilimanjaro.'}
+                  {isFrench 
+                    ? convertGuideLocalTempMarkersToLinks(convertKpapTempMarkersToLinks(processZeroTraceLinks(processKpapLinks(processGuideLocalLinks('Contribuer activement à une expédition Zéro Trace sur le Kilimandjaro.', 'p-1-'), 'p-1-kpap-'), 'p-1-')), locale)
+                    : convertGuideLocalTempMarkersToLinks(convertKpapTempMarkersToLinks(processZeroTraceLinks(processKpapLinks(processGuideLocalLinks('Actively contributing to a Zero Trace expedition on Kilimanjaro.', 'p-2-'), 'p-2-kpap-'), 'p-2-')), locale)
+                  }
                 </p>
               </div>
 
@@ -259,7 +506,12 @@ export default function ContribuerExpeditionZeroTraceKilimandjaroPage() {
                 <div>
                   {sections.map(s => (
                     <article key={s.id} id={s.id} className="mb-8">
-                      <h2 className="text-2xl font-semibold mb-2">{s.title}</h2>
+                      <h2 className="text-2xl font-semibold mb-2">
+                        {isFrench 
+                          ? convertGuideLocalTempMarkersToLinks(convertKpapTempMarkersToLinks(processZeroTraceLinks(processKpapLinks(processGuideLocalLinks(s.title, `title-${s.id}-`), `title-${s.id}-kpap-`), `title-${s.id}-`)), locale)
+                          : convertGuideLocalTempMarkersToLinks(convertKpapTempMarkersToLinks(processZeroTraceLinks(processKpapLinks(processGuideLocalLinks(s.title, `title-${s.id}-`), `title-${s.id}-kpap-`), `title-${s.id}-`)), locale)
+                        }
+                      </h2>
                       <div className="prose max-w-none text-black">{renderContent(s.content)}</div>
                     </article>
                   ))}
@@ -280,7 +532,7 @@ export default function ContribuerExpeditionZeroTraceKilimandjaroPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/marangu-route.jpg')" }}></div>
+              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/zero-expedition hero.jpg')" }}></div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>
@@ -299,7 +551,7 @@ export default function ContribuerExpeditionZeroTraceKilimandjaroPage() {
             </div>
 
             <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/lemosho-route.jpg')" }}></div>
+              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/zero-expedition hero.jpg')" }}></div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>
@@ -318,7 +570,7 @@ export default function ContribuerExpeditionZeroTraceKilimandjaroPage() {
             </div>
 
             <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/kilimanjaro-umbwe.jpg')" }}></div>
+              <div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/zero-expedition hero.jpg')" }}></div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>

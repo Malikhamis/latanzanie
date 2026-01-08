@@ -11,6 +11,8 @@ export default function LemoshoRoutePage() {
   const params = useParams() as { locale?: string };
   const currentLocale = params?.locale === 'fr' ? 'fr' : 'en';
 
+  const monthDropdownRef = useRef<HTMLDivElement>(null);
+
   // Hardcoded French content for Lemosho Route
   const safeT = (key: string, fallback = ''): string => {
     const frMessages: Record<string, string> = {
@@ -147,8 +149,614 @@ export default function LemoshoRoutePage() {
   
   // Fallback sample dates (small set) and parser to read translated month data if provided
   const fallbackSampleDates: Record<string, Array<any>> = {
+    '2026-Jan': [
+      { 
+        date: 'Jan 5, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Jan 12, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Jan 19, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Jan 26, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      }
+    ],
     '2026-Feb': [
-      { date: 'Feb 10, 2026', route: '7 Day - Lemosho Route', status: 'Open for bookings', price: 'from USD2,990', deposit: 'Deposit USD250' }
+      { 
+        date: 'Feb 2, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Feb 9, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Feb 16, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Feb 23, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      }
+    ],
+    '2026-Mar': [
+      { 
+        date: 'Mar 1, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Mar 8, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Mar 15, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Mar 22, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Mar 29, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      }
+    ],
+    '2026-Apr': [
+      { 
+        date: 'Apr 5, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Apr 12, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Waitlisted', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      }
+    ],
+    '2026-May': [
+      { 
+        date: 'May 3, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Limited availability', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'May 10, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Limited availability', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      }
+    ],
+    '2026-Jun': [
+      { 
+        date: 'Jun 7, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Jun 14, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Jun 21, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Jun 28, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      }
+    ],
+    '2026-Jul': [
+      { 
+        date: 'Jul 5, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Jul 12, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Jul 19, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Jul 26, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      }
+    ],
+    '2026-Aug': [
+      { 
+        date: 'Aug 2, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Aug 9, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Aug 16, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Aug 23, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Aug 30, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      }
+    ],
+    '2026-Sep': [
+      { 
+        date: 'Sep 5, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Sep 12, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Sep 19, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Sep 26, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      }
+    ],
+    '2026-Oct': [
+      { 
+        date: 'Oct 3, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Oct 10, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Oct 17, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Oct 24, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Oct 31, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      }
+    ],
+    '2026-Nov': [
+      { 
+        date: 'Nov 7, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Limited availability', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Nov 14, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Limited availability', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      }
+    ],
+    '2026-Dec': [
+      { 
+        date: 'Dec 5, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Dec 12, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Dec 19, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      },
+      { 
+        date: 'Dec 26, 2026', 
+        route: '7 Day - Lemosho Route', 
+        status: 'Open for bookings', 
+        prices: {
+          'Solo Traveler': '€2,200',
+          'Couple': '€2,000',
+          'Family Group': '€2,000',
+          'Friends Group': '€2,000',
+          'Corporate Group': '€2,000'
+        },
+        deposit: '€100' 
+      }
     ]
   }
 
@@ -178,8 +786,8 @@ export default function LemoshoRoutePage() {
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false)
   const [isWhenDropdownOpen, setIsWhenDropdownOpen] = useState(false)
   const [isItineraryDropdownOpen, setIsItineraryDropdownOpen] = useState(false)
-  const [selectedMonths, setSelectedMonths] = useState<string[]>([])
-  const [selectedItineraries, setSelectedItineraries] = useState<string[]>([])
+  const [selectedMonths, setSelectedMonths] = useState<string[]>(['2026-Jan'])
+  const [selectedItineraries, setSelectedItineraries] = useState<string[]>(['Solo Traveler', 'Couple'])
   const [isInquiryFormOpen, setIsInquiryFormOpen] = useState(false)
   const [showAllInclusions, setShowAllInclusions] = useState(false)
   
@@ -436,14 +1044,14 @@ export default function LemoshoRoutePage() {
       </div>
 
       {/* Mini Navbar - Mobile View Only */}
-      <div className="md:hidden bg-white py-6 sticky top-0 z-40 border-b border-gray-200">
-        <div className="flex justify-center px-4">
-          <div className="flex flex-wrap gap-4 justify-center">
-            <button className="text-gray-600 font-medium hover:text-gray-800 px-4 py-2 border-2 border-gray-300 rounded-lg flex items-center text-lg" onClick={() => scrollToSection(datesPricesRef)}>
+      <div className="md:hidden bg-white py-4 sticky top-0 z-40 border-b border-gray-200">
+        <div className="px-4">
+          <div className="grid grid-cols-2 gap-2">
+            <button className="bg-[#f8d7da] text-[#721c24] font-medium hover:bg-[#f1b0b7] px-4 py-2 border border-[#f5c6cb] rounded-lg flex items-center justify-center text-sm" onClick={() => scrollToSection(datesPricesRef)}>
               <Calendar className="mr-2 h-4 w-4" />
               {t('miniNavbar.datesAndPrices')}
             </button>
-            <button className="text-gray-600 font-medium hover:text-gray-800 px-4 py-2 border-2 border-gray-300 rounded-lg flex items-center text-lg" onClick={() => setIsInquiryFormOpen(true)}>
+            <button className="bg-[#00A896] text-white font-medium hover:bg-[#008576] px-4 py-2 border border-[#00A896] rounded-lg flex items-center justify-center text-sm" onClick={() => setIsInquiryFormOpen(true)}>
               <User className="mr-2 h-4 w-4" />
               {t('miniNavbar.proposeDate')}
             </button>
@@ -744,276 +1352,288 @@ export default function LemoshoRoutePage() {
         </div>
       </section>
 
-      {/* Dates & Prices Section */}
-      <section ref={datesPricesRef} className="py-16 bg-gradient-to-br from-[#F0FCF9] via-[#E8F8F5] to-[#DDF5F0]">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-[#72D9C4] to-[#00A896] bg-clip-text text-transparent">
-            {t('datesAndPrices.title')}
+      {/* Book Your Trip - Compact Design */}
+      <section ref={datesPricesRef} className="py-12 bg-white">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900">
+            Book your trip
           </h2>
           
-          <div className="max-w-5xl mx-auto">
-            {/* Top Cards - Group Discounts & Propose Date */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-              <div className="bg-white/80 backdrop-blur-sm border-2 border-[#B8EDE3] rounded-2xl p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300">
-                <div className="flex items-center mb-4">
-                  <div className="p-3 bg-gradient-to-br from-[#4DC5B5] to-[#00A896] rounded-xl mr-4">
-                    <Users className="h-6 w-6 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900">{t('datesAndPrices.groupDiscounts')}</h3>
+          {/* Compact Action Cards - Horizontal Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            <div 
+              onClick={() => setIsContactModalOpen(true)}
+              className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer"
+            >
+              <div className="flex items-center gap-3">
+                <div className="text-2xl">💰</div>
+                <div className="flex-1">
+                  <h3 className="font-semibold text-gray-900 text-base">Group Discounts</h3>
+                  <p className="text-gray-600 text-sm">Enquire for more details</p>
                 </div>
-                <p className="text-gray-600 mb-6 text-lg leading-relaxed">{t('datesAndPrices.dontSeeDates')}</p>
-                <button 
-                  onClick={() => setIsInquiryFormOpen(true)}
-                  className="bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full"
-                >
-                  {t('datesAndPrices.enquireButton')}
-                </button>
-              </div>
-              
-              <div className="bg-white/80 backdrop-blur-sm border-2 border-[#B8EDE3] rounded-2xl p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300">
-                <div className="flex items-center mb-4">
-                  <div className="p-3 bg-gradient-to-br from-[#4DC5B5] to-[#00A896] rounded-xl mr-4">
-                    <Calendar className="h-6 w-6 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900">{t('datesAndPrices.proposeNewDate')}</h3>
-                </div>
-                <p className="text-gray-600 mb-6 text-lg leading-relaxed">{t('datesAndPrices.proposeDateDescription')}</p>
-                <button 
-                  onClick={() => setIsInquiryFormOpen(true)}
-                  className="bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full"
-                >
-                  {t('datesAndPrices.proposeDateButton')}
-                </button>
               </div>
             </div>
             
-            {/* Bottom Section - When & Group Options */}
-            <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl border border-gray-200 overflow-hidden">
-              <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-200">
-                {/* When Section - Left Half */}
-                <div className="p-8">
-                  <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-2xl font-bold text-gray-900 flex items-center">
-                      <Calendar className="mr-2 h-6 w-6 text-[#00A896]" />
-                      {t('datesAndPrices.when')}
-                    </h3>
-                    <span className="bg-gradient-to-r from-[#E8F8F5] to-[#D0F0E8] text-[#008576] px-4 py-2 rounded-full text-sm font-bold shadow-sm">
-                      {selectedMonths.length} {t('datesAndPrices.selected')}
-                    </span>
-                  </div>
-                  <div className="mb-6">
-                    <button 
-                      onClick={() => setIsWhenDropdownOpen(!isWhenDropdownOpen)}
-                      className="w-full p-4 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00A896] focus:border-[#00A896] bg-white text-left flex justify-between items-center hover:border-[#72D9C4] transition-colors"
-                    >
-                      <span className="font-medium text-gray-700">{selectedMonths.length > 0 ? `${selectedMonths.length} ${t('datesAndPrices.selected')}` : t('datesAndPrices.selectMonth')}</span>
-                      <svg className={`transform transition-transform ${isWhenDropdownOpen ? 'rotate-180' : ''} fill-current h-5 w-5 text-gray-500`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                      </svg>
-                    </button>
-                    
-                    {isWhenDropdownOpen && (
-                      <div className="border-2 border-[#B8EDE3] rounded-xl mt-3 p-6 max-h-72 overflow-y-auto bg-gradient-to-br from-white to-[#E8F8F5] shadow-lg">
-                        <div className="grid grid-cols-3 gap-3">
-                          <div className="font-bold text-gray-900 col-span-3 mb-2 text-lg">2025</div>
-                          {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month, index) => {
-                            const monthKey = `2025-${month}`;
-                            const isSelected = selectedMonths.includes(monthKey);
-                            const translatedMonth = safeT(`months.${month}`, month);
-                            return (
-                              <button 
-                                key={monthKey} 
-                                onClick={() => {
-                                  if (isSelected) {
-                                    setSelectedMonths(selectedMonths.filter(m => m !== monthKey));
-                                  } else {
-                                    setSelectedMonths([...selectedMonths, monthKey]);
-                                  }
-                                }}
-                                className={`font-semibold py-3 px-2 rounded-lg transition-all duration-200 text-sm ${
-                                  isSelected 
-                                    ? 'bg-gradient-to-r from-[#72D9C4] to-[#00A896] text-white shadow-md transform scale-105' 
-                                    : 'bg-white hover:bg-[#E8F8F5] text-gray-700 border border-gray-200 hover:border-[#B8EDE3]'
-                                }`}
-                              >
-                                {translatedMonth}
-                              </button>
-                            );
-                          })}
-                          <div className="font-bold text-gray-900 col-span-3 mt-4 mb-2 text-lg">2026</div>
-                          {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month, index) => {
-                            const monthKey = `2026-${month}`;
-                            const isSelected = selectedMonths.includes(monthKey);
-                            const translatedMonth = safeT(`months.${month}`, month);
-                            return (
-                              <button 
-                                key={monthKey} 
-                                onClick={() => {
-                                  if (isSelected) {
-                                    setSelectedMonths(selectedMonths.filter(m => m !== monthKey));
-                                  } else {
-                                    setSelectedMonths([...selectedMonths, monthKey]);
-                                  }
-                                }}
-                                className={`font-semibold py-3 px-2 rounded-lg transition-all duration-200 text-sm ${
-                                  isSelected 
-                                    ? 'bg-gradient-to-r from-[#72D9C4] to-[#00A896] text-white shadow-md transform scale-105' 
-                                    : 'bg-white hover:bg-[#E8F8F5] text-gray-700 border border-gray-200 hover:border-[#B8EDE3]'
-                                }`}
-                              >
-                                {translatedMonth}
-                              </button>
-                            );
-                          })}
-                          <div className="font-bold text-gray-900 col-span-3 mt-4 mb-2 text-lg">2027</div>
-                          {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month, index) => {
-                            const monthKey = `2027-${month}`;
-                            const isSelected = selectedMonths.includes(monthKey);
-                            const translatedMonth = safeT(`months.${month}`, month);
-                            return (
-                              <button 
-                                key={monthKey} 
-                                onClick={() => {
-                                  if (isSelected) {
-                                    setSelectedMonths(selectedMonths.filter(m => m !== monthKey));
-                                  } else {
-                                    setSelectedMonths([...selectedMonths, monthKey]);
-                                  }
-                                }}
-                                className={`font-semibold py-3 px-2 rounded-lg transition-all duration-200 text-sm ${
-                                  isSelected 
-                                    ? 'bg-gradient-to-r from-[#72D9C4] to-[#00A896] text-white shadow-md transform scale-105' 
-                                    : 'bg-white hover:bg-[#E8F8F5] text-gray-700 border border-gray-200 hover:border-[#B8EDE3]'
-                                }`}
-                              >
-                                {translatedMonth}
-                              </button>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                  
-                  {/* Display selected date when months are selected */}
-                  {selectedMonths.length > 0 && (
-                    <div className="pt-6 border-t-2 border-gray-200 bg-gradient-to-br from-[#E8F8F5] to-[#D0F0E8] rounded-xl p-6 mt-4">
-                      {selectedMonths.map((monthKey) => {
-                        const [year, month] = monthKey.split('-')
-                        const heading = `${month} ${year}`
-                        const rawList = getDatesForMonth(monthKey)
-                        const list = (rawList || []).filter((item) => {
-                          if (!selectedItineraries || selectedItineraries.length === 0) return true
-                          return selectedItineraries.some(si => {
-                            try { return item.route && item.route.toLowerCase().includes(si.toLowerCase()) } catch (e) { return false }
-                          })
-                        })
-
-                        return (
-                          <div key={monthKey} className="mb-6">
-                            <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4 gap-4">
-                              <div>
-                                <h4 className="text-xl font-bold text-gray-900">{heading}</h4>
-                              </div>
-                              <span className="font-bold text-[#00A896] text-2xl">{t('datesAndPrices.fromPrice')}</span>
-                            </div>
-
-                            {list.length > 0 ? (
-                              <div className="space-y-4">
-                                {list.map((item, idx) => (
-                                  <div key={idx} className="bg-white rounded-2xl shadow transition-transform hover:-translate-y-1 p-3 md:p-5 flex flex-col md:flex-row items-start md:items-center gap-3 md:gap-4">
-                                    <div className="flex items-start gap-3 w-full md:w-auto">
-                                      <div className="rounded-md border border-gray-200 p-2 md:p-3 text-gray-700 bg-white flex-shrink-0">
-                                        <Calendar className="h-4 w-4 md:h-5 md:w-5" />
-                                      </div>
-                                      <div>
-                                        <div className="text-lg md:text-xl font-semibold leading-tight text-gray-900">{item.date}</div>
-                                        <div className="text-sm md:text-sm text-gray-500 mt-1">{item.route}</div>
-                                      </div>
-                                    </div>
-
-                                    <div className="flex-1 mt-2 md:mt-0 md:px-6 flex flex-col md:flex-row md:items-center md:justify-start gap-1 w-full">
-                                      <div className={`text-sm md:text-sm font-semibold ${item.status && item.status.includes('Open') ? 'text-green-500' : 'text-orange-500'}`}>{item.status}</div>
-                                      <div className="text-sm md:text-sm text-gray-500">{item.price} <span className="mx-2">|</span> {item.deposit}</div>
-                                    </div>
-
-                                    <div className="w-full md:w-auto flex items-center justify-between md:justify-end gap-3">
-                                      <button onClick={() => setIsContactModalOpen(true)} className="bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white px-6 py-3 rounded-[12px] shadow-sm w-full md:w-auto text-base font-semibold">{t('datesAndPrices.enquireButton')}</button>
-                                      <button className="text-gray-400 p-2 md:hidden" aria-label="expand">▾</button>
-                                      <button className="text-gray-400 p-2 hidden md:block" aria-label="expand">▾</button>
-                                    </div>
-                                  </div>
-                                ))}
-                              </div>
-                            ) : (
-                              <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg p-6 text-center">
-                                <p className="text-gray-700 text-lg mb-4">{safeT('datesAndPrices.noDeparturesMessage', 'No departures for this itinerary in the selected month.')}</p>
-                                <button onClick={() => setIsContactModalOpen(true)} className="bg-gradient-to-r from-[#72D9C4] to-[#00A896] text-white font-semibold py-2 px-6 rounded-lg">{safeT('datesAndPrices.contactUsCTA', 'Contact us to request alternate dates')}</button>
-                              </div>
-                            )}
-                          </div>
-                        )
-                      })}
-                    </div>
-                  )}
-                </div>
-                
-                {/* Group Joining Options - Right Half */}
-                <div className="p-8">
-                  <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-2xl font-bold text-gray-900 flex items-center">
-                      <Users className="mr-2 h-6 w-6 text-[#00A896]" />
-                      {t('datesAndPrices.groupOptions')}
-                    </h3>
-                    <span className="bg-gradient-to-r from-[#E8F8F5] to-[#D0F0E8] text-[#008576] px-4 py-2 rounded-full text-sm font-bold shadow-sm">
-                      {selectedItineraries.length} {t('datesAndPrices.selected')}
-                    </span>
-                  </div>
-                  
-                  <div className="mb-6">
-                    <button 
-                      onClick={() => setIsItineraryDropdownOpen(!isItineraryDropdownOpen)}
-                      className="w-full p-4 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00A896] focus:border-[#00A896] bg-white text-left flex justify-between items-center hover:border-[#72D9C4] transition-colors mb-4"
-                    >
-                      <span className="font-medium text-gray-700">{selectedItineraries.length > 0 ? `${selectedItineraries.length} ${t('datesAndPrices.selected')}` : t('datesAndPrices.selectGroup')}</span>
-                      <svg className={`transform transition-transform ${isItineraryDropdownOpen ? 'rotate-180' : ''} fill-current h-5 w-5 text-gray-500`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                      </svg>
-                    </button>
-                    
-                    {isItineraryDropdownOpen && (
-                      <div className="border-2 border-[#B8EDE3] rounded-xl p-6 bg-gradient-to-br from-white to-[#E8F8F5] shadow-lg space-y-3">
-                        {[t('datesAndPrices.soloTraveler'), t('datesAndPrices.couple'), t('datesAndPrices.familyGroup'), t('datesAndPrices.friendsGroup'), t('datesAndPrices.corporateGroup')].map((groupOption, idx) => {
-                          const safeKey = (groupOption && groupOption.length > 0) ? groupOption : `group-${idx}`
-                          const safeId = safeKey.replace(/\s+/g, '-').toLowerCase()
-                          const isSelected = selectedItineraries.includes(groupOption);
-                          return (
-                            <div key={safeKey} className="flex items-center p-3 rounded-lg hover:bg-white/80 transition-colors">
-                              <input
-                                type="checkbox"
-                                id={safeId}
-                                checked={isSelected}
-                                onChange={() => {
-                                  if (isSelected) {
-                                    setSelectedItineraries(selectedItineraries.filter(i => i !== groupOption));
-                                  } else {
-                                    setSelectedItineraries([...selectedItineraries, groupOption]);
-                                  }
-                                }}
-                                className="h-5 w-5 text-[#00A896] focus:ring-[#00A896] border-gray-300 rounded cursor-pointer"
-                              />
-                              <label htmlFor={safeId} className="ml-3 block text-gray-800 font-medium text-base cursor-pointer">
-                                {groupOption || safeKey}
-                              </label>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    )}
-                  </div>
+            <div 
+              onClick={() => setIsContactModalOpen(true)}
+              className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer"
+            >
+              <div className="flex items-center gap-3">
+                <div className="text-2xl">📅</div>
+                <div className="flex-1">
+                  <h3 className="font-semibold text-gray-900 text-base">Don't see your dates?</h3>
+                <p className="text-gray-600 text-sm">Please propose a new departure</p>
                 </div>
               </div>
             </div>
+          </div>
+          
+          {/* Filters - Compact Inline */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-6">
+            {/* When Selector */}
+            <div ref={monthDropdownRef} className="relative flex-1">
+              <button 
+                onClick={() => setIsWhenDropdownOpen(!isWhenDropdownOpen)}
+                className="w-full bg-white border border-gray-300 rounded-lg px-4 py-2.5 text-base font-medium text-gray-700 hover:bg-gray-50 transition-colors flex items-center justify-between"
+              >
+                <span className="flex items-center gap-2">
+                  <span className="text-gray-600">When</span>
+                  <span className="font-semibold">{selectedMonths.length > 0 ? selectedMonths[0] : 'February 2026'}</span>
+                </span>
+                <svg className={`w-4 h-4 transition-transform ${isWhenDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {isWhenDropdownOpen && (
+                <div className="absolute z-20 mt-2 w-full bg-white rounded-lg shadow-xl border border-gray-200 p-4 max-h-96 overflow-y-auto">
+                  {/* 2025 */}
+                  <div className="mb-4">
+                    <h4 className="text-base font-bold text-gray-900 mb-3">2025</h4>
+                    <div className="grid grid-cols-4 gap-2 mb-4">
+                      {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month) => {
+                        const monthKey = `2025-${month}`;
+                        const isSelected = selectedMonths.includes(monthKey);
+                        return (
+                          <button 
+                            key={monthKey} 
+                            onClick={() => {
+                              setSelectedMonths([monthKey]);
+                              setIsWhenDropdownOpen(false);
+                            }}
+                            className={`py-2 px-3 rounded-lg text-base font-medium transition-colors ${
+                              isSelected 
+                                ? 'bg-[#00A896] text-white' 
+                                : 'text-gray-500 hover:bg-gray-100'
+                            }`}
+                          >
+                            {month}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                  
+                  {/* 2026 */}
+                  <div className="mb-4">
+                    <h4 className="text-base font-bold text-gray-900 mb-3">2026</h4>
+                    <div className="grid grid-cols-4 gap-2 mb-4">
+                      {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month) => {
+                        const monthKey = `2026-${month}`;
+                        const isSelected = selectedMonths.includes(monthKey);
+                        return (
+                          <button 
+                            key={monthKey} 
+                            onClick={() => {
+                              setSelectedMonths([monthKey]);
+                              setIsWhenDropdownOpen(false);
+                            }}
+                            className={`py-2 px-3 rounded-lg text-base font-medium transition-colors ${
+                              isSelected 
+                                ? 'bg-[#00A896] text-white' 
+                                : 'text-gray-700 hover:bg-gray-100'
+                            }`}
+                          >
+                            {month}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                  
+                  {/* 2027 */}
+                  <div>
+                    <h4 className="text-base font-bold text-gray-900 mb-3">2027</h4>
+                    <div className="grid grid-cols-4 gap-2">
+                      {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month) => {
+                        const monthKey = `2027-${month}`;
+                        const isSelected = selectedMonths.includes(monthKey);
+                        return (
+                          <button 
+                            key={monthKey} 
+                            onClick={() => {
+                              setSelectedMonths([monthKey]);
+                              setIsWhenDropdownOpen(false);
+                            }}
+                            className={`py-2 px-3 rounded-lg text-base font-medium transition-colors ${
+                              isSelected 
+                                ? 'bg-[#00A896] text-white' 
+                                : 'text-gray-700 hover:bg-gray-100'
+                            }`}
+                          >
+                            {month}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+            
+            {/* Group Options Selector */}
+            <div className="relative flex-1">
+              <button 
+                onClick={() => setIsItineraryDropdownOpen(!isItineraryDropdownOpen)}
+                className="w-full bg-white border border-gray-300 rounded-lg px-4 py-2.5 text-base font-medium text-gray-700 hover:bg-gray-50 transition-colors flex items-center justify-between"
+              >
+                <span className="flex items-center gap-2">
+                  <span className="text-gray-600">Group Options</span>
+                  <span className="font-semibold">{selectedItineraries.length} Selected</span>
+                </span>
+                <svg className={`w-4 h-4 transition-transform ${isItineraryDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {isItineraryDropdownOpen && (
+                <div className="absolute z-20 mt-2 w-full bg-white rounded-lg shadow-xl border border-gray-200 p-3">
+                  {['Solo Traveler', 'Couple', 'Family Group', 'Friends Group', 'Corporate Group'].map((opt, index) => {
+                    const isSelected = selectedItineraries.includes(opt);
+                    return (
+                      <label key={opt} className="flex items-center gap-2 p-2 rounded hover:bg-gray-50 cursor-pointer">
+                        <input 
+                          type="checkbox" 
+                          checked={isSelected} 
+                          onChange={() => {
+                            if (isSelected) {
+                              setSelectedItineraries(selectedItineraries.filter(s => s !== opt));
+                            } else {
+                              setSelectedItineraries([...selectedItineraries, opt]);
+                            }
+                          }} 
+                          className="w-4 h-4 text-[#00A896] rounded"
+                        />
+                        <span className="text-base text-gray-800">{opt}</span>
+                      </label>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          </div>
+          
+          {/* Show earlier dates link */}
+          <div className="text-center mb-4">
+            <button className="text-base text-gray-600 hover:text-gray-900 inline-flex items-center gap-1">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              Show earlier dates
+            </button>
+          </div>
+          
+          {/* Date Header */}
+          <div className="mb-4">
+            <h3 className="text-xl font-bold text-gray-900">
+              {selectedMonths.length > 0 
+                ? selectedMonths[0].replace('-', ' ') 
+                : 'Jan 2026'}
+            </h3>
+          </div>
+          
+          {/* Trip Dates - List Style */}
+          <div className="space-y-3 mb-6">
+            {selectedMonths.map((monthKey) => {
+              const [year, month] = monthKey.split('-')
+              const rawList = getDatesForMonth(monthKey)
+              const list = (rawList || [])
+              
+              return list.map((item, idx) => {
+                // Calculate price based on selected group options
+                let displayPrice = item.prices && item.prices['Solo Traveler'] ? item.prices['Solo Traveler'] : item.price || 'Price not available';
+                let displayDeposit = item.deposit || 'Deposit not available';
+                
+                if (selectedItineraries.length > 0) {
+                  // If any group option is selected, use the price for that option
+                  // For simplicity, if multiple options are selected, we'll use the first one
+                  const selectedGroup = selectedItineraries[0];
+                  if (item.prices && item.prices[selectedGroup]) {
+                    displayPrice = item.prices[selectedGroup];
+                  }
+                }
+                
+                // No additional formatting needed - prices are already in correct format (e.g., '€2,200', '€100')
+                
+                return (
+                <div key={`${monthKey}-${idx}`} className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                  <div className="flex flex-col md:flex-row md:items-center gap-4">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="font-semibold text-gray-900 text-base">{item.route}</span>
+                      </div>
+                      <div className="flex flex-wrap items-center gap-2 text-base text-gray-600">
+                        <div className="flex items-center gap-1">
+                          <Calendar className="w-4 h-4" />
+                          <span>{item.date}</span>
+                        </div>
+                        <span className="text-gray-500">•</span>
+                        <span className="text-sm text-gray-600">{item.status}</span>
+                        <span className="px-2 py-1 bg-green-100 text-green-700 rounded text-sm font-medium">Available</span>
+                      </div>
+                    </div>
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                      <div className="text-right">
+                        <div className="text-base text-gray-600">from <span className="font-semibold text-gray-900">{displayPrice}</span></div>
+                        <div className="text-sm text-gray-500">Deposit {displayDeposit}</div>
+                      </div>
+                      <button 
+                        onClick={() => setIsContactModalOpen(true)}
+                        className="bg-[#00A896] hover:bg-[#008576] text-white px-6 py-2 rounded-md text-base font-medium transition-colors whitespace-nowrap"
+                      >
+                        Enquire
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                )
+              })
+            })}
+          </div>
+          
+          {/* Show later dates link */}
+          <div className="text-center mb-8">
+            <button className="text-base text-gray-600 hover:text-gray-900 inline-flex items-center gap-1">
+              Show later dates
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+          
+          {/* Don't see your dates section */}
+          <div className="bg-gray-50 rounded-lg p-8 text-center">
+            <div className="inline-block p-3 bg-white rounded-full mb-4">
+              <Calendar className="w-6 h-6 text-gray-600" />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">Don't see your dates?</h3>
+            <p className="text-gray-600 text-base mb-6">We can create it if bookable!</p>
+            <button 
+              onClick={() => setIsContactModalOpen(true)}
+              className="bg-[#00A896] hover:bg-[#008576] text-white px-8 py-3 rounded-lg font-medium transition-colors"
+            >
+              Propose Dates
+            </button>
           </div>
         </div>
       </section>

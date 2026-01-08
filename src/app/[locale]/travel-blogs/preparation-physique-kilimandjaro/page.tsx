@@ -50,9 +50,9 @@ export default function PreparationPhysiqueKilimandjaroPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero section with back-link */}
-      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero4.jpg')" }}>
+      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/preparation-hero.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
             {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
@@ -100,7 +100,7 @@ export default function PreparationPhysiqueKilimandjaroPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Comment s’entraîner pour le Kilimandjaro quand on habite en ville : Guide complet pour réussir votre ascension
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Gravir le Mont Kilimandjaro, le plus haut sommet d’Afrique culminant à 5 895 mètres, est un rêve pour de nombreux voyageurs. Cependant, beaucoup pensent à tort qu’il faut vivre près des montagnes ou être un sportif aguerri pour réussir. La bonne nouvelle, c’est qu’il est tout à fait possible de préparer son corps en ville, sans altitude ni sentiers escarpés, en utilisant des méthodes adaptées et progressives. L’objectif est de préparer votre corps à marcher plusieurs heures chaque jour, à porter un sac et à gérer la fatigue progressive tout en développant l’endurance et la résistance mentale.</p>
                 </div>
               </section>
@@ -110,7 +110,7 @@ export default function PreparationPhysiqueKilimandjaroPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Marcher régulièrement : la base de l’entraînement
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">La marche est le cœur de votre préparation. Contrairement aux sports de haute intensité, le Kilimandjaro exige une endurance sur plusieurs jours. Vous devez pouvoir marcher 5 à 7 heures chaque jour, souvent sur des terrains variés.</p>
                   
                   <h3 className="text-xl font-semibold mt-6 mb-3">En ville, vous pouvez simuler cette expérience :</h3>
@@ -129,7 +129,7 @@ export default function PreparationPhysiqueKilimandjaroPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Renforcer les jambes et le dos : préparer le corps à l’effort
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Porter un sac léger et marcher plusieurs heures sollicite fortement les jambes et le dos. Les muscles des cuisses, des mollets, du tronc et du dos doivent être capables de supporter la charge sans se fatiguer trop vite.</p>
                   
                   <h3 className="text-xl font-semibold mt-6 mb-3">Vous pouvez travailler ces muscles en ville :</h3>
@@ -148,7 +148,7 @@ export default function PreparationPhysiqueKilimandjaroPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Travailler le cardio : préparer le cœur et les poumons
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Le Kilimandjaro n’est pas une course, mais votre corps a besoin de capacité cardiovasculaire pour supporter l’effort prolongé, surtout en altitude.</p>
                   
                   <h3 className="text-xl font-semibold mt-6 mb-3">Même en ville, vous pouvez :</h3>
@@ -167,7 +167,7 @@ export default function PreparationPhysiqueKilimandjaroPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   S’habituer à porter un sac : simuler le poids du trek
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Pendant l’ascension, vous porterez un sac léger avec vos affaires personnelles. Commencer à porter un sac pendant vos marches longues en ville prépare le dos, les épaules et le tronc à l’effort.</p>
                   <p className="mb-4">Augmentez progressivement le poids et ajustez les sangles pour que le sac soit confortable. Cette habitude permet de prévenir les douleurs et les tensions musculaires le jour de l’ascension.</p>
                 </div>
@@ -178,7 +178,7 @@ export default function PreparationPhysiqueKilimandjaroPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Préparer le corps à l’altitude
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Même si vous ne pouvez pas reproduire la haute altitude en ville, vous pouvez :</p>
                   
                   <h3 className="text-xl font-semibold mt-6 mb-3">Préparer votre corps :</h3>
@@ -197,7 +197,7 @@ export default function PreparationPhysiqueKilimandjaroPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Préparer le mental : un facteur clé
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Le Kilimandjaro est autant un défi mental que physique. Les journées longues, la fatigue accumulée, le froid et la monotonie peuvent décourager même les plus motivés.</p>
                   
                   <h3 className="text-xl font-semibold mt-6 mb-3">En ville, vous pouvez entraîner votre mental en :</h3>
@@ -216,7 +216,7 @@ export default function PreparationPhysiqueKilimandjaroPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Programme d’entraînement en ville pour gravir le Kilimandjaro – 8 semaines
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Objectif : Préparer votre corps à marcher plusieurs heures par jour, à porter un sac, à gérer la fatigue et à développer l’endurance nécessaire pour atteindre le sommet Uhuru Peak.</p>
                   <p className="mb-4">Principe : Commencez doucement et augmentez progressivement la durée, l’intensité et la charge pour éviter les blessures et améliorer l’endurance.</p>
                   
@@ -431,7 +431,7 @@ export default function PreparationPhysiqueKilimandjaroPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Conseils pratiques
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <ul className="list-decimal list-inside text-gray-700 leading-relaxed mt-4 space-y-3">
                     <li><strong>Progressivité :</strong> augmentez toujours la durée et le poids du sac progressivement.</li>
                     <li><strong>Rythme :</strong> marchez toujours à un rythme modéré, similaire au rythme "pole pole" du Kilimandjaro.</li>

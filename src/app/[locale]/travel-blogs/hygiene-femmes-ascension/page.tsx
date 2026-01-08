@@ -6,58 +6,12 @@ import { useLocale, useTranslations } from 'next-intl'
 import AuthorMeta from '@/components/ui/AuthorMeta'
 import TOC from '@/components/ui/TOC'
 
-const contentFr = `Conseils d’hygiène pour les femmes lors de l’ascension du Kilimandjaro
+const contentFr = `Conseils d'hygiène pour les femmes lors de l'ascension du Kilimandjaro
 
 Guide pratique par un guide local
 
-Gravir le Kilimandjaro est une aventure exceptionnelle, mais elle impose des conditions très différentes de la vie quotidienne. Pour les femmes, certaines préoccupations liées à l’hygiène deviennent particulièrement importantes. Entre camps rustiques, absence de douches, toilettes rudimentaires et conditions climatiques extrêmes, il est indispensable de bien se préparer pour rester propre, confortable et en bonne santé tout au long du trek.
-
-
-
-1. Préparer sa trousse d’hygiène féminine
-
-Une bonne préparation commence par une trousse d’hygiène complète. Voici les indispensables :
-
-*Serviettes hygiéniques ou tampons biodégradables* : légers, faciles à transporter et à éliminer de manière responsable.
-
-Lingettes intimes : essentielles pour se nettoyer rapidement lorsque l’eau est limitée.
-
-*Gel hydroalcoolique* : pour désinfecter les mains après chaque passage aux toilettes.
-
-*Sacs étanches pour les déchets :* indispensables pour respecter l’environnement du parc.
-
-Crème hydratante et baume à lèvres : pour protéger la peau du vent, du froid et du soleil en altitude.
-
-
-Gérer les toilettes sur la montagne : conseils pour les femmes
-
-
-L’un des défis majeurs lors de l’ascension du Kilimandjaro est l’accès aux toilettes, qui diffère complètement de ce que l’on connaît en ville. Les installations sanitaires sur la montagne sont très limitées et il est important de savoir à quoi s’attendre pour rester propre et confortable, surtout pour les femmes.
-
-La plupart des camps proposent des toilettes publiques fournies par le parc national. Elles sont généralement très rudimentaires : des cabines simples, parfois sans papier toilette ni eau pour se laver les mains, et partagées par plusieurs dizaines de randonneurs. Pour certaines randonneuses, ces conditions peuvent être stressantes ou inconfortables, notamment pendant les règles ou après de longues journées de marche.
-
-Pour améliorer l’expérience, certaines équipes de guides proposent des toilettes portables privées. Ces installations offrent une propreté accrue, plus d’intimité et réduisent considérablement le stress lié à l’utilisation des sanitaires. Elles sont particulièrement recommandées pour les femmes et pour les itinéraires longs comme Machame ou Lemosho, où les nuits en altitude sont froides et où le confort peut faire une grande différence sur le moral et la motivation.
-
-> Conseil de guide local : si possible, réservez avec votre équipe une toilette portable privée pour chaque camp. Cela vous permet de mieux gérer vos besoins intimes, de rester propre et sereine, et de vous concentrer pleinement sur l’ascension.
-
-
-
-Gérer les règles pendant l’ascension du Kilimandjaro
-
-Guide pratique pour les femmes par un guide local
-
-Gravir le Kilimandjaro est une aventure extraordinaire, mais pour les femmes, avoir ses règles pendant le trek peut poser des défis supplémentaires. Entre camps rudimentaires, toilettes limitées et conditions extrêmes, il est essentiel de savoir à quoi s’attendre et comment se préparer pour rester propre, confortable et sereine.
-
-
----
-
-Changement du cycle menstruel en altitude
-
-L’altitude peut parfois provoquer de légères modifications du cycle menstruel. Le stress physique et mental lié à l’ascension, la fatigue intense, le froid et le décalage horaire peuvent faire décaler le début des règles de quelques jours. Certaines femmes peuvent également remarquer que leurs règles deviennent plus légères ou irrégulières pendant l’ascension, bien que cela ne soit pas systématique.
-
-D’autres facteurs liés au trek influencent le cycle menstruel, notamment l’hydratation, la nutrition et le repos. Un manque d’eau ou d’alimentation suffisante peut accentuer les irrégularités, tandis qu’une bonne préparation physique et mentale peut aider à maintenir un cycle plus stable.
-
-> Conseil de guide : prévoir son trek en tenant compte de ces possibles décalages et apporter suffisamment de protections menstruelles pour toute la durée de l’ascension, même si vos règles ne sont pas prévues à ce moment-là. Cela permet d’éviter le stress et de rester concentrée sur la marche et la réussite du sommet.`
+Gravir le Kilimandjaro est une aventure exceptionnelle, mais elle impose des conditions très différentes de la vie quotidienne. Pour les femmes, certaines préoccupations liées à l'hygiène deviennent particulièrement importantes. Entre camps rustiques, absence de douches, toilettes rudimentaires et conditions climatiques extrêmes, il est indispensable de bien se préparer pour rester propre, confortable et en bonne santé tout au long du trek.
+`
 
 const contentEn = `Hygiene advice for women during the Kilimanjaro ascent
 
@@ -150,11 +104,11 @@ Gravir le Kilimandjaro est une aventure extraordinaire, mais pour les femmes, av
 `,
   cycle: `L’altitude peut parfois provoquer de légères modifications du cycle menstruel. Le stress physique et mental lié à l’ascension, la fatigue intense, le froid et le décalage horaire peuvent faire décaler le début des règles de quelques jours. Certaines femmes peuvent également remarquer que leurs règles deviennent plus légères ou irrégulières pendant l’ascension, bien que cela ne soit pas systématique.
 
-D'autres facteurs liés au trek influencent le cycle menstruel, notamment l'hydratation, la nutrition et le repos. Un manque d'eau ou d'alimentation suffisante peut accentuer les irrégularités, tandis qu'une bonne préparation physique et mentale peut aider à maintenir un cycle plus stable.
+D’autres facteurs liés au trek influencent le cycle menstruel, notamment l’hydratation, la nutrition et le repos. Un manque d’eau ou d’alimentation suffisante peut accentuer les irrégularités, tandis qu’une bonne préparation physique et mentale peut aider à maintenir un cycle plus stable.
 `,
-  tip: `> Conseil de guide local : si possible, réservez avec votre équipe une toilette portable privée pour chaque camp. Cela vous permet de mieux gérer vos besoins intimes, de rester propre et sereine, et de vous concentrer pleinement sur l'ascension.
+  tip: `> Conseil de guide local : si possible, réservez avec votre équipe une toilette portable privée pour chaque camp. Cela vous permet de mieux gérer vos besoins intimes, de rester propre et sereine, et de vous concentrer pleinement sur l’ascension.
 
-> Conseil de guide : prévoir son trek en tenant compte de ces possibles décalages et apporter suffisamment de protections menstruelles pour toute la durée de l'ascension, même si vos règles ne sont pas prévues à ce moment-là. Cela permet d'éviter le stress et de rester concentrée sur la marche et la réussite du sommet.`
+> Conseil de guide : prévoir son trek en tenant compte de ces possibles décalages et apporter suffisamment de protections menstruelles pour toute la durée de l’ascension, même si vos règles ne sont pas prévues à ce moment-là. Cela permet d’éviter le stress et de rester concentrée sur la marche et la réussite du sommet.`
 }
 
 const EN_TITLES: Record<string,string> = {
@@ -204,6 +158,49 @@ Other factors related to the trek influence the menstrual cycle, including hydra
 
 const ids = ['overview', 'preparation', 'toilets', 'periods', 'cycle', 'tip']
 
+// Function to add links to specific terms in text
+function processTextWithLinks(text: string) {
+  const locale = 'fr'; // In actual implementation, this would come from context
+  
+  // Replace toilet-related terms with links
+  let processedText = text.replace(/\btoilettes rudimentaires\b/g, `<Link href="/${locale}/travel-blogs/toilettes-privees-necessaires" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">toilettes rudimentaires</Link>`);
+  processedText = processedText.replace(/\btoilettes publiques\b/g, `<Link href="/${locale}/travel-blogs/toilettes-privees-necessaires" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">toilettes publiques</Link>`);
+  processedText = processedText.replace(/\btoilettes portables privées\b/g, `<Link href="/${locale}/travel-blogs/toilettes-privees-necessaires" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">toilettes portables privées</Link>`);
+  processedText = processedText.replace(/\btoilettes limitées\b/g, `<Link href="/${locale}/travel-blogs/toilettes-privees-necessaires" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">toilettes limitées</Link>`);
+  
+  return processedText;
+}
+
+// Function to parse string links to JSX elements
+function parseLinksToJSX(text: string) {
+  // Split text by Link tags
+  const parts = text.split(/(<Link\s+[^>]*href\s*=\s*["'][^"']*["'][^>]*className\s*=\s*["'][^"']*["'][^>]*>[^<]*<\/Link>)/g);
+  
+  return parts.map((part, index) => {
+    // Check if this part is a Link element
+    const linkMatch = part.match(/<Link\s+[^>]*href\s*=\s*["']([^"']*)["'][^>]*className\s*=\s*["']([^"']*)["'][^>]*>([^<]*)<\/Link>/);
+    
+    if (linkMatch) {
+      const href = linkMatch[1];
+      const className = linkMatch[2];
+      const children = linkMatch[3];
+      
+      return (
+        <Link 
+          key={`link-${index}`} 
+          href={href} 
+          className={className}
+        >
+          {children}
+        </Link>
+      );
+    } else {
+      // Return plain text
+      return part;
+    }
+  });
+}
+
 function renderContent(content: string) {
   const lines = content.split(/\r?\n/)
   const nodes: any[] = []
@@ -252,7 +249,10 @@ function renderContent(content: string) {
         const emphasizedText = text.substring(1, text.length - 1);
         nodes.push(<p key={keyIndex++} className="mb-4 font-semibold">{emphasizedText}</p>);
       } else {
-        nodes.push(<p key={keyIndex++} className="mb-4">{text}</p>)
+        // Process text to add links for specific terms
+        const processedText = processTextWithLinks(text);
+        // Parse the processed text to convert string links to JSX elements
+        nodes.push(<p key={keyIndex++} className="mb-4">{parseLinksToJSX(processedText)}</p>)
       }
     } else {
       i++
@@ -277,9 +277,9 @@ export default function HygieneFemmesAscensionPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero5.jpg')" }}>
+      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hygiene-hero.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
             {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
@@ -336,7 +336,7 @@ export default function HygieneFemmesAscensionPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/marangu-route.jpg')" }}></div>
+              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/hygiene-hero.jpg')" }}></div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>
@@ -357,7 +357,7 @@ export default function HygieneFemmesAscensionPage() {
             </div>
 
             <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/lemosho-route.jpg')" }}></div>
+              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/hygiene-hero.jpg')" }}></div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>
@@ -378,7 +378,7 @@ export default function HygieneFemmesAscensionPage() {
             </div>
 
             <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/kilimanjaro-umbwe.jpg')" }}></div>
+              <div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/hygiene-hero.jpg')" }}></div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>

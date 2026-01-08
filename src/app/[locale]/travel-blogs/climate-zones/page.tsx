@@ -14,44 +14,8 @@ interface Section {
 }
 
 export default function ClimateZonesPage() {
-  const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({
-    zone1: true, // Keep introduction expanded by default
-    zone2: false,
-    zone3: false,
-    zone4: false,
-    zone5: false
-  })
   const [isScrolled, setIsScrolled] = useState(false)
   const locale = useLocale()
-
-  // Toggle section expansion - only one section open at a time
-  const toggleSection = (sectionId: string) => {
-    setExpandedSections(prev => {
-      // If the clicked section is already open, close it
-      if (prev[sectionId]) {
-        return {
-          ...prev,
-          [sectionId]: false
-        };
-      }
-      
-      // Close all sections and open only the clicked one
-      const newSections: Record<string, boolean> = {};
-      Object.keys(prev).forEach(key => {
-        newSections[key] = key === sectionId;
-      });
-      
-      return newSections;
-    });
-    
-    // Scroll to the section header
-    setTimeout(() => {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, 100);
-  }
 
   // Handle scroll for header effects
   useEffect(() => {
@@ -91,7 +55,7 @@ export default function ClimateZonesPage() {
       {/* Hero section with back-link */}
       <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero6.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
             {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
@@ -114,7 +78,7 @@ export default function ClimateZonesPage() {
           <TOC
             title={locale === 'fr' ? 'Sommaire' : 'Overview'}
             items={sections.map(s => ({ id: s.id, label: s.title, level: 2 }))}
-            onSelect={(id: string) => { setExpandedSections({ ...expandedSections, [id]: true }) }}
+            onSelect={(id: string) => {}}
           />
         </div>
       </section>
@@ -128,7 +92,7 @@ export default function ClimateZonesPage() {
                 <TOC
                   title={locale === 'fr' ? 'Sommaire' : 'Overview'}
                   items={sections.map(s => ({ id: s.id, label: s.title, level: 2 }))}
-                  onSelect={(id: string) => { setExpandedSections({ ...expandedSections, [id]: true }) }}
+                  onSelect={(id: string) => {}}
                 />
               </div>
             </aside>
@@ -139,32 +103,18 @@ export default function ClimateZonesPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Kilimandjaro : Le Guide Complet des 5 Zones Climatiques et Altitudes
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Gravir une montagne n'est jamais qu'une simple marche. Chaque pas nous fait entrer dans un univers naturel unique, où le climat, la végétation, les défis physiques et les sensations évoluent à mesure que l'on gagne de l'altitude. Les experts parlent des cinq zones climatiques, ou "cloches", qui jalonnent l'ascension. Comprendre ces zones permet aux randonneurs de mieux s'acclimater, de profiter pleinement des paysages et de vivre une expérience immersive et sécurisée.</p>
                 </div>
               </section>
 
               {/* Zone 1 Section */}
               <section id="zone1" className="bg-white rounded-lg shadow-md p-8">
-                <h2 
-                  className="text-3xl font-bold text-gray-900 mb-6 cursor-pointer flex justify-between items-center hover:text-[#00A896] transition-colors duration-200"
-                  onClick={() => toggleSection('zone1')}
-                >
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   <span>Zone 1 : La Zone de Base – Forêts tropicales et humides</span>
-                  <svg 
-                    className={`w-6 h-6 transition-transform duration-300 ${expandedSections.zone1 ? 'rotate-180' : ''} animate-bounce`}
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </h2>
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.zone1 ? 'max-h-[3000px]' : 'max-h-0'}`}
-                >
-                  <div className="prose prose-lg max-w-none text-gray-700">
+                <div>
+                  <div className="prose prose-xl max-w-none text-gray-700">
                     <p className="mb-4"><strong>Mots-clés :</strong> randonnée montagne débutant, trek Tanzanie, acclimatation altitude, faune et flore tropicale</p>
                     
                     <p className="mb-4">L'aventure commence toujours dans la zone de base, souvent située entre 800 et 2 000 mètres d'altitude selon la montagne. Cette zone est caractérisée par des forêts tropicales humides, où l'air est chaud et saturé d'humidité, chargé de l'odeur des feuilles, de la terre humide et des fleurs sauvages. La végétation est dense : arbres géants, lianes, fougères et bambous se mêlent pour créer un véritable labyrinthe naturel. Marcher sur les sentiers de cette zone, c'est comme pénétrer dans un autre monde, où chaque pas révèle une nouvelle forme de vie.</p>
@@ -210,25 +160,11 @@ export default function ClimateZonesPage() {
 
               {/* Zone 2 Section */}
               <section id="zone2" className="bg-white rounded-lg shadow-md p-8">
-                <h2 
-                  className="text-3xl font-bold text-gray-900 mb-6 cursor-pointer flex justify-between items-center hover:text-[#00A896] transition-colors duration-200"
-                  onClick={() => toggleSection('zone2')}
-                >
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   <span>Zone 2 : La Zone Moyenne – Collines et Forêts de Bambous</span>
-                  <svg 
-                    className={`w-6 h-6 transition-transform duration-300 ${expandedSections.zone2 ? 'rotate-180' : ''} animate-bounce`}
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </h2>
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.zone2 ? 'max-h-[3000px]' : 'max-h-0'}`}
-                >
-                  <div className="prose prose-lg max-w-none text-gray-700">
+                <div>
+                  <div className="prose prose-xl max-w-none text-gray-700">
                     <p className="mb-4"><strong>Mots-clés :</strong> trek haute altitude, randonnée immersive, paysages montagneux, forêts de bambous</p>
                     
                     <p className="mb-4">Après avoir quitté l'humidité dense et la végétation luxuriante de la zone de base, l'ascension mène à la zone moyenne, souvent située entre 2 000 et 3 000 mètres d'altitude selon la montagne. Ici, le paysage change radicalement : les forêts tropicales cèdent la place aux collines ondulantes, aux forêts de bambous et aux bruyères. L'air est plus sec, plus frais, et le panorama commence à s'ouvrir sur les vallées et les montagnes environnantes. C'est un espace de transition, où le corps continue à s'acclimater à l'altitude, tandis que l'esprit se prépare aux zones plus exigeantes à venir.</p>
@@ -268,31 +204,17 @@ export default function ClimateZonesPage() {
 
               {/* Zone 3 Section */}
               <section id="zone3" className="bg-white rounded-lg shadow-md p-8">
-                <h2 
-                  className="text-3xl font-bold text-gray-900 mb-6 cursor-pointer flex justify-between items-center hover:text-[#00A896] transition-colors duration-200"
-                  onClick={() => toggleSection('zone3')}
-                >
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   <span>Zone 3 : La Zone Alpine – Herbes Hautes et Brumes Matinales</span>
-                  <svg 
-                    className={`w-6 h-6 transition-transform duration-300 ${expandedSections.zone3 ? 'rotate-180' : ''} animate-bounce`}
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </h2>
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.zone3 ? 'max-h-[3000px]' : 'max-h-0'}`}
-                >
-                  <div className="prose prose-lg max-w-none text-gray-700">
+                <div>
+                  <div className="prose prose-xl max-w-none text-gray-700">
                     <p className="mb-4"><strong>Mots-clés :</strong> trekking haute montagne, randonnée alpine, acclimatation altitude, panoramas montagne</p>
                     
                     <p className="mb-4">Après avoir quitté la zone moyenne, l'ascension entre dans la zone alpine, généralement située entre 3 000 et 4 000 mètres d'altitude. Ici, le paysage change radicalement : les arbres disparaissent presque complètement, laissant place à des herbes hautes, des buissons clairsemés et des rochers épars. La montagne prend un aspect plus austère et sauvage, et la brume matinale descend souvent sur les pentes, donnant une atmosphère mystérieuse et presque irréelle.</p>
                     
                     <h3 className="text-xl font-semibold mt-6 mb-3">Climat et conditions</h3>
-                    <p className="mb-4">Le climat alpin est plus rigoureux et variable. Les températures diurnes oscillent généralement entre 5 et 15°C, mais elles peuvent descendre près de 0°C la nuit ou lorsque le vent souffle. Le soleil peut être intense à cause de l'altitude, et l'exposition prolongée sans protection peut provoquer des coups de soleil. Les vents deviennent plus perceptibles, surtout sur les crêtes et zones dégagées, et la météo peut changer très rapidement, alternant brume, pluie légère ou soleil éclatant.</p>
+                    <p className="mb-4">Le climat alpin est plus rigoureux et variable. <Link href={`/${locale}/travel-blogs/zones-climatiques-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">Les températures</Link> diurnes oscillent généralement entre 5 et 15°C, mais elles peuvent descendre près de 0°C la nuit ou lorsque le vent souffle. Le soleil peut être intense à cause de l'altitude, et l'exposition prolongée sans protection peut provoquer des coups de soleil. Les vents deviennent plus perceptibles, surtout sur les crêtes et zones dégagées, et la météo peut changer très rapidement, alternant brume, pluie légère ou soleil éclatant.</p>
                     
                     <h3 className="text-xl font-semibold mt-6 mb-3">Végétation</h3>
                     <p className="mb-4">La zone alpine est caractérisée par une végétation basse et résistante. On y trouve principalement :</p>
@@ -332,31 +254,17 @@ export default function ClimateZonesPage() {
 
               {/* Zone 4 Section */}
               <section id="zone4" className="bg-white rounded-lg shadow-md p-8">
-                <h2 
-                  className="text-3xl font-bold text-gray-900 mb-6 cursor-pointer flex justify-between items-center hover:text-[#00A896] transition-colors duration-200"
-                  onClick={() => toggleSection('zone4')}
-                >
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   <span>Zone 4 : La Zone Subglaciaire – Rochers et Début de la Neige</span>
-                  <svg 
-                    className={`w-6 h-6 transition-transform duration-300 ${expandedSections.zone4 ? 'rotate-180' : ''} animate-bounce`}
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </h2>
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.zone4 ? 'max-h-[3000px]' : 'max-h-0'}`}
-                >
-                  <div className="prose prose-lg max-w-none text-gray-700">
+                <div>
+                  <div className="prose prose-xl max-w-none text-gray-700">
                     <p className="mb-4"><strong>Mots-clés :</strong> trekking extrême, randonnée haute altitude, glaciers montagne, sécurité randonnée</p>
                     
                     <p className="mb-4">Après avoir traversé la zone alpine, l'ascension entre dans la zone subglaciaire, généralement située entre 4 000 et 5 000 mètres d'altitude selon la montagne. Ici, la montagne change radicalement : les herbes et buissons disparaissent presque entièrement, laissant place à des roches, des pierres instables et des plaques de neige. Le vent devient un acteur majeur, parfois violent, et l'air devient plus rare et sec. Cette zone marque le début des conditions vraiment extrêmes, où chaque pas demande attention et concentration.</p>
                     
                     <h3 className="text-xl font-semibold mt-6 mb-3">Climat et conditions</h3>
-                    <p className="mb-4">La zone subglaciaire est caractérisée par un climat froid et rigoureux. Les températures peuvent varier entre -5 et 5°C, mais avec le vent, la sensation peut descendre bien en dessous de zéro. Les précipitations se font principalement sous forme de neige ou de grésil, et la visibilité peut changer rapidement avec la brume ou les nuages. Le soleil peut aussi être intense, car l'air rare filtre moins les rayons UV, ce qui rend la protection solaire indispensable même dans le froid.</p>
+                    <p className="mb-4">La zone subglaciaire est caractérisée par un climat froid et rigoureux. <Link href={`/${locale}/travel-blogs/zones-climatiques-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">Les températures</Link> peuvent varier entre -5 et 5°C, mais avec le vent, la sensation peut descendre bien en dessous de zéro. Les précipitations se font principalement sous forme de neige ou de grésil, et la visibilité peut changer rapidement avec la brume ou les nuages. Le soleil peut aussi être intense, car l'air rare filtre moins les rayons UV, ce qui rend la protection solaire indispensable même dans le froid.</p>
                     <p className="mb-4">Le vent est souvent fort et constant, pouvant rendre la marche difficile et augmenter le risque d'hypothermie. L'humidité est faible, et la combinaison de froid, vent et altitude exige une préparation physique et mentale importante.</p>
                     
                     <h3 className="text-xl font-semibold mt-6 mb-3">Végétation</h3>
@@ -391,31 +299,17 @@ export default function ClimateZonesPage() {
 
               {/* Zone 5 Section */}
               <section id="zone5" className="bg-white rounded-lg shadow-md p-8">
-                <h2 
-                  className="text-3xl font-bold text-gray-900 mb-6 cursor-pointer flex justify-between items-center hover:text-[#00A896] transition-colors duration-200"
-                  onClick={() => toggleSection('zone5')}
-                >
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   <span>Zone 5 : La Zone Sommital – Neige, Glaciers et Panoramas Spectaculaires</span>
-                  <svg 
-                    className={`w-6 h-6 transition-transform duration-300 ${expandedSections.zone5 ? 'rotate-180' : ''} animate-bounce`}
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </h2>
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.zone5 ? 'max-h-[3000px]' : 'max-h-0'}`}
-                >
-                  <div className="prose prose-lg max-w-none text-gray-700">
+                <div>
+                  <div className="prose prose-xl max-w-none text-gray-700">
                     <p className="mb-4"><strong>Mots-clés :</strong> sommet Kilimandjaro, trek aventure, randonnée extrême, exploration alpine</p>
                     
                     <p className="mb-4">Enfin, l'ascension atteint la zone sommital, généralement située au-dessus de 5 000 mètres selon la montagne. Ici, le paysage devient presque lunaire : la neige est permanente, les glaciers étincellent au soleil et le vent souffle puissamment sur les crêtes. La végétation a disparu, remplacée par des surfaces rocheuses et glacées, et l'air est rare et sec. C'est la zone la plus extrême, où le corps et l'esprit sont véritablement mis à l'épreuve.</p>
                     
                     <h3 className="text-xl font-semibold mt-6 mb-3">Climat et conditions</h3>
-                    <p className="mb-4">Le climat sommital est extrême et changeant. Les températures peuvent descendre à -20°C ou moins lorsque le vent souffle, et même au soleil, la sensation thermique reste très froide. La pression atmosphérique est faible, ce qui rend la respiration plus difficile et augmente la fatigue. La neige et la glace rendent le sol glissant et instable, et la visibilité peut être réduite par la brume, les nuages ou les tempêtes soudaines. Le soleil est intense à cause de l'altitude : les rayons UV peuvent provoquer des coups de soleil graves si la peau et les yeux ne sont pas protégés.</p>
+                    <p className="mb-4">Le climat sommital est extrême et changeant. <Link href={`/${locale}/travel-blogs/zones-climatiques-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">Les températures</Link> peuvent descendre à -20°C ou moins lorsque le vent souffle, et même au soleil, la sensation thermique reste très froide. La pression atmosphérique est faible, ce qui rend la respiration plus difficile et augmente la fatigue. La neige et la glace rendent le sol glissant et instable, et la visibilité peut être réduite par la brume, les nuages ou les tempêtes soudaines. Le soleil est intense à cause de l'altitude : les rayons UV peuvent provoquer des coups de soleil graves si la peau et les yeux ne sont pas protégés.</p>
                     
                     <h3 className="text-xl font-semibold mt-6 mb-3">Végétation</h3>
                     <p className="mb-4">La zone sommital est dépourvue de végétation. Parfois, de minuscules lichens ou mousses survivent sur les rochers les plus abrités, mais ils sont rares et fragiles. Le paysage est dominé par la neige, la glace, les glaciers et les formations rocheuses spectaculaires. Cette absence de végétation met en valeur la puissance brute de la montagne et la beauté de ses reliefs sculptés par le temps et le climat.</p>

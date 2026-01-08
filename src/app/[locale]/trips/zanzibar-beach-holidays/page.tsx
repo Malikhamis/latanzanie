@@ -43,7 +43,7 @@ export default function ZanzibarBeachHolidaysPage() {
       name: '8 Day Complete Escape',
       duration: '8 days',
       price: '€1,500',
-      deposit: '€300',
+      deposit: '€100',
       description: 'Beach & Culture Experience',
       slug: 'zanzibar-complete-escape-8-days'
     },
@@ -52,7 +52,7 @@ export default function ZanzibarBeachHolidaysPage() {
       name: '5 Day Diving & Culture',
       duration: '5 days',
       price: '€850',
-      deposit: '€200',
+      deposit: '€100',
       description: 'Underwater & Stone Town',
       slug: 'zanzibar-diving-culture-5-days'
     },
@@ -61,7 +61,7 @@ export default function ZanzibarBeachHolidaysPage() {
       name: '10 Day Safari & Beach',
       duration: '10 days',
       price: '€2,300',
-      deposit: '€500',
+      deposit: '€100',
       description: 'Wildlife + Paradise Beaches',
       slug: 'zanzibar-safari-beach-10-days'
     },
@@ -70,7 +70,7 @@ export default function ZanzibarBeachHolidaysPage() {
       name: '7 Day Beach Paradise',
       duration: '7 days',
       price: '€1,200',
-      deposit: '€250',
+      deposit: '€100',
       description: 'Pure Relaxation Package',
       slug: 'zanzibar-beach-holidays'
     }

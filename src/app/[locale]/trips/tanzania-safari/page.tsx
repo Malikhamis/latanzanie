@@ -40,7 +40,7 @@ export default function TanzaniaSafariPage() {
       name: '4 Unforgettable Days in the Heart of Wildlife',
       duration: '4 days',
       price: '€1,000',
-      deposit: '€200',
+      deposit: '€100',
       description: 'Serengeti & Ngorongoro Crater',
       slug: 'safari-bivouac-4-days'
     },
@@ -49,7 +49,7 @@ export default function TanzaniaSafariPage() {
       name: '8 Day Northern Circuit Safari',
       duration: '8 days',
       price: '€1,850',
-      deposit: '€400',
+      deposit: '€100',
       description: 'Complete Northern Circuit',
       slug: 'safari-bivouac-8-days'
     },
@@ -58,7 +58,7 @@ export default function TanzaniaSafariPage() {
       name: 'The Bold Escape: Safari & Kilimanjaro Adventures',
       duration: '6 days',
       price: '€1,400',
-      deposit: '€300',
+      deposit: '€100',
       description: 'Wildlife + Mountain Views',
       slug: 'safari-kilimanjaro-6-days'
     },
@@ -67,7 +67,7 @@ export default function TanzaniaSafariPage() {
       name: 'Safari & Beach Zanzibar (10 Days)',
       duration: '10 days',
       price: '€2,300',
-      deposit: '€500',
+      deposit: '€100',
       description: 'Wildlife + Paradise Beaches',
       slug: 'zanzibar-safari-beach-10-days'
     }

@@ -5,6 +5,7 @@ import '../../tailgrid.css'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useState } from 'react'
+import { submitNewsletterSubscription } from '@/lib/actions/contact'
 
 // Disable static generation for this page
 export const dynamic = 'force-dynamic';
@@ -12,9 +13,36 @@ export const dynamic = 'force-dynamic';
 export default function AboutPage() {
   const t = useTranslations('AboutPage');
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [firstName, setFirstName] = useState('');
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
+  };
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    try {
+      const result = await submitNewsletterSubscription({ firstName, email });
+      if (result.success) {
+        setSubmitSuccess(true);
+        setFirstName('');
+        setEmail('');
+      } else {
+        setSubmitError(result.error || 'Failed to subscribe');
+      }
+    } catch (err) {
+      console.error('Newsletter subscription error:', err);
+      setSubmitError('An error occurred. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -218,23 +246,41 @@ export default function AboutPage() {
             {t('newsletter.description')}
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
+          <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 justify-center max-w-xl mx-auto">
             <input
               type="text"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
               placeholder={t('newsletter.firstNamePlaceholder')}
               className="flex-1 px-6 py-3 rounded-lg text-gray-900"
+              required
             />
             <input
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder={t('newsletter.emailPlaceholder')}
               className="flex-1 px-6 py-3 rounded-lg text-gray-900"
+              required
             />
             <Button 
-              className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-3 rounded-lg whitespace-nowrap"
+              type="submit"
+              disabled={isSubmitting}
+              className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-3 rounded-lg whitespace-nowrap disabled:opacity-50"
             >
-              {t('newsletter.button')}
+              {isSubmitting ? 'Submitting...' : t('newsletter.button')}
             </Button>
-          </div>
+          </form>
+          {submitSuccess && (
+            <div className="mt-4 text-green-600 text-center">
+              Successfully subscribed to the newsletter!
+            </div>
+          )}
+          {submitError && (
+            <div className="mt-4 text-red-600 text-center">
+              {submitError}
+            </div>
+          )}
         </div>
       </section>
     </div>

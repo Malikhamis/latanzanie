@@ -33,13 +33,10 @@ export default function SanteEnAltitudePage() {
     <div className="min-h-screen bg-gray-50">
       <section
         className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40"
-        style={{ backgroundImage: "url('/images/hero4.jpg')" }}
+        style={{ backgroundImage: "url('/images/sante-en-altitude hero.jpg')" }}
       >
         <div className="container mx-auto px-4">
-          <Link
-            href={`/${locale}/travel-blogs`}
-            className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft"
-          >
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
             {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
@@ -95,7 +92,7 @@ export default function SanteEnAltitudePage() {
                   </div>
 
                   <div id="intro" className="bg-gray-50 rounded-lg shadow-md overflow-hidden p-6">
-                    <p className="text-gray-700 leading-relaxed">{t('sections.intro')}</p>
+                    <p className="text-gray-700 leading-relaxed">{t('sections.intro')} <Link href={`/${locale}/travel-blogs/niveau-physique-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">Physique</Link> et <Link href={`/${locale}/travel-blogs/acclimatation-kilimanjar`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">adaptation</Link> sont des facteurs clés pour prévenir le <Link href={`/${locale}/travel-blogs/diamox-kilimanjar`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">Mal Aigu des Montagnes (MAM)</Link>.</p>
                     <p className="text-gray-700 leading-relaxed mt-4">{t('sections.intro2')}</p>
                   </div>
 
@@ -109,7 +106,7 @@ export default function SanteEnAltitudePage() {
 
                   <div id="symptoms-early" className="bg-gray-50 rounded-lg shadow-md overflow-hidden p-6">
                     <h2 className="text-2xl font-bold mb-4">{t('sections.symptoms_early_title')}</h2>
-                    <p className="text-gray-700 leading-relaxed">{t('sections.symptoms_intro')}</p>
+                    <p className="text-gray-700 leading-relaxed">{t('sections.symptoms_intro')} Les <Link href={`/${locale}/travel-blogs/evacuation-urgence`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">symptômes du MAM</Link> doivent être surveillés attentivement.</p>
                     <p className="text-gray-700 leading-relaxed mt-4">{t('sections.symptom_headache')}</p>
 
                     <h3 className="text-xl font-semibold mt-4">{t('sections.symptom_headache_title')}</h3>
@@ -157,16 +154,16 @@ export default function SanteEnAltitudePage() {
 
                   <div id="prevention" className="bg-gray-50 rounded-lg shadow-md overflow-hidden p-6">
                     <h2 className="text-2xl font-bold mb-4">{t('sections.prevention_title')}</h2>
-                    <p className="text-gray-700 leading-relaxed">{t('sections.prevention_intro')}</p>
-
+                    <p className="text-gray-700 leading-relaxed">{t('sections.prevention_intro')} La <Link href={`/${locale}/travel-blogs/diamox-kilimanjar`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">prévention du mal aigu</Link> passe par une montée progressive.</p>
+                    
                     <h3 className="text-xl font-semibold mt-4">{t('sections.prevention_pole_title')}</h3>
                     <p className="text-gray-700 leading-relaxed mt-2">{t('sections.prevention_pole')}</p>
 
                     <h3 className="text-xl font-semibold mt-4">{t('sections.prevention_hydration_title')}</h3>
-                    <p className="text-gray-700 leading-relaxed mt-2">{t('sections.prevention_hydration')}</p>
-
+                    <p className="text-gray-700 leading-relaxed mt-2">{t('sections.prevention_hydration')} Une <Link href={`/${locale}/travel-blogs/sommeil-kilimanjar`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">bonne hydratation</Link> est essentielle.</p>
+                    
                     <h3 className="text-xl font-semibold mt-4">{t('sections.prevention_sleep_title')}</h3>
-                    <p className="text-gray-700 leading-relaxed mt-2">{t('sections.prevention_sleep')}</p>
+                    <p className="text-gray-700 leading-relaxed mt-2">{t('sections.prevention_sleep')} Un bon <Link href={`/${locale}/travel-blogs/sommeil-kilimanjar`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">sommeil</Link> favorise l'acclimatation.</p>
 
                     <h3 className="text-xl font-semibold mt-4">{t('sections.prevention_diamox_title')}</h3>
                     <p className="text-gray-700 leading-relaxed mt-2">{t('sections.prevention_diamox')}</p>
@@ -207,7 +204,7 @@ export default function SanteEnAltitudePage() {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/marangu-route.jpg')" }}></div>
+              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/sante-en-altitude hero.jpg')" }}></div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>
@@ -227,7 +224,7 @@ export default function SanteEnAltitudePage() {
               </div>
             </div>
             <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/lemosho-route.jpg')" }}></div>
+              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/sante-en-altitude hero.jpg')" }}></div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>
@@ -247,7 +244,7 @@ export default function SanteEnAltitudePage() {
               </div>
             </div>
             <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/kilimanjaro-umbwe.jpg')" }}></div>
+              <div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/sante-en-altitude hero.jpg')" }}></div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>

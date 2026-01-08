@@ -19,20 +19,20 @@ export default function CheckUpMedicalKilimanjarPage() {
 
   const sections = [
     { id: 'introduction', title: 'Faut-il faire un check-up médical avant l’ascension du Kilimandjaro ?' },
-    { id: 'medical-exam', title: 'Pourquoi un check-up médical est essentiel avant l’ascension du Kilimandjaro' },
+    { id: 'medical-exam', title: 'Pourquoi un check-up médical est essentiel avant l\'ascension du Kilimandjaro' },
     { id: 'vaccinations', title: 'Vaccinations recommandées' },
-    { id: 'health-conditions', title: 'Conditions de santé nécessitant une consultation médicale avant l’ascension du Kilimandjaro' },
-    { id: 'altitude-considerations', title: 'Considérations spécifiques liées à l’altitude' },
+    { id: 'health-conditions', title: 'Conditions de santé nécessitant une consultation médicale avant l\'ascension du Kilimandjaro' },
+    { id: 'altitude-considerations', title: 'Considérations spécifiques liées à l\'altitude' },
     { id: 'conclusion', title: 'Conclusion' }
   ]
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero section with back-link */}
-      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero4.jpg')" }}>
+      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/sante-en-altitude hero.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
-            ← Retour aux blogs
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+            {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
       </section>
@@ -78,8 +78,8 @@ export default function CheckUpMedicalKilimanjarPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Faut-il faire un check-up médical avant l'ascension du Kilimandjaro ?
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
-                  <p className="mb-4">Gravir le Kilimandjaro est une aventure extraordinaire, mais c'est aussi un défi physique et cardiorespiratoire. Avant de partir, il est fortement recommandé de réaliser un check-up médical complet pour s'assurer que votre corps peut supporter l'altitude et l'effort prolongé. Même les randonnéeurs expérimentés peuvent être surpris par les effets de l'altitude, car le Mal Aigu des Montagnes (MAM) peut toucher tout le monde, indépendamment de la forme physique ou de l'âge.</p>
+                <div className="prose prose-xl max-w-none text-gray-700">
+                  <p className="mb-4">Gravir le Kilimandjaro est une aventure extraordinaire, mais c'est aussi un défi <Link href={`/${locale}/travel-blogs/niveau-physique-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">physique</Link> et cardiorespiratoire. Avant de partir, il est fortement recommandé de réaliser un check-up médical complet pour s'assurer que votre corps peut supporter <Link href={`/${locale}/travel-blogs/preparer-son-corps-altitude-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">l'altitude</Link> et l'effort prolongé. Même les randonnéeurs expérimentés peuvent être surpris par les effets de l'altitude, car le <Link href={`/${locale}/travel-blogs/sante-en-altitude`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">Mal Aigu des Montagnes (MAM)</Link> peut toucher tout le monde, indépendamment de la <Link href={`/${locale}/travel-blogs/niveau-physique-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">forme physique</Link> ou de l'âge.</p>
                 </div>
               </section>
 
@@ -88,10 +88,11 @@ export default function CheckUpMedicalKilimanjarPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Pourquoi un check-up médical est essentiel avant l'ascension du Kilimandjaro
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
-                  <p className="mb-4">Avant de partir pour le Kilimandjaro, un check-up médical complet n'est pas seulement recommandé, il est essentiel pour votre sécurité et votre acclimatation. L'altitude exerce un stress important sur le corps, car l'air contient moins d'oxygène et le cœur, les poumons et d'autres organes doivent travailler plus fort pour compenser cette baisse. Même les randonnéeurs en excellente condition physique peuvent rencontrer des difficultés si leur état de santé n'a pas été évalué.</p>
-                  <p className="mb-4">Un bilan médical permet d'abord de détecter des problèmes cardiovasculaires ou respiratoires préexistants. Des conditions comme l'hypertension, des troubles du rythme cardiaque ou l'asthme peuvent compliquer sérieusement l'ascension et augmenter le risque de Mal Aigu des Montagnes (MAM). Identifier ces conditions avant le départ permet de mettre en place des précautions et de déterminer si certaines parties de l'ascension doivent être adaptées.</p>
-                  <p className="mb-4">Le check-up aide également à identifier des troubles métaboliques, tels que le diabète ou des déséquilibres hormonaux, qui peuvent compliquer l'acclimatation. En haute altitude, le corps utilise l'énergie différemment et le contrôle de la glycémie, par exemple, devient crucial. Détecter ces conditions à l'avance permet de planifier une alimentation adaptée et un suivi médical si nécessaire.</p>
+                <div className="prose prose-xl max-w-none text-gray-700">
+                  <p className="mb-4">Avant de partir pour le Kilimandjaro, un check-up médical complet n'est pas seulement recommandé, il est essentiel pour votre sécurité et votre <Link href={`/${locale}/travel-blogs/acclimatation-kilimanjar`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">acclimatation</Link>. L'altitude exerce un stress important sur le corps, car l'air contient moins d'oxygène et le cœur, les poumons et d'autres organes doivent travailler plus fort pour compenser cette baisse. Même les randonnéeurs en excellente <Link href={`/${locale}/travel-blogs/niveau-physique-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">condition physique</Link> peuvent rencontrer des difficultés si leur état de santé n'a pas été évalué.</p>
+                  <p className="mb-4">Un bilan médical permet d'abord de détecter des problèmes cardiovasculaires ou respiratoires préexistants. Des conditions comme l'hypertension, des troubles du rythme cardiaque ou l'asthme peuvent compliquer sérieusement l'ascension et augmenter le risque de <Link href={`/${locale}/travel-blogs/sante-en-altitude`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">Mal Aigu des Montagnes (MAM)</Link>. Identifier ces conditions avant le départ permet de mettre en place des précautions et de déterminer si certaines parties de l'ascension doivent être adaptées.</p>
+                  <p className="mb-4">Le check-up aide également à identifier des troubles métaboliques, tels que le diabète ou des déséquilibres hormonaux, qui peuvent compliquer l'<Link href={`/${locale}/travel-blogs/acclimatation-kilimanjar`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">acclimatation</Link>. En haute altitude, le corps utilise l'énergie différemment et le contrôle de la glycémie, par exemple, devient crucial. Détecter ces conditions à l'avance permet de planifier une alimentation adaptée et un suivi médical si nécessaire.</p>
+                  <p className="mb-4">L'<Link href={`/${locale}/travel-blogs/acclimatation-kilimanjar`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">adaptation</Link> à l'altitude affecte non seulement le corps physiquement, mais aussi mentalement. Il est important de se préparer <Link href={`/${locale}/travel-blogs/preparation-mentale-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">mentalement</Link> à cette épreuve.</p>
                   <blockquote className="border-l-4 border-[#00A896] pl-4 italic mt-6">
                     {'> '}Conseil du guide local : "Avant de grimper le Kilimandjaro, un check-up complet est votre meilleur allié. Il permet de détecter les problèmes invisibles qui pourraient transformer une aventure extraordinaire en risque sérieux. Mieux vaut prévenir que descendre d'urgence."
                   </blockquote>
@@ -103,7 +104,7 @@ export default function CheckUpMedicalKilimanjarPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Vaccinations recommandées
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">En Tanzanie, certaines vaccinations sont recommandées avant votre voyage. Les vaccinations habituellement recommandées incluent celles contre la fièvre jaune, l'hépatite A et B, la typhoïde, la rage et la méningite. Consultez un centre de santé voyage ou un médecin spécialisé pour un avis personnalisé en fonction de votre historique médical et de la durée de votre séjour.</p>
                   <p className="mb-4">Pour la fièvre jaune, un certificat international de vaccination est exigé si vous arrivez d'une zone d'endémie. La vaccination contre l'hépatite A est recommandée pour tous les voyageurs, car la transmission se fait par voie orale, par l'eau ou les aliments contaminés.</p>
                   <p className="mb-4">En ce qui concerne l'hépatite B, la vaccination est recommandée pour les séjours longs ou en cas de contact possible avec le sang ou les fluides corporels. La vaccination contre la typhoïde est particulièrement utile dans les zones rurales ou pour les randonnées prolongées.</p>
@@ -116,31 +117,31 @@ export default function CheckUpMedicalKilimanjarPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Conditions de santé nécessitant une consultation médicale avant l'ascension du Kilimandjaro
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
-                  <p className="mb-4">Gravir le Kilimandjaro est une aventure incroyable, mais c'est aussi un défi pour le corps. L'altitude réduit la quantité d'oxygène disponible et impose un effort supplémentaire au cœur, aux poumons et aux autres organes. Pour cette raison, certaines conditions de santé demandent une attention particulière et une consultation médicale préalable afin de garantir la sécurité du randonnéeur et d'optimiser l'acclimatation.</p>
+                <div className="prose prose-xl max-w-none text-gray-700">
+                  <p className="mb-4">Gravir le Kilimandjaro est une aventure incroyable, mais c'est aussi un défi pour le corps. L'altitude réduit la quantité d'oxygène disponible et impose un effort supplémentaire au cœur, aux poumons et aux autres organes. Pour cette raison, certaines conditions de santé demandent une attention particulière et une consultation médicale préalable afin de garantir la sécurité du randonnéeur et d'optimiser l'<Link href={`/${locale}/travel-blogs/acclimatation-kilimanjar`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">acclimatation</Link>.</p>
                   <ul className="list-disc list-inside mb-4">
                     <li>Problèmes cardiaques ou pulmonaires : insuffisance cardiaque, asthme sévère, hypertension non contrôlée.</li>
                     <li>Diabète ou autres maladies métaboliques : adaptation de l'alimentation et suivi de la glycémie en altitude.</li>
-                    <li>Troubles neurologiques ou épilepsie : risque accru avec l'altitude.</li>
-                    <li>Problèmes rénaux ou hépatiques : impact sur l'hydratation et la tolérance à certains médicaments.</li>
+                    <li>Troubles neurologiques ou épilepsie : risque accru avec l'<Link href={`/${locale}/travel-blogs/preparer-son-corps-altitude-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">altitude</Link>.</li>
+                    <li>Problèmes rénaux ou hépatiques : impact sur l'<Link href={`/${locale}/travel-blogs/sommeil-kilimanjar`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">hydratation</Link> et la tolérance à certains médicaments.</li>
                     <li>Grossesse : la haute altitude n'est pas recommandée.</li>
                   </ul>
                   <p className="mb-4">Ces conditions ne sont pas nécessairement des contre-indications à l'ascension, mais elles nécessitent une évaluation médicale approfondie pour déterminer si l'ascension est sûre et comment adapter les conditions de la randonnée.</p>
-                  <p className="mb-4">En cas de doute, il est préférable de consulter un médecin spécialisé dans la médecine de l'altitude ou un médecin du sport avant de planifier votre ascension.</p>
-                  <p className="mb-4">Le médecin pourra également vous conseiller sur les médicaments préventifs à emporter, comme le Diamox (acetazolamide) pour prévenir le MAM, et vous informer sur les effets potentiels de vos traitements habituels en altitude.</p>
+                  <p className="mb-4">En cas de doute, il est préférable de consulter un médecin spécialisé dans la médecine de l'<Link href={`/${locale}/travel-blogs/preparer-son-corps-altitude-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">altitude</Link> ou un médecin du sport avant de planifier votre ascension.</p>
+                  <p className="mb-4">Le médecin pourra également vous conseiller sur les médicaments préventifs à emporter, comme le Diamox (acetazolamide) pour prévenir le <Link href={`/${locale}/travel-blogs/sante-en-altitude`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">MAM</Link>, et vous informer sur les effets potentiels de vos traitements habituels en <Link href={`/${locale}/travel-blogs/preparer-son-corps-altitude-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">altitude</Link>. Une <Link href={`/${locale}/travel-blogs/sommeil-kilimanjar`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">bonne hydratation</Link> est essentielle pour prévenir le <Link href={`/${locale}/travel-blogs/sante-en-altitude`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">mal aigu</Link> et faciliter l'<Link href={`/${locale}/travel-blogs/acclimatation-kilimanjar`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">acclimatation</Link>.</p>
                 </div>
               </section>
 
               {/* Altitude Considerations */}
               <section id="altitude-considerations" className="bg-white rounded-lg shadow-md p-8">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                  Considérations spécifiques liées à l’altitude
+                  Considérations spécifiques liées à l'altitude
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
-                  <p className="mb-4">L'altitude modifie la façon dont votre corps fonctionne. À mesure que vous montez, l'air devient plus rare et le taux d'oxygène diminue. Cela oblige votre corps à s'adapter en produisant plus de globules rouges et en modifiant votre rythme cardiaque et respiratoire.</p>
-                  <p className="mb-4">En haute altitude, votre corps utilise l'énergie différemment. La digestion peut devenir plus lente, et il est important de maintenir une hydratation adéquate. La capacité de votre corps à éliminer les toxines peut aussi être affectée, ce qui peut influencer la façon dont les médicaments sont métabolisés.</p>
-                  <p className="mb-4">L'acclimatation est un processus progressif. Votre corps doit s'adapter progressivement à la baisse d'oxygène. Cela peut prendre plusieurs jours, et l'expérience montre que les personnes qui montent lentement ont de meilleures chances de s'acclimater correctement.</p>
-                  <p className="mb-4">Il est important de noter que les effets de l'altitude peuvent varier d'une personne à l'autre. Certaines personnes s'acclimatent mieux que d'autres, indépendamment de leur condition physique. Même les sportifs de haut niveau peuvent être affectés par l'altitude.</p>
+                <div className="prose prose-xl max-w-none text-gray-700">
+                  <p className="mb-4">L'<Link href={`/${locale}/travel-blogs/preparer-son-corps-altitude-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">altitude</Link> modifie la façon dont votre corps fonctionne. À mesure que vous montez, l'air devient plus rare et le taux d'oxygène diminue. Cela oblige votre corps à s'adapter en produisant plus de globules rouges et en modifiant votre rythme cardiaque et respiratoire. La <Link href={`/${locale}/travel-blogs/diamox-kilimanjar`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">prévention du mal aigu</Link> passe par une montée progressive.</p>
+                  <p className="mb-4">En haute altitude, votre corps utilise l'énergie différemment. La digestion peut devenir plus lente, et il est important de maintenir une <Link href={`/${locale}/travel-blogs/sommeil-kilimanjar`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">hydratation</Link> adéquate. La capacité de votre corps à éliminer les toxines peut aussi être affectée, ce qui peut influencer la façon dont les médicaments sont métabolisés.</p>
+                  <p className="mb-4">L'<Link href={`/${locale}/travel-blogs/acclimatation-kilimanjar`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">acclimatation</Link> est un processus progressif. Votre corps doit s'adapter progressivement à la baisse d'oxygène. Cela peut prendre plusieurs jours, et l'expérience montre que les personnes qui montent lentement ont de meilleures chances de s'acclimater correctement. Pour <Link href={`/${locale}/travel-blogs/sante-en-altitude`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">prévenir le MAM</Link>, il est essentiel de respecter les temps d'acclimatation.</p>
+                  <p className="mb-4">Il est important de noter que les effets de l'altitude peuvent varier d'une personne à l'autre. Certaines personnes s'acclimatent mieux que d'autres, indépendamment de leur <Link href={`/${locale}/travel-blogs/niveau-physique-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">condition physique</Link>. Même les sportifs de haut niveau peuvent être affectés par l'altitude. Les <Link href={`/${locale}/travel-blogs/sante-en-altitude`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">symptômes du MAM</Link> doivent être surveillés attentivement.</p>
                 </div>
               </section>
 
@@ -149,8 +150,8 @@ export default function CheckUpMedicalKilimanjarPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Conclusion
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
-                  <p className="mb-4">Un check-up médical avant l'ascension du Kilimandjaro est une étape essentielle pour garantir votre sécurité et votre bien-être. Il permet d'identifier d'éventuels facteurs de risque et de préparer au mieux votre corps à affronter les défis de l'altitude.</p>
+                <div className="prose prose-xl max-w-none text-gray-700">
+                  <p className="mb-4">Un check-up médical avant l'ascension du Kilimandjaro est une étape essentielle pour garantir votre sécurité et votre bien-être. Il permet d'identifier d'éventuels facteurs de risque et de préparer au mieux votre corps à affronter les défis de l'<Link href={`/${locale}/travel-blogs/preparer-son-corps-altitude-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">altitude</Link>. La <Link href={`/${locale}/travel-blogs/niveau-physique-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">condition physique</Link> joue un rôle important dans la réussite de l'ascension.</p>
                   <p className="mb-4">Même si vous êtes en bonne santé, une consultation médicale vous permettra de partir l'esprit tranquille et de vous concentrer pleinement sur cette aventure exceptionnelle.</p>
                 </div>
               </section>
@@ -164,7 +165,7 @@ export default function CheckUpMedicalKilimanjarPage() {
                   </div>
                   <div className="grid md:grid-cols-3 gap-8">
                     <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-                      <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/marangu-route.jpg')" }}></div>
+                      <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/sante-en-altitude hero.jpg')" }}></div>
                       <div className="p-6">
                         <div className="flex justify-between items-start mb-4">
                           <div>
@@ -184,7 +185,7 @@ export default function CheckUpMedicalKilimanjarPage() {
                       </div>
                     </div>
                     <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-                      <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/lemosho-route.jpg')" }}></div>
+                      <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/sante-en-altitude hero.jpg')" }}></div>
                       <div className="p-6">
                         <div className="flex justify-between items-start mb-4">
                           <div>
@@ -204,7 +205,7 @@ export default function CheckUpMedicalKilimanjarPage() {
                       </div>
                     </div>
                     <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-                      <div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/kilimanjaro-umbwe.jpg')" }}></div>
+                      <div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/sante-en-altitude hero.jpg')" }}></div>
                       <div className="p-6">
                         <div className="flex justify-between items-start mb-4">
                           <div>

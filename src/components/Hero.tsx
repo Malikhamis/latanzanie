@@ -63,7 +63,7 @@ export function Hero() {
             className="w-full h-full object-cover"
             preload="metadata"
           >
-            <source src="/videos/tanzania-landscape.mp4" type="video/mp4" />
+            <source src="/videos/tanzania-landscape3.mp4" type="video/mp4" />
             {t('videoFallback')}
           </video>
         )}

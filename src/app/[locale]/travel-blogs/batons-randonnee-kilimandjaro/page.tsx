@@ -28,9 +28,9 @@ export default function PolesPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero5.jpg')" }}>
+      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/packlist-hero.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
             {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
@@ -75,8 +75,8 @@ export default function PolesPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   Faut-il des bâtons de randonnée pour le Kilimandjaro ? Le point de vue d'un guide local
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
-                  <p className="mb-4">Gravir le Mont Kilimandjaro est une aventure incroyable, mais qui n'est pas sans défis. Même si la montagne n'est pas technique, elle demande plusieurs jours de marche sur des terrains variés : des sentiers boueux de la forêt tropicale aux pentes caillouteuses du sommet enneigé. Dans ce contexte, de nombreux randonneurs se posent la question : faut-il absolument des bâtons de randonnée ?</p>
+                <div className="prose prose-xl max-w-none text-gray-700">
+                  <p className="mb-4">Gravir le Mont Kilimandjaro est une aventure incroyable, mais qui n'est pas sans défis. Même si la montagne n'est pas technique, elle demande plusieurs jours de marche sur des terrains variés : des sentiers boueux de la <Link href={`/${locale}/travel-blogs/zones-climatiques-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">forêt tropicale</Link> aux pentes caillouteuses du sommet enneigé. Dans ce contexte, de nombreux randonneurs se posent la question : faut-il absolument des bâtons de randonnée ?</p>
                   
                   <p className="mb-4">En tant que guide local, j'accompagne chaque saison des randonneurs de tous niveaux et je peux affirmer que les bâtons de randonnée sont bien plus qu'un simple accessoire. Voici pourquoi ils deviennent indispensables sur le Kilimandjaro, et comment les utiliser pour rendre l'ascension plus sûre et plus agréable.</p>
                 </div>
@@ -87,7 +87,7 @@ export default function PolesPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   Pourquoi les bâtons de randonnée sont essentiels
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Les bâtons de randonnée sont bien plus qu'un simple accessoire sur le Kilimandjaro. Ils jouent un rôle crucial dans la sécurité, le confort et la réussite de votre ascension. Voici les raisons principales pour lesquelles ils deviennent indispensables :</p>
                 </div>
               </section>
@@ -97,7 +97,7 @@ export default function PolesPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   1. Réduire la fatigue et protéger les articulations
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Le Kilimandjaro implique plusieurs jours de marche avec un dénivelé important, souvent sur des terrains instables ou accidentés. Les bâtons permettent de répartir l'effort entre les jambes et les bras, ce qui réduit la fatigue musculaire et protège les articulations, notamment les genoux et les chevilles.</p>
                   
                   <p className="mb-4">Imaginez une descente longue après une journée de 7 à 8 heures de marche : sans bâtons, vos genoux absorbent tout le poids et le choc de chaque pas. Avec eux, le poids est partiellement transféré aux bras, ce qui allège considérablement la descente et réduit le risque de douleurs ou de blessures.</p>
@@ -109,7 +109,7 @@ export default function PolesPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   2. Améliorer l'équilibre sur les terrains instables
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Les sentiers du Kilimandjaro ne sont jamais uniformes. Vous trouverez des zones caillouteuses, glissantes ou boueuses, surtout pendant la saison des pluies. Les bâtons offrent un appui supplémentaire qui stabilise votre corps et vous permet de garder votre équilibre.</p>
                   
                   <p className="mb-4">Ils sont particulièrement utiles sur les pentes raides ou les passages en dévers, où un faux pas pourrait facilement provoquer une chute. Les bâtons deviennent alors un "troisième pied" qui vous soutient et vous aide à avancer en toute sécurité.</p>
@@ -121,7 +121,7 @@ export default function PolesPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   3. Faciliter la montée et la descente
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">En montée, les bâtons permettent de pousser avec les bras, ce qui soulage les jambes et économise de l'énergie. En descente, ils absorbent le choc des impacts et réduisent la tension sur les muscles et les articulations.</p>
                   
                   <p className="mb-4">Même sur des terrains relativement plats, utiliser les bâtons par intermittence peut aider à maintenir un rythme constant, ce qui est crucial pour limiter la fatigue et gérer l'effort sur plusieurs jours.</p>
@@ -133,7 +133,7 @@ export default function PolesPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   4. Aider à prévenir le mal des montagnes
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Le mal des montagnes se produit souvent lorsque l'on monte trop rapidement ou que l'on fournit un effort trop intense. Les bâtons permettent de marcher à un rythme régulier et contrôlé, sans s'essouffler. Cette régularité est essentielle pour aider le corps à s'acclimater progressivement à l'altitude et à réduire les symptômes tels que maux de tête, nausées et fatigue excessive.</p>
                 </div>
               </section>
@@ -143,7 +143,7 @@ export default function PolesPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   5. Conseils pour bien choisir ses bâtons
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Pour tirer le meilleur parti de vos bâtons, voici quelques conseils pratiques :</p>
                   
                   <ul className="list-disc pl-6 mb-4 space-y-2">

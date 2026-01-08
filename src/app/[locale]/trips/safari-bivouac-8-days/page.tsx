@@ -103,6 +103,7 @@ export default function SafariBivouac8DaysPage() {
   const inclusionsRef = useRef<HTMLElement>(null)
   const datesPricesRef = useRef<HTMLElement>(null)
   const practicalInfoRef = useRef<HTMLElement>(null)
+  const monthDropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -288,22 +289,16 @@ export default function SafariBivouac8DaysPage() {
         </div>
       </div>
 
-      <div className="md:hidden bg-white py-6 sticky top-0 z-40 border-b border-gray-200">
-        <div className="flex justify-center px-4">
-          <div className="flex flex-wrap gap-4 justify-center">
-            <button className="text-gray-600 font-medium hover:text-gray-800 px-4 py-2 border-2 border-gray-300 rounded-lg flex items-center text-lg" onClick={() => scrollToSection(datesPricesRef)}>
+      <div className="md:hidden bg-white py-4 sticky top-0 z-40 border-b border-gray-200">
+        <div className="px-4">
+          <div className="grid grid-cols-2 gap-2">
+            <button className="bg-[#f8d7da] text-[#721c24] font-medium hover:bg-[#f1b0b7] px-4 py-2 border border-[#f5c6cb] rounded-lg flex items-center justify-center text-sm" onClick={() => scrollToSection(datesPricesRef)}>
               <Calendar className="mr-2 h-4 w-4" />
               {t('miniNavbar.datesAndPrices', 'Dates & Prices')}
             </button>
-            <button className="text-gray-600 font-medium hover:text-gray-800 px-4 py-2 border-2 border-gray-300 rounded-lg flex items-center text-lg" onClick={() => setShowInquiryForm(true)}>
+            <button className="bg-[#00A896] text-white font-medium hover:bg-[#008576] px-4 py-2 border border-[#00A896] rounded-lg flex items-center justify-center text-sm" onClick={() => setShowInquiryForm(true)}>
               <User className="mr-2 h-4 w-4" />
               {t('miniNavbar.proposeDate', 'Propose a Date')}
-            </button>
-            <button className="text-gray-600 font-medium hover:text-gray-800 px-4 py-2 border-2 border-gray-300 rounded-lg flex items-center text-lg" onClick={() => scrollToSection(inclusionsRef)}>
-              {t('miniNavbar.inclusions', 'Inclusions')}
-            </button>
-            <button className="text-gray-600 font-medium hover:text-gray-800 px-4 py-2 border-2 border-gray-300 rounded-lg flex items-center text-lg" onClick={() => scrollToSection(practicalInfoRef)}>
-              {t('miniNavbar.practicalInfo', 'Practical Info')}
             </button>
           </div>
         </div>
@@ -325,14 +320,14 @@ export default function SafariBivouac8DaysPage() {
               {itineraryDays.map((day, index) => {
                 const isOdd = index % 2 === 1
                 const safariImages = [
-                  '/images/safari-bivouac.jpg',
-                  '/images/zanzibar.jpg',
-                  '/images/arrival.jpg',
-                  '/images/climb.jpg',
-                  '/images/gate.jpg',
-                  '/images/kibo.jpg',
-                  '/images/kilele.jpg',
-                  '/images/lala.jpg'
+                  '/images/arrivale.jpg',
+                  '/images/tarangire3.jpg',
+                  '/images/serengeti3.jpg',
+                  '/images/hiisafari3.jpg',
+                  '/images/ngorongoro3.jpg',
+                  '/images/lake.jpg',
+                  '/images/lake eyasi3.jpg',
+                  '/images/breakfast.jpg'
                 ]
                 
                 return (
@@ -409,204 +404,259 @@ export default function SafariBivouac8DaysPage() {
       </section>
 
       {/* Dates & Prices Section */}
-      <section ref={datesPricesRef} className="py-16 bg-gradient-to-br from-[#F0FCF9] via-[#E8F8F5] to-[#DDF5F0]">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-[#72D9C4] to-[#00A896] bg-clip-text text-transparent">
-            {t('datesAndPrices.title', 'Dates and Prices')}
+      <section ref={datesPricesRef} className="py-16 bg-white">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900">
+            Book your trip
           </h2>
-          
-          <div className="max-w-5xl mx-auto">
-            {/* Top Cards - Group Discounts & Propose Date */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-              <div className="bg-white/80 backdrop-blur-sm border-2 border-[#B8EDE3] rounded-2xl p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300">
-                <div className="flex items-center mb-4">
-                  <div className="p-3 bg-gradient-to-br from-[#4DC5B5] to-[#00A896] rounded-xl mr-4">
-                    <Users className="h-6 w-6 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900">{t('datesAndPrices.groupDiscounts', 'Group Discounts')}</h3>
+                
+          {/* Compact Action Cards - Horizontal Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            <div 
+              onClick={() => setShowInquiryForm(true)}
+              className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer"
+            >
+              <div className="flex items-center gap-3">
+                <div className="text-2xl">💰</div>
+                <div className="flex-1">
+                  <h3 className="font-semibold text-gray-900 text-base">Group Discounts</h3>
+                  <p className="text-gray-600 text-sm">Enquire for more details</p>
                 </div>
-                <p className="text-gray-600 mb-6 text-lg leading-relaxed">{t('datesAndPrices.dontSeeDates', 'Don\'t see your dates? We offer flexible scheduling and group discounts.')}</p>
-                <button 
-                  onClick={() => setShowInquiryForm(true)}
-                  className="bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full"
-                >
-                  {t('datesAndPrices.enquireButton', 'Enquire Now')}
-                </button>
-              </div>
-              
-              <div className="bg-white/80 backdrop-blur-sm border-2 border-[#B8EDE3] rounded-2xl p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300">
-                <div className="flex items-center mb-4">
-                  <div className="p-3 bg-gradient-to-br from-[#4DC5B5] to-[#00A896] rounded-xl mr-4">
-                    <Calendar className="h-6 w-6 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900">{t('datesAndPrices.proposeNewDate', 'Propose a New Date')}</h3>
-                </div>
-                <p className="text-gray-600 mb-6 text-lg leading-relaxed">{t('datesAndPrices.proposeDateDescription', 'Have specific dates in mind? We can organize a private safari departure just for you.')}</p>
-                <button 
-                  onClick={() => setShowInquiryForm(true)}
-                  className="bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full"
-                >
-                  {t('datesAndPrices.proposeDateButton', 'Propose Date')}
-                </button>
               </div>
             </div>
-            
-            {/* Bottom Section - When & Group Options */}
-            <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl border border-gray-200 overflow-hidden">
-              <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-200">
-                {/* When Section - Left Half */}
-                <div className="p-8">
-                  <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-2xl font-bold text-gray-900 flex items-center">
-                      <Calendar className="mr-2 h-6 w-6 text-[#00A896]" />
-                      {t('datesAndPrices.when', 'When?')}
-                    </h3>
-                    <span className="bg-gradient-to-r from-[#E8F8F5] to-[#D0F0E8] text-[#008576] px-4 py-2 rounded-full text-sm font-bold shadow-sm">
-                      {selectedMonths.length} {t('datesAndPrices.selected', 'selected')}
-                    </span>
-                  </div>
-                  <div className="mb-6">
-                    <button 
-                      onClick={() => setIsWhenDropdownOpen(!isWhenDropdownOpen)}
-                      className="w-full p-4 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00A896] focus:border-[#00A896] bg-white text-left flex justify-between items-center hover:border-[#72D9C4] transition-colors"
-                    >
-                      <span className="font-medium text-gray-700">{selectedMonths.length > 0 ? `${selectedMonths.length} ${t('datesAndPrices.selected', 'selected')}` : t('datesAndPrices.selectMonth', 'Select month')}</span>
-                      <svg className={`transform transition-transform ${isWhenDropdownOpen ? 'rotate-180' : ''} fill-current h-5 w-5 text-gray-500`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                      </svg>
-                    </button>
-                    
-                    {isWhenDropdownOpen && (
-                      <div className="border-2 border-[#B8EDE3] rounded-xl mt-3 p-6 max-h-72 overflow-y-auto bg-gradient-to-br from-white to-[#E8F8F5] shadow-lg">
-                        <div className="grid grid-cols-3 gap-3">
-                          <div className="font-bold text-gray-900 col-span-3 mb-2 text-lg">2025</div>
-                          {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month) => {
-                            const monthKey = `2025-${month}`;
-                            const isSelected = selectedMonths.includes(monthKey);
-                            return (
-                              <button 
-                                key={monthKey} 
-                                onClick={() => {
-                                  if (isSelected) {
-                                    setSelectedMonths(selectedMonths.filter(m => m !== monthKey));
-                                  } else {
-                                    setSelectedMonths([...selectedMonths, monthKey]);
-                                  }
-                                }}
-                                className={`font-semibold py-3 px-2 rounded-lg transition-all duration-200 text-sm ${
-                                  isSelected 
-                                    ? 'bg-gradient-to-r from-[#72D9C4] to-[#00A896] text-white shadow-md transform scale-105' 
-                                    : 'bg-white hover:bg-[#E8F8F5] text-gray-700 border border-gray-200 hover:border-[#B8EDE3]'
-                                }`}
-                              >
-                                {month}
-                              </button>
-                            );
-                          })}
-                          <div className="font-bold text-gray-900 col-span-3 mt-4 mb-2 text-lg">2026</div>
-                          {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month) => {
-                            const monthKey = `2026-${month}`;
-                            const isSelected = selectedMonths.includes(monthKey);
-                            return (
-                              <button 
-                                key={monthKey} 
-                                onClick={() => {
-                                  if (isSelected) {
-                                    setSelectedMonths(selectedMonths.filter(m => m !== monthKey));
-                                  } else {
-                                    setSelectedMonths([...selectedMonths, monthKey]);
-                                  }
-                                }}
-                                className={`font-semibold py-3 px-2 rounded-lg transition-all duration-200 text-sm ${
-                                  isSelected 
-                                    ? 'bg-gradient-to-r from-[#72D9C4] to-[#00A896] text-white shadow-md transform scale-105' 
-                                    : 'bg-white hover:bg-[#E8F8F5] text-gray-700 border border-gray-200 hover:border-[#B8EDE3]'
-                                }`}
-                              >
-                                {month}
-                              </button>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    )}
-                  </div>
                   
-                  <div className="pt-6 border-t-2 border-gray-200 bg-gradient-to-br from-[#E8F8F5] to-[#D0F0E8] rounded-xl p-6">
-                    <div className="text-center">
-                      <p className="text-2xl font-bold text-[#00A896] mb-2">€1,850</p>
-                      <p className="text-gray-600">{t('datesAndPrices.perPerson', 'per person')}</p>
-                      <p className="text-sm text-gray-500 mt-2">{t('datesAndPrices.availability', 'Year-round departures available')}</p>
+            <div 
+              onClick={() => setShowInquiryForm(true)}
+              className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer"
+            >
+              <div className="flex items-center gap-3">
+                <div className="text-2xl">📅</div>
+                <div className="flex-1">
+                  <h3 className="font-semibold text-gray-900 text-base">Don't see your dates?</h3>
+                  <p className="text-gray-600 text-sm">Please propose a new departure</p>
+                </div>
+              </div>
+            </div>
+          </div>
+                
+          {/* Filters - Compact Inline */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-6">
+            {/* When Selector */}
+            <div ref={monthDropdownRef} className="relative flex-1">
+              <button 
+                onClick={() => setIsWhenDropdownOpen(!isWhenDropdownOpen)}
+                className="w-full bg-white border border-gray-300 rounded-lg px-4 py-2.5 text-base font-medium text-gray-700 hover:bg-gray-50 transition-colors flex items-center justify-between"
+              >
+                <span className="flex items-center gap-2">
+                  <span className="text-gray-600">When</span>
+                  <span className="font-semibold">{selectedMonths.length > 0 ? selectedMonths[0].replace('-', ' ') : 'January 2026'}</span>
+                </span>
+                <svg className={`w-4 h-4 transition-transform ${isWhenDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+                    
+              {isWhenDropdownOpen && (
+                <div className="absolute z-20 mt-2 w-full bg-white rounded-lg shadow-xl border border-gray-200 p-4 max-h-96 overflow-y-auto">
+                  {/* 2025 */}
+                  <div className="mb-4">
+                    <h4 className="text-base font-bold text-gray-900 mb-3">2025</h4>
+                    <div className="grid grid-cols-4 gap-2 mb-4">
+                      {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month) => {
+                        const monthKey = `2025-${month}`;
+                        const isSelected = selectedMonths.includes(monthKey);
+                        return (
+                          <button 
+                            key={monthKey} 
+                            onClick={() => {
+                              setSelectedMonths([monthKey]);
+                              setIsWhenDropdownOpen(false);
+                            }}
+                            className={`py-2 px-3 rounded-lg text-base font-medium transition-colors ${
+                              isSelected 
+                                ? 'bg-[#00A896] text-white' 
+                                : 'text-gray-500 hover:bg-gray-100'
+                            }`}
+                          >
+                            {month}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                        
+                  {/* 2026 */}
+                  <div className="mb-4">
+                    <h4 className="text-base font-bold text-gray-900 mb-3">2026</h4>
+                    <div className="grid grid-cols-4 gap-2 mb-4">
+                      {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month) => {
+                        const monthKey = `2026-${month}`;
+                        const isSelected = selectedMonths.includes(monthKey);
+                        return (
+                          <button 
+                            key={monthKey} 
+                            onClick={() => {
+                              setSelectedMonths([monthKey]);
+                              setIsWhenDropdownOpen(false);
+                            }}
+                            className={`py-2 px-3 rounded-lg text-base font-medium transition-colors ${
+                              isSelected 
+                                ? 'bg-[#00A896] text-white' 
+                                : 'text-gray-700 hover:bg-gray-100'
+                            }`}
+                          >
+                            {month}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                        
+                  {/* 2027 */}
+                  <div>
+                    <h4 className="text-base font-bold text-gray-900 mb-3">2027</h4>
+                    <div className="grid grid-cols-4 gap-2">
+                      {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month) => {
+                        const monthKey = `2027-${month}`;
+                        const isSelected = selectedMonths.includes(monthKey);
+                        return (
+                          <button 
+                            key={monthKey} 
+                            onClick={() => {
+                              setSelectedMonths([monthKey]);
+                              setIsWhenDropdownOpen(false);
+                            }}
+                            className={`py-2 px-3 rounded-lg text-base font-medium transition-colors ${
+                              isSelected 
+                                ? 'bg-[#00A896] text-white' 
+                                : 'text-gray-700 hover:bg-gray-100'
+                            }`}
+                          >
+                            {month}
+                          </button>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
-                
-                {/* Group Options Section - Right Half */}
-                <div className="p-8">
-                  <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-2xl font-bold text-gray-900 flex items-center">
-                      <Users className="mr-2 h-6 w-6 text-[#00A896]" />
-                      {t('datesAndPrices.groupType', 'Group Type')}
-                    </h3>
-                    <span className="bg-gradient-to-r from-[#E8F8F5] to-[#D0F0E8] text-[#008576] px-4 py-2 rounded-full text-sm font-bold shadow-sm">
-                      {selectedGroupTypes.length} {t('datesAndPrices.selected', 'selected')}
-                    </span>
-                  </div>
+              )}
+            </div>
                   
-                  <div className="mb-6">
-                    <button 
-                      onClick={() => setIsGroupDropdownOpen(!isGroupDropdownOpen)}
-                      className="w-full p-4 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#00A896] focus:border-[#00A896] bg-white text-left flex justify-between items-center hover:border-[#72D9C4] transition-colors mb-4"
-                    >
-                      <span className="font-medium text-gray-700">{selectedGroupTypes.length > 0 ? `${selectedGroupTypes.length} ${t('datesAndPrices.selected', 'selected')}` : t('datesAndPrices.selectGroup', 'Select group')}</span>
-                      <svg className={`transform transition-transform ${isGroupDropdownOpen ? 'rotate-180' : ''} fill-current h-5 w-5 text-gray-500`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                      </svg>
-                    </button>
+            {/* Route Selector - Shows only this route */}
+            <div className="relative flex-1">
+              <button 
+                onClick={() => setIsGroupDropdownOpen(!isGroupDropdownOpen)}
+                className="w-full bg-white border border-gray-300 rounded-lg px-4 py-2.5 text-base font-medium text-gray-700 hover:bg-gray-50 transition-colors flex items-center justify-between"
+              >
+                <span className="flex items-center gap-2">
+                  <span className="text-gray-600">Route</span>
+                  <span className="font-semibold">{selectedGroupTypes.length} Selected</span>
+                </span>
+                <svg className={`w-4 h-4 transition-transform ${isGroupDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
                     
-                    {isGroupDropdownOpen && (
-                      <div className="border-2 border-[#B8EDE3] rounded-xl p-6 bg-gradient-to-br from-white to-[#E8F8F5] shadow-lg space-y-3">
-                        {[t('datesAndPrices.soloTraveler', 'Solo Traveler'), t('datesAndPrices.couple', 'Couple'), t('datesAndPrices.familyGroup', 'Family Group'), t('datesAndPrices.friendsGroup', 'Friends Group'), t('datesAndPrices.corporateGroup', 'Corporate Group')].map((groupOption, idx) => {
-                          const safeKey = groupOption || `group-${idx}`
-                          const safeId = safeKey.replace(/\s+/g, '-').toLowerCase()
-                          const isSelected = selectedGroupTypes.includes(groupOption);
-                          return (
-                            <div key={safeKey} className="flex items-center p-3 rounded-lg hover:bg-white/80 transition-colors">
-                              <input
-                                type="checkbox"
-                                id={safeId}
-                                checked={isSelected}
-                                onChange={() => {
-                                  if (isSelected) {
-                                    setSelectedGroupTypes(selectedGroupTypes.filter(i => i !== groupOption));
-                                  } else {
-                                    setSelectedGroupTypes([...selectedGroupTypes, groupOption]);
-                                  }
-                                }}
-                                className="h-5 w-5 text-[#00A896] focus:ring-[#00A896] border-gray-300 rounded cursor-pointer"
-                              />
-                              <label htmlFor={safeId} className="ml-3 block text-gray-800 font-medium text-base cursor-pointer">
-                                {groupOption}
-                              </label>
-                            </div>
-                          );
-                        })}
+              {isGroupDropdownOpen && (
+                <div className="absolute z-20 mt-2 w-full bg-white rounded-lg shadow-xl border border-gray-200 p-3">
+                  <label className="flex items-center gap-2 p-2 rounded hover:bg-gray-50 cursor-pointer">
+                    <input 
+                      type="checkbox" 
+                      checked={selectedGroupTypes.includes('safari-bivouac-8day')} 
+                      onChange={() => {
+                        if (selectedGroupTypes.includes('safari-bivouac-8day')) {
+                          setSelectedGroupTypes([]);
+                        } else {
+                          setSelectedGroupTypes(['safari-bivouac-8day']);
+                        }
+                      }} 
+                      className="w-4 h-4 text-[#00A896] rounded"
+                    />
+                    <span className="text-base text-gray-800">Safari Bivouac - 8 Days</span>
+                  </label>
+                </div>
+              )}
+            </div>
+          </div>
+                
+          {/* Show earlier dates link */}
+          <div className="text-center mb-4">
+            <button className="text-base text-gray-600 hover:text-gray-900 inline-flex items-center gap-1">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              Show earlier dates
+            </button>
+          </div>
+                
+          {/* Date Header */}
+          <div className="mb-4">
+            <h3 className="text-xl font-bold text-gray-900">
+              {selectedMonths.length > 0 
+                ? selectedMonths[0].replace('-', ' ') 
+                : 'Jan 2026'}
+            </h3>
+          </div>
+                
+          {/* Trip Dates - List Style */}
+          <div className="space-y-3 mb-6">
+            {selectedGroupTypes.includes('safari-bivouac-8day') && (
+              <div className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                <div className="flex flex-col md:flex-row md:items-center gap-4">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="font-semibold text-gray-900 text-base">Safari Bivouac - 8 Days</span>
+                    </div>
+                    <div className="flex flex-wrap items-center gap-2 text-base text-gray-600">
+                      <div className="flex items-center gap-1">
+                        <Calendar className="w-4 h-4" />
+                        <span>8 Days</span>
                       </div>
-                    )}
+                      <span className="text-gray-500">•</span>
+                      <span className="text-sm text-gray-600">Camping Safari Experience</span>
+                      <span className="px-2 py-1 bg-green-100 text-green-700 rounded text-sm font-medium">Available</span>
+                    </div>
                   </div>
-                  
-                  <div className="pt-6 border-t-2 border-gray-200 rounded-xl">
-                    <p className="text-gray-600 text-sm mb-4">{t('datesAndPrices.groupNote', 'Special rates available for groups of 4 or more. Contact us for custom quotes.')}</p>
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                    <div className="text-right">
+                      <div className="text-base text-gray-600">from <span className="font-semibold text-gray-900">€1,850</span></div>
+                      <div className="text-sm text-gray-500">Deposit €100</div>
+                    </div>
                     <button 
                       onClick={() => setShowInquiryForm(true)}
-                      className="w-full bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg"
+                      className="bg-[#00A896] hover:bg-[#008576] text-white px-6 py-2 rounded-md text-base font-medium transition-colors whitespace-nowrap"
                     >
-                      {t('datesAndPrices.enquireButton', 'Enquire Now')}
+                      Enquire
                     </button>
                   </div>
                 </div>
               </div>
+            )}
+          </div>
+                
+          {/* Show later dates link */}
+          <div className="text-center mb-8">
+            <button className="text-base text-gray-600 hover:text-gray-900 inline-flex items-center gap-1">
+              Show later dates
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+                
+          {/* Don't see your dates section */}
+          <div className="bg-gray-50 rounded-lg p-8 text-center">
+            <div className="inline-block p-3 bg-white rounded-full mb-4">
+              <Calendar className="w-6 h-6 text-gray-600" />
             </div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">Don't see your dates?</h3>
+            <p className="text-gray-600 text-base mb-6">We can create it if bookable!</p>
+            <button 
+              onClick={() => setShowInquiryForm(true)}
+              className="bg-[#00A896] hover:bg-[#008576] text-white px-8 py-3 rounded-lg font-medium transition-colors"
+            >
+              Propose Dates
+            </button>
           </div>
         </div>
       </section>
@@ -623,7 +673,7 @@ export default function SafariBivouac8DaysPage() {
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#72D9C4] to-[#00A896] flex items-center justify-center text-white font-bold">1</div>
                   {safeT('practicalInfo.meals.title', 'Meals')}
                 </h3>
-                <p className="text-gray-700 leading-relaxed whitespace-pre-line">Le petit-déjeuner, sauf mention contraire, est pris au sein même de l'hébergement. Selon le programme, les déjeuners seront pris dans les parcs et sous forme de pique-nique afin de profiter pleinement de votre safari. Merci de prévenir en avance si des demandes de repas spéciaux (végétariens, diabétiques, etc...) sont nécessaires. L'eau du robinet est généralement potable dans les grandes agglomérations mais pas dans les espaces ruraux par précaution il est préférable de boire de l'eau en bouteille.</p>
+                <p className="text-gray-700 leading-relaxed whitespace-pre-line text-sm md:text-base">Le petit-déjeuner, sauf mention contraire, est pris au sein même de l'hébergement. Selon le programme, les déjeuners seront pris dans les parcs et sous forme de pique-nique afin de profiter pleinement de votre safari. Merci de prévenir en avance si des demandes de repas spéciaux (végétariens, diabétiques, etc...) sont nécessaires. L'eau du robinet est généralement potable dans les grandes agglomérations mais pas dans les espaces ruraux par précaution il est préférable de boire de l'eau en bouteille.</p>
               </div>
 
               <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-[#00A896]">
@@ -631,7 +681,7 @@ export default function SafariBivouac8DaysPage() {
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#72D9C4] to-[#00A896] flex items-center justify-center text-white font-bold">2</div>
                   {safeT('practicalInfo.transport.title', 'Transport')}
                 </h3>
-                <p className="text-gray-700 leading-relaxed whitespace-pre-line">Le safari est effectué en véhicule 4x4, des sièges de deux places sont installés dans le sens de la marche à côté d'une grande baie vitrée ouvrable. Un réservoir d'eau est réservé à l'intendance, un grand  réservoir de carburant permet de réaliser de longues étapes. Possibilité de recharger les caméscopes et les appareils numériques sur la prise allume cigares de 12V (prévoir votre cordon). Dans les parcs et les réserves, Il est strictement interdit de s'installer sur le toit du véhicule.</p>
+                <p className="text-gray-700 leading-relaxed whitespace-pre-line text-sm md:text-base">Le safari est effectué en véhicule 4x4, des sièges de deux places sont installés dans le sens de la marche à côté d'une grande baie vitrée ouvrable. Un réservoir d'eau est réservé à l'intendance, un grand  réservoir de carburant permet de réaliser de longues étapes. Possibilité de recharger les caméscopes et les appareils numériques sur la prise allume cigares de 12V (prévoir votre cordon). Dans les parcs et les réserves, Il est strictement interdit de s'installer sur le toit du véhicule.</p>
               </div>
 
               <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-[#00A896]">
@@ -639,7 +689,7 @@ export default function SafariBivouac8DaysPage() {
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#72D9C4] to-[#00A896] flex items-center justify-center text-white font-bold">3</div>
                   {safeT('practicalInfo.animals.title', 'Which Animals to See?')}
                 </h3>
-                <p className="text-gray-700 leading-relaxed whitespace-pre-line">La Tanzanie regroupe des milliers d'animaux sauvages de toutes les espèces et vous ne serez pas déçu de la diversité que regroupe les parcs (même les plus petits ou les moins connus): Éléphants, girafes, buffles, guépards, léopards, lions, servals, chacal, Rhinocéros, Hippopotames, hyènes, impalas, zèbres, singes, antilopes, crocodiles, phacochères, Oiseaux...... BREF il y'a de nombreux espèces à voir, vous ne serez pas déçus tant que vous savez être patients avec la nature.</p>
+                <p className="text-gray-700 leading-relaxed whitespace-pre-line text-sm md:text-base">La Tanzanie regroupe des milliers d'animaux sauvages de toutes les espèces et vous ne serez pas déçu de la diversité que regroupe les parcs (même les plus petits ou les moins connus): Éléphants, girafes, buffles, guépards, léopards, lions, servals, chacal, Rhinocéros, Hippopotames, hyènes, impalas, zèbres, singes, antilopes, crocodiles, phacochères, Oiseaux...... BREF il y'a de nombreux espèces à voir, vous ne serez pas déçus tant que vous savez être patients avec la nature.</p>
               </div>
 
               <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-[#00A896]">
@@ -647,7 +697,7 @@ export default function SafariBivouac8DaysPage() {
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#72D9C4] to-[#00A896] flex items-center justify-center text-white font-bold">4</div>
                   {safeT('practicalInfo.luggage.title', 'Luggage')}
                 </h3>
-                <p className="text-gray-700 leading-relaxed whitespace-pre-line">Lors d’un safari préférez les bagages souples aux valises traditionnelles, les sacs sont beaucoup plus pratiques à manier dans les véhicules surtout si vous avez besoin de récupérer quelque chose pendant une journée d’observation. Prévoyez également un petit sac à dos dans lequel vous disposerez tout ce dont vous risquez d’avoir besoin dans la journée (crème solaire, lunettes, appareil photo…).</p>
+                <p className="text-gray-700 leading-relaxed whitespace-pre-line text-sm md:text-base">Lors d’un safari préférez les bagages souples aux valises traditionnelles, les sacs sont beaucoup plus pratiques à manier dans les véhicules surtout si vous avez besoin de récupérer quelque chose pendant une journée d’observation. Prévoyez également un petit sac à dos dans lequel vous disposerez tout ce dont vous risquez d’avoir besoin dans la journée (crème solaire, lunettes, appareil photo…).</p>
               </div>
 
               <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-[#00A896]">
@@ -655,15 +705,15 @@ export default function SafariBivouac8DaysPage() {
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#72D9C4] to-[#00A896] flex items-center justify-center text-white font-bold">5</div>
                   {safeT('practicalInfo.whatToPack.title', 'What to Pack')}
                 </h3>
-                <p className="text-gray-700 leading-relaxed whitespace-pre-line">Pensez safari : des chemises légères à manches longues pour vous protéger du soleil et des insectes, des pantalons souples avec des poches latérales, des chaussures type Pataugas pour les randonnées et des baskets légères pour les moments de repos. N'oubliez pas une polaire car les soirées peuvent être fraîches. Un maillot de bain vous sera utile lors de vos séjours dans les établissements possédant une piscine. Un chapeau et des lunettes de soleil compléteront la panoplie indispensable à tout voyage dans la savane. Pour l'ensemble de vos vêtements préférez des couleurs comme le kaki, vert foncé, gris, marron. Evitez les couleurs vives et le blanc. De même oubliez le bleu car les mouches tsé tsé sont particulièrement attirées par cette dominante. N'oubliez pas une trousse à pharmacie contenant de petits pansements (coupures ou autres), des antalgiques (paracétamol ou équivalent), des crèmes solaires et des anti-moustiques (le plus efficace restant le 5X5). Pensez aussi à votre nécessaire de toilette ainsi qu'à une serviette de bain même si tous les établissements en sont pourvus. Vous pouvez compléter cet équipement par une bonne paire de jumelle type « Bushnell légende » ou équivalent, car cet outil est certainement celui dont vous vous servirez le plus lors d’un safari. C’est cela qui vous permettra d’observer des scènes inoubliables dans les parcs.</p>
+                <p className="text-gray-700 leading-relaxed whitespace-pre-line text-sm md:text-base">Pensez safari : des chemises légères à manches longues pour vous protéger du soleil et des insectes, des pantalons souples avec des poches latérales, des chaussures type Pataugas pour les randonnées et des baskets légères pour les moments de repos. N'oubliez pas une polaire car les soirées peuvent être fraîches. Un maillot de bain vous sera utile lors de vos séjours dans les établissements possédant une piscine. Un chapeau et des lunettes de soleil compléteront la panoplie indispensable à tout voyage dans la savane. Pour l'ensemble de vos vêtements préférez des couleurs comme le kaki, vert foncé, gris, marron. Evitez les couleurs vives et le blanc. De même oubliez le bleu car les mouches tsé tsé sont particulièrement attirées par cette dominante. N'oubliez pas une trousse à pharmacie contenant de petits pansements (coupures ou autres), des antalgiques (paracétamol ou équivalent), des crèmes solaires et des anti-moustiques (le plus efficace restant le 5X5). Pensez aussi à votre nécessaire de toilette ainsi qu'à une serviette de bain même si tous les établissements en sont pourvus. Vous pouvez compléter cet équipement par une bonne paire de jumelle type « Bushnell légende » ou équivalent, car cet outil est certainement celui dont vous vous servirez le plus lors d’un safari. C’est cela qui vous permettra d’observer des scènes inoubliables dans les parcs.</p>
               </div>
 
-              <div className="bg-gradient-to-br from-[#72D9C4] to-[#00A896] text-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300">
-                <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                  <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center font-bold">6</div>
+              <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300 border-l-4 border-[#00A896]">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#72D9C4] to-[#00A896] flex items-center justify-center text-white font-bold">6</div>
                   {safeT('practicalInfo.campingPhilosophy.title', 'The Bivouac Experience')}
                 </h3>
-                <p className="leading-relaxed whitespace-pre-line">Effectuer un voyage en Tanzanie en ayant opté pour un hébergement en bivouac est une philosophie en soi. Hors des sentiers battus c'est une vraie aventure que privilégient les baroudeurs. Il s'agit d'effectuer un séjour qui ramène aux valeurs fondamentales, laissant derrière nous un confort quotidien pour se concentrer sur la nature. Quoi de plus excitant que de poser sa tente en plein milieu de la savane, au cœur même de l'endroit où vivent les plus grands animaux d'Afrique. Certes les nuits peuvent être courtes car elles sont propices à une activité intense de la faune. Il n'est pas rare d'entendre le feulement des lions, de voir passer des éléphants ou des herbivores à quelques mètres du bivouac, sans oublier les hyènes qui vous empêcheront peut-être de dormir d'un sommeil réparateur mais qui vous laisseront un souvenir mémorable. Ce genre de voyage peut être économique mais là n'est pas sa vocation première, il s'agit avant tout de se rapprocher au plus près de la nature, surtout dans les parcs, pour vivre une expérience inoubliable. Et bien évidemment il serait inconcevable d'effectuer un voyage en Tanzanie en ayant opté pour un hébergement en bivouac sans un minimum de confort, mais tout cela est géré de main de maître : Les tentes sont bi-places, équipées de matelas et de moustiquaires, adaptées à l'environnement, elles reflètent l'esprit d'un safari hors du commun. Les lieux de camping possèdent tous les sanitaires et infrastructures permettant un séjour confortable et ce au beau milieu d'une nature sauvage. Bien évidemment, lors d'un voyage en bivouac, en plus du chauffeur guide, vous bénéficiez d'un cuisinier personnel qui vous assure tous les jours un petit déjeûner, un pique-nique le midi et un repas le soir. Lorsque l'on se trouve au bout du monde, au fin fond de la savane et que l'on voit ce qu'est capable de préparer un cuisinier itinérant dans des conditions inimaginables, lorsque l'on déguste ses mets, alors là il n'y a que le respect qui s'impose. Le bivouac est une expérience hors du commun, il s'adresse à ceux qui veulent découvrir le pays avec un parfum d'aventure car on ne se sait jamais ce qui se passera pendant la nuit ! C'est certainement le meilleur moyen pour vivre des instants hors normes en Tanzanie, qui s'adresse avant tout à ceux dont l'Aventure est une priorité. Loin des clichés, à faire une fois dans sa vie, car c'est une expérience unique dont on ressort grandi et humble.</p>
+                <p className="text-gray-700 leading-relaxed whitespace-pre-line text-sm md:text-base">Effectuer un voyage en Tanzanie en ayant opté pour un hébergement en bivouac est une philosophie en soi. Hors des sentiers battus c'est une vraie aventure que privilégient les baroudeurs. Il s'agit d'effectuer un séjour qui ramène aux valeurs fondamentales, laissant derrière nous un confort quotidien pour se concentrer sur la nature. Quoi de plus excitant que de poser sa tente en plein milieu de la savane, au cœur même de l'endroit où vivent les plus grands animaux d'Afrique. Certes les nuits peuvent être courtes car elles sont propices à une activité intense de la faune. Il n'est pas rare d'entendre le feulement des lions, de voir passer des éléphants ou des herbivores à quelques mètres du bivouac, sans oublier les hyènes qui vous empêcheront peut-être de dormir d'un sommeil réparateur mais qui vous laisseront un souvenir mémorable. Ce genre de voyage peut être économique mais là n'est pas sa vocation première, il s'agit avant tout de se rapprocher au plus près de la nature, surtout dans les parcs, pour vivre une expérience inoubliable. Et bien évidemment il serait inconcevable d'effectuer un voyage en Tanzanie en ayant opté pour un hébergement en bivouac sans un minimum de confort, mais tout cela est géré de main de maître : Les tentes sont bi-places, équipées de matelas et de moustiquaires, adaptées à l'environnement, elles reflètent l'esprit d'un safari hors du commun. Les lieux de camping possèdent tous les sanitaires et infrastructures permettant un séjour confortable et ce au beau milieu d'une nature sauvage. Bien évidemment, lors d'un voyage en bivouac, en plus du chauffeur guide, vous bénéficiez d'un cuisinier personnel qui vous assure tous les jours un petit déjeûner, un pique-nique le midi et un repas le soir. Lorsque l'on se trouve au bout du monde, au fin fond de la savane et que l'on voit ce qu'est capable de préparer un cuisinier itinérant dans des conditions inimaginables, lorsque l'on déguste ses mets, alors là il n'y a que le respect qui s'impose. Le bivouac est une expérience hors du commun, il s'adresse à ceux qui veulent découvrir le pays avec un parfum d'aventure car on ne se sait jamais ce qui se passera pendant la nuit ! C'est certainement le meilleur moyen pour vivre des instants hors normes en Tanzanie, qui s'adresse avant tout à ceux dont l'Aventure est une priorité. Loin des clichés, à faire une fois dans sa vie, car c'est une expérience unique dont on ressort grandi et humble.</p>
               </div>
             </div>
           </div>

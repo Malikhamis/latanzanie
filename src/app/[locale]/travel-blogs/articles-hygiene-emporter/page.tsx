@@ -233,6 +233,50 @@ These items allow you to maintain minimal and comfortable hygiene, even in the m
 
 const ids = ['overview', 'body', 'feet', 'toilet', 'other']
 
+// Function to add links to specific terms in text
+function processTextWithLinks(text: string) {
+  const locale = 'fr'; // In actual implementation, this would come from context
+  
+  // Replace toilet-related terms with links
+  let processedText = text.replace(/\btoilettes rudimentaires\b/g, `<Link href="/${locale}/travel-blogs/toilettes-privees-necessaires" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">toilettes rudimentaires</Link>`);
+  processedText = processedText.replace(/\btoilettes publiques\b/g, `<Link href="/${locale}/travel-blogs/toilettes-privees-necessaires" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">toilettes publiques</Link>`);
+  processedText = processedText.replace(/\btoilettes portables privées\b/g, `<Link href="/${locale}/travel-blogs/toilettes-privees-necessaires" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">toilettes portables privées</Link>`);
+  processedText = processedText.replace(/\btoilettes limitées\b/g, `<Link href="/${locale}/travel-blogs/toilettes-privees-necessaires" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">toilettes limitées</Link>`);
+  processedText = processedText.replace(/\bhygiène des toilettes\b/g, `<Link href="/${locale}/travel-blogs/toilettes-privees-necessaires" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">hygiène des toilettes</Link>`);
+  
+  return processedText;
+}
+
+// Function to parse string links to JSX elements
+function parseLinksToJSX(text: string) {
+  // Split text by Link tags
+  const parts = text.split(/(<Link\s+[^>]*href\s*=\s*["'][^"']*["'][^>]*className\s*=\s*["'][^"']*["'][^>]*>[^<]*<\/Link>)/g);
+  
+  return parts.map((part, index) => {
+    // Check if this part is a Link element
+    const linkMatch = part.match(/<Link\s+[^>]*href\s*=\s*["']([^"']*)["'][^>]*className\s*=\s*["']([^"']*)["'][^>]*>([^<]*)<\/Link>/);
+    
+    if (linkMatch) {
+      const href = linkMatch[1];
+      const className = linkMatch[2];
+      const children = linkMatch[3];
+      
+      return (
+        <Link 
+          key={`link-${index}`} 
+          href={href} 
+          className={className}
+        >
+          {children}
+        </Link>
+      );
+    } else {
+      // Return plain text
+      return part;
+    }
+  });
+}
+
 function renderContent(content: string) {
   const lines = content.split(/\r?\n/)
   const nodes: any[] = []
@@ -277,7 +321,10 @@ function renderContent(content: string) {
         const Tag = `h${level}` as keyof JSX.IntrinsicElements
         nodes.push(<Tag key={keyIndex++} className={`${level === 1 ? 'text-2xl font-bold mt-8 mb-4' : level === 2 ? 'text-xl font-semibold mt-6 mb-3' : 'text-lg font-medium mt-4 mb-2'}`}>{headingText}</Tag>)
       } else {
-        nodes.push(<p key={keyIndex++} className="mb-4">{text}</p>)
+        // Process text to add links for specific terms
+        const processedText = processTextWithLinks(text);
+        // Parse the processed text to convert string links to JSX elements
+        nodes.push(<p key={keyIndex++} className="mb-4">{parseLinksToJSX(processedText)}</p>)
       }
     } else {
       i++
@@ -302,9 +349,9 @@ export default function ArticlesHygieneEmporterPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero5.jpg')" }}>
+      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hygiene-hero.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
             {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
@@ -361,7 +408,7 @@ export default function ArticlesHygieneEmporterPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/marangu-route.jpg')" }}></div>
+              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/hygiene-hero.jpg')" }}></div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>
@@ -382,7 +429,7 @@ export default function ArticlesHygieneEmporterPage() {
             </div>
 
             <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/lemosho-route.jpg')" }}></div>
+              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/hygiene-hero.jpg')" }}></div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>
@@ -403,7 +450,7 @@ export default function ArticlesHygieneEmporterPage() {
             </div>
 
             <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/kilimanjaro-umbwe.jpg')" }}></div>
+              <div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/hygiene-hero.jpg')" }}></div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>

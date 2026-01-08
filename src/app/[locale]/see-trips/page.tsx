@@ -109,9 +109,20 @@ export default function SeeTripsPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section - Simplified without video background */}
-      <section className="relative bg-gradient-to-r from-[#5BC4AF] to-[#008576] py-16">
-        <div className="container mx-auto px-4">
+      {/* Hero Section - With background image */}
+      <section className="relative py-16">
+        <div className="absolute inset-0 z-0">
+          <Image 
+            src="/images/trips-hero.jpg" 
+            alt="Trips Hero Background" 
+            fill
+            className="object-cover"
+            priority
+            unoptimized
+          />
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center text-white">
             <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6">
               {t('hero.title')}
@@ -195,6 +206,383 @@ export default function SeeTripsPage() {
               </p>
             </div>
           )}
+        </div>
+      </section>
+
+      
+
+      {/* Top Reads Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center">Lectures Essentielles</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Link href={`/${currentLocale}/travel-blogs/kilimanjaro-packing-list`} className="block group">
+              <div className="bg-white rounded-lg shadow-md overflow-hidden h-full transition-transform duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
+                <div className="relative h-48 overflow-hidden">
+                  <Image 
+                    src="/images/kilimanjaro-packing.jpg" 
+                    alt="Kilimanjaro Packing List" 
+                    width={400} 
+                    height={200} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">
+                    La liste ultime d'équipement pour le Kilimandjaro (+ PDF gratuit)
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    Ce que vous packez pour votre ascension du Kilimandjaro est vital pour votre santé et le succès de votre randonnée.
+                  </p>
+                </div>
+              </div>
+            </Link>
+            
+            <Link href={`/${currentLocale}/travel-blogs/sante-en-altitude`} className="block group">
+              <div className="bg-white rounded-lg shadow-md overflow-hidden h-full transition-transform duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
+                <div className="relative h-48 overflow-hidden">
+                  <Image 
+                    src="/images/altitude-health.jpg" 
+                    alt="Altitude Health" 
+                    width={400} 
+                    height={200} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">
+                    Santé en altitude : Symptômes et prévention du Mal Aigu des Montagnes (MAM)
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    Tout ce que vous devez savoir sur le mal aigu des montagnes et comment le prévenir lors de votre ascension du Kilimandjaro.
+                  </p>
+                </div>
+              </div>
+            </Link>
+            
+            <Link href={`/${currentLocale}/travel-blogs/preparation-physique-kilimandjaro`} className="block group">
+              <div className="bg-white rounded-lg shadow-md overflow-hidden h-full transition-transform duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
+                <div className="relative h-48 overflow-hidden">
+                  <Image 
+                    src="/images/physical-preparation.jpg" 
+                    alt="Physical Preparation" 
+                    width={400} 
+                    height={200} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">
+                    Comment s'entraîner pour le Kilimandjaro quand on habite en ville
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    Un guide complet sur la façon de se préparer physiquement à l'ascension du Kilimandjaro, même si vous vivez en ville.
+                  </p>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* All Topics Section */}
+      <section id="all-topics" className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Tous les Sujets</h2>
+          <p className="text-gray-600 mb-12 text-center max-w-4xl mx-auto">
+            Tout ce que vous devez savoir pour planifier une aventure réussie.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="p-6">
+              <div className="flex items-center mb-4">
+                <span className="text-2xl mr-3">🧼</span>
+                <h3 className="text-xl font-bold text-gray-800">
+                  <span className="inline-block pb-2 border-b-2 border-[#00A896]">Hygiène personnelle en trek</span>
+                </h3>
+              </div>
+              <ul className="space-y-2">
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/comment-maintenir-bonne-hygiene-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Comment maintenir une bonne hygiène au Kilimandjaro
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/toilettes-privees-necessaires`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Toilettes privées : sont-elles nécessaires ?
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/articles-hygiene-emporter`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Articles d'hygiène à emporter
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/rester-propre-sans-eau`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Rester propre sans eau
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/hygiene-femmes-ascension`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Hygiène des femmes pendant l'ascension
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/hygiene-alimentaire`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Hygiène alimentaire en trek
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            
+            <div className="p-6">
+              <div className="flex items-center mb-4">
+                <span className="text-2xl mr-3">📅</span>
+                <h3 className="text-xl font-bold text-gray-800">
+                  <span className="inline-block pb-2 border-b-2 border-[#00A896]">Climat et saisons</span>
+                </h3>
+              </div>
+              <ul className="space-y-2">
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/meilleure-periode-gravir-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Meilleure période pour gravir le Kilimandjaro
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/choisir-bonne-saison-randonnee`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Choisir la Bonne Saison pour la Randonnée
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/zones-climatiques-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Kilimandjaro : Les 5 Zones Climatiques et Altitudes
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/dress-for-zones`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Comment s'habiller pour les 5 zones climatiques du Kilimandjaro
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/kilimanjaro-routes`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Itinéraires du Kilimandjaro
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/drying-gear`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Matériel de séchage et garder le matériel au sec
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            
+            <div className="p-6">
+              <div className="flex items-center mb-4">
+                <span className="text-2xl mr-3">🏔️</span>
+                <h3 className="text-xl font-bold text-gray-800">
+                  <span className="inline-block pb-2 border-b-2 border-[#00A896]">Santé en altitude</span>
+                </h3>
+              </div>
+              <ul className="space-y-2">
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/sante-en-altitude`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Santé en altitude : Symptômes et prévention du Mal Aigu des Montagnes (MAM)
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/evacuation-urgence`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Évacuation d'urgence sur le Kilimandjaro : guide complet pour les randonneurs
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/diamox-kilimanjar`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Le Diamox pour l'ascension du Kilimandjaro : tout ce que les trekkeurs doivent savoir
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/alimentation-kilimanjar`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Quels types de repas sont servis en altitude sur le Kilimandjaro pour maintenir l'énergie malgré la perte d'appétit ?
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/acclimatation-kilimanjar`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Techniques d'acclimatation pour le Kilimandjaro
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/sommeil-kilimanjar`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Sommeil et récupération sur le Kilimandjaro
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/check-up-medical-kilimanjar`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Check-up médical pour le Kilimandjaro
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            
+            <div className="p-6">
+              <div className="flex items-center mb-4">
+                <span className="text-2xl mr-3">🎒</span>
+                <h3 className="text-xl font-bold text-gray-800">
+                  <span className="inline-block pb-2 border-b-2 border-[#00A896]">Préparation à l'ascension du Kilimandjaro</span>
+                </h3>
+              </div>
+              <ul className="space-y-2">
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/preparer-son-corps-altitude-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Comment préparer son corps à l’altitude
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/preparation-physique-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Comment s'entraîner pour le Kilimandjaro
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/preparation-mentale-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Pourquoi la préparation mentale est importante
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/choisir-chaussures-randonnee-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Comment choisir ses chaussures de randonnée
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/choix-itineraire-preparation-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    En quoi le choix de l'itinéraire fait partie de la préparation
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/preparation-medicale-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Quelle préparation médicale faut-il prévoir
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/engager-guide-local-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Pourquoi engager un guide local est essentiel
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            
+            <div className="p-6">
+              <div className="flex items-center mb-4">
+                <span className="text-2xl mr-3">💪</span>
+                <h3 className="text-xl font-bold text-gray-800">
+                  <span className="inline-block pb-2 border-b-2 border-[#00A896]">Préparation physique pour le Kilimandjaro</span>
+                </h3>
+              </div>
+              <ul className="space-y-2">
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/preparation-physique-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Comment s’entraîner pour le Kilimandjaro quand on habite en ville
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/shabituer-altitude-tanzanie`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Peut-on s'habituer à l'altitude avant de partir en Tanzanie ?
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/preparation-physique-ascension-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Préparation physique pour l’ascension du Kilimandjaro
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/niveau-physique-reel-monter-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Quel est le niveau physique réel pour monter le Kilimandjaro ?
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/preparer-mental-nuit-sommet-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Comment préparer son mental pour la nuit du sommet du Kilimandjaro
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            
+            <div className="p-6">
+              <div className="flex items-center mb-4">
+                <span className="text-2xl mr-3">🗺️</span>
+                <h3 className="text-xl font-bold text-gray-800">
+                  <span className="inline-block pb-2 border-b-2 border-[#00A896]">Kilimanjaro pack list</span>
+                </h3>
+              </div>
+              <ul className="space-y-2">
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/vetements-equipements-saisons-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Vêtements & équipements par saison
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/objets-souvent-oublies-packing-list`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Objets souvent oubliés — liste de packing
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/batons-randonnee-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Bâtons de randonnée pour le Kilimandjaro
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/equipement-obligatoire-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Équipement obligatoire pour le Kilimandjaro
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/louer-materiel-moshi`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Louer du matériel à Moshi
+                  </Link>
+                </li>
+                <li className="text-gray-600 flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 bg-[#00A896] rounded-full mt-2 mr-2"></span>
+                  <Link href={`/${currentLocale}/travel-blogs/kilimanjaro-packing-list`} className="text-[#00A896] hover:text-[#008576] transition-colors">
+                    Liste de matériel pour le Kilimandjaro
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 

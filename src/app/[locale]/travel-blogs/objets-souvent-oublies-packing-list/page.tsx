@@ -32,9 +32,9 @@ export default function ForgottenItemsPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero5.jpg')" }}>
+      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/packlist-hero.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
             {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
@@ -79,7 +79,7 @@ export default function ForgottenItemsPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   Les Objets Souvent Oubliés dans une Packing List pour le Kilimandjaro : Guide Complet d'un Guide Local
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Gravir le Mont Kilimandjaro est une aventure unique dans une vie. Entre les forêts tropicales, les zones semi-désertiques et les paysages enneigés du sommet, chaque randonneur traverse plusieurs climats en quelques jours seulement. Même les plus expérimentés peuvent oublier certains objets essentiels, et ces oublis peuvent transformer une ascension confortable en une expérience épuisante, voire dangereuse.</p>
                   
                   <p className="mb-4">En tant que guide local, j'ai accompagné des centaines de randonneurs et j'ai remarqué que certains objets, pourtant simples et légers, sont souvent négligés. Pourtant, ce sont eux qui font la vraie différence sur la montagne. Dans cet article, je vous explique en détail ce qu'il ne faut jamais oublier, pourquoi ces objets sont indispensables et comment les utiliser pour réussir votre ascension.</p>
@@ -91,7 +91,7 @@ export default function ForgottenItemsPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   Lampe frontale et piles supplémentaires : ne partez jamais dans l'obscurité
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Beaucoup de randonneurs pensent que la lumière naturelle suffira, mais la montée finale vers le sommet commence souvent entre 23h et minuit pour atteindre le lever du soleil au sommet. Sans lampe frontale, vous serez obligé de marcher dans l'obscurité sur des sentiers rocheux et parfois glissants. Cela augmente considérablement le risque de chute et de blessure.</p>
                   
                   <p className="mb-4">Une lampe frontale de qualité, légère et confortable à porter, est indispensable. Prévoyez également des piles de rechange ou une batterie externe, car la nuit en altitude peut durer longtemps et l'éclairage est vital. Tester votre lampe avant le départ est crucial pour éviter les mauvaises surprises.</p>
@@ -107,7 +107,7 @@ export default function ForgottenItemsPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   Bâtons de randonnée : vos alliés pour l'ascension
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Les bâtons sont souvent sous-estimés, pourtant ils sont essentiels pour économiser votre énergie et protéger vos articulations. Sur les sentiers du Kilimandjaro, ils permettent de :</p>
                   
                   <ul className="list-disc pl-6 mb-4 space-y-2">
@@ -125,7 +125,7 @@ export default function ForgottenItemsPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   Protéger vos affaires de l'humidité : sacs étanches et guêtres
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">L'humidité est l'ennemi silencieux du randonneur. Beaucoup oublient des objets essentiels :</p>
                   
                   <ul className="list-disc pl-6 mb-4 space-y-2">
@@ -147,7 +147,7 @@ export default function ForgottenItemsPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   Lunettes de soleil UV et crème solaire : la protection indispensable
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Le froid en montagne peut faire oublier le soleil, mais l'altitude intensifie les rayons UV et la neige ou les nuages reflètent le soleil. Oublier ces protections peut provoquer des brûlures, des lésions oculaires et un inconfort important.</p>
                   
                   <p className="mb-4">Une bonne paire de lunettes de soleil avec protection UV 400 et une crème solaire SPF 50 sont indispensables, même lorsque le ciel est nuageux. N'oubliez pas vos lèvres : un stick SPF est très utile pour éviter les gerçures.</p>
@@ -159,7 +159,7 @@ export default function ForgottenItemsPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   Bouteille pipi ou urinoir portable : le confort nocturne
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">La nuit, lorsqu'il fait très froid et que vous êtes loin des sanitaires, sortir de la tente peut être dangereux et très inconfortable. Une bouteille pipi est un petit objet léger qui apporte un grand confort et une sécurité supplémentaire, surtout lors des nuits glaciales en altitude.</p>
                 </div>
               </section>
@@ -169,7 +169,7 @@ export default function ForgottenItemsPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   Thermos ou gourde isotherme : boire chaud en altitude
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">En altitude, les pauses peuvent être longues et froides. Une boisson chaude permet de se réchauffer et de maintenir l'énergie corporelle. Beaucoup de randonneurs oublient un thermos adapté ou ne le remplissent pas suffisamment avant le départ.</p>
                 </div>
               </section>
@@ -179,11 +179,11 @@ export default function ForgottenItemsPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   Trousse médicale adaptée à l'altitude
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Même si l'on prévoit des médicaments de base, certains oublis fréquents peuvent poser problème :</p>
                   
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li>Traitement contre le mal des montagnes, si prescrit.</li>
+                    <li><Link href={`/${locale}/travel-blogs/diamox-kilimanjar`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">Traitement contre le mal des montagnes</Link>, si prescrit.</li>
                     <li>Pansements pour ampoules et compresses.</li>
                     <li>Antiseptiques pour petites blessures ou coupures.</li>
                     <li>Médicaments personnels spécifiques.</li>
@@ -198,8 +198,8 @@ export default function ForgottenItemsPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   Buff, bonnet et gants supplémentaires : protéger vos extrémités
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
-                  <p className="mb-4">Le froid en altitude peut surprendre même en saison sèche. Beaucoup de randonneurs oublient :</p>
+                <div className="prose prose-xl max-w-none text-gray-700">
+                  <p className="mb-4">Le froid en altitude peut surprendre même en <Link href={`/${locale}/travel-blogs/best-season`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">saison sèche</Link>. Beaucoup de randonneurs oublient :</p>
                   
                   <ul className="list-disc pl-6 mb-4 space-y-2">
                     <li>Buff ou écharpe pour protéger le cou et le visage.</li>
@@ -216,7 +216,7 @@ export default function ForgottenItemsPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   Chargeurs, batteries externes et protections électroniques
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">En altitude, le froid réduit rapidement l'autonomie des batteries. Beaucoup oublient les power banks, sacs étanches pour appareils électroniques et câbles supplémentaires. Ces oublis peuvent rendre impossible l'utilisation de votre GPS, téléphone ou appareil photo, ce qui peut être frustrant et dangereux.</p>
                 </div>
               </section>
@@ -226,7 +226,7 @@ export default function ForgottenItemsPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   Snacks et compléments énergétiques
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Maintenir l'énergie est essentiel. Barres énergétiques, fruits secs et gels sont indispensables pour prévenir la fatigue et les maux de tête. Les ranger dans votre sac de jour permet un accès rapide et régulier.</p>
                   
                   <p className="mb-4">En tant que guide local, je conseille toujours à mes randonneurs de vérifier et re-vérifier leur packing list et de ne jamais négliger ces éléments essentiels. Les objets que l'on pense secondaires sont souvent ceux qui font la vraie différence entre atteindre le sommet dans de bonnes conditions et se retrouver en difficulté.</p>

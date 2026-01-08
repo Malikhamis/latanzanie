@@ -28,9 +28,9 @@ export default function KilimanjaroPackingListPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero2.jpg')" }}>
+      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/packlist-hero.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
             {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
@@ -75,8 +75,8 @@ export default function KilimanjaroPackingListPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   Kilimanjaro Packing List – Guide Complet
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
-                  <p className="mb-4">Gravir le Mont Kilimandjaro est une aventure unique dans une vie. Pour réussir cette ascension mythique, il est essentiel de bien préparer son sac avec l'équipement approprié. La température peut varier de +25°C en forêt tropicale à -20°C au sommet, ce qui rend indispensable une préparation rigoureuse.</p>
+                <div className="prose prose-xl max-w-none text-gray-700">
+                  <p className="mb-4">Gravir le Mont Kilimandjaro est une aventure unique dans une vie. Pour réussir cette ascension mythique, il est essentiel de bien préparer son sac avec l'équipement approprié. La température peut varier de +25°C en <Link href={`/${locale}/travel-blogs/zones-climatiques-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">forêt tropicale</Link> à -20°C au sommet, ce qui rend indispensable une préparation rigoureuse.</p>
                   
                   <p className="mb-4">Notre guide complet vous accompagne dans votre préparation avec une liste détaillée de tous les équipements nécessaires, organisée par catégories. De l'équipement technique aux vêtements adaptés, en passant par l'hygiène et les documents administratifs, chaque article a été sélectionné par nos guides expérimentés pour vous garantir confort, sécurité et chances de succès maximales.</p>
                   
@@ -89,7 +89,7 @@ export default function KilimanjaroPackingListPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   ÉQUIPEMENT
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <h3 className="text-xl font-bold mt-4 mb-2">Sac de couchage</h3>
                   <p className="mb-4">Un bon sac de couchage est essentiel pour rester au chaud pendant les nuits froides sur le Kilimandjaro. Privilégiez un modèle quatre saisons qui vous protégera même aux altitudes les plus élevées.</p>
                   
@@ -109,7 +109,7 @@ export default function KilimanjaroPackingListPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   VÊTEMENTS
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <h3 className="text-xl font-bold mt-4 mb-2">Veste imperméable pour le Kilimandjaro</h3>
                   <p className="mb-4">Une veste imperméable est indispensable pour se protéger des pluies et du vent lors de l'ascension du Kilimandjaro. Elle garde votre corps au sec et au chaud, tout en restant légère et facile à transporter. Choisissez un modèle respirant et compressible, idéal pour affronter les changements rapides de météo en montagne.</p>
                   
@@ -129,7 +129,7 @@ export default function KilimanjaroPackingListPage() {
                   <p className="mb-4">Les pantalons de randonnée zip-off sont parfaits pour s'adapter aux changements de température sur le Kilimandjaro. Grâce à leurs jambes amovibles, ils se transforment facilement en shorts lors des sections chaudes et restent confortables et respirants sur les parties fraîches ou venteuses. Il est recommandé d'emporter deux pantalons pour alterner et rester propre et sec tout au long du trek.</p>
                   
                   <h3 className="text-xl font-bold mt-4 mb-2">Shorts (Optionnel) pour le Kilimandjaro</h3>
-                  <p className="mb-4">Les shorts sont optionnels mais peuvent être utiles lors des sections basses en forêt tropicale, où les températures sont plus chaudes. Légers et respirants, ils offrent confort et liberté de mouvement, tout en pouvant être facilement rangés dans votre sac lorsque le froid ou l'altitude augmente.</p>
+                  <p className="mb-4">Les shorts sont optionnels mais peuvent être utiles lors des sections basses en <Link href={`/${locale}/travel-blogs/zones-climatiques-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">forêt tropicale</Link>, où les températures sont plus chaudes. Légers et respirants, ils offrent confort et liberté de mouvement, tout en pouvant être facilement rangés dans votre sac lorsque le froid ou l'altitude augmente.</p>
                   
                   <h3 className="text-xl font-bold mt-4 mb-2">Sous-vêtements longs pour le Kilimandjaro</h3>
                   <p className="mb-4">Les sous-vêtements longs sont essentiels pour conserver la chaleur corporelle lors des nuits froides et des étapes en haute altitude. Ils servent de première couche thermique, évacuent l'humidité et gardent la peau sèche, ce qui est crucial pour éviter le froid et rester confortable tout au long de l'ascension.</p>
@@ -147,7 +147,7 @@ export default function KilimanjaroPackingListPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   TÊTE & MAINS
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <h3 className="text-xl font-bold mt-4 mb-2">Chapeau / Casquette pour le Kilimandjaro</h3>
                   <p className="mb-4">Un chapeau ou une casquette est essentiel pour se protéger du soleil intense lors de l'ascension du Kilimandjaro. Il aide à prévenir les coups de soleil, protège les yeux et garde la tête au frais. Privilégiez un modèle léger, respirant et ajustable, facile à porter tout au long de la journée.</p>
                   
@@ -170,7 +170,7 @@ export default function KilimanjaroPackingListPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   CHAUSSURES
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <h3 className="text-xl font-bold mt-4 mb-2">Chaussures / Bottes de randonnée pour le Kilimandjaro</h3>
                   <p className="mb-4">Les chaussures ou bottes de randonnée sont essentielles pour assurer stabilité, confort et sécurité lors de l'ascension du Kilimandjaro. Elles doivent être robustes, imperméables et respirantes, avec une bonne semelle adhérente pour les terrains variés et glissants. Bien choisies, elles réduisent le risque de fatigue et d'ampoules, et vous permettent de profiter pleinement de votre trek.</p>
                   
@@ -190,7 +190,7 @@ export default function KilimanjaroPackingListPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   HYGIÈNE & SANTÉ
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <h3 className="text-xl font-bold mt-4 mb-2">Lunettes de soleil pour le Kilimandjaro</h3>
                   <p className="mb-4">Les lunettes de soleil sont indispensables pour protéger vos yeux du soleil intense et des rayons UV en haute altitude sur le Kilimandjaro. Elles réduisent l'éblouissement, préviennent la fatigue oculaire et protègent contre la réverbération sur la neige ou les rochers. Choisissez un modèle léger, résistant aux chocs et avec protection UV élevée pour un confort et une sécurité optimaux pendant toute l'ascension.</p>
                   
@@ -213,7 +213,7 @@ export default function KilimanjaroPackingListPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   PAPIERS
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <h3 className="text-xl font-bold mt-4 mb-2">Passeport pour le Kilimandjaro</h3>
                   <p className="mb-4">Un passeport valide est indispensable pour voyager en Tanzanie et gravir le Kilimandjaro. Vérifiez sa validité avant votre départ et assurez-vous d'avoir des copies numériques ou papier en cas de perte. Conservez-le dans un porte-documents sécurisé et étanche pour le protéger pendant le trek.</p>
                   

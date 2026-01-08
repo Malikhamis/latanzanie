@@ -218,7 +218,14 @@ export default function ExpeditionZeroTraceKilimandjaroPage() {
   ]
 
   function renderContent(content: string) {
-    const lines = content.split(/\r?\n/)
+    // First, let's replace 'KPAP' with a special marker that we'll convert to links
+    let markedContent = content.replace(/KPAP/g, '###KPAP_LINK###');
+    // Then, replace 'Zéro Trace' with a special marker that we'll convert to links
+    markedContent = markedContent.replace(/Zéro Trace/g, '###ZERO_TRACE_LINK###');
+    // Also replace 'Leave No Trace' with a special marker that we'll convert to links
+    markedContent = markedContent.replace(/Leave No Trace/g, '###LEAVE_NO_TRACE_LINK###');
+    
+    const lines = markedContent.split(/\r?\n/)
     const nodes: any[] = []
     let i = 0
     let keyIndex = 0
@@ -230,9 +237,16 @@ export default function ExpeditionZeroTraceKilimandjaroPage() {
           blockLines.push(lines[i].replace(/^>\s?/, ''))
           i++
         }
+        // Process each line in blockLines to handle the special markers
+        const processedBlockLines = blockLines.map((line, idx) => {
+          const processedKpap = processKpapLinks(line, `block-${keyIndex}-${idx}-kpap-`) as string;
+          const processedZeroTrace = processZeroTraceLinks(processedKpap, `block-${keyIndex}-${idx}-`);
+          return processLeaveNoTraceLinks(processedZeroTrace, `block-${keyIndex}-${idx}-`);
+        }).reduce((acc, curr) => [...acc, ...curr], []);
+        
         nodes.push(
           <blockquote key={`b-${keyIndex++}`} className="border-l-4 pl-4 italic text-sm text-black mb-4">
-            {blockLines.join('\n')}
+            {processedBlockLines}
           </blockquote>
         )
       } else if (lines[i].trim() === '') {
@@ -243,10 +257,17 @@ export default function ExpeditionZeroTraceKilimandjaroPage() {
           listItems.push(lines[i].substring(2))
           i++
         }
+        // Process each list item to handle the special markers
+        const processedListItems = listItems.map((item, idx) => {
+          const processedKpap = processKpapLinks(item, `list-${keyIndex}-${idx}-kpap-`) as string;
+          const processedZeroTrace = processZeroTraceLinks(processedKpap, `list-${keyIndex}-${idx}-`);
+          return processLeaveNoTraceLinks(processedZeroTrace, `list-${keyIndex}-${idx}-`);
+        }).reduce((acc, curr) => [...acc, ...curr], []);
+        
         nodes.push(
           <ul key={`ul-${keyIndex++}`} className="list-disc list-inside ml-4 mb-4">
-            {listItems.map((item, idx) => (
-              <li key={`li-${keyIndex++}-${idx}`} className="mb-1">{item}</li>
+            {processedListItems.map((processedItem, idx) => (
+              <li key={`li-${keyIndex++}-${idx}`} className="mb-1">{processedItem}</li>
             ))}
           </ul>
         )
@@ -256,10 +277,17 @@ export default function ExpeditionZeroTraceKilimandjaroPage() {
           listItems.push(lines[i].substring(2))
           i++
         }
+        // Process each list item to handle the special markers
+        const processedListItems = listItems.map((item, idx) => {
+          const processedKpap = processKpapLinks(item, `list2-${keyIndex}-${idx}-kpap-`) as string;
+          const processedZeroTrace = processZeroTraceLinks(processedKpap, `list2-${keyIndex}-${idx}-`);
+          return processLeaveNoTraceLinks(processedZeroTrace, `list2-${keyIndex}-${idx}-`);
+        }).reduce((acc, curr) => [...acc, ...curr], []);
+        
         nodes.push(
           <ul key={`ul-${keyIndex++}`} className="list-disc list-inside ml-4 mb-4">
-            {listItems.map((item, idx) => (
-              <li key={`li-${keyIndex++}-${idx}`} className="mb-1">{item}</li>
+            {processedListItems.map((processedItem, idx) => (
+              <li key={`li-${keyIndex++}-${idx}`} className="mb-1">{processedItem}</li>
             ))}
           </ul>
         )
@@ -269,9 +297,16 @@ export default function ExpeditionZeroTraceKilimandjaroPage() {
           paragraphLines.push(lines[i])
           i++
         }
+        // Process each paragraph line to handle the special markers
+        const processedParagraphLines = paragraphLines.map((line, idx) => {
+          const processedKpap = processKpapLinks(line, `para-${keyIndex}-${idx}-kpap-`) as string;
+          const processedZeroTrace = processZeroTraceLinks(processedKpap, `para-${keyIndex}-${idx}-`);
+          return processLeaveNoTraceLinks(processedZeroTrace, `para-${keyIndex}-${idx}-`);
+        }).reduce((acc, curr) => [...acc, ...curr], []);
+        
         nodes.push(
           <p key={`p-${keyIndex++}`} className="mb-4">
-            {paragraphLines.join('\n')}
+            {processedParagraphLines}
           </p>
         )
       }
@@ -279,14 +314,192 @@ export default function ExpeditionZeroTraceKilimandjaroPage() {
 
     return nodes
   }
+  
+  // Helper function to process leave no trace links in text
+  function processLeaveNoTraceLinks(text: string | (string | JSX.Element)[], keyPrefix: string = ''): (string | JSX.Element)[] {
+    if (typeof text === 'string') {
+      const parts = text.split('###LEAVE_NO_TRACE_LINK###');
+      
+      if (parts.length <= 1) {
+        return [text]; // Return as array to be consistent
+      }
+      
+      const result = [];
+      
+      for (let j = 0; j < parts.length; j++) {
+        if (parts[j].length > 0) {
+          result.push(parts[j]);
+        }
+        if (j < parts.length - 1) {
+          // Add the link for 'Leave No Trace'
+          result.push(
+            <Link 
+              key={`${keyPrefix}link-${j}`}
+              href="https://lnt.org/" 
+              className="text-[#00A896] hover:text-[#008576] font-semibold"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Leave No Trace
+            </Link>
+          );
+        }
+      }
+      
+      return result;
+    } else {
+      // If text is an array of elements, process each element
+      const result: (string | JSX.Element)[] = [];
+      for (let i = 0; i < text.length; i++) {
+        const element = text[i];
+        if (typeof element === 'string') {
+          const parts = element.split('###LEAVE_NO_TRACE_LINK###');
+          if (parts.length <= 1) {
+            result.push(element);
+          } else {
+            for (let j = 0; j < parts.length; j++) {
+              if (parts[j].length > 0) {
+                result.push(parts[j]);
+              }
+              if (j < parts.length - 1) {
+                // Add the link for 'Leave No Trace'
+                result.push(
+                  <Link 
+                    key={`${keyPrefix}link-${i}-${j}`}
+                    href="https://lnt.org/" 
+                    className="text-[#00A896] hover:text-[#008576] font-semibold"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Leave No Trace
+                  </Link>
+                );
+              }
+            }
+          }
+        } else if (typeof element === 'object' && element !== null) {
+          // If it's a React element, just push as is
+          result.push(element);
+        }
+        // If element is undefined or never, skip
+      }
+      return result;
+    }
+  }
+  
+  // Helper function to process zero trace links in text
+  function processZeroTraceLinks(text: string, keyPrefix: string = '') {
+    const parts = text.split('###ZERO_TRACE_LINK###');
+    
+    if (parts.length <= 1) {
+      return [text]; // Return as array to be consistent
+    }
+    
+    const result = [];
+    
+    for (let j = 0; j < parts.length; j++) {
+      if (parts[j].length > 0) {
+        result.push(parts[j]);
+      }
+      if (j < parts.length - 1) {
+        // Add the link for 'Zéro Trace'
+        result.push(
+          <Link 
+            key={`${keyPrefix}link-${j}`}
+            href="https://lnt.org/" 
+            className="text-[#00A896] hover:text-[#008576] font-semibold"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Zéro Trace
+          </Link>
+        );
+      }
+    }
+    
+    return result;
+  }
+  
+  // Helper function to process KPAP links in text
+  function processKpapLinks(text: string | (string | JSX.Element)[], keyPrefix: string = '') {
+    // Handle both string and array inputs
+    if (typeof text === 'string') {
+      const parts = text.split('###KPAP_LINK###');
+      
+      if (parts.length <= 1) {
+        return text;
+      }
+      
+      const result = [];
+      
+      for (let j = 0; j < parts.length; j++) {
+        if (parts[j].length > 0) {
+          result.push(parts[j]);
+        }
+        if (j < parts.length - 1) {
+          // Add the link for 'KPAP'
+          result.push(
+            <Link 
+              key={`${keyPrefix}link-${j}`}
+              href="https://kiliporters.org/" 
+              className="text-pink-600 hover:text-pink-800 font-semibold"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              KPAP
+            </Link>
+          );
+        }
+      }
+      
+      return result;
+    } else {
+      // If text is an array of elements, process each element
+      const result: any[] = [];
+      for (let i = 0; i < text.length; i++) {
+        const element = text[i];
+        if (typeof element === 'string') {
+          const parts = element.split('###KPAP_LINK###');
+          if (parts.length <= 1) {
+            result.push(element);
+          } else {
+            for (let j = 0; j < parts.length; j++) {
+              if (parts[j].length > 0) {
+                result.push(parts[j]);
+              }
+              if (j < parts.length - 1) {
+                // Add the link for 'KPAP'
+                result.push(
+                  <Link 
+                    key={`${keyPrefix}link-${i}-${j}`}
+                    href="https://kiliporters.org/" 
+                    className="text-pink-600 hover:text-pink-800 font-semibold"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    KPAP
+                  </Link>
+                );
+              }
+            }
+          }
+        } else if (typeof element === 'object' && element !== null) {
+          // If it's a React element, just push as is
+          result.push(element);
+        }
+        // If element is undefined or never, skip
+      }
+      return result;
+    }
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero section with back-link */}
-      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero4.jpg')" }}>
+      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/zero-expedition hero.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
-            {isFrench ? '← Retour aux blogs' : '← Back to blogs'}
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+            {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
       </section>
@@ -321,7 +534,10 @@ export default function ExpeditionZeroTraceKilimandjaroPage() {
             <div className="flex-1 space-y-6">
               <div className="mb-8">
                 <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight text-black">
-                  {isFrench ? FR_TITLES.overview : EN_TITLES.overview}
+                  {isFrench 
+                    ? <>{processLeaveNoTraceLinks(processZeroTraceLinks(processKpapLinks(FR_TITLES.overview, 'title-1-kpap-') as string, 'title-1-'), 'title-1-')}</>
+                    : <>{processLeaveNoTraceLinks(processZeroTraceLinks(processKpapLinks(EN_TITLES.overview as string, 'title-2-kpap-') as string, 'title-2-'), 'title-2-')}</>
+                  }
                 </h1>
                 <p className="text-base md:text-lg text-black max-w-3xl">
                   {isFrench ? 'Comprendre les expéditions Zéro Trace sur le Kilimandjaro.' : 'Understanding Zero Trace expeditions on Kilimanjaro.'}
@@ -332,7 +548,12 @@ export default function ExpeditionZeroTraceKilimandjaroPage() {
                 <div>
                   {sections.map(s => (
                     <article key={s.id} id={s.id} className="mb-8">
-                      <h2 className="text-2xl font-semibold mb-2">{s.title}</h2>
+                      <h2 className="text-2xl font-semibold mb-2">
+                        {isFrench 
+                          ? <>{processLeaveNoTraceLinks(processZeroTraceLinks(processKpapLinks(s.title, `title-${s.id}-kpap-`) as string, `title-${s.id}-`), `title-${s.id}-`)}</>
+                          : <>{processLeaveNoTraceLinks(processZeroTraceLinks(processKpapLinks(s.title, `title-${s.id}-kpap-`) as string, `title-${s.id}-`), `title-${s.id}-`)}</>
+                        }
+                      </h2>
                       <div className="prose max-w-none text-black">{renderContent(s.content)}</div>
                     </article>
                   ))}
@@ -353,7 +574,7 @@ export default function ExpeditionZeroTraceKilimandjaroPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/marangu-route.jpg')" }}></div>
+              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/zero-expedition hero.jpg')" }}></div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>
@@ -372,7 +593,7 @@ export default function ExpeditionZeroTraceKilimandjaroPage() {
             </div>
 
             <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/lemosho-route.jpg')" }}></div>
+              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/zero-expedition hero.jpg')" }}></div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>
@@ -391,7 +612,7 @@ export default function ExpeditionZeroTraceKilimandjaroPage() {
             </div>
 
             <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/kilimanjaro-umbwe.jpg')" }}></div>
+              <div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/zero-expedition hero.jpg')" }}></div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>

@@ -27,10 +27,10 @@ export default function AcclimatationKilimanjarPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero section with back-link */}
-      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero4.jpg')" }}>
+      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/sante-en-altitude hero.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
-            ← Retour aux blogs
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+            {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
       </section>
@@ -76,9 +76,10 @@ export default function AcclimatationKilimanjarPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Pole Pole" et "Monter haut, dormir bas" : Comment bien s'acclimater sur le Kilimandjaro
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
-                  <p className="mb-4">Gravir le Kilimandjaro est bien plus qu'une simple randonnée : c'est un véritable défi pour le corps. L'altitude impose des contraintes physiologiques importantes, car l'oxygène se fait plus rare à mesure que l'on monte. Pour un randonnéeur, atteindre le sommet en toute sécurité ne dépend pas seulement de la force physique, mais surtout de la capacité du corps à s'acclimater progressivement.</p>
-                  <p className="mb-4">Le Mal Aigu des Montagnes (MAM) peut survenir rapidement si l'acclimatation est insuffisante, entraînant des maux de tête, fatigue intense, nausées ou essoufflement. Pour réduire ces risques et maximiser les chances de succès, deux principes simples mais essentiels sont appliqués sur toutes mes ascensions : "Pole Pole" et "monter haut, dormir bas".</p>
+                <div className="prose prose-xl max-w-none text-gray-700">
+                  <p className="mb-4">Gravir le Kilimandjaro est bien plus qu'une simple randonnée : c'est un véritable défi pour le corps. L'<Link href={`/${locale}/travel-blogs/preparer-son-corps-altitude-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">altitude</Link> impose des contraintes physiologiques importantes, car l'oxygène se fait plus rare à mesure que l'on monte. Pour un randonnéeur, atteindre le sommet en toute sécurité ne dépend pas seulement de la <Link href={`/${locale}/travel-blogs/niveau-physique-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">force physique</Link>, mais surtout de la capacité du corps à s'acclimater progressivement.</p>
+                  <p className="mb-4">Le <Link href={`/${locale}/travel-blogs/sante-en-altitude`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">Mal Aigu des Montagnes (MAM)</Link> peut survenir rapidement si l'acclimatation est insuffisante, entraînant des maux de tête, fatigue intense, nausées ou essoufflement. Pour réduire ces risques et maximiser les chances de succès, deux principes simples mais essentiels sont appliqués sur toutes mes ascensions : "Pole Pole" et "monter haut, dormir bas".</p>
+                  <p className="mb-4">L'acclimatation est un processus qui nécessite du temps et de la patience.</p>
                 </div>
               </section>
 
@@ -87,9 +88,9 @@ export default function AcclimatationKilimanjarPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Pole Pole" : Avancer lentement pour protéger votre santé
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
-                  <p className="mb-4">Pole Pole", qui signifie lentement, doucement en swahili, est bien plus qu'une expression : c'est une règle de sécurité en haute altitude.</p>
-                  <p className="mb-4">Monter trop rapidement empêche le corps de s'adapter au manque d'oxygène. Les muscles, le cerveau et le cœur sont alors soumis à un stress important, ce qui augmente le risque de MAM. À l'inverse, un rythme lent et régulier permet au corps de produire progressivement plus de globules rouges, essentiels pour transporter l'oxygène.</p>
+                <div className="prose prose-xl max-w-none text-gray-700">
+                  <p className="mb-4">Pole Pole", qui signifie lentement, doucement en swahili, est bien plus qu'une expression : c'est une règle de sécurité en haute <Link href={`/${locale}/travel-blogs/preparer-son-corps-altitude-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">altitude</Link>.</p>
+                  <p className="mb-4">Monter trop rapidement empêche le corps de s'adapter au manque d'oxygène. Les muscles, le cerveau et le cœur sont alors soumis à un stress important, ce qui augmente le risque de <Link href={`/${locale}/travel-blogs/sante-en-altitude`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">MAM</Link>. À l'inverse, un rythme lent et régulier permet au corps de produire progressivement plus de globules rouges, essentiels pour transporter l'oxygène.</p>
                   <p className="mb-4">Avantages du rythme "Pole Pole" :</p>
                   <ul className="list-disc list-inside mb-4">
                     <li>Réduction de la fatigue et de l'essoufflement</li>
@@ -105,8 +106,8 @@ export default function AcclimatationKilimanjarPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Monter haut, dormir bas" : Optimiser la récupération nocturne
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
-                  <p className="mb-4">Ce principe consiste à gravir une altitude plus élevée pendant la journée puis redescendre pour dormir. L'exposition temporaire à une altitude supérieure stimule l'adaptation du corps, tandis que le sommeil à une altitude plus basse permet une récupération optimale avec plus d'oxygène disponible.</p>
+                <div className="prose prose-xl max-w-none text-gray-700">
+                  <p className="mb-4">Ce principe consiste à gravir une <Link href={`/${locale}/travel-blogs/preparer-son-corps-altitude-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">altitude</Link> plus élevée pendant la journée puis redescendre pour dormir. L'exposition temporaire à une altitude supérieure stimule l'adaptation du corps, tandis que le sommeil à une altitude plus basse permet une récupération optimale avec plus d'oxygène disponible.</p>
                   <p className="mb-4">Exemple concret : Monter à 4,000 mètres pendant la journée, puis redescendre à 3,200 mètres pour passer la nuit.</p>
                   <p className="mb-4">Bénéfices :</p>
                   <ul className="list-disc list-inside mb-4">
@@ -122,7 +123,7 @@ export default function AcclimatationKilimanjarPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Conclusion
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">L'acclimatation est la clé du succès lors de l'ascension du Kilimandjaro. En respectant les principes de "Pole Pole" et "monter haut, dormir bas", vous augmentez considérablement vos chances d'atteindre le sommet en bonne santé.</p>
                   <p className="mb-4">Souvenez-vous que chaque montée est unique, et que votre corps réagit différemment selon les conditions. Écoutez vos signaux corporels et adaptez-vous en conséquence.</p>
                 </div>
@@ -137,7 +138,7 @@ export default function AcclimatationKilimanjarPage() {
                   </div>
                   <div className="grid md:grid-cols-3 gap-8">
                     <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-                      <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/marangu-route.jpg')" }}></div>
+                      <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/sante-en-altitude hero.jpg')" }}></div>
                       <div className="p-6">
                         <div className="flex justify-between items-start mb-4">
                           <div>
@@ -157,7 +158,7 @@ export default function AcclimatationKilimanjarPage() {
                       </div>
                     </div>
                     <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-                      <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/lemosho-route.jpg')" }}></div>
+                      <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/sante-en-altitude hero.jpg')" }}></div>
                       <div className="p-6">
                         <div className="flex justify-between items-start mb-4">
                           <div>
@@ -177,7 +178,7 @@ export default function AcclimatationKilimanjarPage() {
                       </div>
                     </div>
                     <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-                      <div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/kilimanjaro-umbwe.jpg')" }}></div>
+                      <div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/sante-en-altitude hero.jpg')" }}></div>
                       <div className="p-6">
                         <div className="flex justify-between items-start mb-4">
                           <div>

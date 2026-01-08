@@ -11,12 +11,8 @@ import { OrganizationSchema } from '@/components/StructuredData';
 // Define the supported locales
 const locales = ['fr', 'en'];
 
-// Generate static params for all supported locales
-export async function generateStaticParams() {
-  return locales.map((locale) => ({
-    locale,
-  }));
-}
+// Dynamic rendering for all locale pages
+// This allows next-intl to handle locale routing dynamically
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;

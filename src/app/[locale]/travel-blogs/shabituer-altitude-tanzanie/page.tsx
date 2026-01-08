@@ -53,9 +53,9 @@ export default function ShabituerAltitudeTanzaniePage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero section with back-link */}
-      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero4.jpg')" }}>
+      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/preparation-hero.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
             {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
@@ -103,7 +103,7 @@ export default function ShabituerAltitudeTanzaniePage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Peut-on s’habituer à l’altitude avant de partir en Tanzanie ?
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Avant de tenter l’ascension du Mont Kilimandjaro (5 895 m), beaucoup de voyageurs se posent une question essentielle : est-il possible de s’habituer à l’altitude avant même d’arriver en Tanzanie ?</p>
                   <p className="mb-4">Cette question est légitime, car l’altitude représente le principal défi du Kilimandjaro, bien plus que la difficulté physique. Pourtant, de nombreuses idées reçues circulent à ce sujet. En tant que guide local, il est important de donner une réponse honnête et réaliste.</p>
                   <p className="mb-4">👉 Non, on ne peut pas réellement s’acclimater à l’altitude sans être en altitude.<br/>👉 Oui, on peut préparer son corps et son mental pour mieux réagir une fois sur la montagne.</p>
@@ -116,8 +116,8 @@ export default function ShabituerAltitudeTanzaniePage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Qu’est-ce que l’acclimatation à l’altitude ?
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
-                  <p className="mb-4">L’acclimatation est un processus naturel par lequel le corps humain s’adapte progressivement au manque d’oxygène en altitude. Sur le Kilimandjaro, ce processus est absolument crucial, car il détermine si vous pourrez atteindre le sommet en toute sécurité ou si vous risquez le mal aigu des montagnes.</p>
+                <div className="prose prose-xl max-w-none text-gray-700">
+                  <p className="mb-4">L'<Link href={`/${locale}/travel-blogs/acclimatation-kilimanjar`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">acclimatation</Link> est un processus naturel par lequel le corps humain s'adapte progressivement au manque d'oxygène en <Link href={`/${locale}/travel-blogs/preparer-son-corps-altitude-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">altitude</Link>. Sur le Kilimandjaro, ce processus est absolument crucial, car il détermine si vous pourrez atteindre le sommet en toute sécurité ou si vous risquez le <Link href={`/${locale}/travel-blogs/sante-en-altitude`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">mal aigu des montagnes</Link>.</p>
                   <p className="mb-4">Contrairement à ce que beaucoup pensent, l’acclimatation ne se fait pas en quelques heures, et elle ne dépend pas uniquement de votre niveau sportif. Même un athlète très entraîné doit respecter les étapes de montée progressive pour que son corps s’adapte correctement.</p>
                 </div>
               </section>
@@ -127,7 +127,7 @@ export default function ShabituerAltitudeTanzaniePage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   La respiration devient plus rapide et plus profonde
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">En altitude, l’air contient moins d’oxygène que celui que l’on respire au niveau de la mer. Pour compenser ce manque, le corps augmente la fréquence et la profondeur de la respiration. Cela permet d’apporter plus d’oxygène au sang.</p>
                   <p className="mb-4">Cette adaptation est essentielle, mais elle a aussi des conséquences : vous pouvez vous sentir essoufflé plus rapidement, surtout si vous essayez de marcher à un rythme trop rapide. C’est pourquoi le rythme "pole pole" (lent et régulier) est indispensable sur le Kilimandjaro.</p>
                 </div>
@@ -138,7 +138,7 @@ export default function ShabituerAltitudeTanzaniePage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Le cœur travaille davantage
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Pour distribuer l’oxygène dans tout le corps, le cœur doit travailler plus fort et battre plus vite. Cette augmentation du rythme cardiaque permet aux muscles et aux organes de continuer à fonctionner malgré la baisse d’oxygène.</p>
                   <p className="mb-4">C’est une des raisons pour lesquelles vous pouvez ressentir une fatigue plus importante, même lors d’efforts modérés. Le corps apprend progressivement à gérer cette contrainte, mais il faut laisser le temps à ces adaptations de se mettre en place.</p>
                 </div>
@@ -149,7 +149,7 @@ export default function ShabituerAltitudeTanzaniePage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   La production de globules rouges augmente
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Avec le temps, le corps commence à produire davantage de globules rouges, qui sont responsables du transport de l’oxygène dans le sang. Cette adaptation est plus lente et se produit sur plusieurs jours, pas immédiatement.</p>
                   <p className="mb-4">C’est pourquoi les itinéraires longs et progressifs du Kilimandjaro sont plus efficaces pour réussir le sommet : ils donnent au corps le temps nécessaire pour augmenter sa capacité à transporter l’oxygène.</p>
                 </div>
@@ -160,7 +160,7 @@ export default function ShabituerAltitudeTanzaniePage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   L’effort physique devient plus lent et plus fatigant
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Toutes ces adaptations combinées signifient que votre corps fonctionne différemment en altitude. Même si vous êtes en bonne forme, vous vous sentez plus fatigué et moins rapide que d’habitude. Les muscles reçoivent moins d’oxygène et l’endurance est réduite.</p>
                   <p className="mb-4">C’est exactement la raison pour laquelle la patience et le rythme lent sont cruciaux : le corps apprend progressivement à gérer l’effort avec moins d’oxygène, étape par étape.</p>
                 </div>
@@ -171,7 +171,7 @@ export default function ShabituerAltitudeTanzaniePage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Ce que l’on NE peut PAS faire avant de partir pour le Kilimandjaro
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Avant de gravir le Mont Kilimandjaro, il est essentiel de comprendre ce que votre corps ne peut pas anticiper. Beaucoup de voyageurs pensent que leur condition physique ou certains compléments peuvent les protéger de l’altitude, mais ce n’est pas le cas. En tant que guide local, il est important de clarifier ces idées reçues pour éviter des erreurs qui peuvent coûter cher en sécurité et en réussite.</p>
                 </div>
               </section>
@@ -181,7 +181,7 @@ export default function ShabituerAltitudeTanzaniePage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   On ne peut pas habituer le corps au manque d’oxygène sans altitude réelle
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">L’acclimatation est un processus physiologique qui se déclenche uniquement lorsque le corps est exposé à un air contenant moins d’oxygène. Tant que vous vivez au niveau de la mer ou en ville, votre corps ne reçoit aucun signal pour s’adapter.</p>
                   <p className="mb-4">Même des semaines de marche, de course ou d’endurance en ville ne permettent pas de « simuler » cette adaptation. C’est la montagne elle-même qui entraîne le corps à mieux gérer l’altitude.</p>
                 </div>
@@ -192,8 +192,8 @@ export default function ShabituerAltitudeTanzaniePage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Le sport intensif ne protège pas contre le mal des montagnes
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
-                  <p className="mb-4">Beaucoup de voyageurs pensent que courir un marathon ou suivre un entraînement intensif les rendra invincibles en altitude. En réalité, la condition physique générale ne protège pas du mal aigu des montagnes. Le corps peut être en excellente forme, mais sans acclimatation réelle, il peut souffrir de maux de tête, nausées, vertiges et fatigue extrême dès 3 000–4 000 mètres.</p>
+                <div className="prose prose-xl max-w-none text-gray-700">
+                  <p className="mb-4">Beaucoup de voyageurs pensent que courir un marathon ou suivre un entraînement intensif les rendra invincibles en altitude. En réalité, la <Link href={`/${locale}/travel-blogs/niveau-physique-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">condition physique</Link> générale ne protège pas du mal aigu des montagnes. Le corps peut être en excellente forme, mais sans acclimatation réelle, il peut souffrir de maux de tête, nausées, vertiges et fatigue extrême dès 3 000–4 000 mètres.</p>
                   <p className="mb-4">C’est pourquoi le rythme lent et régulier, le respect des journées d’acclimatation et l’expérience du guide sont beaucoup plus efficaces pour réussir le sommet que la simple force physique.</p>
                 </div>
               </section>
@@ -203,9 +203,9 @@ export default function ShabituerAltitudeTanzaniePage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Les personnes très sportives ne sont pas forcément avantagées
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
-                  <p className="mb-4">Paradoxalement, certains sportifs très entraînés échouent plus souvent que des personnes moins sportives. Pourquoi ? Parce qu’ils ont tendance à marcher trop vite, à vouloir maintenir un rythme soutenu, ou à ignorer les signaux de leur corps.</p>
-                  <p className="mb-4">Le corps a besoin de temps pour s’adapter au manque d’oxygène, et aller trop vite peut compromettre l’acclimatation, même chez les meilleurs athlètes.</p>
+                <div className="prose prose-xl max-w-none text-gray-700">
+                  <p className="mb-4">Paradoxalement, certains sportifs très entraînés échouent plus souvent que des personnes moins sportives. Pourquoi ? Parce qu'ils ont tendance à marcher trop vite, à vouloir maintenir un rythme soutenu, ou à ignorer les signaux de leur corps.</p>
+                  <p className="mb-4">Même si vous avez une excellente <Link href={`/${locale}/travel-blogs/niveau-physique-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">forme physique</Link>, le corps a besoin de temps pour s'adapter au manque d'oxygène, et aller trop vite peut compromettre l'acclimatation, même chez les meilleurs athlètes.</p>
                 </div>
               </section>
 
@@ -214,7 +214,7 @@ export default function ShabituerAltitudeTanzaniePage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Les compléments alimentaires ne remplacent pas l’acclimatation
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Beaucoup pensent que des pilules, des suppléments ou des boissons enrichies peuvent aider à s’adapter à l’altitude avant le départ. Malheureusement, aucun produit ne remplace le processus naturel d’acclimatation. Ces produits peuvent éventuellement soulager certains symptômes ou soutenir l’énergie, mais ils ne font pas évoluer la physiologie du corps.</p>
                   <p className="mb-4">La seule manière de véritablement s’acclimater reste la montée progressive en altitude, avec des étapes bien planifiées et un rythme adapté.</p>
                 </div>
@@ -225,7 +225,7 @@ export default function ShabituerAltitudeTanzaniePage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Conseil de guide
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Même les sportifs les plus entraînés peuvent échouer sur le Kilimandjaro s’ils sous-estiment l’altitude. Comprendre ce que l’on ne peut pas faire avant le départ est essentiel pour réussir. Suivez ces conseils : préparez votre corps et votre mental, respectez le rythme "pole pole", écoutez votre guide et privilégiez la patience plutôt que la vitesse. Avec cette approche, l’ascension devient beaucoup plus sûre, confortable et gratifiante.</p>
                 </div>
               </section>

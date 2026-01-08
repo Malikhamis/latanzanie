@@ -31,12 +31,58 @@ export function Navigation({ parks }: NavigationProps) {
 
   useEffect(() => {
     setMounted(true)
+    
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10)
     }
+    
+    // Function to close menus when clicking outside
+    const handleClickOutside = (event: MouseEvent) => {
+      // Close mobile menu if open and click is outside
+      if (isMenuOpen) {
+        const mobileMenuButton = document.querySelector('button[aria-label="menu"], button[onclick*="setIsMenuOpen"], .mobile-menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        if (mobileMenuButton && !mobileMenuButton.contains(event.target as Node) && 
+            mobileMenu && !mobileMenu.contains(event.target as Node)) {
+          setIsMenuOpen(false);
+        }
+      }
+      
+      // Close desktop menu if open and click is outside
+      if (isDesktopMenuOpen) {
+        const desktopMenuButton = document.querySelector('button[onclick*="setIsDesktopMenuOpen"], .desktop-menu-toggle');
+        const desktopMenu = document.querySelector('.desktop-menu');
+        if (desktopMenuButton && !desktopMenuButton.contains(event.target as Node) && 
+            desktopMenu && !desktopMenu.contains(event.target as Node)) {
+          setIsDesktopMenuOpen(false);
+        }
+      }
+      
+      // Close contact modal if open and click is outside
+      if (isContactModalOpen) {
+        const contactModal = document.querySelector('.contact-modal');
+        if (contactModal && !contactModal.contains(event.target as Node)) {
+          setIsContactModalOpen(false);
+        }
+      }
+      
+      // Close chat modal if open and click is outside
+      if (isChatOpen) {
+        const chatModal = document.querySelector('.chat-modal');
+        if (chatModal && !chatModal.contains(event.target as Node)) {
+          setIsChatOpen(false);
+        }
+      }
+    };
+    
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    document.addEventListener('mousedown', handleClickOutside);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMenuOpen, isDesktopMenuOpen, isContactModalOpen, isChatOpen])
 
   // Handle form submission
   const handleSubmit = (e: React.FormEvent) => {
@@ -50,49 +96,43 @@ export function Navigation({ parks }: NavigationProps) {
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white shadow-md border-b border-gray-200 hidden md:block`}>
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center">
-              {/* Logo - at the left end on desktop */}
-              <Link href={`/${currentLocale}`} className="text-2xl font-serif font-bold text-gray-800 mr-8">
-                Latanzanieaucourdelanature
+            <div className="hidden md:flex items-center space-x-8">
+              <Link href={`/${currentLocale}`} className="text-lg md:text-xl font-serif font-bold text-[#00A896] -ml-6 truncate">
+                la Tanzanie au cœur de la nature
               </Link>
-              
-              {/* Desktop Navigation - Left side items */}
-              <div className="flex space-x-8">
-                <Link href={`/${currentLocale}/about`} className="text-gray-700 hover:text-gray-900 font-medium">
-                  {t('about')}
+              <Link href={`/${currentLocale}/about`} className="text-gray-700 hover:text-gray-900 font-medium">
+                {t('about')}
+              </Link>
+              <div className="relative group">
+                <Link href={`/${currentLocale}/travel-blogs`} className="text-gray-700 hover:text-gray-900 font-medium flex items-center">
+                  {t('blog')}
+                  <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
                 </Link>
-                <div className="relative group">
-                  <Link href={`/${currentLocale}/travel-blogs`} className="text-gray-700 hover:text-gray-900 font-medium flex items-center">
-                    {t('blog')}
-                    <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </Link>
-                    <div className="absolute left-0 mt-0 w-64 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-60 pt-0">
-                      <Link
-                        href={`/${currentLocale}/travel-blogs/climb-kilimanjaro`}
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      >
-                        {t('blogKilimanjaro')}
-                      </Link>
-                      <Link
-                        href={`/${currentLocale}/travel-blogs/tanzania-safari`}
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      >
-                        {t('blogTanzaniaSafari')}
-                      </Link>
-                      <Link
-                        href={`/${currentLocale}/travel-blogs/zanzibar-beach-holidays`}
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                      >
-                        {t('blogZanzibar')}
-                      </Link>
-                    </div>
-                </div>
+                  <div className="absolute left-0 mt-0 w-64 bg-white rounded-lg shadow-lg py-2 hidden group-hover:block z-60 pt-0">
+                    <Link
+                      href={`/${currentLocale}/travel-blogs/climb-kilimanjaro`}
+                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                    >
+                      {t('blogKilimanjaro')}
+                    </Link>
+                    <Link
+                      href={`/${currentLocale}/travel-blogs/tanzania-safari`}
+                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                    >
+                      {t('blogTanzaniaSafari')}
+                    </Link>
+                    <Link
+                      href={`/${currentLocale}/travel-blogs/zanzibar-beach-holidays`}
+                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                    >
+                      {t('blogZanzibar')}
+                    </Link>
+                  </div>
               </div>
             </div>
-            
+                      
             {/* Desktop Navigation - Right side items */}
             <div className="hidden md:flex items-center space-x-4">
               <div className="relative group">
@@ -118,7 +158,7 @@ export function Navigation({ parks }: NavigationProps) {
               <Button 
                 variant="ghost" 
                 size="icon" 
-                className="rounded-full hover:bg-gray-100"
+                className="rounded-full hover:bg-gray-100 desktop-menu-toggle"
                 onClick={() => setIsDesktopMenuOpen(!isDesktopMenuOpen)}
               >
                 <Menu className="h-6 w-6" />
@@ -174,7 +214,7 @@ export function Navigation({ parks }: NavigationProps) {
         
         {/* Desktop Menu Sidebar - Covers full width horizontally */}
         {isDesktopMenuOpen && (
-          <div className="hidden md:block fixed left-0 top-16 right-0 z-50">
+          <div className="hidden md:block fixed left-0 top-16 right-0 z-50 desktop-menu">
             {/* Sidebar with clean modern design */}
             <div className="bg-white bg-opacity-95 backdrop-blur-md shadow-lg border-b border-gray-200">
               <div className="container mx-auto px-4 py-4">
@@ -232,7 +272,10 @@ export function Navigation({ parks }: NavigationProps) {
                     </ul>
                   </nav>
                   
-
+                  {/* Right Column - Additional content can go here */}
+                  <div>
+                    {/* Additional content would go here if needed */}
+                  </div>
                 </div>
               </div>
             </div>
@@ -242,7 +285,7 @@ export function Navigation({ parks }: NavigationProps) {
       
       {/* Mobile Menu Sidebar - Only visible on mobile when menu is open */}
       {isMenuOpen && (
-        <div className="md:hidden fixed left-0 top-0 w-full h-1/2 z-50">
+        <div className="md:hidden fixed left-0 top-0 w-full h-1/2 z-50 mobile-menu">
           {/* Sidebar with clean modern design */}
           <div className="bg-white bg-opacity-90 backdrop-blur-md shadow-lg border-t border-gray-200">
             <div className="container mx-auto px-4 py-6">
@@ -250,10 +293,10 @@ export function Navigation({ parks }: NavigationProps) {
               <div className="mb-6 pb-6 border-b border-gray-200">
                 <Link 
                   href={`/${currentLocale}`} 
-                  className="text-2xl font-serif font-bold text-gray-800 block text-center"
+                  className="text-base font-serif font-bold text-[#00A896] block text-center truncate"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Latanzanieaucourdelanature
+                  la Tanzanie au cœur de la nature
                 </Link>
               </div>
               
@@ -321,7 +364,7 @@ export function Navigation({ parks }: NavigationProps) {
                 isMenuOpen 
                   ? 'bg-white/25 backdrop-blur-md shadow-lg scale-105' 
                   : 'hover:bg-white/15 hover:scale-105'
-              }`}
+              } mobile-menu-toggle`}
             >
               <div className="relative">
                 <div className={`w-9 h-9 flex items-center justify-center rounded-xl ${
@@ -431,7 +474,7 @@ export function Navigation({ parks }: NavigationProps) {
       
       {/* Chat Modal */}
       {isChatOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 chat-modal">
           {/* Backdrop with blur */}
           <div 
             className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm"
@@ -486,7 +529,7 @@ export function Navigation({ parks }: NavigationProps) {
       
       {/* Contact Modal */}
       {isContactModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 contact-modal">
           {/* Backdrop with blur - completely transparent with blur effect */}
           <div 
             className="absolute inset-0 backdrop-blur-lg"
@@ -521,7 +564,7 @@ export function Navigation({ parks }: NavigationProps) {
                       <Mail className="h-6 w-6 text-green-600 mt-1 mr-3" />
                       <div>
                         <h4 className="font-medium text-gray-800">{t('contactModal.emailUs')}</h4>
-                        <p className="text-gray-600">info@latanzanieaucourdelanature.com</p>
+                        <p className="text-gray-600">info@latanzanieaucoeurdelanature.com</p>
                       </div>
                     </div>
                     

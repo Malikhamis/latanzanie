@@ -7,11 +7,90 @@ import TOC from "@/components/ui/TOC";
 import Image from "next/image";
 import "../../../../tailgrid.css";
 
+// Helper function to process KPAP links in text
+function processKpapLinks(text: string, keyPrefix: string = ''): string {
+  const parts = text.split('###KPAP_LINK###');
+  
+  if (parts.length <= 1) {
+    return text; // Return the original string if no KPAP found
+  }
+  
+  // Join the parts with a temporary placeholder that won't conflict with other markers
+  let result = '';
+  for (let j = 0; j < parts.length; j++) {
+    result += parts[j];
+    if (j < parts.length - 1) {
+      // Add a temporary marker that we'll replace later with the actual link
+      result += `###KPAP_TEMP_LINK_${keyPrefix}${j}###`;
+    }
+  }
+  
+  return result;
+}
+
+// Helper function to convert temporary KPAP markers to actual links
+function convertKpapTempMarkersToLinks(text: string | (string | JSX.Element)[]): (string | JSX.Element)[] {
+  if (typeof text === 'string') {
+    // If it's a string, convert any temporary markers to links
+    const parts = text.split(/(###KPAP_TEMP_LINK_[^#]+###)/);
+    const result: (string | JSX.Element)[] = [];
+    
+    for (const part of parts) {
+      if (part.startsWith('###KPAP_TEMP_LINK_') && part.endsWith('###')) {
+        // Extract the key prefix from the temporary marker
+        const keyMatch = part.match(/###KPAP_TEMP_LINK_(.+?)###/);
+        const keyPrefix = keyMatch ? keyMatch[1] : 'default-';
+        
+        result.push(
+          <Link 
+            key={`kpap-${keyPrefix}`} 
+            href="https://kiliporters.org/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-[#00A896] hover:text-[#008576] font-medium font-semibold"
+          >
+            KPAP
+          </Link>
+        );
+      } else {
+        result.push(part);
+      }
+    }
+    return result;
+  } else {
+    // If it's already an array, process each element
+    const result: (string | JSX.Element)[] = [];
+    for (const element of text) {
+      if (typeof element === 'string') {
+        const converted = convertKpapTempMarkersToLinks(element);
+        result.push(...converted);
+      } else {
+        result.push(element);
+      }
+    }
+    return result;
+  }
+}
+
 export default function ConditionsDeTravailPage() {
   const locale = useLocale();
   const author = locale === "fr" ? "Par un guide local" : "By a local guide";
   const date = "2025-12-17";
   const readingTime = locale === "fr" ? "7 min de lecture" : "7 min read";
+
+  // Function to render content with KPAP links
+  function renderContent(content: string) {
+    // Replace 'KPAP' with a special marker that we'll convert to links
+    let markedContent = content.replace(/KPAP/g, '###KPAP_LINK###');
+    
+    // Process the content to convert special markers to temporary markers
+    const processedContentWithTempMarkers = processKpapLinks(markedContent);
+    
+    // Convert temporary markers to actual links
+    const finalProcessedContent = convertKpapTempMarkersToLinks(processedContentWithTempMarkers);
+    
+    return finalProcessedContent;
+  }
 
   const sections = [
     {
@@ -81,7 +160,7 @@ Enfin, une agence responsable organise le trek avec précision pour protéger le
       {/* Hero + back-link */}
       <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero4.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
             {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
@@ -111,7 +190,7 @@ Enfin, une agence responsable organise le trek avec précision pour protéger le
               {sections.map(s => (
                 <section key={s.id} id={s.id} className="bg-white rounded-lg shadow-md p-8">
                   <h2 className="text-3xl font-bold text-gray-900 mb-6">{s.title}</h2>
-                  <div className="prose prose-lg max-w-none text-gray-700 whitespace-pre-wrap">{s.content}</div>
+                  <div className="prose prose-xl max-w-none text-gray-700 whitespace-pre-wrap">{renderContent(s.content)}</div>
                 </section>
               ))}
               {/* Canonical route cards section (after notes) */}

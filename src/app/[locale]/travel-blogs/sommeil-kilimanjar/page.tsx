@@ -28,10 +28,10 @@ export default function SommeilKilimanjarPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero section with back-link */}
-      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero4.jpg')" }}>
+      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/sante-en-altitude hero.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
-            ← Retour aux blogs
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+            {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
       </section>
@@ -77,7 +77,7 @@ export default function SommeilKilimanjarPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Combien d'heures de sommeil par nuit pour réussir l'ascension du Kilimandjaro ?
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Gravir le Kilimandjaro n'est pas seulement une aventure physique, c'est aussi un véritable défi pour le corps et l'esprit. Entre les longues journées de marche, le froid intense et l'altitude qui réduit l'oxygène disponible, le sommeil devient un facteur essentiel pour la réussite de l'ascension. Beaucoup de randonnéeurs sous-estiment ce point, pensant pouvoir compenser la fatigue par l'effort ou la caféine. En réalité, une bonne nuit de sommeil est cruciale pour l'acclimatation, la récupération et la performance sur le sentier.</p>
                 </div>
               </section>
@@ -87,10 +87,10 @@ export default function SommeilKilimanjarPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Pourquoi le sommeil est crucial en haute altitude sur le Kilimandjaro
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
-                  <p className="mb-4">Gravir le Kilimandjaro est une expérience unique qui met le corps à l'épreuve. À mesure que l'on gagne en altitude, l'oxygène disponible dans l'air diminue, ce qui oblige le corps à travailler davantage pour alimenter les muscles et le cerveau. Même une marche lente devient plus fatigante, et le corps doit fournir un effort continu pour maintenir ses fonctions vitales. Dans ces conditions, le sommeil n'est pas un luxe : il devient un élément essentiel pour récupérer et s'acclimater correctement.</p>
+                <div className="prose prose-xl max-w-none text-gray-700">
+                  <p className="mb-4">Gravir le Kilimandjaro est une expérience unique qui met le corps à l'épreuve. À mesure que l'on gagne en <Link href={`/${locale}/travel-blogs/preparer-son-corps-altitude-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">altitude</Link>, l'oxygène disponible dans l'air diminue, ce qui oblige le corps à travailler davantage pour alimenter les muscles et le cerveau. Même une marche lente devient plus fatigante, et le corps doit fournir un effort continu pour maintenir ses fonctions vitales. Dans ces conditions, le sommeil n'est pas un luxe : il devient un élément essentiel pour récupérer et s'acclimater correctement.</p>
                   <p className="mb-4">La fatigue s'accumule beaucoup plus vite en altitude. Les journées de marche sont longues et exigeantes, souvent exposées au froid et au vent. Cette combinaison d'efforts physiques constants et de conditions climatiques difficiles épuise rapidement le corps. Sans un repos adéquat, les muscles ne récupèrent pas correctement, le système nerveux reste surchargé et le corps devient plus sensible aux symptômes liés à l'altitude, comme les maux de tête, la nausée ou le manque d'énergie.</p>
-                  <p className="mb-4">Le sommeil joue également un rôle majeur dans la prévention du Mal Aigu des Montagnes (MAM). Lorsque le corps ne récupère pas suffisamment la nuit, il peine à s'adapter au manque d'oxygène. Les globules rouges, responsables du transport de l'oxygène, sont produits moins efficacement, ce qui peut provoquer une fatigue accrue, des maux de tête persistants et un risque plus élevé de complications liées à l'altitude. Un sommeil de qualité permet donc au corps de mieux s'acclimater et de maintenir ses performances pendant la journée.</p>
+                  <p className="mb-4">Le sommeil joue également un rôle majeur dans la prévention du <Link href={`/${locale}/travel-blogs/sante-en-altitude`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">Mal Aigu des Montagnes (MAM)</Link>. Lorsque le corps ne récupère pas suffisamment la nuit, il peine à s'adapter au manque d'oxygène. Les globules rouges, responsables du transport de l'oxygène, sont produits moins efficacement, ce qui peut provoquer une fatigue accrue, des maux de tête persistants et un risque plus élevé de complications liées à l'altitude. Un sommeil de qualité permet donc au corps de mieux s'acclimater et de maintenir ses performances pendant la journée.</p>
                   <p className="mb-4">En plus de la récupération physique, le sommeil est indispensable pour le fonctionnement du cerveau. Le manque de repos réduit la concentration et la coordination, ce qui augmente les risques d'erreurs ou de chutes sur des sentiers escarpés. Sur le Kilimandjaro, où le terrain peut être exigeant et les conditions changeantes, rester alerte est vital pour la sécurité.</p>
                 </div>
               </section>
@@ -100,11 +100,11 @@ export default function SommeilKilimanjarPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Combien d'heures dormir pour rester en forme sur le Kilimandjaro
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Gravir le Kilimandjaro est un défi exigeant, et le sommeil joue un rôle central dans la réussite de l'ascension. Pour un randonnéeur, il est recommandé de dormir entre 7 et 8 heures par nuit. Ce temps de repos n'est pas seulement un moment pour se détendre : il permet au corps de récupérer physiquement, de s'acclimater à l'altitude et de rester performant tout au long de la montée.</p>
                   <p className="mb-4">Pendant le sommeil, le corps profite d'une récupération physique complète. Les muscles fatigués par la marche, le froid et l'effort constant se régénèrent, ce qui réduit les risques de douleurs et d'épuisement. Le système nerveux se repose également, améliorant la concentration et la coordination, essentielles pour évoluer en sécurité sur des sentiers souvent escarpés et exigeants.</p>
                   <p className="mb-4">Le sommeil favorise aussi la production de globules rouges, indispensables pour transporter l'oxygène dans le sang. À haute altitude, où l'air contient moins d'oxygène, cette production est vitale : elle aide le corps à mieux s'acclimater et à réduire les symptômes liés au manque d'oxygène, comme les maux de tête, la fatigue ou les essoufflements.</p>
-                  <p className="mb-4">En respectant 7 à 8 heures de sommeil, le randonnéeur optimise son acclimatation. Le corps devient plus efficace pour gérer le stress de l'altitude et les efforts physiques prolongés. Cela permet de marcher plus longtemps, de récupérer correctement chaque jour et de réduire les risques de Mal Aigu des Montagnes (MAM).</p>
+                  <p className="mb-4">En respectant 7 à 8 heures de sommeil, le randonnéeur optimise son <Link href={`/${locale}/travel-blogs/acclimatation-kilimanjar`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">acclimatation</Link>. Le corps devient plus efficace pour gérer le stress de l'altitude et les efforts physiques prolongés. Cela permet de marcher plus longtemps, de récupérer correctement chaque jour et de réduire les risques de Mal Aigu des Montagnes (MAM).</p>
                   <blockquote className="border-l-4 border-[#00A896] pl-4 italic mt-6">
                     {'> '}Conseil du guide local : "Sur le Kilimandjaro, chaque nuit de sommeil compte autant qu'une bonne journée de marche. Ne sacrifiez jamais vos heures de repos : elles sont votre meilleur allié pour atteindre le sommet en forme et en sécurité."
                   </blockquote>
@@ -116,17 +116,17 @@ export default function SommeilKilimanjarPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Conseils pratiques pour mieux dormir en altitude sur le Kilimandjaro
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Dormir en haute altitude sur le Kilimandjaro n'est pas toujours facile. Le manque d'oxygène, le froid et la fatigue accumulée pendant la journée peuvent perturber le sommeil. Pourtant, un repos de qualité est essentiel pour récupérer, rester performant et bien s'acclimater.</p>
                   <p className="mb-4">Voici mes conseils pratiques pour vous aider à mieux dormir chaque nuit.</p>
                   <h3 className="text-xl font-semibold mt-4">1. Respecter une routine de sommeil</h3>
                   <p className="mb-4">Même en camp, essayez de vous coucher et de vous lever à des heures régulières. Votre corps s'adapte mieux lorsqu'il sait quand se reposer et quand se réveiller. Cette régularité facilite l'endormissement, améliore la qualité du sommeil et contribue à une meilleure récupération physique et mentale pour la journée suivante.</p>
                   <h3 className="text-xl font-semibold mt-4">2. Créer un environnement chaud et confortable</h3>
-                  <p className="mb-4">Le froid est l'un des principaux facteurs qui perturbent le sommeil en altitude. Utilisez un sac de couchage adapté aux températures extrêmes et superposez des couches de vêtements chauds. Un environnement confortable permet au corps de rester au chaud toute la nuit, favorisant un sommeil profond et réparateur.</p>
+                  <p className="mb-4">Le froid est l'un des principaux facteurs qui perturbent le sommeil en altitude. Utilisez <Link href={`/${locale}/travel-blogs/kilimanjaro-packing-list`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">un sac de couchage</Link> adapté aux températures extrêmes et superposez des couches de vêtements chauds. Un environnement confortable permet au corps de rester au chaud toute la nuit, favorisant un sommeil profond et réparateur.</p>
                   <h3 className="text-xl font-semibold mt-4">3. Limiter les stimulants</h3>
                   <p className="mb-4">Évitez café, thé ou boissons énergétiques en fin de journée. La caféine et d'autres stimulants peuvent retarder l'endormissement et diminuer la qualité du sommeil, ce qui rend la récupération plus difficile. Préférez des boissons chaudes sans caféine pour vous détendre avant de dormir.</p>
                   <h3 className="text-xl font-semibold mt-4">4. Bien s'hydrater, mais intelligemment</h3>
-                  <p className="mb-4">Une bonne hydratation est essentielle pour l'acclimatation et le fonctionnement du corps en altitude. Cependant, il est important de boire intelligemment : quelques gorgées régulières pendant la journée suffisent, mais évitez de boire trop juste avant de dormir pour ne pas être réveillé par des envies fréquentes d'aller aux toilettes.</p>
+                  <p className="mb-4">Une bonne hydratation est essentielle pour l'acclimatation et le fonctionnement du corps en altitude. Cependant, il est important de boire intelligemment : quelques gorgées régulières pendant la journée suffisent, mais évitez de boire trop juste avant de dormir pour ne pas être réveillé par des envies fréquentes d'aller aux <Link href={`/${locale}/travel-blogs/toilettes-privees-necessaires`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">toilettes</Link>.</p>
                   <h3 className="text-xl font-semibold mt-4">5. Écouter votre corps</h3>
                   <p className="mb-4">Si vous sentez la fatigue, ne forcez pas à rester éveillé ou à marcher plus longtemps. Une nuit complète de repos vaut toujours mieux qu'une marche épuisante qui peut compromettre votre acclimatation et augmenter le risque de Mal Aigu des Montagnes (MAM). Respecter votre corps est l'un des meilleurs moyens de réussir l'ascension.</p>
                 </div>
@@ -137,7 +137,7 @@ export default function SommeilKilimanjarPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Conclusion
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <blockquote className="border-l-4 border-[#00A896] pl-4 italic mt-6">
                     {'> '}Conseil du guide local : "Sur le Kilimandjaro, bien dormir chaque nuit est aussi important que marcher lentement. Un corps reposé récupère mieux, s'acclimate plus facilement et augmente vos chances d'atteindre le sommet en pleine forme."
                   </blockquote>
@@ -154,7 +154,7 @@ export default function SommeilKilimanjarPage() {
                   </div>
                   <div className="grid md:grid-cols-3 gap-8">
                     <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-                      <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/marangu-route.jpg')" }}></div>
+                      <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/sante-en-altitude hero.jpg')" }}></div>
                       <div className="p-6">
                         <div className="flex justify-between items-start mb-4">
                           <div>
@@ -174,7 +174,7 @@ export default function SommeilKilimanjarPage() {
                       </div>
                     </div>
                     <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-                      <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/lemosho-route.jpg')" }}></div>
+                      <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/sante-en-altitude hero.jpg')" }}></div>
                       <div className="p-6">
                         <div className="flex justify-between items-start mb-4">
                           <div>
@@ -194,7 +194,7 @@ export default function SommeilKilimanjarPage() {
                       </div>
                     </div>
                     <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-                      <div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/kilimanjaro-umbwe.jpg')" }}></div>
+                      <div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/sante-en-altitude hero.jpg')" }}></div>
                       <div className="p-6">
                         <div className="flex justify-between items-start mb-4">
                           <div>

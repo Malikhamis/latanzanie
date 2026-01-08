@@ -13,57 +13,32 @@ const geistMono = { variable: "" };
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.latanzanieaucourdelanature.com'),
   title: {
-    default: "La Tanzanie au Cœur de la Nature | Safaris & Ascension du Kilimandjaro",
-    template: "%s | La Tanzanie au Cœur de la Nature"
+    default: "La Tanzanie au Coeur de la Nature",
+    template: "%s | La Tanzanie au Coeur de la Nature"
   },
-  description: "Découvrez la Tanzanie authentique avec nos safaris éthiques, l'ascension du Kilimandjaro et les plages de Zanzibar. Tourisme responsable avec des guides locaux experts.",
-  keywords: ["Tanzanie", "Safari", "Kilimandjaro", "Zanzibar", "Voyage Tanzanie", "Safari authentique", "Ascension Kilimandjaro", "Tourisme éthique", "Parc Serengeti", "Cratère Ngorongoro"],
-  authors: [{ name: "La Tanzanie au Cœur de la Nature" }],
-  creator: "La Tanzanie au Cœur de la Nature",
-  publisher: "La Tanzanie au Cœur de la Nature",
-  viewport: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
+  description: "Discover authentic Tanzania: safaris, Kilimanjaro climbs, and Zanzibar beaches. Responsible tourism with expert local guides.",
   openGraph: {
     type: 'website',
-    locale: 'fr_FR',
-    alternateLocale: ['en_US'],
     url: 'https://www.latanzanieaucourdelanature.com',
-    siteName: 'La Tanzanie au Cœur de la Nature',
-    title: 'La Tanzanie au Cœur de la Nature | Safaris & Kilimandjaro',
-    description: 'Découvrez la Tanzanie authentique avec nos safaris éthiques et ascensions du Kilimandjaro. Tourisme responsable avec des guides locaux experts.',
+    siteName: 'La Tanzanie au Coeur de la Nature',
     images: [
       {
         url: '/images/kilimanjaro-summit.jpg',
         width: 1200,
         height: 630,
-        alt: 'Ascension du Kilimandjaro avec La Tanzanie au Cœur de la Nature',
-      },
+        alt: 'Kilimanjaro Summit'
+      }
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'La Tanzanie au Cœur de la Nature | Safaris & Kilimandjaro',
-    description: 'Safaris éthiques et ascensions du Kilimandjaro en Tanzanie avec des guides locaux experts',
+    title: 'La Tanzanie au Coeur de la Nature',
+    description: 'Discover authentic Tanzania: safaris, Kilimanjaro climbs, and Zanzibar beaches.',
     images: ['/images/kilimanjaro-summit.jpg'],
   },
-  alternates: {
-    canonical: '/',
-    languages: {
-      'fr': '/fr',
-      'en': '/en',
-    },
-  },
 };
+
+export const viewport = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
 
 export default function RootLayout({
   children,

@@ -1,20 +1,20 @@
-'use client'
+'use client';
 
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import '../../../tailgrid.css'
-import { useLocale } from 'next-intl'
-import AuthorMeta from '@/components/ui/AuthorMeta'
-import TOC from '@/components/ui/TOC'
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import '../../../tailgrid.css';
+import { useLocale } from 'next-intl';
+import AuthorMeta from '@/components/ui/AuthorMeta';
+import TOC from '@/components/ui/TOC';
 
 interface Section {
-  id: string
-  title: string
+  id: string;
+  title: string;
 }
 
 export default function RentGearPage() {
-  const locale = useLocale()
+  const locale = useLocale();
 
   const sections: Section[] = [
     { id: 'intro', title: 'Peut-on louer du matériel pour le Kilimandjaro à Moshi ?' },
@@ -26,9 +26,9 @@ export default function RentGearPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero5.jpg')" }}>
+      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/packlist-hero.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
             {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
@@ -73,8 +73,8 @@ export default function RentGearPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   Peut-on louer du matériel pour le Kilimandjaro à Moshi ?
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
-                  <p className="mb-4">Lorsque l'on prépare un trek sur le Mont Kilimandjaro, la question du matériel est souvent un casse-tête. Entre le sac de couchage, les chaussures, les bâtons et les accessoires, le poids et la logistique peuvent vite devenir un problème, surtout pour ceux qui voyagent en avion.</p>
+                <div className="prose prose-xl max-w-none text-gray-700">
+                  <p className="mb-4">Lorsque l'on prépare un trek sur le Mont Kilimandjaro, la question du matériel est souvent un casse-tête. Entre <Link href={`/${locale}/travel-blogs/kilimanjaro-packing-list`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">le sac de couchage</Link>, les chaussures, les bâtons et les accessoires, le poids et la logistique peuvent vite devenir un problème, surtout pour ceux qui voyagent en avion.</p>
                   
                   <p className="mb-4">Heureusement, Moshi, la ville située au pied du Kilimandjaro, offre de nombreuses options de location de matériel. C'est une solution très pratique pour ceux qui souhaitent voyager léger et éviter d'emporter des équipements volumineux ou lourds depuis leur pays d'origine.</p>
                 </div>
@@ -85,9 +85,9 @@ export default function RentGearPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   Pourquoi louer son matériel pour le Kilimandjaro à Moshi ?
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <h3 className="text-xl font-bold mt-4 mb-2">Conseils d'un guide local pour préparer votre ascension</h3>
-                  <p className="mb-4">Gravir le Mont Kilimandjaro est un rêve pour beaucoup de voyageurs, mais réussir cette aventure exige une préparation minutieuse, notamment pour le choix de l'équipement. Chaussures, sacs de couchage, vestes imperméables : tout compte pour affronter les conditions extrêmes de la montagne.</p>
+                  <p className="mb-4">Gravir le Mont Kilimandjaro est un rêve pour beaucoup de voyageurs, mais réussir cette aventure exige une préparation minutieuse, notamment pour le choix de l'équipement. Chaussures, <Link href={`/${locale}/travel-blogs/kilimanjaro-packing-list`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">sacs de couchage</Link>, vestes imperméables : tout compte pour affronter les conditions extrêmes de la montagne.</p>
                   
                   <p className="mb-4">Si vous ne voulez pas transporter tout ce matériel depuis votre pays d'origine, la location à Moshi est une solution pratique et efficace. En tant que guide local, je recommande cette option à presque tous mes clients.</p>
                 </div>
@@ -98,10 +98,10 @@ export default function RentGearPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   Voyager léger : réduire le stress et le poids des bagages
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
-                  <p className="mb-4">Transporter un sac de couchage volumineux, des chaussures montantes et des vestes imperméables dans l'avion peut rapidement devenir un casse-tête. Entre les frais de surpoids, le risque de perte de bagages et le poids supplémentaire à gérer, cela peut ajouter du stress avant même le départ.</p>
+                <div className="prose prose-xl max-w-none text-gray-700">
+                  <p className="mb-4">Transporter <Link href={`/${locale}/travel-blogs/kilimanjaro-packing-list`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">un sac de couchage</Link> volumineux, des chaussures montantes et des vestes imperméables dans l'avion peut rapidement devenir un casse-tête. Entre les frais de surpoids, le risque de perte de bagages et le poids supplémentaire à gérer, cela peut ajouter du stress avant même le départ.</p>
                   
-                  <p className="mb-4">Louer le matériel à Moshi vous permet de voyager léger : vous ne transportez que vos affaires personnelles et quelques accessoires essentiels. Le reste, comme le sac de couchage et les chaussures, est disponible sur place. Vous partez ainsi plus serein, prêt à profiter pleinement de l'expérience.</p>
+                  <p className="mb-4">Louer le matériel à Moshi vous permet de voyager léger : vous ne transportez que vos affaires personnelles et quelques accessoires essentiels. Le reste, comme <Link href={`/${locale}/travel-blogs/kilimanjaro-packing-list`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">le sac de couchage</Link> et les chaussures, est disponible sur place. Vous partez ainsi plus serein, prêt à profiter pleinement de l'expérience.</p>
                 </div>
               </section>
 
@@ -110,14 +110,14 @@ export default function RentGearPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   Du matériel adapté aux conditions extrêmes sur le Kilimandjaro
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
-                  <p className="mb-4">Lorsque l'on prépare un trek sur le Kilimandjaro, avoir le bon équipement est vital. Même si la montagne n'est pas technique, ses conditions climatiques peuvent être très extrêmes : chaleur et humidité dans la forêt tropicale, vent fort et températures négatives près du sommet, pluie et boue sur certains sentiers. C'est pourquoi il est essentiel d'utiliser du matériel fiable et adapté, et c'est là que la location à Moshi devient pratique.</p>
+                <div className="prose prose-xl max-w-none text-gray-700">
+                  <p className="mb-4">Lorsque l'on prépare un trek sur le Kilimandjaro, avoir le bon équipement est vital. Même si la montagne n'est pas technique, ses conditions climatiques peuvent être très extrêmes : chaleur et humidité dans la <Link href={`/${locale}/travel-blogs/zones-climatiques-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">forêt tropicale</Link>, vent fort et températures négatives près du sommet, pluie et boue sur certains sentiers. C'est pourquoi il est essentiel d'utiliser du matériel fiable et adapté, et c'est là que la location à Moshi devient pratique.</p>
                   
                   <h3 className="text-xl font-bold mt-4 mb-2">Sacs de couchage pour affronter le froid du sommet</h3>
-                  <p className="mb-4">Les nuits en altitude peuvent descendre jusqu'à -15 °C, surtout lors de l'ascension finale vers le sommet. Un sac de couchage loué à Moshi est conçu pour résister à ces températures, vous permettant de bien dormir et récupérer entre les journées de marche.</p>
+                  <p className="mb-4">Les nuits en altitude peuvent descendre jusqu'à -15 °C, surtout lors de l'ascension finale vers le sommet. <Link href={`/${locale}/travel-blogs/kilimanjaro-packing-list`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">Un sac de couchage</Link> loué à Moshi est conçu pour résister à ces températures, vous permettant de bien dormir et récupérer entre les journées de marche.</p>
                   
                   <h3 className="text-xl font-bold mt-4 mb-2">Chaussures montantes et imperméables</h3>
-                  <p className="mb-4">Le terrain du Kilimandjaro est souvent accidenté : roches volcaniques, sentiers glissants et boueux selon la saison. Des chaussures montantes et imperméables offrent un soutien optimal aux chevilles et protègent vos pieds contre les ampoules. Louer des chaussures de qualité à Moshi vous assure également qu'elles sont robustes et adaptées au trek, sans avoir à transporter vos propres chaussures depuis votre pays.</p>
+                  <p className="mb-4">Le terrain du Kilimandjaro est souvent accidenté : roches volcaniques, sentiers glissants et boueux selon la saison. <Link href={`/${locale}/travel-blogs/kilimanjaro-packing-list#chaussures`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">Des chaussures</Link> montantes et imperméables offrent un soutien optimal aux chevilles et protègent vos pieds contre les ampoules. Louer des chaussures de qualité à Moshi vous assure également qu'elles sont robustes et adaptées au trek, sans avoir à transporter vos propres chaussures depuis votre pays.</p>
                 </div>
               </section>
 
@@ -126,7 +126,7 @@ export default function RentGearPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   Vestes et pantalons imperméables : protection contre les éléments
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Le Kilimandjaro est réputé pour ses changements météorologiques rapides. Une journée ensoleillée peut se transformer en pluie, brouillard ou même neige en quelques heures. C'est pourquoi des vêtements imperméables et respirants sont indispensables pour rester au sec et maintenir votre température corporelle.</p>
                   
                   <h3 className="text-xl font-bold mt-4 mb-2">L'importance des vestes et pantalons imperméables</h3>
@@ -137,7 +137,7 @@ export default function RentGearPage() {
                   <p className="mb-4">Respirabilité : un vêtement imperméable mais respirant permet d'évacuer la transpiration sans se mouiller, évitant le froid dû à l'humidité.</p>
                   
                   <blockquote className="pl-4 border-l-4 italic text-gray-700 my-4">
-                    Conseil de guide local : en saison des pluies, combinez votre veste et votre pantalon imperméables avec des guêtres pour protéger vos chaussures et vos jambes, ainsi que des sacs étanches pour vos affaires. Cela protège non seulement vos vêtements mais aussi vos objets personnels comme votre téléphone, votre appareil photo ou vos documents de voyage.
+                    Conseil de guide local : en <Link href={`/${locale}/travel-blogs/choisir-bonne-saison-randonnee`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">saison des pluies</Link>, combinez votre veste et votre pantalon imperméables avec des guêtres pour protéger vos chaussures et vos jambes, ainsi que des sacs étanches pour vos affaires. Cela protège non seulement vos vêtements mais aussi vos objets personnels comme votre téléphone, votre appareil photo ou vos documents de voyage.
                   </blockquote>
                 </div>
               </section>

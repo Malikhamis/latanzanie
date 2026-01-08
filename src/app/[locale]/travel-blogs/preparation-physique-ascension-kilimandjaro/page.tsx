@@ -81,8 +81,16 @@ export default function PreparationPhysiquePage() {
   const t = useTranslations('BlogPosts.preparation-physique-ascension-kilimandjaro')
   const meta = { author: t('meta.author'), date: t('meta.date'), readingTime: t('meta.readingTime') }
 
-  function renderContent(content: string) {
-    const lines = content.split(/\r?\n/)
+  function renderContent(content: string, locale: string) {
+    // Add markers for terms we want to link
+    let processedContent = content
+      .replace(/\baltitude\b/g, '###ALTITUDE_LINK###')
+      .replace(/\bphysique\b/g, '###PHYSIQUE_LINK###')
+      .replace(/\bcondition physique\b/g, '###CONDITION_PHYSIQUE_LINK###')
+      .replace(/\bacclimatation\b/g, '###ACCLIMATATION_LINK###')
+      .replace(/\bporteurs\b/g, '###PORTEURS_LINK###');
+    
+    const lines = processedContent.split(/\r?\n/)
     const nodes: any[] = []
     let i = 0
     let keyIndex = 0
@@ -94,11 +102,24 @@ export default function PreparationPhysiquePage() {
           blockLines.push(lines[i].replace(/^>\s?/, ''))
           i++
         }
-            nodes.push(
-              <blockquote key={`b-${keyIndex++}`} className="border-l-4 pl-4 italic text-sm text-black mb-4">
-                {blockLines.join('\n')}
-              </blockquote>
-            )
+        
+        // Process blockquotes for links
+        const processedBlockLines = blockLines.map(line => 
+          line
+            .replace(/###ALTITUDE_LINK###/g, `<Link href="/${locale}/travel-blogs/preparer-son-corps-altitude-kilimandjaro" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">altitude</Link>`)
+            .replace(/###PHYSIQUE_LINK###/g, `<Link href="/${locale}/travel-blogs/niveau-physique-kilimandjaro" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">physique</Link>`)
+            .replace(/###CONDITION_PHYSIQUE_LINK###/g, `<Link href="/${locale}/travel-blogs/niveau-physique-kilimandjaro" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">condition physique</Link>`)
+            .replace(/###ACCLIMATATION_LINK###/g, `<Link href="/${locale}/travel-blogs/acclimatation-kilimanjar" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">acclimatation</Link>`)
+            .replace(/###PORTEURS_LINK###/g, `<Link href="/${locale}/travel-blogs/porteurs-du-kilimandjaro/qui-sont-les-porteurs" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">porteurs</Link>`)
+        );
+        
+        nodes.push(
+          <blockquote key={`b-${keyIndex++}`} className="border-l-4 pl-4 italic text-sm text-black mb-4">
+            {processedBlockLines.map((line, idx) => (
+              <p key={idx} className="mb-2 last:mb-0">{parseLinksToJSX(line)}</p>
+            ))}
+          </blockquote>
+        )
         continue
       }
 
@@ -108,10 +129,16 @@ export default function PreparationPhysiquePage() {
         i++
       }
       if (para.length) {
+        // Process paragraph content for links
+        const processedPara = para.join(' ')
+          .replace(/###ALTITUDE_LINK###/g, `<Link href="/${locale}/travel-blogs/preparer-son-corps-altitude-kilimandjaro" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">altitude</Link>`)
+          .replace(/###PHYSIQUE_LINK###/g, `<Link href="/${locale}/travel-blogs/niveau-physique-kilimandjaro" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">physique</Link>`)
+          .replace(/###CONDITION_PHYSIQUE_LINK###/g, `<Link href="/${locale}/travel-blogs/niveau-physique-kilimandjaro" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">condition physique</Link>`)
+          .replace(/###ACCLIMATATION_LINK###/g, `<Link href="/${locale}/travel-blogs/acclimatation-kilimanjar" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">acclimatation</Link>`)
+          .replace(/###PORTEURS_LINK###/g, `<Link href="/${locale}/travel-blogs/porteurs-du-kilimandjaro/qui-sont-les-porteurs" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">porteurs</Link>`);
+        
         nodes.push(
-          <p key={`p-${keyIndex++}`} className="mb-4 leading-relaxed text-black">
-            {para.join(' ')}
-          </p>
+          <p key={`p-${keyIndex++}`} className="mb-4 leading-relaxed text-black">{parseLinksToJSX(processedPara)}</p>
         )
       }
 
@@ -123,6 +150,36 @@ export default function PreparationPhysiquePage() {
     return nodes
   }
 
+  // Function to parse string links to JSX elements
+  function parseLinksToJSX(text: string) {
+    // Split text by Link tags
+    const parts = text.split(/(<Link\s+[^>]*href\s*=\s*["'][^"']*["'][^>]*className\s*=\s*["'][^"']*["'][^>]*>[^<]*<\/Link>)/g);
+    
+    return parts.map((part, index) => {
+      // Check if this part is a Link element
+      const linkMatch = part.match(/<Link\s+[^>]*href\s*=\s*["']([^"']*)["'][^>]*className\s*=\s*["']([^"']*)["'][^>]*>([^<]*)<\/Link>/);
+      
+      if (linkMatch) {
+        const href = linkMatch[1];
+        const className = linkMatch[2];
+        const children = linkMatch[3];
+        
+        return (
+          <Link 
+            key={`link-${index}`} 
+            href={href} 
+            className={className}
+          >
+            {children}
+          </Link>
+        );
+      } else {
+        // Return plain text
+        return part;
+      }
+    });
+  }
+
   const ids = ['overview','endurance','hills','strength','polepole','timing','guideTip']
   const sections = ids.map(id => ({
     id,
@@ -132,12 +189,12 @@ export default function PreparationPhysiquePage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero5.jpg')" }}>
+      <section className="relative hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/preparation-hero.jpg')" }}>
         <div className="absolute inset-0 -z-10">
-          <img src="/images/hero5.jpg" alt="" className="w-full h-full object-cover" />
+          <img src="/images/preparation-hero.jpg" alt="" className="w-full h-full object-cover" />
         </div>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-white mb-6 inline-flex items-center text-sm font-medium">← {locale === 'fr' ? 'Retour aux blogs' : 'Back to blogs'}</Link>
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-white mb-6 inline-flex items-center text-sm font-medium">← {locale === 'fr' ? 'Retour aux blogs' : 'Back to blogs'}</Link>
         </div>
       </section>
 
@@ -173,7 +230,7 @@ export default function PreparationPhysiquePage() {
                   {sections.map(s => (
                     <article key={s.id} id={s.id} className="mb-8">
                       <h2 className="text-2xl font-semibold mb-2">{s.title}</h2>
-                      <div className="prose max-w-none text-black">{renderContent(s.content)}</div>
+                      <div className="prose max-w-none text-black">{renderContent(s.content, locale)}</div>
                     </article>
                   ))}
                 </div>
@@ -192,7 +249,7 @@ export default function PreparationPhysiquePage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/marangu-route.jpg')" }}></div>
+              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/preparation-hero.jpg')" }}></div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>
@@ -211,7 +268,7 @@ export default function PreparationPhysiquePage() {
             </div>
 
             <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/lemosho-route.jpg')" }}></div>
+              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/preparation-hero.jpg')" }}></div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>
@@ -230,7 +287,7 @@ export default function PreparationPhysiquePage() {
             </div>
 
             <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/kilimanjaro-umbwe.jpg')" }}></div>
+              <div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/preparation-hero.jpg')" }}></div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>

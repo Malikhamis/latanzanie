@@ -131,7 +131,12 @@ export default function DifferenceExpeditionClassiqueZeroTraceKilimandjaroPage()
   ]
 
   function renderContent(content: string) {
-    const lines = content.split(/\r?\n/)
+    // First, let's replace 'Zéro Trace' with a special marker that we'll convert to links
+    let markedContent = content.replace(/Zéro Trace/g, '###ZERO_TRACE_LINK###');
+    // Add marker for 'poids des sacs' to link to the porteurs poids legal page
+    markedContent = markedContent.replace(/Le poids des sacs/g, '###POIDS_SACS_LINK###');
+    
+    const lines = markedContent.split(/\r?\n/)
     const nodes: any[] = []
     let i = 0
     let keyIndex = 0
@@ -143,16 +148,25 @@ export default function DifferenceExpeditionClassiqueZeroTraceKilimandjaroPage()
           blockLines.push(lines[i].replace(/^>\s?/, ''))
           i++
         }
+        // Process each line in blockLines to handle both zero trace and poids sacs markers
+        const processedBlockLines = blockLines.map((line, idx) => {
+          const processedZeroTrace = processZeroTraceLinks(line, `block-${keyIndex}-${idx}-`);
+          return processPoidsSacsLinks(processedZeroTrace, `block-${keyIndex}-${idx}-`);
+        }).reduce((acc, curr) => [...acc, ...curr], []);
+        
         nodes.push(
           <blockquote key={`b-${keyIndex++}`} className="border-l-4 pl-4 italic text-sm text-black mb-4">
-            {blockLines.join('\n')}
+            {processedBlockLines}
           </blockquote>
         )
       } else if (lines[i].startsWith('# ')) {
         const heading = lines[i].substring(2)
         i++
+        // Process heading to handle both zero trace and poids sacs markers
+        const processedZeroTrace = processZeroTraceLinks(heading, `heading-${keyIndex}-`);
+        const processedHeading = processPoidsSacsLinks(processedZeroTrace, `heading-${keyIndex}-`);
         nodes.push(
-          <h3 key={`h3-${keyIndex++}`} className="text-xl font-semibold mt-6 mb-3 text-black">{heading}</h3>
+          <h3 key={`h3-${keyIndex++}`} className="text-xl font-semibold mt-6 mb-3 text-black">{processedHeading}</h3>
         )
       } else if (lines[i].trim() === '') {
         i++
@@ -162,9 +176,15 @@ export default function DifferenceExpeditionClassiqueZeroTraceKilimandjaroPage()
           paragraphLines.push(lines[i])
           i++
         }
+        // Process each paragraph line to handle both zero trace and poids sacs markers
+        const processedParagraphLines = paragraphLines.map((line, idx) => {
+          const processedZeroTrace = processZeroTraceLinks(line, `para-${keyIndex}-${idx}-`);
+          return processPoidsSacsLinks(processedZeroTrace, `para-${keyIndex}-${idx}-`);
+        }).reduce((acc, curr) => [...acc, ...curr], []);
+        
         nodes.push(
           <p key={`p-${keyIndex++}`} className="mb-4">
-            {paragraphLines.join('\n')}
+            {processedParagraphLines}
           </p>
         )
       }
@@ -172,14 +192,170 @@ export default function DifferenceExpeditionClassiqueZeroTraceKilimandjaroPage()
 
     return nodes
   }
+  
+  // Helper function to process zero trace links in text
+  function processZeroTraceLinks(text: string, keyPrefix: string = '') {
+    const parts = text.split('###ZERO_TRACE_LINK###');
+    
+    if (parts.length <= 1) {
+      return [text];
+    }
+    
+    const result = [];
+    
+    for (let j = 0; j < parts.length; j++) {
+      if (parts[j].length > 0) {
+        result.push(parts[j]);
+      }
+      if (j < parts.length - 1) {
+        // Add the link for 'Zéro Trace'
+        result.push(
+          <Link 
+            key={`${keyPrefix}link-${j}`}
+            href="https://lnt.org/" 
+            className="text-[#00A896] hover:text-[#008576] font-semibold"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Zéro Trace
+          </Link>
+        );
+      }
+    }
+    
+    return result;
+  }
+  
+  // Helper function to process poids des sacs links in text
+  function processPoidsSacsLinks(text: string | (string | JSX.Element)[], keyPrefix: string = ''): (string | JSX.Element)[] {
+    if (typeof text === 'string') {
+      const parts = text.split('###POIDS_SACS_LINK###');
+      
+      if (parts.length <= 1) {
+        return [text];
+      }
+      
+      const result = [];
+      
+      for (let j = 0; j < parts.length; j++) {
+        if (parts[j].length > 0) {
+          result.push(parts[j]);
+        }
+        if (j < parts.length - 1) {
+          // Add the link for 'Le poids des sacs'
+          result.push(
+            <Link 
+              key={`${keyPrefix}link-${j}`}
+              href={`/${locale}/travel-blogs/porteurs-du-kilimandjaro/poids-legal`} 
+              className="text-[#00A896] hover:text-[#008576] font-medium font-medium"
+            >
+              Le poids des sacs
+            </Link>
+          );
+        }
+      }
+      
+      return result;
+    } else {
+      // If it's already an array, process each element
+      const result: (string | JSX.Element)[] = [];
+      for (const element of text) {
+        if (typeof element === 'string') {
+          const converted = processPoidsSacsLinks(element, keyPrefix);
+          result.push(...converted);
+        } else {
+          result.push(element);
+        }
+      }
+      return result;
+    }
+  }
 
+  // Helper function to process zero trace links in titles
+  function processZeroTraceTitleLinks(title: string, keyPrefix: string = '') {
+    const parts = title.split('Zéro Trace');
+    
+    if (parts.length <= 1) {
+      return [title];
+    }
+    
+    const result = [];
+    
+    for (let j = 0; j < parts.length; j++) {
+      if (parts[j].length > 0) {
+        result.push(parts[j]);
+      }
+      if (j < parts.length - 1) {
+        // Add the link for 'Zéro Trace'
+        result.push(
+          <Link 
+            key={`${keyPrefix}title-link-${j}`}
+            href="https://lnt.org/" 
+            className="text-[#00A896] hover:text-[#008576] font-semibold"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Zéro Trace
+          </Link>
+        );
+      }
+    }
+    
+    return result;
+  }
+  
+  // Helper function to process poids des sacs links in titles
+  function processPoidsSacsTitleLinks(title: string | (string | JSX.Element)[], keyPrefix: string = ''): (string | JSX.Element)[] {
+    if (typeof title === 'string') {
+      const parts = title.split('Le poids des sacs');
+      
+      if (parts.length <= 1) {
+        return [title];
+      }
+      
+      const result = [];
+      
+      for (let j = 0; j < parts.length; j++) {
+        if (parts[j].length > 0) {
+          result.push(parts[j]);
+        }
+        if (j < parts.length - 1) {
+          // Add the link for 'Le poids des sacs'
+          result.push(
+            <Link 
+              key={`${keyPrefix}title-link-${j}`}
+              href={`/${locale}/travel-blogs/porteurs-du-kilimandjaro/poids-legal`} 
+              className="text-[#00A896] hover:text-[#008576] font-medium font-medium"
+            >
+              Le poids des sacs
+            </Link>
+          );
+        }
+      }
+      
+      return result;
+    } else {
+      // If it's already an array, process each element
+      const result: (string | JSX.Element)[] = [];
+      for (const element of title) {
+        if (typeof element === 'string') {
+          const converted = processPoidsSacsTitleLinks(element, keyPrefix);
+          result.push(...converted);
+        } else {
+          result.push(element);
+        }
+      }
+      return result;
+    }
+  }
+  
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero section with back-link */}
-      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero4.jpg')" }}>
+      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/zero-expedition hero.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
-            {isFrench ? '← Retour aux blogs' : '← Back to blogs'}
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+            {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
       </section>
@@ -214,7 +390,7 @@ export default function DifferenceExpeditionClassiqueZeroTraceKilimandjaroPage()
             <div className="flex-1 space-y-6">
               <div className="mb-8">
                 <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight text-black">
-                  {isFrench ? FR_TITLES.overview : EN_TITLES.overview}
+                  {isFrench ? processPoidsSacsTitleLinks(processZeroTraceTitleLinks(FR_TITLES.overview)) : processPoidsSacsTitleLinks(processZeroTraceTitleLinks(EN_TITLES.overview as string))}
                 </h1>
                 <p className="text-base md:text-lg text-black max-w-3xl">
                   {isFrench ? 'Comprendre les différences entre une expédition classique et une expédition Zéro Trace.' : 'Understanding the differences between a classic expedition and a Zero Trace expedition.'}
@@ -225,7 +401,7 @@ export default function DifferenceExpeditionClassiqueZeroTraceKilimandjaroPage()
                 <div>
                   {sections.map(s => (
                     <article key={s.id} id={s.id} className="mb-8">
-                      <h2 className="text-2xl font-semibold mb-2">{s.title}</h2>
+                      <h2 className="text-2xl font-semibold mb-2">{isFrench ? processPoidsSacsTitleLinks(processZeroTraceTitleLinks(s.title)) : processPoidsSacsTitleLinks(processZeroTraceTitleLinks(s.title as string))}</h2>
                       <div className="prose max-w-none text-black">{renderContent(s.content)}</div>
                     </article>
                   ))}
@@ -246,7 +422,7 @@ export default function DifferenceExpeditionClassiqueZeroTraceKilimandjaroPage()
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/marangu-route.jpg')" }}></div>
+              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/zero-expedition hero.jpg')" }}></div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>
@@ -265,7 +441,7 @@ export default function DifferenceExpeditionClassiqueZeroTraceKilimandjaroPage()
             </div>
 
             <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/lemosho-route.jpg')" }}></div>
+              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/zero-expedition hero.jpg')" }}></div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>
@@ -284,7 +460,7 @@ export default function DifferenceExpeditionClassiqueZeroTraceKilimandjaroPage()
             </div>
 
             <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/kilimanjaro-umbwe.jpg')" }}></div>
+              <div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/zero-expedition hero.jpg')" }}></div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>

@@ -7,6 +7,71 @@ import AuthorMeta from '@/components/ui/AuthorMeta'
 import TOC from '@/components/ui/TOC'
 import TopicCard from '@/components/ui/TopicCard'
 
+// Helper function to process itinerary links in text
+function processItineraryLinks(text: string, keyPrefix: string = ''): string {
+  const parts = text.split('###ITINERAIRE_LINK###');
+  
+  if (parts.length <= 1) {
+    return text; // Return the original string if no itinerary found
+  }
+  
+  // Join the parts with a temporary placeholder that won't conflict with other markers
+  let result = '';
+  for (let j = 0; j < parts.length; j++) {
+    result += parts[j];
+    if (j < parts.length - 1) {
+      // Add a temporary marker that we'll replace later with the actual link
+      result += `###ITINERAIRE_TEMP_LINK_${keyPrefix}${j}###`;
+    }
+  }
+  
+  return result;
+}
+
+// Helper function to convert temporary itinerary markers to actual links
+function convertItineraryTempMarkersToLinks(text: string | (string | JSX.Element)[]): (string | JSX.Element)[] {
+  if (typeof text === 'string') {
+    // If it's a string, convert any temporary markers to links
+    const parts = text.split(/(###ITINERAIRE_TEMP_LINK_[^#]+###)/);
+    const result: (string | JSX.Element)[] = [];
+    
+    for (const part of parts) {
+      if (part.startsWith('###ITINERAIRE_TEMP_LINK_') && part.endsWith('###')) {
+        // Extract the key prefix from the temporary marker
+        const keyMatch = part.match(/###ITINERAIRE_TEMP_LINK_(.+?)###/);
+        const keyPrefix = keyMatch ? keyMatch[1] : 'default-';
+        
+        result.push(
+          <Link 
+            key={`itinerary-${keyPrefix}`} 
+            href="http://localhost:3000/fr/trips/climb-kilimanjaro" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-[#00A896] hover:text-[#008576] font-medium font-medium"
+          >
+            l'itinéraire
+          </Link>
+        );
+      } else {
+        result.push(part);
+      }
+    }
+    return result;
+  } else {
+    // If it's already an array, process each element
+    const result: (string | JSX.Element)[] = [];
+    for (const element of text) {
+      if (typeof element === 'string') {
+        const converted = convertItineraryTempMarkersToLinks(element);
+        result.push(...converted);
+      } else {
+        result.push(element);
+      }
+    }
+    return result;
+  }
+}
+
 const ids = [
   'overview',
   'how-body-reacts',
@@ -34,11 +99,11 @@ Contrairement à la condition physique, l’altitude ne se « travaille » pas e
 
 En tant que guide local, je constate chaque saison que les personnes qui respectent l’altitude ont beaucoup plus de chances d’atteindre le sommet que celles qui la sous-estiment.`,
 
-  'how-body-reacts': `En altitude, le corps reçoit moins d’oxygène à chaque respiration. Pour compenser, le cœur bat plus vite et la respiration devient plus rapide. C’est une réaction naturelle et normale, mais cette adaptation demande du temps.
+  'how-body-reacts': `En altitude, le corps reçoit moins d'oxygène à chaque respiration. Pour compenser, le cœur bat plus vite et la respiration devient plus rapide. C'est une réaction naturelle et normale, mais cette adaptation demande du temps.
 
-Si l’on monte trop rapidement, le corps n’a pas le temps de s’adapter correctement. Cela peut provoquer des symptômes comme des maux de tête, des nausées, une fatigue intense, une perte d’appétit ou des troubles du sommeil. Ces signes indiquent que l’organisme est en difficulté face à l’altitude.
+Si l'on monte trop rapidement, le corps n'a pas le temps de s'adapter correctement. Cela peut provoquer des symptômes comme des maux de tête, des nausées, une fatigue intense, une perte d'appétit ou des troubles du sommeil. Ces signes indiquent que l'organisme est en difficulté face à l'altitude.
 
-La préparation commence donc par une règle fondamentale : monter lentement n’est pas un choix, c’est une nécessité.`,
+La préparation commence donc par une règle fondamentale : monter lentement n'est pas un choix, c'est une nécessité.`,
 
   'slow-pace': `Sur le Kilimandjaro, une règle s’applique à tous, sans exception : « pole pole », ce qui signifie marcher lentement. Ce rythme permet au corps d’économiser de l’énergie et d’améliorer l’oxygénation des muscles et du cerveau.
 
@@ -106,16 +171,25 @@ Quick communication allows pace adjustments, preventive measures and, if necessa
 }
 
 function renderContent(content: string) {
-  const blocks = content.split('\n\n')
+  // Replace 'l'itinéraire' and 'l’itinéraire' (with both straight and curly apostrophes) with a special marker that we'll convert to links
+  let markedContent = content.replace(/l['’]itinéraire/g, '###ITINERAIRE_LINK###');
+  
+  const blocks = markedContent.split('\n\n')
   return (
     <>
       {blocks.map((block, i) => {
         if (block.trim().startsWith('>')) {
+          // Process the block to convert itinerary markers to temporary markers, then to links
+          const processedBlockWithTempMarkers = processItineraryLinks(block, `block-${i}-`);
+          const processedBlock = convertItineraryTempMarkersToLinks(processedBlockWithTempMarkers);
           return (
-            <blockquote key={i} className="pl-4 border-l-4 italic text-sm text-black">{block.replace(/^>\s?/, '')}</blockquote>
+            <blockquote key={i} className="pl-4 border-l-4 italic text-sm text-black">{processedBlock}</blockquote>
           )
         }
-        return <p key={i} className="my-4 leading-relaxed text-black">{block}</p>
+        // Process the block to convert itinerary markers to temporary markers, then to links
+        const processedBlockWithTempMarkers = processItineraryLinks(block, `p-${i}-`);
+        const processedBlock = convertItineraryTempMarkersToLinks(processedBlockWithTempMarkers);
+        return <p key={i} className="my-4 leading-relaxed text-black">{processedBlock}</p>
       })}
     </>
   )
@@ -133,9 +207,9 @@ export default function PrepareBodyAltitudePage({ params }: { params: { locale?:
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero4.jpg')" }}>
+      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/preparation-hero.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-white mb-6 inline-flex items-center text-sm font-medium">← {locale === 'fr' ? 'Retour aux blogs' : 'Back to blogs'}</Link>
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-white mb-6 inline-flex items-center text-sm font-medium">← {locale === 'fr' ? 'Retour aux blogs' : 'Back to blogs'}</Link>
         </div>
       </section>
 

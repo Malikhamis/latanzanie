@@ -7,6 +7,69 @@ import '../../../tailgrid.css'
 import AuthorMeta from '@/components/ui/AuthorMeta'
 import TOC from '@/components/ui/TOC'
 
+// Helper function to process MAM links in text
+function processMamLinks(text: string, keyPrefix: string = ''): string {
+  const parts = text.split('###MAM_LINK###');
+  
+  if (parts.length <= 1) {
+    return text; // Return the original string if no MAM found
+  }
+  
+  // Join the parts with a temporary placeholder that won't conflict with other markers
+  let result = '';
+  for (let j = 0; j < parts.length; j++) {
+    result += parts[j];
+    if (j < parts.length - 1) {
+      // Add a temporary marker that we'll replace later with the actual link
+      result += `###MAM_TEMP_LINK_${keyPrefix}${j}###`;
+    }
+  }
+  
+  return result;
+}
+
+// Helper function to convert temporary MAM markers to actual links
+function convertMamTempMarkersToLinks(text: string | (string | JSX.Element)[], locale: string): (string | JSX.Element)[] {
+  if (typeof text === 'string') {
+    // If it's a string, convert any temporary markers to links
+    const parts = text.split(/(###MAM_TEMP_LINK_[^#]+###)/);
+    const result: (string | JSX.Element)[] = [];
+    
+    for (const part of parts) {
+      if (part.startsWith('###MAM_TEMP_LINK_') && part.endsWith('###')) {
+        // Extract the key prefix from the temporary marker
+        const keyMatch = part.match(/###MAM_TEMP_LINK_(.+?)###/);
+        const keyPrefix = keyMatch ? keyMatch[1] : 'default-';
+        
+        result.push(
+          <Link 
+            key={`mam-${keyPrefix}`} 
+            href={`/${locale}/travel-blogs/sante-en-altitude`} 
+            className="text-[#00A896] hover:text-[#008576] font-medium font-medium"
+          >
+            symptômes du MAM et
+          </Link>
+        );
+      } else {
+        result.push(part);
+      }
+    }
+    return result;
+  } else {
+    // If it's already an array, process each element
+    const result: (string | JSX.Element)[] = [];
+    for (const element of text) {
+      if (typeof element === 'string') {
+        const converted = convertMamTempMarkersToLinks(element, locale);
+        result.push(...converted);
+      } else {
+        result.push(element);
+      }
+    }
+    return result;
+  }
+}
+
 export default function EvacuationUrgencePage() {
   const [expandedSection, setExpandedSection] = useState<string | null>(null)
   const locale = 'fr'
@@ -28,8 +91,8 @@ export default function EvacuationUrgencePage() {
     <div className="min-h-screen bg-gray-50">
       <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero4.jpg')" }}>
         <div className="container mx-auto px-4">
-            <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
-            ← Retour aux blogs
+            <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+            {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
         
@@ -139,7 +202,15 @@ export default function EvacuationUrgencePage() {
 
                       <div>
                         <h3 className="text-xl font-semibold">3. Protection contre le froid</h3>
-                        <p className="text-gray-700 leading-relaxed mt-2">À haute altitude, le froid peut rapidement aggraver les symptômes du MAM et provoquer une hypothermie. Pour cela :</p>
+                        <p className="text-gray-700 leading-relaxed mt-2">
+                          {convertMamTempMarkersToLinks(
+                            processMamLinks(
+                              `À haute altitude, le froid peut rapidement aggraver les ###MAM_LINK### provoquer une hypothermie. Pour cela :`,
+                              'mam-section-'
+                            ),
+                            locale
+                          )}
+                        </p>
                         <ul className="list-disc list-inside text-gray-700 leading-relaxed mt-2 space-y-1">
                           <li>Toujours porter des vêtements chauds, coupe-vent et imperméables</li>
                           <li>Ajouter couches supplémentaires si le randonnéeur tremble ou se sent faible</li>

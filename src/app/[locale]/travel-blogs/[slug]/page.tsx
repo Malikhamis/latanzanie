@@ -4,7 +4,8 @@ import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Phone, Download, Star, Users, Clock, MapPin, Calendar, User, Bed, Map, CheckCircle, XCircle, Info } from 'lucide-react'
-import { useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl';
+import { submitNewsletterSubscription, submitDownloadRequest } from '@/lib/actions/contact';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import enMessages from '../../../../../locales/en.json'
@@ -525,7 +526,11 @@ export default function TravelBlogDetailPage() {
   const [selectedMonths, setSelectedMonths] = useState<string[]>(['2026-Jan'])
   const [isItineraryDropdownOpen, setIsItineraryDropdownOpen] = useState(false)
   const [selectedItineraries, setSelectedItineraries] = useState<string[]>(['lemosho', 'machame', 'marangu', 'umbwe'])
-  const [showAllTrips, setShowAllTrips] = useState(false)
+  const [firstName, setFirstName] = useState('')
+  const [email, setEmail] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitSuccess, setSubmitSuccess] = useState(false)
+  const [submitError, setSubmitError] = useState('')
   const monthDropdownRef = useRef<HTMLDivElement>(null)
   const params = useParams()
   const locale = (params?.locale || 'en') as 'en' | 'fr'
@@ -547,6 +552,35 @@ export default function TravelBlogDetailPage() {
   
   const t = useTranslations(getTranslationNamespace(slug))
   const tSee = useTranslations('SeeTripsPage')
+  
+  // Auto-scroll to the 'All Topics' section when on the climb-kilimanjaro page
+  useEffect(() => {
+    if (slug === 'climb-kilimanjaro') {
+      // Wait for the page to render, then scroll to the section
+      const timer = setTimeout(() => {
+        if (typeof window !== 'undefined') {
+          // Check if there's a hash in the URL
+          const hash = window.location.hash;
+          if (hash) {
+            // Remove the '#' and get the element ID
+            const elementId = hash.substring(1);
+            const element = document.getElementById(elementId);
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth' });
+            }
+          } else {
+            // Fallback to scrolling to all-topics if no hash is present
+            const element = document.getElementById('all-topics');
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+        }
+      }, 100); // Small delay to ensure DOM is ready
+      
+      return () => clearTimeout(timer);
+    }
+  }, [slug]);
 
   // Build trip details using SeeTripsPage translations for the current locale (strings only)
   const tripDetails = [
@@ -780,7 +814,7 @@ export default function TravelBlogDetailPage() {
             durationDays: 4,
             duration: t('routes.camping.duration'),
             price: t('routes.camping.price'),
-            deposit: '€200',
+            deposit: '€100',
             description: t('routes.camping.description'),
             slug: 'safari-bivouac-4-days',
             image: 'safari-bivouac.jpg',
@@ -793,7 +827,7 @@ export default function TravelBlogDetailPage() {
             durationDays: 8,
             duration: t('routes.camping8Days.duration'),
             price: t('routes.camping8Days.price'),
-            deposit: '€300',
+            deposit: '€100',
             description: t('routes.camping8Days.description'),
             slug: 'safari-bivouac-8-days',
             image: 'safari-bivouac.jpg',
@@ -806,7 +840,7 @@ export default function TravelBlogDetailPage() {
             durationDays: 6,
             duration: t('routes.safariKiliAdventure.duration'),
             price: t('routes.safariKiliAdventure.price'),
-            deposit: '€360',
+            deposit: '€100',
             description: t('routes.safariKiliAdventure.description'),
             slug: 'safari-kilimanjaro-6-days',
             image: 'safari-bivouac.jpg',
@@ -819,7 +853,7 @@ export default function TravelBlogDetailPage() {
             durationDays: 10,
             duration: t('routes.safariBeach.duration'),
             price: t('routes.safariBeach.price'),
-            deposit: '€500',
+            deposit: '€100',
             description: t('routes.safariBeach.description'),
             slug: 'safari-beach-zanzibar-10-days',
             image: 'safari-beach.jpg',
@@ -835,7 +869,7 @@ export default function TravelBlogDetailPage() {
             durationDays: 8,
             duration: t('itineraries.completeEscape.duration'),
             price: t('itineraries.completeEscape.price'),
-            deposit: '€300',
+            deposit: '€100',
             description: t('itineraries.completeEscape.description'),
             slug: 'zanzibar-complete-escape-8-days',
             image: 'zanzibar-complete-escape.jpg',
@@ -848,7 +882,7 @@ export default function TravelBlogDetailPage() {
             durationDays: 5,
             duration: t('itineraries.divingCulture.duration'),
             price: t('itineraries.divingCulture.price'),
-            deposit: '€240',
+            deposit: '€100',
             description: t('itineraries.divingCulture.description'),
             slug: 'zanzibar-diving-culture-5-days',
             image: 'zanzibar-diving.jpg',
@@ -861,7 +895,7 @@ export default function TravelBlogDetailPage() {
             durationDays: 10,
             duration: t('itineraries.safariBeach.duration') || '10 days',
             price: t('itineraries.safariBeach.price') || '€2,500',
-            deposit: '€500',
+            deposit: '€100',
             description: t('itineraries.safariBeach.description') || '',
             slug: 'zanzibar-safari-beach-10-days',
             image: 'zanzibar.jpg',
@@ -941,13 +975,117 @@ export default function TravelBlogDetailPage() {
     })
   }, [])
 
+  // Testimonial slider functionality
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const slider = document.querySelector('.testimonial-slider') as HTMLElement;
+      const dots = document.querySelectorAll('.testimonial-slider button[data-slide]');
+      
+      if (!slider || dots.length === 0) return;
+      
+      let currentIndex = 0;
+      const totalSlides = dots.length;
+      let autoSlideInterval: NodeJS.Timeout;
+      
+      const updateSlider = () => {
+        if (slider) {
+          slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+          
+          // Update active dot
+          dots.forEach((dot, index) => {
+            if (index === currentIndex) {
+              dot.classList.add('bg-[#00A896]');
+              dot.classList.remove('bg-gray-300');
+            } else {
+              dot.classList.remove('bg-[#00A896]');
+              dot.classList.add('bg-gray-300');
+            }
+          });
+        }
+      };
+      
+      // Function to go to next slide
+      const goToNext = () => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateSlider();
+      };
+      
+      // Function to reset auto-slide
+      const resetAutoSlide = () => {
+        if (autoSlideInterval) {
+          clearInterval(autoSlideInterval);
+        }
+        autoSlideInterval = setInterval(goToNext, 5000); // Auto-slide every 5 seconds
+      };
+      
+      // Add click handlers to dots
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          currentIndex = index;
+          updateSlider();
+          resetAutoSlide(); // Restart auto-slide after manual interaction
+        });
+      });
+      
+      // Touch/swipe functionality
+      let touchStartX = 0;
+      let touchEndX = 0;
+      
+      const handleTouchStart = (e: TouchEvent) => {
+        touchStartX = e.changedTouches[0].screenX;
+        if (autoSlideInterval) {
+          clearInterval(autoSlideInterval);
+        }
+      };
+      
+      const handleTouchEnd = (e: TouchEvent) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+        resetAutoSlide(); // Restart auto-slide after swipe
+      };
+      
+      const handleSwipe = () => {
+        const minSwipeDistance = 50;
+        const swipeDistance = touchStartX - touchEndX;
+        
+        if (Math.abs(swipeDistance) < minSwipeDistance) return;
+        
+        if (swipeDistance > 0) {
+          // Swipe left - next slide
+          currentIndex = (currentIndex + 1) % totalSlides;
+        } else {
+          // Swipe right - previous slide
+          currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        }
+        
+        updateSlider();
+      };
+      
+      slider.addEventListener('touchstart', handleTouchStart);
+      slider.addEventListener('touchend', handleTouchEnd);
+      
+      // Initialize slider
+      updateSlider();
+      resetAutoSlide(); // Start auto-sliding
+      
+      // Cleanup event listeners
+      return () => {
+        if (autoSlideInterval) {
+          clearInterval(autoSlideInterval);
+        }
+        slider.removeEventListener('touchstart', handleTouchStart);
+        slider.removeEventListener('touchend', handleTouchEnd);
+      };
+    }
+  }, []);
+
   if (!trip || !category) {
     return (
       <div className="text-center py-20">
         <h1 className="text-2xl font-bold text-gray-800">Adventure not found</h1>
-        <Link href={`/${locale}/travel-blogs`} className="text-[#00A896] hover:text-[#008576] mt-4 inline-block">
-          ← Back to Travel & Adventures
-        </Link>
+        <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+            {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
+          </Link>
       </div>
     )
   }
@@ -1589,40 +1727,10 @@ export default function TravelBlogDetailPage() {
                     </div>
                   ));
                 })
-                .slice(0, showAllTrips ? undefined : 5)
               }
             </div>
 
-            {/* Show More/Less Button */}
-            {packages
-              .filter((pkg: typeof packages[0]) => selectedItineraries.length === 0 || selectedItineraries.includes(pkg.id))
-              .flatMap((pkg: typeof packages[0]) => {
-                const sampleDates = generateSampleDates(pkg.id, pkg.durationDays, selectedMonths[0] || '2026-Jan');
-                return sampleDates;
-              }).length > 5 && (
-              <div className="text-center mb-6">
-                <button
-                  onClick={() => setShowAllTrips(!showAllTrips)}
-                  className="text-base text-[#00A896] hover:text-[#008576] font-medium inline-flex items-center gap-2"
-                >
-                  {showAllTrips ? (
-                    <>
-                      Show Less
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-                      </svg>
-                    </>
-                  ) : (
-                    <>
-                      Show More Dates
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </>
-                  )}
-                </button>
-              </div>
-            )}
+            {/* Removed the show more/less functionality since we're now showing all dates for all selected routes */}
 
             {/* Show later dates link */}
             <div className="text-center mb-8">
@@ -1651,60 +1759,106 @@ export default function TravelBlogDetailPage() {
           </div>
         </section>
 
-        {/* Reward Section */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-2xl font-bold mb-4 text-gray-800">
-                {t('reward.title')}
-              </h2>
-              <p className="text-gray-600 mb-6">
-                {t('reward.description')}
-              </p>
-              <div className="bg-gray-200 border-2 border-dashed rounded-xl w-full h-64 mx-auto" />
-              <div className="mt-6">
-                <button className="bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white font-medium py-2 px-6 rounded-lg transition-colors duration-200">
-                  {t('reward.button')}
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
 
 
 
-        {/* FAQs */}
-        <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">{t('faqs.title')}</h2>
-            <Faq
-              items={[
-                { 
-                  question: "Quel est la température les différents jours et comment s'habiller.",
-                  answer: "Les températures varient fortement selon l'altitude et la saison : en journée elles peuvent se situer entre ~5–15°C selon l'étape, et près du sommet il peut faire bien en dessous de zéro. Habillez‑vous par couches : couche de base respirante, couche isolante (polaire), veste coupe‑vent/imperméable ; bonnet et gants sont essentiels pour les nuits et le sommet."
-                },
-                { 
-                  question: "Quelles chaussures pour marcher et sur le campement.",
-                  answer: "Privilégiez des chaussures de trekking robustes et montantes (protection de la cheville), avec bonne adhérence et imperméabilité (Gore‑Tex ou équivalent). Emportez également des sandales ou chaussures légères pour le campement."
-                },
-                { 
-                  question: "Et les chaussettes ? Lesquelles et combien ?",
-                  answer: "Apportez 3–4 paires de chaussettes techniques (laine mérinos ou synthétique) : une paire par jour et une paire chaude pour la nuit. Évitez le coton ; des liners peuvent aider contre les ampoules."
-                },
-                { 
-                  question: "Kilimandjaro : Faut-il se doucher pendant une ascension de 8 à 10 jours ?",
-                  answer: "Non, il n’est généralement pas possible de prendre une vraie douche lors d'une ascension du Kilimandjaro. Les camps de haute altitude sont situés dans des zones sauvages protégées, dépourvues d'installations sanitaires modernes ou d'eau courante. L’eau y est une ressource précieuse, réservée en priorité à la cuisine et à l’hydratation des grimpeurs.\n\nCependant, ne pas se doucher ne signifie pas négliger l’hygiène. Nos randonneurs utilisent des solutions simples et efficaces pour rester frais et en bonne santé tout au long du trek :\n\n1). Toilette quotidienne : Une bassine d'eau tiède et un gant de toilette sont fournis par notre équipe chaque matin et soir.\n\n2). Lingettes biodégradables : Idéales pour un nettoyage rapide du corps tout en respectant l'environnement.\n\n3). Lavage fréquent des mains : Une étape cruciale pour garantir votre santé et éviter les bactéries en groupe.\n\n4). Change régulier : Le renouvellement des vêtements techniques et des sous-vêtements est essentiel.\n\n5). Hygiène des pieds : Un soin rigoureux pour prévenir les ampoules et les infections durant la marche.\n\nPourquoi la douche n’est pas une priorité en altitude ?\nEn haute montagne, votre corps mobilise toute son énergie pour l'acclimatation. Se doucher à l’eau froide augmente considérablement le risque de fatigue et de refroidissement (hypothermie légère). Pour réussir votre sommet, votre priorité doit rester l’hydratation, le repos et l’adaptation progressive à l’altitude.\n\nL’avis du guide : Passer 8 à 10 jours sans douche est tout à fait normal et fait partie de l'aventure. Avec une hygiène de base bien gérée, vous resterez en pleine forme et concentré sur votre objectif : atteindre le pic Uhuru."
-                }
-              ]}
-            />
-          </div>
-        </section>
+
+        
 
         {/* Blog Sections -  All Topics (limited), Other Adventures */}
 
+        {/* Top Reads Section - only for climb-kilimanjaro page */}
+        {slug === 'climb-kilimanjaro' && (
+          <section className="py-16 bg-gray-50">
+            <div className="container mx-auto px-4">
+              <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center">{t('sections.topReads.title')}</h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <Link href={`/${locale}/travel-blogs/kilimanjaro-packing-list`} className="block group">
+                  <div className="bg-white rounded-lg shadow-md overflow-hidden h-full transition-transform duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
+                    <div className="relative h-48 overflow-hidden">
+                      <Image 
+                        src="/images/kilimanjaro-packing.jpg" 
+                        alt="Kilimanjaro Packing List" 
+                        width={400} 
+                        height={200} 
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-gray-800 mb-2">
+                        {locale === 'fr' 
+                          ? "La liste ultime d'équipement pour le Kilimandjaro (+ PDF gratuit)" 
+                          : "The ultimate Kilimanjaro packing list (+ free PDF)"}
+                      </h3>
+                      <p className="text-gray-600 text-sm">
+                        {locale === 'fr' 
+                          ? "Ce que vous packez pour votre ascension du Kilimandjaro est vital pour votre santé et le succès de votre randonnée." 
+                          : "What you pack for your Kilimanjaro climb is vitally important to your health and the success of your trek."}
+                      </p>
+                    </div>
+                  </div>
+                </Link>
+                
+                <Link href={`/${locale}/travel-blogs/sante-en-altitude`} className="block group">
+                  <div className="bg-white rounded-lg shadow-md overflow-hidden h-full transition-transform duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
+                    <div className="relative h-48 overflow-hidden">
+                      <Image 
+                        src="/images/altitude-health.jpg" 
+                        alt="Altitude Health" 
+                        width={400} 
+                        height={200} 
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-gray-800 mb-2">
+                        {locale === 'fr' 
+                          ? "Santé en altitude : Symptômes et prévention du Mal Aigu des Montagnes (MAM)" 
+                          : "Altitude Health: Symptoms and How to Prevent Acute Mountain Sickness (AMS)"}
+                      </h3>
+                      <p className="text-gray-600 text-sm">
+                        {locale === 'fr' 
+                          ? "Tout ce que vous devez savoir sur le mal aigu des montagnes et comment le prévenir lors de votre ascension du Kilimandjaro." 
+                          : "Everything you need to know about altitude sickness and how to prevent it during your Kilimanjaro climb."}
+                      </p>
+                    </div>
+                  </div>
+                </Link>
+                
+                <Link href={`/${locale}/travel-blogs/preparation-physique-kilimandjaro`} className="block group">
+                  <div className="bg-white rounded-lg shadow-md overflow-hidden h-full transition-transform duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
+                    <div className="relative h-48 overflow-hidden">
+                      <Image 
+                        src="/images/physical-preparation.jpg" 
+                        alt="Physical Preparation" 
+                        width={400} 
+                        height={200} 
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-gray-800 mb-2">
+                        {locale === 'fr' 
+                          ? "Comment s’entraîner pour le Kilimandjaro quand on habite en ville" 
+                          : "How to train for Kilimanjaro when living in the city"}
+                      </h3>
+                      <p className="text-gray-600 text-sm">
+                        {locale === 'fr' 
+                          ? "Un guide complet sur la façon de se préparer physiquement à l'ascension du Kilimandjaro, même si vous vivez en ville." 
+                          : "A complete guide on how to physically prepare for Kilimanjaro, even if you live in the city."}
+                      </p>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </section>
+        )}
+        
         {/* All Topics Section - only for climb-kilimanjaro page */}
         {slug === 'climb-kilimanjaro' && category && category.allTopics && (
-          <section className="py-16 bg-white">
+          <section id="all-topics" className="py-16 bg-white">
             <div className="container mx-auto px-4">
               <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">{t('sections.allTopics.title')}</h2>
               <p className="text-gray-600 mb-12 text-center max-w-4xl mx-auto">
@@ -1749,8 +1903,14 @@ export default function TravelBlogDetailPage() {
               {tripDetails.filter(t => t.slug !== slug).map((other) => (
                 <Link key={other.slug} href={`/${locale}/travel-blogs/${other.slug}`}>
                   <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow cursor-pointer h-full">
-                    <div className="h-48 bg-gray-200 relative">
-                      <div className="bg-gray-300 border-2 border-dashed rounded-xl w-full h-full" />
+                    <div className="relative h-48 overflow-hidden">
+                      <Image 
+                        src={other.image || "/images/default-adventure.jpg"} 
+                        alt={other.title} 
+                        width={400} 
+                        height={200} 
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <div className="p-6">
                       <h3 className="text-xl font-bold text-gray-800 mb-2">{other.title}</h3>
@@ -1777,7 +1937,34 @@ export default function TravelBlogDetailPage() {
             </div>
           </div>
         </section>
-
+        
+        {/* FAQs - shown after other adventures for all pages */}
+        <section className="py-16 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">{t('faqs.title')}</h2>
+            <Faq
+              items={[
+                { 
+                  question: "Quel est la température les différents jours et comment s'habiller.",
+                  answer: "Les températures varient fortement selon l'altitude et la saison : en journée elles peuvent se situer entre ~5–15°C selon l'étape, et près du sommet il peut faire bien en dessous de zéro. Habillez‑vous par couches : couche de base respirante, couche isolante (polaire), veste coupe‑vent/imperméable ; bonnet et gants sont essentiels pour les nuits et le sommet."
+                },
+                { 
+                  question: "Quelles chaussures pour marcher et sur le campement.",
+                  answer: "Privilégiez des chaussures de trekking robustes et montantes (protection de la cheville), avec bonne adhérence et imperméabilité (Gore‑Tex ou équivalent). Emportez également des sandales ou chaussures légères pour le campement."
+                },
+                { 
+                  question: "Et les chaussettes ? Lesquelles et combien ?",
+                  answer: "Apportez 3–4 paires de chaussettes techniques (laine mérinos ou synthétique) : une paire par jour et une paire chaude pour la nuit. Évitez le coton ; des liners peuvent aider contre les ampoules."
+                },
+                { 
+                  question: "Kilimandjaro : Faut-il se doucher pendant une ascension de 8 à 10 jours ?",
+                  answer: "Non, il n’est généralement pas possible de prendre une vraie douche lors d'une ascension du Kilimandjaro. Les camps de haute altitude sont situés dans des zones sauvages protégées, dépourvues d'installations sanitaires modernes ou d'eau courante. L’eau y est une ressource précieuse, réservée en priorité à la cuisine et à l’hydratation des grimpeurs.\n\nCependant, ne pas se doucher ne signifie pas négliger l’hygiène. Nos randonneurs utilisent des solutions simples et efficaces pour rester frais et en bonne santé tout au long du trek :\n\n1). Toilette quotidienne : Une bassine d'eau tiède et un gant de toilette sont fournis par notre équipe chaque matin et soir.\n\n2). Lingettes biodégradables : Idéales pour un nettoyage rapide du corps tout en respectant l'environnement.\n\n3). Lavage fréquent des mains : Une étape cruciale pour garantir votre santé et éviter les bactéries en groupe.\n\n4). Change régulier : Le renouvellement des vêtements techniques et des sous-vêtements est essentiel.\n\n5). Hygiène des pieds : Un soin rigoureux pour prévenir les ampoules et les infections durant la marche.\n\nPourquoi la douche n’est pas une priorité en altitude ?\nEn haute montagne, votre corps mobilise toute son énergie pour l'acclimatation. Se doucher à l'eau froide augmente considérablement le risque de fatigue et de refroidissement (hypothermie légère). Pour réussir votre sommet, votre priorité doit rester l’hydratation, le repos et l’adaptation progressive à l’altitude.\n\nL’avis du guide : Passer 8 à 10 jours sans douche est tout à fait normal et fait partie de l'aventure. Avec une hygiène de base bien gérée, vous resterez en pleine forme et concentré sur votre objectif : atteindre le pic Uhuru."
+                }
+              ]}
+            />
+          </div>
+        </section>
+        
         {/* Newsletter Section - Now at the very bottom before footer */}
         <section className="py-16 text-white relative">
           <div className="absolute inset-0 z-0">
@@ -2012,14 +2199,16 @@ export default function TravelBlogDetailPage() {
     )
   }
 
+
+
   // Default travel-blogs page for other slugs
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-[#5BC4AF] to-[#008576] text-white py-16">
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="inline-block mb-6 text-[#B8EDE3] hover:text-white">
-            ← Back to Travel & Adventures
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="inline-block mb-6 text-[#B8EDE3] hover:text-white">
+            {locale === 'fr' ? '← Retour aux blogs' : '← Back to Travel & Adventures'}
           </Link>
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">

@@ -20,7 +20,7 @@
     "blogMountMeru": "Ascension du Mont Meru",
     "blogTanzaniaSafari": "Safari en Tanzanie",
     "blogZanzibar": "Zanzibar",
-    "tripClimbKilimanjaro": "Grimper le Kilimandjaro",
+    "tripClimbKilimanjaro": "Kilimandjaro",
     "tripTanzaniaSafari": "Safari en Tanzanie",
     "tripZanzibarBeach": "Vacances à Zanzibar",
     "contactModal": {
@@ -109,7 +109,7 @@
       },
       "email": {
         "title": "Email",
-        "address": "info@latanzanieaucourdelanature.com"
+        "address": "info@latanzanieaucoeurdelanature.com"
       },
       "hours": {
         "title": "Heures d'ouverture",
@@ -1040,6 +1040,7 @@
       "emailLabel": "Adresse email",
       "emailPlaceholder": "jean@example.com",
       "accept": "J'accepte la",
+      "agreeTo": "J'accepte",
       "privacyPolicy": "Politique de confidentialité",
       "submit": "Télécharger le guide"
     },
@@ -1722,7 +1723,7 @@
     "contactInfo": "Informations de contact",
     "address": "la Tanzanie au cœur de la nature Tours (T) LTD, BP 1923, Moshi, Tanzanie",
     "phone": "+255782825692",
-    "email": "info@latanzanieaucourdelanature.com",
+    "email": "info@latanzanieaucoeurdelanature.com",
     "rights": "Tous droits réservés",
     "about": "À propos",
     "blog": "Blog",
@@ -1868,6 +1869,17 @@
         "button": "Voir les Dates Disponibles"
       }
     },
+    "downloadModal": {
+      "title": "Télécharger le Guide Safari",
+      "description": "Obtenez notre guide complet pour planifier votre safari en Tanzanie",
+      "nameLabel": "Nom complet",
+      "namePlaceholder": "Jean Dupont",
+      "emailLabel": "E-mail",
+      "emailPlaceholder": "jean@exemple.com",
+      "agreeTo": "J'accepte la",
+      "privacyPolicy": "Politique de confidentialité",
+      "submit": "Télécharger le guide"
+    },
     "dates": {
       "title": "Dates de Safari Disponibles",
       "whenButton": "Quand ?",
@@ -1955,10 +1967,6 @@
       "submit": "Envoyer la Demande"
     },
     "sections": {
-      "topReads": {
-        "title": "Lectures Essentielles",
-        "description": "Lectures essentielles pour vous aider à vous préparer à votre aventure."
-      },
       "allTopics": {
         "title": "Tous les Sujets",
         "description": "Tout ce que vous devez savoir pour planifier une aventure réussie."
@@ -2651,7 +2659,7 @@
       "title": "L'Aventure Ultime : Safari et Plages de Zanzibar (10 Jours)",
       "breadcrumb": "Tanzanie / Safari & Zanzibar",
       "duration": "10 Jours",
-      "price": "2 300 USD",
+      "price": "€2,300",
       "description": "Oubliez le quotidien. Ce n'est pas un simple voyage, c'est une épopée conçue pour vous couper le souffle. Pendant 10 jours, vous vivrez l'intensité de la savane tanzanienne, là où les Big Five règnent, avant de vous ressourcer sur les plages et dans les ruelles historiques de l'île aux épices, Zanzibar."
     },
     "miniNavbar": {
@@ -4077,5 +4085,9 @@
         }
       }
     }
+  },
+  "PrivacyPage": {
+    "title": "Politique de Confidentialité",
+    "description": "Notre engagement à protéger votre vie privée et vos informations personnelles"
   }
 }

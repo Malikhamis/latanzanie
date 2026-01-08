@@ -7,11 +7,129 @@ import TOC from "@/components/ui/TOC";
 import Image from "next/image";
 import "../../../../tailgrid.css";
 
+// Helper function to process KPAP links in text
+function processKpapLinks(text: string, keyPrefix: string = ''): string {
+  const parts = text.split('###KPAP_LINK###');
+  
+  if (parts.length <= 1) {
+    return text; // Return the original string if no KPAP found
+  }
+  
+  // Join the parts with a temporary placeholder that won't conflict with other markers
+  let result = '';
+  for (let j = 0; j < parts.length; j++) {
+    result += parts[j];
+    if (j < parts.length - 1) {
+      // Add a temporary marker that we'll replace later with the actual link
+      result += `###KPAP_TEMP_LINK_${keyPrefix}${j}###`;
+    }
+  }
+  
+  return result;
+}
+
+// Helper function to convert temporary KPAP markers to actual links
+function convertKpapTempMarkersToLinks(text: string | (string | JSX.Element)[], locale: string): (string | JSX.Element)[] {
+  if (typeof text === 'string') {
+    // Process couchage links first ("sac de couchage", "sacs de couchage", etc.)
+    const couchageRegex = /(sac de couchage|sacs de couchage|Sac de couchage|Sacs de couchage)/g;
+    let couchageProcessedText = text;
+    
+    // Find all matches and replace with temporary markers
+    const couchageMatches = [];
+    let couchageMatch;
+    let couchageIndex = 0;
+    
+    while ((couchageMatch = couchageRegex.exec(couchageProcessedText)) !== null) {
+      couchageMatches.push({
+        match: couchageMatch[0],
+        index: couchageMatch.index
+      });
+    }
+    
+    // Process couchage matches in reverse order to maintain correct indices
+    for (let i = couchageMatches.length - 1; i >= 0; i--) {
+      const match = couchageMatches[i];
+      const before = couchageProcessedText.substring(0, match.index);
+      const after = couchageProcessedText.substring(match.index + match.match.length);
+      couchageProcessedText = before + `###COUCHAGE_TEMP_LINK_${i}###` + after;
+    }
+    
+    // If it's a string, convert any temporary markers to links
+    const parts = couchageProcessedText.split(/(###KPAP_TEMP_LINK_[^#]+###|###COUCHAGE_TEMP_LINK_\d+###)/);
+    const result: (string | JSX.Element)[] = [];
+    
+    for (const part of parts) {
+      if (part.startsWith('###KPAP_TEMP_LINK_') && part.endsWith('###')) {
+        // Extract the key prefix from the temporary marker
+        const keyMatch = part.match(/###KPAP_TEMP_LINK_(.+?)###/);
+        const keyPrefix = keyMatch ? keyMatch[1] : 'default-';
+        
+        result.push(
+          <Link 
+            key={`kpap-${keyPrefix}`} 
+            href="https://kiliporters.org/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-pink-600 hover:text-pink-800 font-semibold"
+          >
+            KPAP
+          </Link>
+        );
+      } else if (part.startsWith('###COUCHAGE_TEMP_LINK_') && part.endsWith('###')) {
+        // Extract the index from the temporary marker
+        const indexMatch = part.match(/###COUCHAGE_TEMP_LINK_(\d+)###/);
+        const index = indexMatch ? parseInt(indexMatch[1], 10) : 0;
+        const originalMatch = couchageMatches[index];
+        
+        result.push(
+          <Link 
+            key={`couchage-${index}`} 
+            href={`/${locale}/travel-blogs/kilimanjaro-packing-list`} 
+            className="text-[#00A896] hover:text-[#008576] font-medium font-medium"
+          >
+            {originalMatch ? originalMatch.match : 'sac de couchage'}
+          </Link>
+        );
+      } else {
+        result.push(part);
+      }
+    }
+    return result;
+  } else {
+    // If it's already an array, process each element
+    const result: (string | JSX.Element)[] = [];
+    for (const element of text) {
+      if (typeof element === 'string') {
+        const converted = convertKpapTempMarkersToLinks(element, locale);
+        result.push(...converted);
+      } else {
+        result.push(element);
+      }
+    }
+    return result;
+  }
+}
+
 export default function RespecterSoutenirPage() {
   const locale = useLocale();
   const author = locale === "fr" ? "Par un guide local" : "By a local guide";
   const date = "2025-12-17";
   const readingTime = locale === "fr" ? "5 min de lecture" : "5 min read";
+
+  // Function to render content with KPAP links
+  function renderContent(content: string) {
+    // Replace 'KPAP' with a special marker that we'll convert to links
+    let markedContent = content.replace(/KPAP/g, '###KPAP_LINK###');
+    
+    // Process the content to convert special markers to temporary markers
+    const processedContentWithTempMarkers = processKpapLinks(markedContent);
+    
+    // Convert temporary markers to actual links
+    const finalProcessedContent = convertKpapTempMarkersToLinks(processedContentWithTempMarkers, locale);
+    
+    return finalProcessedContent;
+  }
 
   const sections = [
     {
@@ -56,7 +174,7 @@ export default function RespecterSoutenirPage() {
       {/* Hero + back-link */}
       <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero4.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
             {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
@@ -86,7 +204,7 @@ export default function RespecterSoutenirPage() {
               {sections.map(s => (
                 <section key={s.id} id={s.id} className="bg-white rounded-lg shadow-md p-8">
                   <h2 className="text-3xl font-bold text-gray-900 mb-6">{s.title}</h2>
-                  <div className="prose prose-lg max-w-none text-gray-700 whitespace-pre-wrap">{s.content}</div>
+                  <div className="prose prose-xl max-w-none text-gray-700 whitespace-pre-wrap">{renderContent(s.content)}</div>
                 </section>
               ))}
               {/* Canonical route cards section (after notes) */}

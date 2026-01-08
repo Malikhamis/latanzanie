@@ -13,7 +13,6 @@ export default function ZanzibarCompleteEscape8DaysPage() {
   const [showAllInclusions, setShowAllInclusions] = useState(false)
   const [selectedMonths, setSelectedMonths] = useState<string[]>(['2026-Jan'])
   const [selectedItineraries, setSelectedItineraries] = useState<string[]>(['zanzibar-complete-escape-8-days'])
-  const [showAllTrips, setShowAllTrips] = useState(false)
   const [isWhenDropdownOpen, setIsWhenDropdownOpen] = useState(false)
   const [isRouteDropdownOpen, setIsRouteDropdownOpen] = useState(false)
   
@@ -220,14 +219,14 @@ export default function ZanzibarCompleteEscape8DaysPage() {
       </div>
 
       {/* Mini Navbar - Mobile */}
-      <div className="md:hidden bg-white py-6 sticky top-0 z-40 border-b border-gray-200">
-        <div className="flex justify-center px-4">
-          <div className="flex flex-wrap gap-4 justify-center">
-            <button className="text-gray-600 font-medium hover:text-gray-800 px-4 py-2 border-2 border-gray-300 rounded-lg flex items-center text-lg" onClick={() => scrollToSection(datesPricesRef)}>
+      <div className="md:hidden bg-white py-4 sticky top-0 z-40 border-b border-gray-200">
+        <div className="px-4">
+          <div className="grid grid-cols-2 gap-2">
+            <button className="bg-[#f8d7da] text-[#721c24] font-medium hover:bg-[#f1b0b7] px-4 py-2 border border-[#f5c6cb] rounded-lg flex items-center justify-center text-sm" onClick={() => scrollToSection(datesPricesRef)}>
               <Calendar className="mr-2 h-4 w-4" />
               {t('miniNavbar.datesAndPrices')}
             </button>
-            <button className="text-gray-600 font-medium hover:text-gray-800 px-4 py-2 border-2 border-gray-300 rounded-lg flex items-center text-lg" onClick={() => setIsInquiryFormOpen(true)}>
+            <button className="bg-[#00A896] text-white font-medium hover:bg-[#008576] px-4 py-2 border border-[#00A896] rounded-lg flex items-center justify-center text-sm" onClick={() => setIsInquiryFormOpen(true)}>
               <User className="mr-2 h-4 w-4" />
               {t('miniNavbar.proposeDate')}
             </button>
@@ -629,7 +628,7 @@ export default function ZanzibarCompleteEscape8DaysPage() {
           
           {/* Trip Dates - List Style */}
           <div className="space-y-3 mb-6">
-            {generateSampleDates(selectedMonths[0] || '2026-Jan').slice(0, showAllTrips ? undefined : 5).map((dateInfo, index) => (
+            {generateSampleDates(selectedMonths[0] || '2026-Jan').map((dateInfo, index) => (
               <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
                 <div className="flex flex-col md:flex-row md:items-center gap-4">
                   <div className="flex-1">
@@ -648,7 +647,7 @@ export default function ZanzibarCompleteEscape8DaysPage() {
                   </div>
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
                     <div className="text-right">
-                      <div className="text-base text-gray-600">from <span className="font-semibold text-gray-900">€1,800</span></div>
+                      <div className="text-base text-gray-600">from <span className="font-semibold text-gray-900">€1,500</span></div>
                       <div className="text-sm text-gray-500">Deposit €100</div>
                     </div>
                     <button
@@ -663,25 +662,7 @@ export default function ZanzibarCompleteEscape8DaysPage() {
             ))}
           </div>
           
-          {/* Show More/Less Button */}
-          {generateSampleDates(selectedMonths[0] || '2026-Jan').length > 5 && (
-            <div className="text-center mb-8">
-              <button
-                onClick={() => setShowAllTrips(!showAllTrips)}
-                className="text-base text-gray-600 hover:text-gray-900 inline-flex items-center gap-1"
-              >
-                {showAllTrips ? 'Show Less' : 'Show More Dates'}
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d={showAllTrips ? 'M5 15l7-7 7 7' : 'M19 9l-7 7-7-7'}
-                  />
-                </svg>
-              </button>
-            </div>
-          )}
+          {/* Removed the show more/less functionality since we're now showing all dates */}
           
           {/* Don't see your dates section */}
           <div className="bg-white rounded-lg p-8 text-center shadow-md">

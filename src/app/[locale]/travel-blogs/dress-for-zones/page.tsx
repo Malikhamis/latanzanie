@@ -14,44 +14,8 @@ interface Section {
 }
 
 export default function DressForZonesPage() {
-  const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({
-    zone1: true, // Keep introduction expanded by default
-    zone2: false,
-    zone3: false,
-    zone4: false,
-    zone5: false
-  })
   const [isScrolled, setIsScrolled] = useState(false)
   const locale = useLocale()
-
-  // Toggle section expansion - only one section open at a time
-  const toggleSection = (sectionId: string) => {
-    setExpandedSections(prev => {
-      // If the clicked section is already open, close it
-      if (prev[sectionId]) {
-        return {
-          ...prev,
-          [sectionId]: false
-        };
-      }
-      
-      // Close all sections and open only the clicked one
-      const newSections: Record<string, boolean> = {};
-      Object.keys(prev).forEach(key => {
-        newSections[key] = key === sectionId;
-      });
-      
-      return newSections;
-    });
-    
-    // Scroll to the section header
-    setTimeout(() => {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, 100);
-  }
 
   // Handle scroll for header effects
   useEffect(() => {
@@ -89,9 +53,9 @@ export default function DressForZonesPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero section with back-link */}
-      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero6.jpg')" }}>
+      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/climate-hero.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
             {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
@@ -114,7 +78,7 @@ export default function DressForZonesPage() {
           <TOC
             title={locale === 'fr' ? 'Sommaire' : 'Overview'}
             items={sections.map(s => ({ id: s.id, label: s.title, level: 2 }))}
-            onSelect={(id: string) => { setExpandedSections({ ...expandedSections, [id]: true }) }}
+            onSelect={(id: string) => {}}
           />
         </div>
       </section>
@@ -128,7 +92,7 @@ export default function DressForZonesPage() {
                 <TOC
                   title={locale === 'fr' ? 'Sommaire' : 'Overview'}
                   items={sections.map(s => ({ id: s.id, label: s.title, level: 2 }))}
-                  onSelect={(id: string) => { setExpandedSections({ ...expandedSections, [id]: true }) }}
+                  onSelect={(id: string) => {}}
                 />
               </div>
             </aside>
@@ -139,8 +103,8 @@ export default function DressForZonesPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Comment s’habiller pour affronter les 5 zones climatiques du Kilimandjaro
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
-                  <p className="mb-4">Gravir le Kilimandjaro, ce n’est pas seulement changer d’altitude : c’est traverser cinq mondes naturels distincts, chacun avec son propre climat, ses avantages et ses dangers. Lorsque vous commencez au pied de la montagne, vous marchez dans une forêt tropicale chaude et humide. Quelques jours plus tard, vous vous retrouvez dans un environnement presque arctique, où la nuit peut descendre à –20°C. Cette transition rapide fait du choix des vêtements un facteur essentiel pour votre sécurité, votre confort et vos performances.</p>
+                <div className="prose prose-xl max-w-none text-gray-700">
+                  <p className="mb-4">Gravir le Kilimandjaro, ce n’est pas seulement changer d’altitude : c’est traverser cinq mondes naturels distincts, chacun avec son propre climat, ses avantages et ses dangers. Lorsque vous commencez au pied de la montagne, vous marchez dans une <Link href={`/${locale}/travel-blogs/zones-climatiques-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">forêt tropicale</Link> chaude et humide. Quelques jours plus tard, vous vous retrouvez dans un environnement presque arctique, où la nuit peut descendre à –20°C. Cette transition rapide fait du choix des vêtements un facteur essentiel pour votre sécurité, votre confort et vos performances.</p>
                   <p className="mb-4">Sur cette montagne, la météo n’est jamais stable. Elle peut changer en quelques minutes, et c’est pourquoi la manière de s’habiller influence directement votre réussite. Un trekkeur mal protégé contre l’humidité en bas, ou mal isolé contre le vent et le froid en haut, perd rapidement de l’énergie — et parfois même l’envie d’avancer.</p>
                   <p className="mb-4">En tant que guide local, je répète souvent à mes groupes :</p>
                   
@@ -152,26 +116,12 @@ export default function DressForZonesPage() {
 
               {/* Zone 1 Section */}
               <section id="zone1" className="bg-white rounded-lg shadow-md p-8">
-                <h2 
-                  className="text-3xl font-bold text-gray-900 mb-6 cursor-pointer flex justify-between items-center hover:text-[#00A896] transition-colors duration-200"
-                  onClick={() => toggleSection('zone1')}
-                >
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   <span>Zone 1 : Forêt tropicale (1 800 – 2 800 m)</span>
-                  <svg 
-                    className={`w-6 h-6 transition-transform duration-300 ${expandedSections.zone1 ? 'rotate-180' : ''} animate-bounce`}
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </h2>
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.zone1 ? 'max-h-[2000px]' : 'max-h-0'}`}
-                >
-                  <div className="prose prose-lg max-w-none text-gray-700">
-                    <p className="mb-4"><strong>Climat :</strong> chaud, humide, parfois lourd – averses possibles même en saison sèche.</p>
+                <div>
+                  <div className="prose prose-xl max-w-none text-gray-700">
+                    <p className="mb-4"><strong>Climat :</strong> chaud, humide, parfois lourd – averses possibles même en <Link href={`/${locale}/travel-blogs/best-season`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">saison sèche</Link>.</p>
                     <p className="mb-4"><strong>Objectif :</strong> rester au sec, éviter de transpirer, protéger contre moustiques et végétation.</p>
                     
                     <p className="mb-4">La première zone de l’ascension du Kilimandjaro plonge le trekkeur dans une forêt dense, verte et vivante, où l’humidité domine. L’air peut être lourd, les feuilles dégoulinent parfois encore de pluie, et le sol reste souvent mouillé. Ici, la chaleur n’est pas le principal problème : c’est l’humidité et la transpiration, qui peuvent devenir vos pires ennemies pour la suite du trek.</p>
@@ -196,7 +146,7 @@ export default function DressForZonesPage() {
                     <p className="mb-4">Même sous les arbres, la chaleur se fait sentir.</p>
                     <p className="mb-4">Un chapeau protège du soleil, évite les coups de chaleur et améliore le confort dès le début.</p>
                     
-                    <h3 className="text-xl font-semibold mt-6 mb-3">4). Chaussures aérées mais solides</h3>
+                    <h3 className="text-xl font-semibold mt-6 mb-3">4). <Link href={`/${locale}/travel-blogs/kilimanjaro-packing-list`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">Chaussures</Link> aérées mais solides</h3>
                     <p className="mb-4">Les premiers kilomètres ne sont pas techniques, mais ils sont parfois boueux.</p>
                     <p className="mb-4">Vous avez besoin de :</p>
                     <ul className="list-disc list-inside text-gray-700 leading-relaxed mt-4 space-y-1">
@@ -211,29 +161,15 @@ export default function DressForZonesPage() {
 
               {/* Zone 2 Section */}
               <section id="zone2" className="bg-white rounded-lg shadow-md p-8">
-                <h2 
-                  className="text-3xl font-bold text-gray-900 mb-6 cursor-pointer flex justify-between items-center hover:text-[#00A896] transition-colors duration-200"
-                  onClick={() => toggleSection('zone2')}
-                >
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   <span>Zone 2 : Landes et bruyères (2 800 – 3 500 m)</span>
-                  <svg 
-                    className={`w-6 h-6 transition-transform duration-300 ${expandedSections.zone2 ? 'rotate-180' : ''} animate-bounce`}
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </h2>
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.zone2 ? 'max-h-[2000px]' : 'max-h-0'}`}
-                >
-                  <div className="prose prose-lg max-w-none text-gray-700">
+                <div>
+                  <div className="prose prose-xl max-w-none text-gray-700">
                     <p className="mb-4"><strong>Climat :</strong> plus frais, plus sec, début du vent.</p>
                     <p className="mb-4"><strong>Objectif :</strong> garder la chaleur sans surchauffer.</p>
                     
-                    <p className="mb-4">Après la moiteur de la forêt tropicale, vous entrez dans un environnement où le paysage s’ouvre soudainement : les arbres disparaissent, les collines se dévoilent, et l’air devient plus frais et plus sec. C’est le début des landes et bruyères, une zone de transition où votre corps commence à sentir le changement d’altitude.</p>
+                    <p className="mb-4">Après la moiteur de la <Link href={`/${locale}/travel-blogs/zones-climatiques-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">forêt tropicale</Link>, vous entrez dans un environnement où le paysage s’ouvre soudainement : les arbres disparaissent, les collines se dévoilent, et l’air devient plus frais et plus sec. C'est le début des <Link href={`/${locale}/travel-blogs/zones-climatiques-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">landes et bruyères</Link>, une zone de transition où votre corps commence à sentir le changement d’altitude.</p>
                     <p className="mb-4">Ici, la température baisse doucement mais régulièrement. Le vent commence aussi à se faire sentir, ce qui peut refroidir le corps même lorsqu’on marche. Le défi n’est pas de se réchauffer, mais de trouver l’équilibre : éviter d’avoir froid, sans toutefois transpirer excessivement — car l’humidité sera un problème plus haut.</p>
                     
                     <h3 className="text-xl font-semibold mt-6 mb-3">1). T-shirt technique (synthétique, pas de coton !)</h3>
@@ -282,29 +218,15 @@ export default function DressForZonesPage() {
 
               {/* Zone 3 Section */}
               <section id="zone3" className="bg-white rounded-lg shadow-md p-8">
-                <h2 
-                  className="text-3xl font-bold text-gray-900 mb-6 cursor-pointer flex justify-between items-center hover:text-[#00A896] transition-colors duration-200"
-                  onClick={() => toggleSection('zone3')}
-                >
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   <span>Zone 3 : Désert alpin (3 500 – 4 500 m)</span>
-                  <svg 
-                    className={`w-6 h-6 transition-transform duration-300 ${expandedSections.zone3 ? 'rotate-180' : ''} animate-bounce`}
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </h2>
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.zone3 ? 'max-h-[2000px]' : 'max-h-0'}`}
-                >
-                  <div className="prose prose-lg max-w-none text-gray-700">
+                <div>
+                  <div className="prose prose-xl max-w-none text-gray-700">
                     <p className="mb-4"><strong>Climat :</strong> froid sec, vent fort, radiation solaire intense.</p>
                     <p className="mb-4"><strong>Objectif :</strong> se protéger du soleil le jour, du froid à l’ombre.</p>
                     
-                    <p className="mb-4">L’entrée dans le désert alpin marque un changement brutal du paysage. Les arbres et les plantes hautes disparaissent pour laisser place à un décor minéral : roches volcaniques, sol poussiéreux, végétation rare. Le soleil frappe fort, l’air devient plus sec et le vent souffle sans obstacle. C’est l’une des zones les plus trompeuses du Kilimandjaro, car on peut avoir chaud et froid en même temps.</p>
+                    <p className="mb-4">L’entrée dans le <Link href={`/${locale}/travel-blogs/zones-climatiques-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">désert alpin</Link> marque un changement brutal du paysage. Les arbres et les plantes hautes disparaissent pour laisser place à un décor minéral : roches volcaniques, sol poussiéreux, végétation rare. Le soleil frappe fort, l’air devient plus sec et le vent souffle sans obstacle. C’est l’une des zones les plus trompeuses du Kilimandjaro, car on peut avoir chaud et froid en même temps.</p>
                     <p className="mb-4">La règle ici est simple : vous protéger du soleil en mouvement, mais rester suffisamment chaud quand vous vous arrêtez ou passez à l’ombre. C’est le début des conditions de haute montagne.</p>
                     
                     <h3 className="text-xl font-semibold mt-6 mb-3">1). Polaire + coupe-vent</h3>
@@ -361,25 +283,11 @@ export default function DressForZonesPage() {
 
               {/* Zone 4 Section */}
               <section id="zone4" className="bg-white rounded-lg shadow-md p-8">
-                <h2 
-                  className="text-3xl font-bold text-gray-900 mb-6 cursor-pointer flex justify-between items-center hover:text-[#00A896] transition-colors duration-200"
-                  onClick={() => toggleSection('zone4')}
-                >
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   <span>Zone 4 : Haute altitude (4 500 – 5 500 m)</span>
-                  <svg 
-                    className={`w-6 h-6 transition-transform duration-300 ${expandedSections.zone4 ? 'rotate-180' : ''} animate-bounce`}
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </h2>
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.zone4 ? 'max-h-[2000px]' : 'max-h-0'}`}
-                >
-                  <div className="prose prose-lg max-w-none text-gray-700">
+                <div>
+                  <div className="prose prose-xl max-w-none text-gray-700">
                     <p className="mb-4"><strong>Climat :</strong> très froid, vent glacial, air sec, effort intense.</p>
                     <p className="mb-4"><strong>Objectif :</strong> conserver la chaleur — chaque calorie compte à cette altitude.</p>
                     
@@ -449,25 +357,11 @@ export default function DressForZonesPage() {
 
               {/* Zone 5 Section */}
               <section id="zone5" className="bg-white rounded-lg shadow-md p-8">
-                <h2 
-                  className="text-3xl font-bold text-gray-900 mb-6 cursor-pointer flex justify-between items-center hover:text-[#00A896] transition-colors duration-200"
-                  onClick={() => toggleSection('zone5')}
-                >
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   <span>Zone 5 : Sommet – Zone Arctique (5 500 – 5 895 m)</span>
-                  <svg 
-                    className={`w-6 h-6 transition-transform duration-300 ${expandedSections.zone5 ? 'rotate-180' : ''} animate-bounce`}
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </h2>
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.zone5 ? 'max-h-[2000px]' : 'max-h-0'}`}
-                >
-                  <div className="prose prose-lg max-w-none text-gray-700">
+                <div>
+                  <div className="prose prose-xl max-w-none text-gray-700">
                     <p className="mb-4"><strong>Climat :</strong> températures jusqu’à –20°C, vent violent, nuit glaciale, fatigue extrême.</p>
                     <p className="mb-4"><strong>Objectif :</strong> garder la chaleur en mouvement, affronter le vent nocturne.</p>
                     

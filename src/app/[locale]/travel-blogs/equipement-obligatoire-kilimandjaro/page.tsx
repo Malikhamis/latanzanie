@@ -27,9 +27,9 @@ export default function RequiredGearPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero5.jpg')" }}>
+      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/packlist-hero.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
             {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
@@ -74,7 +74,7 @@ export default function RequiredGearPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   Quel équipement est obligatoire pour faire le Kilimandjaro ? Le guide d'un guide local
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Gravir le Mont Kilimandjaro est bien plus qu'une randonnée : c'est un véritable défi pour le corps et l'esprit. Chaque année, des milliers de randonneurs rêvent de toucher le sommet, mais beaucoup sous-estiment la complexité du trek. La montagne, bien que non technique, présente des conditions climatiques extrêmement variées, allant des forêts tropicales humides à des zones quasi polaires au sommet. Les températures peuvent varier de +25 °C dans la forêt à -15 °C au sommet, et les vents, la pluie ou la neige peuvent survenir à tout moment.</p>
                   
                   <p className="mb-4">Dans ce contexte, le choix de l'équipement n'est pas une option : il conditionne votre confort, votre sécurité et la réussite de l'ascension. En tant que guide local ayant accompagné des centaines de randonneurs, j'ai pu observer quels éléments sont vraiment indispensables pour affronter cette montagne.</p>
@@ -86,8 +86,8 @@ export default function RequiredGearPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   Les vêtements adaptés à toutes les altitudes sur le Kilimandjaro
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
-                  <p className="mb-4">Gravir le Kilimandjaro n'est pas comme une simple randonnée de quelques heures. La montagne traverse plusieurs zones climatiques en quelques kilomètres : forêts tropicales humides, savane sèche, zones rocheuses exposées au vent et enfin le sommet quasi polaire. Cette diversité fait que le choix des vêtements est crucial. Bien s'habiller peut faire la différence entre une ascension confortable et une expérience éprouvante, voire dangereuse.</p>
+                <div className="prose prose-xl max-w-none text-gray-700">
+                  <p className="mb-4">Gravir le Kilimandjaro n'est pas comme une simple randonnée de quelques heures. La montagne traverse plusieurs zones climatiques en quelques kilomètres : forêts tropicales humides, savane sèche, zones rocheuses exposées au vent et enfin le sommet quasi polaire. Cette diversité fait que le choix des vêtements est crucial. Bien s'habiller peut faire la différence entre une ascension confortable et une expérience éprouvante, voire dangereuse. L'<Link href={`/${locale}/travel-blogs/preparer-son-corps-altitude-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">altitude</Link> apporte des défis uniques qui nécessitent un équipement adapté.</p>
                 </div>
               </section>
 
@@ -96,8 +96,8 @@ export default function RequiredGearPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   Le système des trois couches : la base indispensable pour gravir le Kilimandjaro
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
-                  <p className="mb-4">Lorsque l'on prépare une ascension du Kilimandjaro, le choix des vêtements est crucial. La montagne traverse plusieurs zones climatiques : des forêts tropicales humides aux terrains semi-désertiques, jusqu'au sommet quasi polaire. La météo peut changer très rapidement : soleil intense, vent glacial, pluie ou neige peuvent survenir en quelques heures.</p>
+                <div className="prose prose-xl max-w-none text-gray-700">
+                  <p className="mb-4">Lorsque l'on prépare une ascension du Kilimandjaro, le choix des vêtements est crucial. La montagne traverse plusieurs zones climatiques : des forêts tropicales humides aux terrains semi-désertiques, jusqu'au sommet quasi polaire. La météo peut changer très rapidement : soleil intense, vent glacial, pluie ou neige peuvent survenir en quelques heures. L'altitude modifie les conditions climatiques de manière significative.</p>
                   
                   <p className="mb-4">Pour rester confortable et en sécurité, le système des trois couches reste la méthode la plus efficace et la plus polyvalente. Cette approche permet de s'adapter facilement à chaque altitude et à chaque condition climatique.</p>
                 </div>
@@ -108,11 +108,11 @@ export default function RequiredGearPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   1. Couche respirante : la première protection
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">La couche respirante est la couche que l'on porte directement sur la peau. Elle comprend généralement des sous-vêtements techniques ou des t-shirts en matière synthétique conçus pour évacuer la transpiration.</p>
                   
                   <h3 className="text-xl font-bold mt-4 mb-2">Pourquoi c'est important</h3>
-                  <p className="mb-4">Lorsque l'on marche en altitude, le corps produit de la chaleur et de la transpiration. Si la peau reste humide, le refroidissement est accéléré, et le risque d'hypothermie augmente, même en saison sèche.</p>
+                  <p className="mb-4">Lorsque l'on marche en altitude, le corps produit de la chaleur et de la transpiration. Si la peau reste humide, le refroidissement est accéléré, et le risque d'hypothermie augmente, même en <Link href={`/${locale}/travel-blogs/best-season`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">saison sèche</Link>.</p>
                 </div>
               </section>
 
@@ -121,14 +121,14 @@ export default function RequiredGearPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   2. Couche isolante : conserver la chaleur
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">La couche intermédiaire est conçue pour conserver la chaleur corporelle. Il s'agit généralement d'une polaire ou d'une doudoune légère.</p>
                   
                   <h3 className="text-xl font-bold mt-4 mb-2">Pourquoi c'est important</h3>
                   <p className="mb-4">En altitude, la température chute rapidement le soir et lors de l'ascension du sommet. La couche isolante permet de rester confortable, d'éviter les frissons et de protéger le corps contre le froid intense, surtout lors des pauses prolongées ou de la montée finale nocturne.</p>
                   
                   <h3 className="text-xl font-bold mt-4 mb-2">Astuce de guide</h3>
-                  <p className="mb-4">Même en saison sèche, gardez toujours votre polaire ou votre doudoune à portée de main. Vous la mettrez lors des pauses ou pour la montée finale vers le sommet, quand le vent est froid et que le corps commence à perdre de la chaleur.</p>
+                  <p className="mb-4">Même en <Link href={`/${locale}/travel-blogs/best-season`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">saison sèche</Link>, gardez toujours votre polaire ou votre doudoune à portée de main. Vous la mettrez lors des pauses ou pour la montée finale vers le sommet, quand le vent est froid et que le corps commence à perdre de la chaleur.</p>
                 </div>
               </section>
 
@@ -137,11 +137,11 @@ export default function RequiredGearPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   3. Couche externe imperméable et coupe-vent : se protéger des éléments
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">La dernière couche est votre barrière contre le vent, la pluie et parfois la neige. Elle comprend une veste et un pantalon imperméables et respirants.</p>
                   
                   <h3 className="text-xl font-bold mt-4 mb-2">Pourquoi c'est important</h3>
-                  <p className="mb-4">Le Kilimandjaro est célèbre pour ses changements météorologiques soudains. Même pendant la saison sèche, des vents forts ou des averses localisées peuvent surprendre les randonneurs, et sans protection, le froid et l'humidité peuvent devenir dangereux.</p>
+                  <p className="mb-4">Le Kilimandjaro est célèbre pour ses changements météorologiques soudains. Même pendant la <Link href={`/${locale}/travel-blogs/best-season`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">saison sèche</Link>, des vents forts ou des averses localisées peuvent surprendre les randonneurs, et sans protection, le froid et l'humidité peuvent devenir dangereux.</p>
                   
                   <h3 className="text-xl font-bold mt-4 mb-2">Conseil pratique</h3>
                   <p className="mb-4">Privilégiez des matériaux légers, respirants et imperméables, pour rester protégé sans surchauffer. Cette couche doit pouvoir être facilement enlevée ou ajustée selon l'intensité de l'effort et les conditions climatiques.</p>

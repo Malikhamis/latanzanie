@@ -222,8 +222,200 @@ export default function AvenirTrekkingResponsableKilimandjaroPage() {
     }
   ]
 
+  // Helper function to process KPAP links in text
+  function processKpapLinks(text: string, keyPrefix: string = ''): string {
+    const parts = text.split('###KPAP_LINK###');
+    
+    if (parts.length <= 1) {
+      return text; // Return the original string if no KPAP found
+    }
+    
+    // Join the parts with a temporary placeholder that won't conflict with Zero Trace markers
+    let result = '';
+    for (let j = 0; j < parts.length; j++) {
+      result += parts[j];
+      if (j < parts.length - 1) {
+        // Add a temporary marker that we'll replace later with the actual link
+        result += `###KPAP_TEMP_LINK_${keyPrefix}${j}###`;
+      }
+    }
+    
+    return result;
+  }
+
+  // Helper function to convert temporary KPAP markers to actual links
+  function convertKpapTempMarkersToLinks(text: string | (string | JSX.Element)[], locale: string): (string | JSX.Element)[] {
+    if (typeof text === 'string') {
+      // Process forest links first ("forêt tropicale", etc.)
+      const forestRegex = /(forêt tropicale|Forêt tropicale|forêt tropicale humide|Forêt tropicale humide|landes et bruyères|Landes et bruyères|désert alpin|Désert alpin)/g;
+      let forestProcessedText = text;
+      
+      // Find all matches and replace with temporary markers
+      const forestMatches = [];
+      let forestMatch;
+      let forestIndex = 0;
+      
+      while ((forestMatch = forestRegex.exec(forestProcessedText)) !== null) {
+        forestMatches.push({
+          match: forestMatch[0],
+          index: forestMatch.index
+        });
+      }
+      
+      // Process forest matches in reverse order to maintain correct indices
+      for (let i = forestMatches.length - 1; i >= 0; i--) {
+        const match = forestMatches[i];
+        const before = forestProcessedText.substring(0, match.index);
+        const after = forestProcessedText.substring(match.index + match.match.length);
+        forestProcessedText = before + `###FOREST_TEMP_LINK_${i}###` + after;
+      }
+      
+      // If it's a string, convert any temporary markers to links
+      const parts = forestProcessedText.split(/(###KPAP_TEMP_LINK_[^#]+###|###FOREST_TEMP_LINK_\d+###)/);
+      const result: (string | JSX.Element)[] = [];
+      
+      for (const part of parts) {
+        if (part.startsWith('###KPAP_TEMP_LINK_') && part.endsWith('###')) {
+          // Extract the key prefix from the temporary marker
+          const keyMatch = part.match(/###KPAP_TEMP_LINK_(.+?)###/);
+          const keyPrefix = keyMatch ? keyMatch[1] : 'default-';
+          
+          result.push(
+            <Link 
+              key={`kpap-${keyPrefix}`} 
+              href="https://kiliporters.org/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-pink-600 hover:text-pink-800 font-semibold"
+            >
+              KPAP
+            </Link>
+          );
+        } else if (part.startsWith('###FOREST_TEMP_LINK_') && part.endsWith('###')) {
+          // Extract the index from the temporary marker
+          const indexMatch = part.match(/###FOREST_TEMP_LINK_(\d+)###/);
+          const index = indexMatch ? parseInt(indexMatch[1], 10) : 0;
+          const originalMatch = forestMatches[index];
+          
+          result.push(
+            <Link 
+              key={`forest-${index}`} 
+              href={`/${locale}/travel-blogs/zones-climatiques-kilimandjaro`} 
+              className="text-[#00A896] hover:text-[#008576] font-medium font-medium"
+            >
+              {originalMatch ? originalMatch.match : 'forêt tropicale'}
+            </Link>
+          );
+        } else {
+          result.push(part);
+        }
+      }
+      return result;
+    } else {
+      // If it's already an array, process each element
+      const result: (string | JSX.Element)[] = [];
+      for (const element of text) {
+        if (typeof element === 'string') {
+          const converted = convertKpapTempMarkersToLinks(element, locale);
+          result.push(...converted);
+        } else {
+          result.push(element);
+        }
+      }
+      return result;
+    }
+  }
+
+  function processForestLinks(text: string, locale: string, keyPrefix: string = '') {
+    // Process 'forêt tropicale' and similar terms
+    const forestRegex = /(forêt tropicale|Forêt tropicale|forêt tropicale humide|Forêt tropicale humide|landes et bruyères|Landes et bruyères|désert alpin|Désert alpin)/g;
+    let forestProcessedText = text;
+    
+    // Find all matches and replace with temporary markers
+    const forestMatches = [];
+    let forestMatch;
+    let forestIndex = 0;
+    
+    while ((forestMatch = forestRegex.exec(forestProcessedText)) !== null) {
+      forestMatches.push({
+        match: forestMatch[0],
+        index: forestMatch.index
+      });
+    }
+    
+    // Process forest matches in reverse order to maintain correct indices
+    for (let i = forestMatches.length - 1; i >= 0; i--) {
+      const match = forestMatches[i];
+      const before = forestProcessedText.substring(0, match.index);
+      const after = forestProcessedText.substring(match.index + match.match.length);
+      forestProcessedText = before + `###FOREST_TEMP_LINK_${i}###` + after;
+    }
+    
+    const parts = forestProcessedText.split(/(###FOREST_TEMP_LINK_\d+###)/);
+    
+    const result = [];
+    
+    for (let j = 0; j < parts.length; j++) {
+      if (parts[j].startsWith('###FOREST_TEMP_LINK_') && parts[j].endsWith('###')) {
+        // Extract the index from the temporary marker
+        const indexMatch = parts[j].match(/###FOREST_TEMP_LINK_(\d+)###/);
+        const index = indexMatch ? parseInt(indexMatch[1], 10) : 0;
+        const originalMatch = forestMatches[index];
+        
+        result.push(
+          <Link 
+            key={`${keyPrefix}forest-link-${index}`} 
+            href={`/${locale}/travel-blogs/zones-climatiques-kilimandjaro`} 
+            className="text-[#00A896] hover:text-[#008576] font-medium font-medium"
+          >
+            {originalMatch ? originalMatch.match : 'forêt tropicale'}
+          </Link>
+        );
+      } else {
+        result.push(parts[j]);
+      }
+    }
+    
+    return result;
+  }
+  
+  function processZeroTraceLinks(text: string, keyPrefix: string = '') {
+    const parts = text.split('###ZERO_TRACE_LINK###');
+    
+    if (parts.length <= 1) {
+      return [text];
+    }
+    
+    const result = [];
+    
+    for (let j = 0; j < parts.length; j++) {
+      if (j > 0) {
+        // Add the link element between parts
+        result.push(
+          <Link 
+            key={`${keyPrefix}link-${j}`} 
+            href="https://lnt.org/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-[#00A896] hover:text-[#008576] font-medium"
+          >
+            Zéro Trace
+          </Link>
+        );
+      }
+      result.push(parts[j]);
+    }
+    
+    return result;
+  }
+
   function renderContent(content: string) {
-    const lines = content.split(/\r?\n/)
+    // First, let's replace 'KPAP' with a special marker that we'll convert to links
+    let markedContent = content.replace(/KPAP/g, '###KPAP_LINK###');
+    // Then, replace 'Zéro Trace' with a special marker that we'll convert to links
+    markedContent = markedContent.replace(/Zéro Trace/g, '###ZERO_TRACE_LINK###');
+    
+    const lines = markedContent.split(/\r?\n/)
     const nodes: any[] = []
     let i = 0
     let keyIndex = 0
@@ -235,9 +427,14 @@ export default function AvenirTrekkingResponsableKilimandjaroPage() {
           blockLines.push(lines[i].replace(/^>\s?/, ''))
           i++
         }
+        // Process each line in blockLines to handle the special markers
+        const processedBlockLines = blockLines.map((line, idx) => 
+          convertKpapTempMarkersToLinks(processZeroTraceLinks(processKpapLinks(line, `block-${keyIndex}-${idx}-kpap-`), `block-${keyIndex}-${idx}-`), locale)
+        ).reduce((acc, curr) => [...acc, ...curr], []);
+        
         nodes.push(
           <blockquote key={`b-${keyIndex++}`} className="border-l-4 pl-4 italic text-sm text-black mb-4">
-            {blockLines.join('\n')}
+            {processedBlockLines}
           </blockquote>
         )
       } else if (lines[i].trim() === '') {
@@ -248,10 +445,15 @@ export default function AvenirTrekkingResponsableKilimandjaroPage() {
           listItems.push(lines[i].substring(2))
           i++
         }
+        // Process each list item to handle the special markers
+        const processedListItemsArray = listItems.map((item, idx) => 
+          convertKpapTempMarkersToLinks(processZeroTraceLinks(processKpapLinks(item, `list-${keyIndex}-${idx}-kpap-`), `list-${keyIndex}-${idx}-`), locale));
+        const processedListItems = processedListItemsArray.reduce((acc: (string | JSX.Element)[], curr: (string | JSX.Element)[]) => [...acc, ...curr], []);
+        
         nodes.push(
           <ul key={`ul-${keyIndex++}`} className="list-disc list-inside ml-4 mb-4">
-            {listItems.map((item, idx) => (
-              <li key={`li-${keyIndex++}-${idx}`} className="mb-1">{item}</li>
+            {processedListItems.map((processedItem, idx) => (
+              <li key={`li-${keyIndex++}-${idx}`} className="mb-1">{processedItem}</li>
             ))}
           </ul>
         )
@@ -261,9 +463,14 @@ export default function AvenirTrekkingResponsableKilimandjaroPage() {
           paragraphLines.push(lines[i])
           i++
         }
+        // Process each paragraph line to handle the special markers
+        const processedParagraphLinesArray = paragraphLines.map((line, idx) => 
+          convertKpapTempMarkersToLinks(processZeroTraceLinks(processKpapLinks(line, `para-${keyIndex}-${idx}-kpap-`), `para-${keyIndex}-${idx}-`), locale));
+        const processedParagraphLines = processedParagraphLinesArray.reduce((acc: (string | JSX.Element)[], curr: (string | JSX.Element)[]) => [...acc, ...curr], []);
+        
         nodes.push(
           <p key={`p-${keyIndex++}`} className="mb-4">
-            {paragraphLines.join('\n')}
+            {processedParagraphLines}
           </p>
         )
       }
@@ -275,10 +482,10 @@ export default function AvenirTrekkingResponsableKilimandjaroPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero section with back-link */}
-      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero4.jpg')" }}>
+      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/zero-expedition hero.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
-            {isFrench ? '← Retour aux blogs' : '← Back to blogs'}
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+            {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
       </section>
@@ -313,10 +520,16 @@ export default function AvenirTrekkingResponsableKilimandjaroPage() {
             <div className="flex-1 space-y-6">
               <div className="mb-8">
                 <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight text-black">
-                  {isFrench ? FR_TITLES.overview : EN_TITLES.overview}
+                  {isFrench 
+                    ? convertKpapTempMarkersToLinks(processZeroTraceLinks(processKpapLinks(FR_TITLES.overview, 'title-1-kpap-'), 'title-1-'), locale)
+                    : convertKpapTempMarkersToLinks(processZeroTraceLinks(processKpapLinks(EN_TITLES.overview as string, 'title-2-kpap-'), 'title-2-'), locale)
+                  }
                 </h1>
                 <p className="text-base md:text-lg text-black max-w-3xl">
-                  {isFrench ? 'L\'avenir du trekking responsable sur le Kilimandjaro.' : 'The future of responsible trekking on Kilimanjaro.'}
+                  {isFrench 
+                    ? convertKpapTempMarkersToLinks(processZeroTraceLinks(processKpapLinks('L\'avenir du trekking responsable sur le Kilimandjaro.', 'p-1-kpap-'), 'p-1-'), locale)
+                    : convertKpapTempMarkersToLinks(processZeroTraceLinks(processKpapLinks('The future of responsible trekking on Kilimanjaro.', 'p-2-kpap-'), 'p-2-'), locale)
+                  }
                 </p>
               </div>
 
@@ -324,7 +537,12 @@ export default function AvenirTrekkingResponsableKilimandjaroPage() {
                 <div>
                   {sections.map(s => (
                     <article key={s.id} id={s.id} className="mb-8">
-                      <h2 className="text-2xl font-semibold mb-2">{s.title}</h2>
+                      <h2 className="text-2xl font-semibold mb-2">
+                        {isFrench 
+                          ? convertKpapTempMarkersToLinks(processZeroTraceLinks(processKpapLinks(s.title, `title-${s.id}-kpap-`), `title-${s.id}-`), locale)
+                          : convertKpapTempMarkersToLinks(processZeroTraceLinks(processKpapLinks(s.title as string, `title-${s.id}-kpap-`), `title-${s.id}-`), locale)
+                        }
+                      </h2>
                       <div className="prose max-w-none text-black">{renderContent(s.content)}</div>
                     </article>
                   ))}
@@ -345,7 +563,7 @@ export default function AvenirTrekkingResponsableKilimandjaroPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/marangu-route.jpg')" }}></div>
+              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/zero-expedition hero.jpg')" }}></div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>
@@ -364,7 +582,7 @@ export default function AvenirTrekkingResponsableKilimandjaroPage() {
             </div>
 
             <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/lemosho-route.jpg')" }}></div>
+              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/zero-expedition hero.jpg')" }}></div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>
@@ -383,7 +601,7 @@ export default function AvenirTrekkingResponsableKilimandjaroPage() {
             </div>
 
             <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/kilimanjaro-umbwe.jpg')" }}></div>
+              <div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/zero-expedition hero.jpg')" }}></div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>

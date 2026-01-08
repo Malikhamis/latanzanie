@@ -15,7 +15,6 @@ export default function ClimbKilimanjaroPage() {
   const [selectedMonths, setSelectedMonths] = useState<string[]>(['2026-Jan'])
   const [isItineraryDropdownOpen, setIsItineraryDropdownOpen] = useState(false)
   const [selectedItineraries, setSelectedItineraries] = useState<string[]>(['lemosho', 'machame', 'marangu', 'umbwe'])
-  const [showAllTrips, setShowAllTrips] = useState(false)
   const monthDropdownRef = useRef<HTMLDivElement>(null)
   const t = useTranslations('ClimbKilimanjaroPage')
   const pathname = usePathname()
@@ -646,40 +645,11 @@ export default function ClimbKilimanjaroPage() {
                   </div>
                 ));
               })
-              .slice(0, showAllTrips ? undefined : 5)
             }
           </div>
           
           {/* Show More/Less Button */}
-          {kilimanjaroRoutes
-            .filter((route: typeof kilimanjaroRoutes[0]) => selectedItineraries.length === 0 || selectedItineraries.includes(route.id))
-            .flatMap((route: typeof kilimanjaroRoutes[0]) => {
-              const sampleDates = generateSampleDates(route.id, route.durationDays, selectedMonths[0] || '2026-Jan');
-              return sampleDates;
-            }).length > 5 && (
-            <div className="text-center mb-6">
-              <button 
-                onClick={() => setShowAllTrips(!showAllTrips)}
-                className="text-base text-[#00A896] hover:text-[#008576] font-medium inline-flex items-center gap-2"
-              >
-                {showAllTrips ? (
-                  <>
-                    Show Less
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-                    </svg>
-                  </>
-                ) : (
-                  <>
-                    Show More Dates
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </>
-                )}
-              </button>
-            </div>
-          )}
+          {/* Removed the show more/less functionality since we're now showing all dates for all selected routes */}
           
           {/* Show later dates link */}
           <div className="text-center mb-8">
@@ -708,25 +678,9 @@ export default function ClimbKilimanjaroPage() {
         </div>
       </section>
 
-      {/* Reward Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl font-bold mb-4 text-gray-800">
-              {t('reward.title')}
-            </h2>
-            <p className="text-gray-600 mb-6">
-              {t('reward.description')}
-            </p>
-            <div className="bg-gray-200 border-2 border-dashed rounded-xl w-full h-64 mx-auto" />
-            <div className="mt-6">
-              <button className="bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white font-medium py-2 px-6 rounded-lg transition-colors duration-200">
-                {t('reward.button')}
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+
+
+
 
 
 

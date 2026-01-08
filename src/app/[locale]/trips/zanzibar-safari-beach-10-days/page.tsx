@@ -289,22 +289,17 @@ export default function ZanzibarSafariBeach10DaysPage() {
         </div>
       </div>
 
-      <div className="md:hidden bg-white py-6 sticky top-0 z-40 border-b border-gray-200">
-        <div className="flex justify-center px-4">
-          <div className="flex flex-wrap gap-4 justify-center">
-            <button className="text-gray-600 font-medium hover:text-gray-800 px-4 py-2 border-2 border-gray-300 rounded-lg flex items-center text-lg" onClick={() => scrollToSection(datesPricesRef)}>
+      <div className="md:hidden bg-white py-4 sticky top-0 z-40 border-b border-gray-200">
+        <div className="px-4">
+          <div className="grid grid-cols-2 gap-2">
+            <button className="bg-[#f8d7da] text-[#721c24] font-medium hover:bg-[#f1b0b7] px-4 py-2 border border-[#f5c6cb] rounded-lg flex items-center justify-center text-sm" onClick={() => scrollToSection(datesPricesRef)}>
               <Calendar className="mr-2 h-4 w-4" />
               {t('miniNavbar.datesAndPrices')}
             </button>
-            <button className="text-gray-600 font-medium hover:text-gray-800 px-4 py-2 border-2 border-gray-300 rounded-lg flex items-center text-lg" onClick={() => setShowInquiryForm(true)}>
+            <button className="bg-[#00A896] text-white font-medium hover:bg-[#008576] px-4 py-2 border border-[#00A896] rounded-lg flex items-center justify-center text-sm" onClick={() => setShowInquiryForm(true)}>
               <User className="mr-2 h-4 w-4" />
               {t('miniNavbar.proposeDate')}
             </button>
-            <button className="text-gray-600 font-medium hover:text-gray-800 px-4 py-2 border-2 border-gray-300 rounded-lg flex items-center text-lg" onClick={() => scrollToSection(inclusionsRef)}>
-              {t('miniNavbar.inclusions')}</button>
-            <button className="text-gray-600 font-medium hover:text-gray-800 px-4 py-2 border-2 border-gray-300 rounded-lg flex items-center text-lg" onClick={() => scrollToSection(practicalInfoRef)}>
-              {t('miniNavbar.practicalInfo')}</button>
-            
           </div>
         </div>
       </div>
@@ -615,7 +610,7 @@ export default function ZanzibarSafariBeach10DaysPage() {
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
                     <div className="text-right">
                       <div className="text-base text-gray-600">from <span className="font-semibold text-gray-900">€2,300</span></div>
-                      <div className="text-sm text-gray-500">Deposit €400</div>
+                      <div className="text-sm text-gray-500">Deposit €100</div>
                     </div>
                     <button 
                       onClick={() => setShowInquiryForm(true)}

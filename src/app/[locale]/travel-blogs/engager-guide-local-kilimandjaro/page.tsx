@@ -103,12 +103,12 @@ export default function GuideLocalPage({ params }: { params: { locale?: string }
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero5.jpg')" }}>
+      <section className="relative hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/preparation-hero.jpg')" }}>
         <div className="absolute inset-0 -z-10">
-          <img src="/images/hero5.jpg" alt="" className="w-full h-full object-cover" />
+          <img src="/images/preparation-hero.jpg" alt="" className="w-full h-full object-cover" />
         </div>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-white mb-6 inline-flex items-center text-sm font-medium">← {locale === 'fr' ? 'Retour aux blogs' : 'Back to blogs'}</Link>
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-white mb-6 inline-flex items-center text-sm font-medium">← {locale === 'fr' ? 'Retour aux blogs' : 'Back to blogs'}</Link>
         </div>
       </section>
 

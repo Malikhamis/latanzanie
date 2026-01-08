@@ -46,7 +46,7 @@ export default function BlogPostTemplate() {
       {/* Hero section with back-link */}
       <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero4.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
             {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
@@ -94,7 +94,7 @@ export default function BlogPostTemplate() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   {t('sections.introduction.title')}
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">{t('sections.introduction.content.1')}</p>
                   <p className="mb-4">{t('sections.introduction.content.2')}</p>
                   <p className="mb-4">{t('sections.introduction.content.3')}</p>
@@ -106,7 +106,7 @@ export default function BlogPostTemplate() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   {t('sections.main.title')}
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">{t('sections.main.content.1')}</p>
                   <p className="mb-4">{t('sections.main.content.2')}</p>
                   <p className="mb-4">{t('sections.main.content.3')}</p>
@@ -118,7 +118,7 @@ export default function BlogPostTemplate() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   {t('sections.conclusion.title')}
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">{t('sections.conclusion.content.1')}</p>
                   <p className="mb-4">{t('sections.conclusion.content.2')}</p>
                 </div>

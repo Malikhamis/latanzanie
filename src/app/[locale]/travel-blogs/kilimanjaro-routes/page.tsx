@@ -89,7 +89,7 @@ export default function KilimanjaroRoutesPage() {
       {/* Hero section with back-link */}
       <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero6.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
             {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
@@ -137,7 +137,7 @@ export default function KilimanjaroRoutesPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
                   Les 7 Voies d'Ascension du Kilimandjaro : Analyse Complète, Comparée et Conseils d'Expert Local
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Le Kilimandjaro offre sept itinéraires d'ascension distincts, chacun avec ses propres caractéristiques, défis et avantages. Comprendre les différences entre ces routes est essentiel pour choisir celle qui correspond le mieux à vos objectifs, votre condition physique et votre expérience. Cette analyse complète compare chaque voie en détail, mettant en évidence leurs forces et faiblesses.</p>
                 </div>
               </section>
@@ -162,7 +162,7 @@ export default function KilimanjaroRoutesPage() {
                 <div 
                   className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.route1 ? 'max-h-[3000px]' : 'max-h-0'}`}
                 >
-                  <div className="prose prose-lg max-w-none text-gray-700">
+                  <div className="prose prose-xl max-w-none text-gray-700">
                     <p className="mb-4">La Route Machame est la voie la plus populaire du Kilimandjaro, reconnue pour son efficacité en matière d'acclimatation et ses paysages variés.</p>
                     
                     <h3 className="text-xl font-semibold mt-6 mb-3">Description de l'Itinéraire</h3>
@@ -174,7 +174,7 @@ export default function KilimanjaroRoutesPage() {
                     <p className="mb-4">L'avantage distinctif de Machame réside dans son Profil d'Acclimatation basé sur le principe du "Climb High, Sleep Low" (Monter Haut, Dormir Bas). Contrairement aux voies linéaires (comme Marangu ou Rongai), Machame expose stratégiquement le corps à des altitudes de choc (comme la Lava Tower à environ 4600 m) avant de descendre pour la nuit à une altitude plus basse. Cette variation est physiologiquement la plus efficace pour stimuler l'adaptation et garantit un haut taux de réussite sur une durée de 7 jours.</p>
                     
                     <h4 className="text-lg font-semibold mt-4 mb-2">2. Vues Spectaculaires</h4>
-                    <p className="mb-4">Le parcours est extrêmement varié. Il offre des Vues Spectaculaires sur le Mur de Barranco et les paysages changeants (landes et désert alpin), ce qui rend l'expérience esthétiquement plus riche que les approches douces du Nord.</p>
+                    <p className="mb-4">Le parcours est extrêmement varié. Il offre des Vues Spectaculaires sur le Mur de Barranco et les paysages changeants (<Link href={`/${locale}/travel-blogs/zones-climatiques-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">landes et désert alpin</Link>), ce qui rend l'expérience esthétiquement plus riche que les approches douces du Nord.</p>
                     
                     <h4 className="text-lg font-semibold mt-4 mb-2">3. Accessibilité Logistique</h4>
                     <p className="mb-4">L'Accessibilité est bonne, car le point de départ nécessite un transfert routier modéré depuis Moshi/Arusha, comparativement plus court que celui de Lemosho.</p>
@@ -221,11 +221,11 @@ export default function KilimanjaroRoutesPage() {
                 <div 
                   className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.route2 ? 'max-h-[3000px]' : 'max-h-0'}`}
                 >
-                  <div className="prose prose-lg max-w-none text-gray-700">
+                  <div className="prose prose-xl max-w-none text-gray-700">
                     <p className="mb-4">La Route Marangu est l'itinéraire historique du Kilimandjaro, unique pour sa logistique en cabanes, mais célèbre pour son profil d'acclimatation inefficace et son taux de réussite comparativement bas.</p>
                     
                     <h3 className="text-xl font-semibold mt-6 mb-3">I. Description de l'Itinéraire (Détails du Parcours)</h3>
-                    <p className="mb-4">Le sentier débute à Marangu Gate (≈1860 m) sur le versant sud-est. La première journée traverse une forêt tropicale dense et luxuriante avant d'atteindre Mandara Hut. L'itinéraire continue ensuite vers des landes alpines ouvertes jusqu'à Horombo Hut.</p>
+                    <p className="mb-4">Le sentier débute à Marangu Gate (≈1860 m) sur le versant sud-est. La première journée traverse une <Link href={`/${locale}/travel-blogs/zones-climatiques-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">forêt tropicale</Link> dense et luxuriante avant d'atteindre Mandara Hut. L'itinéraire continue ensuite vers des landes alpines ouvertes jusqu'à Horombo Hut.</p>
                     <p className="mb-4">Marangu est la seule voie symétrique du Kilimandjaro : l'ascension et la descente se font par le même chemin.</p>
                     <p className="mb-4">La logistique est unique : l'hébergement se fait en cabanes (dortoirs) tout au long du parcours.</p>
                     
@@ -288,11 +288,11 @@ export default function KilimanjaroRoutesPage() {
                 <div 
                   className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.route3 ? 'max-h-[3000px]' : 'max-h-0'}`}
                 >
-                  <div className="prose prose-lg max-w-none text-gray-700">
+                  <div className="prose prose-xl max-w-none text-gray-700">
                     <p className="mb-4">La Route Lemosho est l'une des voies les plus longues et est considérée comme la meilleure combinaison de sécurité, de vues et d'acclimatation. Elle est l'alternative premium à la Route Machame.</p>
                     
                     <h3 className="text-xl font-semibold mt-6 mb-3">I. Description de l'Itinéraire (Détails du Parcours)</h3>
-                    <p className="mb-4">L'itinéraire débute à Londorossi Gate (≈2100 m) sur le Versant Ouest, nécessitant le plus long transfert routier initial. La progression est lente, traversant d'abord la forêt tropicale vierge (souvent boueuse) puis le vaste Plateau de Shira avant de fusionner avec la Route Machame au camp de Barranco.</p>
+                    <p className="mb-4">L'itinéraire débute à Londorossi Gate (≈2100 m) sur le Versant Ouest, nécessitant le plus long transfert routier initial. La progression est lente, traversant d'abord la <Link href={`/${locale}/travel-blogs/zones-climatiques-kilimandjaro`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">forêt tropicale</Link> vierge (souvent boueuse) puis le vaste Plateau de Shira avant de fusionner avec la Route Machame au camp de Barranco.</p>
                     <p className="mb-4">Lemosho est une voie de traversée non symétrique : la montée et la descente se font par des chemins différents (descente par Mweka), ce qui maximise la variété des paysages.</p>
                     <p className="mb-4">La logistique est basée sur le camping exclusivement (tentes).</p>
                     <p className="mb-4">La Durée standard de 8 jours est fortement recommandée, car elle est le facteur clé du taux de réussite.</p>
@@ -370,7 +370,7 @@ export default function KilimanjaroRoutesPage() {
                 <div 
                   className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedSections.route4 ? 'max-h-[3000px]' : 'max-h-0'}`}
                 >
-                  <div className="prose prose-lg max-w-none text-gray-700">
+                  <div className="prose prose-xl max-w-none text-gray-700">
                     <p className="mb-4">La Route Umbwe est la voie d'ascension la plus courte et la plus raide du Kilimandjaro. Elle est reconnue pour son approche extrêmement directe, son exigence physique maximale, et son profil d'acclimatation dangereux en raison de sa rapidité.</p>
                     
                     <h3 className="text-xl font-semibold mt-6 mb-3">Description de l'Itinéraire</h3>

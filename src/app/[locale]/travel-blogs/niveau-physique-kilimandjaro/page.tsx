@@ -184,7 +184,11 @@ export default function NiveauPhysiqueKilimandjaroPage() {
   ]
 
   function renderContent(content: string) {
-    const lines = content.split(/\r?\n/)
+    // Add markers for terms we want to link
+    let processedContent = content
+      .replace(/\bphysique\b/g, '###PHYSIQUE_LINK###');
+    
+    const lines = processedContent.split(/\r?\n/)
     const nodes: any[] = []
     let i = 0
     let keyIndex = 0
@@ -197,8 +201,7 @@ export default function NiveauPhysiqueKilimandjaroPage() {
           i++
         }
         nodes.push(
-          <blockquote key={`b-${keyIndex++}`} className="border-l-4 pl-4 italic text-sm text-black mb-4">
-            {blockLines.join('\n')}
+          <blockquote key={`b-${keyIndex++}`} className="border-l-4 pl-4 italic text-sm text-black mb-4" dangerouslySetInnerHTML={{__html: blockLines.map(line => line.replace(/###PHYSIQUE_LINK###/g, `<a href="/${locale}/travel-blogs/preparation-physique-ascension-kilimandjaro" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">physique</a>`)).join('\n')}}>
           </blockquote>
         )
       } else if (lines[i].trim() === '') {
@@ -212,7 +215,7 @@ export default function NiveauPhysiqueKilimandjaroPage() {
         nodes.push(
           <ul key={`ul-${keyIndex++}`} className="list-disc list-inside ml-4 mb-4">
             {listItems.map((item, idx) => (
-              <li key={`li-${keyIndex++}-${idx}`} className="mb-1">{item}</li>
+              <li key={`li-${keyIndex++}-${idx}`} className="mb-1" dangerouslySetInnerHTML={{__html: item.replace(/###PHYSIQUE_LINK###/g, `<a href="/${locale}/travel-blogs/preparation-physique-ascension-kilimandjaro" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">physique</a>`)}}></li>
             ))}
           </ul>
         )
@@ -222,9 +225,10 @@ export default function NiveauPhysiqueKilimandjaroPage() {
           paragraphLines.push(lines[i])
           i++
         }
+        // For now, just add the paragraph as is, since complex text processing with JSX elements
+        // requires more complex logic that would be better handled by pre-processing the content
         nodes.push(
-          <p key={`p-${keyIndex++}`} className="mb-4">
-            {paragraphLines.join('\n')}
+          <p key={`p-${keyIndex++}`} className="mb-4" dangerouslySetInnerHTML={{__html: paragraphLines.join('\n').replace(/###PHYSIQUE_LINK###/g, `<a href="/${locale}/travel-blogs/preparation-physique-ascension-kilimandjaro" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">physique</a>`)}}>
           </p>
         )
       }
@@ -236,10 +240,10 @@ export default function NiveauPhysiqueKilimandjaroPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero section with back-link */}
-      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero4.jpg')" }}>
+      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/preparation-hero.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
-            {isFrench ? '← Retour aux blogs' : '← Back to blogs'}
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+            {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
       </section>

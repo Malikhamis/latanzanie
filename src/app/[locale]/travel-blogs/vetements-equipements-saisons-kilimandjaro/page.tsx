@@ -26,9 +26,9 @@ export default function SeasonalClothingPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero5.jpg')" }}>
+      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/packlist-hero.jpg')" }}>
         <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
+          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
             {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
           </Link>
         </div>
@@ -73,9 +73,9 @@ export default function SeasonalClothingPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   Faut-il prévoir des vêtements et équipements différents selon la saison pour le Kilimandjaro ?
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <h3 className="text-xl font-bold mt-4 mb-2">Conseils détaillés d'un guide local pour réussir votre ascension</h3>
-                  <p className="mb-4">Gravir le Mont Kilimandjaro est une aventure unique dans une vie, mais chaque saison offre des défis très différents. Que vous partiez en janvier, en mars ou pendant la saison des pluies, votre packing list doit être adaptée pour vous protéger du froid, de la pluie et du vent, tout en restant légère et efficace.</p>
+                  <p className="mb-4">Gravir le Mont Kilimandjaro est une aventure unique dans une vie, mais chaque saison offre des défis très différents. Que vous partiez <Link href={`/${locale}/travel-blogs/choisir-bonne-saison-randonnee#saison1`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">en janvier</Link>, <Link href={`/${locale}/travel-blogs/choisir-bonne-saison-randonnee#saison1`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">en mars</Link> ou pendant <Link href={`/${locale}/travel-blogs/choisir-bonne-saison-randonnee`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">la saison des pluies</Link>, <Link href={`/${locale}/travel-blogs/objets-souvent-oublies-packing-list`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">votre packing list</Link> doit être adaptée pour vous protéger du froid, de la pluie et du vent, tout en restant légère et efficace.</p>
                   
                   <p className="mb-4">En tant que guide local, j'ai accompagné des centaines de randonneurs, et je peux vous assurer que ceux qui réussissent leur sommet sont toujours ceux qui ont anticipé les conditions saisonnières. Dans cet article, je vais vous expliquer en détail comment adapter vos vêtements et équipements à chaque période de l'année, et pourquoi c'est crucial pour votre sécurité et votre confort.</p>
                 </div>
@@ -86,7 +86,7 @@ export default function SeasonalClothingPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   Comprendre les saisons sur le Kilimandjaro
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Le Kilimandjaro, bien qu'il soit situé dans une région tropicale, ne se contente pas d'un climat unique. En réalité, la montagne connaît des conditions très variées selon la saison, et ces variations peuvent avoir un impact direct sur votre ascension. En tant que guide local, je conseille toujours à mes clients de bien comprendre ces différences avant de préparer leur sac.</p>
                   
                   <p className="mb-4">On distingue principalement deux saisons sèches et deux saisons des pluies, chacune avec ses caractéristiques propres.</p>
@@ -117,7 +117,7 @@ export default function SeasonalClothingPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   Le système des trois couches : la base de votre habillement
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <p className="mb-4">Quelle que soit la saison, le système des trois couches reste la référence pour s'habiller correctement :</p>
                   
                   <h3 className="text-xl font-bold mt-4 mb-2">1. Couche respirante</h3>
@@ -134,10 +134,10 @@ export default function SeasonalClothingPage() {
               {/* Saison sèche Section */}
               <section id="saison-seche" className="bg-gray-50 rounded-lg shadow-md p-6">
                 <h2 className="text-2xl font-semibold mb-4 text-black">
-                  En saison sèche (janvier – mars / juin – octobre)
+                  En <Link href={`/${locale}/travel-blogs/best-season`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">saison sèche</Link> (janvier – mars / juin – octobre)
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
-                  <p className="mb-4">La saison sèche est souvent considérée comme la période idéale pour l'ascension du Kilimandjaro. Le ciel est dégagé, les sentiers restent praticables et la pluie est rare. Cela permet de marcher plus légèrement et d'optimiser votre confort durant la journée.</p>
+                <div className="prose prose-xl max-w-none text-gray-700">
+                  <p className="mb-4">La <Link href={`/${locale}/travel-blogs/best-season`} className="text-[#00A896] hover:text-[#008576] font-medium font-medium">saison sèche</Link> est souvent considérée comme la période idéale pour l'ascension du Kilimandjaro. Le ciel est dégagé, les sentiers restent praticables et la pluie est rare. Cela permet de marcher plus légèrement et d'optimiser votre confort durant la journée.</p>
                   
                   <h3 className="text-xl font-bold mt-4 mb-2">Vêtements de jour</h3>
                   <p className="mb-4">Privilégiez des tissus respirants et légers, qui évacuent bien la transpiration. Les couches trop épaisses peuvent provoquer une surchauffe et une fatigue inutile.</p>
@@ -155,7 +155,7 @@ export default function SeasonalClothingPage() {
                 <h2 className="text-2xl font-semibold mb-4 text-black">
                   Astuces supplémentaires d'un guide local
                 </h2>
-                <div className="prose prose-lg max-w-none text-gray-700">
+                <div className="prose prose-xl max-w-none text-gray-700">
                   <ol className="list-decimal pl-6 mb-4 space-y-2">
                     <li>Toujours prévoir des couches supplémentaires, même si la météo semble clémente.</li>
                     <li>Tester votre équipement avant le départ permet d'éviter les surprises sur le trek.</li>
