@@ -38,7 +38,7 @@ function convertKpapTempMarkersToLinks(text: string | (string | JSX.Element)[], 
     // Find all matches and replace with temporary markers
     const couchageMatches = [];
     let couchageMatch;
-    let couchageIndex = 0;
+    const couchageIndex = 0;
     
     while ((couchageMatch = couchageRegex.exec(couchageProcessedText)) !== null) {
       couchageMatches.push({
@@ -120,7 +120,7 @@ export default function RespecterSoutenirPage() {
   // Function to render content with KPAP links
   function renderContent(content: string) {
     // Replace 'KPAP' with a special marker that we'll convert to links
-    let markedContent = content.replace(/KPAP/g, '###KPAP_LINK###');
+    const markedContent = content.replace(/KPAP/g, '###KPAP_LINK###');
     
     // Process the content to convert special markers to temporary markers
     const processedContentWithTempMarkers = processKpapLinks(markedContent);

@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Phone, Download, Star, Users, Clock, MapPin, Calendar, User, Bed, Map, CheckCircle, XCircle, Info } from 'lucide-react'
+import { Phone, Download, Star, Users, Clock, MapPin, Calendar, User } from 'lucide-react'
 import { useTranslations } from 'next-intl';
 import { submitNewsletterSubscription, submitDownloadRequest } from '@/lib/actions/contact';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -1866,7 +1866,7 @@ export default function TravelBlogDetailPage() {
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {category.allTopics && category.allTopics.map((topic: any, index: number) => (
+                {category.allTopics && category.allTopics.map((topic: { icon: string; category: Record<string, string>; posts: any[] }, index: number) => (
                   <div key={index} className="p-6">
                     <div className="flex items-center mb-4">
                       <span className="text-2xl mr-3">{topic.icon}</span>

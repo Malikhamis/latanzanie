@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Phone, Download, Star, Users, Clock, MapPin, Calendar, User, Bed, Map, CheckCircle, XCircle, Info } from 'lucide-react'
+import { Phone, Download, Star, Users, Clock, MapPin, Calendar, User } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Faq from '@/components/ui/faq'
@@ -344,7 +344,7 @@ export default function ZanzibarBeachHolidaysPage() {
               <div className="flex items-center gap-3">
                 <div className="text-2xl">📅</div>
                 <div className="flex-1">
-                  <h3 className="font-semibold text-gray-900 text-base">Don't see your dates?</h3>
+                  <h3 className="font-semibold text-gray-900 text-base">Don&apos;t see your dates?</h3>
                   <p className="text-gray-600 text-sm">Please propose a new departure</p>
                 </div>
               </div>
@@ -568,7 +568,7 @@ export default function ZanzibarBeachHolidaysPage() {
             <div className="inline-block p-3 bg-white rounded-full mb-4">
               <Calendar className="w-6 h-6 text-gray-600" />
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">Don't see your dates?</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">Don&apos;t see your dates?</h3>
             <p className="text-gray-600 text-base mb-6">We can create it if bookable!</p>
             <button 
               onClick={() => setIsContactModalOpen(true)}
@@ -719,7 +719,7 @@ export default function ZanzibarBeachHolidaysPage() {
                     required
                   />
                   <label htmlFor="privacy-policy" className="ml-2 block text-sm text-gray-700">
-                    {t('contactModal.agreeTo')} <a href="/privacy" className="text-[#00A896] hover:text-[#008576]">{t('contactModal.privacyPolicy')}</a>
+                    {t('contactModal.agreeTo')} <Link href="/privacy" className="text-[#00A896] hover:text-[#008576]">{t('contactModal.privacyPolicy')}</Link>
                   </label>
                 </div>
                 
@@ -801,7 +801,7 @@ export default function ZanzibarBeachHolidaysPage() {
                     required
                   />
                   <label htmlFor="download-privacy-policy" className="ml-2 block text-sm text-gray-700">
-                    {t('downloadModal.agreeTo')} <a href="/privacy" className="text-[#00A896] hover:text-[#008576]">{t('downloadModal.privacyPolicy')}</a>
+                    {t('downloadModal.agreeTo')} <Link href="/privacy" className="text-[#00A896] hover:text-[#008576]">{t('downloadModal.privacyPolicy')}</Link>
                   </label>
                 </div>
                 

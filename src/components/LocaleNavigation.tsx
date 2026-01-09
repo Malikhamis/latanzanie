@@ -3,8 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu, X, User, Mail, Phone, MessageSquare, Home, Info, Map, Book } from 'lucide-react'
+import { Menu, X, User, Mail, Phone, MessageSquare, Info, Map, Book } from 'lucide-react'
 import { Park } from '@/types/park'
 import { usePathname } from 'next/navigation'
 import { useTranslations } from 'next-intl'
@@ -15,7 +14,7 @@ interface LocaleNavigationProps {
 }
 
 export function LocaleNavigation({ parks }: LocaleNavigationProps) {
-  const [isScrolled, setIsScrolled] = useState(false)
+  // const [isScrolled, setIsScrolled] = useState(false) // commented out as unused
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isDesktopMenuOpen, setIsDesktopMenuOpen] = useState(false)
   const [isContactModalOpen, setIsContactModalOpen] = useState(false)
@@ -52,7 +51,7 @@ export function LocaleNavigation({ parks }: LocaleNavigationProps) {
   };
 
   // Map all parks to their translated versions
-  const translatedParks = parks.map(mapParkDataToTranslations);
+  // const translatedParks = parks.map(mapParkDataToTranslations); // commented out as unused
 
   useEffect(() => {
     const handleScroll = () => {

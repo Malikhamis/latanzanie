@@ -4,12 +4,11 @@ import { useState, useRef, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import Image from 'next/image'
 import Faq from '@/components/ui/faq'
-import { MapPin, Clock, Calendar, User, CheckCircle, X, Users, Bed, XCircle } from 'lucide-react'
+import { MapPin, Clock, Calendar, User, CheckCircle, Bed, XCircle } from 'lucide-react'
 
 export default function UmbweRoutePage() {
   // read locale from the route params
-  const params = useParams() as { locale?: string };
-  const currentLocale = params?.locale === 'fr' ? 'fr' : 'en';
+
 
   // Hardcoded French content for Umbwe Route
   const safeT = (key: string, fallback = ''): string => {
@@ -473,7 +472,6 @@ export default function UmbweRoutePage() {
   
   const [activeSection, setActiveSection] = useState('')
   const [isContactModalOpen, setIsContactModalOpen] = useState(false)
-  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false)
   const [isWhenDropdownOpen, setIsWhenDropdownOpen] = useState(false)
   const [isItineraryDropdownOpen, setIsItineraryDropdownOpen] = useState(false)
   const [selectedMonths, setSelectedMonths] = useState<string[]>(['2026-Jan'])
@@ -494,14 +492,14 @@ export default function UmbweRoutePage() {
     try {
       // These will appear in the browser console when the component mounts
       // and help identify whether safeT is returning empty strings.
-      // eslint-disable-next-line no-console
+       
       console.log('umbwe i18n debug:', {
         gallery: t('gallery.title'),
         faqsTitle: t('faqsTitle'),
         faq_q1: t('faq.q1.question'),
       })
     } catch (e) {
-      // eslint-disable-next-line no-console
+       
       console.error('i18n debug error', e)
     }
   }, [])
@@ -520,7 +518,6 @@ export default function UmbweRoutePage() {
     }
   })()
 
-  const displayedInclusions = showAllInclusions ? allInclusions : allInclusions.slice(0, 10)
 
   const scrollToSection = (ref: React.RefObject<HTMLElement | null>) => {
     ref.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -930,7 +927,7 @@ export default function UmbweRoutePage() {
               <div className="flex items-center gap-3">
                 <div className="text-2xl">📅</div>
                 <div className="flex-1">
-                  <h3 className="font-semibold text-gray-900 text-base">Don't see your dates?</h3>
+                  <h3 className="font-semibold text-gray-900 text-base">Don&apos;t see your dates?</h3>
                 <p className="text-gray-600 text-sm">Please propose a new departure</p>
                 </div>
               </div>
@@ -1104,14 +1101,15 @@ export default function UmbweRoutePage() {
           {/* Trip Dates - List Style */}
           <div className="space-y-3 mb-6">
             {selectedMonths.map((monthKey) => {
-              const [year, month] = monthKey.split('-')
+              // Extracting year and month from monthKey, but not used in current implementation
+              // const [year, month] = monthKey.split('-')
               const rawList = getDatesForMonth(monthKey)
               const list = (rawList || [])
               
               return list.map((item: any, idx: number) => {
                 // Calculate price based on selected group options
                 let displayPrice = item.prices && item.prices['Solo Traveler'] ? item.prices['Solo Traveler'] : item.price || 'Price not available';
-                let displayDeposit = item.deposit || 'Deposit not available';
+                const displayDeposit = item.deposit || 'Deposit not available';
                 
                 if (selectedItineraries.length > 0) {
                   // If any group option is selected, use the price for that option
@@ -1175,7 +1173,7 @@ export default function UmbweRoutePage() {
             <div className="inline-block p-3 bg-white rounded-full mb-4">
               <Calendar className="w-6 h-6 text-gray-600" />
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">Don't see your dates?</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">Don&apos;t see your dates?</h3>
             <p className="text-gray-600 text-base mb-6">We can create it if bookable!</p>
             <button 
               onClick={() => setIsContactModalOpen(true)}

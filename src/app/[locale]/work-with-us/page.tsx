@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Briefcase, Heart, Mail, Phone, MapPin } from 'lucide-react'
+
 
 export default function WorkWithUsPage() {
   const [formData, setFormData] = useState({
@@ -46,7 +46,7 @@ export default function WorkWithUsPage() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-2xl md:text-3xl text-gray-900 mb-6">
-                Vous êtes une agence de voyage, un tour-opérateur, un guide indépendant, une entreprise ou un créateur de voyages d'aventure ?
+                Vous êtes une agence de voyage, un tour-opérateur, un guide indépendant, une entreprise ou un créateur de voyages d&apos;aventure ?
               </h2>
             </div>
             <div className="bg-white rounded-2xl shadow-sm p-8 md:p-12 border border-gray-100">
@@ -54,7 +54,7 @@ export default function WorkWithUsPage() {
                 Nous serions ravis de collaborer avec vous.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                En tant que guide local certifié du Kilimandjaro, né et basé en Tanzanie, je propose des partenariats solides fondés sur la sécurité, l'éthique et l'expérience terrain.
+                En tant que guide local certifié du Kilimandjaro, né et basé en Tanzanie, je propose des partenariats solides fondés sur la sécurité, l&apos;éthique et l&apos;expérience terrain.
               </p>
             </div>
           </div>
@@ -76,7 +76,7 @@ export default function WorkWithUsPage() {
                     ❤️ Nous aimons profondément ce que nous faisons
                   </h3>
                   <p className="text-gray-700 leading-relaxed">
-                    Guider sur le Kilimandjaro est bien plus qu'un travail pour nous. C'est une passion, une fierté et une responsabilité. Cet amour de la montagne se reflète dans notre engagement, notre énergie sur le terrain et la qualité de chaque ascension que nous encadrons.
+                    Guider sur le Kilimandjaro est bien plus qu&apos;un travail pour nous. C&apos;est une passion, une fierté et une responsabilité. Cet amour de la montagne se reflète dans notre engagement, notre énergie sur le terrain et la qualité de chaque ascension que nous encadrons.
                   </p>
                 </div>
               </div>
@@ -87,7 +87,7 @@ export default function WorkWithUsPage() {
                     🤝 Un partenaire fiable et transparent
                   </h3>
                   <p className="text-gray-700 leading-relaxed mb-4">
-                    Travailler avec nous, c'est choisir un partenaire :
+                    Travailler avec nous, c&apos;est choisir un partenaire :
                   </p>
                   <ul className="text-gray-700 space-y-2">
                     <li>1) ponctuel et organisé,</li>
@@ -116,7 +116,7 @@ export default function WorkWithUsPage() {
               <div>
                 <div>
                   <h3 className="text-2xl text-gray-900 mb-4">
-                    🤍 Plus qu'une collaboration, une aventure partagée
+                    🤍 Plus qu&apos;une collaboration, une aventure partagée
                   </h3>
                   <p className="text-gray-700 leading-relaxed">
                     Nous ne cherchons pas seulement des partenaires, mais des collaborateurs qui partagent les mêmes valeurs : passion, respect, professionnalisme et amour de la montagne.

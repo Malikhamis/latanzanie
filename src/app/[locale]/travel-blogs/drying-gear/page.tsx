@@ -1,8 +1,8 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
+// import Image from 'next/image'
 import '../../../tailgrid.css'
 import { useLocale } from 'next-intl'
 import AuthorMeta from '@/components/ui/AuthorMeta'
@@ -14,15 +14,15 @@ interface Section {
 }
 
 export default function DryingGearPage() {
-  const [isScrolled, setIsScrolled] = useState(false)
+  // const [isScrolled, setIsScrolled] = useState(false)
   const locale = useLocale()
 
   // Handle scroll for header effects
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  // useEffect(() => {
+  //   const handleScroll = () => setIsScrolled(window.scrollY > 50)
+  //   window.addEventListener('scroll', handleScroll)
+  //   return () => window.removeEventListener('scroll', handleScroll)
+  // }, [])
 
   // Add pulse animation to headers on initial load
   useEffect(() => {
@@ -108,10 +108,10 @@ export default function DryingGearPage() {
                   Comment sécher ses affaires en trek quand il pleut ?
                 </h1>
                 <div className="prose prose-xl max-w-none text-gray-700">
-                  <p className="mb-4">Conseils pratiques d'un guide local en Tanzanie</p>
-                  <p className="mb-4">Quand on part en trek, surtout sur une montagne comme le Kilimandjaro, un vêtement mouillé n'est jamais "juste" un inconfort. C'est du froid en plus, de l'énergie perdue, un risque d'irritation ou d'ampoules.</p>
+                  <p className="mb-4">Conseils pratiques d&apos;un guide local en Tanzanie</p>
+                  <p className="mb-4">Quand on part en trek, surtout sur une montagne comme le Kilimandjaro, un vêtement mouillé n&apos;est jamais "juste" un inconfort. C'est du froid en plus, de l'énergie perdue, un risque d'irritation ou d'ampoules.</p>
                   <p className="mb-4">Et en saison des pluies, tout peut être mouillé : vêtements, gants, chaussettes, sac...</p>
-                  <p className="mb-4">Heureusement, il existe des méthodes simples et efficaces que les guides locaux utilisent chaque jour pour sécher les affaires malgré l'humidité.</p>
+                  <p className="mb-4">Heureusement, il existe des méthodes simples et efficaces que les guides locaux utilisent chaque jour pour sécher les affaires malgré l&apos;humidité.</p>
                 </div>
               </section>
 
@@ -122,13 +122,13 @@ export default function DryingGearPage() {
                 </h2>
                 <div>
                   <div className="prose prose-xl max-w-none text-gray-700">
-                    <p className="mb-4">Lorsque le soleil est caché derrière les nuages, que le vent est faible ou inexistant, et qu'aucune source de chaleur n'est disponible autour de vous, la meilleure façon de sécher vos vêtements reste celle que la nature vous fournit gratuitement : votre propre corps. Cette méthode repose sur la chaleur que vous produisez en marchant ou simplement en restant actif, et elle est particulièrement efficace en montagne où chaque degré de chaleur compte.</p>
+                    <p className="mb-4">Lorsque le soleil est caché derrière les nuages, que le vent est faible ou inexistant, et qu&apos;aucune source de chaleur n&apos;est disponible autour de vous, la meilleure façon de sécher vos vêtements reste celle que la nature vous fournit gratuitement : votre propre corps. Cette méthode repose sur la chaleur que vous produisez en marchant ou simplement en restant actif, et elle est particulièrement efficace en montagne où chaque degré de chaleur compte.</p>
                     
-                    <p className="mb-4">Pour que cette technique fonctionne, il faut d'abord préparer correctement le vêtement humide. Il est essentiel de l'essorer au maximum afin d'éliminer l'excès d'eau. Plus le tissu contient d'humidité, plus il mettra de temps à sécher et plus vous perdrez de chaleur si vous le portez trop tôt. Une fois que l'eau superflue a été évacuée, vous devez enfiler une couche sèche contre votre peau. Cette couche sert à maintenir votre chaleur corporelle et à éviter que le froid ne pénètre pendant le processus de séchage. Elle crée un espace protecteur entre vous et le vêtement humide.</p>
+                    <p className="mb-4">Pour que cette technique fonctionne, il faut d&apos;abord préparer correctement le vêtement humide. Il est essentiel de l&apos;essorer au maximum afin d'éliminer l'excès d&apos;eau. Plus le tissu contient d&apos;humidité, plus il mettra de temps à sécher et plus vous perdrez de chaleur si vous le portez trop tôt. Une fois que l&apos;eau superflue a été évacuée, vous devez enfiler une couche sèche contre votre peau. Cette couche sert à maintenir votre chaleur corporelle et à éviter que le froid ne pénètre pendant le processus de séchage. Elle crée un espace protecteur entre vous et le vêtement humide.</p>
                     
-                    <p className="mb-4">Le vêtement mouillé peut ensuite être placé sous votre polaire ou votre doudoune, directement contre le torse. La chaleur générée par votre corps va progressivement s'infiltrer dans le tissu, évaporant l'humidité. Cette technique est particulièrement utile pour les petits vêtements comme les gants, les chaussettes, les sous-vêtements ou les buffs, qui sèchent plus rapidement grâce à la chaleur concentrée.</p>
+                    <p className="mb-4">Le vêtement mouillé peut ensuite être placé sous votre polaire ou votre doudoune, directement contre le torse. La chaleur générée par votre corps va progressivement s&apos;infiltrer dans le tissu, évaporant l'humidité. Cette technique est particulièrement utile pour les petits vêtements comme les gants, les chaussettes, les sous-vêtements ou les buffs, qui sèchent plus rapidement grâce à la chaleur concentrée.</p>
                     
-                    <p className="mb-4">Enfin, il faut laisser le vêtement humide profiter de cette chaleur pendant la marche ou quelques heures au camp. Même si le séchage est lent, cette méthode est sûre et fiable, et elle permet de conserver un minimum de confort et de chaleur pendant votre trek. C'est une approche simple mais efficace, qui ne dépend ni du soleil ni du vent et qui fait partie des secrets bien connus des guides locaux.</p>
+                    <p className="mb-4">Enfin, il faut laisser le vêtement humide profiter de cette chaleur pendant la marche ou quelques heures au camp. Même si le séchage est lent, cette méthode est sûre et fiable, et elle permet de conserver un minimum de confort et de chaleur pendant votre trek. C&apos;est une approche simple mais efficace, qui ne dépend ni du soleil ni du vent et qui fait partie des secrets bien connus des guides locaux.</p>
                   </div>
                 </div>
               </section>
@@ -140,11 +140,11 @@ export default function DryingGearPage() {
                 </h2>
                 <div>
                   <div className="prose prose-xl max-w-none text-gray-700">
-                    <p className="mb-4">Beaucoup de trekkeurs pensent qu'il suffit de suspendre leurs vêtements dans la tente pour qu'ils sèchent. En réalité, la tente est souvent l'un des endroits les plus humides que vous puissiez trouver en montagne. L'air y est confiné, la condensation s'accumule sur les parois et la chaleur reste faible. Si l'on ne gère pas correctement l'espace, les vêtements peuvent rester mouillés pendant des heures, voire devenir encore plus humides.</p>
+                    <p className="mb-4">Beaucoup de trekkeurs pensent qu&apos;il suffit de suspendre leurs vêtements dans la tente pour qu'ils sèchent. En réalité, la tente est souvent l&apos;un des endroits les plus humides que vous puissiez trouver en montagne. L&apos;air y est confiné, la condensation s&apos;accumule sur les parois et la chaleur reste faible. Si l&apos;on ne gère pas correctement l'espace, les vêtements peuvent rester mouillés pendant des heures, voire devenir encore plus humides.</p>
                     
-                    <p className="mb-4">Pour sécher efficacement à l'intérieur de la tente, il faut comprendre comment l'air circule et comment l'humidité se déplace. Il est conseillé de suspendre les vêtements en hauteur, là où l'air circule un peu mieux que près du sol, tout en évitant de les coller directement aux parois. Les parois sont souvent couvertes de gouttelettes ou de condensation qui retomberaient sur le tissu. Si la tente possède des aérations, il est préférable de rapprocher les vêtements de ces zones, sans jamais les toucher, car l'air qui entre peut faciliter le séchage en éliminant une partie de l'humidité. Lorsque la pluie faiblit, même légèrement, il est utile de laisser une petite ouverture pour créer un léger courant d'air. Ce mouvement subtil permet à l'air de circuler autour des vêtements et accélère le séchage, tout en évitant que l'humidité stagnante ne s'y accumule.</p>
+                    <p className="mb-4">Pour sécher efficacement à l&apos;intérieur de la tente, il faut comprendre comment l'air circule et comment l&apos;humidité se déplace. Il est conseillé de suspendre les vêtements en hauteur, là où l&apos;air circule un peu mieux que près du sol, tout en évitant de les coller directement aux parois. Les parois sont souvent couvertes de gouttelettes ou de condensation qui retomberaient sur le tissu. Si la tente possède des aérations, il est préférable de rapprocher les vêtements de ces zones, sans jamais les toucher, car l&apos;air qui entre peut faciliter le séchage en éliminant une partie de l'humidité. Lorsque la pluie faiblit, même légèrement, il est utile de laisser une petite ouverture pour créer un léger courant d&apos;air. Ce mouvement subtil permet à l'air de circuler autour des vêtements et accélère le séchage, tout en évitant que l'humidité stagnante ne s'y accumule.</p>
                     
-                    <p className="mb-4">Certaines erreurs courantes peuvent compromettre totalement le séchage à l'intérieur. Coller les vêtements au toit de la tente est une mauvaise idée, car l'eau de condensation ruisselle facilement et mouille à nouveau le tissu. Laisser les habits dans un tas au fond de la tente crée un microclimat humide où les vêtements peuvent moisir. Enfin, poser les affaires sur le sol est également contre-productif, car le sol est souvent froid et humide, ce qui empêche l'évaporation et peut transformer vos vêtements en linges détrempés encore plus rapidement.</p>
+                    <p className="mb-4">Certaines erreurs courantes peuvent compromettre totalement le séchage à l'intérieur. Coller les vêtements au toit de la tente est une mauvaise idée, car l&apos;eau de condensation ruisselle facilement et mouille à nouveau le tissu. Laisser les habits dans un tas au fond de la tente crée un microclimat humide où les vêtements peuvent moisir. Enfin, poser les affaires sur le sol est également contre-productif, car le sol est souvent froid et humide, ce qui empêche l'évaporation et peut transformer vos vêtements en linges détrempés encore plus rapidement.</p>
                     
                     <p className="mb-4">En comprenant ces principes et en organisant soigneusement l'espace à l'intérieur de la tente, il est possible de faire sécher une partie de vos vêtements même lorsque la pluie ne s'arrête pas. Ce n'est jamais aussi rapide qu'à l'extérieur par temps sec, mais avec un peu d'attention, vous pouvez conserver au moins un minimum de confort et de chaleur au camp.</p>
                   </div>
@@ -158,13 +158,13 @@ export default function DryingGearPage() {
                 </h2>
                 <div>
                   <div className="prose prose-xl max-w-none text-gray-700">
-                    <p className="mb-4">Lors d'un trek sur le Kilimandjaro, gérer l'humidité est un défi quotidien, surtout pendant la saison des pluies Kilimandjaro. Même lorsque la pluie tombe sans interruption, il existe une astuce que les guides locaux connaissent bien : exploiter la chaleur autour du camp pour sécher les vêtements mouillés. Les zones situées près de la cuisine extérieure des camps sont légèrement plus chaudes que le reste du camp, et cette chaleur indirecte peut être utilisée pour accélérer le séchage des affaires.</p>
+                    <p className="mb-4">Lors d&apos;un trek sur le Kilimandjaro, gérer l&apos;humidité est un défi quotidien, surtout pendant la saison des pluies Kilimandjaro. Même lorsque la pluie tombe sans interruption, il existe une astuce que les guides locaux connaissent bien : exploiter la chaleur autour du camp pour sécher les vêtements mouillés. Les zones situées près de la cuisine extérieure des camps sont légèrement plus chaudes que le reste du camp, et cette chaleur indirecte peut être utilisée pour accélérer le séchage des affaires.</p>
                     
-                    <p className="mb-4">Pour utiliser cette méthode de façon sécurisée, il est essentiel de maintenir une distance d'au moins un mètre du feu. Placer un vêtement directement au-dessus des flammes ou trop près de la cuisson peut le brûler rapidement, surtout s'il est déjà humide. En le positionnant dans un espace proche mais sûr, la chaleur ambiante se diffuse autour du tissu, favorisant l'évaporation sans danger. Les guides recommandent également de retourner régulièrement les vêtements, afin que l'humidité ne reste pas piégée dans les fibres et que le séchage se fasse de manière homogène.</p>
+                    <p className="mb-4">Pour utiliser cette méthode de façon sécurisée, il est essentiel de maintenir une distance d&apos;au moins un mètre du feu. Placer un vêtement directement au-dessus des flammes ou trop près de la cuisson peut le brûler rapidement, surtout s'il est déjà humide. En le positionnant dans un espace proche mais sûr, la chaleur ambiante se diffuse autour du tissu, favorisant l'évaporation sans danger. Les guides recommandent également de retourner régulièrement les vêtements, afin que l&apos;humidité ne reste pas piégée dans les fibres et que le séchage se fasse de manière homogène.</p>
                     
                     <p className="mb-4">Une technique locale très efficace consiste à placer les vêtements dans un sac plastique percé. Cette méthode crée une mini-serre qui concentre légèrement la chaleur autour du tissu, accélérant le séchage des gants, chaussettes, sous-vêtements ou autres petites affaires. Grâce à cette approche, même lors d'un trek Kilimandjaro sous la pluie, il est possible de garder vos vêtements essentiels au sec, préservant ainsi votre confort et votre sécurité en altitude.</p>
                     
-                    <p className="mb-4">Exploiter intelligemment la chaleur du camp est une stratégie que tout trekkeur devrait connaître. Les guides locaux l'utilisent quotidiennement pour éviter que les vêtements mouillés ne deviennent un problème, surtout pendant la saison des pluies. En combinant cette méthode avec la chaleur corporelle et la circulation de l'air dans la tente, il est possible de garder ses affaires sèches et de profiter pleinement de l'expérience unique d'un trek Kilimandjaro.</p>
+                    <p className="mb-4">Exploiter intelligemment la chaleur du camp est une stratégie que tout trekkeur devrait connaître. Les guides locaux l'utilisent quotidiennement pour éviter que les vêtements mouillés ne deviennent un problème, surtout pendant la saison des pluies. En combinant cette méthode avec la chaleur corporelle et la circulation de l&apos;air dans la tente, il est possible de garder ses affaires sèches et de profiter pleinement de l'expérience unique d'un trek Kilimandjaro.</p>
                   </div>
                 </div>
               </section>
@@ -176,11 +176,11 @@ export default function DryingGearPage() {
                 </h2>
                 <div>
                   <div className="prose prose-xl max-w-none text-gray-700">
-                    <p className="mb-4">Lors d'un trek Kilimandjaro, surtout pendant la saison des pluies, il est impossible de garantir que tous vos vêtements resteront secs. Même avec les meilleures méthodes pour sécher vos affaires, l'humidité et les averses peuvent rendre certains vêtements totalement inutilisables. C'est pour cette raison que chaque guide local recommande vivement de préparer un sac de secours étanche, un véritable "kit de survie sèche". Ce sac vous assure d'avoir toujours à disposition un ensemble de vêtements secs, essentiels pour rester au chaud et confortable, quelles que soient les conditions météorologiques.</p>
+                    <p className="mb-4">Lors d&apos;un trek Kilimandjaro, surtout pendant la saison des pluies, il est impossible de garantir que tous vos vêtements resteront secs. Même avec les meilleures méthodes pour sécher vos affaires, l&apos;humidité et les averses peuvent rendre certains vêtements totalement inutilisables. C&apos;est pour cette raison que chaque guide local recommande vivement de préparer un sac de secours étanche, un véritable "kit de survie sèche". Ce sac vous assure d'avoir toujours à disposition un ensemble de vêtements secs, essentiels pour rester au chaud et confortable, quelles que soient les conditions météorologiques.</p>
                     
-                    <p className="mb-4">Dans ce sac étanche, il est crucial de conserver un ensemble complet : un t-shirt sec, une sous-couche thermique, une paire de chaussettes propres, un pantalon léger et une couche chaude supplémentaire. Ces vêtements ne doivent jamais être utilisés pour marcher ou grimper pendant la journée. Leur rôle est de vous protéger après une longue marche sous la pluie, de maintenir votre chaleur corporelle et de vous permettre de dormir confortablement. Même si tout le reste de votre sac est mouillé, ces vêtements restent intacts et vous offrent une sécurité essentielle face à l'humidité en montagne.</p>
+                    <p className="mb-4">Dans ce sac étanche, il est crucial de conserver un ensemble complet : un t-shirt sec, une sous-couche thermique, une paire de chaussettes propres, un pantalon léger et une couche chaude supplémentaire. Ces vêtements ne doivent jamais être utilisés pour marcher ou grimper pendant la journée. Leur rôle est de vous protéger après une longue marche sous la pluie, de maintenir votre chaleur corporelle et de vous permettre de dormir confortablement. Même si tout le reste de votre sac est mouillé, ces vêtements restent intacts et vous offrent une sécurité essentielle face à l&apos;humidité en montagne.</p>
                     
-                    <p className="mb-4">Le sac de secours agit comme une véritable assurance anti-pluie. Il permet au trekkeur de rester sec et protégé, même en pleine saison des pluies Kilimandjaro, et de continuer son trek sans perdre d'énergie ou de confort. Les guides locaux insistent sur l'importance de ce sac, car il garantit que vous pourrez toujours vous changer et rester au chaud, même si la météo devient difficile. Adopter cette stratégie simple mais efficace fait une grande différence entre un trek agréable et un trek éprouvant.</p>
+                    <p className="mb-4">Le sac de secours agit comme une véritable assurance anti-pluie. Il permet au trekkeur de rester sec et protégé, même en pleine saison des pluies Kilimandjaro, et de continuer son trek sans perdre d&apos;énergie ou de confort. Les guides locaux insistent sur l'importance de ce sac, car il garantit que vous pourrez toujours vous changer et rester au chaud, même si la météo devient difficile. Adopter cette stratégie simple mais efficace fait une grande différence entre un trek agréable et un trek éprouvant.</p>
                     
                     <p className="mb-4">En préparant correctement votre sac de secours, vous vous assurez non seulement de rester sec, mais aussi de profiter pleinement de votre aventure sur le Kilimandjaro. C'est une méthode essentielle que tout trekkeur devrait suivre et qui est utilisée quotidiennement par les guides locaux pour protéger leurs clients contre les imprévus liés à la pluie et à l'humidité en montagne.</p>
                   </div>

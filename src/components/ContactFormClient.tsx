@@ -4,8 +4,24 @@ import React, { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { submitContactForm } from '@/lib/actions/contact'
 
+type Messages = {
+  successTitle: string;
+  successMessage: string;
+  nameLabel: string;
+  emailLabel: string;
+  phoneLabel: string;
+  destinationLabel: string;
+  destinationPlaceholder: string;
+  destinations: Record<string, string>;
+  travelDateLabel: string;
+  messageLabel: string;
+  submit: string;
+  submitting: string;
+  submitError: string;
+}
+
 type Props = {
-  messages: any
+  messages: Messages
 }
 
 export default function ContactFormClient({ messages }: Props) {

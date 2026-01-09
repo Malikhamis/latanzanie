@@ -439,7 +439,7 @@ export default function PreparerMentalNuitSommetKilimandjaroPage() {
 
   function renderContent(content: string, locale: string) {
     // Add markers for terms we want to link
-    let processedContent = content
+    const processedContent = content
       .replace(/\baltitude\b/g, '###ALTITUDE_LINK###')
       .replace(/\bcondition physique\b/g, '###CONDITION_PHYSIQUE_LINK###')
       .replace(/\bmal aigu des montagnes\b/gi, '###MAM_LINK###')
@@ -480,7 +480,7 @@ export default function PreparerMentalNuitSommetKilimandjaroPage() {
         const listItems: string[] = []
         while (i < lines.length && lines[i].startsWith('• ')) {
           // Process list items for links
-          let processedItem = lines[i].substring(2)
+          const processedItem = lines[i].substring(2)
             .replace(/###ALTITUDE_LINK###/g, `<a href="/${locale}/travel-blogs/preparer-son-corps-altitude-kilimandjaro" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">altitude</a>`)
             .replace(/###CONDITION_PHYSIQUE_LINK###/g, `<a href="/${locale}/travel-blogs/niveau-physique-kilimandjaro" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">condition physique</a>`)
             .replace(/###MAM_LINK###/g, `<a href="/${locale}/travel-blogs/sante-en-altitude" className="text-[#00A896] hover:text-[#008576] font-medium font-medium">mal aigu des montagnes</a>`)

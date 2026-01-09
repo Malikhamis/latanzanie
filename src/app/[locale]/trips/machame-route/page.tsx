@@ -4,12 +4,12 @@ import { useState, useRef, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import Image from 'next/image'
 import Faq from '@/components/ui/faq'
-import { MapPin, Clock, Calendar, User, CheckCircle, X, Users, Bed, XCircle } from 'lucide-react'
+import { MapPin, Clock, Calendar, User, CheckCircle, Bed, XCircle } from 'lucide-react'
 
 export default function MachameRoutePage() {
   // read locale from the route params
   const params = useParams() as { locale?: string };
-  const currentLocale = params?.locale === 'fr' ? 'fr' : 'en';
+
 
   // Hardcoded French content for Machame Route
   const safeT = (key: string, fallback = ''): string => {
@@ -1294,7 +1294,7 @@ export default function MachameRoutePage() {
               <div className="flex items-center gap-3">
                 <div className="text-2xl">📅</div>
                 <div className="flex-1">
-                  <h3 className="font-semibold text-gray-900 text-base">Don't see your dates?</h3>
+                  <h3 className="font-semibold text-gray-900 text-base">Don&apos;t see your dates?</h3>
                 <p className="text-gray-600 text-sm">Please propose a new departure</p>
                 </div>
               </div>
@@ -1468,14 +1468,15 @@ export default function MachameRoutePage() {
           {/* Trip Dates - List Style */}
           <div className="space-y-3 mb-6">
             {selectedMonths.map((monthKey) => {
-              const [year, month] = monthKey.split('-')
+              // Extracting year and month from monthKey, but not used in current implementation
+              // const [year, month] = monthKey.split('-')
               const rawList = getDatesForMonth(monthKey)
               const list = (rawList || [])
               
               return list.map((item, idx) => {
                 // Calculate price based on selected group options
                 let displayPrice = item.prices && item.prices['Solo Traveler'] ? item.prices['Solo Traveler'] : item.price || 'Price not available';
-                let displayDeposit = item.deposit || 'Deposit not available';
+                const displayDeposit = item.deposit || 'Deposit not available';
                 
                 if (selectedItineraries.length > 0) {
                   // If any group option is selected, use the price for that option
@@ -1539,7 +1540,7 @@ export default function MachameRoutePage() {
             <div className="inline-block p-3 bg-white rounded-full mb-4">
               <Calendar className="w-6 h-6 text-gray-600" />
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">Don't see your dates?</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">Don&apos;t see your dates?</h3>
             <p className="text-gray-600 text-base mb-6">We can create it if bookable!</p>
             <button 
               onClick={() => setIsContactModalOpen(true)}
@@ -1862,7 +1863,7 @@ export default function MachameRoutePage() {
               </div>
               
               <p className="text-gray-600 mb-6">
-                We'll send you a personalised itinerary and put you in touch with one of our Tanzania experts.
+                We&#39;ll send you a personalised itinerary and put you in touch with one of our Tanzania experts.
               </p>
               
               {/* Inquiry Form */}

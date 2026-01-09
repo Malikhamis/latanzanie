@@ -1,9 +1,10 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { useTranslations } from 'next-intl'
-import { Phone, Download, Star, Users, Clock, MapPin, User, Calendar, Bed, Map, CheckCircle, XCircle, Info } from 'lucide-react'
+
+import { Clock, MapPin, User, Calendar, Bed, CheckCircle, XCircle } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 import Faq from '@/components/ui/faq'
 
 export default function MaranguRoutePage() {
@@ -242,7 +243,7 @@ export default function MaranguRoutePage() {
         <div className="hidden md:block absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-[700px] translate-y-[50%] bg-gradient-to-r from-[#008576]/40 to-[#00968A]/40 backdrop-blur-sm rounded-lg shadow-xl overflow-hidden z-30" style={{height: 'auto'}}>
           <div className="p-6">
             <h1 className="text-xl font-serif font-semibold mb-3 text-white">
-              Conquérir le Toit de l'Afrique : L'Ascension du Kilimandjaro par la Route Marangu en 5 Jours
+              Conquérir le Toit de l&apos;Afrique : L&apos;Ascension du Kilimandjaro par la Route Marangu en 5 Jours
             </h1>
             
             <div className="flex items-center mb-2">
@@ -256,7 +257,7 @@ export default function MaranguRoutePage() {
             </div>
             
             <p className="text-white text-base leading-relaxed">
-              Tanzanie. Bienvenue en Tanzanie ! À votre arrivée à l'aéroport international du Kilimandjaro, vous serez accueilli par votre guide. Ensemble, vous prendrez la route en direction de Moshi (environ 60 minutes de route). Vous êtes déjà à votre lodge.
+              Tanzanie. Bienvenue en Tanzanie ! À votre arrivée à l&apos;aéroport international du Kilimandjaro, vous serez accueilli par votre guide. Ensemble, vous prendrez la route en direction de Moshi (environ 60 minutes de route). Vous êtes déjà à votre lodge.
             </p>
           </div>
         </div>
@@ -276,7 +277,7 @@ export default function MaranguRoutePage() {
           </div>
           <div className="p-4 pt-10">
             <h1 className="text-xl font-serif font-semibold mb-4 text-white">
-              Conquérir le Toit de l'Afrique : L'Ascension du Kilimandjaro par la Route Marangu en 5 Jours
+              Conquérir le Toit de l&apos;Afrique : L&apos;Ascension du Kilimandjaro par la Route Marangu en 5 Jours
             </h1>
             
             <div className="flex items-center mb-3">
@@ -699,7 +700,7 @@ export default function MaranguRoutePage() {
               <div className="flex items-center gap-3">
                 <div className="text-2xl">📅</div>
                 <div className="flex-1">
-                  <h3 className="font-semibold text-gray-900 text-base">Don't see your dates?</h3>
+                  <h3 className="font-semibold text-gray-900 text-base">Don&apos;t see your dates?</h3>
                 <p className="text-gray-600 text-sm">Please propose a new departure</p>
                 </div>
               </div>
@@ -880,7 +881,7 @@ export default function MaranguRoutePage() {
               return list.map((item: any, idx: number) => {
                 // Calculate price based on selected group options
                 let displayPrice = item.prices && item.prices['Solo Traveler'] ? item.prices['Solo Traveler'] : item.price || 'Price not available';
-                let displayDeposit = item.deposit || 'Deposit not available';
+                const displayDeposit = item.deposit || 'Deposit not available';
                 
                 if (selectedItineraries.length > 0) {
                   // If any group option is selected, use the price for that option
@@ -944,7 +945,7 @@ export default function MaranguRoutePage() {
             <div className="inline-block p-3 bg-white rounded-full mb-4">
               <Calendar className="w-6 h-6 text-gray-600" />
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">Don't see your dates?</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">Don&apos;t see your dates?</h3>
             <p className="text-gray-600 text-base mb-6">We can create it if bookable!</p>
             <button 
               onClick={() => setIsContactModalOpen(true)}
@@ -1123,7 +1124,7 @@ export default function MaranguRoutePage() {
                     required
                   />
                   <label htmlFor="privacy-policy" className="ml-2 block text-lg md:text-xl text-gray-700">
-                    J'accepte la <a href="/privacy" className="text-[#00A896] hover:text-[#008576]">politique de confidentialité</a>
+                    J'accepte la <Link href="/privacy" className="text-[#00A896] hover:text-[#008576]">politique de confidentialité</Link>
                   </label>
                 </div>
                 

@@ -2,7 +2,7 @@
 
 import { createServerActionClient } from '@/lib/supabase/serverActionsClient'
 import { getClient } from '@/lib/sanity/client'
-import { getKilimanjaroRouteById } from '@/lib/sanity/kilimanjaro'
+// import { getKilimanjaroRouteById } from '@/lib/sanity/kilimanjaro' // Removed unused import
 
 // Define the shape of our calculator data
 interface CalculatorData {
@@ -54,7 +54,13 @@ async function getRouteDataFromSanity(): Promise<Record<string, RouteData>> {
     const routes = await client.fetch(query)
     const routeMap: Record<string, RouteData> = {}
     
-    routes.forEach((route: any) => {
+    interface SanityRoute {
+      routeId: string;
+      name: string;
+      baseSuccessRate: number;
+    }
+    
+    routes.forEach((route: SanityRoute) => {
       routeMap[route.routeId] = {
         name: route.name,
         baseRate: route.baseSuccessRate
@@ -127,7 +133,7 @@ async function calculateSuccessRate(data: CalculatorData): Promise<number> {
 }
 
 // Analyze results to provide personalized feedback
-function analyzeResults(data: CalculatorData, successRate: number) {
+function analyzeResults(data: CalculatorData) {
   const strengths: string[] = []
   const areasToImprove: string[] = []
   

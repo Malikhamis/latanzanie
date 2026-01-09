@@ -1,13 +1,11 @@
-import Link from 'next/link'
-import '../../../tailgrid.css'
-import { getTranslations } from 'next-intl/server'
-import Image from 'next/image'
-import AuthorMeta from '@/components/ui/AuthorMeta'
-import TOC from '@/components/ui/TOC'
-import TopicCard from '@/components/ui/TopicCard'
-import FAQ from '@/components/ui/faq'
-import RelatedArticles from '@/components/ui/RelatedArticles'
-import ClientWrapper from './ClientWrapper'
+'use client';
+
+import Link from 'next/link';
+import '../../../tailgrid.css';
+import { useLocale } from 'next-intl';
+import AuthorMeta from '@/components/ui/AuthorMeta';
+import TOC from '@/components/ui/TOC';
+import TopicCard from '@/components/ui/TopicCard';
 
 // Helper function to process itinerary links in text
 function processItineraryLinks(text: string, keyPrefix: string = ''): string {
@@ -103,7 +101,7 @@ En tant que guide local, je constate chaque saison que les personnes qui respect
   
   'how-body-reacts': `En altitude, le corps reçoit moins d'oxygène à chaque respiration. Pour compenser, le cœur bat plus vite et la respiration devient plus rapide. C'est une réaction naturelle et normale, mais cette adaptation demande du temps.
 
-Si l'on monte trop rapidement, le corps n'a pas le temps de s'adapter correctement. Cela peut provoquer des symptômes comme des maus de tête, des nausées, une fatigue intense, une perte d'appétit ou des troubles du sommeil. Ces signes indiquent que l'organisme est en difficulté face à l'altitude.
+Si l'on monte trop rapidement, le corps n'a pas le temps de s'adapter correctement. Cela peut provoquer des symptômes comme des maux de tête, des nausées, une fatigue intense, une perte d'appétit ou des troubles du sommeil. Ces signes indiquent que l'organisme est en difficulté face à l'altitude.
 
 La préparation commence donc par une règle fondamentale : monter lentement n'est pas un choix, c'est une nécessité.`,
   
@@ -197,148 +195,72 @@ function renderContent(content: string) {
   )
 }
 
-export default async function PrepareBodyAltitudePage({ params }: { params: Promise<{ locale?: string }> }) {
-  const awaitedParams = await params;
-  const locale = awaitedParams?.locale || 'fr';
-  const t = await getTranslations('BlogPosts.preparer-son-corps-altitude-kilimandjaro');
-  
-  const sections = [
-    { id: 'overview', title: locale === 'fr' ? FR_TITLES.overview : EN_TITLES.overview, content: locale === 'fr' ? FR_SECTIONS.overview : EN_SECTIONS.overview },
-    { id: 'how-body-reacts', title: locale === 'fr' ? FR_TITLES['how-body-reacts'] : EN_TITLES['how-body-reacts'], content: locale === 'fr' ? FR_SECTIONS['how-body-reacts'] : EN_SECTIONS['how-body-reacts'] },
-    { id: 'slow-pace', title: locale === 'fr' ? FR_TITLES['slow-pace'] : EN_TITLES['slow-pace'], content: locale === 'fr' ? FR_SECTIONS['slow-pace'] : EN_SECTIONS['slow-pace'] },
-    { id: 'choose-itinerary', title: locale === 'fr' ? FR_TITLES['choose-itinerary'] : EN_TITLES['choose-itinerary'], content: locale === 'fr' ? FR_SECTIONS['choose-itinerary'] : EN_SECTIONS['choose-itinerary'] },
-    { id: 'hydrate-eat', title: locale === 'fr' ? FR_TITLES['hydrate-eat'] : EN_TITLES['hydrate-eat'], content: locale === 'fr' ? FR_SECTIONS['hydrate-eat'] : EN_SECTIONS['hydrate-eat'] },
-    { id: 'listen-guide', title: locale === 'fr' ? FR_TITLES['listen-guide'] : EN_TITLES['listen-guide'], content: locale === 'fr' ? FR_SECTIONS['listen-guide'] : EN_SECTIONS['listen-guide'] },
-    { id: 'guide-tip', title: locale === 'fr' ? FR_TITLES['guide-tip'] : EN_TITLES['guide-tip'], content: locale === 'fr' ? FR_SECTIONS['guide-tip'] : EN_SECTIONS['guide-tip'] },
-  ]
+type Section = {
+  id: string;
+  title: string;
+  content: string;
+};
+
+type ClientWrapperProps = {
+  locale: string;
+  sections: Section[];
+  FR_TITLES: Record<string, string>;
+  EN_TITLES: Record<string, string>;
+  FR_SECTIONS: Record<string, string>;
+  EN_SECTIONS: Record<string, string>;
+};
+
+export default function ClientWrapper({
+  locale,
+  sections,
+  FR_TITLES,
+  EN_TITLES,
+  FR_SECTIONS,
+  EN_SECTIONS
+}: ClientWrapperProps) {
+  const currentLocale = useLocale() || locale;
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero section with back-link */}
-      <section className="hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/hero-bg.webp')" }}>
-        <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-[#E8F8F5] hover:text-white mb-6 inline-flex items-center text-sm font-medium animate-slideInLeft">
-            {locale === 'fr' ? '← Retour aux blogs' : '← Back to blogs'}
-          </Link>
-        </div>
-      </section>
-
-      <ClientWrapper locale={locale} sections={sections} FR_TITLES={FR_TITLES} EN_TITLES={EN_TITLES} FR_SECTIONS={FR_SECTIONS} EN_SECTIONS={EN_SECTIONS} />
-
-      {/* FAQ section */}
-      <section className="py-16 bg-gray-50">
+    <>
+      <section className="py-12 border-b border-gray-200">
         <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-3xl font-bold mb-8 text-center">{locale === 'fr' ? 'Questions fréquentes' : 'Frequently Asked Questions'}</h2>
-          <FAQ items={[]} />
+          <AuthorMeta author={currentLocale === 'fr' ? 'Guide Local Kilimandjaro' : 'Kilimanjaro Local Guide'} date={currentLocale === 'fr' ? 'Décembre 2025' : 'December 2025'} />
         </div>
       </section>
 
-      {/* Related Articles */}
+      <section className="md:hidden py-8 bg-white border-b border-gray-200">
+        <div className="container mx-auto px-4">
+          <TOC title={currentLocale === 'fr' ? 'Sommaire' : 'Overview'} items={sections.map(s => ({ id: s.id, label: s.title, level: 2 }))} onSelect={() => {}} />
+        </div>
+      </section>
+
       <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <RelatedArticles articles={[]} locale={locale} />
-        </div>
-      </section>
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto md:flex md:gap-8">
+            <aside className="hidden md:block md:w-72 lg:w-80 sticky top-24 self-start">
+              <div className="bg-white rounded-lg border p-4 shadow-sm mb-6">
+                <TOC title={currentLocale === 'fr' ? 'Sommaire' : 'Overview'} items={sections.map(s => ({ id: s.id, label: s.title, level: 2 }))} onSelect={() => {}} />
+              </div>
+            </aside>
 
-      {/* Canonical route cards section (after notes) */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{locale === 'fr' ? 'Prêt pour une aventure ?' : 'Ready for an adventure ?'}</h2>
-            <p className="text-gray-600 text-lg">{locale === 'fr' ? 'Explorez nos meilleures routes du Kilimandjaro' : 'Explore our best Kilimanjaro routes'}</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/hero-bg.webp')" }}></div>
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-800">Marangu Route</h3>
-                    <p className="text-[#00A896] font-semibold">{locale === 'fr' ? 'À partir de 1 800 €' : 'From 1,800 €'}</p>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-sm text-gray-500">⏱️5 {locale === 'fr' ? 'jours' : 'days'}</div>
-                    <div className="text-yellow-400">★★★★★ (5.0)</div>
-                  </div>
-                </div>
-                <p className="text-gray-700 mb-4">Conquérir le Toit de l&apos;Afrique : L&apos;Ascension du Kilimandjaro par la Route Marangu en 5 Jours</p>
-                <p className="text-gray-600 text-sm mb-4">{locale === 'fr' ? 'Envie de vous tenir sur le toit de l&apos;Afrique ? Grimpez le Kilimandjaro avec nous et créez des souvenirs inoubliables !' : 'Want to stand on the roof of Africa? Climb Kilimanjaro with us and create unforgettable memories!'}</p>
-                <Link href={`/${locale}/trips/marangu-route`} className="bg-[#00A896] hover:bg-[#008576] text-white px-6 py-2 rounded-lg font-medium transition-colors inline-block">
-                  {locale === 'fr' ? 'En savoir plus' : 'Learn more'}
-                </Link>
+            <div className="flex-1 space-y-6">
+              <div className="mb-8">
+                <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight text-black">{currentLocale === 'fr' ? FR_TITLES.overview : EN_TITLES.overview}</h1>
+                <p className="text-base md:text-lg text-black max-w-3xl">{currentLocale === 'fr' ? 'Conseils pour se préparer à l’altitude et améliorer vos chances au sommet.' : 'Advice to prepare for altitude and improve your summit chances.'}</p>
               </div>
-            </div>
-            <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/hero-bg.webp')" }}></div>
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-800">Lemosho Route</h3>
-                    <p className="text-[#00A896] font-semibold">{locale === 'fr' ? 'À partir de 2 200 €' : 'From 2,200 €'}</p>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-sm text-gray-500">⏱️7 {locale === 'fr' ? 'jours' : 'days'}</div>
-                    <div className="text-yellow-400">★★★★★ (5.0)</div>
-                  </div>
-                </div>
-                <p className="text-gray-700 mb-4">L&apos;Aventure Panoramique : Itinéraire Lemosho en 7 Jours</p>
-                <p className="text-gray-600 text-sm mb-4">{locale === 'fr' ? 'La voie Lemosho est réputée comme l&apos;un des itinéraires les plus spectaculaires. Elle offre des vues imprenables sur les flancs ouest et sud du Kilimandjaro.' : 'The Lemosho route is renowned as one of the most spectacular routes. It offers breathtaking views of the western and southern flanks of Kilimanjaro.'}</p>
-                <Link href={`/${locale}/trips/lemosho-route`} className="bg-[#00A896] hover:bg-[#008576] text-white px-6 py-2 rounded-lg font-medium transition-colors inline-block">
-                  {locale === 'fr' ? 'En savoir plus' : 'Learn more'}
-                </Link>
-              </div>
-            </div>
-            <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/hero-bg.webp')" }}></div>
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-800">Umbwe Route</h3>
-                    <p className="text-[#00A896] font-semibold">{locale === 'fr' ? 'À partir de 1 900 €' : 'From 1,900 €'}</p>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-sm text-gray-500">⏱️6 {locale === 'fr' ? 'jours' : 'days'}</div>
-                    <div className="text-yellow-400">★★★★☆ (4.5)</div>
-                  </div>
-                </div>
-                <p className="text-gray-700 mb-4">L&apos;Itinéraire Umbwe : Le Défi Vertical du Kilimandjaro (6 Jours)</p>
-                <p className="text-gray-600 text-sm mb-4">{locale === 'fr' ? 'Souvent décrite comme la voie la plus courte et la plus ardue du Kilimandjaro, l&apos;itinéraire Umbwe est parfait pour les randonneurs expérimentés.' : 'Often described as the shortest and most challenging route on Kilimanjaro, the Umbwe route is perfect for experienced hikers.'}</p>
-                <Link href={`/${locale}/trips/umbwe-route`} className="bg-[#00A896] hover:bg-[#008576] text-white px-6 py-2 rounded-lg font-medium transition-colors inline-block">
-                  {locale === 'fr' ? 'En savoir plus' : 'Learn more'}
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Simple CTA block at the end, canonical format */}
-      <section className="py-16 text-white relative">
-        <div className="absolute inset-0 z-0">
-          <Image src="/images/kilimanjaro-summit.jpg" alt="Kilimanjaro background" fill className="object-cover" />
-          <div className="absolute inset-0 bg-black/50"></div>
-        </div>
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <h2 className="text-2xl font-semibold mb-4">{locale === 'fr' ? 'Prêt à commencer ?' : 'Ready to start?'}</h2>
-          <h3 className="text-2xl font-bold mb-6">{locale === 'fr' ? 'Rejoignez-nous pour l&apos;aventure' : 'Join us for the adventure'}</h3>
-          <p className="text-xl md:text-2xl max-w-2xl mx-auto mb-8">{locale === 'fr' ? 'Contactez-nous pour en savoir plus sur nos routes' : 'Contact us to learn more about our routes'}</p>
-          <div className="max-w-md mx-auto flex flex-col sm:flex-row gap-4 w-full">
-            <input
-              type="text"
-              placeholder={locale === 'fr' ? 'Prénom' : 'First name'}
-              className="flex-grow px-4 py-3 rounded-lg text-gray-800 focus:outline-none bg-white w-full"
-            />
-            <input
-              type="email"
-              placeholder={locale === 'fr' ? 'Votre adresse email' : 'Your email address'}
-              className="flex-grow px-4 py-3 rounded-lg text-gray-800 focus:outline-none bg-white w-full"
-            />
-            <button className="bg-[#00A896] hover:bg-[#008576] text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 w-full sm:w-auto">
-              {locale === 'fr' ? 'S&apos;abonner' : 'Subscribe'}
-            </button>
+              <div className="bg-gray-50 rounded-lg shadow-md p-6 text-black">
+                {sections.map(s => (
+                  <article key={s.id} id={s.id} className="mb-8">
+                    <h2 className="text-2xl font-semibold mb-2 text-black">{s.title}</h2>
+                    <div className="prose max-w-none text-black" style={{ whiteSpace: 'pre-wrap' }}>{renderContent(s.content)}</div>
+                  </article>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
-    </div>
-  )
+    </>
+  );
 }

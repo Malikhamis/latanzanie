@@ -7,12 +7,16 @@ import { Instagram, Facebook, Twitter, MapPin, Phone, Mail } from 'lucide-react'
 // next-intl will throw MISSING_MESSAGE when the namespace isn't loaded.
 // Instead import the locale JSON files directly and pick the correct
 // namespace for the current locale, falling back to English when needed.
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import enMessages from '../../locales/en.json'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import frMessages from '../../locales/fr.json'
+ 
+import enMessagesRaw from '../../locales/en.json'
+import frMessagesRaw from '../../locales/fr.json'
+
+interface Messages {
+  Footer?: Record<string, string>;
+}
+
+const enMessages = enMessagesRaw as Messages
+const frMessages = frMessagesRaw as Messages
 
 export function LocaleFooter() {
   const pathname = usePathname()
@@ -24,14 +28,14 @@ export function LocaleFooter() {
   const segments = pathname?.split('/').filter(Boolean) || [];
   const currentLocale = segments[0] && ['fr', 'en'].includes(segments[0]) ? segments[0] : 'fr';
 
-  const messagesForLocale = currentLocale === 'fr' ? (frMessages as any) : (enMessages as any)
-  const footerNamespace = messagesForLocale?.Footer ?? (enMessages as any).Footer ?? {}
+  const messagesForLocale = currentLocale === 'fr' ? frMessages : enMessages
+  const footerNamespace = messagesForLocale?.Footer ?? enMessages.Footer ?? {}
 
   const t = (key: string) => {
     try {
       // prefer locale footer, otherwise fallback to English, otherwise return key
-      return footerNamespace?.[key] ?? (enMessages as any).Footer?.[key] ?? key
-    } catch (e) {
+      return footerNamespace?.[key] ?? enMessages.Footer?.[key] ?? key
+    } catch (_) {
       return key
     }
   }

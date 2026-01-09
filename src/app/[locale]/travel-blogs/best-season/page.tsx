@@ -181,7 +181,7 @@ function processTemperatureLinks(text: string, locale: string) {
     } else {
       // First process temperature links
       const temperatureRegex = /([^.]*?)(Les températures)([^.]*)/g;
-      let processedPart = part;
+      const processedPart = part;
       
       // Process temperature links
       const tempParts = [];
@@ -216,7 +216,7 @@ function processTemperatureLinks(text: string, locale: string) {
       
       // Process seasonal links ("mars et mai" and similar)
       const seasonalRegex = /(Entre mars et mai|entre mars et mai|mars et mai)/g;
-      let seasonalProcessedTextOriginal = tempProcessedText;
+      const seasonalProcessedTextOriginal = tempProcessedText;
       
       // Process seasonal links
       const seasonalParts = [];

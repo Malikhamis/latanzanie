@@ -272,7 +272,7 @@ export default function KilimanjaroCalculator() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="excellent" id="excellent" />
-                    <Label htmlFor="excellent">Excellent - I'm very active/trained</Label>
+                    <Label htmlFor="excellent">Excellent - I&apos;m very active/trained</Label>
                   </div>
                 </RadioGroup>
               </div>

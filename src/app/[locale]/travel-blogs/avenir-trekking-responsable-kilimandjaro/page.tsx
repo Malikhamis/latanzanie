@@ -253,7 +253,7 @@ export default function AvenirTrekkingResponsableKilimandjaroPage() {
       // Find all matches and replace with temporary markers
       const forestMatches = [];
       let forestMatch;
-      let forestIndex = 0;
+      const forestIndex = 0;
       
       while ((forestMatch = forestRegex.exec(forestProcessedText)) !== null) {
         forestMatches.push({
@@ -334,7 +334,7 @@ export default function AvenirTrekkingResponsableKilimandjaroPage() {
     // Find all matches and replace with temporary markers
     const forestMatches = [];
     let forestMatch;
-    let forestIndex = 0;
+    const forestIndex = 0;
     
     while ((forestMatch = forestRegex.exec(forestProcessedText)) !== null) {
       forestMatches.push({

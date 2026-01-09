@@ -84,16 +84,16 @@ export default async function LocaleLayout({
   try {
     // Print top-level namespaces and specifically check MaranguRoutePage
     // This will appear in the Next.js server terminal output
-    // eslint-disable-next-line no-console
+     
     console.log('[i18n] loaded message namespaces for', locale, Object.keys(messages));
-    // eslint-disable-next-line no-console
+     
     console.log('[i18n] MaranguRoutePage present?', Boolean((messages as Record<string, unknown>).MaranguRoutePage));
     if ((messages as any).MaranguRoutePage) {
-      // eslint-disable-next-line no-console
+       
       console.log('[i18n] datesAndPrices keys:', Object.keys(((messages as Record<string, unknown>).MaranguRoutePage as Record<string, unknown>)?.datesAndPrices || {}));
     }
   } catch (e) {
-    // eslint-disable-next-line no-console
+     
     console.error('[i18n] diagnostic log failed', e);
   }
   
@@ -103,7 +103,7 @@ export default async function LocaleLayout({
   try {
     parks = await getNavigationData()
   } catch (e) {
-    // eslint-disable-next-line no-console
+     
     console.warn('[nav] getNavigationData failed, falling back to empty nav', e)
     parks = []
   }

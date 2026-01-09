@@ -81,7 +81,7 @@ export default function ConditionsDeTravailPage() {
   // Function to render content with KPAP links
   function renderContent(content: string) {
     // Replace 'KPAP' with a special marker that we'll convert to links
-    let markedContent = content.replace(/KPAP/g, '###KPAP_LINK###');
+    const markedContent = content.replace(/KPAP/g, '###KPAP_LINK###');
     
     // Process the content to convert special markers to temporary markers
     const processedContentWithTempMarkers = processKpapLinks(markedContent);

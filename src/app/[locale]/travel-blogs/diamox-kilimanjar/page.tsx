@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import '../../../tailgrid.css'
@@ -9,7 +9,7 @@ import AuthorMeta from '@/components/ui/AuthorMeta'
 import TOC from '@/components/ui/TOC'
 
 export default function DiamoxKilimanjarPage() {
-  const [expandedSection, setExpandedSection] = useState<string | null>(null)
+  // const [expandedSection, setExpandedSection] = useState<string | null>(null)
   const locale = useLocale()
   const t = useTranslations('DiamoxKilimanjar')
 
@@ -52,7 +52,7 @@ export default function DiamoxKilimanjarPage() {
           <TOC
             title={locale === 'fr' ? 'Sommaire' : 'Overview'}
             items={sections.map(s => ({ id: `${s.id}-detail`, label: s.title, level: 2 }))}
-            onSelect={(id: string) => { const sectionId = id.replace('-detail',''); setExpandedSection(sectionId) }}
+            onSelect={() => {}}
           />
         </div>
       </section>
@@ -66,7 +66,7 @@ export default function DiamoxKilimanjarPage() {
                   <TOC
                     title={locale === 'fr' ? 'Sommaire' : 'Overview'}
                     items={sections.map(s => ({ id: `${s.id}`, label: s.title, level: 2 }))}
-                    onSelect={(id: string) => { const sid = id; setExpandedSection(sid) }}
+                    onSelect={() => {}}
                   />
                 </div>
               </aside>
@@ -95,19 +95,19 @@ export default function DiamoxKilimanjarPage() {
                     <p className="text-gray-700 leading-relaxed mt-4">{t('sections.role_diamox_explanation')}</p>
 
                     <ul className="list-disc list-inside text-gray-700 leading-relaxed mt-4 space-y-1">
-                      <li>Les maux de tête persistants, causés par le manque d'oxygène au cerveau</li>
+                      <li>Les maux de tête persistants, causés par le manque d&apos;oxygène au cerveau</li>
                       <li>La fatigue intense, qui ralentit vos pas et augmente le risque de chute</li>
-                      <li>Les nausées, fréquentes en altitude, qui peuvent réduire l'appétit et l'énergie</li>
-                      <li>Les troubles du sommeil, comme l'insomnie ou les réveils fréquents, qui compliquent la récupération</li>
+                      <li>Les nausées, fréquentes en altitude, qui peuvent réduire l&apos;appétit et l&apos;énergie</li>
+                      <li>Les troubles du sommeil, comme l&apos;insomnie ou les réveils fréquents, qui compliquent la récupération</li>
                     </ul>
 
                     <p className="text-gray-700 leading-relaxed mt-4">{t('sections.role_diamox_note')}</p>
 
                     <ul className="list-disc list-inside text-gray-700 leading-relaxed mt-4 space-y-1">
                       <li>Monter lentement, en suivant le rythme "Pole Pole"</li>
-                      <li>S'hydrater régulièrement, environ 3 à 4 litres d'eau par jour</li>
-                      <li>Bien dormir et récupérer, pour que le corps s'adapte progressivement</li>
-                      <li>Suivre le principe "monter haut, dormir bas", pour stimuler l'acclimatation sans mettre le corps en danger</li>
+                      <li>S&apos;hydrater régulièrement, environ 3 à 4 litres d&apos;eau par jour</li>
+                      <li>Bien dormir et récupérer, pour que le corps s&apos;adapte progressivement</li>
+                      <li>Suivre le principe "monter haut, dormir bas", pour stimuler l&apos;acclimatation sans mettre le corps en danger</li>
                     </ul>
                   </div>
 

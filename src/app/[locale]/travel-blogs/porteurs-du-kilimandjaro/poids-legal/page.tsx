@@ -138,7 +138,7 @@ function convertGuideLocalTempMarkersToLinks(text: string | (string | JSX.Elemen
 // Helper function to process additional terms for linking
 function processTermsForLinking(text: string, keyPrefix: string = ''): string {
   // Replace terms with markers
-  let processedText = text
+  const processedText = text
     .replace(/\baltitude\b/g, '###ALTITUDE_LINK###')
     .replace(/\bcondition physique\b/g, '###CONDITION_PHYSIQUE_LINK###')
     .replace(/\bmal aigu des montagnes\b/gi, '###MAM_LINK###')

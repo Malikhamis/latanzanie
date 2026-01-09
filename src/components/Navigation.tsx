@@ -3,20 +3,19 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu, X, User, Mail, Phone, MessageSquare, Home, Info, Map, Book, Send } from 'lucide-react'
+import { Menu, X, User, Mail, Phone, MessageSquare, Info, Map, Book, Send } from 'lucide-react'
 import { Park } from '@/types/park'
 import { usePathname } from 'next/navigation'
-import { routing } from '@/i18n/routing'
+
 import { useTranslations } from 'next-intl'
-import { blogCategories } from '@/lib/blogCategories'
+
 
 interface NavigationProps {
   parks: Pick<Park, '_id' | 'title' | 'slug'>[]
 }
 
+
 export function Navigation({ parks }: NavigationProps) {
-  const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isDesktopMenuOpen, setIsDesktopMenuOpen] = useState(false)
   const [isContactModalOpen, setIsContactModalOpen] = useState(false)
@@ -27,14 +26,10 @@ export function Navigation({ parks }: NavigationProps) {
   
   // Determine the current locale from the pathname using the same approach as LanguageSwitcher
   const segments = pathname?.split('/').filter(Boolean) || [];
-  const currentLocale = segments[0] && routing.locales.includes(segments[0] as any) ? segments[0] : 'fr';
+  const currentLocale: 'fr' | 'en' = segments[0] && (segments[0] === 'fr' || segments[0] === 'en') ? segments[0] : 'fr';
 
   useEffect(() => {
     setMounted(true)
-    
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
     
     // Function to close menus when clicking outside
     const handleClickOutside = (event: MouseEvent) => {
@@ -75,11 +70,9 @@ export function Navigation({ parks }: NavigationProps) {
       }
     };
     
-    window.addEventListener('scroll', handleScroll)
     document.addEventListener('mousedown', handleClickOutside);
     
     return () => {
-      window.removeEventListener('scroll', handleScroll)
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isMenuOpen, isDesktopMenuOpen, isContactModalOpen, isChatOpen])
@@ -130,9 +123,11 @@ export function Navigation({ parks }: NavigationProps) {
                       {t('blogZanzibar')}
                     </Link>
                   </div>
-              </div>
+                </div>
+              {/* Parks section removed as requested */}
             </div>
-                      
+
+                                   
             {/* Desktop Navigation - Right side items */}
             <div className="hidden md:flex items-center space-x-4">
               <div className="relative group">
@@ -212,75 +207,7 @@ export function Navigation({ parks }: NavigationProps) {
           </div>
         )}
         
-        {/* Desktop Menu Sidebar - Covers full width horizontally */}
-        {isDesktopMenuOpen && (
-          <div className="hidden md:block fixed left-0 top-16 right-0 z-50 desktop-menu">
-            {/* Sidebar with clean modern design */}
-            <div className="bg-white bg-opacity-95 backdrop-blur-md shadow-lg border-b border-gray-200">
-              <div className="container mx-auto px-4 py-4">
-                {/* Close button only */}
-                <div className="flex justify-end mb-4">
-                  <button 
-                    onClick={() => setIsDesktopMenuOpen(false)}
-                    className="text-gray-500 hover:text-gray-700"
-                  >
-                    <X className="h-6 w-6" />
-                  </button>
-                </div>
-                
-                {/* Two Column Layout */}
-                <div className="grid grid-cols-2 gap-8 max-w-4xl mx-auto">
-                  {/* Left Column - Menu Items */}
-                  <nav>
-                    <ul className="space-y-3">
-                      <li>
-                        <Link 
-                          href={`/${currentLocale}`} 
-                          className="block py-2 text-gray-700 hover:text-gray-900 font-medium text-base"
-                          onClick={() => setIsDesktopMenuOpen(false)}
-                        >
-                          {t('home')}
-                        </Link>
-                      </li>
-                      <li>
-                        <Link 
-                          href={`/${currentLocale}/work-with-us`} 
-                          className="block py-2 text-gray-700 hover:text-gray-900 font-medium text-base"
-                          onClick={() => setIsDesktopMenuOpen(false)}
-                        >
-                          {t('workWithUs')}
-                        </Link>
-                      </li>
-                      <li>
-                        <Link 
-                          href={`/${currentLocale}/terms`} 
-                          className="block py-2 text-gray-700 hover:text-gray-900 font-medium text-base"
-                          onClick={() => setIsDesktopMenuOpen(false)}
-                        >
-                          {t('terms')}
-                        </Link>
-                      </li>
-                      <li>
-                        <Link 
-                          href={`/${currentLocale}/privacy`} 
-                          className="block py-2 text-gray-700 hover:text-gray-900 font-medium text-base"
-                          onClick={() => setIsDesktopMenuOpen(false)}
-                        >
-                          {t('privacy')}
-                        </Link>
-                      </li>
-                    </ul>
-                  </nav>
-                  
-                  {/* Right Column - Additional content can go here */}
-                  <div>
-                    {/* Additional content would go here if needed */}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
+
       </nav>
       
       {/* Mobile Menu Sidebar - Only visible on mobile when menu is open */}

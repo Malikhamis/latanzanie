@@ -5,9 +5,12 @@ import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 
+
 // Disable static generation for this page
 export const dynamic = 'force-dynamic';
 export const dynamicParams = true;
+
+// No useEffect with 'safeT' dependency found, so no change needed here.
 
 export default function SigninPage() {
   const [email, setEmail] = useState<string>('')

@@ -1,10 +1,13 @@
-import Link from 'next/link'
-import '../../../tailgrid.css'
-import { getTranslations } from 'next-intl/server'
-import TopicCard from '@/components/ui/TopicCard'
-import ClientWrapper from './ClientWrapper'
+'use client';
 
-const ids = ['overview','role-guide','safety','logistics','morale','culture','economy','mam-role']
+import Link from 'next/link';
+import '../../../tailgrid.css';
+import { useLocale } from 'next-intl';
+import AuthorMeta from '@/components/ui/AuthorMeta';
+import TOC from '@/components/ui/TOC';
+import TopicCard from '@/components/ui/TopicCard';
+
+const ids = ['overview','role-guide','safety','logistics','morale','culture','economy','mam-role'];
 
 const FR_TITLES: Record<string,string> = {
   overview: 'Pourquoi engager un guide local est essentiel pour gravir le Kilimandjaro',
@@ -15,7 +18,7 @@ const FR_TITLES: Record<string,string> = {
   culture: 'Découverte culturelle et environnementale',
   economy: 'Soutien à l’économie locale',
   'mam-role': 'Le rôle du guide face au mal aigu des montagnes'
-}
+};
 
 const FR_SECTIONS: Record<string,string> = {
   overview: `Gravir le Mont Kilimandjaro est bien plus qu'une simple randonnée. C'est une aventure qui met à l'épreuve le corps, le mental et l'organisation de chacun. Même pour les randonneurs les plus expérimentés, les conditions de haute altitude, les changements climatiques soudains et l'effort prolongé peuvent transformer l'ascension en véritable défi. Dans ce contexte, la présence d'un guide local expérimenté n'est pas un luxe, c'est une nécessité.
@@ -63,7 +66,7 @@ En choisissant un guide local, vous participez à la création d'emplois durable
 Le mal aigu des montagnes (MAM) est la principale menace pour les randonneurs en altitude. Chaque corps réagit différemment : certains peuvent ressentir des symptômes dès 3 000 mètres, tandis que d'autres supportent mieux l'altitude. Le guide local joue un rôle crucial en surveillant quotidiennement l'état de santé des participants, en détectant rapidement les signes de MAM et en prenant les mesures nécessaires pour prévenir les complications.
 
 Son expertise permet de réguler le rythme de marche, de décider des pauses ou d'une descente si nécessaire, et de prodiguer les premiers soins. Grâce à lui, chaque randonneur progresse en toute sécurité et maximise ses chances d'atteindre le sommet.`
-}
+};
 
 const EN_TITLES: Record<string,string> = {
   overview: 'Why hiring a local guide is essential for Kilimanjaro',
@@ -74,7 +77,7 @@ const EN_TITLES: Record<string,string> = {
   culture: 'Cultural and environmental discovery',
   economy: 'Support to the local economy',
   'mam-role': 'Guide\'s role regarding acute mountain sickness'
-}
+};
 
 const EN_SECTIONS: Record<string,string> = {
   overview: `A local guide is more than a pathfinder: they protect, advise and ensure safety.`,
@@ -85,78 +88,78 @@ const EN_SECTIONS: Record<string,string> = {
   culture: `They share knowledge about local flora, fauna, history and traditions.`,
   economy: `Hiring guides supports local livelihoods and sustainable employment.`,
   'mam-role': `Guides spot early MAM signs and act quickly with appropriate measures.`
+};
+
+function render(c:string){
+  return c.split('\n\n').map((b,i)=> b.trim().startsWith('>') ? <blockquote key={i} className="pl-4 border-l-4 italic text-black">{b.replace(/^>\s?/,'')}</blockquote> : <p key={i} className="my-4 text-black">{b}</p>)
 }
 
-function render(c:string){return c.split('\n\n').map((b,i)=> b.trim().startsWith('>') ? <blockquote key={i} className="pl-4 border-l-4 italic text-black">{b.replace(/^>\s?/,'')}</blockquote> : <p key={i} className="my-4 text-black">{b}</p>)}
+type Section = {
+  id: string;
+  title: string;
+  content: string;
+};
 
-export default async function GuideLocalPage({ params }: { params: Promise<{ locale?: string }> }) {
-  const awaitedParams = await params;
-  const locale = awaitedParams?.locale || 'fr';
-  const t = await getTranslations('BlogPosts.engager-guide-local-kilimandjaro');
-  
-  const sections = ids.map((id) => ({
-    id,
-    title: locale === 'fr' ? FR_TITLES[id] || EN_TITLES[id] : EN_TITLES[id] || FR_TITLES[id],
-    content: locale === 'fr' ? FR_SECTIONS[id] || EN_SECTIONS[id] : EN_SECTIONS[id] || FR_SECTIONS[id]
-  }));
+type ClientWrapperProps = {
+  locale: string;
+  sections: Section[];
+  FR_TITLES: Record<string, string>;
+  EN_TITLES: Record<string, string>;
+  FR_SECTIONS: Record<string, string>;
+  EN_SECTIONS: Record<string, string>;
+};
+
+export default function ClientWrapper({
+  locale,
+  sections,
+  FR_TITLES,
+  EN_TITLES,
+  FR_SECTIONS,
+  EN_SECTIONS
+}: ClientWrapperProps) {
+  const currentLocale = useLocale() || locale;
 
   return (
-    <div className="min-h-screen bg-white">
-      <section className="relative hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/preparation-hero.jpg')" }}>
-        <div className="absolute inset-0 -z-10">
-          <img src="/images/preparation-hero.jpg" alt="" className="w-full h-full object-cover" />
-        </div>
-        <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-white mb-6 inline-flex items-center text-sm font-medium">← {locale === 'fr' ? 'Retour aux blogs' : 'Back to blogs'}</Link>
+    <>
+      <section className="py-12 border-b border-gray-200">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <AuthorMeta author={currentLocale === 'fr' ? 'Guide Local' : 'Local Guide'} date={currentLocale === 'fr' ? 'Décembre 2025' : 'December 2025'} />
         </div>
       </section>
 
-      <ClientWrapper 
-        locale={locale}
-        sections={sections}
-        FR_TITLES={FR_TITLES}
-        EN_TITLES={EN_TITLES}
-        FR_SECTIONS={FR_SECTIONS}
-        EN_SECTIONS={EN_SECTIONS}
-      />
+      <section className="md:hidden py-8 bg-white border-b border-gray-200">
+        <div className="container mx-auto px-4">
+          <TOC title={currentLocale === 'fr' ? 'Sommaire' : 'Overview'} items={sections.map(s => ({ id: s.id, label: s.title, level: 2 }))} onSelect={() => {}} />
+        </div>
+      </section>
 
       <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{locale === 'fr' ? 'Prêt pour une aventure ?' : 'Ready for an adventure?'}</h2>
-            <p className="text-gray-600 text-lg">Explorez nos meilleures routes du Kilimandjaro</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/marangu-route.jpg')" }}></div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold">Marangu Route</h3>
-                <p className="text-gray-700 mb-4">Conquérir le Toit de l'Afrique : L'Ascension du Kilimandjaro par la Route Marangu en 5 Jours</p>
-                <Link href={`/${locale}/trips/marangu-route`} className="bg-[#00A896] hover:bg-[#008576] text-white px-6 py-2 rounded-lg font-medium">En savoir plus</Link>
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto md:flex md:gap-8">
+            <aside className="hidden md:block md:w-72 lg:w-80 sticky top-24 self-start">
+              <div className="bg-white rounded-lg border p-4 shadow-sm mb-6">
+                <TOC title={currentLocale === 'fr' ? 'Sommaire' : 'Overview'} items={sections.map(s => ({ id: s.id, label: s.title, level: 2 }))} onSelect={() => {}} />
               </div>
-            </div>
+            </aside>
 
-            <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/lemosho-route.jpg')" }}></div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold">Lemosho Route</h3>
-                <p className="text-gray-700 mb-4">L'Aventure Panoramique : Itinéraire Lemosho en 7 Jours</p>
-                <Link href={`/${locale}/trips/lemosho-route`} className="bg-[#00A896] hover:bg-[#008576] text-white px-6 py-2 rounded-lg font-medium">En savoir plus</Link>
+            <div className="flex-1 space-y-6">
+              <div className="mb-8">
+                <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight text-black">{currentLocale === 'fr' ? FR_TITLES.overview : EN_TITLES.overview}</h1>
+                <p className="text-base md:text-lg text-black max-w-3xl">{currentLocale === 'fr' ? 'Pourquoi un guide local change tout pour votre ascension.' : 'Why a local guide makes all the difference for your ascent.'}</p>
               </div>
-            </div>
 
-            <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/kilimanjaro-umbwe.jpg')" }}></div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold">Umbwe Route</h3>
-                <p className="text-gray-700 mb-4">L'Itinéraire Umbwe : Le Défi Vertical du Kilimandjaro (6 Jours)</p>
-                <Link href={`/${locale}/trips/umbwe-route`} className="bg-[#00A896] hover:bg-[#008576] text-white px-6 py-2 rounded-lg font-medium">En savoir plus</Link>
+              <div className="bg-gray-50 rounded-lg shadow-md p-6 text-black">
+                {sections.map(s => (
+                  <article key={s.id} id={s.id} className="mb-8">
+                    <h2 className="text-2xl font-semibold mb-2 text-black">{s.title}</h2>
+                    <div className="prose max-w-none text-black" style={{ whiteSpace: 'pre-wrap' }}>{render(s.content)}</div>
+                  </article>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
-    </div>
-  )
+    </>
+  );
 }

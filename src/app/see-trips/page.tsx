@@ -229,7 +229,7 @@ export default function SeeTripsPage() {
               Voyages d'aventure
             </h1>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed px-4">
-              Des voyages d'aventure sur mesure conçus par des voyageurs passionnés
+              Des voyages d&apos;aventure sur mesure conçus par des voyageurs passionnés
             </p>
           </div>
         </div>
@@ -300,7 +300,7 @@ export default function SeeTripsPage() {
           {filteredTrips.length === 0 && (
             <div className="text-center py-12">
               <p className="text-gray-500 text-lg">
-                Aucun voyage d'aventure trouvé correspondant à votre recherche.
+                Aucun voyage d&apos;aventure trouvé correspondant à votre recherche
               </p>
             </div>
           )}
@@ -338,7 +338,7 @@ export default function SeeTripsPage() {
             rejoignez notre newsletter
           </h3>
           <p className="text-xl md:text-2xl max-w-2xl mx-auto mb-8">
-            Recevez les dernières nouvelles sur les joyaux d'aventure cachés, les voyages de lancement à prix réduit et bien plus encore directement dans votre boîte de réception
+            Recevez les dernières nouvelles sur les joyaux d&apos;aventure cachés, les voyages de lancement à prix réduit et bien plus encore directement dans votre boîte de réception
           </p>
           <div className="max-w-md mx-auto flex flex-col sm:flex-row gap-4 w-full">
             <input
@@ -352,7 +352,7 @@ export default function SeeTripsPage() {
               className="flex-grow px-4 py-3 rounded-lg text-gray-800 focus:outline-none bg-white w-full"
             />
             <button className="bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white px-6 py-3 rounded-lg font-medium transition-colors w-full">
-              S'abonner
+              S&#39;abonner
             </button>
           </div>
         </div>

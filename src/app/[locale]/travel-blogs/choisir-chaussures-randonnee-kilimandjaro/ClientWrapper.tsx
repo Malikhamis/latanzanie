@@ -38,7 +38,7 @@ export default function ClientWrapper({
     // Find all matches and replace with temporary markers
     const matches: { match: string; index: number }[] = [];
     let match;
-    let index = 0;
+    const index = 0;
     
     while ((match = forestRegex.exec(processedContent)) !== null) {
       matches.push({

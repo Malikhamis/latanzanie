@@ -77,12 +77,11 @@ interface TripSchemaProps {
   price: number
   currency: string
   duration: string
-  locale: string
   url: string
   image: string
 }
 
-export function TripSchema({ name, description, price, currency, duration, locale, url, image }: TripSchemaProps) {
+export function TripSchema({ name, description, price, currency, duration, url, image }: Omit<TripSchemaProps, 'locale'>) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "TouristTrip",
@@ -120,10 +119,9 @@ interface ParkSchemaProps {
   name: string
   description: string
   region: string
-  locale: string
 }
 
-export function ParkSchema({ name, description, region, locale }: ParkSchemaProps) {
+export function ParkSchema({ name, description, region }: Omit<ParkSchemaProps, 'locale'>) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "TouristAttraction",

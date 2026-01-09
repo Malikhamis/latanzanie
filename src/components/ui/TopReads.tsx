@@ -29,7 +29,7 @@ export default function TopReads({
     <div className="bg-white rounded-lg p-8 mb-8">
       <h3 className="text-2xl font-bold text-gray-800 mb-6">{title}</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {posts.map((post, idx) => {
+        {posts.map((post) => {
           const titleText = locale === "fr" ? post.titleFr : post.titleEn
           const descText = locale === "fr" ? post.descriptionFr : post.descriptionEn
 

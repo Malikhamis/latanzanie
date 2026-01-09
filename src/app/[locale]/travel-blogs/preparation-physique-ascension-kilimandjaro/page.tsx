@@ -83,7 +83,7 @@ export default function PreparationPhysiquePage() {
 
   function renderContent(content: string, locale: string) {
     // Add markers for terms we want to link
-    let processedContent = content
+    const processedContent = content
       .replace(/\baltitude\b/g, '###ALTITUDE_LINK###')
       .replace(/\bphysique\b/g, '###PHYSIQUE_LINK###')
       .replace(/\bcondition physique\b/g, '###CONDITION_PHYSIQUE_LINK###')

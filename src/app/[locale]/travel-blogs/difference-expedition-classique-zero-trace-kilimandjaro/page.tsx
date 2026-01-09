@@ -137,7 +137,7 @@ export default function DifferenceExpeditionClassiqueZeroTraceKilimandjaroPage()
     markedContent = markedContent.replace(/Le poids des sacs/g, '###POIDS_SACS_LINK###');
     
     const lines = markedContent.split(/\r?\n/)
-    const nodes: any[] = []
+    const nodes: JSX.Element[] = []
     let i = 0
     let keyIndex = 0
 

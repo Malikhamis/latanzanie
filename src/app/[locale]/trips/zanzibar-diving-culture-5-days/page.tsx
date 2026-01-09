@@ -1,13 +1,11 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { Phone, Download, Star, Users, Clock, MapPin, Calendar, User, CheckCircle, XCircle } from 'lucide-react'
+import { Clock, MapPin, Calendar, User, CheckCircle, XCircle } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
 export default function ZanzibarDivingCulture5DaysPage() {
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false)
-  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false)
   const [isInquiryFormOpen, setIsInquiryFormOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('')
   const [showAllInclusions, setShowAllInclusions] = useState(false)
@@ -426,7 +424,7 @@ export default function ZanzibarDivingCulture5DaysPage() {
                 <Calendar className="w-5 h-5 text-blue-600" />
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 mb-1">Don't see your dates?</h3>
+                <h3 className="font-semibold text-gray-900 mb-1">Don&apos;t see your dates?</h3>
                 <p className="text-sm text-gray-600">Please propose a new departure</p>
               </div>
             </div>
@@ -606,7 +604,7 @@ export default function ZanzibarDivingCulture5DaysPage() {
             <div className="inline-block p-3 bg-gray-50 rounded-full mb-4">
               <Calendar className="w-6 h-6 text-gray-600" />
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">Don't see your dates?</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">Don&apos;t see your dates?</h3>
             <p className="text-gray-600 text-base mb-6">We can create it if bookable!</p>
             <button
               onClick={() => setIsInquiryFormOpen(true)}

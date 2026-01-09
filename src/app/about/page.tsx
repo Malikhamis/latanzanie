@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 import '../tailgrid.css'
 
 export default function AboutPage() {
@@ -58,13 +59,13 @@ export default function AboutPage() {
                 Notre mission
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                Chez Latanzanieaucourdelanature, nous croyons que le voyage doit être transformateur. 
+                Chez Latanzanieaucourdelanature, nous croyons que le voyage doit être transformateur.
                 Notre mission est de connecter les voyageurs avec les paysages les plus spectaculaires de la Tanzanie 
                 tout en soutenant les communautés locales et en préservant l'environnement naturel pour les générations futures.
               </p>
               <p className="text-lg text-gray-600">
-                Nous nous engageons en faveur d'un tourisme responsable qui respecte à la fois la faune et les cultures locales, 
-                en veillant à ce que chaque voyage contribue positivement aux lieux et aux personnes que nous visitons.
+                Nous nous engageons en faveur d&apos;un tourisme responsable qui respecte à la fois la faune et les cultures locales, 
+                en veillant à ce que chaque voyage contribue positivement aux lieux et aux personnes que nous visitons
               </p>
             </div>
             <div className="bg-gray-200 border-2 border-dashed rounded-xl w-full h-96" />
@@ -90,7 +91,7 @@ export default function AboutPage() {
                     <h3 className="text-xl font-serif font-bold mb-2 text-gray-800">2010</h3>
                     <h4 className="text-lg font-semibold mb-3 text-[#00A896]">Le commencement</h4>
                     <p className="text-gray-600">
-                      Fondée par des guides tanzaniens locaux passionnés par le partage de la beauté naturelle 
+                      Fondée par des guides tanzaniens locaux passionnés par le partage de la beauté naturelle
                       incroyable de leur pays natal avec le monde entier.
                     </p>
                   </div>
@@ -108,8 +109,8 @@ export default function AboutPage() {
                     <h3 className="text-xl font-serif font-bold mb-2 text-gray-800">2015</h3>
                     <h4 className="text-lg font-semibold mb-3 text-[#00A896]">Reconnaissance internationale</h4>
                     <p className="text-gray-600">
-                      Reconnue par National Geographic comme l'un des principaux opérateurs touristiques durables 
-                      d'Afrique de l'Est pour nos efforts de conservation.
+                      Reconnue par National Geographic comme l&apos;un des principaux opérateurs touristiques durables
+                      d&apos;Afrique de l&apos;Est pour nos efforts de conservation
                     </p>
                   </div>
                 </div>
@@ -126,8 +127,8 @@ export default function AboutPage() {
                     <h3 className="text-xl font-serif font-bold mb-2 text-gray-800">2020</h3>
                     <h4 className="text-lg font-semibold mb-3 text-[#00A896]">Partenariat communautaire</h4>
                     <p className="text-gray-600">
-                      Élargi nos programmes pour inclure des initiatives de tourisme communautaire, 
-                      bénéficiant directement aux villages locaux près de nos destinations.
+                      Élargi nos programmes pour inclure des initiatives de tourisme communautaire,
+                      bénéficiant directement aux villages locaux près de nos destinations
                     </p>
                   </div>
                 </div>
@@ -142,10 +143,10 @@ export default function AboutPage() {
                 <div className="md:order-2 md:pl-12">
                   <div className="bg-white p-6 rounded-lg shadow-md">
                     <h3 className="text-xl font-serif font-bold mb-2 text-gray-800">2025</h3>
-                    <h4 className="text-lg font-semibold mb-3 text-[#00A896]">Vers l'avenir</h4>
+                    <h4 className="text-lg font-semibold mb-3 text-[#00A896]">Vers l&apos;avenir</h4>
                     <p className="text-gray-600">
-                      Continuer à innover dans le tourisme durable tout en élargissant nos offres 
-                      pour inclure de nouvelles destinations et expériences à travers la Tanzanie.
+                      Continuer à innover dans le tourisme durable tout en élargissant nos offres
+                      pour inclure de nouvelles destinations et expériences à travers la Tanzanie
                     </p>
                   </div>
                 </div>
@@ -199,7 +200,7 @@ export default function AboutPage() {
             className="bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white"
             asChild
           >
-            <a href="/contact">Planifiez votre aventure</a>
+            <Link href="/contact">Planifiez votre aventure</Link>
           </Button>
         </div>
       </div>

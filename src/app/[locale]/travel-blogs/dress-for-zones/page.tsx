@@ -1,8 +1,8 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
+// import Image from 'next/image'
 import '../../../tailgrid.css'
 import { useLocale } from 'next-intl'
 import AuthorMeta from '@/components/ui/AuthorMeta'
@@ -14,15 +14,15 @@ interface Section {
 }
 
 export default function DressForZonesPage() {
-  const [isScrolled, setIsScrolled] = useState(false)
+  // const [isScrolled, setIsScrolled] = useState(false)
   const locale = useLocale()
 
   // Handle scroll for header effects
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  // useEffect(() => {
+  //   const handleScroll = () => setIsScrolled(window.scrollY > 50)
+  //   window.addEventListener('scroll', handleScroll)
+  //   return () => window.removeEventListener('scroll', handleScroll)
+  // }, [])
 
   // Add pulse animation to headers on initial load
   useEffect(() => {
@@ -336,9 +336,9 @@ export default function DressForZonesPage() {
                     <p className="mb-4">Les mains sont parmi les premières zones à perdre de la chaleur.</p>
                     <p className="mb-4">La combinaison sous-gants + gants chauds permet :</p>
                     <ul className="list-disc list-inside text-gray-700 leading-relaxed mt-4 space-y-1">
-                      <li>d'ajouter une isolation supplémentaire,</li>
-                      <li>de conserver la chaleur même si le vent s'infiltre,</li>
-                      <li>d’éviter l'engourdissement ou les douleurs au froid.</li>
+                      <li>d&apos;ajouter une isolation supplémentaire,</li>
+                      <li>de conserver la chaleur même si le vent s&apos;infiltre,</li>
+                      <li>d’éviter l&apos;engourdissement ou les douleurs au froid.</li>
                     </ul>
                     <p className="mb-4">Le vent glacial assèche et refroidit les doigts très rapidement — et il faut garder la mobilité pour manipuler bâtons, fermetures, sangle du sac…</p>
                     

@@ -1,0 +1,993 @@
+  283:353  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  284:354  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  289:88   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  289:128  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  295:357  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  309:49   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  309:378  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  309:401  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  309:447  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  309:481  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  312:656  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  318:98   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  318:143  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  318:336  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  318:389  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  321:66   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  321:94   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  321:137  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  322:47   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  322:192  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  322:233  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  322:321  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  333:262  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  334:136  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  334:175  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  334:189  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\diamox-kilimanjar\page.tsx
+  107:66   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  107:76   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  110:46   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  110:70   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  122:112  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  122:143  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  122:171  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  127:140  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  127:217  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  127:274  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  132:188  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  132:242  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  132:270  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  145:62   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  145:159  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  189:73   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  189:85   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  190:95   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  209:52   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  210:94   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  229:52   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  230:139  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\dress-for-zones\page.tsx
+   81:24   error  'id' is defined but never used                                   @typescript-eslint/no-unused-vars       
+   95:30   error  'id' is defined but never used                                   @typescript-eslint/no-unused-vars       
+  172:396  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\drying-gear\page.tsx
+   85:24   error  'id' is defined but never used                                   @typescript-eslint/no-unused-vars       
+   99:30   error  'id' is defined but never used                                   @typescript-eslint/no-unused-vars       
+  112:148  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  112:154  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  112:171  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  112:198  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  112:226  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  112:242  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  127:193  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  127:204  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  129:249  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  139:68   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  143:139  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  143:405  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  145:126  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  145:643  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  145:812  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  145:895  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  145:919  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  147:115  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  147:510  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  149:101  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  149:112  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  149:222  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  149:239  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  149:266  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  149:270  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  149:314  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  163:281  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  163:413  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  165:348  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  167:159  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  167:467  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  167:487  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  179:457  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  179:477  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  179:500  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  183:301  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  185:210  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  185:400  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  197:148  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  197:429  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  199:235  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  199:277  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  199:293  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  199:305  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  199:319  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  199:356  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  199:380  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  199:452  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  199:662  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  201:42   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  201:60   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  201:392  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  201:611  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  203:175  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  215:47   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  215:169  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  215:191  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  215:386  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  217:241  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  217:415  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  219:181  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  219:193  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  219:224  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  219:308  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  221:169  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  221:215  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  221:320  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  233:48   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  233:58   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  233:69   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  237:47   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  237:182  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  237:235  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  237:247  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  237:341  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  239:78   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  239:299  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  239:567  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  241:84   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  241:176  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  241:286  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  241:333  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  241:353  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  249:61   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  253:47   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  253:161  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  253:266  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  253:323  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  253:377  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  253:387  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  253:425  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  255:115  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  255:508  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  255:562  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  257:109  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  257:150  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  257:379  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\engager-guide-local-kilimandjaro\ClientWrapper.tsx
+    3:8  error  'Link' is defined but never used                  @typescript-eslint/no-unused-vars
+    8:8  error  'TopicCard' is defined but never used             @typescript-eslint/no-unused-vars
+   10:7  error  'ids' is assigned a value but never used          @typescript-eslint/no-unused-vars
+   12:7  error  'FR_TITLES' is assigned a value but never used    @typescript-eslint/no-unused-vars
+   23:7  error  'FR_SECTIONS' is assigned a value but never used  @typescript-eslint/no-unused-vars
+   71:7  error  'EN_TITLES' is assigned a value but never used    @typescript-eslint/no-unused-vars
+   82:7  error  'EN_SECTIONS' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  117:3  error  'FR_SECTIONS' is defined but never used           @typescript-eslint/no-unused-vars
+  118:3  error  'EN_SECTIONS' is defined but never used           @typescript-eslint/no-unused-vars
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\engager-guide-local-kilimandjaro\page.tsx
+    4:8   error    'TopicCard' is defined but never used                                                                   
+                                                                                                                           
+                             @typescript-eslint/no-unused-vars
+   90:10  error    'render' is defined but never used                                                                      
+                                                                                                                           
+                             @typescript-eslint/no-unused-vars
+   95:9   error    't' is assigned a value but never used                                                                  
+                                                                                                                           
+                             @typescript-eslint/no-unused-vars
+  107:11  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  135:73  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                         
+                                                                                                                           
+                             react/no-unescaped-entities
+  135:85  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                         
+                                                                                                                           
+                             react/no-unescaped-entities
+  144:52  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                         
+                                                                                                                           
+                             react/no-unescaped-entities
+  153:52  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                         
+                                                                                                                           
+                             react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\equipement-obligatoire-kilimandjaro\page.tsx
+    3:10   error  'useState' is defined but never used                             @typescript-eslint/no-unused-vars       
+    3:20   error  'useEffect' is defined but never used                            @typescript-eslint/no-unused-vars       
+   75:90   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   78:83   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   78:101  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   78:142  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   80:70   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   80:83   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   80:169  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   80:253  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   90:63   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   90:368  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   90:484  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  100:48   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  100:244  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  100:393  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  102:192  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  112:79   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  114:73   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  115:48   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  115:199  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  125:116  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  125:136  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  125:153  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  127:73   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  128:104  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  128:176  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  143:73   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  144:385  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  147:207  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  147:222  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\expedition-zero-trace-kilimandjaro\page.tsx
+  229:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  458:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\hygiene-alimentaire\page.tsx
+    9:7   error  'contentFr' is assigned a value but never used  @typescript-eslint/no-unused-vars
+   54:7   error  'contentEn' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  176:16  error  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  235:9   error  'title' is assigned a value but never used      @typescript-eslint/no-unused-vars
+  236:9   error  'subtitle' is assigned a value but never used   @typescript-eslint/no-unused-vars
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\hygiene-femmes-ascension\page.tsx
+    9:7   error  'contentFr' is assigned a value but never used  @typescript-eslint/no-unused-vars
+   16:7   error  'contentEn' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  206:16  error  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  268:9   error  'title' is assigned a value but never used      @typescript-eslint/no-unused-vars
+  269:9   error  'subtitle' is assigned a value but never used   @typescript-eslint/no-unused-vars
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\kilimanjaro-packing-list\page.tsx
+  127:94   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  127:350  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  193:196  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  193:443  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  196:142  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  199:330  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  216:186  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  218:77   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\kilimanjaro-routes\page.tsx
+   3:10  error    'useState' is defined but never used                                                                     
+              @typescript-eslint/no-unused-vars
+   3:20  error    'useEffect' is defined but never used                                                                    
+              @typescript-eslint/no-unused-vars
+   7:8   error    'Image' is defined but never used                                                                        
+              @typescript-eslint/no-unused-vars
+  10:1   warning  Prevent client components from being async functions. See: https://nextjs.org/docs/messages/no-async-client-component  @next/next/no-async-client-component
+  13:9   error    't' is assigned a value but never used                                                                   
+              @typescript-eslint/no-unused-vars
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\louer-materiel-moshi\page.tsx
+    3:10   error  'useState' is defined but never used                             @typescript-eslint/no-unused-vars       
+    3:20   error  'useEffect' is defined but never used                            @typescript-eslint/no-unused-vars       
+   77:48   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   79:155  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   79:237  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   79:302  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   89:73   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   90:197  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   92:109  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  102:283  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  104:467  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  114:48   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  114:145  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  114:505  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  114:537  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  114:581  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  117:84   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  117:112  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  120:500  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  130:212  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  132:64   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  133:118  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  137:102  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  137:169  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\meilleure-periode-gravir-kilimandjaro\page.tsx
+    9:7   error  'contentFr' is assigned a value but never used  @typescript-eslint/no-unused-vars
+   95:7   error  'contentEn' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  429:16  error  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  495:9   error  'title' is assigned a value but never used      @typescript-eslint/no-unused-vars
+  496:9   error  'subtitle' is assigned a value but never used   @typescript-eslint/no-unused-vars
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\niveau-physique-kilimandjaro\page.tsx
+  192:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\objets-souvent-oublies-packing-list\page.tsx
+    3:10   error  'useState' is defined but never used                             @typescript-eslint/no-unused-vars       
+    3:20   error  'useEffect' is defined but never used                            @typescript-eslint/no-unused-vars       
+   80:106  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   85:65   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   85:113  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   85:316  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   92:84   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   95:280  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   97:236  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  100:114  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  100:145  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  108:58   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  115:36   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  126:45   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  129:40   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  129:55   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  133:59   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  140:108  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  151:96   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  153:184  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  163:54   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  173:156  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  180:47   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  183:48   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  192:110  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  192:162  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  220:80   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  220:249  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  230:50   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  232:215  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\porteurs-du-kilimandjaro\conditions-de-travail\page.tsx     
+    7:8    error  'Image' is defined but never used                                @typescript-eslint/no-unused-vars       
+  217:81   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  217:93   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  218:103  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  237:60   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  238:102  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  257:60   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  258:147  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\porteurs-du-kilimandjaro\poids-legal\page.tsx
+    7:8    error  'Image' is defined but never used                                @typescript-eslint/no-unused-vars       
+  451:81   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  451:93   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  452:103  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  471:60   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  472:102  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  491:60   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  492:147  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\porteurs-du-kilimandjaro\qui-sont-les-porteurs\page.tsx     
+    7:8    error  'Image' is defined but never used                                @typescript-eslint/no-unused-vars       
+   50:19   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  367:81   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  367:93   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  368:103  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  387:60   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  388:102  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  407:60   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  408:147  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\porteurs-du-kilimandjaro\respecter-soutenir\page.tsx        
+    7:8    error  'Image' is defined but never used                                @typescript-eslint/no-unused-vars       
+   41:11   error  'couchageIndex' is assigned a value but never used               @typescript-eslint/no-unused-vars       
+  231:81   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  231:93   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  232:103  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  251:60   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  252:102  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  271:60   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  272:147  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\preparation-medicale-kilimandjaro\ClientWrapper.tsx
+    3:8  error  'Link' is defined but never used                  @typescript-eslint/no-unused-vars
+    8:8  error  'TopicCard' is defined but never used             @typescript-eslint/no-unused-vars
+   10:7  error  'ids' is assigned a value but never used          @typescript-eslint/no-unused-vars
+   12:7  error  'FR_TITLES' is assigned a value but never used    @typescript-eslint/no-unused-vars
+   22:7  error  'FR_SECTIONS' is assigned a value but never used  @typescript-eslint/no-unused-vars
+   52:7  error  'EN_TITLES' is assigned a value but never used    @typescript-eslint/no-unused-vars
+   62:7  error  'EN_SECTIONS' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  123:3  error  'FR_SECTIONS' is defined but never used           @typescript-eslint/no-unused-vars
+  124:3  error  'EN_SECTIONS' is defined but never used           @typescript-eslint/no-unused-vars
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\preparation-medicale-kilimandjaro\page.tsx
+    4:8   error    'TopicCard' is defined but never used                                                                   
+                                                                                                                           
+                             @typescript-eslint/no-unused-vars
+   69:10  error    'render' is defined but never used                                                                      
+                                                                                                                           
+                             @typescript-eslint/no-unused-vars
+  103:9   error    't' is assigned a value but never used                                                                  
+                                                                                                                           
+                             @typescript-eslint/no-unused-vars
+  115:11  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  143:73  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                         
+                                                                                                                           
+                             react/no-unescaped-entities
+  143:85  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                         
+                                                                                                                           
+                             react/no-unescaped-entities
+  152:52  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                         
+                                                                                                                           
+                             react/no-unescaped-entities
+  161:52  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                         
+                                                                                                                           
+                             react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\preparation-mentale-kilimandjaro\ClientWrapper.tsx
+    4:8  error  'Link' is defined but never used                  @typescript-eslint/no-unused-vars
+    8:8  error  'TopicCard' is defined but never used             @typescript-eslint/no-unused-vars
+   11:7  error  'ids' is assigned a value but never used          @typescript-eslint/no-unused-vars
+   13:7  error  'FR_TITLES' is assigned a value but never used    @typescript-eslint/no-unused-vars
+   24:7  error  'FR_SECTIONS' is assigned a value but never used  @typescript-eslint/no-unused-vars
+   35:7  error  'EN_TITLES' is assigned a value but never used    @typescript-eslint/no-unused-vars
+   46:7  error  'EN_SECTIONS' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  111:3  error  'FR_SECTIONS' is defined but never used           @typescript-eslint/no-unused-vars
+  112:3  error  'EN_SECTIONS' is defined but never used           @typescript-eslint/no-unused-vars
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\preparation-mentale-kilimandjaro\page.tsx
+    4:8   error    'TopicCard' is defined but never used                                                                   
+                                                                                                                           
+                             @typescript-eslint/no-unused-vars
+   54:10  error    'renderContent' is defined but never used                                                               
+                                                                                                                           
+                             @typescript-eslint/no-unused-vars
+   91:9   error    't' is assigned a value but never used                                                                  
+                                                                                                                           
+                             @typescript-eslint/no-unused-vars
+  103:11  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  132:73  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                         
+                                                                                                                           
+                             react/no-unescaped-entities
+  132:85  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                         
+                                                                                                                           
+                             react/no-unescaped-entities
+  141:52  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                         
+                                                                                                                           
+                             react/no-unescaped-entities
+  150:52  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                         
+                                                                                                                           
+                             react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\preparation-physique-ascension-kilimandjaro\page.tsx        
+   94:18  error    Unexpected any. Specify a different type                                                                
+                                                                                                                           
+                             @typescript-eslint/no-explicit-any
+  194:11  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\preparation-physique-kilimandjaro\page.tsx
+   18:10   error  'isScrolled' is assigned a value but never used                  @typescript-eslint/no-unused-vars       
+   23:9    error  'toggleSection' is assigned a value but never used               @typescript-eslint/no-unused-vars       
+  119:210  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  119:220  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  210:91   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  210:101  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  262:97   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  262:107  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  437:108  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  437:118  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  466:81   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  466:93   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  467:103  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  486:60   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  487:102  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  506:60   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  507:147  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\preparer-mental-nuit-sommet-kilimandjaro\page.tsx
+  449:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\preparer-son-corps-altitude-kilimandjaro\ClientWrapper.tsx  
+    8:8   error  'TopicCard' is defined but never used                            @typescript-eslint/no-unused-vars        
+   52:14  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   75:7   error  'ids' is assigned a value but never used                         @typescript-eslint/no-unused-vars        
+   85:7   error  'FR_TITLES' is assigned a value but never used                   @typescript-eslint/no-unused-vars        
+   95:7   error  'FR_SECTIONS' is assigned a value but never used                 @typescript-eslint/no-unused-vars        
+  129:7   error  'EN_TITLES' is assigned a value but never used                   @typescript-eslint/no-unused-vars        
+  139:7   error  'EN_SECTIONS' is assigned a value but never used                 @typescript-eslint/no-unused-vars        
+  218:3   error  'FR_SECTIONS' is defined but never used                          @typescript-eslint/no-unused-vars        
+  219:3   error  'EN_SECTIONS' is defined but never used                          @typescript-eslint/no-unused-vars        
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\preparer-son-corps-altitude-kilimandjaro\page.tsx
+    5:8   error  'AuthorMeta' is defined but never used                           @typescript-eslint/no-unused-vars        
+    6:8   error  'TOC' is defined but never used                                  @typescript-eslint/no-unused-vars        
+    7:8   error  'TopicCard' is defined but never used                            @typescript-eslint/no-unused-vars        
+   54:14  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   77:7   error  'ids' is assigned a value but never used                         @typescript-eslint/no-unused-vars        
+  175:10  error  'renderContent' is defined but never used                        @typescript-eslint/no-unused-vars        
+  203:9   error  't' is assigned a value but never used                           @typescript-eslint/no-unused-vars        
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\rester-propre-sans-eau\page.tsx
+    9:7   error  'contentFr' is assigned a value but never used  @typescript-eslint/no-unused-vars
+   37:7   error  'contentEn' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  119:16  error  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  181:9   error  'title' is assigned a value but never used      @typescript-eslint/no-unused-vars
+  182:9   error  'subtitle' is assigned a value but never used   @typescript-eslint/no-unused-vars
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\sante-en-altitude\page.tsx
+   13:10   error  'expandedSection' is assigned a value but never used             @typescript-eslint/no-unused-vars       
+  166:266  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  219:73   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  219:85   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  220:95   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  239:52   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  240:94   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  259:52   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  260:139  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\shabituer-altitude-tanzanie\page.tsx
+   18:10   error  'isScrolled' is assigned a value but never used                  @typescript-eslint/no-unused-vars       
+   23:9    error  'toggleSection' is assigned a value but never used               @typescript-eslint/no-unused-vars       
+  120:40   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  120:251  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  120:286  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  132:246  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  132:256  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  207:164  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  208:268  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  208:288  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  208:336  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  229:309  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  229:319  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  254:81   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  254:93   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  255:103  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  274:60   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  275:102  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  294:60   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  295:147  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\sommeil-kilimanjar\page.tsx
+   13:9    error  'toggleSection' is assigned a value but never used               @typescript-eslint/no-unused-vars       
+   78:28   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   78:70   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   81:63   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   81:106  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   81:153  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   81:221  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   81:243  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   81:325  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   81:428  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   81:508  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   91:108  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   91:132  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   91:315  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   91:341  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   91:603  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   91:673  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   92:51   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   92:201  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   92:456  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   92:515  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   93:335  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   93:355  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   93:416  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   93:581  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   93:645  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   94:232  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  101:28   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  104:140  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  104:250  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  104:348  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  104:363  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  105:77   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  105:163  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  105:237  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  106:132  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  106:177  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  106:198  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  106:266  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  106:321  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  107:320  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  109:52   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  109:113  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  109:266  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  120:85   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  120:122  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  120:301  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  123:132  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  123:152  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  123:228  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  125:53   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  127:115  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  127:152  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  128:71   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  129:83   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  129:354  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  131:175  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  131:322  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  131:359  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  142:52   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  142:174  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  142:226  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  142:263  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  169:81   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  169:93   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  170:103  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  189:60   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  190:102  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  209:60   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  210:147  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  228:80   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  242:24   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\toilettes-privees-necessaires\page.tsx
+    9:7   error  'contentFr' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  103:7   error  'contentEn' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  377:16  error  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  432:9   error  'title' is assigned a value but never used      @typescript-eslint/no-unused-vars
+  433:9   error  'subtitle' is assigned a value but never used   @typescript-eslint/no-unused-vars
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\vetements-equipements-saisons-kilimandjaro\page.tsx
+    3:10   error  'useState' is defined but never used                             @typescript-eslint/no-unused-vars       
+    3:20   error  'useEffect' is defined but never used                            @typescript-eslint/no-unused-vars       
+   77:83   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   80:65   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   80:353  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   80:374  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   90:63   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   90:125  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   95:84   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   95:241  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   95:342  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  101:442  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  104:72   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  104:85   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  104:220  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  104:406  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  107:73   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  107:277  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  110:85   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  110:128  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  110:159  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  110:199  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  121:120  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  124:148  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  124:301  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  140:238  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  140:384  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  156:44   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  161:73   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  162:51   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\travel-blogs\zones-climatiques-kilimandjaro\page.tsx
+    9:7   error  'contentFr' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  180:7   error  'contentEn' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  663:16  error  Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\trips\climb-kilimanjaro\page.tsx
+    6:71   error    'Bed' is defined but never used                                                                        
+   @typescript-eslint/no-unused-vars
+    6:76   error    'Map' is defined but never used                                                                        
+   @typescript-eslint/no-unused-vars
+    6:81   error    'CheckCircle' is defined but never used                                                                
+   @typescript-eslint/no-unused-vars
+    6:94   error    'XCircle' is defined but never used                                                                    
+   @typescript-eslint/no-unused-vars
+    6:103  error    'Info' is defined but never used                                                                       
+   @typescript-eslint/no-unused-vars
+   74:14   error    'e' is defined but never used                                                                          
+   @typescript-eslint/no-unused-vars
+  191:6    warning  React Hook useEffect has a missing dependency: 'safeT'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  438:76   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                        
+   react/no-unescaped-entities
+  669:70   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                        
+   react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\trips\lemosho-route\page.tsx
+     7:54   error  'X' is defined but never used                                    @typescript-eslint/no-unused-vars      
+     7:57   error  'Users' is defined but never used                                @typescript-eslint/no-unused-vars      
+    12:9    error  'currentLocale' is assigned a value but never used               @typescript-eslint/no-unused-vars      
+   151:51   error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any     
+   763:54   error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any     
+   772:20   error  'e' is defined but never used                                    @typescript-eslint/no-unused-vars      
+   777:14   error  'e' is defined but never used                                    @typescript-eslint/no-unused-vars      
+   786:10   error  'isDownloadModalOpen' is assigned a value but never used         @typescript-eslint/no-unused-vars      
+   786:31   error  'setIsDownloadModalOpen' is assigned a value but never used      @typescript-eslint/no-unused-vars      
+   814:14   error  'e' is defined but never used                                    @typescript-eslint/no-unused-vars      
+  1511:110  error  'index' is defined but never used                                @typescript-eslint/no-unused-vars      
+  1879:19   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\trips\machame-route\page.tsx
+     7:54   error  'X' is defined but never used                                    @typescript-eslint/no-unused-vars      
+     7:57   error  'Users' is defined but never used                                @typescript-eslint/no-unused-vars      
+    12:9    error  'currentLocale' is assigned a value but never used               @typescript-eslint/no-unused-vars      
+   150:51   error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any     
+   749:54   error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any     
+   758:20   error  'e' is defined but never used                                    @typescript-eslint/no-unused-vars      
+   763:14   error  'e' is defined but never used                                    @typescript-eslint/no-unused-vars      
+   770:10   error  'isDownloadModalOpen' is assigned a value but never used         @typescript-eslint/no-unused-vars      
+   770:31   error  'setIsDownloadModalOpen' is assigned a value but never used      @typescript-eslint/no-unused-vars      
+   799:14   error  'e' is defined but never used                                    @typescript-eslint/no-unused-vars      
+  1424:110  error  'index' is defined but never used                                @typescript-eslint/no-unused-vars      
+  1866:19   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\trips\marangu-route\page.tsx
+     4:10   error  'useTranslations' is defined but never used                      @typescript-eslint/no-unused-vars      
+     5:10   error  'Phone' is defined but never used                                @typescript-eslint/no-unused-vars      
+     5:17   error  'Download' is defined but never used                             @typescript-eslint/no-unused-vars      
+     5:27   error  'Star' is defined but never used                                 @typescript-eslint/no-unused-vars      
+     5:33   error  'Users' is defined but never used                                @typescript-eslint/no-unused-vars      
+     5:76   error  'Map' is defined but never used                                  @typescript-eslint/no-unused-vars      
+     5:103  error  'Info' is defined but never used                                 @typescript-eslint/no-unused-vars      
+    24:10   error  'isDownloadModalOpen' is assigned a value but never used         @typescript-eslint/no-unused-vars      
+    24:31   error  'setIsDownloadModalOpen' is assigned a value but never used      @typescript-eslint/no-unused-vars      
+    30:10   error  'showEarlierDates' is assigned a value but never used            @typescript-eslint/no-unused-vars      
+    30:28   error  'setShowEarlierDates' is assigned a value but never used         @typescript-eslint/no-unused-vars      
+    34:9    error  'navbarRef' is assigned a value but never used                   @typescript-eslint/no-unused-vars      
+    40:11   error  'heading' is assigned a value but never used                     @typescript-eslint/no-unused-vars      
+    43:44   error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any     
+   294:68   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   408:76   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   429:40   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   429:132  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   429:163  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   456:325  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   456:401  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   483:153  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   483:320  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   483:402  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   507:33   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   510:63   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   510:138  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   510:163  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   510:213  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   510:300  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   510:309  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   510:385  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   510:389  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   510:435  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   510:455  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   510:643  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   510:794  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   537:151  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   537:390  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   537:412  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   561:51   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   564:30   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   564:55   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   564:189  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   564:315  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   564:362  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   564:368  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   564:472  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   564:542  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   620:30   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   665:319  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   830:110  error  'index' is defined but never used                                @typescript-eslint/no-unused-vars      
+   877:22   error  'year' is assigned a value but never used                        @typescript-eslint/no-unused-vars      
+   877:28   error  'month' is assigned a value but never used                       @typescript-eslint/no-unused-vars      
+   881:38   error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any     
+  1018:35   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  1035:16   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  1127:22   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  1171:98   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\trips\materuni-chemka-2-days\page.tsx
+    4:10   error  'useParams' is defined but never used                            @typescript-eslint/no-unused-vars       
+    6:57   error  'XCircle' is defined but never used                              @typescript-eslint/no-unused-vars       
+    6:66   error  'Users' is defined but never used                                @typescript-eslint/no-unused-vars       
+  138:9    error  'exclusions' is assigned a value but never used                  @typescript-eslint/no-unused-vars       
+  397:274  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  397:302  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  415:337  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  421:73   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  458:76   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  675:70   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\trips\materuni-cultural-tour\page.tsx
+  6:79  error  'Camera' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\trips\safari-bivouac-4-days\page.tsx
+    6:66  error  'Users' is defined but never used                                @typescript-eslint/no-unused-vars        
+   10:9   error  'currentLocale' is assigned a value but never used               @typescript-eslint/no-unused-vars        
+  400:76  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  617:70  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\trips\safari-bivouac-8-days\page.tsx
+    6:66    error  'Users' is defined but never used                                @typescript-eslint/no-unused-vars      
+    6:73    error  'Bed' is defined but never used                                  @typescript-eslint/no-unused-vars      
+    7:8     error  'Faq' is defined but never used                                  @typescript-eslint/no-unused-vars      
+   11:9     error  'currentLocale' is assigned a value but never used               @typescript-eslint/no-unused-vars      
+  435:76    error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  652:70    error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  676:172   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  676:437   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  676:589   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  684:218   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  684:266   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  684:286   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  684:561   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  692:138   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  692:478   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  708:353   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  708:631   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  708:861   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  708:1126  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:234   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:295   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:302   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:530   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:574   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:686   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:701   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:878   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:998   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:1033  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:1200  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:1430  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:1463  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:1472  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:1624  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:1668  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:1736  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:1863  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:1928  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:1942  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:2034  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:2069  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:2094  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:2153  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:2215  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:2287  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:2377  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:2410  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  716:2491  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\trips\safari-kilimanjaro-6-days\page.tsx
+    4:10   error  'useParams' is defined but never used                            @typescript-eslint/no-unused-vars       
+    6:66   error  'Users' is defined but never used                                @typescript-eslint/no-unused-vars       
+  426:82   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  426:96   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  426:286  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  444:83   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  444:280  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  481:76   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  698:70   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\trips\tanzania-safari\page.tsx
+   25:9   error  'safeT' is assigned a value but never used                       @typescript-eslint/no-unused-vars        
+   30:14  error  'e' is defined but never used                                    @typescript-eslint/no-unused-vars        
+  408:76  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  632:70  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\trips\umbwe-route\page.tsx
+    11:11   error    'locale' is assigned a value but never used                                                           
+@typescript-eslint/no-unused-vars
+   140:51   error    Unexpected any. Specify a different type                                                              
+@typescript-eslint/no-explicit-any
+   453:54   error    Unexpected any. Specify a different type                                                              
+@typescript-eslint/no-explicit-any
+   462:20   error    'e' is defined but never used                                                                         
+@typescript-eslint/no-unused-vars
+   467:14   error    'e' is defined but never used                                                                         
+@typescript-eslint/no-unused-vars
+   480:10   error    'showAllInclusions' is assigned a value but never used                                                
+@typescript-eslint/no-unused-vars
+   480:29   error    'setShowAllInclusions' is assigned a value but never used                                             
+@typescript-eslint/no-unused-vars
+   505:6    warning  React Hook useEffect has a missing dependency: 't'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   516:14   error    'e' is defined but never used                                                                         
+@typescript-eslint/no-unused-vars
+  1057:110  error    'index' is defined but never used                                                                     
+@typescript-eslint/no-unused-vars
+  1109:38   error    Unexpected any. Specify a different type                                                              
+@typescript-eslint/no-explicit-any
+  1426:19   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                       
+react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\trips\zanzibar-beach-holidays\page.tsx
+   34:14  error    'e' is defined but never used                                                                           
+  @typescript-eslint/no-unused-vars
+  138:6   warning  React Hook useEffect has a missing dependency: 'safeT'. Either include it or remove the dependency array
+  react-hooks/exhaustive-deps
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\trips\zanzibar-complete-escape-8-days\page.tsx
+  19:9  error  'navbarRef' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\trips\zanzibar-diving-culture-5-days\page.tsx
+  19:9  error  'navbarRef' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\PC\Documents\latanzanie\src\app\[locale]\trips\zanzibar-safari-beach-10-days\page.tsx
+  699:84   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  699:279  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\about\page.tsx
+   63:77  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                           
+                                                     react/no-unescaped-entities
+   66:48  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                           
+                                                     react/no-unescaped-entities
+  111:63  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                           
+                                                     react/no-unescaped-entities
+  112:24  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                           
+                                                     react/no-unescaped-entities
+  112:37  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                           
+                                                     react/no-unescaped-entities
+  145:85  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                           
+                                                     react/no-unescaped-entities
+  202:13  error  Do not use an `<a>` element to navigate to `/contact/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+  202:13  error  Do not use an `<a>` element to navigate to `/contact/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+
+C:\Users\PC\Documents\latanzanie\src\app\api\kilimanjaro-routes\route.ts
+  24:48  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\PC\Documents\latanzanie\src\app\api\parks\route.ts
+   3:27  error  'request' is defined but never used  @typescript-eslint/no-unused-vars
+  37:31  error  'request' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\PC\Documents\latanzanie\src\app\error.tsx
+  41:15  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                            
+                                                    react/no-unescaped-entities
+  58:11  error  Do not use an `<a>` element to navigate to `/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages          @next/next/no-html-link-for-pages
+  58:11  error  Do not use an `<a>` element to navigate to `/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages          @next/next/no-html-link-for-pages
+  58:11  error  Do not use an `<a>` element to navigate to `/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages          @next/next/no-html-link-for-pages
+  65:11  error  Do not use an `<a>` element to navigate to `/contact/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+  65:11  error  Do not use an `<a>` element to navigate to `/contact/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+
+C:\Users\PC\Documents\latanzanie\src\app\kilimanjaro\calculator\page.tsx
+   71:9   error  'calculateBMI' is assigned a value but never used                @typescript-eslint/no-unused-vars        
+  275:61  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\layout.tsx
+  10:7  error  'geistSans' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  11:7  error  'geistMono' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\PC\Documents\latanzanie\src\app\not-found.tsx
+  13:25  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  13:46  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\app\page.tsx
+  1:10  error  'getAllParks' is defined but never used  @typescript-eslint/no-unused-vars
+  2:10  error  'Park' is defined but never used         @typescript-eslint/no-unused-vars
+  3:10  error  'Hero' is defined but never used         @typescript-eslint/no-unused-vars
+
+C:\Users\PC\Documents\latanzanie\src\app\parks\[slug]\page.tsx
+   4:10  error  'useTranslations' is defined but never used  @typescript-eslint/no-unused-vars
+  33:52  error  Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+
+C:\Users\PC\Documents\latanzanie\src\app\see-trips\page.tsx
+    4:31  error  'Users' is defined but never used                                @typescript-eslint/no-unused-vars        
+  229:24  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  232:28  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  303:31  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  341:61  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  355:16  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\PC\Documents\latanzanie\src\components\DynamicImports.tsx
+  8:7  error  'ModalLoading' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\PC\Documents\latanzanie\src\components\LocaleFooter.tsx
+  38:14  error  'e' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\PC\Documents\latanzanie\src\components\LocaleNavigation.tsx
+  17:10  error  'isScrolled' is assigned a value but never used       @typescript-eslint/no-unused-vars
+  54:9   error  'translatedParks' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\PC\Documents\latanzanie\src\components\StructuredData.tsx
+   85:76  error  'locale' is defined but never used  @typescript-eslint/no-unused-vars
+  126:57  error  'locale' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\PC\Documents\latanzanie\src\components\TripCard.tsx
+  22:3  error  'description' is defined but never used  @typescript-eslint/no-unused-vars
+  23:3  error  'price' is defined but never used        @typescript-eslint/no-unused-vars
+  24:3  error  'priceLabel' is defined but never used   @typescript-eslint/no-unused-vars
+  25:3  error  'duration' is defined but never used     @typescript-eslint/no-unused-vars
+  26:3  error  'rating' is defined but never used       @typescript-eslint/no-unused-vars
+
+C:\Users\PC\Documents\latanzanie\src\components\ui\InlineCTA.tsx
+  21:3  error  'label' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\PC\Documents\latanzanie\src\components\ui\TopReads.tsx
+  32:27  error  'idx' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\PC\Documents\latanzanie\src\components\ui\input.tsx
+  7:18  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type   
+
+C:\Users\PC\Documents\latanzanie\src\components\ui\textarea.tsx
+  7:18  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type   
+
+C:\Users\PC\Documents\latanzanie\src\i18n\request.ts
+  7:54  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\PC\Documents\latanzanie\src\lib\actions\kilimanjaro.ts
+    5:10  error  'getKilimanjaroRouteById' is defined but never used  @typescript-eslint/no-unused-vars
+   57:28  error  Unexpected any. Specify a different type             @typescript-eslint/no-explicit-any
+  130:47  error  'successRate' is defined but never used              @typescript-eslint/no-unused-vars
+
+C:\Users\PC\Documents\latanzanie\src\lib\sanity\fetch.ts
+  171:37  error  'slug' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 1172 problems (1160 errors, 12 warnings)

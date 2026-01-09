@@ -21,11 +21,23 @@ export async function GET() {
     const routes = await client.fetch(query)
     
     // Transform the data to match the expected format
-    const formattedRoutes = routes.map((route: any) => ({
+    interface KilimanjaroRoute {
+      routeId: string;
+      name: string;
+      baseSuccessRate: number;
+    }
+    
+    interface FormattedRoute {
+      id: string;
+      name: string;
+      baseRate: number;
+    }
+    
+    const formattedRoutes: FormattedRoute[] = routes.map((route: KilimanjaroRoute) => ({
       id: route.routeId,
       name: route.name,
       baseRate: route.baseSuccessRate
-    }))
+    }));
     
     return NextResponse.json(formattedRoutes)
   } catch (error) {

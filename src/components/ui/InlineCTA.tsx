@@ -18,7 +18,6 @@ const DEFAULT_WA = `https://wa.me/${DEFAULT_PHONE.replace(/\D/g, "")}?text=Bonjo
 const DEFAULT_CALENDLY = "https://calendly.com/latanzanie"
 
 export default function InlineCTA({
-  label = "Get in touch",
   whatsappLink,
   calendlyLink,
   phoneNumber,
@@ -67,5 +66,5 @@ export default function InlineCTA({
         </a>
       )}
     </div>
-  )
+  );
 }

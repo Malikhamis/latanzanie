@@ -49,152 +49,8 @@ function processRouteLinks(text: string, locale: string) {
   });
 }
 
-const contentFr = `Comment maintenir une bonne hygiène personnelle pendant l’ascension du Kilimandjaro ?
+// Content moved to FR_SECTIONS object
 
-Guide pratique par un guide local du Kilimandjaro
-
-L’ascension du mont Kilimandjaro est une aventure exceptionnelle, mais elle se déroule dans des conditions très différentes du quotidien. L’un des sujets les plus sous-estimés par les randonneurs est l’hygiène personnelle. Sans douches, avec une eau limitée et des camps isolés, beaucoup se demandent comment rester propre pendant plusieurs jours de trek.
-
-La réalité est simple : une bonne hygiène sur le Kilimandjaro est indispensable pour rester en bonne santé et réussir le sommet. En tant que guide local, je constate souvent que les grimpeurs qui respectent les règles d’hygiène sont ceux qui terminent le trek dans les meilleures conditions.
-
-
-1. Comprendre les conditions d’hygiène sur le Kilimandjaro
-
-Avant de partir à l’ascension du mont Kilimandjaro, il est essentiel de comprendre une réalité simple : le confort moderne n’existe pas sur la montagne. Le Kilimandjaro est une zone naturelle protégée, sans infrastructures hôtelières, et l’hygiène y fonctionne selon des règles très différentes de celles du quotidien.
-
-
-*Pas de douche sur le Kilimandjaro*
-
-Il n’y a aucune douche sur le mont Kilimandjaro, quelle que soit la voie choisie (Machame, Lemosho, Marangu, Rongai ou Northern Circuit). L’eau disponible en montagne est une ressource précieuse, collectée depuis des rivières ou des sources naturelles, puis traitée par l’équipe.
-
-Cette eau est prioritairement utilisée pour :
-
-1) La boisson
-
-2) La préparation des repas
-
-3) Le lavage des mains et de la vaisselle
-
-Il n’est donc pas possible de se laver entièrement comme à la maison. L’hygiène repose sur des solutions simples et adaptées à l’environnement.
-
-
-Des camps rustiques et une autonomie personnelle indispensable
-
-Les camps du mont Kilimandjaro sont volontairement simples et rustiques. Ils ne sont pas conçus pour offrir du confort, mais pour permettre aux randonneurs de se reposer tout en respectant l’environnement fragile de la montagne. Dans chaque camp, on trouve uniquement l’essentiel : des tentes pour dormir, une zone commune pour les repas et des installations sanitaires très basiques.
-
-Il est important de comprendre qu’il n’y a ni eau courante, ni système de nettoyage automatique sur le Kilimandjaro. Une fois le soleil couché, la lumière disparaît, les températures baissent rapidement et chaque geste du quotidien demande un minimum d’organisation. Cette simplicité fait partie intégrante de l’expérience d’ascension.
-
-Dans ces conditions, l’hygiène repose presque entièrement sur l’autonomie personnelle du randonneur. Contrairement à un hôtel ou à un refuge équipé, personne ne vient nettoyer votre espace, vous rappeler de vous laver les mains ou gérer votre confort. Chacun est responsable de sa propre hygiène, jour après jour.
-
-Votre niveau de confort dépend avant tout de ce que vous avez prévu dans votre sac. Les lingettes humides, le gel hydroalcoolique, les vêtements propres et les accessoires d’hygiène deviennent de véritables outils de bien-être. Un sac bien préparé permet de rester propre malgré l’absence d’infrastructures modernes.
-
-L’hygiène dépend aussi de vos habitudes quotidiennes. Les randonneurs qui instaurent une routine simple — se nettoyer chaque soir, se changer au camp, prendre soin de leurs pieds — conservent plus d’énergie et évitent de nombreux problèmes de santé. À l’inverse, négliger ces gestes, même pendant un ou deux jours, peut rapidement entraîner inconfort, fatigue et irritation.
-
-Enfin, la discipline tout au long du trek joue un rôle essentiel. La fatigue, le froid ou l’altitude peuvent donner envie de sauter certaines étapes d’hygiène. Pourtant, ce sont précisément ces moments où la discipline est la plus importante. Maintenir ses habitudes, même quand les conditions deviennent difficiles, fait souvent la différence entre une ascension agréable et une expérience pénible.
-
-Un randonneur bien préparé, informé et discipliné s’adapte rapidement à ces conditions rustiques et vit l’aventure de manière positive. À l’inverse, un randonneur mal informé peut se sentir rapidement inconfortable, stressé et démotivé, ce qui affecte non seulement son bien-être, mais aussi ses chances de réussite.
-
----
-
-Conseil du guide local
-
-> « Sur le Kilimandjaro, l’autonomie n’est pas un choix, c’est une nécessité. Celui qui s’organise bien reste propre, en bonne santé et plus fort jusqu’au sommet. »
-
-
-Les différents types de toilettes sur le Kilimandjaro
-
-Lorsque l’on parle d’hygiène sur le mont Kilimandjaro, les toilettes sont souvent l’un des premiers sujets qui inquiètent les randonneurs. Comprendre les différentes options disponibles sur la montagne est essentiel pour bien se préparer et éviter les surprises désagréables.
-
-
-1. Les toilettes publiques des camps
-
-Chaque camp sur le Kilimandjaro dispose généralement de toilettes publiques fournies par le parc national. Ces installations sont très simples : il peut s’agir de cabines en bois ou de structures temporaires en plastique. Leur objectif principal est de répondre aux besoins de base, sans offrir de confort moderne.
-
-Quelques points à connaître sur ces toilettes :
-
-Elles sont souvent peu entretenues, surtout en haute saison lorsque de nombreux randonneurs se succèdent sur les sentiers.
-
-Le papier toilette n’est pas toujours fourni, il est donc conseillé d’apporter votre propre réserve.
-
-Il n’y a pas d’eau pour se laver les mains, ce qui rend l’usage du gel hydroalcoolique indispensable.
-
-
-2. Les toilettes portables privées
-
-Pour améliorer le confort et l’hygiène, certaines équipes de guides installent des toilettes portables privées dans les camps. Ces installations sont beaucoup plus propres et offrent plusieurs avantages :
-
-Plus de propreté : elles sont nettoyées régulièrement par l’équipe et équipées de produits sanitaires de base.
-
-Plus d’intimité : contrairement aux toilettes publiques, chaque utilisateur bénéficie d’une cabine individuelle.
-
-Moins de risques sanitaires : en réduisant le contact avec les surfaces contaminées, elles diminuent le risque de maladies liées à l’eau ou aux bactéries.
-
-
-Pour les randonneurs effectuant une ascension de plusieurs jours, les toilettes privées sont fortement recommandées. Elles améliorent le confort quotidien, permettent de mieux gérer le stress et réduisent les problèmes digestifs. Elles offrent également une tranquillité d’esprit précieuse, surtout pour ceux qui sont sensibles aux conditions sanitaires ou qui vivent leur première expérience en haute montagne.
-
----
-
-Conseil du guide local
-
-> « Sur le Kilimandjaro, les toilettes ne sont pas un luxe, mais un élément clé de votre confort et de votre santé. Si vous avez le choix, optez pour les toilettes portables privées : elles vous permettent de vous concentrer sur l’ascension plutôt que sur les tracas de la montagne. »
-
-
-L’importance de la préparation mentale et physique
-
-Gravir le Kilimandjaro ne se résume pas à marcher ou à avoir de bonnes jambes : c’est un véritable défi mental et émotionnel. L’altitude, le froid, la fatigue, l’isolement et les conditions d’hygiène limitées mettent votre corps et votre esprit à l’épreuve. Comprendre et accepter ces réalités avant le départ est essentiel pour vivre l’expérience pleinement et maximiser vos chances de succès.
-
-Savoir à quoi s’attendre sur la montagne vous permet de préparer votre esprit et de développer la résilience mentale, qui est tout aussi importante que la force physique. Cela implique de connaître les contraintes des camps, les installations sanitaires, l’accès limité à l’eau et la nécessité de gérer vos besoins quotidiens avec autonomie.
-
-1. Réduire le stress
-
-La haute altitude et le manque de confort peuvent être intimidants, surtout pour les randonneurs qui découvrent la montagne pour la première fois. Se retrouver face à des conditions très simples — comme des toilettes rudimentaires, de l’eau limitée et des températures très froides la nuit — peut générer du stress inutile.
-
-En connaissant ces conditions à l’avance :
-
-,Évitez le choc des premières nuits au camp.
-
-,Vous savez comment gérer les petits désagréments du quotidien.
-
-,Vous restez concentré sur votre objectif : progresser vers le sommet.
-
-
-2. Éviter les mauvaises surprises
-
-Le Kilimandjaro ne ressemble à aucun autre trek. Il n’y a ni douche, ni eau courante, ni infrastructures modernes. Les camps sont très simples et les sanitaires très basiques. Sans préparation, un randonneur peut se retrouver frustré ou mal à l’aise, ce qui peut impacter son moral et son énergie.
-
-Se préparer correctement signifie :
-
-Apporter tout le matériel nécessaire (papier toilette, lingettes, gel hydroalcoolique, sacs pour les déchets).
-
-Savoir comment gérer les limitations du camp.
-
-Anticiper les contraintes liées à l’eau et aux conditions météorologiques.
-
-
-Ainsi, ce qui pourrait être une source de stress devient une expérience gérable et même enrichissante, où l’on apprend à vivre simplement et à s’adapter à la montagne.
-
-
----
-
-3. Mieux accepter les conditions de vie en altitude
-
-En altitude, le corps et l’esprit doivent s’adapter à un environnement très différent de celui de la vie quotidienne. Les nuits sont froides, la fatigue s’accumule, et chaque geste demande plus d’effort. Une bonne préparation mentale permet d’accepter ces contraintes, ce qui est crucial pour :
-
-,Réduire la frustration face aux difficultés quotidiennes.
-
-,Maintenir la motivation même dans les moments les plus difficiles.
-
-,Favoriser une adaptation plus rapide à l’altitude, car le stress mental peut influencer l’acclimatation.
-
-
-Accepter les conditions de vie simples et parfois inconfortables fait partie intégrante du succès sur le Kilimandjaro. Cette attitude vous aide à économiser votre énergie mentale et physique pour ce qui compte vraiment : avancer vers le sommet.
-
-
----
-
-Conseil du guide local
-
-> « Sur le Kilimandjaro, la montagne ne se laisse pas impressionner par la force physique seule. La préparation mentale est tout aussi importante : accepter la simplicité, anticiper les contraintes et rester serein fait la différence entre un trek difficile et une ascension réussie. »`
 
 const FR_TITLES: Record<string,string> = {
 	overview: 'Comment maintenir une bonne hygiène au Kilimandjaro',
@@ -253,6 +109,7 @@ Quelques points à connaître : elles sont souvent peu entretenues, le papier to
 `
 }
 
+/* 
 const contentEn = `Maintaining good personal hygiene on Kilimanjaro
 
 Practical guide from a local Kilimanjaro guide
@@ -267,7 +124,8 @@ Key points:
 - Camps are simple and require personal autonomy: bring wipes, hand sanitizer and separate bags for dirty items.
 - Portable private toilets greatly improve comfort and reduce health risks; consider booking them when available.
 
-Mental preparation matters: accept simple living conditions, plan for limited water, and keep a nightly routine (cleaning, change of clothes, foot care) to preserve energy and avoid issues.`
+Mental preparation matters: accept simple living conditions, plan for limited water, and keep a nightly routine (cleaning, change of clothes, foot care) to preserve energy and avoid issues.`;
+*/
 
 const EN_TITLES: Record<string,string> = {
   overview: 'Maintaining good hygiene on Kilimanjaro',
@@ -281,7 +139,21 @@ const EN_TITLES: Record<string,string> = {
 }
 
 const EN_SECTIONS: Record<string,string> = {
-  overview: contentEn,
+  overview: `Maintaining good personal hygiene on Kilimanjaro
+  
+  Practical guide from a local Kilimanjaro guide
+  
+  Climbing Mount Kilimanjaro is an extraordinary adventure, but it takes place in conditions very different from daily life. One often overlooked topic is personal hygiene. With no showers, limited water and remote camps, many trekkers wonder how to stay clean for several days.
+  
+  Good hygiene on Kilimanjaro is essential to stay healthy and reach the summit. From my experience as a local guide, trekkers who follow basic hygiene routines complete the trek in better condition.
+  
+  Key points:
+  
+  - No showers on the mountain: water is scarce and prioritized for drinking, cooking and basic washing.
+  - Camps are simple and require personal autonomy: bring wipes, hand sanitizer and separate bags for dirty items.
+  - Portable private toilets greatly improve comfort and reduce health risks; consider booking them when available.
+  
+  Mental preparation matters: accept simple living conditions, plan for limited water, and keep a nightly routine (cleaning, change of clothes, foot care) to preserve energy and avoid issues.`,
   conditions: `Modern comforts are absent on the mountain. Expect basic facilities and limited water.`,
   noShower: `There are no showers on any Kilimanjaro route; water is prioritized for drinking and cooking.`,
   camps: `Camps are basic; personal autonomy and preparation are essential for daily hygiene.`,
@@ -294,12 +166,11 @@ const EN_SECTIONS: Record<string,string> = {
 export default function CommentMaintenirPage() {
 	const locale = useLocale()
 	const t = useTranslations('BlogPosts.comment-maintenir-bonne-hygiene-kilimandjaro')
-	const title = t('title')
-	const subtitle = t('subtitle')
+	// Removed unused variables: title and subtitle
 	const meta = { author: t('meta.author'), date: t('meta.date'), readingTime: t('meta.readingTime') }
 	function renderContent(content: string, locale: string) {
 		const lines = content.split(/\r?\n/)
-		const nodes: any[] = []
+		const nodes: JSX.Element[] = []
 		let i = 0
 		let keyIndex = 0
 
@@ -419,8 +290,8 @@ export default function CommentMaintenirPage() {
 													<div className="text-yellow-400">★★★★★ (5.0)</div>
 												</div>
 											</div>
-											<p className="text-gray-700 mb-4">Conquérir le Toit de l'Afrique : L'Ascension du Kilimandjaro par la Route Marangu en 5 Jours</p>
-											<p className="text-gray-600 text-sm mb-4">Envie de vous tenir sur le toit de l'Afrique ? Grimpez le Kilimandjaro avec nous et créez des souvenirs inoubliables !</p>
+											<p className="text-gray-700 mb-4">Conquérir le Toit de l&apos;Afrique : L&apos;Ascension du Kilimandjaro par la Route Marangu en 5 Jours</p>
+											<p className="text-gray-600 text-sm mb-4">Envie de vous tenir sur le toit de l&apos;Afrique ? Grimpez le Kilimandjaro avec nous et créez des souvenirs inoubliables !</p>
 											<Link href={`/${locale}/trips/marangu-route`} className="bg-[#00A896] hover:bg-[#008576] text-white px-6 py-2 rounded-lg font-medium transition-colors inline-block">
 												En savoir plus
 											</Link>
@@ -440,8 +311,8 @@ export default function CommentMaintenirPage() {
 													<div className="text-yellow-400">★★★★★ (5.0)</div>
 												</div>
 											</div>
-											<p className="text-gray-700 mb-4">L'Aventure Panoramique : Itinéraire Lemosho en 7 Jours</p>
-											<p className="text-gray-600 text-sm mb-4">La voie Lemosho est réputée comme l'un des itinéraires les plus spectaculaires. Elle offre des vues imprenables sur les flancs ouest et sud du Kilimandjaro.</p>
+											<p className="text-gray-700 mb-4">L&apos;Aventure Panoramique : Itinéraire Lemosho en 7 Jours</p>
+											<p className="text-gray-600 text-sm mb-4">La voie Lemosho est réputée comme l&apos;un des itinéraires les plus spectaculaires. Elle offre des vues imprenables sur les flancs ouest et sud du Kilimandjaro.</p>
 											<Link href={`/${locale}/trips/lemosho-route`} className="bg-[#00A896] hover:bg-[#008576] text-white px-6 py-2 rounded-lg font-medium transition-colors inline-block">
 												En savoir plus
 											</Link>
@@ -461,8 +332,8 @@ export default function CommentMaintenirPage() {
 													<div className="text-yellow-400">★★★★☆ (4.5)</div>
 												</div>
 											</div>
-											<p className="text-gray-700 mb-4">L'Itinéraire Umbwe : Le Défi Vertical du Kilimandjaro (6 Jours)</p>
-											<p className="text-gray-600 text-sm mb-4">Souvent décrite comme la voie la plus courte et la plus ardue du Kilimandjaro, l'itinéraire Umbwe est parfait pour les randonneurs expérimentés.</p>
+											<p className="text-gray-700 mb-4">L&apos;Itinéraire Umbwe : Le Défi Vertical du Kilimandjaro (6 Jours)</p>
+											<p className="text-gray-600 text-sm mb-4">Souvent décrite comme la voie la plus courte et la plus ardue du Kilimandjaro, l&apos;itinéraire Umbwe est parfait pour les randonneurs expérimentés.</p>
 											<Link href={`/${locale}/trips/umbwe-route`} className="bg-[#00A896] hover:bg-[#008576] text-white px-6 py-2 rounded-lg font-medium transition-colors inline-block">
 												En savoir plus
 											</Link>

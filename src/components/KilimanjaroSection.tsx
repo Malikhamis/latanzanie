@@ -12,7 +12,7 @@ export function KilimanjaroSection() {
       nameKey: "marangu.name",
       durationKey: "marangu.duration",
       price: 1800,
-      rating: 5.0,
+      // rating: 5.0,
       image: "/images/kilimanjaro-marangu.jpg",
       descriptionKey: "marangu.description"
     },
@@ -21,7 +21,7 @@ export function KilimanjaroSection() {
       nameKey: "machame.name",
       durationKey: "machame.duration",
       price: 2000,
-      rating: 5.0,
+      // rating: 5.0,
       image: "/images/kilimanjaro-machame.jpg",
       descriptionKey: "machame.description"
     },
@@ -30,7 +30,7 @@ export function KilimanjaroSection() {
       nameKey: "lemosho.name",
       durationKey: "lemosho.duration",
       price: 2200,
-      rating: 5.0,
+      // rating: 5.0,
       image: "/images/kilimanjaro-lemosho.jpg",
       descriptionKey: "lemosho.description"
     }
@@ -62,8 +62,8 @@ export function KilimanjaroSection() {
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-500">{t(trip.durationKey)}</span>
                   <div className="flex items-center">
-                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    <span className="ml-1 text-sm font-medium">{trip.rating}</span>
+                    {/* <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                    <span className="ml-1 text-sm font-medium">{trip.rating}</span> */}
                   </div>
                 </div>
               </CardContent>

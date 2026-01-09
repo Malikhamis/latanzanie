@@ -1,10 +1,13 @@
-import Link from 'next/link'
-import '../../../tailgrid.css'
-import { getTranslations } from 'next-intl/server'
-import TopicCard from '@/components/ui/TopicCard'
-import ClientWrapper from './ClientWrapper'
+'use client';
 
-const ids = ['overview','medical-check','understand-risks','medications','first-aid','vaccines','hydration']
+import Link from 'next/link';
+import '../../../tailgrid.css';
+import { useLocale } from 'next-intl';
+import AuthorMeta from '@/components/ui/AuthorMeta';
+import TOC from '@/components/ui/TOC';
+import TopicCard from '@/components/ui/TopicCard';
+
+const ids = ['overview','medical-check','understand-risks','medications','first-aid','vaccines','hydration'];
 
 const FR_TITLES: Record<string,string> = {
   overview: 'Quelle préparation médicale faut-il prévoir avant le Kilimandjaro ?',
@@ -14,7 +17,7 @@ const FR_TITLES: Record<string,string> = {
   'first-aid': 'Préparer une trousse de premiers secours',
   vaccines: 'Les vaccins et prévention',
   hydration: 'Hydratation et alimentation'
-}
+};
 
 const FR_SECTIONS: Record<string,string> = {
   overview: `La préparation médicale est un élément fondamental de la réussite de l'ascension du Mont Kilimandjaro. Beaucoup de randonneurs se concentrent principalement sur l'entraînement physique ou le choix du matériel, mais sous-estiment l'impact de l'altitude, du froid, de la fatigue accumulée et de l'isolement sur le corps humain. Pourtant, ces facteurs mettent l'organisme à rude épreuve pendant plusieurs jours consécutifs.
@@ -44,7 +47,7 @@ La prévention des maladies passe également par des règles simples d'hygiène,
   hydration: `L'hydratation est un pilier essentiel de la préparation médicale au Kilimandjaro. En altitude, le corps se déshydrate plus rapidement, ce qui peut accentuer les symptômes du mal des montagnes et ralentir la récupération. Boire régulièrement, même sans sensation de soif, est indispensable.
 
 L'alimentation joue également un rôle clé. Des repas équilibrés et riches en glucides aident à maintenir l'énergie nécessaire pour marcher plusieurs heures par jour. Une bonne hygiène alimentaire avant et pendant l'ascension permet de limiter les troubles digestifs, fréquents en trekking.`
-}
+};
 
 const EN_TITLES: Record<string,string> = {
   overview: 'What medical preparation is needed before Kilimanjaro?',
@@ -54,7 +57,7 @@ const EN_TITLES: Record<string,string> = {
   'first-aid': 'Prepare an appropriate first-aid kit',
   vaccines: 'Vaccines and prevention',
   hydration: 'Hydration and nutrition'
-}
+};
 
 const EN_SECTIONS: Record<string,string> = {
   overview: `Medical preparation is essential. Even experienced trekkers should check their health before departure.`,
@@ -64,7 +67,7 @@ const EN_SECTIONS: Record<string,string> = {
   'first-aid': `Pack bandages, disinfectant, blister protection and other basics.`,
   vaccines: `Ensure routine vaccines are up to date and follow medical advice.`,
   hydration: `Drink regularly and favor carbohydrate-rich meals.`
-}
+};
 
 function render(c:string, locale: string){
   // Add markers for terms we want to link
@@ -97,74 +100,72 @@ function render(c:string, locale: string){
   });
 }
 
-export default async function MedicalPrepPage({ params }: { params: Promise<{ locale?: string }> }) {
-  const awaitedParams = await params;
-  const locale = awaitedParams?.locale || 'fr';
-  const t = await getTranslations('BlogPosts.preparation-medicale-kilimandjaro');
-  
-  const sections = ids.map((id) => ({
-    id,
-    title: locale === 'fr' ? FR_TITLES[id] || EN_TITLES[id] : EN_TITLES[id] || FR_TITLES[id],
-    content: locale === 'fr' ? FR_SECTIONS[id] || EN_SECTIONS[id] : EN_SECTIONS[id] || FR_SECTIONS[id]
-  }));
+type Section = {
+  id: string;
+  title: string;
+  content: string;
+};
+
+type ClientWrapperProps = {
+  locale: string;
+  sections: Section[];
+  FR_TITLES: Record<string, string>;
+  EN_TITLES: Record<string, string>;
+  FR_SECTIONS: Record<string, string>;
+  EN_SECTIONS: Record<string, string>;
+};
+
+export default function ClientWrapper({
+  locale,
+  sections,
+  FR_TITLES,
+  EN_TITLES,
+  FR_SECTIONS,
+  EN_SECTIONS
+}: ClientWrapperProps) {
+  const currentLocale = useLocale() || locale;
 
   return (
-    <div className="min-h-screen bg-white">
-      <section className="relative hero-wavy bg-cover bg-center text-white py-20 pt-32 md:pt-40" style={{ backgroundImage: "url('/images/preparation-hero.jpg')" }}>
-        <div className="absolute inset-0 -z-10">
-          <img src="/images/preparation-hero.jpg" alt="" className="w-full h-full object-cover" />
-        </div>
-        <div className="container mx-auto px-4">
-          <Link href={`/${locale}/travel-blogs/climb-kilimanjaro#all-topics`} className="text-white mb-6 inline-flex items-center text-sm font-medium">← {locale === 'fr' ? 'Retour aux blogs' : 'Back to blogs'}</Link>
+    <>
+      <section className="py-12 border-b border-gray-200">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <AuthorMeta author={currentLocale === 'fr' ? 'Médecin de trek' : 'Trek Medic'} date={currentLocale === 'fr' ? 'Décembre 2025' : 'December 2025'} />
         </div>
       </section>
 
-      <ClientWrapper 
-        locale={locale}
-        sections={sections}
-        FR_TITLES={FR_TITLES}
-        EN_TITLES={EN_TITLES}
-        FR_SECTIONS={FR_SECTIONS}
-        EN_SECTIONS={EN_SECTIONS}
-      />
+      <section className="md:hidden py-8 bg-white border-b border-gray-200">
+        <div className="container mx-auto px-4">
+          <TOC title={currentLocale === 'fr' ? 'Sommaire' : 'Overview'} items={sections.map(s => ({ id: s.id, label: s.title, level: 2 }))} onSelect={() => {}} />
+        </div>
+      </section>
 
       <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{locale === 'fr' ? 'Prêt pour une aventure ?' : 'Ready for an adventure?'}</h2>
-            <p className="text-gray-600 text-lg">Explorez nos meilleures routes du Kilimandjaro</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/marangu-route.jpg')" }}></div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold">Marangu Route</h3>
-                <p className="text-gray-700 mb-4">Conquérir le Toit de l'Afrique : L'Ascension du Kilimandjaro par la Route Marangu en 5 Jours</p>
-                <Link href={`/${locale}/trips/marangu-route`} className="bg-[#00A896] hover:bg-[#008576] text-white px-6 py-2 rounded-lg font-medium">En savoir plus</Link>
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto md:flex md:gap-8">
+            <aside className="hidden md:block md:w-72 lg:w-80 sticky top-24 self-start">
+              <div className="bg-white rounded-lg border p-4 shadow-sm mb-6">
+                <TOC title={currentLocale === 'fr' ? 'Sommaire' : 'Overview'} items={sections.map(s => ({ id: s.id, label: s.title, level: 2 }))} onSelect={() => {}} />
               </div>
-            </div>
+            </aside>
 
-            <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-40 bg-cover bg-center" style={{ backgroundImage: "url('/images/lemosho-route.jpg')" }}></div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold">Lemosho Route</h3>
-                <p className="text-gray-700 mb-4">L'Aventure Panoramique : Itinéraire Lemosho en 7 Jours</p>
-                <Link href={`/${locale}/trips/lemosho-route`} className="bg-[#00A896] hover:bg-[#008576] text-white px-6 py-2 rounded-lg font-medium">En savoir plus</Link>
+            <div className="flex-1 space-y-6">
+              <div className="mb-8">
+                <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight text-black">{currentLocale === 'fr' ? FR_TITLES.overview : EN_TITLES.overview}</h1>
+                <p className="text-base md:text-lg text-black max-w-3xl">{currentLocale === 'fr' ? 'Conseils médicaux pratiques avant le trek.' : 'Practical medical advice before the trek.'}</p>
               </div>
-            </div>
 
-            <div className="bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="h-56 bg-cover bg-center" style={{ backgroundImage: "url('/images/kilimanjaro-umbwe.jpg')" }}></div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold">Umbwe Route</h3>
-                <p className="text-gray-700 mb-4">L'Itinéraire Umbwe : Le Défi Vertical du Kilimandjaro (6 Jours)</p>
-                <Link href={`/${locale}/trips/umbwe-route`} className="bg-[#00A896] hover:bg-[#008576] text-white px-6 py-2 rounded-lg font-medium">En savoir plus</Link>
+              <div className="bg-gray-50 rounded-lg shadow-md p-6 text-black">
+                {sections.map(s => (
+                  <article key={s.id} id={s.id} className="mb-8">
+                    <h2 className="text-2xl font-semibold mb-2 text-black">{s.title}</h2>
+                    <div className="prose max-w-none text-black" style={{ whiteSpace: 'pre-wrap' }}>{render(s.content, currentLocale)}</div>
+                  </article>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
-    </div>
-  )
+    </>
+  );
 }

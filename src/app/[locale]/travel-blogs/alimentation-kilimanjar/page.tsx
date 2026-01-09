@@ -9,7 +9,7 @@ import AuthorMeta from '@/components/ui/AuthorMeta'
 import TOC from '@/components/ui/TOC'
 
 export default function AlimentationKilimanjarPage() {
-  const [expandedSection, setExpandedSection] = useState<string | null>(null)
+  const [, setExpandedSection] = useState<string | null>(null); // Used for toggling sections - suppressing unused var warning by using destructuring
   const locale = useLocale()
   const t = useTranslations('AlimentationKilimanjar')
 
@@ -102,7 +102,7 @@ export default function AlimentationKilimanjarPage() {
                     <ul className="list-disc list-inside text-gray-700 leading-relaxed mt-4 space-y-1">
                       <li>riz, pâtes, pommes de terre</li>
                       <li>pain, chapati, galettes</li>
-                      <li>porridge, flocons d'avoine</li>
+                      <li>porridge, flocons d&apos;avoine</li>
                       <li>fruits riches en sucres naturels comme la banane ou la pomme</li>
                     </ul>
                     <p className="text-gray-700 leading-relaxed mt-4">{t('sections.glucides_energie_note')}</p>
@@ -130,7 +130,7 @@ export default function AlimentationKilimanjarPage() {
                     <p className="text-gray-700 leading-relaxed">{t('sections.soupes_chaudes')}</p>
                     <ul className="list-disc list-inside text-gray-700 leading-relaxed mt-4 space-y-1">
                       <li>facile à consommer même sans appétit</li>
-                      <li>hydrate en même temps qu'elle nourrit</li>
+                      <li>hydrate en même temps qu&apos;elle nourrit</li>
                       <li>apporte des sels minéraux</li>
                       <li>réchauffe le corps</li>
                     </ul>
@@ -178,8 +178,8 @@ export default function AlimentationKilimanjarPage() {
                                 <div className="text-yellow-400">★★★★★ (5.0)</div>
                               </div>
                             </div>
-                            <p className="text-gray-700 mb-4">Conquérir le Toit de l'Afrique : L'Ascension du Kilimandjaro par la Route Marangu en 5 Jours</p>
-                            <p className="text-gray-600 text-sm mb-4">Envie de vous tenir sur le toit de l'Afrique ? Grimpez le Kilimandjaro avec nous et créez des souvenirs inoubliables !</p>
+                            <p className="text-gray-700 mb-4">Conquérir le Toit de l&apos;Afrique : L&apos;Ascension du Kilimandjaro par la Route Marangu en 5 Jours</p>
+                            <p className="text-gray-600 text-sm mb-4">Envie de vous tenir sur le toit de l&apos;Afrique ? Grimpez le Kilimandjaro avec nous et créez des souvenirs inoubliables !</p>
                             <Link href={`/${locale}/trips/marangu-route`} className="bg-[#00A896] hover:bg-[#008576] text-white px-6 py-2 rounded-lg font-medium transition-colors inline-block">
                               En savoir plus
                             </Link>
@@ -198,8 +198,8 @@ export default function AlimentationKilimanjarPage() {
                                 <div className="text-yellow-400">★★★★★ (5.0)</div>
                               </div>
                             </div>
-                            <p className="text-gray-700 mb-4">L'Aventure Panoramique : Itinéraire Lemosho en 7 Jours</p>
-                            <p className="text-gray-600 text-sm mb-4">La voie Lemosho est réputée comme l'un des itinéraires les plus spectaculaires. Elle offre des vues imprenables sur les flancs ouest et sud du Kilimandjaro.</p>
+                            <p className="text-gray-700 mb-4">L&apos;Aventure Panoramique : Itinéraire Lemosho en 7 Jours</p>
+                            <p className="text-gray-600 text-sm mb-4">La voie Lemosho est réputée comme l&apos;un des itinéraires les plus spectaculaires. Elle offre des vues imprenables sur les flancs ouest et sud du Kilimandjaro.</p>
                             <Link href={`/${locale}/trips/lemosho-route`} className="bg-[#00A896] hover:bg-[#008576] text-white px-6 py-2 rounded-lg font-medium transition-colors inline-block">
                               En savoir plus
                             </Link>
@@ -218,8 +218,8 @@ export default function AlimentationKilimanjarPage() {
                                 <div className="text-yellow-400">★★★★☆ (4.5)</div>
                               </div>
                             </div>
-                            <p className="text-gray-700 mb-4">L'Itinéraire Umbwe : Le Défi Vertical du Kilimandjaro (6 Jours)</p>
-                            <p className="text-gray-600 text-sm mb-4">Souvent décrite comme la voie la plus courte et la plus ardue du Kilimandjaro, l'itinéraire Umbwe est parfait pour les randonneurs expérimentés.</p>
+                            <p className="text-gray-700 mb-4">L&apos;Itinéraire Umbwe : Le Défi Vertical du Kilimandjaro (6 Jours)</p>
+                            <p className="text-gray-600 text-sm mb-4">Souvent décrite comme la voie la plus courte et la plus ardue du Kilimandjaro, l&apos;itinéraire Umbwe est parfait pour les randonneurs expérimentés.</p>
                             <Link href={`/${locale}/trips/umbwe-route`} className="bg-[#00A896] hover:bg-[#008576] text-white px-6 py-2 rounded-lg font-medium transition-colors inline-block">
                               En savoir plus
                             </Link>

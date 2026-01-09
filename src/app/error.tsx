@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 
 export default function Error({
@@ -38,7 +39,7 @@ export default function Error({
             Oops! Something went wrong
           </h2>
           <p className="text-gray-600 mb-1">
-            We're sorry, but something unexpected happened.
+            We&apos;re sorry, but something unexpected happened.
           </p>
           {error.digest && (
             <p className="text-xs text-gray-400 mt-2">
@@ -55,19 +56,19 @@ export default function Error({
             Try Again
           </Button>
           
-          <a
+          <Link
             href="/"
             className="block w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 rounded-lg transition-all"
           >
             Go Home
-          </a>
+          </Link>
 
-          <a
+          <Link
             href="/contact"
             className="block text-sm text-gray-600 hover:text-[#00A896] underline mt-4"
           >
             Contact Support
-          </a>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,7 +1,6 @@
 import { getParkBySlug } from '@/lib/sanity/fetch'
 import { Park } from '@/types/park'
 import { notFound } from 'next/navigation'
-import { useTranslations } from 'next-intl'
 import { getTranslations } from 'next-intl/server'
 
 // Function to map park data to translations
@@ -30,10 +29,13 @@ const mapParkDataToTranslations = (park: Park, t: (key: string) => string) => {
   return park;
 };
 
-export default async function ParkPage({ params }: any) {
-  // Accept params as any and await it to satisfy Next's generated PageProps typing
-  // which may represent params as a Promise in some builds.
-  const resolvedParams = await params
+interface Params {
+  slug: string;
+}
+
+export default async function ParkPage({ params }: { params: Promise<Params> }) {
+  // Await the params to resolve the promise
+  const resolvedParams = await params;
   const park: Park | null = await getParkBySlug(resolvedParams.slug)
   
   if (!park) {

@@ -271,9 +271,9 @@ export default function ContribuerExpeditionZeroTraceKilimandjaroPage() {
   function convertGuideLocalTempMarkersToLinks(text: string | (string | JSX.Element)[], locale: string): (string | JSX.Element)[] {
     if (typeof text === 'string') {
       // First process 'guide local' markers
-      let processedText = text;
-      const guideLocalParts = processedText.split(/(###GUIDE_LOCAL_TEMP_LINK_[^#]+###)/);
-      let guideLocalResult: (string | JSX.Element)[] = [];
+      const _processedText = text;
+      const guideLocalParts = _processedText.split(/(###GUIDE_LOCAL_TEMP_LINK_[^#]+###)/);
+      const guideLocalResult: (string | JSX.Element)[] = [];
       
       for (const part of guideLocalParts) {
         if (part.startsWith('###GUIDE_LOCAL_TEMP_LINK_') && part.endsWith('###')) {
@@ -296,7 +296,7 @@ export default function ContribuerExpeditionZeroTraceKilimandjaroPage() {
       }
       
       // Now process 'local guide' markers in the result
-      let finalResult: (string | JSX.Element)[] = [];
+      const finalResult: (string | JSX.Element)[] = [];
       for (const element of guideLocalResult) {
         if (typeof element === 'string') {
           const localGuideParts = element.split(/(###LOCAL_GUIDE_TEMP_LINK_[^#]+###)/);
@@ -381,7 +381,7 @@ export default function ContribuerExpeditionZeroTraceKilimandjaroPage() {
     markedContent = markedContent.replace(/Zéro Trace/g, '###ZERO_TRACE_LINK###');
     
     const lines = markedContent.split(/\r?\n/)
-    const nodes: any[] = []
+    const nodes: JSX.Element[] = []
     let i = 0
     let keyIndex = 0
 

@@ -169,8 +169,32 @@ export async function getNavigationData(): Promise<Pick<Park, '_id' | 'title' | 
 
 // Function to fetch a single park by slug
 export async function getParkBySlug(slug: string): Promise<Park | null> {
-  // For now, we'll implement a simple version that returns null
-  // In a real implementation, you would create a similar API route for single park fetching
-  console.warn('getParkBySlug is not yet implemented with the new API approach')
-  return null
+  try {
+    // Try Sanity client first (server-side). Falls back to API route proxy when client unavailable.
+    const client = getClient()
+    if (client) {
+      const query = `*[_type == "park" && slug.current == $slug]{_id, title, slug, region, overview, entranceFees}[0]`
+      const park = await client.fetch(query, { slug })
+      return park || null
+    }
+
+    const baseUrl = getBaseUrl()
+    const url = `${baseUrl}/api/parks`
+
+    const response = await fetch(url, {
+      next: { revalidate: 3600 } // Revalidate every hour
+    })
+
+    if (!response.ok) {
+      console.warn(`Failed to fetch park by slug: ${response.status} ${response.statusText}`)
+      return null
+    }
+
+    const { parks } = await response.json()
+    const park = parks.find((p: any) => p.slug?.current === slug)
+    return park || null
+  } catch (error) {
+    console.warn('Error fetching park by slug:', error)
+    return null
+  }
 }

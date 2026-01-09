@@ -10,7 +10,6 @@ interface TripCardProps {
   price?: number
   priceLabel?: string
   duration: string
-  rating: number
   image: string
   locale: string
   href?: string // Optional override href for travel-blogs context
@@ -23,7 +22,6 @@ export default function TripCard({
   price,
   priceLabel,
   duration,
-  rating,
   image,
   locale,
   href
@@ -48,12 +46,10 @@ export default function TripCard({
             <span className="text-gray-500">Image unavailable</span>
           </div>
         )}
-        
         {/* Overlay content on image */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent">
           <div className="absolute bottom-0 left-0 right-0 p-6 text-white flex flex-col items-center justify-center h-full">
             <h3 className="text-xl font-bold mb-4 text-center">{title}</h3>
-            
             {/* Centered Explore Button with Lens Icon */}
             <Link
               href={link}

@@ -6,124 +6,6 @@ import { useLocale, useTranslations } from 'next-intl'
 import AuthorMeta from '@/components/ui/AuthorMeta'
 import TOC from '@/components/ui/TOC'
 
-const contentFr = `Quels articles d’hygiène emporter pour un trek sur le Kilimandjaro ?
-
-Conseils d’un guide local
-
-Gravir le Kilimandjaro est une aventure incroyable, mais la montagne impose des conditions très différentes de celles de la vie quotidienne. L’hygiène y est un vrai défi : pas de douche, toilettes rudimentaires, températures basses et manque d’eau courante. Bien préparer son sac avec les bons articles d’hygiène est donc essentiel pour rester propre, en bonne santé et profiter pleinement du trek.
-
-
-
-1. Articles pour l’hygiène corporelle
-
-Même sans douche, il est possible de rester frais et propre avec quelques indispensables :
-
-Lingettes biodégradables pour le corps, le visage et les mains
-
-Savon ou gel antibactérien pour se laver les mains ou nettoyer le corps à l’eau limitée
-
-Déodorant solide ou en spray (préférer les versions compactes et résistantes au froid)
-
-Crème hydratante pour protéger la peau du froid et du vent
-
-Baume à lèvres pour éviter les gerçures liées au vent et à l’altitude
-
-
-
-2. Articles pour les soins des pieds
-
-Les pieds sont mis à rude épreuve sur le Kilimandjaro. Leur entretien est crucial pour éviter les ampoules et les infections :
-
-Chaussettes de randonnée propres et respirantes
-
-Crème ou baume anti-frottement pour prévenir les ampoules
-
-
-Petits pansements ou bandes adhésives pour les zones sensibles
-
-
-3. Articles pour l’hygiène des toilettes
-
-Les installations sur la montagne sont limitées, il est donc important de prévoir son matériel :
-
-Papier toilette biodégradable
-
-Sacs pour les déchets afin de respecter l’environnement
-
-Gel hydroalcoolique pour désinfecter les mains après chaque utilisation
-
-Lingettes humides pour un nettoyage rapide lorsque l’eau est rare
-
-
-
-4. Autres indispensables
-
-Serviette microfibre compacte : sèche rapidement et prend peu de place
-
-Petite trousse de premiers soins pour les coupures, brûlures ou irritations
-
-Brosse à dents et dentifrice en petit format
-
-
-Ces articles permettent de maintenir une hygiène minimale et confortable, même dans les conditions les plus difficiles.`
-
-const contentEn = `Which hygiene items to pack for a Kilimanjaro trek?
-
-Local guide advice
-
-Climbing Kilimanjaro is an incredible adventure, but the mountain imposes conditions very different from everyday life. Hygiene is a real challenge there: no shower, basic toilets, low temperatures and lack of running water. Preparing your backpack with the right hygiene products is therefore essential to stay clean, healthy and fully enjoy the trek.
-
-
-1. Body hygiene items
-
-Even without a shower, it's possible to stay fresh and clean with a few essentials:
-
-Biodegradable wipes for body, face and hands
-
-Soap or antibacterial gel to wash hands or clean the body with limited water
-
-Solid or spray deodorant (prefer compact versions resistant to cold)
-
-Moisturizing cream to protect skin from cold and wind
-
-Lip balm to prevent chapping caused by wind and altitude
-
-
-2. Foot care items
-
-Feet are put to the test on Kilimanjaro. Their maintenance is crucial to avoid blisters and infections:
-
-Clean, breathable hiking socks
-
-Cream or anti-friction balm to prevent blisters
-
-Small bandages or adhesive strips for sensitive areas
-
-
-3. Toilet hygiene items
-
-Facilities on the mountain are limited, so it's important to bring your own supplies:
-
-Biodegradable toilet paper
-
-Waste bags to respect the environment
-
-Hand sanitizer to disinfect hands after each use
-
-Wet wipes for quick cleaning when water is scarce
-
-
-4. Other essentials
-
-Compact microfiber towel: dries quickly and takes up little space
-
-Small first aid kit for cuts, burns or irritations
-
-Toothbrush and toothpaste in small format
-
-
-These items allow you to maintain minimal and comfortable hygiene, even in the most difficult conditions.`
-
 const FR_TITLES: Record<string,string> = {
   overview: 'Quels articles d’hygiène emporter pour un trek sur le Kilimandjaro ?',
   body: 'Articles pour l’hygiène corporelle',
@@ -279,7 +161,7 @@ function parseLinksToJSX(text: string) {
 
 function renderContent(content: string) {
   const lines = content.split(/\r?\n/)
-  const nodes: any[] = []
+  const nodes: (JSX.Element | string)[] = []
   let i = 0
   let keyIndex = 0
 
@@ -337,8 +219,7 @@ function renderContent(content: string) {
 export default function ArticlesHygieneEmporterPage() {
   const locale = useLocale()
   const t = useTranslations('BlogPosts.articles-hygiene-emporter')
-  const title = t('title')
-  const subtitle = t('subtitle')
+
   const meta = { author: t('meta.author'), date: t('meta.date'), readingTime: t('meta.readingTime') }
   
   const sections = ids.map(id => ({

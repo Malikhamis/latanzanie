@@ -1,9 +1,9 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { useParams } from 'next/navigation'
+
 import Image from 'next/image'
-import { MapPin, Clock, Calendar, User, CheckCircle, X, XCircle, Users } from 'lucide-react'
+import { MapPin, Clock, Calendar, User, CheckCircle, X } from 'lucide-react'
 
 export default function MateruniChemka2DaysPage() {
   const t = (key: string, fallback = ''): string => {
@@ -135,12 +135,7 @@ export default function MateruniChemka2DaysPage() {
     "Repas & Boissons : Deux déjeuners (Jour 1 au village de Materuni et Jour 2 à Chemka). d'eau minérale en bouteille fournie tout au long du circuit."
   ];
   
-  const exclusions = [
-    "Vol international et local",
-    "Pourboire pour le guide",
-    "Boisson personnel",
-    "Visa et assurance"
-  ];
+
 
   const itineraryDays = [
     { 

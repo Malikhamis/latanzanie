@@ -6,15 +6,7 @@ import { useEffect, useRef, useState } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 
 export function Hero() {
-  let t: any = (k: string) => k
-  try {
-    t = useTranslations('Hero')
-  } catch (e) {
-    // next-intl provider not available during some prerender contexts —
-    // fall back to an identity function so server prerender doesn't throw.
-    // eslint-disable-next-line no-console
-    console.warn('[i18n] Hero translations unavailable during prerender, using fallback')
-  }
+  const t = useTranslations('Hero');
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoError, setVideoError] = useState(false);
   const router = useRouter()

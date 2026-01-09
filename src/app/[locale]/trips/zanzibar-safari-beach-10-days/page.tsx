@@ -1,9 +1,8 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { useParams } from 'next/navigation'
 import Image from 'next/image'
-import { MapPin, Clock, Calendar, User, CheckCircle, X, XCircle, Users } from 'lucide-react'
+import { MapPin, Clock, Calendar, User, CheckCircle, X, XCircle } from 'lucide-react'
 
 export default function ZanzibarSafariBeach10DaysPage() {
   const t = (key: string, fallback = ''): string => {
@@ -422,7 +421,7 @@ export default function ZanzibarSafariBeach10DaysPage() {
               <div className="flex items-center gap-3">
                 <div className="text-2xl">📅</div>
                 <div className="flex-1">
-                  <h3 className="font-semibold text-gray-900 text-base">Don't see your dates?</h3>
+                  <h3 className="font-semibold text-gray-900 text-base">Don&apos;t see your dates?</h3>
                   <p className="text-gray-600 text-sm">Please propose a new departure</p>
                 </div>
               </div>
@@ -639,7 +638,7 @@ export default function ZanzibarSafariBeach10DaysPage() {
             <div className="inline-block p-3 bg-white rounded-full mb-4">
               <Calendar className="w-6 h-6 text-gray-600" />
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">Don't see your dates?</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">Don&apos;t see your dates?</h3>
             <p className="text-gray-600 text-base mb-6">We can create it if bookable!</p>
             <button 
               onClick={() => setShowInquiryForm(true)}
@@ -673,13 +672,13 @@ export default function ZanzibarSafariBeach10DaysPage() {
                 {/* Transport */}
                 <div className="pl-0 md:pl-8 pt-8 md:pt-0 border-t md:border-t-0 border-gray-200 md:border-t-transparent">
                   <h3 className="text-2xl font-semibold mb-6 text-gray-800">{t('practicalInfo.transport.title')}</h3>
-                  <p className="text-gray-600">Le transport est assuré par des véhicules 4x4 spécialement aménagés pour les safaris avec toit ouvrant pour une meilleure observation de la faune. Pour la partie Zanzibar, le transfert se fait par avion de la Tanzanie continentale vers l'île de Zanzibar.</p>
+                  <p className="text-gray-600">Le transport est assuré par des véhicules 4x4 spécialement aménagés pour les safaris avec toit ouvrant pour une meilleure observation de la faune. Pour la partie Zanzibar, le transfert se fait par avion de la Tanzanie continentale vers l&apos;île de Zanzibar.</p>
                 </div>
 
                 {/* Animals to see */}
                 <div className="pr-0 md:pr-8 pt-8 md:pt-0 border-t md:border-t-0 border-gray-200 md:border-t-transparent">
                   <h3 className="text-2xl font-semibold mb-6 text-gray-800">{t('practicalInfo.animals.title')}</h3>
-                  <p className="text-gray-600">Pendant votre séjour, vous aurez l'opportunité d'observer les Big Five : éléphants, lions, léopards, rhinocéros et buffles. Vous verrez également des girafes, des gnous, des zèbres, des hippopotames, des crocodiles et une grande variété d'oiseaux et de petits mammifères.</p>
+                  <p className="text-gray-600">Pendant votre séjour, vous aurez l&apos;opportunité d&apos;observer les Big Five : éléphants, lions, léopards, rhinocéros et buffles. Vous verrez également des girafes, des gnous, des zèbres, des hippopotames, des crocodiles et une grande variété d&apos;oiseaux et de petits mammifères.</p>
                 </div>
 
                 {/* Luggage */}
@@ -697,7 +696,7 @@ export default function ZanzibarSafariBeach10DaysPage() {
                 {/* Camping philosophy */}
                 <div className="pl-0 md:pl-8 pt-8 md:pt-0 border-t md:border-t-0 border-gray-200 md:border-t-transparent">
                   <h3 className="text-2xl font-semibold mb-6 text-gray-800">{t('practicalInfo.campingPhilosophy.title')}</h3>
-                  <p className="text-gray-600">Notre approche du bivouac respecte l'environnement et les communautés locales. Nous privilégions les hébergements écologiques et soutenons les économies locales. Les bivouacs sont installés dans des zones désignées pour minimiser l'impact sur la faune et les écosystèmes.</p>
+                  <p className="text-gray-600">Notre approche du bivouac respecte l&#39;environnement et les communautés locales. Nous privilégions les hébergements écologiques et soutenons les économies locales. Les bivouacs sont installés dans des zones désignées pour minimiser l&#39;impact sur la faune et les écosystèmes.</p>
                 </div>
               </div>
             </div>

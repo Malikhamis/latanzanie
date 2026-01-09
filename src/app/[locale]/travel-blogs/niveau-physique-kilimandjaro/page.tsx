@@ -185,7 +185,7 @@ export default function NiveauPhysiqueKilimandjaroPage() {
 
   function renderContent(content: string) {
     // Add markers for terms we want to link
-    let processedContent = content
+    const processedContent = content
       .replace(/\bphysique\b/g, '###PHYSIQUE_LINK###');
     
     const lines = processedContent.split(/\r?\n/)

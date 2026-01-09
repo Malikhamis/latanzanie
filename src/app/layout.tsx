@@ -7,8 +7,6 @@ import "./tailgrid.css";
 // in `globals.css` / system font stack instead. If you want to re-enable
 // Google Fonts for production, use the `next/font/google` call in a CI
 // environment with network access or self-host the fonts.
-const geistSans = { variable: "" };
-const geistMono = { variable: "" };
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.latanzanieaucourdelanature.com'),
