@@ -1,5 +1,3 @@
-'use client'
-
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
@@ -14,7 +12,7 @@ interface LocaleNavigationProps {
 }
 
 export function LocaleNavigation({ parks }: LocaleNavigationProps) {
-  // const [isScrolled, setIsScrolled] = useState(false) // commented out as unused
+  const [isScrolled, setIsScrolled] = useState(false); // Added missing state
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isDesktopMenuOpen, setIsDesktopMenuOpen] = useState(false)
   const [isContactModalOpen, setIsContactModalOpen] = useState(false)
@@ -25,6 +23,15 @@ export function LocaleNavigation({ parks }: LocaleNavigationProps) {
   // Determine the current locale from the pathname
   const segments = pathname?.split('/').filter(Boolean) || [];
   const currentLocale = segments[0] && ['fr', 'en'].includes(segments[0]) ? segments[0] : 'fr';
+
+  // Effect to handle scroll state
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   // Function to map park data to translations based on current locale
   const mapParkDataToTranslations = (park: Pick<Park, '_id' | 'title' | 'slug'>) => {
@@ -52,14 +59,6 @@ export function LocaleNavigation({ parks }: LocaleNavigationProps) {
 
   // Map all parks to their translated versions
   // const translatedParks = parks.map(mapParkDataToTranslations); // commented out as unused
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   // Handle form submission
   const handleSubmit = (e: React.FormEvent) => {
