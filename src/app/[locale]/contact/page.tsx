@@ -13,6 +13,7 @@ export default function ContactPage() {
   // Define trip destinations with proper French titles
   const destinations = {
     'climb-kilimanjaro': 'Grimper le Kilimandjaro',
+    'materuni-cultural-tour': 'Excursion Culturelle Materuni',
     'tanzania-safari': 'Safari en Tanzanie',
     'zanzibar-beach-holidays': 'Vacances à Zanzibar',
     'lemosho-route': "L'Aventure Panoramique : Itinéraire Lemosho en 7 Jours",

@@ -180,7 +180,7 @@ export async function calculateKilimanjaroSuccess(formData: CalculatorData) {
     const successRate = await calculateSuccessRate(formData)
     
     // Analyze results for feedback
-    const { strengths, areasToImprove } = analyzeResults(formData, successRate)
+    const { strengths, areasToImprove } = analyzeResults(formData)
     
     // Store lead data in Supabase
     const supabase = await createServerActionClient()
