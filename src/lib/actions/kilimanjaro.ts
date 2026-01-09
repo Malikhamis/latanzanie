@@ -133,7 +133,7 @@ async function calculateSuccessRate(data: CalculatorData): Promise<number> {
 }
 
 // Analyze results to provide personalized feedback
-function analyzeResults(data: CalculatorData) {
+function analyzeResults(data: CalculatorData, successRate?: number) {
   const strengths: string[] = []
   const areasToImprove: string[] = []
   
@@ -160,6 +160,15 @@ function analyzeResults(data: CalculatorData) {
     strengths.push('Previous altitude experience will help with acclimatization')
   } else {
     areasToImprove.push('Consider altitude training or spending time at elevation before your climb')
+  }
+  
+  // Optionally provide feedback based on success rate if provided
+  if (successRate !== undefined) {
+    if (successRate >= 80) {
+      strengths.push('Your overall preparation puts you in a strong position for success')
+    } else if (successRate < 60) {
+      areasToImprove.push('Consider additional preparation to improve your chances of success')
+    }
   }
   
   return { strengths, areasToImprove }
