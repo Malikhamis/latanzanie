@@ -16,7 +16,8 @@ export function LocaleNavigation({ parks }: LocaleNavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false); // Added missing state
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isDesktopMenuOpen, setIsDesktopMenuOpen] = useState(false)
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false)
+  // Contact modal state removed - now linking directly to contact page
+  // const [isContactModalOpen, setIsContactModalOpen] = useState(false)
   const pathname = usePathname()
   const t = useTranslations('Navigation')
   const tCommon = useTranslations('Common')
@@ -91,11 +92,8 @@ export function LocaleNavigation({ parks }: LocaleNavigationProps) {
         setSubmitSuccess(true);
         // Reset form
         setFormValues({ name: '', email: '', phone: '', destination: '', travelDate: '', message: '' });
-        // Auto-close modal after success message
-        setTimeout(() => {
-          setIsContactModalOpen(false);
-          setSubmitSuccess(false);
-        }, 3000);
+        // Redirect to contact page after success
+        window.location.href = `/${currentLocale}/contact`;
       } else {
         setSubmitError(result.error || t('ContactPage.submitError'));
       }
@@ -107,14 +105,7 @@ export function LocaleNavigation({ parks }: LocaleNavigationProps) {
     }
   };
   
-  // Reset success state when modal closes
-  useEffect(() => {
-    if (!isContactModalOpen) {
-      setSubmitSuccess(false);
-      setSubmitError('');
-      setFormValues({ name: '', email: '', phone: '', destination: '', travelDate: '', message: '' });
-    }
-  }, [isContactModalOpen]);
+
 
   return (
     <>
@@ -177,12 +168,12 @@ export function LocaleNavigation({ parks }: LocaleNavigationProps) {
                   </Link>
                 </div>
               </div>
-              <button 
-                onClick={() => setIsContactModalOpen(true)}
+              <Link 
+                href={`/${currentLocale}/contact`}
                 className="bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200"
               >
                 {t('contact')}
-              </button>
+              </Link>
               {/* Menu Button for Desktop */}
               <Button 
                 variant="ghost" 
@@ -364,284 +355,7 @@ export function LocaleNavigation({ parks }: LocaleNavigationProps) {
         </div>
       </div>
       
-      {/* Contact Modal */}
-      {isContactModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          {/* Backdrop with blur - completely transparent with blur effect */}
-          <div 
-            className="absolute inset-0 backdrop-blur-lg"
-            onClick={() => setIsContactModalOpen(false)}
-          ></div>
-          
-          {/* Modal Content - Larger and with two semi parts */}
-          <div className="relative bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto z-10">
-            <div className="p-8">
-              {/* Close Button */}
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-3xl font-bold text-gray-800">
-                  {t('contactModal.title')}
-                </h2>
-                <button 
-                  onClick={() => setIsContactModalOpen(false)}
-                  className="text-gray-500 hover:text-gray-700"
-                >
-                  <X className="h-8 w-8" />
-                </button>
-              </div>
-              
-              {/* Two-column layout */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {/* Left column - Contact information */}
-                <div className="bg-green-50 p-6 rounded-lg">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">
-                    {t('contactModal.contactUs')}
-                  </h3>
-                  <p className="text-gray-600 mb-6">
-                    {t('contactModal.description')}
-                  </p>
-                  
-                  <div className="space-y-4">
-                    <div className="flex items-start">
-                      <Mail className="h-6 w-6 text-green-600 mt-1 mr-3" />
-                      <div>
-                        <h4 className="font-medium text-gray-800">
-                          {t('contactModal.emailUs')}
-                        </h4>
-                        <p className="text-gray-600">info@latanzanieaucoeurdelanature.com</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start">
-                      <Phone className="h-6 w-6 text-green-600 mt-1 mr-3" />
-                      <div>
-                        <h4 className="font-medium text-gray-800">
-                          {t('contactModal.callUs')}
-                        </h4>
-                        <p className="text-gray-600">+255782825692</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start">
-                      <MessageSquare className="h-6 w-6 text-green-600 mt-1 mr-3" />
-                      <div>
-                        <h4 className="font-medium text-gray-800">
-                          {t('contactModal.chatWithUs')}
-                        </h4>
-                        <p className="text-gray-600">
-                          {t('contactModal.available')}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="mt-8">
-                    <h4 className="font-bold text-gray-800 mb-3">
-                      {t('contactModal.whyChooseUs')}
-                    </h4>
-                    <ul className="space-y-2">
-                      <li className="flex items-center">
-                        <div className="w-2 h-2 bg-green-600 rounded-full mr-2"></div>
-                        <span className="text-gray-600">
-                          {t('contactModal.localExperts')}
-                        </span>
-                      </li>
-                      <li className="flex items-center">
-                        <div className="w-2 h-2 bg-green-600 rounded-full mr-2"></div>
-                        <span className="text-gray-600">
-                          {t('contactModal.responsibleTravel')}
-                        </span>
-                      </li>
-                      <li className="flex items-center">
-                        <div className="w-2 h-2 bg-green-600 rounded-full mr-2"></div>
-                        <span className="text-gray-600">
-                          {t('contactModal.customizedPlanning')}
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                
-                {/* Right column - Contact form */}
-                <div>
-                  {/* Success message */}
-                  {submitSuccess && (
-                    <div className="bg-[#E8F8F5] border border-[#B8EDE3] rounded-lg p-3 mb-3">
-                      <h3 className="text-sm font-serif font-bold text-[#008576] mb-1">{t('ContactPage.successTitle')}</h3>
-                      <p className="text-xs text-[#00A896]">{t('ContactPage.successMessage')}</p>
-                    </div>
-                  )}
-                  
-                  {!submitSuccess && (
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                      <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                          {t('contactModal.fullName')}
-                        </label>
-                        <div className="relative">
-                          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <User className="h-5 w-5 text-gray-400" />
-                          </div>
-                          <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            value={formValues.name}
-                            onChange={handleInputChange}
-                            className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
-                            placeholder={t('contactModal.namePlaceholder')}
-                            required
-                          />
-                        </div>
-                      </div>
-                      
-                      <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                          {t('contactModal.emailAddress')}
-                        </label>
-                        <div className="relative">
-                          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <Mail className="h-5 w-5 text-gray-400" />
-                          </div>
-                          <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={formValues.email}
-                            onChange={handleInputChange}
-                            className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
-                            placeholder={t('contactModal.emailPlaceholder')}
-                            required
-                          />
-                        </div>
-                      </div>
-                      
-                      <div>
-                        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                          {t('contactModal.phoneNumber')}
-                        </label>
-                        <div className="relative">
-                          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <Phone className="h-5 w-5 text-gray-400" />
-                          </div>
-                          <input
-                            type="tel"
-                            id="phone"
-                            name="phone"
-                            value={formValues.phone}
-                            onChange={handleInputChange}
-                            className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
-                            placeholder="+255782825692"
-                          />
-                        </div>
-                      </div>
-                      
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                          <label htmlFor="destination" className="block text-sm font-medium text-gray-700 mb-1">
-                            {t('ContactPage.destinationLabel')}
-                          </label>
-                          <select
-                            id="destination"
-                            name="destination"
-                            value={formValues.destination}
-                            onChange={handleInputChange}
-                            className="block w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
-                          >
-                            <option value="">
-                              {t('ContactPage.destinationPlaceholder')}
-                            </option>
-                            <option value="climb-kilimanjaro">Grimper le Kilimandjaro</option>
-                            <option value="tanzania-safari">Safari en Tanzanie</option>
-                            <option value="zanzibar-beach-holidays">Vacances à Zanzibar</option>
-                            <option value="lemosho-route">L'Aventure Panoramique : Itinéraire Lemosho en 7 Jours</option>
-                            <option value="machame-route">L'Itinéraire Machame (7 Jours de Trek) : L'Ascension Panoramique</option>
-                            <option value="marangu-route">Route Marangu (6 Jours)</option>
-                            <option value="materuni-chemka-2-days">Excursion Materuni et Sources d'Eau Chaude de Chemka (2 Jours)</option>
-                            <option value="materuni-cultural-tour">Excursion Culturelle Materuni</option>
-                            <option value="safari-bivouac-4-days">Safari en Bivouac (4 Jours)</option>
-                            <option value="safari-bivouac-8-days">Safari en Bivouac (8 Jours)</option>
-                            <option value="safari-kilimanjaro-6-days">Safari et Mont Kilimandjaro (6 Jours)</option>
-                            <option value="umbwe-route">Route Umbwe (6 Jours)</option>
-                            <option value="zanzibar-complete-escape-8-days">Évasion Complete à Zanzibar (8 Jours)</option>
-                            <option value="zanzibar-diving-culture-5-days">Plongée et Culture à Zanzibar (5 Jours)</option>
-                            <option value="zanzibar-safari-beach-10-days">Safari et Plages de Zanzibar (10 Jours) : L'Appel Sauvage de l'Afrique de l'Est</option>
-                          </select>
-                        </div>
-                        <div>
-                          <label htmlFor="travelDate" className="block text-sm font-medium text-gray-700 mb-1">
-                            {t('ContactPage.travelDateLabel')}
-                          </label>
-                          <input
-                            type="date"
-                            id="travelDate"
-                            name="travelDate"
-                            value={formValues.travelDate}
-                            onChange={handleInputChange}
-                            className="block w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
-                          />
-                        </div>
-                      </div>
-                      
-                      <div>
-                        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                          {t('contactModal.message')}
-                        </label>
-                        <div className="relative">
-                          <div className="absolute top-3 left-3">
-                            <MessageSquare className="h-5 w-5 text-gray-400" />
-                          </div>
-                          <textarea
-                            id="message"
-                            name="message"
-                            rows={4}
-                            value={formValues.message}
-                            onChange={handleInputChange}
-                            className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
-                            placeholder={t('contactModal.messagePlaceholder')}
-                            required
-                          ></textarea>
-                        </div>
-                      </div>
-                      
-                      <div className="flex items-center">
-                        <input
-                          id="privacy-policy"
-                          name="privacy-policy"
-                          type="checkbox"
-                          className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
-                          required
-                        />
-                        <label htmlFor="privacy-policy" className="ml-2 block text-sm text-gray-700">
-                          {t('contactModal.accept')}{' '}
-                          <Link href={`/${currentLocale}/privacy`} className="text-[#00A896] hover:text-[#008576]">
-                            {t('contactModal.privacyPolicy')}
-                          </Link>
-                        </label>
-                      </div>
-                      
-                      {submitError && (
-                        <div className="bg-red-50 border border-red-200 rounded-lg p-2">
-                          <p className="text-red-700 text-sm">{submitError}</p>
-                        </div>
-                      )}
-                      
-                      <div>
-                        <button
-                          type="submit"
-                          disabled={isSubmitting}
-                          className="w-full bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 disabled:opacity-50"
-                        >
-                          {isSubmitting ? t('ContactPage.submitting') : t('ContactPage.submit')}
-                        </button>
-                      </div>
-                    </form>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+
     </>
   )
 }

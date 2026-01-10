@@ -1,6 +1,6 @@
 'use server'
 
-// import { createTransport } from 'nodemailer'; // Not currently installed - would be used in production
+import { createTransport } from 'nodemailer';
 
 export async function submitContactForm(formData: {
   name: string
@@ -11,22 +11,30 @@ export async function submitContactForm(formData: {
   message: string
 }) {
   try {
-    // In a real implementation, you would:
-    // 1. Validate the form data
-    // 2. Use Supabase service key to insert into database
-    // 3. Send confirmation email
-    // 4. Return success/failure status
+    // Validate the form data
+    if (!formData.name || !formData.email || !formData.message) {
+      return { success: false, error: 'Name, email, and message are required' };
+    }
     
-    // For now, we'll simulate the process
-    await new Promise(resolve => setTimeout(resolve, 1000))
+    // Validate email format
+    const emailRegex = /^[\w\.-]+@[\w\.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(formData.email)) {
+      return { success: false, error: 'Invalid email format' };
+    }
     
-    // Log the data (in real implementation, you would insert into Supabase)
-    console.log('Contact form submitted:', formData)
+    // In a real implementation, you would also:
+    // 1. Use Supabase service key to insert into database
     
-    return { success: true }
+    // Log the data (temporary until we implement email sending)
+    console.log('Contact form submitted:', formData);
+    
+    // Send email notification to the business email
+    await sendContactEmail(formData);
+    
+    return { success: true };
   } catch (error) {
-    console.error('Error submitting contact form:', error)
-    return { success: false, error: 'Failed to submit form' }
+    console.error('Error submitting contact form:', error);
+    return { success: false, error: 'Failed to submit form' };
   }
 }
 
@@ -102,6 +110,57 @@ export async function submitDownloadRequest(formData: {
   }
 }
 
+// Function to send contact form emails to the business email
+async function sendContactEmail(data: {
+  name: string;
+  email: string;
+  phone: string;
+  destination: string;
+  travelDate: string;
+  message: string;
+}) {
+  try {
+    const businessEmail = 'info@latanzanieaucoeurdelanature.com';
+    
+    // Get email credentials from environment variables
+    const transporter = createTransporter();
+    
+    const mailOptions = {
+      from: process.env.EMAIL_FROM || businessEmail,
+      to: businessEmail,
+      subject: `Nouvelle demande de contact de ${data.name}`,
+      html: `
+        <h2>Nouvelle demande de contact</h2>
+        <p><strong>Nom:</strong> ${data.name}</p>
+        <p><strong>Email:</strong> ${data.email}</p>
+        <p><strong>Téléphone:</strong> ${data.phone}</p>
+        <p><strong>Destination:</strong> ${data.destination}</p>
+        <p><strong>Date de voyage:</strong> ${data.travelDate}</p>
+        <p><strong>Message:</strong> ${data.message}</p>
+      `
+    };
+    
+    await transporter.sendMail(mailOptions);
+    console.log(`Contact form notification sent for ${data.name} (${data.email}) to ${businessEmail}`);
+  } catch (error) {
+    console.error('Error sending contact email:', error);
+    throw error;
+  }
+}
+
+// Helper function to create email transporter for Zoho Mail
+function createTransporter() {
+  return createTransport({
+    host: 'smtp.zoho.com',
+    port: 587,
+    secure: false, // true for 465, false for other ports
+    auth: {
+      user: process.env.ZOHO_EMAIL_USER,
+      pass: process.env.ZOHO_EMAIL_APP_PASSWORD
+    }
+  });
+}
+
 // Function to send notification emails to the business email
 async function sendNotificationEmail(data: {
   firstName?: string;
@@ -110,19 +169,40 @@ async function sendNotificationEmail(data: {
   type: 'newsletter' | 'download';
 }) {
   try {
-    // In a production environment, you would configure your email service here
-    // For now, we just log the notification
-    // In a real implementation, you would use a service like SendGrid, Mailgun, or AWS SES
-    
     // Email configuration for sending to the business email
     const businessEmail = 'info@latanzanieaucoeurdelanature.com';
     
+    // Get email credentials from environment variables
+    const transporter = createTransporter();
+    
     if (data.type === 'newsletter') {
+      const mailOptions = {
+        from: process.env.EMAIL_FROM || businessEmail,
+        to: businessEmail,
+        subject: `Nouvelle inscription à la newsletter de ${data.firstName || 'un visiteur'}`,
+        html: `
+          <h2>Nouvelle inscription à la newsletter</h2>
+          <p><strong>Prénom:</strong> ${data.firstName}</p>
+          <p><strong>Email:</strong> ${data.email}</p>
+        `
+      };
+      
+      await transporter.sendMail(mailOptions);
       console.log(`Newsletter subscription notification sent for ${data.firstName} (${data.email}) to ${businessEmail}`);
-      // In a real implementation, you would send an email to businessEmail with the subscription details
     } else if (data.type === 'download') {
+      const mailOptions = {
+        from: process.env.EMAIL_FROM || businessEmail,
+        to: businessEmail,
+        subject: `Nouvelle demande de téléchargement de ${data.name || 'un visiteur'}`,
+        html: `
+          <h2>Nouvelle demande de téléchargement</h2>
+          <p><strong>Nom:</strong> ${data.name}</p>
+          <p><strong>Email:</strong> ${data.email}</p>
+        `
+      };
+      
+      await transporter.sendMail(mailOptions);
       console.log(`Download request notification sent for ${data.name} (${data.email}) to ${businessEmail}`);
-      // In a real implementation, you would send an email to businessEmail with the download request details
     }
   } catch (error) {
     console.error('Error sending notification email:', error);

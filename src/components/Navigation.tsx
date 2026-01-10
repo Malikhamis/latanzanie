@@ -8,6 +8,7 @@ import { Park } from '@/types/park'
 import { usePathname } from 'next/navigation'
 
 import { useTranslations } from 'next-intl'
+import { submitContactForm } from '@/lib/actions/contact'
 
 
 interface NavigationProps {
@@ -18,7 +19,8 @@ interface NavigationProps {
 export function Navigation({ parks }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isDesktopMenuOpen, setIsDesktopMenuOpen] = useState(false)
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false)
+  // Contact modal state removed - now linking directly to contact page
+  // const [isContactModalOpen, setIsContactModalOpen] = useState(false)
   const [isChatOpen, setIsChatOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
   const pathname = usePathname()
@@ -53,13 +55,7 @@ export function Navigation({ parks }: NavigationProps) {
         }
       }
       
-      // Close contact modal if open and click is outside
-      if (isContactModalOpen) {
-        const contactModal = document.querySelector('.contact-modal');
-        if (contactModal && !contactModal.contains(event.target as Node)) {
-          setIsContactModalOpen(false);
-        }
-      }
+
       
       // Close chat modal if open and click is outside
       if (isChatOpen) {
@@ -75,14 +71,52 @@ export function Navigation({ parks }: NavigationProps) {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isMenuOpen, isDesktopMenuOpen, isContactModalOpen, isChatOpen])
+  }, [isMenuOpen, isDesktopMenuOpen, isChatOpen])
 
   // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Form submission logic would go here
-    setIsContactModalOpen(false)
-  }
+  const [formValues, setFormValues] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    destination: '',
+    travelDate: '',
+    message: ''
+  });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+  
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormValues(prev => ({ ...prev, [name]: value }));
+  };
+  
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError('');
+    
+    try {
+      const result = await submitContactForm(formValues);
+      if (result.success) {
+        setSubmitSuccess(true);
+        // Reset form
+        setFormValues({ name: '', email: '', phone: '', destination: '', travelDate: '', message: '' });
+        // Redirect to contact page after success
+        window.location.href = `/${currentLocale}/contact`;
+      } else {
+        setSubmitError(result.error || t('ContactPage.submitError'));
+      }
+    } catch (error) {
+      console.error('Error submitting contact form:', error);
+      setSubmitError(t('ContactPage.submitError'));
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+  
+
 
   return (
     <>
@@ -143,12 +177,12 @@ export function Navigation({ parks }: NavigationProps) {
                   <Link href={`/${currentLocale}/trips/zanzibar-beach-holidays`} className="block px-4 py-2 text-gray-700 hover:bg-gray-100">{t('tripZanzibarBeach')}</Link>
                 </div>
               </div>
-              <button 
-                onClick={() => setIsContactModalOpen(true)}
+              <Link 
+                href={`/${currentLocale}/contact`}
                 className="bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 {t('contact')}
-              </button>
+              </Link>
               {/* Menu Button for Desktop */}
               <Button 
                 variant="ghost" 
@@ -384,8 +418,8 @@ export function Navigation({ parks }: NavigationProps) {
             </Link>
             
             {/* Contact Button - Message in rounded badge */}
-            <button 
-              onClick={() => setIsContactModalOpen(true)}
+            <Link 
+              href={`/${currentLocale}/contact`}
               className="flex flex-col items-center justify-center min-w-[68px] h-16 rounded-2xl transition-all duration-300 hover:bg-white/15 hover:scale-105"
             >
               <div className="relative">
@@ -394,7 +428,7 @@ export function Navigation({ parks }: NavigationProps) {
                 </div>
               </div>
               <span className="text-xs font-semibold mt-1.5 tracking-wide text-white/90">{t('contact')}</span>
-            </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -454,201 +488,7 @@ export function Navigation({ parks }: NavigationProps) {
         </div>
       )}
       
-      {/* Contact Modal */}
-      {isContactModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 contact-modal">
-          {/* Backdrop with blur - completely transparent with blur effect */}
-          <div 
-            className="absolute inset-0 backdrop-blur-lg"
-            onClick={() => setIsContactModalOpen(false)}
-          ></div>
-          
-          {/* Modal Content - Larger and with two semi parts */}
-          <div className="relative bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto z-10">
-            <div className="p-8">
-              {/* Close Button */}
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-3xl font-bold text-gray-800">{t('contactModal.title')}</h2>
-                <button 
-                  onClick={() => setIsContactModalOpen(false)}
-                  className="text-gray-500 hover:text-gray-700"
-                >
-                  <X className="h-8 w-8" />
-                </button>
-              </div>
-              
-              {/* Two-column layout */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {/* Left column - Contact information */}
-                <div className="bg-[#E8F8F5] p-6 rounded-lg">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">{t('contactModal.contactUs')}</h3>
-                  <p className="text-gray-600 mb-6">
-                    {t('contactModal.description')}
-                  </p>
-                  
-                  <div className="space-y-4">
-                    <div className="flex items-start">
-                      <Mail className="h-6 w-6 text-green-600 mt-1 mr-3" />
-                      <div>
-                        <h4 className="font-medium text-gray-800">{t('contactModal.emailUs')}</h4>
-                        <p className="text-gray-600">info@latanzanieaucoeurdelanature.com</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start">
-                      <Phone className="h-6 w-6 text-green-600 mt-1 mr-3" />
-                      <div>
-                        <h4 className="font-medium text-gray-800">{t('contactModal.callUs')}</h4>
-                        <p className="text-gray-600">+255782825692</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start">
-                      <MessageSquare className="h-6 w-6 text-green-600 mt-1 mr-3" />
-                      <div>
-                        <h4 className="font-medium text-gray-800">{t('contactModal.chatWithUs')}</h4>
-                        <p className="text-gray-600">{t('contactModal.available')}</p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="mt-8">
-                    <h4 className="font-bold text-gray-800 mb-3">{t('contactModal.whyChooseUs')}</h4>
-                    <ul className="space-y-2">
-                      <li className="flex items-center">
-                        <div className="w-2 h-2 bg-green-600 rounded-full mr-2"></div>
-                        <span className="text-gray-600">{t('contactModal.localExperts')}</span>
-                      </li>
-                      <li className="flex items-center">
-                        <div className="w-2 h-2 bg-green-600 rounded-full mr-2"></div>
-                        <span className="text-gray-600">{t('contactModal.responsibleTravel')}</span>
-                      </li>
-                      <li className="flex items-center">
-                        <div className="w-2 h-2 bg-green-600 rounded-full mr-2"></div>
-                        <span className="text-gray-600">{t('contactModal.customizedPlanning')}</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                
-                {/* Right column - Contact form */}
-                <div>
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                        {t('contactModal.fullName')}
-                      </label>
-                      <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <User className="h-5 w-5 text-gray-400" />
-                        </div>
-                        <input
-                          type="text"
-                          id="name"
-                          className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-[#00A896] focus:border-[#00A896]"
-                          placeholder={t('contactModal.namePlaceholder')}
-                          required
-                        />
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                        {t('contactModal.emailAddress')}
-                      </label>
-                      <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Mail className="h-5 w-5 text-gray-400" />
-                        </div>
-                        <input
-                          type="email"
-                          id="email"
-                          className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-[#00A896] focus:border-[#00A896]"
-                          placeholder={t('contactModal.emailPlaceholder')}
-                          required
-                        />
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                        {t('contactModal.phoneNumber')}
-                      </label>
-                      <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Phone className="h-5 w-5 text-gray-400" />
-                        </div>
-                        <input
-                          type="tel"
-                          id="phone"
-                          className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-[#00A896] focus:border-[#00A896]"
-                          placeholder="+255782825692"
-                        />
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="trip" className="block text-sm font-medium text-gray-700 mb-1">
-                        {t('contactModal.interestedTrip')}
-                      </label>
-                      <select
-                        id="trip"
-                        className="block w-full px-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-[#00A896] focus:border-[#00A896]"
-                      >
-                        <option value="">{t('contactModal.selectTrip')}</option>
-                        <option value="kilimanjaro">{t('trips')}</option>
-                        <option value="safari">{t('destinations')}</option>
-                        <option value="zanzibar">{t('blog')}</option>
-                        <option value="nepal">{t('contact')}</option>
-                        <option value="everest">{t('about')}</option>
-                      </select>
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                        {t('contactModal.message')}
-                      </label>
-                      <div className="relative">
-                        <div className="absolute top-3 left-3">
-                          <MessageSquare className="h-5 w-5 text-gray-400" />
-                        </div>
-                        <textarea
-                          id="message"
-                          rows={4}
-                          className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-[#00A896] focus:border-[#00A896]"
-                          placeholder={t('contactModal.messagePlaceholder')}
-                          required
-                        ></textarea>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center">
-                      <input
-                        id="privacy-policy"
-                        type="checkbox"
-                        className="h-4 w-4 text-[#00A896] focus:ring-[#00A896] border-gray-300 rounded"
-                        required
-                      />
-                      <label htmlFor="privacy-policy" className="ml-2 block text-sm text-gray-700">
-                        {t('contactModal.accept')} <Link href={`/${currentLocale}/privacy`} className="text-[#00A896] hover:text-[#008576]">{t('contactModal.privacyPolicy')}</Link>
-                      </label>
-                    </div>
-                    
-                    <div>
-                      <button
-                        type="submit"
-                        className="w-full bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white font-medium py-3 px-4 rounded-lg transition-all duration-200"
-                      >
-                        {t('contactModal.sendRequest')}
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+
     </>
   )
 }

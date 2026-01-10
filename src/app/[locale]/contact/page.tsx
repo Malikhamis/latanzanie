@@ -3,7 +3,6 @@
 // Disable static generation for this page
 export const dynamic = 'force-dynamic';
 
-
 import { useTranslations } from 'next-intl';
 import ContactFormClient from '@/components/ContactFormClient';
 
@@ -72,53 +71,61 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      {/* Compact header */}
-      <div className="bg-[#5BC4AF] py-3 px-4 flex items-center justify-between">
-        <h1 className="text-white text-lg font-semibold">{t('heroTitle')}</h1>
+    <div className="max-w-4xl mx-auto p-6 bg-white">
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold text-gray-800 mb-2">{t('heroTitle')}</h1>
+        <p className="text-gray-600">{t('heroSubtitle')}</p>
       </div>
 
-      {/* Main content - fills remaining space */}
-      <div className="flex-1 flex flex-col overflow-hidden">
-        {/* Form section */}
-        <div className="flex-1 overflow-y-auto p-4 bg-white">
-          <h2 className="text-lg font-semibold mb-4 text-gray-800">{messages.formTitle}</h2>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* Form section - takes 2/3 of width */}
+        <div className="lg:col-span-2 bg-white p-6 rounded-lg shadow-md">
+          <h2 className="text-xl font-semibold mb-6 text-gray-800">{messages.formTitle}</h2>
           <ContactFormClient messages={messages} />
         </div>
 
-        {/* Contact info section */}
-        <div className="border-t border-gray-200 bg-gray-50 p-4">
-          <h3 className="text-md font-semibold mb-3 text-gray-800">{messages.contactInfoTitle}</h3>
-          
-          <div className="space-y-3">
-            <div>
-              <h4 className="font-medium text-xs text-gray-600">{messages.contactInfo.address.title}</h4>
-              <p className="text-xs text-gray-700">{messages.contactInfo.address.line1}</p>
-              <p className="text-xs text-gray-700">{messages.contactInfo.address.line2}</p>
+        {/* Contact info section - sidebar */}
+        <div className="lg:col-span-1">
+          <div className="bg-gray-50 p-6 rounded-lg shadow-sm sticky top-6">
+            <h3 className="text-lg font-semibold mb-4 text-gray-800">{messages.contactInfoTitle}</h3>
+            
+            <div className="space-y-4">
+              <div>
+                <h4 className="font-medium text-sm text-gray-600">{messages.contactInfo.address.title}</h4>
+                <p className="text-sm text-gray-700">{messages.contactInfo.address.line1}</p>
+                <p className="text-sm text-gray-700">{messages.contactInfo.address.line2}</p>
+              </div>
+
+              <div>
+                <h4 className="font-medium text-sm text-gray-600">{messages.contactInfo.phone.title}</h4>
+                <p className="text-sm text-gray-700">{messages.contactInfo.phone.number}</p>
+              </div>
+
+              <div>
+                <h4 className="font-medium text-sm text-gray-600">{messages.contactInfo.email.title}</h4>
+                <p className="text-sm text-gray-700">{messages.contactInfo.email.address}</p>
+              </div>
+
+              <div>
+                <h4 className="font-medium text-sm text-gray-600">{messages.contactInfo.hours.title}</h4>
+                <p className="text-sm text-gray-700">{messages.contactInfo.hours.line1}</p>
+                <p className="text-sm text-gray-700">{messages.contactInfo.hours.line2}</p>
+                <p className="text-sm text-gray-700">{messages.contactInfo.hours.line3}</p>
+              </div>
             </div>
 
-            <div>
-              <h4 className="font-medium text-xs text-gray-600">{messages.contactInfo.phone.title}</h4>
-              <p className="text-xs text-gray-700">{messages.contactInfo.phone.number}</p>
-            </div>
-
-            <div>
-              <h4 className="font-medium text-xs text-gray-600">{messages.contactInfo.email.title}</h4>
-              <p className="text-xs text-gray-700">{messages.contactInfo.email.address}</p>
-            </div>
-
-            <div>
-              <h4 className="font-medium text-xs text-gray-600">{messages.contactInfo.hours.title}</h4>
-              <p className="text-xs text-gray-700">{messages.contactInfo.hours.line1}</p>
-              <p className="text-xs text-gray-700">{messages.contactInfo.hours.line2}</p>
-            </div>
-          </div>
-
-          <div className="mt-4 pt-3 border-t border-gray-200">
-            <h4 className="font-medium text-xs text-gray-600 mb-2">{messages.urgentHelpTitle}</h4>
-            <div className="flex gap-2">
-              <button className="flex-1 border border-gray-300 rounded py-1.5 text-xs">{messages.liveChat}</button>
-              <button className="flex-1 border border-gray-300 rounded py-1.5 text-xs">{messages.phoneCall}</button>
+            <div className="mt-6 pt-4 border-t border-gray-200">
+              <h4 className="font-medium text-sm text-gray-600 mb-3">{messages.urgentHelpTitle}</h4>
+              <div className="space-y-3">
+                <a 
+                  href={`https://wa.me/${messages.contactInfo.phone.number.replace(/\D/g, '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-[#25D366] hover:bg-[#1DA851] text-white font-medium py-2 px-4 rounded-lg transition-colors block text-center"
+                >
+                  {messages.liveChat}
+                </a>
+              </div>
             </div>
           </div>
         </div>
