@@ -55,8 +55,10 @@ export default function ContactFormClient({ messages }: Props) {
         },
         body: JSON.stringify(formData),
       });
+      
       const result = await response.json();
-      if (result.success) {
+      
+      if (response.ok && result.success) {
         setSubmitSuccess(true);
         setFormData({ name: '', email: '', phone: '', destination: '', travelDate: '', message: '' });
       } else {
@@ -68,7 +70,7 @@ export default function ContactFormClient({ messages }: Props) {
     } finally {
       setIsSubmitting(false);
     }
-  } 
+  }
 
   if (submitSuccess) {
     return (
