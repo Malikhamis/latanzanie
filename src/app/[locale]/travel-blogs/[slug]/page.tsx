@@ -531,6 +531,40 @@ export default function TravelBlogDetailPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
   const [submitError, setSubmitError] = useState('')
+  
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError('');
+    
+    try {
+      const response = await fetch('/.netlify/functions/newsletter-subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ firstName, email }),
+      });
+      
+      const result = await response.json();
+      
+      if (response.ok && result.success) {
+        setSubmitSuccess(true);
+        setFirstName('');
+        setEmail('');
+        // Reset after 3 seconds
+        setTimeout(() => {
+          setSubmitSuccess(false);
+        }, 3000);
+      } else {
+        setSubmitError(result.error || 'Failed to subscribe');
+      }
+    } catch (err) {
+      setSubmitError('An error occurred. Please try again.');
+      console.error('Newsletter subscription error:', err);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+  
   const monthDropdownRef = useRef<HTMLDivElement>(null)
   const params = useParams()
   const locale = (params?.locale || 'en') as 'en' | 'fr'
@@ -1987,21 +2021,40 @@ export default function TravelBlogDetailPage() {
             <p className="text-xl md:text-2xl max-w-2xl mx-auto mb-8">
               {t('newsletter.description')}
             </p>
-            <div className="max-w-md mx-auto flex flex-col sm:flex-row gap-4 w-full">
+            <form onSubmit={handleNewsletterSubmit} className="max-w-md mx-auto flex flex-col sm:flex-row gap-4 w-full">
               <input
                 type="text"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
                 placeholder={t('newsletter.firstNamePlaceholder')}
                 className="flex-grow px-4 py-3 rounded-lg text-gray-800 focus:outline-none bg-white w-full"
+                required
               />
               <input
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder={t('newsletter.emailPlaceholder')}
                 className="flex-grow px-4 py-3 rounded-lg text-gray-800 focus:outline-none bg-white w-full"
+                required
               />
-              <button className="bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white px-6 py-3 rounded-lg font-medium transition-colors w-full">
-                {t('newsletter.button')}
+              <button 
+                type="submit" 
+                disabled={isSubmitting}
+                className="bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white px-6 py-3 rounded-lg font-medium transition-colors w-full disabled:opacity-50">
+                {isSubmitting ? t('newsletter.submitting') || 'Submitting...' : t('newsletter.button')}
               </button>
-            </div>
+              {submitSuccess && (
+                <div className="w-full text-green-600 text-center mt-2 text-sm col-span-full">
+                  {t('newsletter.success') || 'Successfully subscribed!'}
+                </div>
+              )}
+              {submitError && (
+                <div className="w-full text-red-600 text-center mt-2 text-sm col-span-full">
+                  {submitError}
+                </div>
+              )}
+            </form>
           </div>
         </section>
 

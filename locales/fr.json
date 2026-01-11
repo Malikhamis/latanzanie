@@ -574,7 +574,9 @@
       "description": "Recevez les dernières nouvelles sur les joyaux d'aventure cachés, les voyages de lancement à prix réduit et bien plus encore directement dans votre boîte de réception",
       "firstNamePlaceholder": "Prénom",
       "emailPlaceholder": "Votre adresse email",
-      "button": "S'abonner"
+      "button": "S'abonner",
+      "submitting": "Envoi en cours...",
+      "success": "Inscription réussie!"
     }
   },
   "AboutPage": {
@@ -690,7 +692,9 @@
       "description": "Recevez les dernières pépites cachées, les offres de lancement et plus encore directement dans votre boîte de réception.",
       "firstNamePlaceholder": "Prénom",
       "emailPlaceholder": "Votre adresse e-mail",
-      "button": "S'abonner"
+      "button": "S'abonner",
+      "submitting": "Envoi en cours...",
+      "success": "Inscription réussie!"
     }
   },
   "ClimbKilimanjaroPage": {
@@ -1015,7 +1019,9 @@
       "description": "Recevez les dernières nouvelles sur les joyaux d'aventure cachés, les voyages de lancement à prix réduit et bien plus encore directement dans votre boîte de réception",
       "firstNamePlaceholder": "Prénom",
       "emailPlaceholder": "Email",
-      "button": "S'inscrire !"
+      "button": "S'inscrire !",
+      "submitting": "Envoi en cours...",
+      "success": "Inscription réussie!"
     },
     "contactModal": {
       "title": "Réserver un appel avec notre équipe",
@@ -1220,7 +1226,9 @@
       "description": "Recevez les dernières nouvelles sur les joyaux d'aventure cachés, les voyages de lancement à prix réduit et bien plus encore directement dans votre boîte de réception",
       "firstNamePlaceholder": "Prénom",
       "emailPlaceholder": "Email",
-      "button": "S'inscrire !"
+      "button": "S'inscrire !",
+      "submitting": "Envoi en cours...",
+      "success": "Inscription réussie!"
     },
     "contactModal": {
       "title": "Réserver un appel avec notre équipe",
@@ -1388,7 +1396,9 @@
       "description": "Recevez les dernières nouvelles sur les joyaux d'aventure cachés, les voyages de lancement à prix réduit et bien plus encore directement dans votre boîte de réception",
       "firstNamePlaceholder": "Prénom",
       "emailPlaceholder": "Email",
-      "button": "S'inscrire !"
+      "button": "S'inscrire !",
+      "submitting": "Envoi en cours...",
+      "success": "Inscription réussie!"
     },
     "contactModal": {
       "title": "Réserver un appel avec notre équipe",
@@ -1551,7 +1561,9 @@
       "description": "Recevez les dernières nouvelles sur les joyaux d'aventure cachés, les voyages de lancement à prix réduit et bien plus encore directement dans votre boîte de réception",
       "firstNamePlaceholder": "Prénom",
       "emailPlaceholder": "Email",
-      "button": "S'inscrire !"
+      "button": "S'inscrire !",
+      "submitting": "Envoi en cours...",
+      "success": "Inscription réussie!"
     },
     "contactModal": {
       "title": "Réserver un appel avec notre équipe",
@@ -1670,7 +1682,9 @@
       "description": "Recevez les dernières nouvelles sur les joyaux d'aventure cachés, les voyages de lancement à prix réduit et bien plus encore directement dans votre boîte de réception",
       "firstNamePlaceholder": "Prénom",
       "emailPlaceholder": "Email",
-      "button": "S'inscrire !"
+      "button": "S'inscrire !",
+      "submitting": "Envoi en cours...",
+      "success": "Inscription réussie!"
     },
     "datesAndPrices": {
       "title": "Dates et Prix",
@@ -1950,7 +1964,9 @@
       "description": "Recevez les dernières nouvelles sur les joyaux d'aventure cachés, les offres exclusives de safari et les conseils d'initiés",
       "firstNamePlaceholder": "Prénom",
       "emailPlaceholder": "Adresse e-mail",
-      "button": "S'abonner"
+      "button": "S'abonner",
+      "submitting": "Envoi en cours...",
+      "success": "Inscription réussie!"
     },
     "contactModal": {
       "title": "Renseignez-vous sur votre Safari",
@@ -2359,7 +2375,9 @@
       "description": "Recevez les dernières nouvelles sur les joyaux d'aventure cachés, les voyages de lancement à prix réduit et bien plus encore directement dans votre boîte de réception",
       "firstNamePlaceholder": "Prénom",
       "emailPlaceholder": "Adresse e-mail",
-      "button": "S'abonner"
+      "button": "S'abonner",
+      "submitting": "Envoi en cours...",
+      "success": "Inscription réussie!"
     },
     "inquiryForm": {
       "title": "Réservez Votre Expérience Safari",
@@ -2462,7 +2480,9 @@
       "description": "Recevez les dernières nouvelles sur les joyaux d'aventure cachés, les voyages de lancement à prix réduit et bien plus encore directement dans votre boîte de réception",
       "firstNamePlaceholder": "Prénom",
       "emailPlaceholder": "Adresse e-mail",
-      "button": "S'abonner"
+      "button": "S'abonner",
+      "submitting": "Envoi en cours...",
+      "success": "Inscription réussie!"
     },
     "inquiryForm": {
       "title": "Réservez Votre Expérience Safari",
@@ -2573,7 +2593,9 @@
       "description": "Recevez les dernières nouvelles sur les joyaux d'aventure cachés, les voyages de lancement à prix réduit et bien plus encore directement dans votre boîte de réception",
       "firstNamePlaceholder": "Prénom",
       "emailPlaceholder": "Adresse e-mail",
-      "button": "S'abonner"
+      "button": "S'abonner",
+      "submitting": "Envoi en cours...",
+      "success": "Inscription réussie!"
     },
     "inquiryForm": {
       "title": "Réservez Votre Aventure Safari & Kilimandjaro",
@@ -2747,7 +2769,9 @@
       "description": "Recevez les dernières nouvelles sur les joyaux cachés de l'aventure, les offres exclusives de safari et les conseils d'initiés sur Zanzibar directement dans votre boîte mail",
       "firstNamePlaceholder": "Prénom",
       "emailPlaceholder": "Adresse e-mail",
-      "button": "S'abonner"
+      "button": "S'abonner",
+      "submitting": "Envoi en cours...",
+      "success": "Inscription réussie!"
     },
     "inquiryForm": {
       "title": "Réservez Votre Expérience Safari & Plage",
@@ -2993,7 +3017,9 @@
       "description": "Recevez les dernières nouvelles sur les joyaux de plage cachés, les offres exclusives Zanzibar et les conseils d'initiés de l'île",
       "firstNamePlaceholder": "Prénom",
       "emailPlaceholder": "E-mail",
-      "button": "S'inscrire !"
+      "button": "S'inscrire !",
+      "submitting": "Envoi en cours...",
+      "success": "Inscription réussie!"
     },
     "contactModal": {
       "title": "Réserver un appel avec notre équipe",
@@ -3096,7 +3122,9 @@
       "description": "Recevez des offres exclusives, des conseils de voyage, et des récits d'aventure directement dans votre boîte de réception.",
       "firstNamePlaceholder": "Prénom",
       "emailPlaceholder": "Email",
-      "button": "S'abonner"
+      "button": "S'abonner",
+      "submitting": "Envoi en cours...",
+      "success": "Inscription réussie!"
     },
     "inquiryForm": {
       "title": "Demande de réservation",
@@ -3181,7 +3209,9 @@
       "description": "Recevez des offres exclusives, des conseils de voyage, et des récits d'aventure directement dans votre boîte de réception.",
       "firstNamePlaceholder": "Prénom",
       "emailPlaceholder": "Email",
-      "button": "S'abonner"
+      "button": "S'abonner",
+      "submitting": "Envoi en cours...",
+      "success": "Inscription réussie!"
     },
     "inquiryForm": {
       "title": "Demande de réservation",
