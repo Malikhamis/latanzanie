@@ -5,7 +5,7 @@ import '../../tailgrid.css'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useState } from 'react'
-import { submitNewsletterSubscription } from '@/lib/actions/contact'
+
 
 // Disable static generation for this page
 export const dynamic = 'force-dynamic';
@@ -29,7 +29,14 @@ export default function AboutPage() {
     setSubmitError('');
 
     try {
-      const result = await submitNewsletterSubscription({ firstName, email });
+      const response = await fetch('/.netlify/functions/newsletter-subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ firstName, email }),
+      });
+      const result = await response.json();
       if (result.success) {
         setSubmitSuccess(true);
         setFirstName('');
@@ -228,8 +235,8 @@ export default function AboutPage() {
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0">
           <Image 
-            src="/images/kilimanjaro-sunset.jpg" 
-            alt="Kilimanjaro"
+            src="/images/news.jpg" 
+            alt="Newsletter Background"
             fill
             className="object-cover" />
           <div className="absolute inset-0 bg-black/60"></div>
@@ -252,7 +259,7 @@ export default function AboutPage() {
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
               placeholder={t('newsletter.firstNamePlaceholder')}
-              className="flex-1 px-6 py-3 rounded-lg text-gray-900"
+              className="flex-1 px-6 py-3 rounded-lg text-white placeholder-white bg-white/20 border border-white focus:bg-white/30 focus:border-white"
               required
             />
             <input
@@ -260,7 +267,7 @@ export default function AboutPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder={t('newsletter.emailPlaceholder')}
-              className="flex-1 px-6 py-3 rounded-lg text-gray-900"
+              className="flex-1 px-6 py-3 rounded-lg text-white placeholder-white bg-white/20 border border-white focus:bg-white/30 focus:border-white"
               required
             />
             <Button 

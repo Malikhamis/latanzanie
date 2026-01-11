@@ -2139,11 +2139,32 @@ export default function TravelBlogDetailPage() {
                 </p>
 
                 {/* Download Form */}
-                <form onSubmit={(e) => {
-                  e.preventDefault()
-                  // Download logic would go here
-                  setIsDownloadModalOpen(false)
-                }} className="space-y-4">
+                <form
+                  onSubmit={async (e) => {
+                    e.preventDefault();
+                    const form = e.target as HTMLFormElement;
+                    const name = (form.elements.namedItem('download-name') as HTMLInputElement)?.value;
+                    const email = (form.elements.namedItem('download-email') as HTMLInputElement)?.value;
+                    // Optionally, you can add loading/success/error state here
+                    try {
+                      const response = await fetch('/.netlify/functions/download-request', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ name, email }),
+                      });
+                      const result = await response.json();
+                      if (result.success) {
+                        alert('Votre demande de téléchargement a bien été envoyée.');
+                        setIsDownloadModalOpen(false);
+                      } else {
+                        alert(result.error || 'Erreur lors de la soumission du formulaire.');
+                      }
+                    } catch (err) {
+                      alert('Erreur réseau. Veuillez réessayer.');
+                    }
+                  }}
+                  className="space-y-4"
+                >
                   <div>
                     <label htmlFor="download-name" className="block text-sm font-medium text-gray-700 mb-1">
                       {t('downloadModal.nameLabel')}

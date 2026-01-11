@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import NewsletterForm from '../NewsletterForm';
 import { useParams } from 'next/navigation'
 import Image from 'next/image'
 import Faq from '@/components/ui/faq'
@@ -1277,21 +1278,7 @@ export default function UmbweRoutePage() {
           <p className="text-xl md:text-2xl max-w-2xl mx-auto mb-8">
             {t('newsletter.description')}
           </p>
-          <div className="max-w-md mx-auto flex flex-col sm:flex-row gap-4 w-full">
-            <input
-              type="text"
-              placeholder={t('newsletter.firstNamePlaceholder')}
-              className="flex-grow px-4 py-3 rounded-lg text-gray-800 focus:outline-none bg-white w-full"
-            />
-            <input
-              type="email"
-              placeholder={t('newsletter.emailPlaceholder')}
-              className="flex-grow px-4 py-3 rounded-lg text-gray-800 focus:outline-none bg-white w-full"
-            />
-            <button className="bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white px-6 py-3 rounded-lg font-medium transition-colors w-full">
-              {t('newsletter.button')}
-            </button>
-          </div>
+          <NewsletterForm t={t} />
         </div>
       </section>
 

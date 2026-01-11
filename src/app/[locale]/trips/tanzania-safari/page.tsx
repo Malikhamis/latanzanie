@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import NewsletterForm from '../NewsletterForm';
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Phone, Download, Star, Users, Clock, MapPin, Calendar, User } from 'lucide-react'
@@ -691,21 +692,7 @@ export default function TanzaniaSafariPage() {
           <p className="text-xl md:text-2xl max-w-2xl mx-auto mb-8">
             {t('newsletter.description')}
           </p>
-          <div className="max-w-md mx-auto flex flex-col sm:flex-row gap-4 w-full">
-            <input
-              type="text"
-              placeholder={t('newsletter.firstNamePlaceholder')}
-              className="flex-grow px-4 py-3 rounded-lg text-gray-800 focus:outline-none bg-white w-full"
-            />
-            <input
-              type="email"
-              placeholder={t('newsletter.emailPlaceholder')}
-              className="flex-grow px-4 py-3 rounded-lg text-gray-800 focus:outline-none bg-white w-full"
-            />
-            <button className="bg-gradient-to-r from-[#72D9C4] to-[#00A896] hover:from-[#5BC4AF] hover:to-[#008576] text-white px-6 py-3 rounded-lg font-medium transition-colors w-full">
-              {t('newsletter.button')}
-            </button>
-          </div>
+          <NewsletterForm t={t} />
         </div>
       </section>
 
@@ -816,12 +803,17 @@ export default function TanzaniaSafariPage() {
       {/* Download Modal */}
       {isDownloadModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          {/* Backdrop with blur */}
-          <div 
-            className="absolute inset-0 backdrop-blur-lg"
-            onClick={() => setIsDownloadModalOpen(false)}
-          ></div>
-          
+          {/* Backdrop with blur and image */}
+          <div className="absolute inset-0 z-0">
+            <Image 
+              src="/images/news.jpg" 
+              alt="Download Modal Background" 
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-black/40" onClick={() => setIsDownloadModalOpen(false)}></div>
+          </div>
           {/* Modal Content */}
           <div className="relative bg-white rounded-lg shadow-xl max-w-md w-full z-10">
             <div className="p-6">
@@ -843,10 +835,31 @@ export default function TanzaniaSafariPage() {
               </p>
               
               {/* Download Form */}
-              <form onSubmit={(e) => {
-                e.preventDefault()
-                setIsDownloadModalOpen(false)
-              }} className="space-y-4">
+              <form
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  const form = e.target as HTMLFormElement;
+                  const name = (form.elements.namedItem('download-name') as HTMLInputElement)?.value;
+                  const email = (form.elements.namedItem('download-email') as HTMLInputElement)?.value;
+                  try {
+                    const response = await fetch('/.netlify/functions/download-request', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ name, email }),
+                    });
+                    const result = await response.json();
+                    if (result.success) {
+                      alert('Votre demande de téléchargement a bien été envoyée.');
+                      setIsDownloadModalOpen(false);
+                    } else {
+                      alert(result.error || 'Erreur lors de la soumission du formulaire.');
+                    }
+                  } catch (err) {
+                    alert('Erreur réseau. Veuillez réessayer.');
+                  }
+                }}
+                className="space-y-4"
+              >
                 <div>
                   <label htmlFor="download-name" className="block text-sm font-medium text-gray-700 mb-1">
                     {t('downloadModal.nameLabel')}

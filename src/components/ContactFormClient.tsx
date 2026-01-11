@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { submitContactForm } from '@/lib/actions/contact'
+
 
 type Messages = {
   successTitle: string;
@@ -43,25 +43,32 @@ export default function ContactFormClient({ messages }: Props) {
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setSubmitError('')
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError('');
 
     try {
-      const result = await submitContactForm(formData)
+      const response = await fetch('/.netlify/functions/contact-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      const result = await response.json();
       if (result.success) {
-        setSubmitSuccess(true)
-        setFormData({ name: '', email: '', phone: '', destination: '', travelDate: '', message: '' })
+        setSubmitSuccess(true);
+        setFormData({ name: '', email: '', phone: '', destination: '', travelDate: '', message: '' });
       } else {
-        setSubmitError(result.error || messages.submitError)
+        setSubmitError(result.error || messages.submitError);
       }
     } catch (err) {
-      console.error(err)
-      setSubmitError(messages.submitError)
+      console.error(err);
+      setSubmitError(messages.submitError);
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  } 
 
   if (submitSuccess) {
     return (

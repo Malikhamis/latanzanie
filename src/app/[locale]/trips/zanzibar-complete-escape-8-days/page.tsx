@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import NewsletterForm from '../NewsletterForm';
 import { Clock, MapPin, Calendar, User, CheckCircle, XCircle } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
@@ -696,19 +697,7 @@ export default function ZanzibarCompleteEscape8DaysPage() {
             {t('newsletter.description')}
           </p>
           <div className="max-w-md mx-auto flex flex-col sm:flex-row gap-4 w-full">
-            <input
-              type="text"
-              placeholder={t('newsletter.firstNamePlaceholder')}
-              className="flex-grow px-4 py-3 rounded-lg text-gray-800 focus:outline-none bg-white w-full"
-            />
-            <input
-              type="email"
-              placeholder={t('newsletter.emailPlaceholder')}
-              className="flex-grow px-4 py-3 rounded-lg text-gray-800 focus:outline-none bg-white w-full"
-            />
-            <button className="bg-[#00A896] hover:bg-[#008576] text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200 w-full sm:w-auto">
-              {t('newsletter.button')}
-            </button>
+            <NewsletterForm t={t} />
           </div>
         </div>
       </section>
