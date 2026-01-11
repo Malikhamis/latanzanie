@@ -67,7 +67,7 @@ export default function SeeTripsPage() {
     {
       id: 3,
       slug: "zanzibar-beach-holidays",
-      price: 2050,
+      price: 850,
       rating: 5.0,
       tripKey: "zanzibar_beach"
     }

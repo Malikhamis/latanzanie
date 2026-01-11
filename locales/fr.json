@@ -538,21 +538,21 @@
         "shortDescription": "Vous rêvez de vous tenir au sommet du toit de l'Afrique ? Grimpez le Kilimandjaro avec nous et créez des souvenirs inoubliables !",
         "rating": "5",
         "duration": "9 - 11 jours",
-        "price": "À partir de €2 000"
+        "price": "À partir de €2,000"
       },
       "tanzania_safari": {
         "title": "Safari en Tanzanie",
         "shortDescription": "La Tanzanie est sans doute le meilleur pays du monde pour un safari d'observation des grands animaux. Elle abrite les Grands Cinq ainsi que la Grande Migration !",
         "rating": "5",
         "duration": "2 - 9 jours",
-        "price": "À partir de €1 000"
+        "price": "À partir de €1,000"
       },
       "zanzibar_beach": {
         "title": "Vacances à Zanzibar",
         "shortDescription": "Les eaux calmes, les plages de sable blanc et la forêt luxuriante de Zanzibar offrent la fuite tropicale parfaite !",
         "rating": "5",
         "duration": "8 jours",
-        "price": "À partir de €2 050"
+        "price": "À partir de €850"
       }
     },
     "faq": {
