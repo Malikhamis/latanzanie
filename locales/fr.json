@@ -2883,6 +2883,11 @@
     "faqs": {
       "title": "FAQs"
     },
+    "sections": {
+      "otherAdventures": {
+        "title": "Autres Aventures"
+      }
+    },
     "pageSections": {
       "topReads": {
         "title": "Top Reads",
@@ -2893,7 +2898,7 @@
         "description": "Everything you need to know to plan for a successful adventure."
       },
       "otherAdventures": {
-        "title": "Other Adventures"
+        "title": "Autres Aventures"
       }
     },
     "destinationInfo": {
